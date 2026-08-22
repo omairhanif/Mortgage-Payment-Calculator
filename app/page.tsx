@@ -476,7 +476,7 @@ export default function Page() {
               >
                 <div className="relative w-full aspect-[4/3]">
                   <Image
-                    src="/images/articles/Mortgage Payment Calculator Estimate Monthly Costs.jpg"
+                    src="/images/articles/mortgage-payment-calculator-estimate-monthly-costs.jpg"
                     alt="Mortgage Payment Calculator: Estimate Monthly Costs"
                     fill
                     className="object-cover"
@@ -496,7 +496,7 @@ export default function Page() {
               >
                 <div className="relative w-full aspect-[4/3]">
                   <Image
-                    src="/images/articles/HELOC Calculator Estimate Your Credit Line Costs.jpg"
+                    src="/images/articles/heloc-calculator-estimate-your-credit-line-costs.jpg"
                     alt="HELOC Calculator: Estimate Your Credit Line Costs"
                     fill
                     className="object-cover"
@@ -516,7 +516,7 @@ export default function Page() {
               >
                 <div className="relative w-full aspect-[4/3]">
                   <Image
-                    src="/images/articles/FHA Loan Calculator Estimate Payments & Costs.jpg"
+                    src="/images/articles/fha-loan-calculator-estimate-payments-costs.jpg"
                     alt="FHA Loan Calculator: Estimate Payments & Costs"
                     fill
                     className="object-cover"
@@ -536,7 +536,7 @@ export default function Page() {
               >
                 <div className="relative w-full aspect-[4/3]">
                   <Image
-                    src="/images/articles/Interest-Only Calculator Estimate Loan Payments.jpg"
+                    src="/images/articles/interest-only-calculator-estimate-loan-payments.jpg"
                     alt="Interest-Only Calculator: Estimate Loan Payments"
                     fill
                     className="object-cover"

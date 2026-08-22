@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
 export default function ArticlesPage() {
-  // 16 Active Articles (clickable with links)
+  // 18 Active Articles (clickable with links)
   const activeArticles = [
     {
       title: "Mortgage Payment Calculator: Estimate Monthly Costs",
@@ -118,98 +118,20 @@ export default function ArticlesPage() {
       image: "/images/articles/how-interest-only-mortgages-work-their-risks.jpg",
       date: "April 5, 2026",
       excerpt: "Learn how interest-only mortgages work, their advantages and disadvantages, and whether this loan type is right for your financial situation."
-    }
-  ];
-
-  // 22 Coming Soon Articles (non-clickable with badge)
-  const comingSoonArticles = [
+    },
     {
       title: "VA Loan Calculator: Estimate Benefits & Payments",
-      image: "/images/articles/va-loan-calculator-estimate-benefits-payments.jpg"
+      slug: "/va-loan-calculator-estimate-benefits-payments",
+      image: "/images/articles/va-loan-calculator-estimate-benefits-payments.jpg",
+      date: "April 10, 2026",
+      excerpt: "Calculate VA loan payments with zero down payment. Estimate funding fees, monthly costs, and total savings compared to conventional mortgages for veterans."
     },
     {
       title: "VA Loan Requirements: Eligibility & Approval Process",
-      image: "/images/articles/va-loan-requirements-eligibility-approval-process.jpg"
-    },
-    {
-      title: "USDA Loan Calculator: Rural Home Payment Estimator",
-      image: "/images/articles/usda-loan-calculator-rural-home-payment-estimator.jpg"
-    },
-    {
-      title: "USDA Loan Eligibility: Income & Property Requirements",
-      image: "/images/articles/usda-loan-eligibility-income-property-requirements.jpg"
-    },
-    {
-      title: "Reverse Mortgage Calculator: Estimate Available Funds",
-      image: "/images/articles/reverse-mortgage-calculator-estimate-available-funds.jpg"
-    },
-    {
-      title: "How Reverse Mortgages Work: Pros, Cons & Requirements",
-      image: "/images/articles/how-reverse-mortgages-work-pros-cons-requirements.jpg"
-    },
-    {
-      title: "Balloon Payment Calculator: Estimate Final Loan Amount",
-      image: "/images/articles/balloon-payment-calculator-estimate-final-loan-amount.jpg"
-    },
-    {
-      title: "Balloon Mortgages Explained: Risks & When They Make Sense",
-      image: "/images/articles/balloon-mortgages-explained-risks-when-they-make-sense.jpg"
-    },
-    {
-      title: "Construction Loan Calculator: Estimate Build Costs",
-      image: "/images/articles/construction-loan-calculator-estimate-build-costs.jpg"
-    },
-    {
-      title: "Construction Loans: How They Work & Financing Options",
-      image: "/images/articles/construction-loans-how-they-work-financing-options.jpg"
-    },
-    {
-      title: "Bridge Loan Calculator: Estimate Short-Term Financing",
-      image: "/images/articles/bridge-loan-calculator-estimate-short-term-financing.jpg"
-    },
-    {
-      title: "Bridge Loans Explained: Costs, Terms & When to Use Them",
-      image: "/images/articles/bridge-loans-explained-costs-terms-when-to-use-them.jpg"
-    },
-    {
-      title: "Home Equity Loan Calculator: Estimate Borrowing Power",
-      image: "/images/articles/home-equity-loan-calculator-estimate-borrowing-power.jpg"
-    },
-    {
-      title: "Home Equity Loan vs HELOC: Which Is Right for You?",
-      image: "/images/articles/home-equity-loan-vs-heloc-which-is-right-for-you.jpg"
-    },
-    {
-      title: "No-Closing-Cost Mortgage Calculator: True Savings Analysis",
-      image: "/images/articles/no-closing-cost-mortgage-calculator-true-savings-analysis.jpg"
-    },
-    {
-      title: "No-Closing-Cost Mortgages: Are They Worth It?",
-      image: "/images/articles/no-closing-cost-mortgages-are-they-worth-it.jpg"
-    },
-    {
-      title: "Buy vs Rent Calculator: Which Option Saves You More?",
-      image: "/images/articles/buy-vs-rent-calculator-which-option-saves-you-more.jpg"
-    },
-    {
-      title: "Buying vs Renting: Financial Analysis for Homebuyers",
-      image: "/images/articles/buying-vs-renting-financial-analysis-for-homebuyers.jpg"
-    },
-    {
-      title: "Mortgage Points Calculator: Break-Even Analysis Tool",
-      image: "/images/articles/mortgage-points-calculator-break-even-analysis-tool.jpg"
-    },
-    {
-      title: "Should You Buy Mortgage Points? Cost vs Benefit Guide",
-      image: "/images/articles/should-you-buy-mortgage-points-cost-vs-benefit-guide.jpg"
-    },
-    {
-      title: "Biweekly Payment Calculator: Accelerate Loan Payoff",
-      image: "/images/articles/biweekly-payment-calculator-accelerate-loan-payoff.jpg"
-    },
-    {
-      title: "Biweekly Mortgage Payments: How Much Can You Save?",
-      image: "/images/articles/biweekly-mortgage-payments-how-much-can-you-save.jpg"
+      slug: "/va-loan-requirements-eligibility-approval-process",
+      image: "/images/articles/va-loan-requirements-eligibility-approval-process.jpg",
+      date: "April 15, 2026",
+      excerpt: "Learn VA loan eligibility requirements for active duty, veterans, reserves, and surviving spouses. Understand credit scores, COE process, and approval steps."
     }
   ];
 
@@ -274,43 +196,6 @@ export default function ArticlesPage() {
                     </div>
                   </div>
                 </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Coming Soon Articles */}
-          <div>
-            <h2 className="font-serif text-2xl font-bold text-slate-900 mb-8">
-              Coming Soon
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {comingSoonArticles.map((article, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col h-full relative rounded-lg border border-slate-200 bg-white shadow-sm overflow-hidden opacity-75"
-                >
-                  {/* Coming Soon Badge */}
-                  <div className="absolute top-4 right-4 z-10 bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
-                    Coming Soon
-                  </div>
-                  
-                  {/* Image with fixed height */}
-                  <div className="relative w-full h-48 overflow-hidden grayscale">
-                    <Image
-                      src={article.image}
-                      alt={article.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  
-                  {/* Content area */}
-                  <div className="flex flex-col flex-grow p-6">
-                    <h3 className="font-serif text-lg font-bold text-slate-600 line-clamp-2">
-                      {article.title}
-                    </h3>
-                  </div>
-                </div>
               ))}
             </div>
           </div>

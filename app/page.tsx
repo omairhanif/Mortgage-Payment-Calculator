@@ -467,14 +467,14 @@ export default function Page() {
             </div>
 
             {/* Article Cards Grid - 4 article cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               
               {/* Article 1: Mortgage Payment Calculator */}
               <Link
                 href="/mortgage-payment-calculator-estimate-monthly-costs"
-                className="group rounded-lg border border-slate-200 bg-white shadow-sm overflow-hidden hover:shadow-lg hover:border-indigo-300 transition-all"
+                className="flex flex-col h-full group rounded-lg border border-slate-200 bg-white shadow-sm overflow-hidden hover:shadow-lg hover:border-indigo-300 transition-all"
               >
-                <div className="relative w-full aspect-[4/3]">
+                <div className="relative w-full h-48 overflow-hidden">
                   <Image
                     src="/images/articles/mortgage-payment-calculator-estimate-monthly-costs.jpg"
                     alt="Mortgage Payment Calculator: Estimate Monthly Costs"
@@ -482,19 +482,26 @@ export default function Page() {
                     className="object-cover"
                   />
                 </div>
-                <div className="p-4">
-                  <h3 className="font-serif text-base font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
+                <div className="flex flex-col flex-grow p-6">
+                  <time className="text-sm text-slate-500 mb-3">January 15, 2026</time>
+                  <h3 className="font-serif text-lg font-bold text-slate-900 group-hover:text-indigo-600 transition-colors mb-3 line-clamp-2">
                     Mortgage Payment Calculator: Estimate Monthly Costs
                   </h3>
+                  <p className="text-sm text-slate-600 mb-4 line-clamp-3 flex-grow">
+                    Calculate your estimated monthly mortgage payment including principal, interest, taxes, and insurance. Get accurate estimates in seconds with our free calculator.
+                  </p>
+                  <div className="flex items-center text-indigo-600 font-medium text-sm mt-auto">
+                    Read Article →
+                  </div>
                 </div>
               </Link>
 
               {/* Article 2: HELOC Calculator */}
               <Link
                 href="/heloc-calculator-estimate-credit-line-costs"
-                className="group rounded-lg border border-slate-200 bg-white shadow-sm overflow-hidden hover:shadow-lg hover:border-indigo-300 transition-all"
+                className="flex flex-col h-full group rounded-lg border border-slate-200 bg-white shadow-sm overflow-hidden hover:shadow-lg hover:border-indigo-300 transition-all"
               >
-                <div className="relative w-full aspect-[4/3]">
+                <div className="relative w-full h-48 overflow-hidden">
                   <Image
                     src="/images/articles/heloc-calculator-estimate-your-credit-line-costs.jpg"
                     alt="HELOC Calculator: Estimate Your Credit Line Costs"
@@ -502,19 +509,26 @@ export default function Page() {
                     className="object-cover"
                   />
                 </div>
-                <div className="p-4">
-                  <h3 className="font-serif text-base font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
+                <div className="flex flex-col flex-grow p-6">
+                  <time className="text-sm text-slate-500 mb-3">February 10, 2026</time>
+                  <h3 className="font-serif text-lg font-bold text-slate-900 group-hover:text-indigo-600 transition-colors mb-3 line-clamp-2">
                     HELOC Calculator: Estimate Your Credit Line Costs
                   </h3>
+                  <p className="text-sm text-slate-600 mb-4 line-clamp-3 flex-grow">
+                    Estimate your home equity line of credit costs and monthly payments. Compare rates and terms to find the best HELOC option for your situation.
+                  </p>
+                  <div className="flex items-center text-indigo-600 font-medium text-sm mt-auto">
+                    Read Article →
+                  </div>
                 </div>
               </Link>
 
               {/* Article 3: FHA Loan Calculator */}
               <Link
                 href="/fha-loan-calculator-estimate-payments-costs"
-                className="group rounded-lg border border-slate-200 bg-white shadow-sm overflow-hidden hover:shadow-lg hover:border-indigo-300 transition-all"
+                className="flex flex-col h-full group rounded-lg border border-slate-200 bg-white shadow-sm overflow-hidden hover:shadow-lg hover:border-indigo-300 transition-all"
               >
-                <div className="relative w-full aspect-[4/3]">
+                <div className="relative w-full h-48 overflow-hidden">
                   <Image
                     src="/images/articles/fha-loan-calculator-estimate-payments-costs.jpg"
                     alt="FHA Loan Calculator: Estimate Payments & Costs"
@@ -522,19 +536,26 @@ export default function Page() {
                     className="object-cover"
                   />
                 </div>
-                <div className="p-4">
-                  <h3 className="font-serif text-base font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
+                <div className="flex flex-col flex-grow p-6">
+                  <time className="text-sm text-slate-500 mb-3">March 1, 2026</time>
+                  <h3 className="font-serif text-lg font-bold text-slate-900 group-hover:text-indigo-600 transition-colors mb-3 line-clamp-2">
                     FHA Loan Calculator: Estimate Payments & Costs
                   </h3>
+                  <p className="text-sm text-slate-600 mb-4 line-clamp-3 flex-grow">
+                    Calculate FHA loan payments including mortgage insurance premiums. Estimate your total monthly costs for an FHA-insured mortgage loan.
+                  </p>
+                  <div className="flex items-center text-indigo-600 font-medium text-sm mt-auto">
+                    Read Article →
+                  </div>
                 </div>
               </Link>
 
               {/* Article 4: Interest-Only Calculator */}
               <Link
                 href="/interest-only-calculator-estimate-loan-payments"
-                className="group rounded-lg border border-slate-200 bg-white shadow-sm overflow-hidden hover:shadow-lg hover:border-indigo-300 transition-all"
+                className="flex flex-col h-full group rounded-lg border border-slate-200 bg-white shadow-sm overflow-hidden hover:shadow-lg hover:border-indigo-300 transition-all"
               >
-                <div className="relative w-full aspect-[4/3]">
+                <div className="relative w-full h-48 overflow-hidden">
                   <Image
                     src="/images/articles/interest-only-calculator-estimate-loan-payments.jpg"
                     alt="Interest-Only Calculator: Estimate Loan Payments"
@@ -542,10 +563,17 @@ export default function Page() {
                     className="object-cover"
                   />
                 </div>
-                <div className="p-4">
-                  <h3 className="font-serif text-base font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
+                <div className="flex flex-col flex-grow p-6">
+                  <time className="text-sm text-slate-500 mb-3">April 1, 2026</time>
+                  <h3 className="font-serif text-lg font-bold text-slate-900 group-hover:text-indigo-600 transition-colors mb-3 line-clamp-2">
                     Interest-Only Calculator: Estimate Loan Payments
                   </h3>
+                  <p className="text-sm text-slate-600 mb-4 line-clamp-3 flex-grow">
+                    Calculate interest-only mortgage payments and compare them to traditional loans. See how much you'll save initially and pay over the full loan term.
+                  </p>
+                  <div className="flex items-center text-indigo-600 font-medium text-sm mt-auto">
+                    Read Article →
+                  </div>
                 </div>
               </Link>
 

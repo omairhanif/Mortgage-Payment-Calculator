@@ -202,9 +202,6 @@ export default function ArticlesPage() {
           
           {/* Active Articles */}
           <div className="mb-16">
-            <h2 className="font-serif text-2xl font-bold text-slate-900 mb-8">
-              Featured Articles
-            </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {activeArticles.map((article, index) => (
                 <Link

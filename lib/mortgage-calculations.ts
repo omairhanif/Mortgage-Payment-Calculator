@@ -342,11 +342,18 @@ export function runAmortizationLoop(
   monthlyRate: number,
   monthlyPayment: number,
   maxPayments: number,
-  extraPaymentFn?: (month: number) => number
-): { totalInterest: number; monthCount: number } {
+  extraPaymentFn?: (month: number) => number,
+  returnSchedule?: boolean
+): { 
+  totalInterest: number; 
+  monthCount: number;
+  schedule?: Array<{month: number; payment: number; principal: number; interest: number; balance: number}>;
+} {
   let balance = loanAmount;
   let totalInterest = 0;
   let monthCount = 0;
+  const schedule: Array<{month: number; payment: number; principal: number; interest: number; balance: number}> = [];
+  
   while (balance > 0 && monthCount < maxPayments) {
     monthCount++;
     const interestPayment = balance * monthlyRate;
@@ -355,9 +362,24 @@ export function runAmortizationLoop(
     const totalPrincipal = Math.min(principalPayment + extraPayment, balance);
     totalInterest += interestPayment;
     balance = Math.max(0, balance - totalPrincipal);
+    
+    if (returnSchedule) {
+      schedule.push({
+        month: monthCount,
+        payment: monthlyPayment + extraPayment,
+        principal: totalPrincipal,
+        interest: interestPayment,
+        balance
+      });
+    }
+    
     if (balance < 0.01) break;
   }
-  return { totalInterest, monthCount };
+  return { 
+    totalInterest, 
+    monthCount,
+    schedule: returnSchedule ? schedule : undefined
+  };
 }
 
 // ============================================================================

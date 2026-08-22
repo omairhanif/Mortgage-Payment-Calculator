@@ -1223,11 +1223,18 @@ export interface InterestOnlyResult {
   postIOAmortizingPayment: number;
   totalInterest: number;
   totalPaid: number;
+  amortizationSchedule?: Array<{
+    month: number;
+    payment: number;
+    principal: number;
+    interest: number;
+    balance: number;
+  }>;
 }
 export function calculateInterestOnly(input: InterestOnlyInput): InterestOnlyResult {
   const {
     homeValue, downPayment, loanTermYears, interestOnlyPeriodYears,
-    interestRate
+    interestRate, showAmortization
   } = input;
   const loanAmount = _calculateLoanAmount(homeValue, downPayment);
   const monthlyRate = _toMonthlyRate(interestRate);
@@ -1247,12 +1254,46 @@ export function calculateInterestOnly(input: InterestOnlyInput): InterestOnlyRes
   const totalInterest = ioTotalInterest + amortizingTotalInterest;
   const totalPaid = (interestOnlyMonthlyPayment * ioMonths) + amortizingTotalPaid;
 
+  // Generate amortization schedule if requested
+  const schedule: Array<{month: number; payment: number; principal: number; interest: number; balance: number}> = [];
+  if (showAmortization) {
+    let balance = loanAmount;
+    
+    // Interest-only period
+    for (let month = 1; month <= ioMonths; month++) {
+      const interestPayment = balance * monthlyRate;
+      schedule.push({
+        month,
+        payment: interestOnlyMonthlyPayment,
+        principal: 0,
+        interest: interestPayment,
+        balance
+      });
+    }
+    
+    // Amortizing period
+    for (let month = 1; month <= amortizingMonths && balance > 0; month++) {
+      const interestPayment = balance * monthlyRate;
+      const principalPayment = Math.min(postIOAmortizingPayment - interestPayment, balance);
+      balance = Math.max(0, balance - principalPayment);
+      
+      schedule.push({
+        month: ioMonths + month,
+        payment: postIOAmortizingPayment,
+        principal: principalPayment,
+        interest: interestPayment,
+        balance
+      });
+    }
+  }
+
   return {
     loanAmount,
     interestOnlyMonthlyPayment,
     postIOAmortizingPayment,
     totalInterest,
     totalPaid,
+    amortizationSchedule: showAmortization ? schedule : undefined
   };
 }
 export interface RentVsBuyInput {
@@ -1636,7 +1677,7 @@ export interface InterestOnlyExtraResult extends InterestOnlyResult {
 export function calculateInterestOnlyExtra(input: InterestOnlyExtraInput): InterestOnlyExtraResult {
   const {
     homeValue, downPayment, loanTermYears, interestOnlyPeriodYears,
-    interestRate, additionalMonthlyPayment
+    interestRate, additionalMonthlyPayment, showAmortization
   } = input;
 
   const standardResult = calculateInterestOnly({
@@ -1651,6 +1692,7 @@ export function calculateInterestOnlyExtra(input: InterestOnlyExtraInput): Inter
   let totalInterestPaid = 0;
   let monthCount = 0;
   const maxMonths = loanTermYears * 12;
+  const schedule: Array<{month: number; payment: number; principal: number; interest: number; balance: number}> = [];
 
   for (let month = 1; month <= ioMonths && balance > 0; month++) {
     const interestPayment = balance * monthlyRate;
@@ -1659,6 +1701,16 @@ export function calculateInterestOnlyExtra(input: InterestOnlyExtraInput): Inter
     totalInterestPaid += interestPayment;
     balance -= principalPayment;
     monthCount++;
+
+    if (showAmortization) {
+      schedule.push({
+        month: monthCount,
+        payment: interestPayment + principalPayment,
+        principal: principalPayment,
+        interest: interestPayment,
+        balance: Math.max(0, balance)
+      });
+    }
 
     if (balance <= 0) break;
   }
@@ -1676,6 +1728,16 @@ export function calculateInterestOnlyExtra(input: InterestOnlyExtraInput): Inter
       balance -= principalPayment;
       monthCount++;
 
+      if (showAmortization) {
+        schedule.push({
+          month: monthCount,
+          payment: totalPayment,
+          principal: principalPayment,
+          interest: interestPayment,
+          balance: Math.max(0, balance)
+        });
+      }
+
       if (balance < 1) break;
     }
   }
@@ -1692,6 +1754,7 @@ export function calculateInterestOnlyExtra(input: InterestOnlyExtraInput): Inter
     actualPayoffMonths,
     interestSaved,
     monthsSaved,
+    amortizationSchedule: showAmortization ? schedule : undefined
   };
 }
 
@@ -1767,6 +1830,7 @@ export interface ExtraPaymentInput {
   loanTerm: number;
   initialExtraPayment: number;
   additionalMonthlyPayment: number;
+  showAmortization?: boolean;
 }
 export interface ExtraPaymentResult {
   newPayoffDate: string;
@@ -1777,6 +1841,13 @@ export interface ExtraPaymentResult {
   newTotalInterest: number;
   originalMonths: number;
   newMonths: number;
+  amortizationSchedule?: Array<{
+    month: number;
+    payment: number;
+    principal: number;
+    interest: number;
+    balance: number;
+  }>;
 }
 export function calculateExtraPayment(input: ExtraPaymentInput): ExtraPaymentResult {
   const { loanAmount } = _resolveLoanDetails(input.homePrice, input.downPaymentMode, input.downPaymentDollars, input.downPaymentPercent, input.loanAmount);
@@ -1786,12 +1857,13 @@ export function calculateExtraPayment(input: ExtraPaymentInput): ExtraPaymentRes
   const originalTotalInterest = calculateTotalInterest(monthlyPayment, input.loanTerm, loanAmount);
 
   const adjustedLoanAmount = Math.max(0, loanAmount - input.initialExtraPayment);
-  const { totalInterest, monthCount } = _runAmortizationLoop(
+  const { totalInterest, monthCount, schedule } = _runAmortizationLoop(
     adjustedLoanAmount,
     monthlyRate,
     monthlyPayment,
     input.loanTerm * 12 * 2,
-    () => input.additionalMonthlyPayment
+    () => input.additionalMonthlyPayment,
+    input.showAmortization
   );
 
   const monthsShavedOff = originalMonths - monthCount;
@@ -1811,6 +1883,7 @@ export function calculateExtraPayment(input: ExtraPaymentInput): ExtraPaymentRes
     newTotalInterest: Math.round(totalInterest),
     originalMonths,
     newMonths: monthCount,
+    amortizationSchedule: schedule
   };
 }
 export interface BiweeklyPaymentInput {
@@ -1823,6 +1896,7 @@ export interface BiweeklyPaymentInput {
   interestRate: number;
   interestCompounded: "monthly" | "biweekly";
   taxRate: number;
+  showAmortization?: boolean;
 }
 export interface BiweeklyPaymentResult {
   payoffTimeMonthly: number;
@@ -1833,6 +1907,13 @@ export interface BiweeklyPaymentResult {
   totalInterestMonthly: number;
   totalInterestBiweekly: number;
   monthsSaved: number;
+  amortizationSchedule?: Array<{
+    month: number;
+    payment: number;
+    principal: number;
+    interest: number;
+    balance: number;
+  }>;
 }
 export function calculateBiweeklyPaymentEnhanced(input: BiweeklyPaymentInput): BiweeklyPaymentResult {
   const { loanAmount } = _resolveLoanDetails(input.homePrice, input.downPaymentMode, input.downPaymentDollars, input.downPaymentPercent, input.loanAmount);
@@ -1849,6 +1930,7 @@ export function calculateBiweeklyPaymentEnhanced(input: BiweeklyPaymentInput): B
   let totalInterestBiweekly = 0;
   let biweeklyPaymentCount = 0;
   const maxPayments = input.loanTerm * 26 * 2;
+  const schedule: Array<{month: number; payment: number; principal: number; interest: number; balance: number}> = [];
 
   const biweeklyRate = input.interestCompounded === "biweekly"
     ? input.interestRate / 26 / 100
@@ -1861,6 +1943,19 @@ export function calculateBiweeklyPaymentEnhanced(input: BiweeklyPaymentInput): B
 
     totalInterestBiweekly += interestPayment;
     balance = Math.max(0, balance - principalPayment);
+    
+    if (input.showAmortization) {
+      // Convert biweekly payment number to approximate month for display
+      const approximateMonth = Math.ceil(biweeklyPaymentCount / (26/12));
+      schedule.push({
+        month: approximateMonth,
+        payment: biweeklyPayment,
+        principal: principalPayment,
+        interest: interestPayment,
+        balance
+      });
+    }
+    
     if (balance < 0.01) break;
   }
 
@@ -1877,6 +1972,7 @@ export function calculateBiweeklyPaymentEnhanced(input: BiweeklyPaymentInput): B
     totalInterestMonthly: Math.round(totalInterestMonthly),
     totalInterestBiweekly: Math.round(totalInterestBiweekly),
     monthsSaved: Math.round(monthsSaved * 10) / 10,
+    amortizationSchedule: input.showAmortization ? schedule : undefined
   };
 }
 export interface PayingPointsInput {
@@ -1890,6 +1986,7 @@ export interface PayingPointsInput {
   discountPoints: number;
   interestRateWithPoints: number;
   interestRateOnSavings: number;
+  showAmortization?: boolean;
 }
 export interface PayingPointsResult {
   breakEvenPeriod: number;
@@ -1899,6 +1996,13 @@ export interface PayingPointsResult {
   pointsCost: number;
   monthlySavings: number;
   interestSavings: number;
+  amortizationSchedule?: Array<{
+    month: number;
+    payment: number;
+    principal: number;
+    interest: number;
+    balance: number;
+  }>;
 }
 export function calculatePayingPoints(input: PayingPointsInput): PayingPointsResult {
   const { loanAmount } = _resolveLoanDetails(input.homeValue, input.downPaymentMode, input.downPaymentDollars, input.downPaymentPercent, input.loanAmount);
@@ -1932,6 +2036,28 @@ export function calculatePayingPoints(input: PayingPointsInput): PayingPointsRes
     recommendation += " (Points cost exceeds interest savings)";
   }
 
+  // Generate amortization schedule if requested (using rate WITH points)
+  const schedule: Array<{month: number; payment: number; principal: number; interest: number; balance: number}> = [];
+  if (input.showAmortization) {
+    const monthlyRate = _toMonthlyRate(input.interestRateWithPoints);
+    let balance = loanAmount;
+    const totalMonths = input.loanTerm * 12;
+    
+    for (let month = 1; month <= totalMonths && balance > 0; month++) {
+      const interestPayment = balance * monthlyRate;
+      const principalPayment = Math.min(paymentWithPoints - interestPayment, balance);
+      balance = Math.max(0, balance - principalPayment);
+      
+      schedule.push({
+        month,
+        payment: paymentWithPoints,
+        principal: principalPayment,
+        interest: interestPayment,
+        balance
+      });
+    }
+  }
+
   return {
     breakEvenPeriod: Math.round(breakEvenMonths * 10) / 10,
     totalInterestWithPoints: Math.round(totalInterestWithPoints),
@@ -1940,6 +2066,7 @@ export function calculatePayingPoints(input: PayingPointsInput): PayingPointsRes
     pointsCost: Math.round(pointsCost),
     monthlySavings: Math.round(monthlySavings),
     interestSavings: Math.round(interestSavings),
+    amortizationSchedule: input.showAmortization ? schedule : undefined
   };
 }
 export interface TaxBenefitsInput {
@@ -1961,6 +2088,7 @@ export interface TaxBenefitsInput {
   yearsUntilSale: number;
   filingStatus: "single" | "marriedFilingJointly" | "marriedFilingSeparately" | "headOfHousehold";
   grossAnnualIncome?: number;
+  showAmortization?: boolean;
 }
 export interface TaxBenefitsResult {
   // Tax Savings (Separated)
@@ -2000,6 +2128,14 @@ export interface TaxBenefitsResult {
   
   // Validation/Warnings
   warnings?: string[];
+  
+  amortizationSchedule?: Array<{
+    month: number;
+    payment: number;
+    principal: number;
+    interest: number;
+    balance: number;
+  }>;
 }
 /**
  * Validates tax benefits input parameters
@@ -2259,6 +2395,29 @@ export function calculateTaxBenefits(input: TaxBenefitsInput): TaxBenefitsResult
     warnings.push("State tax savings is a simplified estimate assuming same deductions apply. Actual benefit may vary based on state-specific rules.");
   }
 
+  // Generate amortization schedule if requested
+  const schedule: Array<{month: number; payment: number; principal: number; interest: number; balance: number}> = [];
+  if (input.showAmortization) {
+    const monthlyRate = _toMonthlyRate(input.interestRate);
+    const monthlyPayment = calculateMonthlyPI(loanAmount, input.interestRate, input.loanTerm);
+    let balance = loanAmount;
+    const totalMonths = input.loanTerm * 12;
+    
+    for (let month = 1; month <= totalMonths && balance > 0; month++) {
+      const interestPayment = balance * monthlyRate;
+      const principalPayment = Math.min(monthlyPayment - interestPayment, balance);
+      balance = Math.max(0, balance - principalPayment);
+      
+      schedule.push({
+        month,
+        payment: monthlyPayment,
+        principal: principalPayment,
+        interest: interestPayment,
+        balance
+      });
+    }
+  }
+
   return {
     // Tax Savings (Separated)
     federalTaxSavings: Math.round(federalTaxSavings),
@@ -2288,5 +2447,8 @@ export function calculateTaxBenefits(input: TaxBenefitsInput): TaxBenefitsResult
     
     // Validation/Warnings
     warnings: warnings.length > 0 ? warnings : undefined,
+    
+    // Amortization Schedule
+    amortizationSchedule: input.showAmortization ? schedule : undefined
   };
 }

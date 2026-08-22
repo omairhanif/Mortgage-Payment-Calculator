@@ -427,7 +427,7 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
           { id: "totalInterest", label: "Total Interest", format: "currency" },
           { id: "totalPaid", label: "Total Amount Paid", format: "currency" },
         ],
-        showAmortization: false,
+        showAmortization: true,
         showChart: false,
       },
       
@@ -463,7 +463,7 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
           { id: "totalInterest", label: "Total Interest", format: "currency" },
           { id: "totalPaid", label: "Total Amount Paid", format: "currency" },
         ],
-        showAmortization: false,
+        showAmortization: true,
         showChart: false,
       },
       
@@ -735,6 +735,7 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
           loanTerm: inputs.loanTerm,
           initialExtraPayment: inputs.initialExtraPayment,
           additionalMonthlyPayment: inputs.additionalMonthlyPayment,
+          showAmortization: inputs.showAmortization,
         }),
         results: [
           { id: "newPayoffDate", label: "New Payoff Date", format: "text", isPrimary: true },
@@ -784,6 +785,7 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
           interestRate: inputs.interestRate,
           interestCompounded: inputs.interestCompounded,
           taxRate: inputs.taxRate,
+          showAmortization: inputs.showAmortization,
         }),
         results: [
           { id: "payoffTimeMonthly", label: "Payoff Time: Monthly (months)", format: "number" },
@@ -837,6 +839,7 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
           discountPoints: inputs.discountPoints,
           interestRateWithPoints: inputs.interestRateWithPoints,
           interestRateOnSavings: inputs.interestRateOnSavings,
+          showAmortization: inputs.showAmortization,
         }),
         results: [
           { id: "breakEvenPeriod", label: "Break-Even Period (months)", format: "number", isPrimary: true },
@@ -910,6 +913,7 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
           stateTaxRate: inputs.stateTaxRate,
           otherItemizedDeductions: inputs.otherItemizedDeductions,
           yearsUntilSale: inputs.yearsUntilSale,
+          showAmortization: inputs.showAmortization,
         }),
         results: [
           { id: "estimatedAnnualTaxSavings", label: "Total Estimated Annual Tax Savings", format: "currency", isPrimary: true },

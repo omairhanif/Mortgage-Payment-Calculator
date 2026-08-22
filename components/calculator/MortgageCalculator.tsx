@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import {
   calculateMonthlyPI,
@@ -235,7 +235,23 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
   const [aprOtherClosingCosts, setAprOtherClosingCosts] = useState<number>(5000);
   const [aprResults, setAprResults] = useState<any>(null);
 
+  // Refs for scrolling to results
+  const mainResultsRef = useRef<HTMLDivElement>(null);
+  const secondMortgageResultsRef = useRef<HTMLDivElement>(null);
+  const helocResultsRef = useRef<HTMLDivElement>(null);
+  const refinanceResultsRef = useRef<HTMLDivElement>(null);
+  const realAprResultsRef = useRef<HTMLDivElement>(null);
 
+  // Helper function to scroll to results with proper offset
+  const scrollToResults = (ref: React.RefObject<HTMLDivElement | null>) => {
+    if (ref.current) {
+      const yOffset = -100; // Negative offset for padding from top (100px breathing room)
+      const element = ref.current;
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  };
 
   // Handlers for syncing home value, down payment, and loan amount
   const handleHomeValueChange = (newHomeValue: number) => {
@@ -294,7 +310,7 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
   }, [smHomeValue, smDownPayment]);
 
   // Handle Calculate button click - update calcInputs with current input values
-  const handleCalculate = () => {
+  const handleCalculate = (shouldScroll = true) => {
     setCalcInputs({
       homeValue,
       downPayment,
@@ -310,10 +326,17 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
       annualInsurance,
       monthlyHOA,
     });
+    
+    // Scroll to results after a short delay to ensure results are rendered
+    if (shouldScroll) {
+      setTimeout(() => {
+        scrollToResults(mainResultsRef);
+      }, 100);
+    }
   };
 
   // Handle Second Mortgage Calculate
-  const handleSecondMortgageCalculate = () => {
+  const handleSecondMortgageCalculate = (shouldScroll = true) => {
     // Use user-entered loan amounts from state (editable by user)
     const loanAmount1 = sm1LoanAmount;
     const loanAmount2 = sm2LoanAmount;
@@ -393,6 +416,13 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
     results.recommendedScenario = costs[0].scenario;
 
     setSmResults(results);
+    
+    // Scroll to results after a short delay to ensure results are rendered
+    if (shouldScroll) {
+      setTimeout(() => {
+        scrollToResults(secondMortgageResultsRef);
+      }, 100);
+    }
   };
 
   // HELOC Debt Management
@@ -411,7 +441,7 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
   };
 
   // Handle HELOC Calculate
-  const handleHelocCalculate = () => {
+  const handleHelocCalculate = (shouldScroll = true) => {
     const input: HelocInput = {
       homeValue: helocHomeValue,
       existingMortgageBalance: helocExistingMortgage,
@@ -427,10 +457,17 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
 
     const results = calculateHeloc(input);
     setHelocResults(results);
+    
+    // Scroll to results after a short delay to ensure results are rendered
+    if (shouldScroll) {
+      setTimeout(() => {
+        scrollToResults(helocResultsRef);
+      }, 100);
+    }
   };
 
   // Handle Refinance Calculate
-  const handleRefinanceCalculate = () => {
+  const handleRefinanceCalculate = (shouldScroll = true) => {
     // Input validation
     const maxMonthsPaid = refOriginalTerm * 12;
     
@@ -480,13 +517,20 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
     try {
       const results = calculateRefinance(input);
       setRefResults(results);
+      
+      // Scroll to results after a short delay to ensure results are rendered
+      if (shouldScroll) {
+        setTimeout(() => {
+          scrollToResults(refinanceResultsRef);
+        }, 100);
+      }
     } catch (error) {
       alert(`Calculation error: ${error instanceof Error ? error.message : 'Unknown error'}`);
     }
   };
 
   // Handle Real APR Calculate
-  const handleRealAPRCalculate = () => {
+  const handleRealAPRCalculate = (shouldScroll = true) => {
     const input: RealAPRInput = {
       homePrice: aprHomePrice,
       downPayment: aprDownPayment,
@@ -499,6 +543,13 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
 
     const results = calculateRealAPR(input);
     setAprResults(results);
+    
+    // Scroll to results after a short delay to ensure results are rendered
+    if (shouldScroll) {
+      setTimeout(() => {
+        scrollToResults(realAprResultsRef);
+      }, 100);
+    }
   };
 
 
@@ -508,15 +559,15 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
   // pre-calculated results immediately when component mounts or tab changes.
   useEffect(() => {
     if (isHomepage) {
-      handleCalculate();
+      handleCalculate(false); // Don't scroll on auto-load
     } else if (activeTab === "second") {
-      handleSecondMortgageCalculate();
+      handleSecondMortgageCalculate(false);
     } else if (activeTab === "heloc") {
-      handleHelocCalculate();
+      handleHelocCalculate(false);
     } else if (activeTab === "refinance") {
-      handleRefinanceCalculate();
+      handleRefinanceCalculate(false);
     } else if (activeTab === "real-apr") {
-      handleRealAPRCalculate();
+      handleRealAPRCalculate(false);
     }
   }, [activeTab, isHomepage]);
 
@@ -686,7 +737,7 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
               </Card>
 
               {/* Calculate Button */}
-              <button onClick={handleCalculate} className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-4 rounded-lg font-bold text-base shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
+              <button onClick={() => handleCalculate()} className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-4 rounded-lg font-bold text-base shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
                 <Calculator className="h-4 w-4" />
                 <span>Calculate</span>
               </button>
@@ -694,7 +745,7 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
             </div>
 
             {/* RIGHT COLUMN - RESULTS */}
-            <div className="lg:col-span-5 space-y-4">
+            <div ref={mainResultsRef} className="lg:col-span-5 space-y-4">
               {/* Display Ad Placeholder - Only on Homepage */}
               {isHomepage && (
                 <div className="flex justify-center">
@@ -957,14 +1008,14 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                 </Card>
 
                 {/* Calculate Button */}
-                <button onClick={handleSecondMortgageCalculate} className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-4 rounded-lg font-bold text-base shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
+                <button onClick={() => handleSecondMortgageCalculate()} className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-4 rounded-lg font-bold text-base shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
                   <Calculator className="h-4 w-4" />
                   <span>Calculate</span>
                 </button>
               </div>
 
               {/* RIGHT COLUMN - RESULTS */}
-              <div className="lg:col-span-5 space-y-4">
+              <div ref={secondMortgageResultsRef} className="lg:col-span-5 space-y-4">
                 {/* Results Display */}
                 {smResults && (
                   <div className="space-y-4">
@@ -1118,14 +1169,14 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                 </Card>
 
                 {/* Calculate Button */}
-                <button onClick={handleHelocCalculate} className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-4 rounded-lg font-bold text-base shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
+                <button onClick={() => handleHelocCalculate()} className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-4 rounded-lg font-bold text-base shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
                   <Calculator className="h-4 w-4" />
                   <span>Calculate</span>
                 </button>
               </div>
 
               {/* RIGHT COLUMN - RESULTS */}
-              <div className="lg:col-span-5 space-y-4">
+              <div ref={helocResultsRef} className="lg:col-span-5 space-y-4">
                 {/* Results Display */}
                 {helocResults && (
                   <div className="space-y-4">
@@ -1261,14 +1312,14 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                 </Card>
 
                 {/* Calculate Button */}
-                <button onClick={handleRefinanceCalculate} className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-4 rounded-lg font-bold text-base shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
+                <button onClick={() => handleRefinanceCalculate()} className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-4 rounded-lg font-bold text-base shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
                   <Calculator className="h-4 w-4" />
                   <span>Calculate</span>
                 </button>
               </div>
 
               {/* RIGHT COLUMN - RESULTS */}
-              <div className="lg:col-span-5 space-y-4">
+              <div ref={refinanceResultsRef} className="lg:col-span-5 space-y-4">
                 {/* Results Display */}
                 {refResults && (
                   <div className="space-y-4">
@@ -1400,14 +1451,14 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                 </div>
 
                 {/* Calculate Button */}
-                <button onClick={handleRealAPRCalculate} className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-4 rounded-lg font-bold text-base shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
+                <button onClick={() => handleRealAPRCalculate()} className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-4 rounded-lg font-bold text-base shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
                   <Calculator className="h-4 w-4" />
                   <span>Calculate</span>
                 </button>
               </div>
 
               {/* RIGHT COLUMN - RESULTS */}
-              <div className="lg:col-span-5 space-y-4">
+              <div ref={realAprResultsRef} className="lg:col-span-5 space-y-4">
                 {/* Display Ad Placeholder */}
                 <div className="flex justify-center">
                   <div className="w-full max-w-[400px] h-[300px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
@@ -1511,6 +1562,18 @@ function ConfigCalculatorRenderer({ config, onBack, isHomepage = false }: Config
   });
   
   const [results, setResults] = useState<any>(null);
+  const resultsRef = useRef<HTMLDivElement>(null);
+  
+  // Helper function to scroll to results with proper offset
+  const scrollToResults = (ref: React.RefObject<HTMLDivElement | null>) => {
+    if (ref.current) {
+      const yOffset = -100; // Negative offset for padding from top (100px breathing room)
+      const element = ref.current;
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  };
   
   // Reinitialize inputs when calculator switches
   useEffect(() => {
@@ -1525,10 +1588,17 @@ function ConfigCalculatorRenderer({ config, onBack, isHomepage = false }: Config
     setInputs(prev => ({ ...prev, [inputId]: value }));
   };
   
-  const handleCalculate = () => {
+  const handleCalculate = (shouldScroll = true) => {
     try {
       const calculationResults = config.calculate(inputs);
       setResults(calculationResults);
+      
+      // Scroll to results after a short delay to ensure results are rendered
+      if (shouldScroll) {
+        setTimeout(() => {
+          scrollToResults(resultsRef);
+        }, 100);
+      }
     } catch (error) {
       console.error('Calculation error:', error);
       setResults(null);
@@ -1541,11 +1611,11 @@ function ConfigCalculatorRenderer({ config, onBack, isHomepage = false }: Config
     if (config.id === 'fha') {
       // Small delay to ensure all inputs are initialized
       const timer = setTimeout(() => {
-        handleCalculate();
+        handleCalculate(false); // Don't scroll on auto-load
       }, 0);
       return () => clearTimeout(timer);
     } else {
-      handleCalculate();
+      handleCalculate(false); // Don't scroll on auto-load
     }
   }, [config.id]); // eslint-disable-line react-hooks/exhaustive-deps
   
@@ -1624,7 +1694,7 @@ function ConfigCalculatorRenderer({ config, onBack, isHomepage = false }: Config
           
           {/* Calculate Button */}
           <button 
-            onClick={handleCalculate} 
+            onClick={() => handleCalculate()} 
             className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-4 rounded-lg font-bold text-base shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
           >
             <Calculator className="h-4 w-4" />
@@ -1633,21 +1703,23 @@ function ConfigCalculatorRenderer({ config, onBack, isHomepage = false }: Config
         </div>
 
         {/* RIGHT COLUMN - RESULTS */}
-        <div className="lg:col-span-5 space-y-4">
+        <div ref={resultsRef} className="lg:col-span-5 space-y-4">
           {results && (
-            <ConfigConsolidatedResult
-              primaryResult={formattedPrimaryResult}
-              metrics={metrics}
-              showAd={isHomepage}
-            />
+            <>
+              <ConfigConsolidatedResult
+                primaryResult={formattedPrimaryResult}
+                metrics={metrics}
+                showAd={isHomepage}
+              />
+              
+              {/* Amortization Schedule - Within Results Column */}
+              {(inputs.showAmortization !== undefined ? inputs.showAmortization : config.showAmortization) && results.amortizationSchedule && results.amortizationSchedule.length > 0 && (
+                <ConfigAmortizationSchedule amortizationSchedule={results.amortizationSchedule} />
+              )}
+            </>
           )}
         </div>
       </div>
-      
-      {/* Amortization Schedule Section - Full Width Below */}
-      {config.showAmortization && results && results.amortizationSchedule && results.amortizationSchedule.length > 0 && (
-        <ConfigAmortizationSchedule amortizationSchedule={results.amortizationSchedule} />
-      )}
     </div>
   );
 }

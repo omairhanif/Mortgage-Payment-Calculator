@@ -144,8 +144,16 @@ export function ConfigAmortizationSchedule({
   amortizationSchedule,
   className = "",
 }: ConfigAmortizationProps) {
+  const [isExpanded, setIsExpanded] = React.useState(false);
+  
+  const displayEntries = isExpanded 
+    ? amortizationSchedule 
+    : amortizationSchedule.slice(0, 20);
+  
+  const hasMoreEntries = amortizationSchedule.length > 20;
+  
   return (
-    <div className={`mt-6 ${className}`}>
+    <div className={className}>
       <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
         <h3 className="mb-3 font-serif text-base font-bold text-slate-900">Amortization Schedule</h3>
         <div className="overflow-x-auto">
@@ -160,7 +168,7 @@ export function ConfigAmortizationSchedule({
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
-              {amortizationSchedule.map((entry) => (
+              {displayEntries.map((entry) => (
                 <tr key={entry.month} className="hover:bg-slate-50">
                   <td className="px-2 py-1.5 font-medium text-slate-900">{entry.month}</td>
                   <td className="px-2 py-1.5 text-right text-slate-700">
@@ -180,6 +188,16 @@ export function ConfigAmortizationSchedule({
             </tbody>
           </table>
         </div>
+        {hasMoreEntries && (
+          <div className="mt-4 flex justify-center">
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="rounded-lg bg-blue-600 px-6 py-2 text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
+            >
+              {isExpanded ? 'Show Less' : 'Show More'}
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

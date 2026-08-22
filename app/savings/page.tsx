@@ -350,6 +350,7 @@ function SavingsPageContent() {
               <div className="prose prose-slate max-w-none prose-headings:font-serif prose-headings:text-slate-900 prose-p:text-slate-600 prose-p:leading-relaxed prose-li:text-slate-600">
                 <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-6">
                   Understanding Biweekly Payments: More Than Just Payment Frequency
+                </h2>
 
                 <h3 className="font-serif text-xl md:text-2xl font-bold text-slate-900 mt-10 mb-4">
                   Is It Good to Pay Extra Principal?
@@ -395,8 +396,6 @@ function SavingsPageContent() {
                     </div>
                   </li>
                 </ul>
-
-                </h2>
 
                 <p className="text-slate-600 mb-4">
                   If you've searched for a <strong>biweekly payment calculator mortgage</strong> tool, you likely want to understand how changing your payment frequency can affect your loan payoff timeline and interest costs. The concept is straightforward: instead of making one payment per month, you make a payment every two weeks. However, the implementation details and actual benefits depend on which type of biweekly payment structure you use and how your lender processes those payments.

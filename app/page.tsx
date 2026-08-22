@@ -57,86 +57,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Why Use Us Section */}
-      <section className="py-12 bg-slate-50/60">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          {/* Section Header */}
-          <div className="mb-10 text-center">
-            <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-3">
-              Why Use Our Calculator
-            </h2>
-            <p className="text-slate-600 text-base max-w-2xl mx-auto">
-              Get accurate mortgage estimates with our free, easy-to-use calculator
-            </p>
-          </div>
-
-          {/* Benefits Grid - 4 Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            
-            {/* Card 1: Free to Use */}
-            <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex justify-center mb-4">
-                <div className="rounded-full bg-indigo-50 p-3">
-                  <DollarSign className="h-6 w-6 text-indigo-600" />
-                </div>
-              </div>
-              <h3 className="text-center font-serif text-lg font-bold text-slate-900 mb-2">
-                Free to Use
-              </h3>
-              <p className="text-center text-sm text-slate-600 leading-relaxed">
-                Use our comprehensive mortgage calculator completely free with no hidden fees or charges.
-              </p>
-            </div>
-
-            {/* Card 2: Instant Calculations */}
-            <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex justify-center mb-4">
-                <div className="rounded-full bg-indigo-50 p-3">
-                  <Zap className="h-6 w-6 text-indigo-600" />
-                </div>
-              </div>
-              <h3 className="text-center font-serif text-lg font-bold text-slate-900 mb-2">
-                Instant Calculations
-              </h3>
-              <p className="text-center text-sm text-slate-600 leading-relaxed">
-                Get accurate mortgage payment estimates in real-time as you adjust your loan parameters.
-              </p>
-            </div>
-
-            {/* Card 3: Detailed Payment Breakdown */}
-            <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex justify-center mb-4">
-                <div className="rounded-full bg-indigo-50 p-3">
-                  <PieChart className="h-6 w-6 text-indigo-600" />
-                </div>
-              </div>
-              <h3 className="text-center font-serif text-lg font-bold text-slate-900 mb-2">
-                Detailed Payment Breakdown
-              </h3>
-              <p className="text-center text-sm text-slate-600 leading-relaxed">
-                View complete breakdowns including principal, interest, taxes, insurance, PMI, and HOA fees.
-              </p>
-            </div>
-
-            {/* Card 4: No Sign-Up Required */}
-            <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex justify-center mb-4">
-                <div className="rounded-full bg-indigo-50 p-3">
-                  <Shield className="h-6 w-6 text-indigo-600" />
-                </div>
-              </div>
-              <h3 className="text-center font-serif text-lg font-bold text-slate-900 mb-2">
-                No Sign-Up Required
-              </h3>
-              <p className="text-center text-sm text-slate-600 leading-relaxed">
-                Calculate your mortgage payments instantly without creating an account or providing personal information.
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
       {/* Informational Article Section */}
       <section className="py-16 bg-white">
         <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
@@ -447,22 +367,106 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Why Use Us Section */}
+      <section className="py-12 bg-slate-50/60">
+        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+          {/* Section Header */}
+          <div className="mb-10 text-center">
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-3">
+              Why Use Our Calculator
+            </h2>
+            <p className="text-slate-600 text-base max-w-2xl mx-auto">
+              Get accurate mortgage estimates with our free, easy-to-use calculator
+            </p>
+          </div>
+
+          {/* Benefits Grid - 4 Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            {/* Card 1: Free to Use */}
+            <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div className="flex justify-center mb-4">
+                <div className="rounded-full bg-indigo-50 p-3">
+                  <DollarSign className="h-6 w-6 text-indigo-600" />
+                </div>
+              </div>
+              <h3 className="text-center font-serif text-lg font-bold text-slate-900 mb-2">
+                Free to Use
+              </h3>
+              <p className="text-center text-sm text-slate-600 leading-relaxed">
+                Use our comprehensive mortgage calculator completely free with no hidden fees or charges.
+              </p>
+            </div>
+
+            {/* Card 2: Instant Calculations */}
+            <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div className="flex justify-center mb-4">
+                <div className="rounded-full bg-indigo-50 p-3">
+                  <Zap className="h-6 w-6 text-indigo-600" />
+                </div>
+              </div>
+              <h3 className="text-center font-serif text-lg font-bold text-slate-900 mb-2">
+                Instant Calculations
+              </h3>
+              <p className="text-center text-sm text-slate-600 leading-relaxed">
+                Get accurate mortgage payment estimates in real-time as you adjust your loan parameters.
+              </p>
+            </div>
+
+            {/* Card 3: Detailed Payment Breakdown */}
+            <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div className="flex justify-center mb-4">
+                <div className="rounded-full bg-indigo-50 p-3">
+                  <PieChart className="h-6 w-6 text-indigo-600" />
+                </div>
+              </div>
+              <h3 className="text-center font-serif text-lg font-bold text-slate-900 mb-2">
+                Detailed Payment Breakdown
+              </h3>
+              <p className="text-center text-sm text-slate-600 leading-relaxed">
+                View complete breakdowns including principal, interest, taxes, insurance, PMI, and HOA fees.
+              </p>
+            </div>
+
+            {/* Card 4: No Sign-Up Required */}
+            <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div className="flex justify-center mb-4">
+                <div className="rounded-full bg-indigo-50 p-3">
+                  <Shield className="h-6 w-6 text-indigo-600" />
+                </div>
+              </div>
+              <h3 className="text-center font-serif text-lg font-bold text-slate-900 mb-2">
+                No Sign-Up Required
+              </h3>
+              <p className="text-center text-sm text-slate-600 leading-relaxed">
+                Calculate your mortgage payments instantly without creating an account or providing personal information.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* Latest Articles Section */}
       <section className="py-16 bg-slate-50">
         <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
           <div className="mx-auto max-w-6xl">
             
             {/* Section Header */}
-            <div className="mb-10 text-center">
-              <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-3">
+            <div className="mb-10 flex justify-between items-center">
+              <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900">
                 Latest Articles
               </h2>
-              <p className="text-slate-600 text-base">
-                Expert insights and guides for your mortgage journey
-              </p>
+              <Link
+                href="/articles"
+                className="flex items-center gap-2 text-indigo-600 hover:text-indigo-700 font-semibold transition-colors group"
+              >
+                <span>See More</span>
+                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </div>
 
-            {/* Article Cards Grid - 4 items (3 cards + See More button) */}
+            {/* Article Cards Grid - 4 article cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               
               {/* Article 1: Mortgage Payment Calculator */}
@@ -525,23 +529,23 @@ export default function Page() {
                 </div>
               </Link>
 
-              {/* See More Button (replaces 4th card) */}
+              {/* Article 4: Interest-Only Calculator */}
               <Link
-                href="/articles"
-                className="group rounded-lg border-2 border-dashed border-slate-300 bg-white hover:bg-indigo-50 hover:border-indigo-400 shadow-sm overflow-hidden transition-all flex items-center justify-center min-h-[280px]"
+                href="/interest-only-calculator-estimate-loan-payments"
+                className="group rounded-lg border border-slate-200 bg-white shadow-sm overflow-hidden hover:shadow-lg hover:border-indigo-300 transition-all"
               >
-                <div className="text-center p-6">
-                  <div className="mb-3 flex justify-center">
-                    <div className="rounded-full bg-indigo-100 p-4 group-hover:bg-indigo-200 transition-colors">
-                      <ArrowRight className="h-6 w-6 text-indigo-600" />
-                    </div>
-                  </div>
-                  <h3 className="font-serif text-lg font-bold text-slate-900 group-hover:text-indigo-600 transition-colors mb-2">
-                    See More Articles
+                <div className="relative w-full aspect-[4/3]">
+                  <Image
+                    src="/images/articles/Interest-Only Calculator Estimate Loan Payments.jpg"
+                    alt="Interest-Only Calculator: Estimate Loan Payments"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-4">
+                  <h3 className="font-serif text-base font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
+                    Interest-Only Calculator: Estimate Loan Payments
                   </h3>
-                  <p className="text-sm text-slate-600">
-                    Explore all mortgage guides
-                  </p>
                 </div>
               </Link>
 

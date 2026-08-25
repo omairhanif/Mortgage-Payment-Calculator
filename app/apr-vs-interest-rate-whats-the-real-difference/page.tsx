@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { Calculator, ChevronDown, ChevronUp } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowLeft, Calculator, ChevronDown, ChevronUp } from "lucide-react";
 
 export default function APRvsInterestRate() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
@@ -52,36 +54,58 @@ export default function APRvsInterestRate() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Article Header Section */}
-      <section className="pt-12 pb-8">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          {/* Banner Ad Placeholder */}
-          <div className="mx-auto max-w-5xl mb-8">
-            <div className="w-full flex justify-center">
-              <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-                <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-              </div>
-            </div>
-          </div>
+      {/* Navigation */}
+      <div className="border-b border-slate-200 bg-white">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8 py-6">
+          <Link 
+            href="/articles" 
+            className="inline-flex items-center text-indigo-600 hover:text-indigo-700 transition-colors group"
+          >
+            <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
+            Back to Articles
+          </Link>
+        </div>
+      </div>
 
-          {/* Article Title */}
-          <div className="mx-auto max-w-3xl">
-            <div className="flex items-center gap-3 mb-4">
-              <Calculator className="h-8 w-8 text-indigo-600 flex-shrink-0" />
-              <h1 className="font-serif text-3xl md:text-4xl font-bold text-indigo-600 leading-tight">
-                APR vs Interest Rate: What's the Real Difference?
-              </h1>
-            </div>
-            <div className="h-px bg-indigo-600 mb-8"></div>
+      {/* Featured Image */}
+      <div className="mx-auto max-w-4xl px-6 sm:px-8 py-8">
+        <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
+          <Image
+            src="/images/articles/apr-vs-interest-rate-whats-the-real-difference.jpg"
+            alt="APR vs Interest Rate - Understanding the real difference"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+      </div>
+
+      {/* Title & Metadata */}
+      <div className="mx-auto max-w-4xl px-6 sm:px-8">
+        <h1 className="font-serif text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+          APR vs Interest Rate: What's the Real Difference?
+        </h1>
+        
+        <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
+          <time>February 25, 2026</time>
+          <span className="mx-3">•</span>
+          <span>18 min read</span>
+        </div>
+      </div>
+
+      {/* Banner Ad - Standardized Placement */}
+      <div className="mx-auto max-w-4xl px-6 sm:px-8 mb-8">
+        <div className="w-full flex justify-center">
+          <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
+            <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* Article Content */}
       <article className="pb-16">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-3xl">
-            <div className="prose prose-slate prose-lg max-w-none">
+        <div className="mx-auto max-w-3xl px-6 sm:px-8">
+          <div className="prose prose-slate prose-lg max-w-none">
             
             {/* Introduction */}
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -400,13 +424,18 @@ export default function APRvsInterestRate() {
             </p>
 
 
-            {/* FAQ Section */}
-            <section className="mt-16 mb-12">
-              <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-8 text-center">
-                Frequently Asked Questions
-              </h2>
+            </div>
+          </div>
+        </article>
 
-              <div className="space-y-3">
+      {/* FAQ Section */}
+      <section className="py-12 bg-slate-50">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <h2 className="font-serif text-3xl font-bold text-slate-900 mb-8 text-center">
+            Frequently Asked Questions
+          </h2>
+
+          <div className="space-y-3">
                 {allFaqs.map((faq, index) => (
                   <div 
                     key={index}
@@ -436,12 +465,8 @@ export default function APRvsInterestRate() {
                   </div>
                 ))}
               </div>
-            </section>
-
-            </div>
-          </div>
         </div>
-      </article>
+      </section>
     </div>
   );
 }

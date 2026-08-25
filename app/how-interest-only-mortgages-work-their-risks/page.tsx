@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { ChevronRight, ChevronDown, ChevronUp, AlertTriangle } from 'lucide-react';
+import Image from 'next/image';
+import { ArrowLeft, ChevronDown, ChevronUp } from 'lucide-react';
 
 export default function InterestOnlyMortgagesPage() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
@@ -49,35 +50,50 @@ export default function InterestOnlyMortgagesPage() {
 
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Article Header Section */}
-      <section className="pt-12 pb-8">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          {/* Banner Ad Placeholder */}
-          <div className="mx-auto max-w-5xl mb-8">
-            <div className="w-full flex justify-center">
-              <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-                <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Article Title */}
-          <div className="mx-auto max-w-3xl">
-            <div className="flex items-center gap-3 mb-4">
-              <AlertTriangle className="h-8 w-8 text-amber-600 flex-shrink-0" />
-              <h1 className="font-serif text-3xl md:text-4xl font-bold text-slate-900 leading-tight">
-                How Interest-Only Mortgages Work & Their Risks
-              </h1>
-            </div>
-            <div className="h-px bg-amber-600 mb-8"></div>
-          </div>
+    <main className="min-h-screen bg-white">
+      {/* Navigation */}
+      <div className="border-b border-slate-200 bg-white">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8 py-6">
+          <Link 
+            href="/articles" 
+            className="inline-flex items-center text-indigo-600 hover:text-indigo-700 transition-colors group"
+          >
+            <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
+            Back to Articles
+          </Link>
         </div>
-      </section>
+      </div>
+
+      {/* Featured Image */}
+      <div className="mx-auto max-w-4xl px-6 sm:px-8 py-8">
+        <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
+          <Image
+            src="/images/articles/how-interest-only-mortgages-work-their-risks.jpg"
+            alt="Interest-only mortgage risks explained"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+      </div>
+
+      {/* Title & Metadata */}
+      <div className="mx-auto max-w-4xl px-6 sm:px-8">
+        <h1 className="font-serif text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+          How Interest-Only Mortgages Work & Their Risks
+        </h1>
+        
+        <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
+          <time>March 10, 2026</time>
+          <span className="mx-3">•</span>
+          <span>18 min read</span>
+        </div>
+      </div>
 
       {/* Article Content */}
       <article className="pb-16">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-3xl px-6 sm:px-8">
+          <div className="prose prose-slate prose-lg max-w-none">
           <div className="mx-auto max-w-3xl">
             <div className="prose prose-slate prose-lg max-w-none">
             
@@ -575,66 +591,9 @@ export default function InterestOnlyMortgagesPage() {
             </div>
           </div>
         </div>
-      </article>
-
-      {/* Related Articles Section */}
-      <section className="bg-slate-50 py-12">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-3xl">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6">Related Articles & Calculators</h2>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <Link
-                href="/interest-only-calculator-estimate-loan-payments"
-                className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white p-4 transition-all hover:border-amber-600 hover:shadow-md"
-              >
-                <AlertTriangle className="h-6 w-6 text-amber-600 flex-shrink-0" />
-                <div>
-                  <div className="font-semibold text-slate-900">Interest-Only Calculator</div>
-                  <div className="text-sm text-slate-600">Estimate loan payments</div>
-                </div>
-                <ChevronRight className="ml-auto h-5 w-5 text-slate-400" />
-              </Link>
-              
-              <Link
-                href="/heloc-calculator-estimate-credit-line-costs"
-                className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white p-4 transition-all hover:border-amber-600 hover:shadow-md"
-              >
-                <AlertTriangle className="h-6 w-6 text-amber-600 flex-shrink-0" />
-                <div>
-                  <div className="font-semibold text-slate-900">HELOC Calculator</div>
-                  <div className="text-sm text-slate-600">Estimate credit line costs</div>
-                </div>
-                <ChevronRight className="ml-auto h-5 w-5 text-slate-400" />
-              </Link>
-
-              <Link
-                href="/mortgage-payment-calculator-estimate-monthly-costs"
-                className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white p-4 transition-all hover:border-amber-600 hover:shadow-md"
-              >
-                <AlertTriangle className="h-6 w-6 text-amber-600 flex-shrink-0" />
-                <div>
-                  <div className="font-semibold text-slate-900">Mortgage Payment Calculator</div>
-                  <div className="text-sm text-slate-600">Calculate monthly payments</div>
-                </div>
-                <ChevronRight className="ml-auto h-5 w-5 text-slate-400" />
-              </Link>
-
-              <Link
-                href="/arm"
-                className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white p-4 transition-all hover:border-amber-600 hover:shadow-md"
-              >
-                <AlertTriangle className="h-6 w-6 text-amber-600 flex-shrink-0" />
-                <div>
-                  <div className="font-semibold text-slate-900">ARM Calculator</div>
-                  <div className="text-sm text-slate-600">Adjustable-rate mortgages</div>
-                </div>
-                <ChevronRight className="ml-auto h-5 w-5 text-slate-400" />
-              </Link>
-            </div>
-          </div>
         </div>
-      </section>
-    </div>
+      </article>
+    </main>
   );
 }
 

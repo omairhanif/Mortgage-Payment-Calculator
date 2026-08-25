@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { ChevronRight, ChevronDown, ChevronUp } from 'lucide-react';
+import Image from 'next/image';
+import { ArrowLeft, ChevronDown, ChevronUp } from 'lucide-react';
 
 export default function HowHELOCWorksPage() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
@@ -48,46 +49,51 @@ export default function HowHELOCWorksPage() {
 
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-900 pt-20 pb-24 overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-indigo-500 rounded-full filter blur-3xl"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl"></div>
+    <main className="min-h-screen bg-white">
+      {/* Navigation */}
+      <div className="border-b border-slate-200 bg-white">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8 py-6">
+          <Link 
+            href="/articles" 
+            className="inline-flex items-center text-indigo-600 hover:text-indigo-700 transition-colors group"
+          >
+            <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
+            Back to Articles
+          </Link>
         </div>
+      </div>
 
-        <div className="relative mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <nav className="flex items-center space-x-2 text-sm text-slate-300 mb-8">
-            <Link href="/" className="hover:text-white transition-colors">
-              Home
-            </Link>
-            <ChevronRight className="h-4 w-4" />
-            <span className="text-white">How a HELOC Works</span>
-          </nav>
-
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            How a Home Equity Line of Credit (HELOC) Works
-          </h1>
-
-          <p className="text-xl text-slate-200 max-w-3xl leading-relaxed">
-            Understand HELOC mechanics, calculate monthly payments on $50K-$150K amounts, and compare Canadian lender products from TD, Scotiabank, BMO, CIBC, and RBC.
-          </p>
+      {/* Featured Image */}
+      <div className="mx-auto max-w-4xl px-6 sm:px-8 py-8">
+        <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
+          <Image
+            src="/images/articles/how-a-home-equity-line-of-credit-heloc-works.jpg"
+            alt="HELOC line of credit explained"
+            fill
+            className="object-cover"
+            priority
+          />
         </div>
+      </div>
 
-        <div className="relative mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12 mt-12">
-          <div className="flex justify-center">
-            <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-600 bg-slate-800/30 backdrop-blur-sm flex items-center justify-center rounded-lg">
-              <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-            </div>
-          </div>
+      {/* Title & Metadata */}
+      <div className="mx-auto max-w-4xl px-6 sm:px-8">
+        <h1 className="font-serif text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+          How a Home Equity Line of Credit (HELOC) Works
+        </h1>
+        
+        <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
+          <time>March 12, 2026</time>
+          <span className="mx-3">•</span>
+          <span>16 min read</span>
         </div>
-      </section>
+      </div>
 
       {/* Article Content */}
       <article className="pb-16">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-3xl">
-            <div className="prose prose-slate prose-lg max-w-none">
+        <div className="mx-auto max-w-3xl px-6 sm:px-8">
+          <div className="prose prose-slate prose-lg max-w-none">
+
 
             {/* Introduction */}
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -261,48 +267,35 @@ export default function HowHELOCWorksPage() {
               <strong>Key Takeaways:</strong> HELOCs provide flexible revolving credit during 10-year draw periods with interest-only minimum payments. Monthly payments on $50K, $100K, and $150K HELOCs cost approximately $310, $621, and $931 respectively at current 7.45% rates (Prime + 0.5%). Canadian borrowers can access heloc calculator payment tools from TD, Scotiabank, BMO, CIBC, and RBC. Understanding heloc calculator interest only versus heloc calculator with extra payments scenarios helps plan for long-term costs—voluntary principal payments during draw period significantly reduce repayment period payment shock. OSFI's 65% HELOC cap limits borrowing capacity, with combined mortgage + HELOC maximum 80% of home value.
             </p>
 
-            </div>
-          </div>
-        </div>
-      </article>
-
-      {/* FAQ Section */}
-      <section className="bg-slate-50 py-16">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-3xl">
-            <h2 className="font-serif text-3xl font-bold text-slate-900 mb-8">
-              Frequently Asked Questions About HELOCs
-            </h2>
-            <div className="space-y-4">
-              {allFaqs.map((faq, idx) => (
-                <div
-                  key={idx}
-                  className="bg-white rounded-lg border border-slate-200 overflow-hidden"
-                >
+            {/* FAQ Section */}
+            <h2 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Frequently Asked Questions About HELOCs</h2>
+            
+            <div className="space-y-4 mb-12">
+              {allFaqs.map((faq, index) => (
+                <div key={index} className="border border-slate-200 rounded-lg overflow-hidden">
                   <button
-                    onClick={() => toggleFAQ(idx)}
-                    className="w-full flex items-center justify-between p-6 text-left hover:bg-slate-50 transition-colors"
+                    onClick={() => toggleFAQ(index)}
+                    className="w-full px-6 py-4 text-left bg-white hover:bg-slate-50 transition-colors flex justify-between items-center gap-4"
                   >
-                    <span className="font-semibold text-slate-900 pr-8">
-                      {faq.q}
-                    </span>
-                    {openFAQ === idx ? (
-                      <ChevronUp className="h-5 w-5 text-indigo-600 flex-shrink-0" />
+                    <span className="font-semibold text-slate-900 pr-8">{faq.q}</span>
+                    {openFAQ === index ? (
+                      <ChevronUp className="w-5 h-5 text-indigo-600 flex-shrink-0" />
                     ) : (
-                      <ChevronDown className="h-5 w-5 text-slate-400 flex-shrink-0" />
+                      <ChevronDown className="w-5 h-5 text-slate-400 flex-shrink-0" />
                     )}
                   </button>
-                  {openFAQ === idx && (
-                    <div className="px-6 pb-6">
+                  {openFAQ === index && (
+                    <div className="px-6 py-4 bg-slate-50 border-t border-slate-200">
                       <p className="text-slate-600 leading-relaxed">{faq.a}</p>
                     </div>
                   )}
                 </div>
               ))}
             </div>
+
           </div>
         </div>
-      </section>
-    </div>
+      </article>
+    </main>
   );
 }

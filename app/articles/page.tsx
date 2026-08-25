@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
 export default function ArticlesPage() {
-  // 18 Active Articles (clickable with links)
+  // 26 Active Articles (clickable with links)
   const activeArticles = [
     {
       title: "Mortgage Payment Calculator: Estimate Monthly Costs",
@@ -38,7 +38,7 @@ export default function ArticlesPage() {
     {
       title: "HELOC Calculator: Estimate Your Credit Line Costs",
       slug: "/heloc-calculator-estimate-credit-line-costs",
-      image: "/images/articles/heloc-calculator-estimate-your-credit-line-costs.jpg",
+      image: "/images/articles/heloc-calculator-estimate-credit-line-costs.jpg",
       date: "February 10, 2026",
       excerpt: "Estimate your home equity line of credit costs and monthly payments. Compare rates and terms to find the best HELOC option for your situation."
     },
@@ -132,7 +132,64 @@ export default function ArticlesPage() {
       image: "/images/articles/va-loan-requirements-eligibility-approval-process.jpg",
       date: "April 15, 2026",
       excerpt: "Learn VA loan eligibility requirements for active duty, veterans, reserves, and surviving spouses. Understand credit scores, COE process, and approval steps."
+    },
+    {
+      title: "Balloon Payment Calculator: Estimate Final Loan Amount",
+      slug: "/balloon-payment-calculator-estimate-final-loan-amount",
+      image: "/images/articles/balloon-payment-calculator-estimate-final-loan-amount.jpg",
+      date: "April 20, 2026",
+      excerpt: "Calculate balloon mortgage payments and final balloon amount. Understand amortization schedules, extra payments, and plan your exit strategy with accurate estimates."
+    },
+    {
+      title: "Balloon Mortgages Explained: Risks & When They Make Sense",
+      slug: "/balloon-mortgages-explained-risks-when-they-make-sense",
+      image: "/images/articles/balloon-mortgages-explained-risks-when-they-make-sense.jpg",
+      date: "April 21, 2026",
+      excerpt: "Complete guide to balloon mortgages: understand risks, benefits, and when to use them. Learn exit strategies, refinancing options, and avoid common pitfalls."
+    },
+    {
+      title: "Interest-Only Loan Calculator With Extra Payments",
+      slug: "/interest-only-loan-calculator-with-extra-payments",
+      image: "/images/articles/interest-only-calculator-estimate-loan-payments.jpg",
+      date: "April 25, 2026",
+      excerpt: "Calculate interest-only mortgage payments with optional extra principal. Compare simple vs compound interest, view amortization schedules, and plan your payoff strategy."
+    },
+    {
+      title: "Cut Interest-Only Loan Costs With Extra Payments",
+      slug: "/cut-interest-only-loan-costs-with-extra-payments",
+      image: "/images/articles/how-interest-only-mortgages-work-their-risks.jpg",
+      date: "April 25, 2026",
+      excerpt: "Learn proven strategies to reduce interest-only loan costs through systematic extra payments. Real examples show how to save $10,000+ and avoid payment shock."
+    },
+    {
+      title: "Rent vs. Buy Calculator: Which Costs Less?",
+      slug: "/rent-vs-buy-calculator-which-costs-less",
+      image: "/images/articles/buy-vs-rent-calculator-which-option-saves-you-more.jpg",
+      date: "May 1, 2026",
+      excerpt: "Use rent vs buy calculators to compare true costs. Learn the 5% rule, 20/30/3 rule, and how to calculate if buying or renting is better for your situation."
+    },
+    {
+      title: "Renting vs. Buying a Home: A Full Cost Comparison",
+      slug: "/renting-vs-buying-a-home-full-cost-comparison",
+      image: "/images/articles/buying-vs-renting-financial-analysis-for-homebuyers.jpg",
+      date: "May 1, 2026",
+      excerpt: "Compare the true costs of renting vs buying a home. Real examples, regional breakdowns, break-even timelines, and when each option makes financial sense."
+    },
+    {
+      title: "Income Requirement Calculator: How Much You Need",
+      slug: "/income-requirement-calculator-how-much-you-need",
+      image: "/images/articles/fha-loan-requirements-down-payment-credit-score.jpg",
+      date: "May 5, 2026",
+      excerpt: "Calculate income needed for mortgages from $200K to $1M+ in Canada. Understand GDS/TDS ratios, stress test impacts, and qualifying income by salary level."
+    },
+    {
+      title: "How Much Income Do You Need to Buy a Home?",
+      slug: "/how-much-income-do-you-need-to-buy-a-home",
+      image: "/images/articles/usda-loan-eligibility-income-property-requirements.jpg",
+      date: "May 5, 2026",
+      excerpt: "Complete guide to mortgage income requirements in Canada. Learn how lenders calculate qualifying income, regional variations, and income needed by mortgage amount."
     }
+
   ];
 
 

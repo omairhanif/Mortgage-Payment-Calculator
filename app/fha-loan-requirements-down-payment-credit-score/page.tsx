@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { ChevronRight, ChevronDown, ChevronUp } from 'lucide-react';
-import type { Metadata } from 'next';
+import Image from 'next/image';
+import { ArrowLeft, ChevronDown, ChevronUp } from 'lucide-react';
 
 export default function FHALoanRequirementsPage() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
@@ -48,51 +48,51 @@ export default function FHALoanRequirementsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-900 pt-20 pb-24 overflow-hidden">
-        {/* Decorative Elements */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-indigo-500 rounded-full filter blur-3xl"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl"></div>
+    <main className="min-h-screen bg-white">
+      {/* Navigation */}
+      <div className="border-b border-slate-200 bg-white">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8 py-6">
+          <Link 
+            href="/articles" 
+            className="inline-flex items-center text-indigo-600 hover:text-indigo-700 transition-colors group"
+          >
+            <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
+            Back to Articles
+          </Link>
         </div>
+      </div>
 
-        <div className="relative mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          {/* Breadcrumbs */}
-          <nav className="flex items-center space-x-2 text-sm text-slate-300 mb-8">
-            <Link href="/" className="hover:text-white transition-colors">
-              Home
-            </Link>
-            <ChevronRight className="h-4 w-4" />
-            <span className="text-white">FHA Loan Requirements</span>
-          </nav>
-
-          {/* Title */}
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            FHA Loan Requirements: Down Payment & Credit Score
-          </h1>
-
-          <p className="text-xl text-slate-200 max-w-3xl leading-relaxed">
-            Complete guide to FHA qualification requirements, including credit score minimums, down payment rules, income standards, and borrowing limits by location.
-          </p>
+      {/* Featured Image */}
+      <div className="mx-auto max-w-4xl px-6 sm:px-8 py-8">
+        <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
+          <Image
+            src="/images/articles/fha-loan-requirements-down-payment-credit-score.jpg"
+            alt="FHA loan requirements including down payment and credit score criteria"
+            fill
+            className="object-cover"
+            priority
+          />
         </div>
+      </div>
 
-        {/* Ad Placeholder */}
-        <div className="relative mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12 mt-12">
-          <div className="flex justify-center">
-            <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-600 bg-slate-800/30 backdrop-blur-sm flex items-center justify-center rounded-lg">
-              <span className="text-xs text-slate-400 font-medium">Banner Ad (728�90)</span>
-            </div>
-          </div>
+      {/* Title & Metadata */}
+      <div className="mx-auto max-w-4xl px-6 sm:px-8">
+        <h1 className="font-serif text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+          FHA Loan Requirements: Down Payment & Credit Score
+        </h1>
+        
+        <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
+          <time>March 25, 2026</time>
+          <span className="mx-3">•</span>
+          <span>18 min read</span>
         </div>
-      </section>
+      </div>
 
       {/* Article Content */}
       <article className="pb-16">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-3xl">
-            <div className="prose prose-slate prose-lg max-w-none">
-            
+        <div className="mx-auto max-w-3xl px-6 sm:px-8">
+          <div className="prose prose-slate prose-lg max-w-none">
+
             {/* Introduction */}
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
               FHA loans make homeownership accessible to millions of Americans who might not qualify for conventional financing, but understanding whether you meet FHA loan requirements is essential before you start house hunting or use an FHA loan calculator. The Federal Housing Administration sets minimum standards for credit scores, down payments, income documentation, debt-to-income ratios, and property eligibility—yet individual lenders often add their own overlays that create higher bars than FHA's published minimums.
@@ -227,17 +227,8 @@ export default function FHALoanRequirementsPage() {
               Before using FHA loan calculators to explore payment scenarios or starting your home search, verify you meet core requirements: sufficient credit score for your target down payment, stable documented income meeting DTI limits, property prices within your county's FHA loan limits, and readiness to occupy the property as your primary residence. Understanding what is required—and what lenders look for beyond published minimums—positions you to apply with realistic expectations, avoid homes outside your qualification range, and work toward approval rather than facing unexpected rejection.
             </p>
 
-            </div>
-          </div>
-        </div>
-      </article>
-
-
-      {/* FAQ Section */}
-      <section className="bg-slate-50 py-16">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-3xl">
-            <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-8">
+            {/* FAQs */}
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-8 mt-16">
               Frequently Asked Questions
             </h2>
 
@@ -264,21 +255,11 @@ export default function FHALoanRequirementsPage() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Bottom Ad Placeholder */}
-      <section className="py-8 bg-white">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="flex justify-center">
-            <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-              <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-            </div>
           </div>
         </div>
-      </section>
-    </div>
+      </article>
+    </main>
   );
 }
 

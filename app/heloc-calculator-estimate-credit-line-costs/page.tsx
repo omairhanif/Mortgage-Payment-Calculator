@@ -1,8 +1,9 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
-import { ChevronRight, ChevronDown, ChevronUp } from 'lucide-react';
+import { ArrowLeft, ChevronDown, ChevronUp } from 'lucide-react';
 
 export default function HELOCCalculatorPage() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
@@ -49,45 +50,49 @@ export default function HELOCCalculatorPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-900 pt-20 pb-24 overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-indigo-500 rounded-full filter blur-3xl"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl"></div>
+      {/* Navigation */}
+      <div className="border-b border-slate-200 bg-white">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8 py-6">
+          <Link 
+            href="/articles" 
+            className="inline-flex items-center text-indigo-600 hover:text-indigo-700 transition-colors group"
+          >
+            <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
+            Back to Articles
+          </Link>
         </div>
+      </div>
 
-        <div className="relative mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <nav className="flex items-center space-x-2 text-sm text-slate-300 mb-8">
-            <Link href="/" className="hover:text-white transition-colors">
-              Home
-            </Link>
-            <ChevronRight className="h-4 w-4" />
-            <span className="text-white">HELOC Calculator</span>
-          </nav>
-
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            HELOC Calculator: Estimate Your Credit Line Costs
-          </h1>
-
-          <p className="text-xl text-slate-200 max-w-3xl leading-relaxed">
-            Calculate your available home equity line of credit, understand draw period vs repayment period costs, and determine qualification requirements for borrowing against your home.
-          </p>
+      {/* Featured Image */}
+      <div className="mx-auto max-w-4xl px-6 sm:px-8 py-8">
+        <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
+          <Image
+            src="/images/articles/heloc-calculator-estimate-credit-line-costs.jpg"
+            alt="HELOC calculator for estimating home equity line of credit costs"
+            fill
+            className="object-cover"
+            priority
+          />
         </div>
+      </div>
 
-        <div className="relative mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12 mt-12">
-          <div className="flex justify-center">
-            <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-600 bg-slate-800/30 backdrop-blur-sm flex items-center justify-center rounded-lg">
-              <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-            </div>
-          </div>
+      {/* Title & Metadata */}
+      <div className="mx-auto max-w-4xl px-6 sm:px-8">
+        <h1 className="font-serif text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+          HELOC Calculator: Estimate Your Credit Line Costs
+        </h1>
+        
+        <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
+          <time>March 5, 2026</time>
+          <span className="mx-3">•</span>
+          <span>16 min read</span>
         </div>
-      </section>
+      </div>
 
       {/* Article Content */}
       <article className="pb-16">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-3xl">
-            <div className="prose prose-slate prose-lg max-w-none">
+        <div className="mx-auto max-w-3xl px-6 sm:px-8">
+          <div className="prose prose-slate prose-lg max-w-none">
 
 
             {/* Introduction */}
@@ -300,7 +305,6 @@ export default function HELOCCalculatorPage() {
             </p>
 
             </div>
-          </div>
         </div>
       </article>
 

@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { Calculator, ChevronDown, ChevronUp } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
 
 export default function RealAPRCalculator() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
@@ -52,36 +54,49 @@ export default function RealAPRCalculator() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Article Header Section */}
-      <section className="pt-12 pb-8">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          {/* Banner Ad Placeholder */}
-          <div className="mx-auto max-w-5xl mb-8">
-            <div className="w-full flex justify-center">
-              <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-                <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Article Title */}
-          <div className="mx-auto max-w-3xl">
-            <div className="flex items-center gap-3 mb-4">
-              <Calculator className="h-8 w-8 text-indigo-600 flex-shrink-0" />
-              <h1 className="font-serif text-3xl md:text-4xl font-bold text-indigo-600 leading-tight">
-                Real APR Calculator: True Cost of Your Loan
-              </h1>
-            </div>
-            <div className="h-px bg-indigo-600 mb-8"></div>
-          </div>
+      {/* Navigation */}
+      <div className="border-b border-slate-200 bg-white">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8 py-6">
+          <Link 
+            href="/articles" 
+            className="inline-flex items-center text-indigo-600 hover:text-indigo-700 transition-colors group"
+          >
+            <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
+            Back to Articles
+          </Link>
         </div>
-      </section>
+      </div>
+
+      {/* Featured Image */}
+      <div className="mx-auto max-w-4xl px-6 sm:px-8 py-8">
+        <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
+          <Image
+            src="/images/articles/real-apr-calculator-true-cost-of-your-loan.jpg"
+            alt="Real APR calculator showing the true cost of your loan"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+      </div>
+
+      {/* Title & Metadata */}
+      <div className="mx-auto max-w-4xl px-6 sm:px-8">
+        <h1 className="font-serif text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+          Real APR Calculator: True Cost of Your Loan
+        </h1>
+        
+        <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
+          <time>March 8, 2026</time>
+          <span className="mx-3">•</span>
+          <span>15 min read</span>
+        </div>
+      </div>
 
       {/* Article Content */}
       <article className="pb-16">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-3xl">
-            <div className="prose prose-slate prose-lg max-w-none">
+        <div className="mx-auto max-w-3xl px-6 sm:px-8">
+          <div className="prose prose-slate prose-lg max-w-none">
             
             {/* Introduction */}
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -463,7 +478,6 @@ export default function RealAPRCalculator() {
             </p>
 
             </div>
-          </div>
         </div>
       </article>
 

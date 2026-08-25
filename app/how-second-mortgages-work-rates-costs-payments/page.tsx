@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { DollarSign, ChevronDown, ChevronUp } from "lucide-react";
+import Link from 'next/link';
+import Image from 'next/image';
+import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
 
 export default function HowSecondMortgagesWork() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
@@ -51,37 +53,50 @@ export default function HowSecondMortgagesWork() {
   const allFaqs = [...faqs, ...faqs2];
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Article Header Section */}
-      <section className="pt-12 pb-8">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          {/* Banner Ad Placeholder */}
-          <div className="mx-auto max-w-5xl mb-8">
-            <div className="w-full flex justify-center">
-              <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-                <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Article Title */}
-          <div className="mx-auto max-w-3xl">
-            <div className="flex items-center gap-3 mb-4">
-              <DollarSign className="h-8 w-8 text-indigo-600 flex-shrink-0" />
-              <h1 className="font-serif text-3xl md:text-4xl font-bold text-indigo-600 leading-tight">
-                How Second Mortgages Work: Rates, Costs & Payments
-              </h1>
-            </div>
-            <div className="h-px bg-indigo-600 mb-8"></div>
-          </div>
+    <main className="min-h-screen bg-white">
+      {/* Navigation */}
+      <div className="border-b border-slate-200 bg-white">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8 py-6">
+          <Link 
+            href="/articles" 
+            className="inline-flex items-center text-indigo-600 hover:text-indigo-700 transition-colors group"
+          >
+            <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
+            Back to Articles
+          </Link>
         </div>
-      </section>
+      </div>
+
+      {/* Featured Image */}
+      <div className="mx-auto max-w-4xl px-6 sm:px-8 py-8">
+        <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
+          <Image
+            src="/images/articles/how-second-mortgages-work-rates-costs-payments.jpg"
+            alt="Second mortgage explained"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+      </div>
+
+      {/* Title & Metadata */}
+      <div className="mx-auto max-w-4xl px-6 sm:px-8">
+        <h1 className="font-serif text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+          How Second Mortgages Work: Rates, Costs & Payments
+        </h1>
+        
+        <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
+          <time>March 15, 2026</time>
+          <span className="mx-3">•</span>
+          <span>17 min read</span>
+        </div>
+      </div>
 
       {/* Article Content */}
       <article className="pb-16">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-3xl">
-            <div className="prose prose-slate prose-lg max-w-none">
+        <div className="mx-auto max-w-3xl px-6 sm:px-8">
+          <div className="prose prose-slate prose-lg max-w-none">
             
             {/* Introduction */}
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -296,49 +311,36 @@ export default function HowSecondMortgagesWork() {
               Start with comprehensive calculators that include taxes, insurance, and PMI for realistic payment estimates. Compare different scenarios: larger versus smaller down payments, 15-year versus 30-year terms, or the impact of extra payments. Research location-specific costs like property tax rates and insurance premiums in your target area. Finally, remember that calculator estimates are starting points—obtain detailed quotes from multiple lenders to understand your actual costs and available options before committing to a mortgage.
             </p>
 
-            </div>
-          </div>
-        </div>
-      </article>
-
-      {/* FAQ Section */}
-      <section className="py-12 bg-slate-50">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-3xl">
-            <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-8 text-center">
-              Frequently Asked Questions
-            </h2>
-
-            <div className="space-y-4">
+            {/* FAQ Section */}
+            <h2 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Frequently Asked Questions</h2>
+            
+            <div className="space-y-4 mb-12">
               {allFaqs.map((faq, index) => (
-                <div
-                  key={index}
-                  className="rounded-lg border border-slate-200 bg-white overflow-hidden"
-                >
+                <div key={index} className="border border-slate-200 rounded-lg overflow-hidden">
                   <button
                     onClick={() => toggleFAQ(index)}
-                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-slate-50 transition-colors"
+                    className="w-full px-6 py-4 text-left bg-white hover:bg-slate-50 transition-colors flex justify-between items-center gap-4"
                   >
-                    <span className="font-semibold text-slate-900 pr-8">
-                      {faq.q}
-                    </span>
+                    <span className="font-semibold text-slate-900 pr-8">{faq.q}</span>
                     {openFAQ === index ? (
-                      <ChevronUp className="h-5 w-5 text-indigo-600 flex-shrink-0" />
+                      <ChevronUp className="w-5 h-5 text-indigo-600 flex-shrink-0" />
                     ) : (
-                      <ChevronDown className="h-5 w-5 text-slate-400 flex-shrink-0" />
+                      <ChevronDown className="w-5 h-5 text-slate-400 flex-shrink-0" />
                     )}
                   </button>
                   {openFAQ === index && (
-                    <div className="px-6 pb-4">
+                    <div className="px-6 py-4 bg-slate-50 border-t border-slate-200">
                       <p className="text-slate-600 leading-relaxed">{faq.a}</p>
                     </div>
                   )}
                 </div>
               ))}
             </div>
+
           </div>
         </div>
-      </section>
-    </div>
+      </article>
+    </main>
   );
 }
+

@@ -503,7 +503,7 @@ export default function Page() {
               >
                 <div className="relative w-full h-48 overflow-hidden">
                   <Image
-                    src="/images/articles/heloc-calculator-estimate-your-credit-line-costs.jpg"
+                    src="/images/articles/heloc-calculator-estimate-credit-line-costs.jpg"
                     alt="HELOC Calculator: Estimate Your Credit Line Costs"
                     fill
                     className="object-cover"

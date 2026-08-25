@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
 
 export const metadata = {
@@ -8,30 +9,50 @@ export const metadata = {
 
 export default function VALoanCalculatorArticle() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
-      {/* Back Navigation */}
-      <div className="bg-white border-b border-slate-200">
-        <div className="mx-auto max-w-4xl px-6 py-4">
+    <main className="min-h-screen bg-white">
+      {/* Navigation */}
+      <div className="border-b border-slate-200 bg-white">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8 py-6">
           <Link 
             href="/articles" 
-            className="inline-flex items-center text-sm text-slate-600 hover:text-indigo-600 transition-colors"
+            className="inline-flex items-center text-indigo-600 hover:text-indigo-700 transition-colors group"
           >
-            <ArrowLeft className="w-4 h-4 mr-2" />
+            <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
             Back to Articles
           </Link>
         </div>
       </div>
 
-      {/* Article Header */}
-      <article className="mx-auto max-w-4xl px-6 py-12">
-        <header className="mb-12">
-          <h1 className="font-serif text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-            VA Loan Calculator: Estimate Benefits & Payments
-          </h1>
-          <time className="text-slate-500 text-sm">April 10, 2026</time>
-        </header>
+      {/* Featured Image */}
+      <div className="mx-auto max-w-4xl px-6 sm:px-8 py-8">
+        <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
+          <Image
+            src="/images/articles/va-loan-calculator-estimate-benefits-payments.jpg"
+            alt="VA loan calculator showing benefits and payment estimates"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+      </div>
 
-        <div className="prose prose-lg max-w-none">
+      {/* Title & Metadata */}
+      <div className="mx-auto max-w-4xl px-6 sm:px-8">
+        <h1 className="font-serif text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+          VA Loan Calculator: Estimate Benefits & Payments
+        </h1>
+        
+        <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
+          <time>April 10, 2026</time>
+          <span className="mx-3">•</span>
+          <span>12 min read</span>
+        </div>
+      </div>
+
+      {/* Article Content */}
+      <article className="pb-16">
+        <div className="mx-auto max-w-3xl px-6 sm:px-8">
+          <div className="prose prose-slate prose-lg max-w-none">
           
           {/* Introduction */}
           <section className="mb-12">
@@ -307,6 +328,7 @@ export default function VALoanCalculatorArticle() {
             </Link>
           </div>
 
+          </div>
         </div>
       </article>
     </main>

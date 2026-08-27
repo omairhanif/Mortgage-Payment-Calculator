@@ -5,8 +5,64 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
 export default function ArticlesPage() {
-  // 30 Active Articles (clickable with links)
+  // 38 Active Articles (clickable with links)
   const activeArticles = [
+    {
+      title: "Mortgage Tax Benefits Calculator: Save on Taxes",
+      slug: "/mortgage-tax-benefits-calculator-save-on-taxes",
+      image: "/images/articles/reverse-mortgage-calculator-estimate-available-funds.jpg",
+      date: "August 05, 2026",
+      excerpt: "Calculate your mortgage tax benefits in Canada. Learn about First-Time Home Buyer incentives, HBP withdrawals, GST rebates, and provincial tax credits in Ontario, BC, and Alberta with real 2026 examples."
+    },
+    {
+      title: "Mortgage Interest Tax Deduction: What You Can Save",
+      slug: "/mortgage-interest-tax-deduction-what-you-can-save",
+      image: "/images/articles/no-closing-cost-mortgages-are-they-worth-it.jpg",
+      date: "August 09, 2026",
+      excerpt: "Learn about mortgage interest tax deductions in Canada. Understand why primary residences don't qualify, how rental properties DO, the Smith Manoeuvre strategy, and real tax savings in Ontario, BC, and Alberta."
+    },
+    {
+      title: "Mortgage Points Calculator - Are Points Worth It?",
+      slug: "/mortgage-points-calculator-are-points-worth-it",
+      image: "/images/articles/mortgage-points-calculator-break-even-analysis-tool.jpg",
+      date: "August 11, 2026",
+      excerpt: "Calculate if buying mortgage points is worth it. Learn how points lower interest rates with real examples, break-even analysis, and when paying points makes sense for Canadian homeowners."
+    },
+    {
+      title: "How Mortgage Points Lower Your Interest Rate",
+      slug: "/how-mortgage-points-lower-your-interest-rate",
+      image: "/images/articles/should-you-buy-mortgage-points-cost-vs-benefit-guide.jpg",
+      date: "August 15, 2026",
+      excerpt: "Understand the mechanics of how mortgage points reduce your interest rate. Learn lender pricing strategies, rate reduction calculations, and the step-by-step process with real Canadian examples."
+    },
+    {
+      title: "Mortgage Qualification Calculator: Do You Qualify?",
+      slug: "/mortgage-qualification-calculator-do-you-qualify",
+      image: "/images/articles/no-closing-cost-mortgage-calculator-true-savings-analysis.jpg",
+      date: "August 19, 2026",
+      excerpt: "Use our free mortgage qualification calculator to see if you qualify. Calculate your maximum mortgage amount with real examples from Ontario, BC, and Alberta using TD, BMO, and other Canadian banks."
+    },
+    {
+      title: "How to Qualify for a Mortgage: Key Requirements",
+      slug: "/how-to-qualify-for-a-mortgage-key-requirements",
+      image: "/images/articles/bridge-loans-explained-costs-terms-when-to-use-them.jpg",
+      date: "August 21, 2026",
+      excerpt: "Learn the key requirements to qualify for a mortgage in Canada. Understand income needs, credit scores, debt ratios (GDS/TDS), and down payment requirements with real Canadian examples."
+    },
+    {
+      title: "Refinance Calculator: See If Refinancing Pays Off",
+      slug: "/refinance-calculator-see-if-refinancing-pays-off",
+      image: "/images/articles/bridge-loan-calculator-estimate-short-term-financing.jpg",
+      date: "August 23, 2026",
+      excerpt: "Use our free refinance calculator to determine if refinancing your mortgage or car loan pays off. Calculate break-even points, monthly savings, and total costs with real Canadian examples from TD, RBC, Scotiabank, and CIBC."
+    },
+    {
+      title: "When Should You Refinance Your Mortgage?",
+      slug: "/when-should-you-refinance-your-mortgage",
+      image: "/images/articles/when-should-you-refinance.jpg",
+      date: "August 02, 2026",
+      excerpt: "Discover the best times to refinance your mortgage. Learn when rate drops, home equity gains, and life changes make refinancing worth it with real-world scenarios and break-even analysis."
+    },
     {
       title: "Mortgage Payment Calculator: Estimate Monthly Costs",
       slug: "/mortgage-payment-calculator-estimate-monthly-costs",
@@ -164,28 +220,28 @@ export default function ArticlesPage() {
     {
       title: "Interest-Only Loan Calculator With Extra Payments",
       slug: "/interest-only-loan-calculator-with-extra-payments",
-      image: "/images/articles/interest-only-calculator-estimate-loan-payments.jpg",
+      image: "/images/articles/home-equity-loan-calculator-estimate-borrowing-power.jpg",
       date: "April 25, 2026",
       excerpt: "Calculate interest-only mortgage payments with optional extra principal. Compare simple vs compound interest, view amortization schedules, and plan your payoff strategy."
     },
     {
       title: "Cut Interest-Only Loan Costs With Extra Payments",
       slug: "/cut-interest-only-loan-costs-with-extra-payments",
-      image: "/images/articles/how-interest-only-mortgages-work-their-risks.jpg",
+      image: "/images/articles/home-equity-loan-vs-heloc-which-is-right-for-you.jpg",
       date: "April 25, 2026",
       excerpt: "Learn proven strategies to reduce interest-only loan costs through systematic extra payments. Real examples show how to save $10,000+ and avoid payment shock."
     },
     {
       title: "Rent vs. Buy Calculator: Which Costs Less?",
       slug: "/rent-vs-buy-calculator-which-costs-less",
-      image: "/images/articles/buy-vs-rent-calculator-which-option-saves-you-more.jpg",
+      image: "/images/articles/rent-vs-buy-calculator-which-costs-less.jpg",
       date: "May 1, 2026",
       excerpt: "Use rent vs buy calculators to compare true costs. Learn the 5% rule, 20/30/3 rule, and how to calculate if buying or renting is better for your situation."
     },
     {
       title: "Renting vs. Buying a Home: A Full Cost Comparison",
       slug: "/renting-vs-buying-a-home-full-cost-comparison",
-      image: "/images/articles/buying-vs-renting-financial-analysis-for-homebuyers.jpg",
+      image: "/images/articles/renting-vs-buying-a-home-full-cost-comparison.jpg",
       date: "May 1, 2026",
       excerpt: "Compare the true costs of renting vs buying a home. Real examples, regional breakdowns, break-even timelines, and when each option makes financial sense."
     },

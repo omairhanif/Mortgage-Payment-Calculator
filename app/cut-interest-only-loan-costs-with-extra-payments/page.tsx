@@ -27,8 +27,8 @@ export default function CutInterestOnlyLoanCostsArticle() {
       <div className="mx-auto max-w-4xl px-6 sm:px-8 py-8">
         <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
           <Image
-            src="/images/articles/cut-interest-only-loan-costs-with-extra-payments.jpg"
-            alt="Strategies to cut interest-only loan costs with extra payments"
+            src="/images/articles/home-equity-loan-vs-heloc-which-is-right-for-you.jpg"
+            alt="Cut Interest-Only Loan Costs With Extra Payments | Save Thousands"
             fill
             className="object-cover"
             priority

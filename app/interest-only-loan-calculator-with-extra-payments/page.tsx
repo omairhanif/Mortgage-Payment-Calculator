@@ -27,8 +27,8 @@ export default function InterestOnlyLoanCalculatorWithExtraPaymentsArticle() {
       <div className="mx-auto max-w-4xl px-6 sm:px-8 py-8">
         <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
           <Image
-            src="/images/articles/interest-only-loan-calculator-with-extra-payments.jpg"
-            alt="Interest-only loan calculator showing extra payment impacts"
+            src="/images/articles/home-equity-loan-calculator-estimate-borrowing-power.jpg"
+            alt="Interest-Only Loan Calculator With Extra Payments | Free Tool"
             fill
             className="object-cover"
             priority

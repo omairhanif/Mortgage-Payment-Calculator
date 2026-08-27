@@ -88,6 +88,15 @@ export default function FixedVsARMWhichFitsPage() {
         </div>
       </div>
 
+      {/* Banner Ad */}
+      <div className="mx-auto max-w-4xl px-6 sm:px-8 mb-8">
+        <div className="w-full flex justify-center">
+          <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
+            <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
+          </div>
+        </div>
+      </div>
+
       {/* Article Content */}
       <article className="pb-16">
         <div className="mx-auto max-w-3xl px-6 sm:px-8">

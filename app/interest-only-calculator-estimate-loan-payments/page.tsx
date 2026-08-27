@@ -50,7 +50,7 @@ export default function InterestOnlyCalculatorPage() {
 
 
   return (
-    <div className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white">
       {/* Navigation */}
       <div className="border-b border-slate-200 bg-white">
         <div className="mx-auto max-w-4xl px-6 sm:px-8 py-6">
@@ -87,6 +87,15 @@ export default function InterestOnlyCalculatorPage() {
           <time>February 28, 2026</time>
           <span className="mx-3">•</span>
           <span>17 min read</span>
+        </div>
+      </div>
+
+      {/* Banner Ad */}
+      <div className="mx-auto max-w-4xl px-6 sm:px-8 mb-8">
+        <div className="w-full flex justify-center">
+          <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
+            <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
+          </div>
         </div>
       </div>
 
@@ -522,7 +531,7 @@ export default function InterestOnlyCalculatorPage() {
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }
 

@@ -1,0 +1,90 @@
+﻿import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
+import Image from "next/image";
+
+export const metadata = {
+  title: "Extra Payment Calculator: Pay Off Your Mortgage Faster | Save Thousands on Interest",
+  description: "Calculate how extra mortgage payments reduce your loan term and save interest. Real examples show $100-$500 monthly extra payments on mortgages, car loans, and student loans.",
+};
+
+export default function ExtraPaymentCalculatorArticle() {
+  return (
+    <main className="min-h-screen bg-white">
+      {/* Navigation */}
+      <div className="border-b border-slate-200 bg-white">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8 py-6">
+          <Link 
+            href="/articles" 
+            className="inline-flex items-center text-indigo-600 hover:text-indigo-700 transition-colors group"
+          >
+            <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
+            Back to Articles
+          </Link>
+        </div>
+      </div>
+
+      {/* Featured Image */}
+      <div className="mx-auto max-w-4xl px-6 sm:px-8 py-8">
+        <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
+          <Image
+            src="/images/articles/extra-payment-calculator-pay-off-mortgage-faster.jpg"
+            alt="Extra payment calculator showing mortgage payoff acceleration"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+      </div>
+
+      {/* Title & Metadata */}
+      <div className="mx-auto max-w-4xl px-6 sm:px-8">
+        <h1 className="font-serif text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+          Extra Payment Calculator: Pay Off Your Mortgage Faster
+        </h1>
+        
+        <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
+          <time>May 10, 2026</time>
+          <span className="mx-3">•</span>
+          <span>12 min read</span>
+        </div>
+      </div>
+
+      {/* Article Content */}
+      <article className="pb-16">
+        <div className="mx-auto max-w-3xl px-6 sm:px-8">
+          <div className="prose prose-slate prose-lg max-w-none">
+
+            {/* Introduction */}
+            <section className="mb-12">
+              <p className="text-xl text-slate-700 leading-relaxed mb-6">
+                When Sarah refinanced her $350,000 Toronto home in 2022 at 5.5% interest, her mortgage broker asked a simple question: "Can you afford an extra $100 per month?" She could, so she set up automatic additional principal payments starting that first month. Three years later, when she checked her amortization schedule, Sarah discovered something remarkable. That modest $100 monthly extra payment had already saved her over $18,000 in future interest charges and shortened her mortgage by nearly four years.
+              </p>
+              <p className="text-lg text-slate-700 leading-relaxed mb-6">
+                Extra payment calculators reveal the hidden financial leverage in seemingly small additional payments. Whether you''re exploring an <strong>extra payment calculator</strong> for your mortgage, car loan, student loans, or credit card debt, these tools answer the critical question: "What happens if I pay an extra $100 a month on my mortgage principal?"—or $200, $500, or any amount you can consistently manage.
+              </p>
+              <p className="text-lg text-slate-700 leading-relaxed mb-6">
+                This comprehensive guide explains how <strong>extra payment calculator mortgage</strong> tools work across different loan types—mortgages, auto loans, student loans, and personal loans—with special attention to Canadian mortgage rules and Ontario-specific considerations. You''ll learn how to calculate extra principal payments manually, compare monthly versus annual lump sum strategies, understand when extra payments make financial sense, and see real-world examples showing exactly how much you save.
+              </p>
+            </section>
+
+            {/* Section 1 */}
+            <section className="mb-12">
+              <h2 className="font-serif text-3xl font-bold text-slate-900 mb-6">
+                How Extra Payment Calculators Work: The Mathematics Behind Early Payoff
+              </h2>
+
+              <p className="text-lg text-slate-700 leading-relaxed mb-6">
+                Every loan uses an amortization schedule that divides each payment between principal (the amount you borrowed) and interest (the cost of borrowing). Early in the loan, most of your payment goes toward interest; later, more goes toward principal. An <strong>extra payment calculator</strong> shows what happens when you add money beyond your required payment, directing that entire extra amount to principal reduction.
+              </p>
+
+              <p className="text-lg text-slate-700 leading-relaxed mb-6">
+                Here''s the fundamental math: When you make an extra principal payment, you immediately reduce your loan balance. Since interest calculations are based on the remaining balance, a lower balance means less interest accrues in every subsequent payment period. This creates a compounding effect—each extra payment saves interest not just for that month, but for every remaining month of the loan.
+              </p>
+
+              <div className="bg-indigo-50 p-6 rounded-lg my-8">
+                <h3 className="font-semibold text-indigo-900 mb-4">Real Example:</h3>
+                <p className="text-indigo-800">
+                  Consider a $350,000 mortgage at 6.5% interest over 30 years. Your required monthly payment is $2,212. In your first payment, $1,604 goes to interest and only $608 to principal. If you add an extra $100 to that first payment, you''ve paid $708 toward principal. That extra $100 saves approximately $276 in interest over the life of the loan because you''ve eliminated interest charges that would have accumulated on that $100 for the next 30 years.
+                </p>
+              </div>
+            </section>

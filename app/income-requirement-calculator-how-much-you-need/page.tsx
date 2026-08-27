@@ -6,7 +6,7 @@ import { ArrowLeft } from "lucide-react";
 
 export default function IncomeRequirementCalculatorArticle() {
   return (
-    <div className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white">
       {/* Navigation */}
       <div className="border-b border-slate-200 bg-white">
         <div className="mx-auto max-w-4xl px-6 sm:px-8 py-6">
@@ -24,8 +24,8 @@ export default function IncomeRequirementCalculatorArticle() {
       <div className="mx-auto max-w-4xl px-6 sm:px-8 py-8">
         <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
           <Image
-            src="/images/articles/fha-loan-requirements-down-payment-credit-score.jpg"
-            alt="Income requirement calculator for mortgage qualification"
+            src="/images/articles/usda-loan-eligibility-income-property-requirements.jpg"
+            alt="Income requirement calculator showing eligibility thresholds and property qualification requirements"
             fill
             className="object-cover"
             priority
@@ -43,6 +43,15 @@ export default function IncomeRequirementCalculatorArticle() {
           <time>May 5, 2026</time>
           <span className="mx-3">•</span>
           <span>13 min read</span>
+        </div>
+      </div>
+
+      {/* Banner Ad */}
+      <div className="mx-auto max-w-4xl px-6 sm:px-8 mb-8">
+        <div className="w-full flex justify-center">
+          <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
+            <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
+          </div>
         </div>
       </div>
 
@@ -534,7 +543,7 @@ export default function IncomeRequirementCalculatorArticle() {
           </div>
         </div>
       </article>
-    </div>
+    </main>
   );
 }
 

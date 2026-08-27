@@ -53,7 +53,7 @@ export default function RealAPRCalculator() {
   const allFaqs = [...faqs, ...faqs2];
 
   return (
-    <div className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white">
       {/* Navigation */}
       <div className="border-b border-slate-200 bg-white">
         <div className="mx-auto max-w-4xl px-6 sm:px-8 py-6">
@@ -526,6 +526,6 @@ export default function RealAPRCalculator() {
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

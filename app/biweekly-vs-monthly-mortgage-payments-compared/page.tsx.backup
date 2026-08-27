@@ -4,9 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
-export default function HowMuchIncomeArticle() {
+export default function BiweeklyVsMonthlyArticle() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Navigation */}
       <div className="border-b border-slate-200 bg-white">
         <div className="mx-auto max-w-4xl px-6 sm:px-8 py-6">
@@ -24,8 +24,8 @@ export default function HowMuchIncomeArticle() {
       <div className="mx-auto max-w-4xl px-6 sm:px-8 py-8">
         <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
           <Image
-            src="/images/articles/usda-loan-calculator-rural-home-payment-estimator.jpg"
-            alt="USDA loan calculator showing income requirements for rural home financing and payment estimation"
+            src="/images/articles/mortgage-calculator-canada-payment-breakdown.jpg"
+            alt="Biweekly vs monthly mortgage payment comparison showing interest savings"
             fill
             className="object-cover"
             priority
@@ -36,22 +36,13 @@ export default function HowMuchIncomeArticle() {
       {/* Title & Metadata */}
       <div className="mx-auto max-w-4xl px-6 sm:px-8">
         <h1 className="font-serif text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-          How Much Income Do You Need to Buy a Home?
+          Biweekly vs. Monthly Mortgage Payments Compared
         </h1>
         
         <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
-          <time>May 5, 2026</time>
+          <time>May 21, 2026</time>
           <span className="mx-3">•</span>
-          <span>9 min read</span>
-        </div>
-      </div>
-
-      {/* Banner Ad */}
-      <div className="mx-auto max-w-4xl px-6 sm:px-8 mb-8">
-        <div className="w-full flex justify-center">
-          <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-            <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-          </div>
+          <span>10 min read</span>
         </div>
       </div>
 
@@ -63,65 +54,65 @@ export default function HowMuchIncomeArticle() {
           <div className="prose prose-slate prose-lg max-w-none">
             
             <p className="text-xl text-slate-700 leading-relaxed mb-8">
-              <strong>The question keeps aspiring homeowners awake at night: "How much income do I actually need to buy a home?"</strong> In Canada, where the mortgage stress test can reduce purchasing power by 20-25%, understanding exactly how lenders calculate qualifying income is crucial for realistic house hunting.
+              <strong>Should you make biweekly or monthly mortgage payments?</strong> This seemingly simple choice can save Canadian homeowners $40,000-$80,000 in interest and shave 3-5 years off a 25-year mortgage—but only if you understand the mechanics and avoid common mistakes.
             </p>
 
             <p className="text-slate-700 leading-relaxed mb-6">
-              When Michael and Lisa started searching for their first home in Vancouver, they had $150,000 saved for a down payment and combined income of $130,000. They assumed they could afford a $625,000 home ($125,000 down, $500,000 mortgage). But when they applied for pre-approval, their broker delivered shocking news: they qualified for only $450,000 mortgage—$50,000 short of their target. The stress test, regional property taxes, and Lisa's $380 car payment had derailed their plans.
+              When Sarah and James refinanced their $450,000 Toronto mortgage in 2024, their broker suggested switching from monthly to biweekly payments. "It's like making an extra month's payment each year without feeling it," he explained. Skeptical, they ran the numbers: by paying $1,200 every two weeks instead of $2,400 monthly, they'd save $62,000 in interest and pay off their mortgage 4.3 years early. Two years later, they're ahead of schedule and questioning why anyone makes monthly payments.
+            </p>
+
+            <p className="text-slate-700 leading-relaxed mb-6">
+              This guide compares <strong>biweekly vs monthly mortgage payments</strong> with real borrower examples from Ontario, BC, and Alberta. You'll see exact interest savings, practical pros and cons, and a decision framework to determine which payment frequency maximizes your wealth building.
             </p>
 
 
             {/* Section 1 */}
             <h2 className="font-serif text-3xl font-bold text-slate-900 mt-12 mb-6">
-              Understanding Canadian Mortgage Income Requirements
+              How Biweekly Payments Work (The Math Behind the Savings)
             </h2>
 
             <p className="text-slate-700 leading-relaxed mb-6">
-              Canadian lenders use a fundamentally different approach than US lenders when calculating <strong>income needed for mortgage qualification</strong>. While US conventional loans use the 28/36 rule (28% housing, 36% total debt), Canada employs GDS and TDS ratios combined with the mandatory stress test.
+              The <strong>biweekly mortgage payment strategy</strong> works because there are 52 weeks in a year, which creates 26 biweekly payments. When you divide your monthly payment in half and pay it every two weeks, you're actually making 13 full monthly payments annually instead of 12.
             </p>
 
             <h3 className="font-serif text-2xl font-semibold text-slate-900 mt-8 mb-4">
-              The GDS and TDS Rules in Canada
+              The Accelerated Payment Math
             </h3>
 
             <div className="bg-indigo-50 border-l-4 border-indigo-600 p-6 mb-8 rounded-r-lg">
-              <p className="text-slate-900 font-semibold mb-4">GDS (Gross Debt Service) Ratio – Maximum 32%</p>
+              <p className="text-slate-900 font-semibold mb-4">Monthly Payment Schedule</p>
               <p className="text-slate-700 mb-4">
-                <strong>Formula:</strong> (Mortgage Principal + Interest + Property Taxes + Heating + 50% Condo Fees) ÷ Gross Monthly Income
+                <strong>$2,400/month × 12 months = $28,800 annually</strong>
               </p>
               <p className="text-slate-700 mb-6">
-                This ratio measures housing costs alone. Even if you have zero other debts, your housing costs cannot exceed 32% of gross income.
+                Making 12 full monthly payments, following the standard amortization schedule.
               </p>
 
-              <p className="text-slate-900 font-semibold mb-4">TDS (Total Debt Service) Ratio – Maximum 42%</p>
+              <p className="text-slate-900 font-semibold mb-4">Biweekly Payment Schedule</p>
               <p className="text-slate-700 mb-4">
-                <strong>Formula:</strong> (GDS + All Other Debt Payments) ÷ Gross Monthly Income
+                <strong>$1,200 every 2 weeks × 26 payments = $31,200 annually</strong>
               </p>
               <p className="text-slate-700">
-                This includes housing PLUS car loans, student loans, credit card minimum payments, child support, alimony, and other loan obligations. You must satisfy both GDS and TDS—whichever is more restrictive determines your maximum mortgage.
+                This is $2,400 more per year (equivalent to one extra monthly payment), which goes directly toward principal reduction.
               </p>
             </div>
 
             <h3 className="font-serif text-2xl font-semibold text-slate-900 mt-8 mb-4">
-              The Stress Test: Canada's Unique Challenge
+              Why This Works: The Power of Principal Reduction
             </h3>
 
             <p className="text-slate-700 leading-relaxed mb-6">
-              Since 2018, all Canadian homebuyers must pass the <strong>mortgage stress test</strong>—you qualify at the higher of (contract rate + 2%) or 5.25%. In 2026, with typical rates at 5.79%, you must qualify at 7.79%. This single rule reduces purchasing power by approximately 20-25% compared to qualifying at actual contract rates.
+              Mortgage interest in Canada is calculated <strong>semi-annually, not in advance</strong>, but applied monthly. Every dollar you reduce principal saves interest not just this month, but every subsequent month. By making 26 half-payments instead of 12 full payments, you reduce principal faster throughout the year, compounding your savings.
             </p>
 
             <p className="text-slate-700 leading-relaxed mb-6">
-              <strong>Real impact:</strong> Without the stress test, a buyer with $100,000 income and minimal debts could qualify for ~$450,000 mortgage. With the stress test, that drops to ~$360,000—a $90,000 reduction in purchasing power, or nearly $115,000 less home with 20% down.
+              <strong>Key insight:</strong> Making biweekly payments isn't about paying more—it's about paying more frequently. The extra $2,400 annually represents just 8.3% more in total payments, yet it typically reduces mortgage terms by 15-20% and saves 20-30% in total interest paid.
             </p>
 
-
-            <p className="text-slate-700 leading-relaxed mb-6">
-              This comprehensive guide walks you through exactly <strong>how much income you need for mortgages from $200,000 to $1,000,000+</strong>, how Canadian lenders calculate qualifying income, and what strategies can boost your purchasing power.
-            </p>
 
             {/* Section 2 */}
             <h2 className="font-serif text-3xl font-bold text-slate-900 mt-12 mb-6">
-              Income Needed by Mortgage Amount (Canada 2026)
+              Real Comparison: Biweekly vs Monthly Savings by Mortgage Amount
             </h2>
 
             <p className="text-slate-700 leading-relaxed mb-6">
@@ -385,7 +376,7 @@ export default function HowMuchIncomeArticle() {
           </div>
         </div>
       </article>
-    </main>
+    </div>
   );
 }
 

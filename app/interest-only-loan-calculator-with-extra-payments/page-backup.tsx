@@ -3,11 +3,11 @@ import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Interest-Only Loan Calculator With Extra Payments | Free Tool",
-  description: "Calculate interest-only payments plus extra principal with our free calculator. See how extra payments reduce your balloon amount and build equity during interest-only periods.",
+  title: "Balloon Payment Calculator: Estimate Final Loan Amount | Free Tool",
+  description: "Calculate balloon mortgage payments with our free calculator. Estimate balloon amounts, view amortization schedules, and compare different terms. Plan your exit strategy.",
 };
 
-export default function InterestOnlyLoanCalculatorWithExtraPaymentsArticle() {
+export default function BalloonPaymentCalculatorArticle() {
   return (
     <main className="min-h-screen bg-white">
       {/* Navigation */}
@@ -27,8 +27,8 @@ export default function InterestOnlyLoanCalculatorWithExtraPaymentsArticle() {
       <div className="mx-auto max-w-4xl px-6 sm:px-8 py-8">
         <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
           <Image
-            src="/images/articles/interest-only-loan-calculator-with-extra-payments.jpg"
-            alt="Interest-only loan calculator showing extra payment impacts"
+            src="/images/articles/balloon-payment-calculator-estimate-final-loan-amount.jpg"
+            alt="Balloon payment calculator showing final loan amounts"
             fill
             className="object-cover"
             priority
@@ -39,22 +39,13 @@ export default function InterestOnlyLoanCalculatorWithExtraPaymentsArticle() {
       {/* Title & Metadata */}
       <div className="mx-auto max-w-4xl px-6 sm:px-8">
         <h1 className="font-serif text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-          Interest-Only Loan Calculator With Extra Payments
+          Balloon Payment Calculator: Estimate Final Loan Amount
         </h1>
         
         <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
-          <time>May 14, 2026</time>
+          <time>April 18, 2026</time>
           <span className="mx-3">•</span>
-          <span>12 min read</span>
-        </div>
-      </div>
-
-      {/* Banner Ad */}
-      <div className="mx-auto max-w-4xl px-6 sm:px-8 mb-8">
-        <div className="w-full flex justify-center">
-          <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-            <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-          </div>
+          <span>13 min read</span>
         </div>
       </div>
 
@@ -66,24 +57,27 @@ export default function InterestOnlyLoanCalculatorWithExtraPaymentsArticle() {
             {/* Introduction */}
             <section className="mb-12">
               <p className="text-xl text-slate-700 leading-relaxed mb-6">
-                Jennifer, a real estate investor in Mississauga, Ontario, purchased a $680,000 rental property in 2019 using an interest-only HELOC at 6.2% for 10 years. Like many borrowers, she initially assumed "interest-only" meant she couldn't reduce the principal balance. A conversation with her mortgage broker in 2020 changed everything: she discovered she could make extra principal payments without penalty. Starting with $400 per month extra, Jennifer has built $19,200 in principal equity over four years—turning what seemed like a risky interest-only loan into an equity-building investment tool.
-              </p>
-              <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                The question "Can you pay extra on an interest-only mortgage?" surprises many borrowers. The answer is yes—and understanding how to use an <strong>interest-only loan calculator with extra payments</strong> reveals the powerful impact of strategic principal reduction. This comprehensive guide shows you exactly how these calculators work, how to calculate interest-only payments, and most importantly, how extra payments can save tens of thousands in interest while reducing balloon payment risk.
-              </p>
-              <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                Whether you're managing an <strong>interest-only mortgage calculator with extra payments</strong> scenario, modeling an <strong>interest-only HELOC calculator with extra payments</strong> strategy, or simply trying to understand how much you'll pay in interest-only payments (like the common question about a £200,000 mortgage), this article provides real calculations, verified examples, and actionable strategies from actual borrowers who've successfully navigated interest-only loans.
-              </p>
-            </section>
+                Marcus thought he understood his $350,000 commercial property loan. His monthly payments of $2,328 seemed manageable for his growing restaurant business. But when his accountant asked about his "exit strategy for the balloon payment," Marcus went pale. He'd barely registered the fine print: in five years, he'd owe a stunning $331,704 in one lump sum.
+            </p>
+            <p className="text-lg text-slate-700 leading-relaxed mb-6">
+              This moment of realization happens to thousands of borrowers every year. A <strong>balloon mortgage calculator</strong> isn't just a helpful tool—it's an essential planning instrument that prevents financial shocks and helps you prepare for one of the biggest payments you'll ever make.
+            </p>
+            <p className="text-lg text-slate-700 leading-relaxed mb-6">
+              Whether you're considering a <strong>5 year balloon mortgage calculator</strong>, evaluating interest-only options with a <strong>balloon mortgage calculator interest only</strong>, or comparing different amortization schedules using a <strong>balloon mortgage calculator with amortization schedule</strong>, understanding how to calculate your balloon payment accurately can mean the difference between a strategic financial move and a devastating surprise.
+            </p>
+            <p className="text-lg text-slate-700 leading-relaxed mb-6">
+              In this comprehensive guide, we'll show you exactly how balloon payment calculators work, compare different types of calculators (from <strong>simple balloon mortgage calculator</strong> tools to sophisticated <strong>balloon mortgage calculator with extra payments</strong> features), and give you the knowledge to plan effectively for your balloon mortgage.
+            </p>
+          </section>
 
-          {/* Section 2: What Is an Interest-Only Payment Calculator? */}
+          {/* Section 2: Types of Calculators */}
           <section className="mb-12">
             <h2 className="font-serif text-3xl font-bold text-slate-900 mb-6">
-              What Is the Interest-Only Payment Calculator?
+              Types of Balloon Calculators
             </h2>
 
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              An <strong>interest-only payment calculator</strong> is a specialized financial tool that models loans where your required monthly payment covers only the interest charges—none of your payment reduces the principal balance. What distinguishes an interest-only calculator <em>with extra payments</em> is its ability to show what happens when you voluntarily add principal payments on top of your required interest-only payment.
+              Not all balloon mortgage calculators are created equal. Depending on your needs and level of detail required, you'll want to choose the right type of calculator.
             </p>
 
             <h3 className="font-serif text-2xl font-bold text-slate-900 mb-4 mt-8">
@@ -236,73 +230,73 @@ export default function InterestOnlyLoanCalculatorWithExtraPaymentsArticle() {
             <div className="space-y-8">
               <div>
                 <h3 className="font-serif text-xl font-bold text-slate-900 mb-3">
-                  Can you pay extra on an interest-only mortgage?
+                  How to calculate interest rate with balloon payment?
                 </h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Yes! Most interest-only mortgages and HELOCs allow extra principal payments without penalty. Extra payments go 100% toward reducing your principal balance, which lowers your interest charges and reduces the balloon amount you'll owe at the end of the term.
+                  To reverse-calculate the interest rate when you know the payment amount, loan amount, and balloon payment, use the Excel RATE function: =RATE(nper, pmt, pv, fv). For example, if you're paying $2,000/month on a $300,000 loan with a $280,000 balloon due in 60 months, the function =RATE(60, -2000, 300000, -280000)*12 will give you the annual interest rate.
                 </p>
               </div>
 
               <div>
                 <h3 className="font-serif text-xl font-bold text-slate-900 mb-3">
-                  Do you pay interest on extra payments?
+                  How much will my balloon payment be?
                 </h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  No, you do not pay interest on extra payments. Extra payments reduce your principal balance immediately, which means you only pay interest on the remaining lower balance going forward. This is how extra payments save you money over time.
+                  Your balloon payment depends on your loan amount, interest rate, monthly payment, and how long until the balloon is due. Most borrowers use a <strong>balloon mortgage calculator with amortization schedule</strong> which instantly shows the exact balloon amount. For a $250,000 loan at 7.5% with 30-year amortization and a 5-year balloon, you'll owe approximately $236,420.
                 </p>
               </div>
 
               <div>
                 <h3 className="font-serif text-xl font-bold text-slate-900 mb-3">
-                  How to calculate interest-only payment?
+                  What is the interest rate on a balloon mortgage?
                 </h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Formula: Monthly Interest Payment = (Principal Balance × Annual Interest Rate) ÷ 12. Example: $500,000 at 6.5% = ($500,000 × 0.065) ÷ 12 = $2,708.33/month. This simple calculation shows your required minimum payment.
+                  Balloon mortgage interest rates are typically 0.25% to 0.75% higher than conventional mortgage rates. As of April 2026, balloon mortgages range from 6.5% to 8.5%, depending on your credit score, property type, and lender.
                 </p>
               </div>
 
               <div>
                 <h3 className="font-serif text-xl font-bold text-slate-900 mb-3">
-                  How much will I pay in interest-only payments? (£200,000 example)
+                  What is a 10 year loan with a 3 year balloon?
                 </h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  For a £200,000 mortgage at 4.5% over 25 years: Monthly payment = £750, Total interest = £225,000, Balloon still due = £200,000. Total cost = £425,000 if no principal is paid during the term.
+                  This means your monthly payments are calculated based on a 10-year amortization schedule, but the entire remaining balance comes due after just 3 years. For example, a $150,000 loan at 7.5% with 10-year amortization would have payments of $1,775/month. After 36 months, you'd owe approximately $116,430 as a balloon payment.
                 </p>
               </div>
 
               <div>
                 <h3 className="font-serif text-xl font-bold text-slate-900 mb-3">
-                  What is an interest-only HELOC calculator with extra payments?
+                  How to calculate a balloon mortgage?
                 </h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  This specialized calculator models Home Equity Lines of Credit (HELOCs) where you pay interest-only on the drawn balance, plus shows the impact of voluntary extra principal payments. It's essential for Canadian borrowers with readvanceable mortgages or US homeowners using HELOCs for renovations or investments.
+                  To manually calculate: (1) Calculate the monthly payment using the standard mortgage formula based on your amortization period. (2) Determine how many months until the balloon is due. (3) Calculate the remaining balance. However, most borrowers use a <strong>free balloon mortgage calculator</strong> or <strong>balloon mortgage calculator Excel</strong> template for accuracy.
                 </p>
               </div>
 
               <div>
                 <h3 className="font-serif text-xl font-bold text-slate-900 mb-3">
-                  How to calculate interest saved by making extra payments?
+                  How does a 7 year balloon mortgage work?
                 </h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Simple method: Interest Saved ≈ Extra Payment × Interest Rate × Remaining Years. Example: $500 extra at 6% for 8 years = $500 × 0.06 × 8 = $240 saved per payment, or $2,880 annually. Use a calculator for precise month-by-month tracking.
+                  A 7-year balloon mortgage has fixed monthly payments for 84 months, then requires full payoff of the remaining balance. For example, on a $300,000 loan at 7% with 30-year amortization: you pay $1,996/month for 7 years, then owe $280,847 as a balloon payment.
                 </p>
               </div>
 
               <div>
                 <h3 className="font-serif text-xl font-bold text-slate-900 mb-3">
-                  Are interest-only mortgages available in Canada?
+                  Can I pay off a balloon mortgage early?
                 </h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Yes, primarily through HELOCs offered by major banks (TD, RBC, Scotia, BMO, CIBC). These allow interest-only payments indefinitely on the HELOC portion, with rates typically Prime + 0% to Prime + 0.5%. Extra payments reduce principal without penalty.
+                  Yes, most balloon mortgages allow early payoff without prepayment penalties, but verify your specific loan terms first. Paying off early can save substantial interest costs.
                 </p>
               </div>
 
               <div>
                 <h3 className="font-serif text-xl font-bold text-slate-900 mb-3">
-                  When should I NOT make extra payments on an interest-only loan?
+                  What happens if I can't pay the balloon payment?
                 </h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Avoid extra payments if: (1) You have higher-interest debt to pay off first. (2) You lack an emergency fund (save 3-6 months expenses first). (3) Your investment returns significantly exceed your mortgage rate. (4) You're using the loan for tax-deductible investment purposes.
+                  If you can't pay the balloon payment when due, options include: (1) Refinance to a conventional mortgage. (2) Sell the property. (3) Negotiate a loan extension. (4) Request loan modification. However, if none work and you default, the lender can foreclose. This is why having a concrete exit strategy is critical.
                 </p>
               </div>
             </div>
@@ -313,36 +307,36 @@ export default function InterestOnlyLoanCalculatorWithExtraPaymentsArticle() {
           {/* Conclusion */}
           <section className="mb-12">
             <h2 className="font-serif text-3xl font-bold text-slate-900 mb-6">
-              Take Control of Your Interest-Only Loan
+              Plan Your Balloon Payment Strategy
             </h2>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              The recurring theme throughout this guide is empowerment: yes, you can make extra payments on interest-only mortgages, and no, you don't pay interest on those extra payments. An <strong>interest-only loan calculator with extra payments</strong> transforms abstract concepts into concrete numbers, helping you visualize exactly how strategic principal reduction impacts your financial future.
+              A <strong>balloon mortgage calculator</strong> is more than just a number-crunching tool—it's your first line of defense against financial surprises. Whether you use a <strong>simple balloon mortgage calculator</strong> for quick estimates, a <strong>balloon mortgage calculator with amortization schedule</strong> for detailed planning, or a <strong>balloon mortgage calculator with extra payments</strong> to reduce your risk, the key is understanding your numbers before you sign.
             </p>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              Even modest extra payments—$200 to $400 monthly—significantly reduce balloon payment risk while building equity. The flexibility of interest-only loans means you can adjust or pause extra payments during cash flow challenges, then resume when finances improve. Use the calculator, start with a comfortable amount, and watch your principal balance decrease month after month.
+              Remember the success stories—Jennifer, David, and others succeeded through thorough planning, accurate calculations, and clear exit strategies. Use your calculator to model different scenarios and always have multiple exit strategies ready.
             </p>
           </section>
 
           {/* CTA */}
           <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-2xl p-8 my-12 border border-indigo-100">
             <h3 className="font-serif text-2xl font-bold text-slate-900 mb-4">
-              Calculate Your Extra Payment Strategy
+              Ready to Calculate Your Balloon Payment?
             </h3>
             <p className="text-slate-700 mb-6">
-              See how extra payments can reduce your balloon amount and save thousands in interest. Use our calculators to model different scenarios.
+              Use our comprehensive mortgage calculators to estimate your balloon payment, compare different terms, and plan your financial strategy.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
-                href="/extra-payment-calculator-pay-off-mortgage-faster"
+                href="/mortgage"
                 className="inline-flex items-center px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition-colors"
               >
-                Try Extra Payment Calculator
+                Calculate Your Payment
               </Link>
               <Link
-                href="/cut-interest-only-loan-costs-with-extra-payments"
+                href="/balloon-mortgages-explained-risks-when-they-make-sense"
                 className="inline-flex items-center px-6 py-3 bg-white text-indigo-600 font-semibold rounded-lg border-2 border-indigo-600 hover:bg-indigo-50 transition-colors"
               >
-                Read Strategy Guide →
+                Learn About Balloon Risks →
               </Link>
             </div>
           </div>

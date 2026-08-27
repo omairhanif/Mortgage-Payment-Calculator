@@ -53,7 +53,7 @@ export default function FHALoanCalculatorArticle() {
   const allFaqs = [...faqs, ...faqs2];
 
   return (
-    <div className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white">
       {/* Navigation */}
       <div className="border-b border-slate-200 bg-white">
         <div className="mx-auto max-w-4xl px-6 sm:px-8 py-6">
@@ -67,9 +67,11 @@ export default function FHALoanCalculatorArticle() {
         </div>
       </div>
 
-      {/* Featured Image */}
+      {/* Featured Image - Full Width */}
+      <div className="w-full">
       <div className="mx-auto max-w-4xl px-6 sm:px-8 py-8">
-        <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
+      <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
+
           <Image
             src="/images/articles/fha-loan-calculator-estimate-payments-costs.jpg"
             alt="FHA loan calculator for estimating payments and costs"
@@ -77,12 +79,13 @@ export default function FHALoanCalculatorArticle() {
             className="object-cover"
             priority
           />
+          </div>
         </div>
       </div>
 
       {/* Title & Metadata */}
-      <div className="mx-auto max-w-4xl px-6 sm:px-8">
-        <h1 className="font-serif text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+      <div className="mx-auto max-w-4xl px-6 sm:px-6 mt-8">
+        <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-3">
           FHA Loan Calculator: Estimate Payments & Costs
         </h1>
         
@@ -93,7 +96,7 @@ export default function FHALoanCalculatorArticle() {
         </div>
       </div>
 
-      {/* Banner Ad - Standardized Placement */}
+      {/* Banner Ad */}
       <div className="mx-auto max-w-4xl px-6 sm:px-8 mb-8">
         <div className="w-full flex justify-center">
           <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
@@ -392,6 +395,6 @@ export default function FHALoanCalculatorArticle() {
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

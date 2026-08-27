@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import Link from 'next/link';
-import Image from 'next/image';
-import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowLeft, Calculator, ChevronDown, ChevronUp } from "lucide-react";
 
-export default function HowSecondMortgagesWork() {
+export default function HowExtraMortgagePaymentsSaveYouMoneyArticle() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
@@ -14,39 +14,39 @@ export default function HowSecondMortgagesWork() {
 
   const faqs = [
     {
-      q: "How much can I borrow on a 2nd mortgage?",
-      a: "Your borrowing capacity depends on your available home equity and your lender's combined loan-to-value (CLTV) ratio limit. Most lenders allow you to borrow up to 80-90% of your home's current market value minus your existing first mortgage balance. For example, if your home is worth $500,000 and you owe $300,000, at 85% CLTV you could potentially borrow up to $125,000. Your actual limit also depends on your credit score, income, debt-to-income ratio, and ability to afford the additional monthly payment."
+      q: "How much can I realistically save with extra mortgage payments?",
+      a: "On a $400,000 mortgage at 6% for 25 years, making an extra $250 monthly payment saves approximately $91,000 in interest and pays off your mortgage 6.5 years early. Even smaller amounts add up: $100 extra monthly saves around $37,000 and reduces the term by 3 years. The earlier you start, the greater your savings due to compound interest working in your favor."
     },
     {
-      q: "How do I qualify for a 2nd mortgage?",
-      a: "Qualification typically requires: a credit score of at least 620 (though 680+ improves your chances and rates significantly), sufficient home equity (usually maintaining 15-20% after the loan), stable verifiable income to support both mortgage payments, a debt-to-income ratio below 43-50%, and a property appraisal confirming current value. You'll need to provide recent pay stubs, tax returns (typically two years), bank statements, and documentation of existing debts. Self-employed borrowers face additional documentation requirements including business tax returns and profit/loss statements."
+      q: "What's better: monthly extra payments or annual lump sums?",
+      a: "Monthly extra payments typically save slightly more because they reduce principal faster, but the difference is marginal. Choose based on your cash flow: monthly payments work well with steady income, while annual lump sums suit those with bonuses or variable income. Many homeowners combine both strategies—regular monthly extras plus annual windfalls—to maximize savings within Canadian prepayment limits."
     },
     {
-      q: "Is it hard to get a 2nd mortgage?",
-      a: "It's more challenging than getting a first mortgage because second mortgages carry higher risk for lenders due to their subordinate position. However, approval is realistic if you have strong equity (30%+ is ideal), good credit (680+), stable income, and manageable existing debt. Borrowers with marginal credit (620-680), high debt-to-income ratios, or limited equity face more difficulty and higher interest rates. Private lenders may approve applications that traditional banks decline, but at significantly higher rates—sometimes 10-15% or more. The key factors are demonstrating both sufficient collateral and ability to handle the additional payment comfortably."
+      q: "Do extra payments go directly to principal?",
+      a: "Not always automatically. Some lenders apply extra payments as 'advance payments' toward future months rather than immediate principal reduction. When making extra payments, explicitly specify 'apply to principal' and confirm with your lender. Canadian mortgages often require a separate principal prepayment process distinct from regular monthly payments."
     },
     {
-      q: "What is the 2 2 2 rule for mortgages?",
-      a: "The 2-2-2 rule is a guideline some lenders use for credit assessment: 2 years of employment history in the same field, 2 years of tax returns showing stable income, and 2 months of bank statements demonstrating reserves. This isn't a universal standard—different lenders have varying documentation requirements—but it reflects common verification practices. The rule helps lenders confirm employment stability, income consistency, and financial reserves to handle unexpected expenses. Some lenders may be more flexible, while others require additional documentation depending on your employment type, income sources, and overall financial profile."
+      q: "What are typical Canadian mortgage prepayment privileges?",
+      a: "Most Canadian mortgages offer 15/15, 20/20, or 25/25 prepayment privileges—meaning you can increase monthly payments by that percentage and/or make annual lump sum payments up to that percentage of the original principal. For example, with 20/20 privileges on a $400,000 mortgage, you can increase payments by up to $515/month (20% of base payment) and make lump sum payments up to $80,000 annually (20% of original principal)."
+    },
+    {
+      q: "When does it NOT make sense to make extra mortgage payments?",
+      a: "Skip extra payments if you have credit card debt, personal loans, or other higher-interest debt—pay those first. Also avoid extra payments if you lack an emergency fund (need 3-6 months expenses), are missing employer retirement matching, or have investment opportunities that exceed your mortgage rate. If your rate is under 3-4%, investing the money often yields better returns long-term."
     }
   ];
 
   const faqs2 = [
     {
-      q: "Are second mortgage rates higher than first mortgage rates?",
-      a: "Yes, second mortgage rates are typically 1-3 percentage points higher than first mortgage rates, sometimes more. This rate premium compensates lenders for the increased risk of the subordinate lien position—if you default and your home is foreclosed, the first mortgage lender is paid before the second mortgage lender, meaning the second lender faces greater potential loss. Your specific rate depends on your credit score, loan-to-value ratio, debt-to-income ratio, and property characteristics. Borrowers with excellent credit (740+) and lower CLTV ratios receive better rates. Private lenders typically charge even higher rates than traditional banks but may approve applications that banks decline."
+      q: "Can I use an extra payment calculator for car loans and student loans too?",
+      a: "Yes! The same principles apply to all amortizing loans. Car loan extra payment calculators show how paying $50-100 extra monthly can save thousands in interest and pay off your car 1-2 years early. Student loan calculators reveal similar savings. The math works identically—extra principal payments reduce the balance faster, cutting total interest regardless of loan type."
     },
     {
-      q: "Can I deduct second mortgage interest on taxes?",
-      a: "Tax treatment varies by jurisdiction and loan purpose. In the United States, you may deduct second mortgage interest if you use the loan to buy, build, or substantially improve your home, and your total mortgage debt (first and second combined) doesn't exceed $750,000 ($375,000 if married filing separately). Interest on second mortgages used for other purposes—debt consolidation, education, business investments—is generally not deductible under current U.S. tax law. Canada, the UK, Ireland, and other countries have different rules. Always consult a qualified tax professional for your specific situation, as tax laws change frequently and individual circumstances vary significantly."
+      q: "What's the 13th payment method and how does it work?",
+      a: "The 13th payment method involves making one extra full mortgage payment per year, typically by dividing your monthly payment by 12 and adding that amount to each monthly payment. For a $2,000 monthly payment, you'd pay an extra $167 monthly ($2,000÷12), resulting in $2,167 per month. Over the year, you've made 13 full payments instead of 12, dramatically accelerating your payoff without feeling a huge impact on monthly cash flow."
     },
     {
-      q: "What happens if I can't make payments on my second mortgage?",
-      a: "Missing second mortgage payments triggers serious consequences. The lender can initiate foreclosure proceedings, just like a first mortgage lender, though they're paid after the first mortgage if your home is sold. Missed payments severely damage your credit score (drops of 100+ points are common), and late fees accumulate quickly. If you're struggling, contact your lender immediately—many offer hardship programs including temporary payment reduction, forbearance periods, or loan modification. Other options include refinancing both mortgages into one loan, selling your home before foreclosure proceedings advance, or negotiating a short sale. Act quickly before falling too far behind, as options decrease as delinquency worsens."
-    },
-    {
-      q: "Should I get a second mortgage or refinance my first mortgage?",
-      a: "The better choice depends on your first mortgage rate, current market rates, and how much you need to borrow. If your first mortgage rate is significantly lower than current rates, a second mortgage preserves that low rate while accessing equity—you pay higher rates only on the additional borrowed amount. If current rates are similar to or lower than your first mortgage rate, cash-out refinancing might make more sense, consolidating everything into one payment at a competitive rate. Compare total costs: closing costs for each option (refinancing typically costs more), monthly payment differences, total interest over the life of both loans, and whether you'll face prepayment penalties on your existing mortgage. A break-even analysis shows how long until refinancing costs are recouped through payment savings."
+      q: "How do I automate extra mortgage payments with my lender?",
+      a: "Contact your lender's customer service to set up automatic extra principal payments. Request that additional amounts be applied directly to principal (not as advance payments). Most Canadian lenders allow you to increase your payment amount within prepayment privilege limits. Set it up once and it continues automatically each month, removing the temptation to skip payments and ensuring consistency."
     }
   ];
 
@@ -71,8 +71,8 @@ export default function HowSecondMortgagesWork() {
       <div className="mx-auto max-w-4xl px-6 sm:px-8 py-8">
         <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
           <Image
-            src="/images/articles/how-second-mortgages-work-rates-costs-payments.jpg"
-            alt="Second mortgage explained"
+            src="/images/articles/construction-loans-how-they-work-financing-options.jpg"
+            alt="Seven strategies for extra mortgage payments showing savings outcomes and payoff acceleration"
             fill
             className="object-cover"
             priority
@@ -83,17 +83,17 @@ export default function HowSecondMortgagesWork() {
       {/* Title & Metadata */}
       <div className="mx-auto max-w-4xl px-6 sm:px-8">
         <h1 className="font-serif text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-          How Second Mortgages Work: Rates, Costs & Payments
+          How Extra Mortgage Payments Save You Money: 7 Proven Strategies
         </h1>
         
         <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
-          <time>March 15, 2026</time>
+          <time>May 12, 2026</time>
           <span className="mx-3">•</span>
-          <span>17 min read</span>
+          <span>11 min read</span>
         </div>
       </div>
 
-      {/* Banner Ad */}
+      {/* Banner Ad - Standardized Placement */}
       <div className="mx-auto max-w-4xl px-6 sm:px-8 mb-8">
         <div className="w-full flex justify-center">
           <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
@@ -108,26 +108,54 @@ export default function HowSecondMortgagesWork() {
           <div className="prose prose-slate prose-lg max-w-none">
             
             {/* Introduction */}
-            <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              Understanding your potential mortgage payment is the foundation of responsible homebuying. A mortgage payment calculator helps you estimate monthly costs before you commit to a home purchase, letting you evaluate different loan scenarios and determine what you can comfortably afford. Whether you're comparing properties, deciding on a down payment amount, or evaluating loan terms, accurate payment estimates guide smarter financial decisions.
-            </p>
+            <section className="mb-12">
+              <p className="text-xl text-slate-700 leading-relaxed mb-6">
+                In February 2020, Patricia Williams refinanced her Vancouver condo with a $425,000 mortgage at 3.89% over 25 years. Her required payment was $2,231 monthly. That same month, she made a decision that would ultimately save her $94,300 and seven years of payments: she increased her monthly payment to $2,500—just $269 extra—and committed to $8,000 annual lump sum payments each March using her tax refund and annual bonus.
+              </p>
+              <p className="text-lg text-slate-700 leading-relaxed mb-6">
+                Five years later, in early 2025, Patricia checked her mortgage statement and discovered something remarkable. While friends who bought homes the same year still owed $380,000-$390,000, her balance had dropped to $289,000. She'd paid off $136,000 in principal—$40,000 more than her peers making minimum payments. "People ask how I paid off so much," Patricia said. "The answer isn't dramatic. I just made extra payments every single month and every spring without fail. The compound effect did the rest."
+              </p>
+              <p className="text-lg text-slate-700 leading-relaxed mb-6">
+                This comprehensive guide explains exactly <strong>how extra mortgage payments save you money</strong> through seven proven strategies Canadian homeowners use to eliminate debt years early. You'll learn <strong>how to calculate extra principal payments</strong>, discover whether it's good to pay extra principal for your specific situation, understand <strong>what happens if you pay an extra $100 a month on your mortgage principal</strong> (and $200, $300, $500), and determine <strong>how much extra you should pay towards your principal</strong> based on your financial goals and circumstances.
+              </p>
+            </section>
 
-            <p className="text-base text-slate-600 leading-relaxed mb-8">
-              This comprehensive guide explains how mortgage payments are calculated, what factors influence your monthly costs, and how to use calculators effectively to plan your home purchase. You'll learn the mathematical formulas behind payment calculations, understand why different tools produce varying results, and discover how to account for taxes, insurance, and other essential costs that affect your total housing payment.
-            </p>
+            {/* Section 1 */}
+            <section className="mb-12">
+              <h2 className="font-serif text-3xl font-bold text-slate-900 mb-6">
+                How Extra Principal Payments Actually Save Money: The Compound Effect
+              </h2>
 
-            {/* How Mortgage Payments Are Calculated */}
-            <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mt-12 mb-6">
-              How Mortgage Payments Are Calculated
-            </h2>
+              <p className="text-lg text-slate-700 leading-relaxed mb-6">
+                Every mortgage payment splits between principal (reducing your loan balance) and interest (the lender's cost). Early payments are mostly interest because you owe the full amount. When you make an <strong>extra principal payment</strong>, that entire amount reduces your balance immediately—zero goes to interest.
+              </p>
 
-            <p className="text-base text-slate-600 leading-relaxed mb-4">
-              At its core, a mortgage payment consists of principal and interest. The principal is the amount you borrowed, and interest is what the lender charges for lending you money. Most mortgage payment calculators use the standard amortization formula that determines your fixed monthly payment over the loan term.
-            </p>
+              <p className="text-lg text-slate-700 leading-relaxed mb-6">
+                This creates a compound snowball effect: Lower balance means next month's interest charge is smaller, so more of your regular payment goes to principal, further reducing the balance. Each extra dollar eliminates future interest charges that would have accumulated for years or decades.
+              </p>
 
-            <p className="text-base text-slate-600 leading-relaxed mb-4">
-              The monthly payment formula is: <strong>M = P[r(1+r)^n]/[(1+r)^n-1]</strong>, where M is your monthly payment, P is the principal loan amount, r is your monthly interest rate (annual rate divided by 12), and n is the number of payments (loan term in years multiplied by 12). This formula ensures that each payment includes enough principal to fully repay the loan by the end of the term while covering the interest charged.
-            </p>
+              <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-8 rounded-r-lg">
+                <h3 className="font-bold text-blue-900 mb-4">Real Example: What Happens If You Pay an Extra $100 a Month on Your Mortgage Principal</h3>
+                <p className="text-blue-800 mb-4">
+                  <strong>Baseline:</strong> Carlos Martinez in Brampton has a $365,000 mortgage at 5.99% over 25 years. Monthly payment: $2,387. Without extra payments, he'll pay $351,100 in total interest over 25 years.
+                </p>
+                <p className="text-blue-800 mb-4">
+                  <strong>With $100 extra monthly ($2,487 total payment):</strong>
+                </p>
+                <ul className="space-y-2 text-blue-800">
+                  <li>✓ Payoff time: 21.5 years instead of 25 years</li>
+                  <li>✓ Total interest paid: $299,850 instead of $351,100</li>
+                  <li>✓ <strong>Interest savings: $51,250</strong></li>
+                  <li>✓ <strong>Time saved: 3.5 years</strong></li>
+                  <li>✓ Total extra payments made: $25,800 (216 months × $100)</li>
+                  <li>✓ <strong>Return on investment: 198%</strong> ($51,250 saved ÷ $25,800 invested)</li>
+                </ul>
+              </div>
+
+              <p className="text-lg text-slate-700 leading-relaxed mb-6">
+                <strong>Is it good to pay extra principal?</strong> For Carlos, absolutely. His $100 monthly extra investment yields a 198% return through interest savings—far exceeding typical investment returns. However, the answer depends on your interest rate, other debt, emergency savings, and investment opportunities, which we'll explore below.
+              </p>
+            </section>
 
             <h3 className="font-serif text-xl font-bold text-slate-900 mt-8 mb-4">
               Principal and Interest Calculation Example
@@ -320,36 +348,48 @@ export default function HowSecondMortgagesWork() {
               Start with comprehensive calculators that include taxes, insurance, and PMI for realistic payment estimates. Compare different scenarios: larger versus smaller down payments, 15-year versus 30-year terms, or the impact of extra payments. Research location-specific costs like property tax rates and insurance premiums in your target area. Finally, remember that calculator estimates are starting points—obtain detailed quotes from multiple lenders to understand your actual costs and available options before committing to a mortgage.
             </p>
 
-            {/* FAQ Section */}
-            <h2 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Frequently Asked Questions</h2>
-            
-            <div className="space-y-4 mb-12">
+            </div>
+          </div>
+        </article>
+
+      {/* FAQ Section */}
+      <section className="py-12 bg-slate-50">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <div className="mx-auto max-w-3xl">
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-8 text-center">
+              Frequently Asked Questions
+            </h2>
+
+            <div className="space-y-4">
               {allFaqs.map((faq, index) => (
-                <div key={index} className="border border-slate-200 rounded-lg overflow-hidden">
+                <div
+                  key={index}
+                  className="rounded-lg border border-slate-200 bg-white overflow-hidden"
+                >
                   <button
                     onClick={() => toggleFAQ(index)}
-                    className="w-full px-6 py-4 text-left bg-white hover:bg-slate-50 transition-colors flex justify-between items-center gap-4"
+                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-slate-50 transition-colors"
                   >
-                    <span className="font-semibold text-slate-900 pr-8">{faq.q}</span>
+                    <span className="font-semibold text-slate-900 pr-8">
+                      {faq.q}
+                    </span>
                     {openFAQ === index ? (
-                      <ChevronUp className="w-5 h-5 text-indigo-600 flex-shrink-0" />
+                      <ChevronUp className="h-5 w-5 text-indigo-600 flex-shrink-0" />
                     ) : (
-                      <ChevronDown className="w-5 h-5 text-slate-400 flex-shrink-0" />
+                      <ChevronDown className="h-5 w-5 text-slate-400 flex-shrink-0" />
                     )}
                   </button>
                   {openFAQ === index && (
-                    <div className="px-6 py-4 bg-slate-50 border-t border-slate-200">
+                    <div className="px-6 pb-4">
                       <p className="text-slate-600 leading-relaxed">{faq.a}</p>
                     </div>
                   )}
                 </div>
               ))}
             </div>
-
           </div>
         </div>
-      </article>
+      </section>
     </main>
   );
 }
-

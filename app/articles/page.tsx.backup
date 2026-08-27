@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
 export default function ArticlesPage() {
-  // 30 Active Articles (clickable with links)
+  // 31 Active Articles (clickable with links)
   const activeArticles = [
     {
       title: "Mortgage Payment Calculator: Estimate Monthly Costs",
@@ -120,20 +120,6 @@ export default function ArticlesPage() {
       excerpt: "Learn how interest-only mortgages work, their advantages and disadvantages, and whether this loan type is right for your financial situation."
     },
     {
-      title: "Extra Payment Calculator: Pay Off Your Mortgage Faster",
-      slug: "/extra-payment-calculator-pay-off-mortgage-faster",
-      image: "/images/articles/construction-loan-calculator-estimate-build-costs.jpg",
-      date: "May 10, 2026",
-      excerpt: "Calculate how extra mortgage payments reduce your loan term and save interest. Real examples show $100-$500 monthly extra payments on mortgages, car loans, and student loans."
-    },
-    {
-      title: "How Extra Mortgage Payments Save You Money",
-      slug: "/how-extra-mortgage-payments-save-you-money",
-      image: "/images/articles/construction-loans-how-they-work-financing-options.jpg",
-      date: "May 12, 2026",
-      excerpt: "Discover 7 proven strategies for making extra mortgage payments. Learn how $100-$500 monthly can save $37K-$91K in interest and shorten your mortgage by years."
-    },
-    {
       title: "VA Loan Calculator: Estimate Benefits & Payments",
       slug: "/va-loan-calculator-estimate-benefits-payments",
       image: "/images/articles/va-loan-calculator-estimate-benefits-payments.jpg",
@@ -192,93 +178,103 @@ export default function ArticlesPage() {
     {
       title: "Income Requirement Calculator: How Much You Need",
       slug: "/income-requirement-calculator-how-much-you-need",
-      image: "/images/articles/usda-loan-eligibility-income-property-requirements.jpg",
+      image: "/images/articles/fha-loan-requirements-down-payment-credit-score.jpg",
       date: "May 5, 2026",
       excerpt: "Calculate income needed for mortgages from $200K to $1M+ in Canada. Understand GDS/TDS ratios, stress test impacts, and qualifying income by salary level."
     },
     {
       title: "How Much Income Do You Need to Buy a Home?",
       slug: "/how-much-income-do-you-need-to-buy-a-home",
-      image: "/images/articles/usda-loan-calculator-rural-home-payment-estimator.jpg",
+      image: "/images/articles/usda-loan-eligibility-income-property-requirements.jpg",
       date: "May 5, 2026",
       excerpt: "Complete guide to mortgage income requirements in Canada. Learn how lenders calculate qualifying income, regional variations, and income needed by mortgage amount."
     },
     {
-      title: "Biweekly Payment Calculator: Pay Off Loans Faster",
-      slug: "/biweekly-payment-calculator-pay-off-loans-faster",
-      image: "/images/articles/biweekly-payment-calculator-accelerate-loan-payoff.jpg",
-      date: "May 20, 2026",
-      excerpt: "Calculate biweekly payments for mortgages, car loans, and salary. Learn how 26 payments save $40K-$80K in interest with real Ontario, BC, and Alberta examples."
+      title: "Extra Payment Calculator: Pay Off Your Mortgage Faster",
+      slug: "/extra-payment-calculator-pay-off-mortgage-faster",
+      image: "/images/articles/extra-payment-calculator-pay-off-mortgage-faster.jpg",
+      date: "May 10, 2026",
+      excerpt: "Calculate how extra mortgage payments reduce your loan term and save interest. Real examples show $100-$500 monthly extra payments saving thousands in interest."
     },
     {
-      title: "Biweekly vs. Monthly Mortgage Payments Compared",
-      slug: "/biweekly-vs-monthly-mortgage-payments-compared",
-      image: "/images/articles/biweekly-mortgage-payments-how-much-can-you-save.jpg",
-      date: "May 21, 2026",
-      excerpt: "Compare biweekly vs monthly mortgage payments with real borrower outcomes. See exact interest savings, pros/cons, and decision framework for Canadian homeowners."
+      title: "How Extra Mortgage Payments Save You Money: 7 Proven Strategies",
+      slug: "/how-extra-mortgage-payments-save-you-money",
+      image: "/images/articles/how-extra-mortgage-payments-save-you-money.jpg",
+      date: "May 12, 2026",
+      excerpt: "Discover 7 proven strategies for paying extra on your mortgage principal. Real Canadian examples show how the 13th payment method, biweekly conversion, and windfall application save $50k-$90k in interest."
+    },
+    {
+      title: "Interest-Only Loan Calculator With Extra Payments",
+      slug: "/interest-only-loan-calculator-with-extra-payments",
+      image: "/images/articles/interest-only-loan-calculator-with-extra-payments.jpg",
+      date: "May 14, 2026",
+      excerpt: "Calculate interest-only payments plus extra principal with our free calculator. Real examples show how extra payments reduce balloon amounts and build equity during interest-only periods."
+    }
+,
+    {
+      title: "Mortgage Qualification Calculator: Do You Qualify?",
+      slug: "/mortgage-qualification-calculator-do-you-qualify",
+      image: "/images/articles/fha-loan-requirements-down-payment-credit-score.jpg",
+      date: "May 16, 2026",
+      excerpt: "Use our free mortgage qualification calculator to check if you qualify. Covers Ontario, BC, Alberta stress tests, GDS/TDS ratios, and TD, BMO, RBC, Scotia requirements."
+    },
+    {
+      title: "How to Qualify for a Mortgage: Key Requirements",
+      slug: "/how-to-qualify-for-a-mortgage-key-requirements",
+      image: "/images/articles/va-loan-requirements-eligibility-approval-process.jpg",
+      date: "May 18, 2026",
+      excerpt: "Complete guide to qualifying for a Canadian mortgage. Learn the 6 key requirements, how lenders evaluate applications, and strategies to boost qualification by 15-30%."
     }
 
   ];
-
 
   return (
     <div className="min-h-screen bg-white">
       
       {/* Header Section */}
-      <section className="py-12 bg-gradient-to-br from-indigo-50 to-white border-b border-slate-200">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="font-serif text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              Mortgage Articles & Guides
+      <div className="border-b border-slate-200 bg-gradient-to-r from-slate-50 to-white">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16">
+          <div className="text-center mb-10">
+            <Link 
+              href="/" 
+              className="inline-flex items-center text-indigo-600 hover:text-indigo-700 mb-6 group"
+            >
+              <ArrowLeft className="mr-2 h-5 w-5 group-hover:-translate-x-1 transition-transform" />
+              Back to Calculator
+            </Link>
+            <h1 className="font-serif text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+              Mortgage Insights & Guides
             </h1>
+            <p className="text-xl text-slate-600">
+              Expert advice and tools to help you make informed mortgage decisions
+            </p>
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* Articles Grid */}
-      <section className="py-16">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          
-          {/* Active Articles */}
-          <div className="mb-16">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {activeArticles.map((article, index) => (
+      {/* Main Articles Section */}
+      <section className="py-16 bg-white">
                 <Link
                   key={index}
                   href={article.slug}
-                  className="flex flex-col h-full group rounded-lg border border-slate-200 bg-white shadow-sm overflow-hidden hover:shadow-lg hover:border-indigo-300 transition-all"
+                  className="group block bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200 hover:border-indigo-300"
                 >
-                  {/* Image with fixed height */}
-                  <div className="relative w-full h-48 overflow-hidden">
+                  <div className="relative h-56 overflow-hidden">
                     <Image
                       src={article.image}
                       alt={article.title}
                       fill
-                      className="object-cover"
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-                  
-                  {/* Content area with flex-grow */}
-                  <div className="flex flex-col flex-grow p-6">
-                    {/* Date */}
-                    <time className="text-sm text-slate-500 mb-3">
-                      {article.date}
-                    </time>
-                    
-                    {/* Title */}
-                    <h3 className="font-serif text-lg font-bold text-slate-900 group-hover:text-indigo-600 transition-colors mb-3 line-clamp-2">
+                  <div className="p-6">
+                    <div className="text-sm text-slate-500 mb-2">{article.date}</div>
+                    <h2 className="font-serif text-xl font-bold text-slate-900 mb-3 group-hover:text-indigo-600 transition-colors">
                       {article.title}
-                    </h3>
-                    
-                    {/* Excerpt */}
-                    <p className="text-sm text-slate-600 mb-4 line-clamp-3 flex-grow">
+                    </h2>
+                    <p className="text-slate-600 line-clamp-3">
                       {article.excerpt}
                     </p>
-                    
-                    {/* CTA - pushed to bottom with mt-auto */}
-                    <div className="flex items-center text-indigo-600 font-medium text-sm mt-auto">
-                      Read Article →
-                    </div>
                   </div>
                 </Link>
               ))}

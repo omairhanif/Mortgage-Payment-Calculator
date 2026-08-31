@@ -500,7 +500,7 @@ export default function MortgageInterestTaxDeductionPage() {
                 Understanding tax deductions is important, but so is knowing your monthly mortgage payment. Use our calculator to see exactly what you'll pay based on current Canadian mortgage rates.
               </p>
               <Link 
-                href="/mortgage"
+                href="/"
                 className="inline-block bg-indigo-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-indigo-700 transition-colors"
               >
                 Calculate Your Mortgage

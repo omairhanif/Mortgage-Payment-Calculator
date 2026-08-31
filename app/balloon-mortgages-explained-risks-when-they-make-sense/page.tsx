@@ -360,7 +360,7 @@ export default function BalloonMortgagesExplainedArticle() {
                 Use Balloon Calculator
               </Link>
               <Link
-                href="/mortgage"
+                href="/"
                 className="inline-flex items-center px-6 py-3 bg-white text-indigo-600 font-semibold rounded-lg border-2 border-indigo-600 hover:bg-indigo-50 transition-colors"
               >
                 Compare All Options →

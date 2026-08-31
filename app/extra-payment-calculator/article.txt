@@ -1,0 +1,606 @@
+      {subcalculator === "extra-payment" && (
+        <section className="py-12 bg-white">
+          <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+            <article className="mx-auto max-w-4xl">
+              <div className="prose prose-slate max-w-none prose-headings:font-serif prose-headings:text-slate-900 prose-p:text-slate-600 prose-p:leading-relaxed prose-li:text-slate-600">
+                <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-6">
+                  Understanding Extra Payments: Your Path to Faster Debt Freedom
+                </h2>
+
+                <p className="text-slate-600 mb-4">
+                  Whether you're managing a mortgage, car loan, student debt, personal loan, or credit card balance, making extra principal payments is one of the most powerful strategies to reduce interest costs and achieve debt freedom faster. An <strong>extra payment calculator</strong> helps you visualize exactly how additional payments—whether monthly, annually, or as one-time lump sums—accelerate your payoff timeline and save money.
+                </p>
+
+                <p className="text-slate-600 mb-6">
+                  The concept applies across all debt types, but the impact varies significantly. Understanding how extra payments work mechanically, how they affect different loan types, and when they make the most financial sense empowers you to make strategic decisions about debt reduction versus other financial priorities.
+                </p>
+
+                <h3 className="font-serif text-xl md:text-2xl font-bold text-slate-900 mt-10 mb-4">
+                  How Do You Calculate Extra Principal Payments?
+                </h3>
+
+                <p className="text-slate-600 mb-4">
+                  When you make your regular loan payment, it splits between interest and principal according to an amortization schedule. Early in the loan term, most of your payment covers interest; later, more goes toward principal. When you make an <strong>extra principal payment</strong>, that entire amount bypasses interest and reduces your loan balance directly.
+                </p>
+
+                <p className="text-slate-600 mb-4">
+                  Here's the mechanical breakdown:
+                </p>
+
+                <div className="bg-blue-50 rounded-lg p-6 my-6">
+                  <h4 className="font-serif font-bold text-slate-900 mb-3">Monthly Payment Calculation:</h4>
+                  <ul className="space-y-2 text-sm text-slate-600">
+                    <li>• <strong>Interest for the month</strong> = Current balance × (annual rate ÷ 12)</li>
+                    <li>• <strong>Principal portion</strong> = Regular payment - Interest portion</li>
+                    <li>• <strong>New balance</strong> = Current balance - Principal portion</li>
+                    <li>• <strong>With extra payment</strong> = Current balance - (Principal portion + Extra payment)</li>
+                  </ul>
+                </div>
+
+                <p className="text-slate-600 mb-6">
+                  The compounding effect is powerful: reducing your balance today means less interest accrues tomorrow, which means your next regular payment allocates more to principal, which further reduces the balance. This positive feedback loop accelerates dramatically with consistent extra payments.
+                </p>
+
+                <p className="text-slate-600 mb-6">
+                  An <strong>extra principal payment calculator</strong> automates this month-by-month recalculation across your entire loan term, showing exactly when you'll achieve payoff and how much interest you'll save. The mathematics involves iterative calculations through each payment period until the balance reaches zero.
+                </p>
+
+                <h3 className="font-serif text-xl md:text-2xl font-bold text-slate-900 mt-10 mb-4">
+                  Extra Payments Across Different Debt Types
+                </h3>
+
+                <p className="text-slate-600 mb-4">
+                  While the mechanics are similar, extra payments affect different debt types in distinct ways:
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-4 mb-8">
+                  <div className="bg-green-50 rounded-lg p-5">
+                    <h4 className="font-serif font-semibold text-slate-900 mb-2">Mortgage Extra Payments</h4>
+                    <p className="text-sm text-slate-600 mb-2">
+                      An <strong>extra payment calculator mortgage</strong> shows dramatic long-term impact. With 25-30 year terms, early extras save exponentially more.
+                    </p>
+                    <p className="text-xs text-slate-500">
+                      Example: $200 extra monthly on $350k mortgage can save $80k+ in interest and cut 6+ years off the term.
+                    </p>
+                  </div>
+
+                  <div className="bg-orange-50 rounded-lg p-5">
+                    <h4 className="font-serif font-semibold text-slate-900 mb-2">Car/Auto Loan Extra Payments</h4>
+                    <p className="text-sm text-slate-600 mb-2">
+                      An <strong>extra payment calculator car loan</strong> shows how to own your vehicle faster. Shorter terms mean faster results but smaller total savings.
+                    </p>
+                    <p className="text-xs text-slate-500">
+                      Example: $150 extra monthly on $30k auto loan can cut 18 months off a 5-year term and save $1,800+ in interest.
+                    </p>
+                  </div>
+
+                  <div className="bg-purple-50 rounded-lg p-5">
+                    <h4 className="font-serif font-semibold text-slate-900 mb-2">Student Loan Extra Payments</h4>
+                    <p className="text-sm text-slate-600 mb-2">
+                      Using an <strong>extra payment calculator student loans</strong> tool helps prioritize which loans to target first (typically highest rate).
+                    </p>
+                    <p className="text-xs text-slate-500">
+                      Consider: Federal loans offer income-driven repayment and forgiveness options—extra payments eliminate these benefits.
+                    </p>
+                  </div>
+
+                  <div className="bg-red-50 rounded-lg p-5">
+                    <h4 className="font-serif font-semibold text-slate-900 mb-2">Credit Card Extra Payments</h4>
+                    <p className="text-sm text-slate-600 mb-2">
+                      An <strong>extra payment calculator credit card</strong> reveals massive savings potential due to high interest rates (often 19-25%).
+                    </p>
+                    <p className="text-xs text-slate-500">
+                      Priority: Credit cards should almost always receive extra payments before other debt types due to extreme interest costs.
+                    </p>
+                  </div>
+
+                  <div className="bg-indigo-50 rounded-lg p-5">
+                    <h4 className="font-serif font-semibold text-slate-900 mb-2">Personal Loan Extra Payments</h4>
+                    <p className="text-sm text-slate-600 mb-2">
+                      A <strong>personal loan extra payment calculator</strong> helps manage unsecured debt, which typically carries moderate-to-high interest rates.
+                    </p>
+                    <p className="text-xs text-slate-500">
+                      Variable: Personal loans range from 6-36% APR—prioritize based on your specific rate relative to other debts.
+                    </p>
+                  </div>
+
+                  <div className="bg-teal-50 rounded-lg p-5">
+                    <h4 className="font-serif font-semibold text-slate-900 mb-2">Home Equity/Second Mortgage</h4>
+                    <p className="text-sm text-slate-600 mb-2">
+                      Using an <strong>extra payment calculator home loan</strong> for secondary financing can reduce risk and free up equity faster.
+                    </p>
+                    <p className="text-xs text-slate-500">
+                      Benefit: Paying off second mortgages/HELOCs before primary mortgages often makes sense due to higher rates and variable terms.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-slate-50 rounded-lg p-6 my-6">
+                  <h4 className="font-serif font-bold text-slate-900 mb-3">Canadian Context:</h4>
+                  <p className="text-sm text-slate-600">
+                    If you're using an <strong>extra payment calculator Canada</strong> tool, understand that Canadian mortgages typically have prepayment privileges allowing 10-20% of the original principal to be paid annually without penalty. An <strong>extra payment calculator Ontario</strong> or other provincial tools should account for these terms, which are generally consistent across provinces but vary by lender and mortgage type (open vs. closed).
+                  </p>
+                </div>
+
+              </div>
+            </article>
+          </div>
+        </section>
+      )}
+
+      {/* Educational Article - Biweekly Payment (Inline) */}
+      {subcalculator === "biweekly" && (
+        <section className="py-12 bg-white">
+          <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+            <article className="mx-auto max-w-4xl">
+              <div className="prose prose-slate max-w-none prose-headings:font-serif prose-headings:text-slate-900 prose-p:text-slate-600 prose-p:leading-relaxed prose-li:text-slate-600">
+                <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-6">
+                  Understanding Biweekly Payments: More Than Just Payment Frequency
+                </h2>
+
+                <h3 className="font-serif text-xl md:text-2xl font-bold text-slate-900 mt-10 mb-4">
+                  Is It Good to Pay Extra Principal?
+                </h3>
+
+                <p className="text-slate-600 mb-4">
+                  The question of whether to make extra principal payments depends on your complete financial picture. Extra payments offer compelling benefits but aren't always the optimal use of available cash.
+                </p>
+
+                <h4 className="font-serif text-lg font-semibold text-slate-900 mt-6 mb-3">
+                  Benefits of Extra Principal Payments:
+                </h4>
+
+                <ul className="space-y-3 text-slate-600 mb-6">
+                  <li className="flex gap-3">
+                    <span className="text-green-600 font-bold">•</span>
+                    <div>
+                      <strong>Guaranteed return equal to your interest rate:</strong> Paying extra on a 6% loan provides a guaranteed 6% return. No market investment can promise that without risk.
+                    </div>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-green-600 font-bold">•</span>
+                    <div>
+                      <strong>Compound interest works in your favor:</strong> Interest savings compound over time. Reducing your balance today saves interest tomorrow, which saves more the next month, creating exponential benefits.
+                    </div>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-green-600 font-bold">•</span>
+                    <div>
+                      <strong>Psychological freedom:</strong> Debt creates stress. Achieving debt-free status faster—whether it's owning your home, driving your car free and clear, or eliminating student loans—provides mental relief beyond the mathematical benefits.
+                    </div>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-green-600 font-bold">•</span>
+                    <div>
+                      <strong>Improved cash flow upon payoff:</strong> Using a <strong>pay off loan early calculator with extra payments</strong> reveals when you'll eliminate required payments, freeing substantial monthly cash flow for other goals.
+                    </div>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-green-600 font-bold">•</span>
+                    <div>
+                      <strong>Flexibility and control:</strong> Unlike locked-in investments, you control when and how much to pay extra, adjusting as your financial situation changes.
+                    </div>
+                  </li>
+                </ul>
+
+                <p className="text-slate-600 mb-4">
+                  If you've searched for a <strong>biweekly payment calculator mortgage</strong> tool, you likely want to understand how changing your payment frequency can affect your loan payoff timeline and interest costs. The concept is straightforward: instead of making one payment per month, you make a payment every two weeks. However, the implementation details and actual benefits depend on which type of biweekly payment structure you use and how your lender processes those payments.
+                </p>
+
+                <p className="text-slate-600 mb-6">
+                  Before diving into calculations, it's essential to clarify what you're calculating. This article addresses <strong>biweekly loan payments</strong>—how making mortgage or car loan payments every two weeks affects your debt. This is different from calculating your biweekly salary or paycheck, which we'll address separately to avoid confusion. Let's start with how biweekly loan payments work mechanically.
+                </p>
+
+                <h4 className="font-serif text-lg font-semibold text-slate-900 mt-6 mb-3">
+                  When Extra Payments May Not Be Optimal:
+                </h4>
+
+                <ul className="space-y-3 text-slate-600 mb-6">
+                  <li className="flex gap-3">
+                    <span className="text-orange-600 font-bold">•</span>
+                    <div>
+                      <strong>No emergency fund:</strong> Before making extra debt payments, establish 3-6 months of expenses in accessible savings. Once money goes to debt principal, you can't retrieve it in an emergency.
+                    </div>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-orange-600 font-bold">•</span>
+                    <div>
+                      <strong>Employer retirement match available:</strong> If your employer matches RRSP/401(k) contributions and you're not maximizing that match, capture the free money first—it's an instant 50-100% return.
+                    </div>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-orange-600 font-bold">•</span>
+                    <div>
+                      <strong>Higher-rate debt exists:</strong> If you're paying extra on a 4% mortgage while carrying 19% credit card debt, you're optimizing incorrectly. Always prioritize the highest-interest debt.
+                    </div>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-orange-600 font-bold">•</span>
+                    <div>
+                      <strong>Prepayment penalties apply:</strong> Some loans charge early payoff fees that can negate savings. Check your specific loan terms before committing to a strategy.
+                    </div>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-orange-600 font-bold">•</span>
+                    <div>
+                      <strong>Tax-advantaged accounts underutilized:</strong> In Canada, TFSA and RRSP contribution room that goes unused is lost permanently. Mortgage interest isn't tax-deductible for principal residences, so balance debt paydown against maximizing these accounts.
+                    </div>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-orange-600 font-bold">•</span>
+                    <div>
+                      <strong>Very low interest rate:</strong> If your mortgage is 2-3%, investing extra money in tax-advantaged accounts or diversified portfolios may provide better long-term returns, though with market risk.
+                    </div>
+                  </li>
+                </ul>
+
+                <div className="bg-blue-50 rounded-lg p-6 my-6">
+                  <h4 className="font-serif font-bold text-slate-900 mb-3">The Decision Framework</h4>
+                  <p className="text-sm text-slate-600">
+                    Financial priority order typically looks like: (1) Build emergency fund (3-6 months expenses), (2) Capture employer retirement match, (3) Pay off high-interest debt (credit cards 15%+), (4) Max tax-advantaged retirement accounts OR pay extra on moderate-interest debt (choose based on rate and personal preference), (5) Pay extra on low-interest debt OR invest in taxable accounts. This framework balances mathematical optimization with risk management and psychological factors.
+                  </p>
+                </div>
+
+
+                <h3 className="font-serif text-xl md:text-2xl font-bold text-slate-900 mt-10 mb-4">
+                  How Do You Calculate Biweekly Payments?
+                </h3>
+
+                <p className="text-slate-600 mb-4">
+                  The mechanics depend on which type of biweekly payment you're implementing. There are two distinct approaches, and understanding the difference is critical:
+                </p>
+
+                <div className="bg-blue-50 rounded-lg p-6 my-6">
+                  <h4 className="font-serif font-bold text-slate-900 mb-3">Standard Biweekly Payment (Most Common)</h4>
+                  <p className="text-sm text-slate-600 mb-3">
+                    <strong>Calculation:</strong> Monthly payment ÷ 2 = Biweekly payment amount
+                  </p>
+                  <p className="text-sm text-slate-600 mb-3">
+                    <strong>How it works:</strong> You pay half your monthly payment every two weeks. Since there are 52 weeks in a year, you make 26 biweekly payments annually (52 ÷ 2 = 26). Those 26 half-payments equal 13 full monthly payments instead of 12.
+                  </p>
+
+                <h3 className="font-serif text-xl md:text-2xl font-bold text-slate-900 mt-10 mb-4">
+                  Determining How Much Extra to Pay
+                </h3>
+
+                <p className="text-slate-600 mb-4">
+                  Once you've decided extra payments make sense for your situation, determining the amount requires balancing aggressiveness with financial flexibility. Several strategies help you find the right amount:
+                </p>
+
+                <div className="bg-green-50 rounded-lg p-6 my-6">
+                  <h4 className="font-serif font-bold text-slate-900 mb-3">The 50/30/20 Modification</h4>
+                  <p className="text-sm text-slate-600">
+                    If you follow the popular 50/30/20 budgeting rule (50% needs, 30% wants, 20% savings/debt), redirect a portion of that 20% to extra principal. For example, if you have $800 monthly for savings/debt after needs and wants, you might allocate $400 to emergency savings, $200 to retirement, and $200 to extra debt principal. Adjust the split based on your current financial foundation.
+                  </p>
+                </div>
+
+                <div className="bg-purple-50 rounded-lg p-6 my-6">
+                  <h4 className="font-serif font-bold text-slate-900 mb-3">The Comfort Level Strategy</h4>
+                  <p className="text-sm text-slate-600 mb-2">
+                    Start with what feels manageable—$50, $100, $200 monthly. Use an <strong>extra payment calculator auto loan</strong> or mortgage tool to see the impact. If comfortable after 3-6 months, increase incrementally. Sustainability matters more than aggressive amounts you can't maintain.
+                  </p>
+                </div>
+
+                <div className="bg-orange-50 rounded-lg p-6 my-6">
+                  <h4 className="font-serif font-bold text-slate-900 mb-3">The Debt Avalanche Approach</h4>
+                  <p className="text-sm text-slate-600">
+                    Make minimum payments on all debts, then direct all available extra funds to the highest-interest debt. Once eliminated, roll that payment to the next-highest rate. A <strong>car loan extra payment calculator</strong> and credit card calculator together help you prioritize mathematically optimal debt reduction. For psychological wins, some prefer the "snowball" method (smallest balance first), which sacrifices mathematical optimization for motivational momentum.
+                  </p>
+                </div>
+
+                <h3 className="font-serif text-xl md:text-2xl font-bold text-slate-900 mt-10 mb-4">
+                  Recurring vs. Lump-Sum Extra Payments
+                </h3>
+
+                <p className="text-slate-600 mb-4">
+                  A <strong>mortgage calculator with extra payments monthly and annually</strong> reveals that payment timing affects results. Understanding the difference helps you structure your strategy:
+                </p>
+
+                <div className="grid md:grid-cols-3 gap-4 mb-8">
+                  <div className="bg-indigo-50 rounded-lg p-5">
+                    <h4 className="font-serif font-semibold text-slate-900 mb-2">Monthly Extra Payments</h4>
+                    <p className="text-sm text-slate-600">
+                      <strong>Best for:</strong> Consistent income, automatic discipline, maximizing time-value of money
+                    </p>
+                    <p className="text-xs text-slate-500 mt-2">
+                      Impact: Slightly higher savings than annual because balance reduces faster, compounding earlier
+                    </p>
+                  </div>
+
+                  <div className="bg-teal-50 rounded-lg p-5">
+                    <h4 className="font-serif font-semibold text-slate-900 mb-2">Annual Extra Payments</h4>
+                    <p className="text-sm text-slate-600">
+                      <strong>Best for:</strong> Irregular income, bonus allocation, prepayment privilege limits
+                    </p>
+                    <p className="text-xs text-slate-500 mt-2">
+                      Impact: Nearly equivalent to monthly if made consistently; easier for commission/seasonal income
+                    </p>
+                  </div>
+
+                  <div className="bg-cyan-50 rounded-lg p-5">
+                    <h4 className="font-serif font-semibold text-slate-900 mb-2">One-Time Lump-Sum</h4>
+                    <p className="text-sm text-slate-600">
+                      <strong>Best for:</strong> Inheritance, home sale proceeds, large bonuses, savings windfall
+                    </p>
+                    <p className="text-xs text-slate-500 mt-2">
+                      Impact: Timing critical—earlier in loan term = exponentially more savings than same amount later
+                    </p>
+                  </div>
+                </div>
+
+                <p className="text-slate-600 mb-6">
+                  Many borrowers use a hybrid approach: small recurring monthly extras plus annual lump sums from bonuses or tax refunds. A <strong>mortgage calculator with extra payments and lump sum</strong> functionality lets you model combined strategies to see cumulative impact.
+                </p>
+
+                  <p className="text-sm text-slate-600">
+                    <strong>The benefit:</strong> That 13th payment is entirely extra principal, accelerating payoff and reducing interest without significantly changing your budget—if you're paid biweekly, you're simply aligning loan payments with paycheck frequency.
+                  </p>
+                </div>
+
+                <div className="bg-green-50 rounded-lg p-6 my-6">
+                  <h4 className="font-serif font-bold text-slate-900 mb-3">Accelerated Biweekly Payment (Less Common)</h4>
+                  <p className="text-sm text-slate-600 mb-3">
+                    <strong>Calculation:</strong> (Monthly payment × 12) ÷ 26 = Biweekly payment amount
+                  </p>
+                  <p className="text-sm text-slate-600 mb-3">
+                    <strong>How it works:</strong> You pay the equivalent of 12 monthly payments divided across 26 biweekly payments. Each biweekly payment is slightly smaller than half your monthly payment, but you're not making an extra payment annually.
+                  </p>
+                  <p className="text-sm text-slate-600">
+                    <strong>The benefit:</strong> You still save interest because you're paying principal faster—every two weeks instead of once monthly means less interest accrues between payments. However, savings are smaller than standard biweekly because you're not making that 13th payment.
+                  </p>
+
+                <h3 className="font-serif text-xl md:text-2xl font-bold text-slate-900 mt-10 mb-4">
+                  Real-World Hypothetical Scenarios: The Power of Extra Payments
+                </h3>
+
+                <p className="text-slate-600 mb-6">
+                  Understanding abstract concepts is one thing; seeing concrete numbers makes the impact tangible. Here are detailed hypothetical examples across different debt types showing exactly how extra payments accelerate payoff and reduce interest costs.
+                </p>
+
+                <div className="bg-slate-50 rounded-lg p-6 my-6 border-l-4 border-blue-600">
+                  <h4 className="font-serif text-lg font-bold text-slate-900 mb-3">
+                    Hypothetical Example 1: What Happens If I Pay an Extra $100 a Month on My Mortgage?
+                  </h4>
+                  
+                  <p className="text-sm text-slate-600 mb-4">
+                    This is one of the most common questions borrowers ask. Let's examine a realistic Canadian mortgage scenario:
+                  </p>
+
+                  <div className="bg-white rounded-lg p-4 mb-4">
+                    <p className="text-sm font-semibold text-slate-900 mb-2">Loan Details:</p>
+                    <ul className="text-sm text-slate-600 space-y-1">
+                      <li>• <strong>Mortgage amount:</strong> $350,000</li>
+                      <li>• <strong>Interest rate:</strong> 5.5% annually</li>
+                      <li>• <strong>Loan term:</strong> 25 years (300 months)</li>
+                      <li>• <strong>Regular monthly payment:</strong> Approximately $2,145</li>
+                    </ul>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-4 mb-4">
+                    <div className="bg-red-50 rounded-lg p-4">
+                      <p className="text-sm font-semibold text-slate-900 mb-2">Without Extra Payments:</p>
+                      <ul className="text-sm text-slate-600 space-y-1">
+                        <li>• Total interest paid: <strong>~$293,500</strong></li>
+                        <li>• Total paid: <strong>~$643,500</strong></li>
+                        <li>• Payoff: <strong>25 years (300 months)</strong></li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-green-50 rounded-lg p-4">
+                      <p className="text-sm font-semibold text-slate-900 mb-2">With $100 Extra Monthly:</p>
+                      <ul className="text-sm text-slate-600 space-y-1">
+                        <li>• Total interest paid: <strong>~$223,000</strong></li>
+                        <li>• Total paid: <strong>~$598,500</strong> (including extras)</li>
+                        <li>• Payoff: <strong>~20.5 years (246 months)</strong></li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="bg-blue-50 rounded-lg p-4">
+                    <p className="text-sm font-semibold text-slate-900 mb-2">Impact Summary:</p>
+                    <ul className="text-sm text-slate-600 space-y-1">
+                      <li>• <strong>Interest savings:</strong> Approximately $70,500 (24% reduction)</li>
+                      <li>• <strong>Time reduction:</strong> 4.5 years faster (18% shorter term)</li>
+                      <li>• <strong>Extra paid:</strong> $24,600 total over 246 months</li>
+                      <li>• <strong>Net benefit:</strong> $70,500 saved - $24,600 extra = <strong>$45,900 net gain</strong></li>
+                      <li>• <strong>Effective return:</strong> The $24,600 invested generates $45,900 benefit = ~186% total return</li>
+                    </ul>
+                  </div>
+
+                  <p className="text-xs text-slate-500 mt-4 italic">
+                    Note: This is a simplified hypothetical example. Actual results depend on your specific loan terms, payment schedule, and whether your lender applies extra payments immediately or at specific intervals. Always verify with your lender how extra payments are processed.
+                  </p>
+                </div>
+
+                </div>
+
+                <p className="text-slate-600 mb-6">
+                  Most <strong>biweekly payment calculator</strong> tools default to standard biweekly payments (the half-payment method resulting in 13 annual payments), as this provides more substantial benefits. When people refer to biweekly mortgage payments saving money, they typically mean this standard approach. The key is understanding which method your lender uses or which you're implementing yourself.
+                </p>
+
+                <h3 className="font-serif text-xl md:text-2xl font-bold text-slate-900 mt-10 mb-4">
+
+                <div className="bg-slate-50 rounded-lg p-6 my-6 border-l-4 border-orange-600">
+                  <h4 className="font-serif text-lg font-bold text-slate-900 mb-3">
+                    Hypothetical Example 2: Extra Payments on an Auto Loan
+                  </h4>
+                  
+                  <p className="text-sm text-slate-600 mb-4">
+                    Car loans have shorter terms than mortgages, so extra payments produce faster results but smaller total savings. Here's a typical scenario using an <strong>extra payment calculator car</strong> tool:
+                  </p>
+
+                  <div className="bg-white rounded-lg p-4 mb-4">
+                    <p className="text-sm font-semibold text-slate-900 mb-2">Loan Details:</p>
+                    <ul className="text-sm text-slate-600 space-y-1">
+                      <li>• <strong>Auto loan amount:</strong> $30,000</li>
+                      <li>• <strong>Interest rate:</strong> 7% annually</li>
+                      <li>• <strong>Loan term:</strong> 60 months (5 years)</li>
+                      <li>• <strong>Regular monthly payment:</strong> Approximately $594</li>
+                    </ul>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-4 mb-4">
+                    <div className="bg-red-50 rounded-lg p-4">
+                      <p className="text-sm font-semibold text-slate-900 mb-2">Without Extra Payments:</p>
+                      <ul className="text-sm text-slate-600 space-y-1">
+                        <li>• Total interest paid: <strong>~$5,640</strong></li>
+                        <li>• Total paid: <strong>~$35,640</strong></li>
+                        <li>• Payoff: <strong>60 months (5 years)</strong></li>
+                        <li>• Car owned free & clear: <strong>5 years from now</strong></li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-green-50 rounded-lg p-4">
+                      <p className="text-sm font-semibold text-slate-900 mb-2">With $150 Extra Monthly:</p>
+                      <ul className="text-sm text-slate-600 space-y-1">
+                        <li>• Total interest paid: <strong>~$3,780</strong></li>
+                        <li>• Total paid: <strong>~$36,080</strong> (including extras)</li>
+                        <li>• Payoff: <strong>~42 months (3.5 years)</strong></li>
+                        <li>• Car owned free & clear: <strong>1.5 years sooner</strong></li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="bg-orange-50 rounded-lg p-4">
+                    <p className="text-sm font-semibold text-slate-900 mb-2">Impact Summary:</p>
+                    <ul className="text-sm text-slate-600 space-y-1">
+                      <li>• <strong>Interest savings:</strong> Approximately $1,860 (33% reduction)</li>
+                      <li>• <strong>Time reduction:</strong> 18 months faster (30% shorter term)</li>
+                      <li>• <strong>Bonus:</strong> Own your vehicle free & clear 1.5 years earlier—no more car payments for 18 months before the original payoff</li>
+                      <li>• <strong>Cash flow benefit:</strong> After 42 months, you have an extra $594/month for 18 months = $10,692 additional cash flow</li>
+                    </ul>
+                  </div>
+
+                  <p className="text-xs text-slate-500 mt-4 italic">
+                    This hypothetical example assumes a standard amortization schedule. Some auto loans, particularly through dealership financing, may have prepayment penalties or structured payments that don't reduce term as cleanly. Always check your specific loan terms.
+                  </p>
+                </div>
+
+                  Why 26 Payments Per Year Makes a Difference
+                </h3>
+
+                <p className="text-slate-600 mb-4">
+                  The mathematics behind biweekly payment benefits center on this simple fact: <strong>26 half-payments = 13 full payments</strong>, not 12. Here's why:
+                </p>
+
+                <ul className="space-y-3 text-slate-600 mb-6">
+                  <li className="flex gap-3">
+
+                <div className="bg-slate-50 rounded-lg p-6 my-6 border-l-4 border-green-600">
+                  <h4 className="font-serif text-lg font-bold text-slate-900 mb-3">
+                    Hypothetical Example 3: One-Time Lump-Sum Payment Impact
+                  </h4>
+                  
+                  <p className="text-sm text-slate-600 mb-4">
+                    Lump-sum payments—from inheritances, bonuses, home sales, or accumulated savings—create substantial impact. Timing matters significantly: the earlier you make a lump-sum payment, the more interest you save. Here's a scenario:
+                  </p>
+
+                  <div className="bg-white rounded-lg p-4 mb-4">
+                    <p className="text-sm font-semibold text-slate-900 mb-2">Base Scenario:</p>
+                    <ul className="text-sm text-slate-600 space-y-1">
+                      <li>• <strong>Mortgage amount:</strong> $350,000</li>
+                      <li>• <strong>Interest rate:</strong> 5.5% annually</li>
+                      <li>• <strong>Loan term:</strong> 25 years</li>
+                      <li>• <strong>Regular payment:</strong> $2,145/month</li>
+                      <li>• <strong>One-time extra payment:</strong> $20,000 in year 3</li>
+                    </ul>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-4 mb-4">
+                    <div className="bg-red-50 rounded-lg p-4">
+                      <p className="text-sm font-semibold text-slate-900 mb-2">Without Lump Sum:</p>
+                      <ul className="text-sm text-slate-600 space-y-1">
+                        <li>• Total interest: <strong>~$293,500</strong></li>
+                        <li>• Payoff: <strong>25 years</strong></li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-green-50 rounded-lg p-4">
+                      <p className="text-sm font-semibold text-slate-900 mb-2">With $20,000 in Year 3:</p>
+                      <ul className="text-sm text-slate-600 space-y-1">
+                        <li>• Total interest: <strong>~$238,000</strong></li>
+                        <li>• Payoff: <strong>~22 years</strong></li>
+                        <li>• Interest saved: <strong>~$55,500</strong></li>
+                        <li>• Time saved: <strong>~3 years</strong></li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="bg-blue-50 rounded-lg p-4 mb-4">
+                    <p className="text-sm font-semibold text-slate-900 mb-2">Timing Comparison (same $20,000 payment):</p>
+                    <ul className="text-sm text-slate-600 space-y-1">
+                      <li>• <strong>Year 1:</strong> Saves ~$62,000 in interest, 3.2 years faster</li>
+                      <li>• <strong>Year 3:</strong> Saves ~$55,500 in interest, 3 years faster</li>
+                      <li>• <strong>Year 10:</strong> Saves ~$35,000 in interest, 2 years faster</li>
+                      <li>• <strong>Year 20:</strong> Saves ~$10,000 in interest, 0.8 years faster</li>
+                    </ul>
+                  </div>
+
+                  <p className="text-sm text-slate-600 italic">
+                    Key insight: The same $20,000 saves 6x more interest if paid in year 1 versus year 20. Compound interest works exponentially—early payments eliminate interest that would have compounded for decades.
+                  </p>
+                </div>
+
+                    <span className="text-blue-600 font-bold">•</span>
+                    <div>
+                      <strong>Monthly payment schedule:</strong> 12 payments per year (one per month)
+                    </div>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-blue-600 font-bold">•</span>
+                    <div>
+                      <strong>Biweekly payment schedule:</strong> 26 payments per year (52 weeks ÷ 2 = 26 two-week periods)
+                    </div>
+                  </li>
+
+                <div className="bg-slate-50 rounded-lg p-6 my-6 border-l-4 border-purple-600">
+                  <h4 className="font-serif text-lg font-bold text-slate-900 mb-3">
+                    Hypothetical Example 4: Debt Prioritization—Student Loans vs. Credit Cards
+                  </h4>
+                  
+                  <p className="text-sm text-slate-600 mb-4">
+                    When you have multiple debts, where should extra payments go? Mathematics favors the highest interest rate, but let's quantify the difference:
+                  </p>
+
+                  <div className="bg-white rounded-lg p-4 mb-4">
+                    <p className="text-sm font-semibold text-slate-900 mb-2">Scenario: You have $200/month extra to allocate</p>
+                    <div className="grid md:grid-cols-2 gap-4 mt-3">
+                      <div>
+                        <p className="text-sm font-semibold text-slate-700 mb-1">Debt A: Student Loan</p>
+                        <ul className="text-xs text-slate-600 space-y-1">
+                          <li>• Balance: $40,000</li>
+                          <li>• Rate: 5% annually</li>
+                          <li>• Minimum: $424/month</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <p className="text-sm font-semibold text-slate-700 mb-1">Debt B: Credit Card</p>
+                        <ul className="text-xs text-slate-600 space-y-1">
+                          <li>• Balance: $8,000</li>
+                          <li>• Rate: 19.99% annually</li>
+                          <li>• Minimum: $160/month</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-purple-50 rounded-lg p-4">
+                    <p className="text-sm font-semibold text-slate-900 mb-2">Result:</p>
+                    <p className="text-sm text-slate-600">
+                      <strong>Paying credit card first saves $4,900 MORE in total interest.</strong> The credit card's 19.99% rate makes it the priority despite the smaller balance. This demonstrates why an <strong>extra payment calculator credit card</strong> and <strong>extra payment calculator student loans</strong> should be used together to optimize your repayment strategy.
+                    </p>
+                  </div>
+
+                  <p className="text-xs text-slate-500 mt-4 italic">
+                    Exception: Some prefer the "debt snowball" method (smallest balance first) for psychological momentum. While this costs more in interest, the motivational benefit of eliminating a debt completely can improve adherence.
+                  </p>
+                </div>
+
+                <h3 className="font-serif text-xl md:text-2xl font-bold text-slate-900 mt-10 mb-4">
+                  Important Considerations & Lender Rules
+                </h3>
+
+                <p className="text-slate-600 mb-4">
+                  Before implementing an extra payment strategy, understand the rules and considerations that affect different debt types:
+                </p>
+

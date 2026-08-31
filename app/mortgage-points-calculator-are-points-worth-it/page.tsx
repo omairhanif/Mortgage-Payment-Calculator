@@ -539,7 +539,7 @@ export default function MortgagePointsCalculatorArticle() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/mortgage"
+              href="/"
               className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-indigo-700 bg-white rounded-lg hover:bg-indigo-50 transition-colors shadow-lg hover:shadow-xl"
             >
               Try Mortgage Calculator

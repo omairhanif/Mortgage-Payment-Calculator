@@ -320,7 +320,7 @@ export default function WhenShouldYouRefinanceArticle() {
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
-                href="/mortgage"
+                href="/"
                 className="inline-flex items-center px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition-colors"
               >
                 Calculate Refinancing Options

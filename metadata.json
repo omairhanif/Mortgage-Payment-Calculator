@@ -1,6 +1,34 @@
-{
-  "name": "Mortgage Payment Calculator",
-  "description": "A comprehensive suite of mortgage tools, including calculators for monthly payments, home affordability, amortization schedules, loan comparison, extra payments, PMI, and refinance options.",
-  "requestFramePermissions": [],
-  "majorCapabilities": []
+﻿{
+    "tax-benefits":  {
+                         "id":  "tax-benefits",
+                         "slug":  "tax-benefits-calculator",
+                         "icon":  "Receipt",
+                         "start":  1847,
+                         "end":  2018,
+                         "title":  "Tax Benefits Calculator"
+                     },
+    "biweekly":  {
+                     "id":  "biweekly",
+                     "slug":  "biweekly-payment-calculator",
+                     "icon":  "Calendar",
+                     "start":  826,
+                     "end":  1290,
+                     "title":  "Biweekly Payment Calculator"
+                 },
+    "extra-payment":  {
+                          "id":  "extra-payment",
+                          "slug":  "extra-payment-calculator",
+                          "icon":  "PlusCircle",
+                          "start":  214,
+                          "end":  820,
+                          "title":  "Extra Payment Calculator"
+                      },
+    "points":  {
+                   "id":  "points",
+                   "slug":  "paying-points-calculator",
+                   "icon":  "DollarSign",
+                   "start":  1299,
+                   "end":  1846,
+                   "title":  "Paying Points Calculator"
+               }
 }

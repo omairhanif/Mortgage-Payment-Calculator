@@ -13,27 +13,53 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
 
-    // Main Calculator Pages - Very High Priority
+    // Standalone Savings & Payoff Calculators - High Priority
     {
-      url: `${baseUrl}/mortgage`,
+      url: `${baseUrl}/extra-payment-calculator`,
       lastModified,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/affordability`,
+      url: `${baseUrl}/biweekly-payment-calculator`,
       lastModified,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/rates`,
+      url: `${baseUrl}/paying-points-calculator`,
       lastModified,
-      changeFrequency: 'daily',
+      changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/savings`,
+      url: `${baseUrl}/tax-benefits-calculator`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+
+    // Standalone Loan Program Calculators - High Priority
+    {
+      url: `${baseUrl}/real-apr-calculator`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/fha-loan-calculator`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/va-loan-calculator`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/jumbo-loan-calculator`,
       lastModified,
       changeFrequency: 'weekly',
       priority: 0.9,
@@ -280,12 +306,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.7,
     },
-    {
-      url: `${baseUrl}/arm`,
-      lastModified,
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
 
     // Information Pages - Lower Priority
     {
@@ -308,12 +328,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/privacy`,
-      lastModified,
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/terms`,
       lastModified,
       changeFrequency: 'yearly',
       priority: 0.3,

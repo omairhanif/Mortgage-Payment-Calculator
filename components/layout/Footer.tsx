@@ -22,8 +22,8 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* 4 Column Navigation */}
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+        {/* 3 Column Navigation - Centered */}
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto">
           {/* Column 1: Calculators */}
           <div>
             <h4 className="text-xs font-bold tracking-wider uppercase text-slate-900">Calculators</h4>
@@ -34,17 +34,17 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/affordability" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">
+                <Link href="/mortgage-affordability-calculator" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">
                   Affordability
                 </Link>
               </li>
               <li>
-                <Link href="/mortgage?subcalculator=heloc" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">
+                <Link href="/heloc-calculator" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">
                   HELOC
                 </Link>
               </li>
               <li>
-                <Link href="/arm" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">
+                <Link href="/fixed-vs-arm-calculator" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">
                   ARM Calculators
                 </Link>
               </li>
@@ -56,31 +56,31 @@ export default function Footer() {
             <h4 className="text-xs font-bold tracking-wider uppercase text-slate-900">Popular Tools</h4>
             <ul className="mt-4 space-y-2.5">
               <li>
-                <Link href="/mortgage?subcalculator=refinance" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">
+                <Link href="/refinance-calculator" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">
                   Refinance
                 </Link>
               </li>
               <li>
-                <Link href="/rates?subcalculator=fha" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">
+                <Link href="/fha-loan-calculator" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">
                   FHA Calculator
                 </Link>
               </li>
               <li>
-                <Link href="/rates?subcalculator=va" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">
+                <Link href="/va-loan-calculator" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">
                   VA Calculator
                 </Link>
               </li>
               <li>
-                <Link href="/savings?subcalculator=biweekly" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">
+                <Link href="/biweekly-payment-calculator" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">
                   Biweekly Payments
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 3: Resources */}
+          {/* Column 3: Quick Links */}
           <div>
-            <h4 className="text-xs font-bold tracking-wider uppercase text-slate-900">Resources</h4>
+            <h4 className="text-xs font-bold tracking-wider uppercase text-slate-900">Quick Links</h4>
             <ul className="mt-4 space-y-2.5">
               <li>
                 <Link href="/articles" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">
@@ -88,35 +88,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/advice" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">
-                  Expert Advice
-                </Link>
-              </li>
-              <li>
-                <Link href="/articles" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">
-                  Mortgage Guides
-                </Link>
-              </li>
-              <li>
-                <Link href="/articles" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">
-                  Learning Hub
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 4: Legal */}
-          <div>
-            <h4 className="text-xs font-bold tracking-wider uppercase text-slate-900">Legal</h4>
-            <ul className="mt-4 space-y-2.5">
-              <li>
-                <Link href="/privacy" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">
-                  Terms of Service
+                <Link href="/about" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">
+                  About Us
                 </Link>
               </li>
               <li>
@@ -125,8 +98,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">
-                  About Us
+                <Link href="/privacy" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">
+                  Privacy Policy
                 </Link>
               </li>
             </ul>

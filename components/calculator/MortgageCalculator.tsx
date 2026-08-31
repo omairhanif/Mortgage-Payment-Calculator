@@ -48,6 +48,7 @@ import {
 interface MortgageCalculatorProps {
   category?: string;
   isHomepage?: boolean;
+  forcedSubcalculator?: string; // Force a specific subcalculator (for standalone pages)
 }
 
 interface ConfigCalculatorRendererProps {
@@ -56,8 +57,8 @@ interface ConfigCalculatorRendererProps {
   isHomepage?: boolean;
 }
 
-export default function MortgageCalculator({ category = "mortgage", isHomepage = false }: MortgageCalculatorProps) {
-  const searchParams = useSearchParams();
+export default function MortgageCalculator({ category = "mortgage", isHomepage = false, forcedSubcalculator }: MortgageCalculatorProps) {
+  const searchParams = forcedSubcalculator ? null : useSearchParams();
   const router = useRouter();
   
   // Get sub-calculators based on category
@@ -103,9 +104,10 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
 
   const tabs = getTabs();
   
-  // Get subcalculator from URL or default to first calculator in list
+  // Get subcalculator from URL or use forced subcalculator or default to first calculator in list
+  // forcedSubcalculator takes precedence (for standalone pages)
   // Homepage doesn't use tab system, category pages do
-  const subcalculatorParam = isHomepage ? null : (searchParams.get("subcalculator") || tabs[0].id);
+  const subcalculatorParam = forcedSubcalculator || (isHomepage ? null : (searchParams?.get("subcalculator") || tabs[0].id));
   const activeTab = subcalculatorParam || tabs[0].id;
   
   // Get the base path for the current category

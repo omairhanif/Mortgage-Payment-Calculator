@@ -487,7 +487,7 @@ export default function MortgageTaxBenefitsCalculatorPage() {
                 Now that you understand Canadian mortgage tax benefits, use our mortgage calculator to determine how much home you can afford with your income and down payment.
               </p>
               <Link 
-                href="/mortgage"
+                href="/"
                 className="inline-block bg-indigo-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-indigo-700 transition-colors"
               >
                 Try Mortgage Calculator

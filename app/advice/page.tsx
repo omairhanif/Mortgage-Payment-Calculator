@@ -61,17 +61,17 @@ export default function AdvicePage() {
                 </Link>
               </li>
               <li>
-                <Link href="/affordability" className="font-semibold text-indigo-600 hover:text-indigo-700">
+                <Link href="/mortgage-affordability-calculator" className="font-semibold text-indigo-600 hover:text-indigo-700">
                   PMI estimation and affordability guidance
                 </Link>
               </li>
               <li>
-                <Link href="/mortgage" className="font-semibold text-indigo-600 hover:text-indigo-700">
+                <Link href="/second-mortgage-calculator" className="font-semibold text-indigo-600 hover:text-indigo-700">
                   Home affordability and buying power
                 </Link>
               </li>
               <li>
-                <Link href="/savings" className="font-semibold text-indigo-600 hover:text-indigo-700">
+                <Link href="/extra-payment-calculator" className="font-semibold text-indigo-600 hover:text-indigo-700">
                   Loan comparison strategy
                 </Link>
               </li>

@@ -517,7 +517,7 @@ export default function InterestOnlyCalculatorPage() {
               </Link>
 
               <Link
-                href="/arm"
+                href="/fixed-vs-arm-calculator"
                 className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white p-4 transition-all hover:border-indigo-600 hover:shadow-md"
               >
                 <Calculator className="h-6 w-6 text-indigo-600 flex-shrink-0" />

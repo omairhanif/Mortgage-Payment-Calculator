@@ -13,50 +13,50 @@ const navCategories = [
   },
   {
     name: "Mortgage",
-    path: "/mortgage",
+    path: "/second-mortgage-calculator",
     subCalculators: [
-      { id: "second", label: "Second Mortgage" },
-      { id: "heloc", label: "HELOC" },
-      { id: "refinance", label: "Refinance" },
+      { id: "second", label: "Second Mortgage", path: "/second-mortgage-calculator" },
+      { id: "heloc", label: "HELOC", path: "/heloc-calculator" },
+      { id: "refinance", label: "Refinance", path: "/refinance-calculator" },
     ],
   },
   {
     name: "Loan Programs",
-    path: "/rates",
+    path: "/real-apr-calculator",
     subCalculators: [
-      { id: "real-apr", label: "Real APR Calculator" },
-      { id: "fha", label: "FHA Loan Calculator" },
-      { id: "va", label: "VA Loan Calculator" },
-      { id: "jumbo", label: "Jumbo Loan Calculator" },
+      { id: "real-apr", label: "Real APR Calculator", path: "/real-apr-calculator" },
+      { id: "fha", label: "FHA Loan Calculator", path: "/fha-loan-calculator" },
+      { id: "va", label: "VA Loan Calculator", path: "/va-loan-calculator" },
+      { id: "jumbo", label: "Jumbo Loan Calculator", path: "/jumbo-loan-calculator" },
     ],
   },
   {
     name: "ARM & Alternatives",
-    path: "/arm",
+    path: "/fixed-vs-arm-calculator",
     subCalculators: [
-      { id: "fixed-vs-arm", label: "Fixed vs ARM" },
-      { id: "interest-only", label: "Interest-Only" },
-      { id: "interest-only-extra", label: "Interest-Only + Extra Payments" },
-      { id: "balloon", label: "Balloon Mortgage" },
+      { id: "fixed-vs-arm", label: "Fixed vs ARM", path: "/fixed-vs-arm-calculator" },
+      { id: "interest-only", label: "Interest-Only", path: "/interest-only-calculator" },
+      { id: "interest-only-extra", label: "Interest-Only + Extra Payments", path: "/interest-only-extra-payments-calculator" },
+      { id: "balloon", label: "Balloon Mortgage", path: "/balloon-mortgage-calculator" },
     ],
   },
   {
     name: "Affordability",
-    path: "/affordability",
+    path: "/rent-vs-buy-calculator",
     subCalculators: [
-      { id: "rent-vs-buy", label: "Rent vs Buy" },
-      { id: "income", label: "Income Requirement" },
-      { id: "qualification", label: "Mortgage Affordability" },
+      { id: "rent-vs-buy", label: "Rent vs Buy", path: "/rent-vs-buy-calculator" },
+      { id: "income", label: "Income Requirement", path: "/income-requirement-calculator" },
+      { id: "qualification", label: "Mortgage Affordability", path: "/mortgage-affordability-calculator" },
     ],
   },
   {
     name: "Savings & Payoff",
-    path: "/savings",
+    path: "/extra-payment-calculator",
     subCalculators: [
-      { id: "extra-payment", label: "Extra Payment" },
-      { id: "biweekly", label: "Biweekly Payment" },
-      { id: "points", label: "Paying Points" },
-      { id: "tax-benefits", label: "Tax Benefits" },
+      { id: "extra-payment", label: "Extra Payment", path: "/extra-payment-calculator" },
+      { id: "biweekly", label: "Biweekly Payment", path: "/biweekly-payment-calculator" },
+      { id: "points", label: "Paying Points", path: "/paying-points-calculator" },
+      { id: "tax-benefits", label: "Tax Benefits", path: "/tax-benefits-calculator" },
     ],
   },
   {
@@ -158,9 +158,9 @@ export default function Header() {
                         <Link
                           key={subCalc.id}
                           href={
-                            index === 0
+                            subCalc.path || (index === 0
                               ? category.path
-                              : `${category.path}?subcalculator=${subCalc.id}`
+                              : `${category.path}?subcalculator=${subCalc.id}`)
                           }
                           onClick={() => setOpenDropdown(null)}
                           className="block px-4 py-2 text-sm text-slate-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors"
@@ -255,9 +255,9 @@ export default function Header() {
                             <Link
                               key={subCalc.id}
                               href={
-                                index === 0
+                                subCalc.path || (index === 0
                                   ? category.path
-                                  : `${category.path}?subcalculator=${subCalc.id}`
+                                  : `${category.path}?subcalculator=${subCalc.id}`)
                               }
                               onClick={() =>
                                 setMobileMenuOpen(false)

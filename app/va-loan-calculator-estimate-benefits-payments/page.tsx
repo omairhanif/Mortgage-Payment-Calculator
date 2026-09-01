@@ -1,14 +1,66 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft } from "lucide-react";
-
-export const metadata = {
-  title: "VA Loan Calculator: Estimate Benefits & Payments | Free Military Mortgage Calculator",
-  description: "Calculate VA loan payments with zero down payment. Estimate funding fees, monthly costs, and total savings compared to conventional mortgages. Free VA mortgage calculator for veterans.",
-};
+import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
+import { useState } from "react";
+import { getStructuredData } from "./server";
 
 export default function VALoanCalculatorArticle() {
+  const structuredData = getStructuredData();
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
+
+  const faqs = [
+    {
+      q: "How does a VA loan calculator work?",
+      a: "A VA loan calculator estimates your monthly mortgage payments based on the home price, interest rate, property taxes, insurance, and VA funding fee. Unlike conventional calculators, it accounts for zero down payment and no PMI, showing your true costs. The calculator factors in the VA funding fee (typically 2.15% for first-time users with 0% down), which can be rolled into the loan amount. It calculates principal, interest, taxes, insurance (PITI), and optional HOA fees to give you a complete monthly payment estimate."
+    },
+    {
+      q: "What is the VA funding fee and how is it calculated?",
+      a: "The VA funding fee is a one-time payment that helps keep the VA loan program running without taxpayer dollars. For first-time users with 0% down, it's 2.15% of the loan amount ($6,450 on a $300,000 loan). With 5% down, it drops to 1.5%; with 10% down, it's 1.25%. Subsequent uses cost 3.3%. Veterans with service-connected disabilities are exempt. The fee can be rolled into your loan amount rather than paid upfront, spreading the cost over 30 years."
+    },
+    {
+      q: "Can I avoid paying the VA funding fee?",
+      a: "Yes, veterans receiving VA disability compensation are exempt from the funding fee entirely—even 10% disability rating qualifies. Purple Heart recipients are also exempt. Additionally, surviving spouses receiving Dependency and Indemnity Compensation (DIC) don't pay the fee. If you're exempt, this saves $6,000+ on a typical $300,000 loan. Always check your VA disability status before applying, as the exemption applies automatically once verified by the lender."
+    },
+    {
+      q: "How accurate are online VA loan calculators?",
+      a: "Online VA loan calculators are 90-95% accurate for payment estimates but may not capture every nuance of your specific situation. They use standard formulas for principal, interest, taxes, and insurance, which are highly accurate. However, they may not account for unique factors like: specific lender fees, county-by-county loan limits, exact property tax rates, or HOA fees. For precise calculations, use an online calculator for initial estimates, then get a formal Loan Estimate from a VA-approved lender."
+    },
+    {
+      q: "What credit score do I need for a VA loan?",
+      a: "The VA doesn't set a minimum credit score, but most lenders require 580-620 minimum. Many VA-approved lenders work with scores as low as 580, especially for veterans with stable income and low debt-to-income ratios. Credit scores of 640+ typically get better interest rates. Unlike conventional loans that heavily penalize scores below 680, VA loans are more forgiving. If your score is 600-620, you can still qualify with a good payment history and steady employment."
+    },
+    {
+      q: "Can I use my VA loan benefit multiple times?",
+      a: "Yes, your VA loan benefit can be used multiple times throughout your life. Once you pay off a VA loan and sell the home, your full entitlement is restored for another purchase. You can even use it again while still having an active VA loan if you have remaining entitlement (common in lower-cost areas where you didn't use your full benefit). You can also refinance a VA loan into another VA loan (called an IRRRL) without restoring your entitlement first."
+    },
+    {
+      q: "How much can I borrow with a VA loan?",
+      a: "VA loan limits were eliminated in 2020 for most borrowers with full entitlement, meaning you can technically borrow any amount the lender approves based on your income and debt-to-income ratio. However, practical limits exist: lenders typically cap DTI at 41-50%, and you must demonstrate ability to repay. For veterans without full entitlement (second use without selling first home), county-specific limits apply—typically $726,200 in standard areas, higher in expensive markets. Your VA entitlement calculator will show your specific borrowing power."
+    }
+  ];
+
   return (
+    <>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.softwareApplication) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }}
+      />
+      
     <main className="min-h-screen bg-white">
       {/* Navigation */}
       <div className="border-b border-slate-200 bg-white">
@@ -46,15 +98,6 @@ export default function VALoanCalculatorArticle() {
           <time>April 10, 2026</time>
           <span className="mx-3">•</span>
           <span>12 min read</span>
-        </div>
-      </div>
-
-      {/* Banner Ad */}
-      <div className="mx-auto max-w-4xl px-6 sm:px-8 mb-8">
-        <div className="w-full flex justify-center">
-          <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-            <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-          </div>
         </div>
       </div>
 
@@ -340,6 +383,44 @@ export default function VALoanCalculatorArticle() {
           </div>
         </div>
       </article>
+
+      {/* FAQ Section */}
+      <section className="py-12 bg-slate-50">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <h2 className="font-serif text-3xl font-bold text-slate-900 mb-8 text-center">
+            Frequently Asked Questions
+          </h2>
+
+          <div className="space-y-3">
+            {faqs.map((faq, index) => (
+              <div 
+                key={index}
+                className="border border-slate-200 rounded-lg overflow-hidden bg-white"
+              >
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-slate-50 transition-colors"
+                >
+                  <span className="font-semibold text-slate-900 pr-8">
+                    {faq.q}
+                  </span>
+                  {openFAQ === index ? (
+                    <ChevronUp className="h-5 w-5 text-indigo-600 flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="h-5 w-5 text-slate-400 flex-shrink-0" />
+                  )}
+                </button>
+                {openFAQ === index && (
+                  <div className="px-6 pb-4 text-slate-600">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
+    </>
   );
 }

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { getStructuredData } from "./server";
 
 export const metadata = {
   title: "Mortgage Advice | MortgagePro",
@@ -6,7 +7,14 @@ export const metadata = {
 };
 
 export default function AdvicePage() {
+  const structuredData = getStructuredData();
+  
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
     <div className="mx-auto max-w-[1400px] px-6 py-10 sm:px-8 lg:px-12">{" "}
       <div className="space-y-6">
         <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -86,5 +94,6 @@ export default function AdvicePage() {
         </div>
       </div>
     </div>
+    </>
   );
 }

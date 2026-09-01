@@ -3,8 +3,10 @@
 import { useState } from "react";
 import { ChevronDown, ChevronUp, GitCompare } from "lucide-react";
 import MortgageCalculator from "@/components/calculator/MortgageCalculator";
+import { getStructuredData } from "./server";
 
 export default function FixedVsARMCalculatorPage() {
+  const structuredData = getStructuredData();
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
@@ -24,35 +26,50 @@ export default function FixedVsARMCalculatorPage() {
   ];
   const faqs = [
     {
-      q: "What is an ARM and how does it work?",
-      a: "An ARM (Adjustable-Rate Mortgage) has an interest rate that changes periodically based on market conditions. It typically starts with a lower fixed rate for an initial period (e.g., 5, 7, or 10 years), then adjusts annually. The rate has caps limiting how much it can increase per adjustment and over the loan's life."
+      q: "What is a 5/1 ARM and how does it work?",
+      a: "A 5/1 ARM (Adjustable-Rate Mortgage) has a fixed interest rate for the first 5 years, then adjusts annually for the remaining loan term based on market index rates. For example, if you get a 5/1 ARM at 5.5% in 2024, you pay that rate through 2029. Starting in year 6, the rate adjusts each year based on a benchmark (typically SOFR or Treasury index) plus a lender margin of 2-3%. Rate caps protect you—common structure is 2/2/5, meaning the rate can increase maximum 2% at first adjustment, 2% per subsequent adjustment, and 5% total over loan life. If your start rate is 5.5% with 2/2/5 caps, the worst-case rate is 10.5% (5.5% + 5%). ARMs work best if you plan to sell or refinance within the initial fixed period."
     },
     {
-      q: "When does an ARM make sense?",
-      a: "ARMs work best when: you plan to sell or refinance within the fixed-rate period, expect income to increase, believe rates will stay stable or decrease, or the initial rate savings significantly outweigh the risk of future increases. They're popular with buyers planning 5-7 year stays."
+      q: "Is a 7/1 ARM better than a 5/1 ARM?",
+      a: "A 7/1 ARM is better than a 5/1 ARM if you need rate stability for 6-7 years but plan to sell or refinance before year 8. The 7/1 ARM offers: longer fixed-rate protection (7 years vs 5), still lower initial rate than 30-year fixed (typically 0.25-0.5% below fixed), and better if your timeline is uncertain within 5-10 year range. However, the 7/1 ARM's initial rate is usually 0.125-0.25% higher than a 5/1 ARM. Example rates: 30-year fixed = 7%, 7/1 ARM = 6.25%, 5/1 ARM = 6%. Choose 5/1 if confident you'll sell within 5 years; choose 7/1 for extra cushion; choose fixed-rate if staying 10+ years or risk-averse. Run a fixed vs ARM calculator to compare total costs based on your expected timeline."
     },
     {
-      q: "What are rate caps on an ARM?",
-      a: "Rate caps protect you from dramatic payment increases. There are three types: initial adjustment cap (first rate change limit), subsequent adjustment cap (later changes), and lifetime cap (maximum rate over loan life). A common structure is 2/2/5, meaning 2% max initial change, 2% subsequent, 5% lifetime."
+      q: "Should I choose a 30-year fixed or 5-year ARM?",
+      a: "Choose a 5-year ARM if you're confident you'll sell or refinance within 5-7 years and want to save $200-400/month during that period. Choose a 30-year fixed if you're staying 10+ years, value payment predictability, or can't risk payment increases. Here's the math on a $400,000 loan: 30-year fixed at 7% = $2,661/month for 30 years; 5/1 ARM at 5.5% = $2,271/month for 5 years (saves $390/month or $23,400 over 5 years), then adjusts annually. If rates rise to 8% after 5 years, your ARM payment jumps to $3,000+/month. Consider: your timeline (selling, moving for work?), risk tolerance (can you handle payment increases?), rate outlook (are rates expected to rise or fall?), and savings impact ($23,400 saved could be substantial for your situation)."
     },
     {
-      q: "How much can I save with an ARM?",
-      a: "Initial savings depend on the rate difference. If a fixed rate is 7% and an ARM starts at 5.5%, you could save $200-400/month on a $300,000 loan during the fixed period. However, if rates rise significantly after adjustment, you could pay more long-term."
+      q: "What are ARM rate caps and how do they protect me?",
+      a: "ARM rate caps are contractual limits protecting borrowers from excessive interest rate increases. Three types of caps: (1) Initial Adjustment Cap—limits first rate change after fixed period ends, typically 2-5%; (2) Periodic Adjustment Cap—limits subsequent annual adjustments, usually 2%; (3) Lifetime Cap—maximum rate increase over loan life, commonly 5-6% above start rate. Example with 2/2/5 caps on 5.5% ARM: Year 6 maximum = 7.5% (5.5% + 2%), Year 7 maximum = 9.5% (7.5% + 2%), Lifetime maximum = 10.5% (5.5% + 5%). Even if market rates soar to 12%, your rate can't exceed 10.5%. Always verify caps before choosing an ARM—they're your protection against worst-case scenarios."
     },
     {
-      q: "What happens if I sell before the ARM adjusts?",
-      a: "If you sell or refinance before the initial fixed period ends, you capture all the ARM's savings without facing rate increases. This is the ideal scenario for ARM borrowers. Many people use ARMs strategically when they're confident about their timeline."
+      q: "How much can I save with a 5/1 ARM vs 30-year fixed?",
+      a: "You can save $15,000-$35,000 over 5 years with a 5/1 ARM compared to a 30-year fixed, depending on the rate spread. Typical scenario on $300,000 loan: 30-year fixed at 7% = $1,996/month; 5/1 ARM at 5.75% = $1,751/month. Monthly savings: $245. Over 5 years (60 months): $14,700 saved. With $400,000 loan at same rates: fixed = $2,661/month, ARM = $2,335/month, saving $326/month or $19,560 over 5 years. The key: these savings only materialize if you sell or refinance before the ARM adjusts. If you stay longer and rates increase, you could pay more. Use an ARM calculator to model your specific loan amount and rate difference, and calculate your break-even point."
+    },
+    {
+      q: "What happens when my ARM adjusts?",
+      a: "When your ARM adjusts (after the initial fixed period), your rate changes based on current market rates: (1) Lender checks the specified index rate (SOFR, CMT, etc.); (2) Adds their fixed margin (typically 2.25-2.75%); (3) Compares result to your rate caps—whichever is lower becomes your new rate; (4) Recalculates monthly payment based on remaining loan balance and new rate. Example: you have a 5/1 ARM at 5.5% with 2.5% margin. At year 6, if SOFR is 4%, your new rate would be 6.5% (4% + 2.5%), subject to 2% initial cap making it maximum 7.5%. Your lender notifies you 30-120 days before adjustment. You can refinance to a fixed rate before adjustment if you want to lock in predictability."
+    },
+    {
+      q: "Is an ARM a good idea in 2024?",
+      a: "In 2024 with rates at 6-8%, ARMs can be smart for specific situations: good if you're certain you'll sell within 5-7 years (job relocation, starter home, life changes expected), ARM rates are 0.75-1.5% below fixed rates (meaningful monthly savings), or you expect income increases to handle potential payment hikes. ARMs are risky if: you plan to stay 10+ years, can't afford payment increases, have tight budget with no cushion, or rates are expected to rise further. Current environment: if fixed rates are 7% and 5/1 ARMs are 5.75%, the 1.25% spread saves $245/month on $300,000—that's $14,700 over 5 years. But if rates spike, your payment could increase $300-600/month after year 5. Run multiple scenarios with a fixed vs ARM calculator before deciding."
     }
   ];
 
   return (
     <>
-      {/* Banner Ad */}
-      <div className="mb-6 flex justify-center">
-        <div className="rounded bg-slate-100 px-4 py-6 text-center text-sm text-slate-500">
-          Advertisement (728×90)
-        </div>
-      </div>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.softwareApplication) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }}
+      />
 
       {/* Hero Section */}
       <div className="mb-8">

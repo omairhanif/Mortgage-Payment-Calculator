@@ -14,8 +14,10 @@ import {
   ChevronUp,
   ArrowRight
 } from "lucide-react";
+import { getStructuredData } from "./server";
 
 export default function Page() {
+  const structuredData = getStructuredData();
   // FAQ accordion state - only one open at a time
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
@@ -23,18 +25,24 @@ export default function Page() {
     setOpenFAQ(openFAQ === index ? null : index);
   };
   return (
+    <>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.softwareApplication) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }}
+      />
     <div>
       {/* Calculator Section with Introduction */}
       <section className="pt-12 pb-12">
         <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          {/* Banner Ad Placeholder - Top of Page */}
-          <div className="mx-auto max-w-5xl mb-8">
-            <div className="w-full flex justify-center">
-              <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-                <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-              </div>
-            </div>
-          </div>
 
           {/* Introduction */}
           <div className="mb-8 mx-auto max-w-5xl">
@@ -727,7 +735,7 @@ export default function Page() {
                   className="w-full p-4 flex items-center justify-between text-left hover:bg-slate-50 transition-colors"
                 >
                   <h3 className="font-serif text-base font-bold text-slate-900 pr-4">
-                    Can I make extra payments?
+                    What's the difference between a simple mortgage payment calculator and one with taxes and insurance?
                   </h3>
                   {openFAQ === 5 ? (
                     <ChevronUp className="h-5 w-5 text-slate-600 flex-shrink-0" />
@@ -738,7 +746,103 @@ export default function Page() {
                 {openFAQ === 5 && (
                   <div className="px-4 pb-4 border-t border-slate-100">
                     <p className="text-sm text-slate-600 leading-relaxed mt-3">
-                      While this calculator shows your standard monthly payment, making extra principal payments can significantly reduce your total interest and pay off your loan faster. The amortization schedule shows how your payments are applied over time.
+                      A simple mortgage payment calculator shows only principal and interest (P&I)—the amount needed to repay the loan itself. This might be $1,500/month on a $300,000 loan. A comprehensive mortgage payment calculator with taxes and insurance adds property taxes (often $200-500/month), homeowners insurance ($100-200/month), PMI if applicable ($100-300/month), and HOA fees, bringing your actual monthly housing cost to perhaps $2,100-2,500/month. Simple calculators are useful for comparing loan terms, but full calculators reveal your true monthly obligation.
+                    </p>
+                  </div>
+                )}
+              </div>
+
+              {/* FAQ 7 */}
+              <div className="rounded-lg border border-slate-200 bg-white shadow-sm overflow-hidden">
+                <button
+                  onClick={() => toggleFAQ(6)}
+                  className="w-full p-4 flex items-center justify-between text-left hover:bg-slate-50 transition-colors"
+                >
+                  <h3 className="font-serif text-base font-bold text-slate-900 pr-4">
+                    Can I use Excel as a mortgage payment calculator?
+                  </h3>
+                  {openFAQ === 6 ? (
+                    <ChevronUp className="h-5 w-5 text-slate-600 flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="h-5 w-5 text-slate-600 flex-shrink-0" />
+                  )}
+                </button>
+                {openFAQ === 6 && (
+                  <div className="px-4 pb-4 border-t border-slate-100">
+                    <p className="text-sm text-slate-600 leading-relaxed mt-3">
+                      Yes! Excel offers a mortgage payment calculator function called PMT that calculates principal and interest payments. The formula is =PMT(rate/12, months, -loan_amount). For example, =PMT(6.5%/12, 360, -300000) returns $1,896.20 for a $300,000 loan at 6.5% over 30 years. However, you'll need to manually add taxes, insurance, and PMI. Online mortgage calculators are typically easier and include these additional costs automatically, but an Excel mortgage payment calculator gives you full customization and the ability to build detailed amortization schedules.
+                    </p>
+                  </div>
+                )}
+              </div>
+
+              {/* FAQ 8 */}
+              <div className="rounded-lg border border-slate-200 bg-white shadow-sm overflow-hidden">
+                <button
+                  onClick={() => toggleFAQ(7)}
+                  className="w-full p-4 flex items-center justify-between text-left hover:bg-slate-50 transition-colors"
+                >
+                  <h3 className="font-serif text-base font-bold text-slate-900 pr-4">
+                    How do I calculate mortgage payment with principal and interest only?
+                  </h3>
+                  {openFAQ === 7 ? (
+                    <ChevronUp className="h-5 w-5 text-slate-600 flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="h-5 w-5 text-slate-600 flex-shrink-0" />
+                  )}
+                </button>
+                {openFAQ === 7 && (
+                  <div className="px-4 pb-4 border-t border-slate-100">
+                    <p className="text-sm text-slate-600 leading-relaxed mt-3">
+                      A mortgage payment calculator for principal and interest uses the amortization formula: M = P[r(1+r)^n]/[(1+r)^n-1], where M is monthly payment, P is principal, r is monthly interest rate (annual rate ÷ 12), and n is number of payments. For practical use, online calculators handle this automatically. For a $250,000 loan at 7% for 30 years: monthly rate is 0.07÷12 = 0.005833, and the calculation yields approximately $1,663/month in principal and interest. This doesn't include taxes, insurance, or other costs—just the loan repayment itself.
+                    </p>
+                  </div>
+                )}
+              </div>
+
+              {/* FAQ 9 */}
+              <div className="rounded-lg border border-slate-200 bg-white shadow-sm overflow-hidden">
+                <button
+                  onClick={() => toggleFAQ(8)}
+                  className="w-full p-4 flex items-center justify-between text-left hover:bg-slate-50 transition-colors"
+                >
+                  <h3 className="font-serif text-base font-bold text-slate-900 pr-4">
+                    How does a down payment mortgage calculator work?
+                  </h3>
+                  {openFAQ === 8 ? (
+                    <ChevronUp className="h-5 w-5 text-slate-600 flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="h-5 w-5 text-slate-600 flex-shrink-0" />
+                  )}
+                </button>
+                {openFAQ === 8 && (
+                  <div className="px-4 pb-4 border-t border-slate-100">
+                    <p className="text-sm text-slate-600 leading-relaxed mt-3">
+                      A down payment mortgage calculator shows how your down payment percentage affects your loan amount, monthly payment, and whether you'll need PMI. For a $400,000 home: with 20% down ($80,000), you borrow $320,000 with no PMI; with 10% down ($40,000), you borrow $360,000 and pay PMI ($150-300/month); with 5% down ($20,000), you borrow $380,000 with higher PMI. The calculator reveals that while a larger down payment means a bigger upfront cost, it significantly reduces your monthly payment and eliminates PMI, often saving $200-400/month.
+                    </p>
+                  </div>
+                )}
+              </div>
+
+              {/* FAQ 10 */}
+              <div className="rounded-lg border border-slate-200 bg-white shadow-sm overflow-hidden">
+                <button
+                  onClick={() => toggleFAQ(9)}
+                  className="w-full p-4 flex items-center justify-between text-left hover:bg-slate-50 transition-colors"
+                >
+                  <h3 className="font-serif text-base font-bold text-slate-900 pr-4">
+                    Are mortgage payment calculators from TD, CIBC, or other banks different?
+                  </h3>
+                  {openFAQ === 9 ? (
+                    <ChevronUp className="h-5 w-5 text-slate-600 flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="h-5 w-5 text-slate-600 flex-shrink-0" />
+                  )}
+                </button>
+                {openFAQ === 9 && (
+                  <div className="px-4 pb-4 border-t border-slate-100">
+                    <p className="text-sm text-slate-600 leading-relaxed mt-3">
+                      While the basic math is identical across all mortgage calculators—whether from TD, CIBC, BMO, Scotiabank, or independent tools—bank-specific calculators like a mortgage payment calculator TD or mortgage payment calculator CIBC might pre-populate their current advertised rates and may include bank-specific mortgage insurance costs. Independent calculators like ours let you input any rate for comparison shopping. The underlying calculation formula is standardized, so a $300,000 loan at 6.5% for 30 years yields the same $1,896 P&I payment regardless of which calculator you use.
                     </p>
                   </div>
                 )}
@@ -748,5 +852,6 @@ export default function Page() {
         </div>
       </section>
     </div>
+    </>
   );
 }

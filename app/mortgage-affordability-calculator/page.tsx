@@ -3,8 +3,10 @@
 import { Suspense, useState } from "react";
 import { ChevronDown, ChevronUp, CheckCircle } from "lucide-react";
 import MortgageCalculator from "@/components/calculator/MortgageCalculator";
+import { getStructuredData } from "./server";
 
 function MortgageAffordabilityCalculatorContent() {
+  const structuredData = getStructuredData();
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
@@ -21,14 +23,19 @@ function MortgageAffordabilityCalculatorContent() {
 
   return (
     <section className="py-8">
-      {/* Banner Ad */}
-      <div className="mb-8">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="flex items-center justify-center rounded-lg bg-gradient-to-br from-slate-50 to-slate-100 py-8 px-6 border border-slate-200">
-            <p className="text-xs text-slate-500 text-center">Advertisement Space</p>
-          </div>
-        </div>
-      </div>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.softwareApplication) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }}
+      />
 
       {/* Hero Section */}
       <div className="mb-8 mx-auto max-w-5xl">

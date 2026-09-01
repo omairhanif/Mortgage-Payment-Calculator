@@ -2,9 +2,17 @@
 
 import Link from 'next/link';
 import { ChevronRight, Building2, Calculator, Shield, BookOpen, Users, TrendingUp } from 'lucide-react';
+import { getStructuredData } from './server';
 
 export default function AboutPage() {
+  const structuredData = getStructuredData();
+  
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
     <div>
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-sky-500 via-sky-550 to-sky-600 py-8">
@@ -226,5 +234,6 @@ export default function AboutPage() {
         </div>
       </section>
     </div>
+    </>
   );
 }

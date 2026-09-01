@@ -3,8 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { getStructuredData } from "./server";
 
 export default function ArticlesPage() {
+  const structuredData = getStructuredData();
+  
   // 38 Active Articles (clickable with links)
   const activeArticles = [
     {
@@ -278,6 +281,11 @@ export default function ArticlesPage() {
 
 
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
     <div className="min-h-screen bg-white">
       
       {/* Header Section */}
@@ -345,6 +353,7 @@ export default function ArticlesPage() {
       </section>
 
     </div>
+    </>
   );
 }
 

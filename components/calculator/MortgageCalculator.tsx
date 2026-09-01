@@ -748,14 +748,6 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
 
             {/* RIGHT COLUMN - RESULTS */}
             <div ref={mainResultsRef} className="lg:col-span-5 space-y-4">
-              {/* Display Ad Placeholder - Only on Homepage */}
-              {isHomepage && (
-                <div className="flex justify-center">
-                  <div className="w-full max-w-[400px] h-[300px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-                    <span className="text-xs text-slate-400 font-medium">Display Ad (400×300)</span>
-                  </div>
-                </div>
-              )}
 
               {/* Consolidated Results Card */}
               <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
@@ -1182,14 +1174,6 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                 {/* Results Display */}
                 {helocResults && (
                   <div className="space-y-4">
-                    {/* Display Ad Placeholder - Only on Homepage */}
-                    {isHomepage && (
-                      <div className="flex justify-center">
-                        <div className="w-full max-w-[400px] h-[300px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-                          <span className="text-xs text-slate-400 font-medium">Display Ad (400×300)</span>
-                        </div>
-                      </div>
-                    )}
 
                     {/* Consolidated Results Card */}
                     <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
@@ -1325,14 +1309,6 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                 {/* Results Display */}
                 {refResults && (
                   <div className="space-y-4">
-                    {/* Display Ad Placeholder - Only on Homepage */}
-                    {isHomepage && (
-                      <div className="flex justify-center">
-                        <div className="w-full max-w-[400px] h-[300px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-                          <span className="text-xs text-slate-400 font-medium">Display Ad (400×300)</span>
-                        </div>
-                      </div>
-                    )}
 
                     {/* Consolidated Results Card */}
                     <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
@@ -1461,12 +1437,6 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
 
               {/* RIGHT COLUMN - RESULTS */}
               <div ref={realAprResultsRef} className="lg:col-span-5 space-y-4">
-                {/* Display Ad Placeholder */}
-                <div className="flex justify-center">
-                  <div className="w-full max-w-[400px] h-[300px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-                    <span className="text-xs text-slate-400 font-medium">Display Ad (400×300)</span>
-                  </div>
-                </div>
 
                 {aprResults && (
                   <>

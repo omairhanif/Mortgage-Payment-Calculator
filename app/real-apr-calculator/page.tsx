@@ -3,8 +3,10 @@
 import { useState } from "react";
 import { ChevronDown, ChevronUp, Percent } from "lucide-react";
 import MortgageCalculator from "@/components/calculator/MortgageCalculator";
+import { getStructuredData } from "./server";
 
 export default function RealAPRCalculatorPage() {
+  const structuredData = getStructuredData();
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
@@ -13,32 +15,51 @@ export default function RealAPRCalculatorPage() {
 
   const faqs = [
     {
-      q: "What''s the difference between interest rate and APR?",
-      a: "The interest rate is the cost of borrowing the principal loan amount. APR includes the interest rate plus other costs like origination fees, discount points, and certain closing costs, expressed as a yearly rate. APR is always equal to or higher than the interest rate."
+      q: "What is the difference between interest rate and APR?",
+      a: "The interest rate is the cost of borrowing money expressed as a percentage of the loan amount—it determines your monthly principal and interest payment. APR (Annual Percentage Rate) includes the interest rate PLUS other borrowing costs like origination fees, discount points, mortgage insurance, and certain lender fees, expressed as an annualized percentage. For example, a loan might have a 6.5% interest rate but a 6.85% APR once fees are factored in. APR is always equal to or higher than the interest rate. The interest rate affects your monthly payment, while APR reflects the true total cost of the loan. When comparing lenders, always compare APRs—not just interest rates—to see which loan is truly cheaper."
     },
     {
-      q: "Why is APR important when comparing loans?",
-      a: "APR lets you compare the true cost of loans with different fee structures. A loan with a 6.5% rate and high fees might have a 7% APR, while a 6.75% rate with low fees might have a 6.85% APR, making the latter actually cheaper overall."
+      q: "How to calculate APR on a mortgage?",
+      a: "Calculating APR manually is complex, but here's the concept: (1) Add all financed costs (origination fees, points, lender fees, upfront mortgage insurance) to find your total cost; (2) Determine the loan amount you actually receive (principal minus upfront fees); (3) Calculate what interest rate on this net amount would produce the same monthly payment as your actual rate; (4) That rate is your APR. For example, borrowing $300,000 at 6.5% with $6,000 in fees: your APR might be 6.85% because you're effectively paying 6.5% interest on $300,000 while only receiving $294,000 net. Use an APR calculator or real APR calculator for accurate results—the math involves iterative calculations beyond simple formulas."
     },
     {
-      q: "What costs are included in APR?",
-      a: "APR typically includes: loan origination fees, discount points, lender fees, mortgage insurance premiums (for FHA/USDA), and some closing costs. It doesn''t include: appraisal fees, title insurance, attorney fees, or costs you''d pay regardless of lender."
+      q: "Is 7% APR high for a mortgage?",
+      a: "Whether 7% APR is high depends on current market conditions and your financial profile. As of 2024, with rates ranging from 6-8%, a 7% APR is near the middle of the current market—not particularly high or low. Historically, mortgage rates have ranged from 3-4% (2020-2021 lows) to 18% (1981 peak), so 7% is moderate historically. Factors affecting whether 7% is good for you: your credit score (740+ gets best rates), loan type (FHA/VA vs conventional), down payment size (20%+ gets better rates), and current Federal Reserve policy. Compare 7% APR to multiple lenders' offers—if others quote 6.5%, then 7% is high; if others quote 7.5%, it's competitive. Shop at least 3 lenders within 14 days to compare without hurting your credit."
     },
     {
-      q: "Is a lower APR always better?",
-      a: "Usually, yes - but consider your time horizon. If selling or refinancing soon, a loan with higher APR but lower upfront costs might be better. APR assumes you hold the loan to term, so it''s less meaningful for short-term ownership plans."
+      q: "What's the difference between APR and APY?",
+      a: "APR (Annual Percentage Rate) and APY (Annual Percentage Yield) both express annual rates but differ fundamentally. APR is used for loans and shows what you'll pay, including interest and fees. APY is used for savings/investments and shows what you'll earn, including compound interest. For mortgages, you'll see APR—not APY. Example: a mortgage might have 6.5% interest rate and 6.8% APR (accounting for fees). A savings account might have 4% APR but 4.08% APY (accounting for monthly compounding). APY is always higher than APR for the same rate because it includes compounding gains. For borrowing, lower APR is better; for saving, higher APY is better."
+    },
+    {
+      q: "What fees are included in APR calculation?",
+      a: "APR includes most lender-imposed costs but not all closing costs. Included in APR: loan origination fees (typically 0.5-1% of loan), discount points (if purchasing lower rates), lender underwriting fees, upfront mortgage insurance premiums (FHA, USDA), broker fees (if applicable), and application fees. NOT included in APR: appraisal fees ($400-600), home inspection ($300-500), title insurance and search ($1,000-2,500), attorney fees, recording fees, homeowners insurance, property taxes, and prepaid interest/escrow items. The APR calculation focuses on costs that vary between lenders—helping you compare offers. This is why shopping closing costs separately from APR still matters."
+    },
+    {
+      q: "How much higher is APR than interest rate?",
+      a: "APR is typically 0.125% to 0.5% higher than the interest rate, depending on fees and loan type. On a $300,000 mortgage: with minimal fees ($1,500), APR might be 6.65% vs 6.5% interest rate (0.15% difference); with typical fees ($5,000), APR might be 6.85% vs 6.5% (0.35% difference); with high fees or points ($10,000), APR could be 7.1% vs 6.5% (0.6% difference). FHA loans often show larger gaps due to upfront mortgage insurance. If APR is more than 0.5% higher than interest rate, examine the closing costs carefully—you may be paying excessive fees. A real APR calculator helps you understand this relationship and identify overpriced loans."
+    },
+    {
+      q: "Should I focus on interest rate or APR when comparing mortgages?",
+      a: "Focus on APR for long-term ownership (5+ years) and interest rate for short-term ownership (1-3 years). Here's why: APR reflects total borrowing cost over the full loan term, making it perfect for comparing loans you'll keep long-term. If you're refinancing or selling within 2-3 years, upfront fees matter less, so a lower interest rate (lower monthly payment) with higher fees might save you money even if APR is higher. Example: Loan A has 6.5% rate, 6.85% APR, $5,000 fees; Loan B has 6.75% rate, 6.8% APR, $1,500 fees. For 30-year ownership, choose Loan A (lower APR). For 2-year ownership, choose Loan B (saves $3,500 upfront, minimal monthly cost difference). Always calculate break-even point on fees using a mortgage APR calculator."
     }
   ];
 
   return (
     <section className="py-8">
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.softwareApplication) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }}
+      />
       <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-        {/* Banner Ad Placeholder */}
-        <div className="mb-6 flex justify-center">
-          <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-            <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-          </div>
-        </div>
 
         {/* Introduction Section */}
         <div className="mb-8 mx-auto max-w-5xl">

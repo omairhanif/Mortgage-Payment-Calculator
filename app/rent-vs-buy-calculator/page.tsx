@@ -3,8 +3,10 @@
 import { Suspense, useState } from "react";
 import { ChevronDown, ChevronUp, Scale } from "lucide-react";
 import MortgageCalculator from "@/components/calculator/MortgageCalculator";
+import { getStructuredData } from "./server";
 
 function RentVsBuyCalculatorContent() {
+  const structuredData = getStructuredData();
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
@@ -12,23 +14,51 @@ function RentVsBuyCalculatorContent() {
   };
 
   const faqs = [
-    { q: "Is it better to rent or buy?", a: "It depends on your situation. Buying typically makes sense if you plan to stay 5+ years, have stable income, can afford a down payment, and want to build equity. Renting is better for flexibility, uncertain job situations, or when home prices are very high relative to rents." },
-    { q: "What is the break-even point?", a: "The break-even point is when the total cost of buying equals the total cost of renting. This typically occurs after 3-7 years, depending on local market conditions, home appreciation, and your specific costs. Stay past this point to benefit financially from buying." },
-    { q: "What costs should I compare?", a: "For buying: mortgage payment, property taxes, insurance, maintenance, HOA fees, closing costs, minus tax benefits and equity gains. For renting: monthly rent, renter's insurance, potential rent increases. Don't forget opportunity cost of your down payment." },
-    { q: "How does home appreciation affect the decision?", a: "Higher home appreciation makes buying more attractive, as your home value increases over time. However, don't rely on past appreciation rates continuing indefinitely. Use conservative estimates (2-4% annually) when projecting future appreciation." },
-    { q: "Should I factor in lifestyle considerations?", a: "Yes! Financial calculations are just one part. Consider job stability, desired flexibility, interest in home maintenance, school districts, and community ties. Sometimes non-financial factors rightfully outweigh pure cost analysis." }
+    { 
+      q: "Is it cheaper to rent or buy a house right now?", 
+      a: "In 2024 with high interest rates (6-8%) and elevated home prices, renting is cheaper in the short term (1-3 years) in most markets, but buying builds equity and wins financially if you stay 5-10+ years. Here's the math: renting a $2,500/month home costs $30,000/year with zero equity built. Buying that same $500,000 home with 20% down ($100,000) at 7% costs approximately $3,200/month ($38,400/year) including mortgage, taxes, insurance, and maintenance, but you're building ~$8,000/year in equity initially (increasing over time). Break-even typically occurs around year 5-7. Renting wins if: you'll move within 3-5 years, property prices are falling, or rent is significantly less than ownership costs. Use a rent vs buy calculator with your actual local costs for accurate comparison."
+    },
+    { 
+      q: "What is the 5% rule for rent vs buy?", 
+      a: "The 5% rule is a quick rent vs buy decision framework: if annual rent is less than 5% of the home's purchase price, renting is likely cheaper; if more than 5%, buying may be better. The 5% represents unrecoverable homeownership costs: ~1% property tax, ~1% maintenance, ~3% opportunity cost of down payment invested elsewhere. Example: $400,000 home × 5% = $20,000/year ($1,667/month). If comparable rent is $1,400/month ($16,800/year), rent; if rent is $2,000/month ($24,000/year), buy. This rule provides quick guidance but doesn't account for: home appreciation, tax deductions, your timeline, or local market specifics. For detailed analysis, use a comprehensive rent vs buy calculator factoring in your complete situation."
+    },
+    { 
+      q: "How many years until buying is better than renting?", 
+      a: "Buying becomes better than renting after approximately 5-7 years in most markets, though this varies based on home prices, interest rates, and local conditions. The break-even point occurs when: cumulative home equity + appreciation + tax benefits exceed cumulative rent payments + opportunity cost of down payment. Year-by-year example on $400,000 home purchase: Years 1-2: renting cheaper (buyer pays closing costs, minimal equity built); Years 3-4: costs roughly equal (buyer building equity, renter avoiding maintenance); Years 5-7: buying pulls ahead (appreciation compounds, more payment goes to principal); Years 8+: buying significantly better (substantial equity, potential to own free and clear). Break-even happens sooner if: home appreciates faster, you get tax benefits, or rent increases aggressively. Use a rent vs own calculator to find your specific break-even timeline."
+    },
+    { 
+      q: "What is the 20/30/3 rule for buying a house?", 
+      a: "The 20/30/3 rule is a conservative home buying guideline: put 20% down, keep housing costs under 30% of gross income, and buy a home priced at maximum 3× your annual household income. Breaking it down: (1) 20% down—avoids PMI, gets better rates, ensures equity cushion. Example: $400,000 home = $80,000 down. (2) 30% of income—ensures affordability. Earning $100,000/year = max $2,500/month for housing (mortgage, taxes, insurance). (3) 3× income—prevents overextension. $100,000 income = max $300,000 home price. This rule is more conservative than lender maximums (which often allow 43-50% DTI and 5× income). Following 20/30/3 leaves room for savings, emergencies, and lifestyle expenses. Use income requirement and rent vs buy calculators to see if a home fits these parameters."
+    },
+    { 
+      q: "Should I rent or buy in California in 2024?", 
+      a: "In California 2024, renting often makes financial sense for 3-5 year horizons, but buying wins long-term (8+ years) if you can afford the entry costs. California challenges: median home price $800,000+ (requiring $160,000+ down payment), property taxes 1-1.3%, high maintenance costs, but rents also very high ($2,500-4,000+ for comparable homes). Scenario: buying $800,000 home at 7% with 20% down costs ~$6,100/month (mortgage, taxes, insurance, maintenance) vs $3,500/month rent. Short-term: you save $2,600/month renting ($31,200/year). But after 10 years with 3% appreciation: home worth $1.07M, you have $350,000+ equity, while renting saved nothing. Buy in CA if: staying 7+ years, can afford 20% down, expect long-term appreciation. Rent if: relocating soon, building down payment, or market seems overvalued."
+    },
+    { 
+      q: "How to calculate if buying or renting is better?", 
+      a: "Calculate rent vs buy by comparing total costs over your expected timeline: (1) Buying costs: down payment, closing costs (2-5%), monthly mortgage, property taxes, insurance, HOA, maintenance (1% of home value annually), opportunity cost (what down payment would earn invested). (2) Renting costs: monthly rent, renter's insurance, assumed annual rent increases (3-5%). (3) Buying benefits: equity buildup, home appreciation (use 2-4% annually), tax deductions (mortgage interest, property taxes). Example: $400,000 home, $2,000/month rent, 7 years: buying total outlay = $365,000, but $140,000 equity built, net cost = $225,000; renting total = $168,000 in rent with zero equity. Buy wins after 7 years. Use a comprehensive rent vs buy calculator or New York Times rent vs buy calculator for detailed analysis."
+    },
+    { 
+      q: "Is the rent vs buy calculator accurate?", 
+      a: "Rent vs buy calculators are accurate for financial comparisons if you input realistic assumptions, but they can't predict future market conditions or account for personal circumstances. Accuracy depends on: (1) Your inputs—use actual local property taxes, realistic maintenance costs (1% of home value), and conservative appreciation (2-4%); (2) Your timeline—calculations assume you stay the full period; selling early changes results dramatically; (3) Market assumptions—calculators can't predict rate changes, local appreciation, or economic shifts; (4) Lifestyle factors—calculators miss intangibles like stability, customization, forced savings through mortgage payments. Best calculators: New York Times rent vs buy (sophisticated, includes investment opportunity cost), Zillow rent vs buy (user-friendly), Excel-based (fully customizable). Use calculators as one input in your decision, not the only factor."
+    }
   ];
 
   return (
     <section className="py-8">
-      {/* Banner Ad */}
-      <div className="mb-8">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="flex items-center justify-center rounded-lg bg-gradient-to-br from-slate-50 to-slate-100 py-8 px-6 border border-slate-200">
-            <p className="text-xs text-slate-500 text-center">Advertisement Space</p>
-          </div>
-        </div>
-      </div>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.softwareApplication) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }}
+      />
 
       {/* Hero Section */}
       <div className="mb-8 mx-auto max-w-5xl">

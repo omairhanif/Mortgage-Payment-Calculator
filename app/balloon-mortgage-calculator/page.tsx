@@ -3,8 +3,10 @@
 import { useState } from "react";
 import { ChevronDown, ChevronUp, Circle } from "lucide-react";
 import MortgageCalculator from "@/components/calculator/MortgageCalculator";
+import { getStructuredData } from "./server";
 
 export default function BalloonMortgageCalculatorPage() {
+  const structuredData = getStructuredData();
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
@@ -24,35 +26,50 @@ export default function BalloonMortgageCalculatorPage() {
   ];
   const faqs = [
     {
-      q: "What is a balloon mortgage?",
-      a: "A balloon mortgage is a loan where you make regular payments for a short term (usually 5-7 years) calculated as if you're paying over 30 years, but the entire remaining balance comes due as one large 'balloon' payment at the end of the term. You must pay, refinance, or sell at that point."
+      q: "What is a balloon mortgage payment example?",
+      a: "A balloon mortgage payment example: you borrow $300,000 at 6.5% with a 7-year balloon and 30-year amortization. Your monthly payment is $1,896 (principal + interest), same as a traditional 30-year mortgage. After making 84 monthly payments ($159,264 total), you still owe approximately $275,000 as the balloon payment in year 7. At that point, you must: (1) refinance the $275,000 at current rates; (2) sell the property; or (3) pay the full balloon amount in cash. If you refinance to a traditional 15-year mortgage at 7%, your new payment jumps to $2,474/month. Use a balloon payment calculator with amortization schedule to see your exact remaining balance at any point."
     },
     {
-      q: "Who should consider a balloon mortgage?",
-      a: "Balloon mortgages suit buyers planning to sell within the balloon period, those confident they can refinance, real estate investors flipping properties, or borrowers expecting large cash inflows (inheritance, business sale) before the balloon comes due. They're risky for typical homeowners without exit strategies."
+      q: "How to calculate balloon payment on a mortgage?",
+      a: "To calculate a balloon payment: (1) Determine monthly payment using full amortization period (e.g., 30 years); (2) Calculate how many payments you'll make during the balloon term (e.g., 5 years = 60 payments); (3) Compute remaining principal after those payments using an amortization schedule. Formula: Remaining Balance = Principal × [(1 + r)^n - (1 + r)^p] / [(1 + r)^n - 1], where r = monthly interest rate, n = total payments (360 for 30 years), p = payments made (60 for 5 years). Example: $250,000 at 6% over 30 years with 5-year balloon: monthly payment = $1,499; after 60 payments, balloon = ~$233,139. Use a free balloon mortgage calculator for accurate results."
     },
     {
-      q: "What happens if I can't pay the balloon?",
-      a: "You must refinance or sell the property. If you can't qualify for refinancing (due to credit, income, or equity issues) and can't sell quickly enough, you risk foreclosure. The lender can foreclose if you default on the balloon payment, just like any other loan default."
+      q: "Are balloon mortgages a good idea?",
+      a: "Balloon mortgages are good for specific situations but risky for traditional homebuyers. Good if: you're absolutely selling within balloon period (job relocation, planned upgrade), you're a real estate investor flipping property, you expect large cash inflow (inheritance, business sale, stock vesting), or rates are high and you're confident you can refinance at lower rates soon. Risky if: you plan to stay long-term, can't afford refinancing risk, have uncertain income/credit, or lack backup refinancing options. The 2008 crisis showed many couldn't refinance when home values dropped. Most financial advisors recommend traditional fixed-rate mortgages for primary residences. Only choose balloon mortgages with a concrete, realistic exit strategy."
     },
     {
-      q: "Are balloon mortgages cheaper?",
-      a: "Not necessarily. While monthly payments may be lower (since you're not fully amortizing), balloon mortgages often carry higher rates due to lender risk. You'll pay less total interest if you sell or refinance early, but you face refinancing costs and rate risk at balloon maturity."
+      q: "What happens if I can't pay my balloon payment?",
+      a: "If you can't pay your balloon payment, you have limited options—all with serious consequences: (1) Refinance—but requires qualifying with sufficient credit (usually 620+), income, and equity (20%+); if property value dropped or your finances weakened, you may not qualify; (2) Sell the property—must sell quickly, potentially at unfavorable prices; if you owe more than current value, you'll need cash to cover difference; (3) Negotiate with lender—some may offer modification or extension, but not guaranteed; (4) Default and foreclosure—if you can't refinance or sell, lender forecloses on the property, destroying your credit for 7+ years. Always have a backup plan before signing a balloon mortgage. Check refinancing requirements well before balloon due date."
     },
     {
-      q: "Can I convert my balloon mortgage to a traditional loan?",
-      a: "Only through refinancing, which requires qualifying again with adequate credit, income, and equity. Some balloon mortgages include conversion options, but these aren't standard. Never assume you can refinance - market conditions, property values, and your finances may prevent it."
+      q: "How much is the balloon payment on a 5-year mortgage?",
+      a: "On a 5-year balloon mortgage with 30-year amortization, you'll owe approximately 92-95% of the original loan amount as the balloon payment, depending on interest rate. Examples: $200,000 at 6% = ~$186,108 balloon; $300,000 at 6.5% = ~$281,000 balloon; $400,000 at 7% = ~$377,300 balloon. After 5 years (60 monthly payments), you've paid mostly interest and very little principal—that's why the balloon is so large. On a $300,000 loan at 6.5%, your 60 payments of $1,896 total $113,760, but only $19,000 goes to principal while $94,760 goes to interest. Use a balloon mortgage calculator with amortization schedule to see your specific balloon amount."
+    },
+    {
+      q: "Can you pay off a balloon mortgage early?",
+      a: "Yes, you can pay off a balloon mortgage early, but check your loan documents for prepayment penalties. Most residential balloon mortgages allow early payoff without penalties, but some charge 1-3% of the remaining balance if you pay off within the first 3-5 years. Benefits of early payoff: avoid refinancing risk, save on interest costs, eliminate balloon payment stress, own home free and clear. You can pay extra toward principal monthly, make lump sum payments, or refinance to a traditional mortgage before balloon due. Making extra principal payments throughout the loan term significantly reduces your eventual balloon amount. Always verify prepayment terms before committing to a balloon mortgage."
+    },
+    {
+      q: "Balloon mortgage vs traditional mortgage—which is better?",
+      a: "Traditional mortgages are better for 90% of homebuyers due to predictability and full amortization. Traditional (30-year fixed) advantages: fully paid off at term end (no balloon shock), predictable payments for 30 years, no refinancing risk, easier to qualify for, better for long-term homeowners. Balloon mortgage advantages: potentially lower initial rates (0.25-0.75% less), lower monthly payments during balloon period, good for short-term ownership (5-7 years), suits real estate investors/flippers. Example on $350,000: traditional at 7% = $2,329/month for 30 years, owns home fully; balloon at 6.5% = $2,212/month for 7 years, then $320,000 balloon due. Choose traditional for primary residence and long-term ownership; choose balloon only with concrete exit strategy and tolerance for refinancing risk."
     }
   ];
 
   return (
     <>
-      {/* Banner Ad */}
-      <div className="mb-6 flex justify-center">
-        <div className="rounded bg-slate-100 px-4 py-6 text-center text-sm text-slate-500">
-          Advertisement (728×90)
-        </div>
-      </div>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.softwareApplication) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }}
+      />
 
       {/* Hero Section */}
       <div className="mb-8">

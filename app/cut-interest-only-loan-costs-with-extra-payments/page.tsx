@@ -1,14 +1,60 @@
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
-import Image from "next/image";
+"use client";
 
-export const metadata = {
-  title: "Cut Interest-Only Loan Costs With Extra Payments | Save Thousands",
-  description: "Learn proven strategies to reduce interest-only loan costs through systematic extra payments. Real examples show how to save $10,000+ and avoid payment shock.",
-};
+import Link from "next/link";
+import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
+import { getStructuredData } from "./server";
 
 export default function CutInterestOnlyLoanCostsArticle() {
+  const structuredData = getStructuredData();
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
+
+  const faqs = [
+    {
+      q: "How do extra payments reduce interest-only loan costs?",
+      a: "Extra payments on interest-only loans reduce your principal balance, which directly decreases the amount of interest charged on future payments and lowers your balloon payment or post-conversion payment amount. Since interest is calculated on the remaining principal, every extra dollar paid saves you interest for the entire remaining loan term. For example, paying an extra $500/month on a $400,000 loan at 7% over 10 years reduces your balance by $62,400 and saves approximately $6,800 in interest—a 2.5x return on your extra payment investment."
+    },
+    {
+      q: "What's the best extra payment strategy for my situation?",
+      a: "For W-2 employees with stable income, fixed monthly extra payments ($500-$1,000) work best—automate them for consistency. Self-employed or commission-based workers benefit from annual lump sums that provide flexibility. Conservative borrowers should match what a fully-amortizing payment would be. Early-career professionals can use graduating payments that start small ($200-$300) and increase annually. Most successful borrowers use hybrid approaches—combining modest monthly extras with annual lump sums from bonuses."
+    },
+    {
+      q: "Should I pay extra on my interest-only loan or invest the money?",
+      a: "If your mortgage rate is above 6-7%, extra payments provide guaranteed 'returns' equal to your rate with zero risk. If rates are lower (4-5%), investing in tax-advantaged accounts may yield better returns long-term. A balanced approach often works best: make modest extra payments ($200-$500 monthly) to build equity and reduce payment shock risk, while also investing for growth. Always prioritize a 3-6 month emergency fund and paying off high-interest debt (credit cards) before either strategy."
+    },
+    {
+      q: "How much can I really save with extra payments?",
+      a: "Savings vary based on loan size and extra payment amount, but typically range from $5,000-$20,000 over a 5-10 year interest-only period. On a $400,000 loan at 7% with 10-year IO, paying extra $500 monthly saves approximately $6,800 in interest and reduces your balance by $62,400. Increasing to $1,000 extra monthly saves nearly $14,000 in interest and reduces your balance by $127,200. Beyond direct savings, you avoid payment shock—potentially saving tens of thousands more when the loan converts to fully-amortizing."
+    },
+    {
+      q: "When should I start making extra payments?",
+      a: "Start making extra payments as soon as you close on the loan—the earlier you start, the greater your savings due to compound interest effects. Every month you delay reduces the impact of your extra payments. However, ensure you have a 3-6 month emergency fund first. If you're still building reserves, start with modest extra payments ($100-200) and increase them as your financial security improves. Even starting in year 2-3 of a 10-year interest-only period still provides significant benefits."
+    },
+    {
+      q: "Are there prepayment penalties on interest-only loans?",
+      a: "Most interest-only mortgages allow unlimited extra principal payments without penalties, but some have restrictions—particularly loans originated between 2004-2008 or portfolio loans from small lenders. Common restrictions include prepayment penalties if you pay off more than 20% of the original balance annually, or penalties for full payoff within the first 2-5 years. Always review your loan documents or ask your lender about prepayment rules before committing to aggressive extra payment strategies. Most modern interest-only loans have no restrictions."
+    }
+  ];
+
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }}
+      />
     <main className="min-h-screen bg-white">
       {/* Navigation */}
       <div className="border-b border-slate-200 bg-white">
@@ -46,15 +92,6 @@ export default function CutInterestOnlyLoanCostsArticle() {
           <time>April 1, 2026</time>
           <span className="mx-3">•</span>
           <span>16 min read</span>
-        </div>
-      </div>
-
-      {/* Banner Ad */}
-      <div className="mx-auto max-w-4xl px-6 sm:px-8 mb-8">
-        <div className="w-full flex justify-center">
-          <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-            <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-          </div>
         </div>
       </div>
 
@@ -442,6 +479,44 @@ export default function CutInterestOnlyLoanCostsArticle() {
           </div>
         </div>
       </article>
+
+      {/* FAQ Section */}
+      <section className="py-12 bg-slate-50">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <h2 className="font-serif text-3xl font-bold text-slate-900 mb-8 text-center">
+            Frequently Asked Questions
+          </h2>
+
+          <div className="space-y-3">
+            {faqs.map((faq, index) => (
+              <div 
+                key={index}
+                className="border border-slate-200 rounded-lg overflow-hidden bg-white"
+              >
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-slate-50 transition-colors"
+                >
+                  <span className="font-semibold text-slate-900 pr-8">
+                    {faq.q}
+                  </span>
+                  {openFAQ === index ? (
+                    <ChevronUp className="h-5 w-5 text-indigo-600 flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="h-5 w-5 text-slate-400 flex-shrink-0" />
+                  )}
+                </button>
+                {openFAQ === index && (
+                  <div className="px-6 pb-4 text-slate-600">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
+    </>
   );
 }

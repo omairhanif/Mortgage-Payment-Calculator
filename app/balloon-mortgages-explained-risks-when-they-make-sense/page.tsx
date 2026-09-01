@@ -1,14 +1,60 @@
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
-import Image from "next/image";
+"use client";
 
-export const metadata = {
-  title: "Balloon Mortgages Explained: Risks & When They Make Sense",
-  description: "Complete guide to balloon mortgages: understand risks, benefits, and when to use them. Learn exit strategies, refinancing options, and avoid common pitfalls.",
-};
+import Link from "next/link";
+import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
+import { getStructuredData } from "./server";
 
 export default function BalloonMortgagesExplainedArticle() {
+  const structuredData = getStructuredData();
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
+
+  const faqs = [
+    {
+      q: "What is a balloon mortgage and how does it work?",
+      a: "A balloon mortgage offers low monthly payments for a set period (typically 5-7 years), then requires payment of the entire remaining balance in one lump sum. Payments are calculated based on a longer amortization period (like 30 years), but the loan term is much shorter. For example, a 7-year balloon mortgage on $300,000 at 7% might have $1,996 monthly payments, then require a $280,847 balloon payment after 7 years. You must refinance, sell, or pay cash when the balloon comes due."
+    },
+    {
+      q: "What are the main risks of balloon mortgages?",
+      a: "Key risks include: (1) Refinancing uncertainty—if rates rise or your credit worsens, refinancing may be expensive or impossible, (2) Market downturn risk—falling home values can prevent refinancing due to insufficient equity, (3) Income disruption—job loss or income reduction when the balloon is due leaves no options, (4) Foreclosure—if you can't pay and have no exit strategy, you'll lose the home, and (5) Rate shock—refinancing at higher rates can dramatically increase payments. The 2008 recession showed these risks aren't theoretical."
+    },
+    {
+      q: "When does a balloon mortgage make sense?",
+      a: "Balloon mortgages work well when: (1) You're flipping an investment property within 1-3 years, (2) You're certain you'll sell before the balloon date (military relocation, job transfer), (3) You're expecting a windfall (business sale, inheritance, bonus) to pay the balloon, (4) You're a business owner with growing income planning to refinance, or (5) You need bridge financing while selling another property. The key is having a concrete, low-risk exit strategy—not just hoping rates will be favorable when you need to refinance."
+    },
+    {
+      q: "How can I prepare for a balloon payment?",
+      a: "Start preparing 18-24 months early: (1) Make extra principal payments to reduce the balloon amount, (2) Improve your credit score by paying bills on time and reducing debt, (3) Increase savings for closing costs or potential down payment, (4) Get pre-approved for refinancing 12 months before the balloon date, (5) Maintain stable employment and document income, (6) Track home values and build equity, and (7) Have 2-3 backup plans (refinance, sell, or pay cash). Never wait until 3 months before the balloon is due—options will be limited and expensive."
+    },
+    {
+      q: "Can I convert a balloon mortgage to a regular mortgage?",
+      a: "Yes, through refinancing—but it's not automatic. You'll need to qualify for a new conventional mortgage with: 620-680+ credit score, sufficient equity (typically 20%+ to avoid PMI), debt-to-income ratio below 43-50%, stable employment history, and documented income. Some balloon mortgages have convertibility options built in, but most require full refinancing. Start the process 6-12 months before your balloon is due to ensure you have time to address any qualification issues or explore alternative lenders if needed."
+    },
+    {
+      q: "What happens if I can't pay my balloon payment?",
+      a: "If you can't pay, first contact your lender immediately—some may offer extensions or loan modifications, though this is rare and at their discretion. Other options: (1) Sell the property quickly (even at a slight loss to avoid foreclosure), (2) Find a private lender or hard money loan (expensive but temporary), (3) Borrow from retirement accounts or family (if available), or (4) As a last resort, deed in lieu of foreclosure or short sale may avoid the full foreclosure process. Ignoring the problem leads to foreclosure, credit damage, and potential deficiency judgments."
+    }
+  ];
+
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }}
+      />
     <main className="min-h-screen bg-white">
       {/* Navigation */}
       <div className="border-b border-slate-200 bg-white">
@@ -46,15 +92,6 @@ export default function BalloonMortgagesExplainedArticle() {
           <time>April 20, 2026</time>
           <span className="mx-3">•</span>
           <span>15 min read</span>
-        </div>
-      </div>
-
-      {/* Banner Ad */}
-      <div className="mx-auto max-w-4xl px-6 sm:px-8 mb-8">
-        <div className="w-full flex justify-center">
-          <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-            <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-          </div>
         </div>
       </div>
 
@@ -371,7 +408,45 @@ export default function BalloonMortgagesExplainedArticle() {
           </div>
         </div>
       </article>
+
+      {/* FAQ Section */}
+      <section className="py-12 bg-slate-50">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <h2 className="font-serif text-3xl font-bold text-slate-900 mb-8 text-center">
+            Frequently Asked Questions
+          </h2>
+
+          <div className="space-y-3">
+            {faqs.map((faq, index) => (
+              <div 
+                key={index}
+                className="border border-slate-200 rounded-lg overflow-hidden bg-white"
+              >
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-slate-50 transition-colors"
+                >
+                  <span className="font-semibold text-slate-900 pr-8">
+                    {faq.q}
+                  </span>
+                  {openFAQ === index ? (
+                    <ChevronUp className="h-5 w-5 text-indigo-600 flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="h-5 w-5 text-slate-400 flex-shrink-0" />
+                  )}
+                </button>
+                {openFAQ === index && (
+                  <div className="px-6 pb-4 text-slate-600">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
+    </>
   );
 }
 

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mortgage-payment-calculator.com/sitemap.xml

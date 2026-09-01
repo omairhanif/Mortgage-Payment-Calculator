@@ -1,14 +1,60 @@
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
-import Image from "next/image";
+"use client";
 
-export const metadata = {
-  title: "Renting vs. Buying a Home: A Full Cost Comparison | 2026 Guide",
-  description: "Compare the true costs of renting vs buying a home. Real examples, regional breakdowns, break-even timelines, and when each option makes financial sense.",
-};
+import Link from "next/link";
+import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
+import { getStructuredData } from "./server";
 
 export default function RentingVsBuyingArticle() {
+  const structuredData = getStructuredData();
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
+
+  const faqs = [
+    {
+      q: "Is it better to rent or buy a home?",
+      a: "It depends on your timeline, local market, and personal circumstances. Buying typically wins financially if you stay 7+ years, benefit from home appreciation and equity building, and live in a market where monthly rent is close to or exceeds ownership costs. Renting wins if you're likely to move within 5 years (avoiding transaction costs), live in a high-cost market where home prices are 20×+ annual rent, or can invest your down payment savings at higher returns than home appreciation. Use a rent vs buy calculator with your actual numbers to find your break-even point."
+    },
+    {
+      q: "What's the 5% rule for renting vs. buying?",
+      a: "The 5% rule estimates unrecovered ownership costs: 1% property tax + 1% maintenance + 3% cost of capital (opportunity cost of down payment). If annual rent is less than 5% of the home's purchase price, renting is cheaper. Example: $400,000 home × 5% = $20,000 annually ($1,667/month). If comparable rent is $1,800/month ($21,600 yearly), buying is financially better. If rent is $1,400/month ($16,800 yearly), renting wins. This rule provides a quick directional check before detailed rent vs buy calculator analysis."
+    },
+    {
+      q: "How long do you need to own a home before it pays off to buy vs. rent?",
+      a: "The typical break-even point is 7-10 years, depending on your market and costs. Breaking even means the point where the total cost of buying (down payment, closing costs, mortgage interest, taxes, insurance, maintenance) equals the total cost of renting (rent payments) plus investment returns on the down payment you didn't use. In high-appreciation markets or low-rent-to-price areas, break-even might come in 5-6 years. In expensive coastal cities with slow appreciation, it might take 12-15 years. Calculate your specific break-even using a rent vs buy calculator with your actual home price, rent, appreciation estimates, and opportunity cost."
+    },
+    {
+      q: "What are the hidden costs of buying a home?",
+      a: "Hidden costs include: closing costs (2-5% of purchase price—$8,000-$20,000 on $400,000 home), ongoing maintenance ($4,000-$8,000 annually or 1-2% of home value), property taxes ($3,000-$10,000+ depending on location), homeowners insurance ($1,500-$3,000 yearly), HOA fees ($200-$600/month if applicable), major repairs (roof replacement $10,000-$20,000, HVAC $5,000-$10,000), and transaction costs when selling (6-10% of sale price). Many first-time buyers only focus on down payment and monthly mortgage, missing these substantial ongoing and eventual costs."
+    },
+    {
+      q: "Can I afford to buy if I'm paying less rent than a mortgage would cost?",
+      a: "Maybe, but it's more nuanced than just comparing monthly payments. Your rent might be lower than a mortgage payment, but owning builds equity (forced savings) while rent is gone forever. Additionally, consider: (1) Is your rent low enough to save aggressively for a down payment? (2) Can you absorb 20-50% higher monthly costs after buying (maintenance, repairs, taxes)? (3) Do you have 3-6 months emergency fund plus down payment saved? (4) Is your employment stable? If you can't save meaningful amounts while renting, you may struggle with homeownership's variable costs even if the mortgage itself is 'affordable'."
+    },
+    {
+      q: "What salary do I need to buy instead of rent?",
+      a: "In 2026 Canada, you need approximately $80,000-90,000 annual income to buy a $300,000 home, or $130,000-145,000 for a $500,000 home using conservative 20/30/3 guidelines and typical mortgage rates (~5.5%). The calculation: for a $500,000 home with 20% down ($100,000), your $400,000 mortgage at 5.5% creates $2,270/month payments, plus $550 property tax, $180 insurance, $250 maintenance = $3,250 total. Lenders require this stays under 32% of gross income, meaning $10,156 monthly income or $121,875 annually minimum. Factor in the mortgage stress test (qualify at higher rate) and you realistically need $130,000-$145,000 income."
+    }
+  ];
+
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }}
+      />
     <main className="min-h-screen bg-white">
       {/* Navigation */}
       <div className="border-b border-slate-200 bg-white">
@@ -46,15 +92,6 @@ export default function RentingVsBuyingArticle() {
           <time>May 1, 2026</time>
           <span className="mx-3">•</span>
           <span>13 min read</span>
-        </div>
-      </div>
-
-      {/* Banner Ad */}
-      <div className="mx-auto max-w-4xl px-6 sm:px-8 mb-8">
-        <div className="w-full flex justify-center">
-          <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-            <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-          </div>
         </div>
       </div>
 
@@ -352,7 +389,45 @@ export default function RentingVsBuyingArticle() {
           </div>
         </div>
       </article>
+
+      {/* FAQ Section */}
+      <section className="py-12 bg-slate-50">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <h2 className="font-serif text-3xl font-bold text-slate-900 mb-8 text-center">
+            Frequently Asked Questions
+          </h2>
+
+          <div className="space-y-3">
+            {faqs.map((faq, index) => (
+              <div 
+                key={index}
+                className="border border-slate-200 rounded-lg overflow-hidden bg-white"
+              >
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-slate-50 transition-colors"
+                >
+                  <span className="font-semibold text-slate-900 pr-8">
+                    {faq.q}
+                  </span>
+                  {openFAQ === index ? (
+                    <ChevronUp className="h-5 w-5 text-indigo-600 flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="h-5 w-5 text-slate-400 flex-shrink-0" />
+                  )}
+                </button>
+                {openFAQ === index && (
+                  <div className="px-6 pb-4 text-slate-600">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
+    </>
   );
 }
 

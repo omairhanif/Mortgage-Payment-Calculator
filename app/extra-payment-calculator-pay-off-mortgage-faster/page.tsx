@@ -1,14 +1,62 @@
-﻿import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
-import Image from "next/image";
+﻿"use client";
 
-export const metadata = {
-  title: "Extra Payment Calculator: Pay Off Your Mortgage Faster | Save Thousands on Interest",
-  description: "Calculate how extra mortgage payments reduce your loan term and save interest. Real examples show $100-$500 monthly extra payments on mortgages, car loans, and student loans.",
-};
+import Link from "next/link";
+import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
+import { getStructuredData } from "./server";
 
 export default function ExtraPaymentCalculatorArticle() {
+  const structuredData = getStructuredData();
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
+
+  const faqs = [
+    {
+      q: "How do extra mortgage payments reduce interest?",
+      a: "Extra payments reduce your principal balance faster, which decreases the amount of interest charged on future payments. Since mortgage interest is calculated on the remaining principal, every dollar paid toward principal saves you interest for the entire remaining loan term. For example, a $200 extra payment in year 2 of a 30-year mortgage at 5% saves approximately $465 in total interest—a 2.3x return. The earlier you make extra payments, the more interest you save because that reduced principal compounds over more years."
+    },
+    {
+      q: "When should I start making extra mortgage payments?",
+      a: "Start making extra payments as soon as you've established a 3-6 month emergency fund and paid off high-interest debt (credit cards above 8-10%). The earlier you start, the greater your savings due to compound interest effects. Even if you can only afford $50-100 extra per month initially, starting in year 1 of your mortgage saves significantly more than waiting until year 10. For Canadian mortgages with 15-20% prepayment privileges, you can start immediately without penalties."
+    },
+    {
+      q: "Are there prepayment penalties for extra payments?",
+      a: "Most Canadian mortgages allow 15-20% of the original principal as extra payments annually without penalties. For example, a $400,000 mortgage typically allows $60,000-$80,000 in extra payments per year. U.S. mortgages originated after 2014 rarely have prepayment penalties. However, always verify your specific mortgage terms—some older or subprime loans may have restrictions. Check your mortgage contract or ask your lender about your prepayment privileges before making large extra payments."
+    },
+    {
+      q: "Should I make extra monthly or lump-sum annual payments?",
+      a: "Monthly extra payments save slightly more interest because they reduce principal throughout the year, not just once annually. However, the difference is small (typically 0.5-2% of total interest savings). Choose based on your cash flow: monthly payments work better for steady income, while annual lump sums suit bonus-based income or tax refunds. Many Canadian homeowners combine both strategies—$100-200 extra monthly plus an annual $5,000 lump sum from bonuses, maximizing their 15-20% prepayment allowance."
+    },
+    {
+      q: "How much extra should I pay on my mortgage?",
+      a: "Start with what's comfortable without straining your budget—even $100/month makes a significant impact. A good target is 10-15% of your regular payment. For a $2,000 monthly mortgage payment, adding $200-300 extra is sustainable for most homeowners. Use an extra payment calculator to model different amounts: you'll see that increasing from $100 to $200 extra monthly often doubles your interest savings. Balance extra payments against other financial goals like retirement savings and maintaining your emergency fund."
+    },
+    {
+      q: "Is it better to make extra payments or invest the money?",
+      a: "If your mortgage rate is below 4-5%, investing may yield better returns, especially in tax-advantaged accounts. However, extra mortgage payments guarantee a 'return' equal to your interest rate with zero risk. For a 5.5% mortgage, extra payments are equivalent to a guaranteed 5.5% return. Consider a balanced approach: contribute enough to get any employer 401(k) match first (free money), then split between extra mortgage payments (guaranteed return, reduced debt) and additional investing (growth potential). Your risk tolerance and financial goals should guide the split."
+    }
+  ];
+
   return (
+    <>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.softwareApplication) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }}
+      />
+      
     <main className="min-h-screen bg-white">
       {/* Navigation */}
       <div className="border-b border-slate-200 bg-white">
@@ -46,15 +94,6 @@ export default function ExtraPaymentCalculatorArticle() {
           <time>May 10, 2026</time>
           <span className="mx-3">•</span>
           <span>12 min read</span>
-        </div>
-      </div>
-
-      {/* Banner Ad */}
-      <div className="mx-auto max-w-4xl px-6 sm:px-8 mb-8">
-        <div className="w-full flex justify-center">
-          <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-            <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-          </div>
         </div>
       </div>
 
@@ -357,6 +396,44 @@ export default function ExtraPaymentCalculatorArticle() {
           </div>
         </div>
       </article>
+
+      {/* FAQ Section */}
+      <section className="py-12 bg-slate-50">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <h2 className="font-serif text-3xl font-bold text-slate-900 mb-8 text-center">
+            Frequently Asked Questions
+          </h2>
+
+          <div className="space-y-3">
+            {faqs.map((faq, index) => (
+              <div 
+                key={index}
+                className="border border-slate-200 rounded-lg overflow-hidden bg-white"
+              >
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-slate-50 transition-colors"
+                >
+                  <span className="font-semibold text-slate-900 pr-8">
+                    {faq.q}
+                  </span>
+                  {openFAQ === index ? (
+                    <ChevronUp className="h-5 w-5 text-indigo-600 flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="h-5 w-5 text-slate-400 flex-shrink-0" />
+                  )}
+                </button>
+                {openFAQ === index && (
+                  <div className="px-6 pb-4 text-slate-600">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
+    </>
   );
 }

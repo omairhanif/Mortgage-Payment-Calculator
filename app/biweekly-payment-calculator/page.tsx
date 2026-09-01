@@ -3,8 +3,10 @@
 import { useState } from "react";
 import { ChevronDown, ChevronUp, Calendar } from "lucide-react";
 import MortgageCalculator from "@/components/calculator/MortgageCalculator";
+import { getStructuredData } from "./server";
 
 export default function BiweeklyPaymentCalculatorPage() {
+  const structuredData = getStructuredData();
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
@@ -24,31 +26,50 @@ export default function BiweeklyPaymentCalculatorPage() {
   ];
   const faqs = [
     {
-      q: "How does biweekly payment save money?",
-      a: "By paying every two weeks instead of monthly, you make 26 half-payments (13 full payments) per year instead of 12. This extra payment per year reduces principal faster, saving thousands in interest and cutting years off your loan term."
+      q: "How much will I save with biweekly mortgage payments?",
+      a: "Biweekly payments typically save $30,000-$80,000 in interest and cut 4-7 years off a 30-year mortgage, depending on loan amount and rate. For example, a $300,000 mortgage at 6.5% with monthly payments costs $382,633 in total interest over 30 years. Switching to biweekly payments (half payment every two weeks) reduces total interest to $338,000—saving $44,633—and pays off the loan in approximately 25.5 years instead of 30. The savings come from making 26 half-payments annually (equivalent to 13 full payments) instead of 12, with the extra payment going entirely to principal. Use a biweekly mortgage payment calculator to see your specific savings based on your loan details."
     },
     {
-      q: "Can I set up biweekly payments myself?",
-      a: "Yes! You can replicate the benefits by making one extra monthly payment per year, or by paying 1/12 extra each month. This avoids fees some lenders charge for biweekly programs while achieving the same results."
+      q: "Is it better to pay mortgage biweekly or monthly with extra payment?",
+      a: "Both strategies save similar amounts—the key is making 13 payments per year instead of 12. Biweekly payments (half payment every 2 weeks) automatically result in 13 payments annually. Monthly payments plus one extra payment annually achieve the same result with more flexibility. Advantages of biweekly: automatic discipline, aligns well with biweekly paychecks, gradual principal reduction. Advantages of monthly + extra: more control over timing, can pause extra payments if needed, avoids potential lender fees ($200-400 setup + $3-5 per transaction). On a $300,000 loan at 6%, both methods save roughly $40,000-45,000 in interest. Choose biweekly if you want autopilot savings; choose monthly + extra for flexibility."
     },
     {
-      q: "Are there fees for biweekly payment programs?",
-      a: "Some lenders charge $200-400 setup fees plus $2.50-5 per transaction for formal biweekly programs. You can achieve identical results without these fees by making extra payments yourself on your own schedule."
+      q: "How to calculate biweekly mortgage payment?",
+      a: "To calculate biweekly mortgage payments: (1) Calculate your standard monthly payment using the mortgage formula (or use a calculator); (2) Divide the monthly payment by 2 to get your biweekly amount; (3) You'll make this half-payment 26 times per year (every two weeks). Example: $300,000 loan at 6.5% for 30 years has a monthly payment of $1,896. Biweekly payment = $1,896 ÷ 2 = $948. You'll pay $948 every two weeks, totaling $24,648 annually (26 × $948) instead of $22,752 (12 × $1,896). That extra $1,896 per year accelerates payoff. A biweekly payment calculator automates this math and shows your payoff timeline and interest savings."
     },
     {
-      q: "Will biweekly payments work with my budget?",
-      a: "Biweekly payments work especially well if you're paid biweekly, as you can align payments with paychecks. The total annual amount is only slightly higher than monthly payments (equivalent to one extra monthly payment per year), making it manageable for most budgets."
+      q: "Do all lenders allow biweekly mortgage payments?",
+      a: "Most lenders allow biweekly payments, but some charge fees or require enrollment in formal programs. Three approaches: (1) Formal lender biweekly program—automatic deductions every two weeks, but often has $200-400 setup fee plus $2.50-5 per transaction; (2) Lender-approved extra payments—make 1/12 extra each month or one extra annual payment yourself, usually free; (3) DIY approach—save half-payments in separate account, make extra payments on your schedule. Check your mortgage documents for prepayment terms. FHA, VA, and most conventional loans allow unlimited prepayments without penalties. Canadian mortgages typically allow 10-20% annual prepayment without fees. Contact your lender to confirm options and any associated costs."
+    },
+    {
+      q: "When should I start biweekly payments?",
+      a: "Start biweekly payments as soon as possible—early payments have the greatest impact. In the first years of a mortgage, most of your payment goes to interest. Extra payments during this period directly reduce principal when interest is accruing fastest, maximizing savings. On a $300,000, 6.5% 30-year mortgage: starting biweekly payments immediately saves $44,000+ in interest; starting after 10 years saves ~$20,000; starting after 20 years saves only ~$5,000. However, even late-start biweekly payments provide benefits. Before starting, ensure you have: adequate emergency fund (3-6 months expenses), no high-interest debt (credit cards >7-8%), and sufficient cash flow to handle the extra annual payment."
+    },
+    {
+      q: "What is the biweekly equivalent of my monthly mortgage payment?",
+      a: "The biweekly equivalent of your monthly payment is simply your monthly payment divided by 2. For example: $1,800 monthly payment = $900 biweekly; $2,000 monthly = $1,000 biweekly; $2,500 monthly = $1,250 biweekly; $3,000 monthly = $1,500 biweekly. Paying this biweekly amount every two weeks results in 26 payments annually, totaling 13 monthly payments instead of 12. The 'extra' payment (13th payment) goes entirely toward principal. This strategy doesn't require finding extra money—you're just redistributing your annual payments to align with a biweekly pay schedule. Many people find it easier to budget $900 every two weeks rather than $1,800 once monthly."
+    },
+    {
+      q: "Can biweekly payments hurt my credit score?",
+      a: "No, biweekly mortgage payments do not hurt your credit score—they can only help or have neutral impact. As long as your lender receives the full monthly payment amount by the due date (which happens automatically with 26 biweekly payments), your payment history remains positive. Benefits to credit: paying down principal faster lowers your overall debt, improves debt-to-income ratio, and shows strong financial management. Potential concerns to avoid: ensure your lender properly processes biweekly payments (some hold funds until full monthly amount received); verify payments aren't marked late if lender only credits monthly; confirm no fees charged that could strain your budget. Most importantly, biweekly payments demonstrate consistent repayment—the #1 factor in credit scores (35% of FICO score)."
     }
   ];
 
   return (
     <>
-      {/* Banner Ad */}
-      <div className="mb-6 flex justify-center">
-        <div className="rounded bg-slate-100 px-4 py-6 text-center text-sm text-slate-500">
-          Advertisement (728×90)
-        </div>
-      </div>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.softwareApplication) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }}
+      />
 
       {/* Hero Section */}
       <div className="mx-auto max-w-5xl px-6 pb-12 pt-8 sm:px-8 lg:px-12">

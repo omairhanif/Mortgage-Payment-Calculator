@@ -2,10 +2,59 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
+import { useState } from "react";
+import { getStructuredData } from "./server";
 
 export default function BiweeklyVsMonthlyArticle() {
+  const structuredData = getStructuredData();
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
+
+  const faqs = [
+    {
+      q: "Is it better to pay mortgage biweekly or monthly?",
+      a: "For most Canadian homeowners paid biweekly, biweekly mortgage payments are better because they: (1) save $40,000-$80,000+ in interest over the mortgage life, (2) pay off the mortgage 3-5 years faster, (3) align with your paycheque schedule for easier budgeting, and (4) create automatic forced savings through the extra annual payment. However, monthly payments work better if: you're paid monthly/semi-monthly (easier budget alignment), you plan to sell within 5 years (less time to realize savings), you have very low rate under 3% (extra payments might earn more invested elsewhere), or your lender charges high biweekly fees. For biweekly-paid borrowers with rates above 4.5% and long-term ownership plans, biweekly mortgage payments are objectively superior."
+    },
+    {
+      q: "How much faster will I pay off my mortgage with biweekly payments?",
+      a: "Biweekly payments typically reduce a 25-year Canadian mortgage to 21-22 years (3-4 years faster) and a 30-year U.S. mortgage to 25-26 years (4-5 years faster). The exact acceleration depends on your interest rate and loan amount. Example: $350,000 mortgage at 5.5% for 25 years with $2,148/month payments pays off in exactly 300 months. Switch to biweekly at $1,074 every 2 weeks (26 payments = $27,924 annually vs $25,776 monthly), and it pays off in approximately 256 months (21.3 years)—3.7 years faster. Higher interest rates produce more dramatic acceleration because you're avoiding more interest accumulation."
+    },
+    {
+      q: "What's the catch with biweekly mortgage payments?",
+      a: "The main 'catches' are: (1) Higher annual cost—you pay 13 monthly payments instead of 12 (roughly 8% more annually), which strains some budgets, (2) Fee risk—some lenders charge $50-150 setup fees or $5-15/month service fees that reduce savings (verify your lender's fee structure), (3) Lender processing—if your lender holds biweekly payments and only applies them monthly, you lose the benefit of more frequent principal reduction (though the extra annual payment still helps), (4) Reduced flexibility—formal biweekly programs create obligations; you can't skip payments during financial stress unlike DIY extra payments. There's no financial trickery—biweekly payments simply force you to pay more annually (one extra month), which mathematically must reduce interest and shorten the term."
+    },
+    {
+      q: "Can I achieve the same result by adding extra to monthly payments?",
+      a: "Yes! Adding 1/12 of your monthly payment as extra principal each month achieves the identical result as biweekly payments, often with more flexibility. Example: $2,400/month mortgage. Biweekly option: pay $1,200 every 2 weeks (26 payments = $31,200 yearly). DIY monthly option: pay $2,400 + $200 extra to principal = $31,200 yearly. Both create the same one extra monthly payment annually. Advantages of DIY: (1) no setup or monthly fees, (2) flexibility to skip extra payments during tight months while maintaining regular payment, (3) works regardless of your pay schedule, (4) maintains your existing payment date. Disadvantage: requires discipline—automatic biweekly deductions force the behavior."
+    },
+    {
+      q: "Do biweekly payments help with cash flow management?",
+      a: "Yes, significantly—if you're paid biweekly. Biweekly mortgage payments align perfectly with biweekly paycheques, making budgeting simpler and more natural. You never need to accumulate funds over multiple pays to make one large monthly payment. Psychology benefit: smaller, more frequent payments feel less burdensome than one large monthly payment, even though the annual total is higher. However, if you're paid monthly or semi-monthly, biweekly mortgage payments create misalignment—your payment dates won't sync with income, potentially causing budget challenges. For monthly-paid borrowers, monthly mortgage payments (with optional DIY extra principal) maintain better cash flow alignment."
+    },
+    {
+      q: "Will my lender automatically apply biweekly payments correctly?",
+      a: "Not always—verify explicitly before enrolling. Problems occur when lenders hold your biweekly payments and only apply them monthly. Example: you pay $1,000 every 2 weeks expecting frequent principal reduction. Lender holds first payment, combines it with second payment two weeks later, then applies one $2,000 payment monthly. This eliminates the benefit of more frequent principal reduction (though the 26 annual payments still create one extra monthly payment). Before switching, ask: 'Do you apply biweekly payments immediately upon receipt, or hold and apply monthly?' and 'How many payments do I make annually—26?' Get written confirmation. If they hold payments, consider DIY monthly extra payments instead for transparency and control."
+    }
+  ];
+
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }}
+      />
     <main className="min-h-screen bg-white">
       {/* Navigation */}
       <div className="border-b border-slate-200 bg-white">
@@ -43,15 +92,6 @@ export default function BiweeklyVsMonthlyArticle() {
           <time>May 21, 2026</time>
           <span className="mx-3">â€¢</span>
           <span>10 min read</span>
-        </div>
-      </div>
-
-      {/* Banner Ad */}
-      <div className="mx-auto max-w-4xl px-6 sm:px-8 mb-8">
-        <div className="w-full flex justify-center">
-          <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-            <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-          </div>
         </div>
       </div>
 
@@ -258,6 +298,44 @@ export default function BiweeklyVsMonthlyArticle() {
           </div>
         </div>
       </article>
+
+      {/* FAQ Section */}
+      <section className="py-12 bg-slate-50">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <h2 className="font-serif text-3xl font-bold text-slate-900 mb-8 text-center">
+            Frequently Asked Questions
+          </h2>
+
+          <div className="space-y-3">
+            {faqs.map((faq, index) => (
+              <div 
+                key={index}
+                className="border border-slate-200 rounded-lg overflow-hidden bg-white"
+              >
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-slate-50 transition-colors"
+                >
+                  <span className="font-semibold text-slate-900 pr-8">
+                    {faq.q}
+                  </span>
+                  {openFAQ === index ? (
+                    <ChevronUp className="h-5 w-5 text-indigo-600 flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="h-5 w-5 text-slate-400 flex-shrink-0" />
+                  )}
+                </button>
+                {openFAQ === index && (
+                  <div className="px-6 pb-4 text-slate-600">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
+    </>
   );
 }

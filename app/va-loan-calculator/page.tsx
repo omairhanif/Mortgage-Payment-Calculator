@@ -3,8 +3,10 @@
 import { useState } from "react";
 import { ChevronDown, ChevronUp, Shield } from "lucide-react";
 import MortgageCalculator from "@/components/calculator/MortgageCalculator";
+import { getStructuredData } from "./server";
 
 export default function VALoanCalculatorPage() {
+  const structuredData = getStructuredData();
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
@@ -13,40 +15,51 @@ export default function VALoanCalculatorPage() {
 
   const faqs = [
     {
-      q: "Who qualifies for a VA loan?",
-      a: "Veterans with sufficient service time, active-duty service members, National Guard and Reserve members with 6+ years, and surviving spouses of service members who died in service or from service-related disabilities. You need a Certificate of Eligibility (COE) from the VA to apply."
+      q: "What is the payment on a $400,000 VA loan at 6.5%?",
+      a: "For a $400,000 VA loan at 6.5% over 30 years with no down payment, your monthly principal and interest payment would be approximately $2,528. The VA funding fee (2.3% for first-time use = $9,200) is typically financed into the loan, bringing your total loan to $409,200 and your P&I payment to about $2,586/month. Add property taxes ($300-500/month depending on location), homeowners insurance ($150-250/month), bringing your total monthly payment to roughly $3,100-3,400. Veterans with VA disability ratings are exempt from the funding fee. Use a VA loan calculator to estimate your specific payment with your local tax rates and insurance costs."
     },
     {
-      q: "Do VA loans require a down payment?",
-      a: "No! VA loans allow 0% down payment for loan amounts up to $766,550 (2024). For amounts above this in expensive areas, you may need to pay 25% of the difference. This is one of the biggest advantages versus conventional loans requiring 3-20% down."
+      q: "Can you get a VA loan with bad credit?",
+      a: "VA loans don't have a minimum credit score requirement set by the VA itself, but most lenders require 580-620 minimum. Some VA-specialized lenders accept scores as low as 500-550 for well-qualified borrowers with strong compensating factors (stable income, low debt-to-income ratio, significant residual income). Veterans with credit scores below 620 may face higher interest rates, stricter income verification, and need manual underwriting rather than automatic approval. If your credit score is 640+, you'll have much better access to lenders and competitive rates. The VA loan program is generally more flexible than conventional loans, making it easier for veterans with less-than-perfect credit to become homeowners."
     },
     {
-      q: "What is the VA funding fee?",
-      a: "The funding fee is a one-time charge (1.4%-3.6% of loan amount) that helps fund the VA loan program. It varies based on: service type, down payment amount, and whether it's your first VA loan. Veterans receiving VA disability compensation are exempt from this fee."
+      q: "What's the difference between VA and FHA loans?",
+      a: "VA loans require no down payment (vs. 3.5% for FHA), have no monthly mortgage insurance (FHA requires MIP for life of loan with <10% down), and typically offer lower interest rates. VA loans have a one-time funding fee (1.4-3.6%, waived for disabled veterans) while FHA has upfront MIP (1.75%) plus ongoing monthly MIP (0.45-1.05%). VA loans have stricter property condition requirements than FHA and require veterans to occupy as primary residence. FHA loans are available to anyone who qualifies, while VA loans require military service. For eligible veterans, VA loans almost always offer better terms than FHA—lower costs, no down payment, no ongoing insurance premiums."
     },
     {
-      q: "Can I use a VA loan multiple times?",
-      a: "Yes! You can reuse your VA loan benefit after paying off a previous VA loan, or even have multiple VA loans simultaneously if you have remaining entitlement. The funding fee is higher for subsequent uses (3.6% vs. 2.3% for first-time with 0% down)."
+      q: "Can I use my VA loan benefit more than once?",
+      a: "Yes! You can use your VA loan benefit multiple times throughout your life. After paying off and selling a home purchased with a VA loan, your entitlement is restored for full reuse. You can even have multiple VA loans simultaneously if you have remaining entitlement—for example, keeping your first VA loan while buying a second home with another VA loan (subject to entitlement limits). The funding fee increases for subsequent use: first-time users with 0% down pay 2.3%, while second-time users pay 3.6%. Veterans with 10%+ down payment reduce the funding fee (1.4% first-time, 1.4% subsequent). Your Certificate of Eligibility (COE) shows your available entitlement."
     },
     {
-      q: "Do VA loans have mortgage insurance?",
-      a: "No! VA loans never require monthly mortgage insurance premiums, regardless of down payment amount. This saves hundreds per month versus FHA (which requires MIP) or conventional loans with less than 20% down (which require PMI). The funding fee is a one-time charge, not ongoing insurance."
+      q: "Are there VA loan limits in 2024?",
+      a: "As of 2020, VA loan limits were eliminated for veterans with full entitlement, meaning you can borrow any amount the lender approves based on your income and creditworthiness. However, conforming loan limits still matter for veterans with partial entitlement or who already have an existing VA loan. For 2024, the conforming limit is $766,550 in most areas and up to $1,149,825 in high-cost counties. Veterans can borrow above these amounts without a down payment if they have full entitlement and lender approval. If you don't have full entitlement, you may need a down payment of 25% of the amount exceeding the limit. Check your Certificate of Eligibility (COE) to see your available entitlement."
     },
     {
-      q: "Are VA loans only for primary residences?",
-      a: "Yes, VA loans must be used for your primary residence where you intend to live. You can't use VA loans for investment properties or vacation homes. However, you can rent out your home after living there, and you can use a VA loan for a multi-unit property (up to 4 units) if you occupy one unit."
+      q: "Do disabled veterans pay the VA funding fee?",
+      a: "No! Veterans receiving VA disability compensation are completely exempt from the VA funding fee, saving $9,200-$14,400 on a $400,000 loan. This exemption applies whether you're rated at 10% or 100% disabled—any disability rating qualifies. Surviving spouses receiving Dependency and Indemnity Compensation (DIC) are also exempt. Purple Heart recipients are exempt from the funding fee as well. The exemption is automatic once your VA disability status is confirmed—lenders verify this through your Certificate of Eligibility (COE). If you become disabled after closing, you cannot get a refund of funding fees already paid, but future VA loans will be exempt."
+    },
+    {
+      q: "Can I buy a multi-family property with a VA loan?",
+      a: "Yes! VA loans can finance properties with up to 4 units, as long as you occupy one unit as your primary residence. This is an excellent wealth-building strategy—you can live in one unit while renting out the other 2-3 units, with rental income helping cover your mortgage. Lenders will consider 75% of projected rental income when qualifying you for the loan. The same VA loan benefits apply: 0% down payment, no monthly mortgage insurance, competitive rates. Property must meet VA's Minimum Property Requirements (MPRs) for all units. You can also use a VA loan to buy a single-family home and rent out rooms while you occupy the property."
     }
   ];
 
   return (
     <section className="py-8">
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.softwareApplication) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }}
+      />
       <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-        {/* Banner Ad Placeholder */}
-        <div className="mb-6 flex justify-center">
-          <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-            <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-          </div>
-        </div>
 
         {/* Introduction Section */}
         <div className="mb-8 mx-auto max-w-5xl">

@@ -1,14 +1,60 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
-
-export const metadata = {
-  title: "Mortgage Tax Benefits Calculator: Save on Taxes | Mortgage Lab",
-  description: "Calculate your mortgage tax benefits in Canada. Learn about First-Time Home Buyer incentives, HBP withdrawals, GST rebates, and provincial tax credits in Ontario, BC, and Alberta with real 2026 examples."
-};
+import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
+import { useState } from "react";
+import { getStructuredData } from "./server";
 
 export default function MortgageTaxBenefitsCalculatorPage() {
+  const structuredData = getStructuredData();
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
+
+  const faqs = [
+    {
+      q: "Can I deduct mortgage interest on my taxes in Canada?",
+      a: "NO—mortgage interest on your primary residence is NOT tax-deductible in Canada (unlike the U.S.). Canadian tax law only allows interest deductions when the borrowed money is used to earn income. Since your home is personal use (not income-earning), the interest isn't deductible. However, there ARE exceptions: (1) Rental properties—if you own a rental property, mortgage interest IS fully deductible as a business expense, (2) Investment properties—interest on loans to purchase investments (stocks, bonds, rental real estate) is deductible, (3) Smith Manoeuvre—a complex strategy that converts your mortgage into tax-deductible debt by borrowing against home equity to purchase investments (requires professional advice). Bottom line: regular homeowners with traditional mortgages get NO interest deduction on primary residences."
+    },
+    {
+      q: "What mortgage-related tax benefits ARE available in Canada?",
+      a: "While interest isn't deductible, Canadians get these benefits: (1) First-Time Home Buyer Incentive—$10,000 tax credit (saves ~$1,500 in taxes) for first-time buyers; (2) Home Buyers' Plan (HBP)—withdraw up to $60,000 from RRSP tax-free ($120,000 for couples) for down payment, repay over 15 years; (3) GST/HST New Housing Rebate—up to $30,000-36,000 rebate on new homes under $450,000; (4) Land Transfer Tax Rebate—Ontario first-time buyers get up to $4,000 rebate, Toronto offers additional $4,475 city rebate; (5) Provincial programs—BC: First-Time Home Buyers' Program (eliminates transfer tax up to $500,000), Manitoba: $5,000 tax credit. These benefits add up to $10,000-50,000+ in savings for first-time buyers."
+    },
+    {
+      q: "How does the Home Buyers' Plan (HBP) work?",
+      a: "The HBP lets first-time buyers withdraw up to $60,000 from their RRSP tax-free for a down payment ($120,000 for couples). Key rules: (1) Must be first-time buyer (haven't owned a home in past 4 years), (2) Must have written agreement to buy/build qualifying home, (3) RRSP funds must be in account 90+ days before withdrawal, (4) Must repay 1/15 (6.67%) of withdrawn amount annually starting year 2 after withdrawal, (5) Missed repayments count as taxable income. Example: withdraw $60,000 in 2026 for down payment. Starting 2028, must repay $4,000/year for 15 years. If you skip a year's $4,000 repayment, it's added to your taxable income that year. Benefits: interest-free loan from yourself, boosts down payment, reduces CMHC insurance costs."
+    },
+    {
+      q: "What is the Smith Manoeuvre and should I use it?",
+      a: "The Smith Manoeuvre is an advanced strategy that converts non-deductible mortgage interest into tax-deductible investment loan interest. How it works: (1) Get a readvanceable mortgage (like HELOC combined with mortgage), (2) As you pay down your mortgage principal, reborrow that amount from the HELOC portion, (3) Use reborrowed funds to purchase income-earning investments (dividend stocks, rental property), (4) Deduct the investment loan interest on your taxes, (5) Use investment returns and tax refunds to accelerate mortgage payoff. Example: $400,000 mortgage at 5.5%, you pay $2,000/month. First month, $1,200 goes to principal. Reborrow that $1,200 from HELOC, buy investments. That $1,200's interest (~$66/month at 5.5%) is now tax-deductible. Should you? ONLY if: (1) you have high income (40%+ tax bracket), (2) you're comfortable with investment risk, (3) you have professional tax/financial advisor guidance. It's complex and risky—not for most homeowners."
+    },
+    {
+      q: "Are property taxes deductible in Canada?",
+      a: "NO—property taxes on your primary residence are NOT tax-deductible in Canada for regular homeowners. This differs from the U.S. where property taxes can be itemized deductions. Exception: If you use part of your home for business (home office), you CAN deduct a proportional amount of property taxes as a business expense. Example: if your home office is 200 sq ft in a 2,000 sq ft home (10%), and your property taxes are $5,000/year, you can deduct $500 (10% of $5,000) against business income. Requirements for home office deduction: (1) space used exclusively for business, (2) principal place of business OR used regularly to meet clients, (3) documented business use. For rental properties, 100% of property taxes are deductible as rental expenses."
+    },
+    {
+      q: "How much can first-time home buyers save with all tax benefits combined?",
+      a: "First-time buyers in Canada can save $15,000-$60,000+ combining all benefits. Realistic example—Toronto couple buying $650,000 home with 10% down ($65,000): (1) First-Time Home Buyer Tax Credit—$10,000 credit = ~$1,500 federal tax savings, (2) Home Buyers' Plan—each withdraws $60,000 from RRSP ($120,000 total) = 0% interest loan worth ~$18,000 in saved interest over 15 years vs. regular loan, (3) Ontario Land Transfer Tax Rebate—$4,000 refund, (4) Toronto Municipal LTT Rebate—$4,475 refund, (5) Avoided CMHC insurance—using $65,000 down (10%) vs. $32,500 (5%) avoids ~$13,000 in insurance premiums. Total benefit: ~$41,000. Add GST rebate on new builds (~$30,000) and provincial programs, and total can exceed $60,000. The key is knowing and claiming ALL available benefits."
+    }
+  ];
+
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }}
+      />
     <main className="min-h-screen bg-white">
       {/* Navigation */}
       <div className="border-b border-slate-200 bg-white">
@@ -46,15 +92,6 @@ export default function MortgageTaxBenefitsCalculatorPage() {
           <time>August 27, 2026</time>
           <span className="mx-3">•</span>
           <span>12 min read</span>
-        </div>
-      </div>
-
-      {/* Banner Ad */}
-      <div className="mx-auto max-w-4xl px-6 sm:px-8 mb-8">
-        <div className="w-full flex justify-center">
-          <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-            <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-          </div>
         </div>
       </div>
 
@@ -498,7 +535,45 @@ export default function MortgageTaxBenefitsCalculatorPage() {
         </div>
       </article>
 
+      {/* FAQ Section */}
+      <section className="py-12 bg-slate-50">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <h2 className="font-serif text-3xl font-bold text-slate-900 mb-8 text-center">
+            Frequently Asked Questions
+          </h2>
+
+          <div className="space-y-3">
+            {faqs.map((faq, index) => (
+              <div 
+                key={index}
+                className="border border-slate-200 rounded-lg overflow-hidden bg-white"
+              >
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-slate-50 transition-colors"
+                >
+                  <span className="font-semibold text-slate-900 pr-8">
+                    {faq.q}
+                  </span>
+                  {openFAQ === index ? (
+                    <ChevronUp className="h-5 w-5 text-indigo-600 flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="h-5 w-5 text-slate-400 flex-shrink-0" />
+                  )}
+                </button>
+                {openFAQ === index && (
+                  <div className="px-6 pb-4 text-slate-600">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
     </main>
+    </>
   );
 }
 

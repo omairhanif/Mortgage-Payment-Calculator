@@ -3,8 +3,10 @@
 import { useState } from "react";
 import { ChevronDown, ChevronUp, DollarSign } from "lucide-react";
 import MortgageCalculator from "@/components/calculator/MortgageCalculator";
+import { getStructuredData } from "./server";
 
 export default function ExtraPaymentCalculatorPage() {
+  const structuredData = getStructuredData();
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
@@ -24,31 +26,50 @@ export default function ExtraPaymentCalculatorPage() {
   ];
   const faqs = [
     {
-      q: "How much will extra payments save me?",
-      a: "Extra payments reduce both interest and loan term. Even $100/month extra on a $300,000 mortgage at 6% can save over $60,000 in interest and shorten the term by 5+ years. The earlier you start and the more consistent you are, the greater the savings."
+      q: "How to pay off a 30-year mortgage in 15 years?",
+      a: "To pay off a 30-year mortgage in 15 years, you need to roughly double your principal payment each month. For a $300,000 loan at 6.5%, the standard 30-year payment is $1,896/month. To pay it off in 15 years, pay approximately $2,596/month (an extra $700/month). This aggressive strategy saves approximately $200,000 in interest over the original 30-year term. Using an extra payment calculator helps you model different scenarios. Benefits: you build equity faster, save massively on interest, and become debt-free in half the time. However, ensure you have adequate emergency savings and aren't sacrificing higher-return investments or retirement contributions to achieve this goal."
     },
     {
-      q: "When should I make extra payments?",
-      a: "Make extra payments as early as possible in your loan term for maximum impact. Early payments reduce principal when interest charges are highest. However, extra payments provide benefits at any point in your loan. Even starting years into your mortgage still generates significant savings."
+      q: "What happens if I pay an extra $200 a month on my mortgage?",
+      a: "Paying an extra $200/month on your mortgage generates substantial savings. On a $300,000 loan at 6% over 30 years (standard payment: $1,799/month), adding $200 extra saves approximately $78,000 in interest and pays off your mortgage 7 years early (in 23 years instead of 30). The extra $200/month totals $2,000/year or $46,000 over the shortened loan period—but you avoid $78,000 in interest, netting $32,000 in pure savings. These extra payments reduce your principal balance faster, meaning less interest accrues each month. An extra payment calculator shows exactly how your specific loan benefits from additional payments."
     },
     {
-      q: "Can I make extra payments on any loan?",
-      a: "Most loans allow extra payments without penalties, but always verify with your lender first. Some loans have prepayment penalties, though these are increasingly rare on residential mortgages. Canadian mortgages typically allow 10-20% annual prepayment without penalty. Check your loan documents or contact your lender to confirm."
+      q: "How much will I save if I pay extra on my mortgage?",
+      a: "Savings from extra mortgage payments depend on your loan amount, interest rate, remaining term, and extra payment amount. Here are examples on a $300,000, 6% 30-year mortgage: $50 extra/month saves ~$22,000 in interest and shaves 2.5 years off; $100 extra/month saves ~$40,000 and reduces term by 4.5 years; $200 extra/month saves ~$70,000 and cuts 7 years; $500 extra/month saves ~$145,000 and eliminates 13 years. The earlier you start making extra payments, the greater your savings—payments made in year 1 have far more impact than payments in year 20. Use a mortgage calculator with extra payments to model your specific scenario."
     },
     {
-      q: "Should I make extra payments or invest?",
-      a: "Compare your loan's interest rate to potential investment returns. If your mortgage rate is 6% and you can earn 8% investing, investing may be better. However, consider risk tolerance, tax implications, and the psychological value of debt freedom. Paying off your mortgage guarantees a return equal to your interest rate with zero risk."
+      q: "Should I pay extra on my mortgage or save/invest?",
+      a: "The decision depends on comparing your mortgage interest rate to potential investment returns and your personal financial situation. If your mortgage rate is 6% and you can reliably earn 8-10% in investments, investing may yield better long-term returns. However, consider: (1) Guaranteed return—paying off your mortgage guarantees savings equal to your interest rate with zero risk; (2) Risk tolerance—market investments fluctuate while mortgage payoff is certain; (3) Tax implications—mortgage interest deduction (if applicable) vs. investment capital gains taxes; (4) Psychological factors—debt-free peace of mind vs. growing wealth. Generally, if mortgage rate >6%, prioritize extra payments; if <4%, consider investing; between 4-6%, it's personal preference. Always maintain adequate emergency savings first."
+    },
+    {
+      q: "Can I make extra principal payments on any mortgage?",
+      a: "Most mortgages allow extra principal payments without penalties, but you should always verify with your lender first. Conventional mortgages in the U.S. rarely have prepayment penalties anymore. FHA and VA loans cannot have prepayment penalties. Canadian mortgages typically allow 10-20% annual prepayment privileges without penalty—exceeding this may trigger fees. Check your mortgage documents for prepayment terms or contact your lender directly. When making extra payments, specify they should apply to principal only, not future interest or payments. Some lenders have online portals for designating extra principal payments, while others require written instructions. Setting up automatic extra payments ensures consistency and maximizes savings."
+    },
+    {
+      q: "How to calculate extra mortgage payment savings?",
+      a: "To calculate extra mortgage payment savings, you need to compare the original loan amortization to the accelerated schedule with extra payments. Use this process: (1) Calculate original monthly payment with standard mortgage formula; (2) Add your planned extra payment to each month; (3) Recalculate the balance each month, applying extra payment directly to principal; (4) Continue until balance reaches $0; (5) Compare total interest paid in both scenarios. The difference is your savings. An extra payment calculator automates this complex calculation. For example, a $250,000 loan at 6.5% for 30 years has standard payments of $1,580/month and total interest of $318,861. Adding $200/month extra reduces term to 22 years and total interest to $233,675—saving $85,186."
+    },
+    {
+      q: "What's better: extra payments or biweekly payments?",
+      a: "Biweekly payments and extra payments both reduce your mortgage faster, but work differently. Biweekly payments mean paying half your monthly payment every two weeks (26 payments/year = 13 months of payments instead of 12), essentially adding one extra monthly payment annually. Extra monthly payments let you add any amount you choose. On a $300,000, 6% 30-year loan: biweekly payments save ~$40,000 in interest and cut ~5 years; $150 extra monthly saves ~$60,000 and cuts ~6 years. Extra payments offer more flexibility—you can adjust amounts or pause during tight financial periods. Biweekly payments require lender participation and sometimes fees. For maximum savings, combine both: make biweekly payments AND add extra principal when possible."
     }
   ];
 
   return (
     <>
-      {/* Banner Ad */}
-      <div className="mb-6 flex justify-center">
-        <div className="rounded bg-slate-100 px-4 py-6 text-center text-sm text-slate-500">
-          Advertisement (728×90)
-        </div>
-      </div>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.softwareApplication) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }}
+      />
 
       {/* Hero Section */}
       <div className="mx-auto max-w-5xl px-6 pb-12 pt-8 sm:px-8 lg:px-12">

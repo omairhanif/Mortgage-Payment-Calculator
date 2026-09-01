@@ -5,8 +5,10 @@ import { ChevronDown, ChevronUp, CreditCard, Calculator, Plus, Trash2 } from "lu
 import { calculateHeloc, type HelocInput } from "@/lib/mortgage";
 import { formatCurrency } from "@/lib/utils";
 import { NumberInput, Card } from "@/components/calculator/CalculatorFields";
+import { getStructuredData } from "./server";
 
 export default function HelocCalculatorPage() {
+  const structuredData = getStructuredData();
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
@@ -28,24 +30,32 @@ export default function HelocCalculatorPage() {
     ],
     faqs: [
       {
-        q: "How does a HELOC work?",
-        a: "A HELOC is a revolving credit line secured by your home equity. During the draw period (typically 5-10 years), you can borrow up to your credit limit and usually make interest-only payments. After the draw period ends, you enter the repayment period where you pay back principal and interest."
+        q: "What is the monthly payment on a $50,000 HELOC?",
+        a: "The monthly payment on a $50,000 HELOC depends on whether you're in the draw period or repayment period. During the typical 10-year draw period with interest-only payments at 7.5% APR, you'd pay approximately $312.50/month ($50,000 × 0.075 ÷ 12). Once the repayment period begins (typically 15-20 years), payments include principal and interest. For a 15-year repayment at 7.5%, the payment jumps to about $463/month. Many HELOC calculators show both phases. Actual payments vary based on your interest rate (which is usually variable), how much of your credit line you've used, and your specific HELOC terms with lenders like CIBC, RBC, TD, or BMO."
       },
       {
-        q: "What is the draw period vs repayment period?",
-        a: "The draw period is when you can borrow money from your HELOC and typically make interest-only payments. The repayment period begins after the draw period ends, when you can no longer borrow and must repay both principal and interest, resulting in higher monthly payments."
+        q: "What would payments be on a $100,000 HELOC?",
+        a: "For a $100,000 HELOC balance, expect interest-only payments of approximately $625/month during the draw period at 7.5% APR ($100,000 × 0.075 ÷ 12). When the repayment period starts, principal and interest payments increase dramatically—to about $927/month over 15 years at 7.5%. Over the full HELOC term (10-year draw + 15-year repayment), you'll pay roughly $241,000 total ($100,000 principal + $141,000 interest). Using a HELOC payment calculator helps you model different scenarios. Remember that HELOC rates are typically variable and tied to prime rate, so your actual payments will fluctuate as rates change."
       },
       {
-        q: "How is my HELOC interest rate determined?",
-        a: "HELOC rates are typically variable and based on the prime rate plus a margin set by your lender. Your rate depends on factors like your credit score, loan-to-value ratio, and lender policies. Some lenders offer fixed-rate options for all or part of your balance."
+        q: "How much is a HELOC payment on $150,000?",
+        a: "A $150,000 HELOC generates interest-only payments of approximately $937.50/month during the draw period at 7.5% APR. When you enter the repayment period, payments surge to around $1,390/month over 15 years (principal + interest at 7.5%). Total cost over a typical HELOC structure (10-year draw, 15-year repayment) would be about $362,000—that's $150,000 in principal and $212,000 in interest. HELOC payment calculators from major banks like TD HELOC calculator, CIBC HELOC calculator, or RBC HELOC calculator can show your specific scenario. Many Canadians use HELOC calculators Canada-specific to account for regional lending practices."
       },
       {
-        q: "Can I make principal payments during the draw period?",
-        a: "Yes, most HELOCs allow you to make principal payments during the draw period even though only interest is required. Paying down principal reduces your balance, lowers your interest charges, and may allow you to borrow again up to your credit limit."
+        q: "Can I get a HELOC from TD, CIBC, RBC, or BMO?",
+        a: "Yes, all major Canadian banks offer HELOCs: TD offers the TD Home Equity FlexLine, CIBC has the CIBC Home Power Plan, RBC provides the RBC Homeline Plan, and BMO offers the BMO Homeowner ReadiLine. Each bank's HELOC product allows you to borrow up to 65% of your home's value (or 80% when combined with your first mortgage). Rates are typically prime + 0.5-1% and vary by lender and your credit profile. Using a HELOC calculator TD or HELOC calculator RBC on their websites helps estimate payments, but comparing multiple lenders is wise. Credit unions and alternative lenders also offer HELOCs, sometimes with more flexible terms or slightly different rate structures."
       },
       {
-        q: "What happens when the draw period ends?",
-        a: "When the draw period ends, you can no longer borrow from your HELOC and must begin repaying principal and interest. Your monthly payment will increase significantly. Some HELOCs require a balloon payment, while others convert to a standard amortizing loan."
+        q: "What are HELOC rates in Canada?",
+        a: "HELOC rates in Canada typically range from prime rate + 0.5% to prime + 1% for qualified borrowers at major banks (TD, RBC, CIBC, BMO, Scotiabank). With the current prime rate around 6.95%, most HELOC rates fall between 7.45-7.95% for well-qualified borrowers. Your actual HELOC interest rate depends on your credit score, loan-to-value ratio, existing relationship with the lender, and overall financial profile. Some lenders offer promotional rates temporarily. Unlike fixed-rate mortgages, HELOC rates are variable and adjust when the Bank of Canada changes its policy rate, directly affecting your monthly interest charges. Always compare HELOC rates across multiple lenders—even a 0.25% difference saves hundreds annually on a large balance."
+      },
+      {
+        q: "How to pay off a HELOC fast?",
+        a: "To pay off a HELOC faster: (1) Make principal payments during the draw period instead of just interest-only payments—this prevents balance growth and reduces total interest; (2) Set up automatic biweekly or weekly payments totaling more than the minimum monthly amount; (3) Apply windfalls (bonuses, tax refunds, inheritances) directly to principal; (4) Stop drawing from the line—treat it like a closed loan rather than revolving credit; (5) Consider refinancing to a fixed-rate term loan if rates drop, locking in lower rates and forced amortization. Using a HELOC payoff calculator or HELOC calculator with extra payments shows your savings—for example, adding $200/month extra to a $75,000 balance could save $15,000+ in interest and pay it off years earlier."
+      },
+      {
+        q: "Is a HELOC or home equity loan better?",
+        a: "A HELOC is better for ongoing, flexible access to funds—you draw what you need when you need it, pay interest only on what you've borrowed, and can pay down and reborrow during the draw period. It's ideal for ongoing renovations, emergency reserves, or variable expenses. A home equity loan is better when you need a fixed lump sum with predictable payments—you receive all funds upfront, make fixed principal and interest payments immediately, and often get a lower, fixed interest rate. Use a HELOC for flexibility; use a home equity loan for discipline, lower rates, and predictable budgeting. HELOC rates are typically variable (currently 7-8% in Canada), while home equity loans may offer fixed rates around 6-9%."
       }
     ]
   };
@@ -134,13 +144,20 @@ export default function HelocCalculatorPage() {
 
   return (
     <section className="py-8">
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.softwareApplication) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }}
+      />
       <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-        {/* Banner Ad Placeholder */}
-        <div className="mb-6 flex justify-center">
-          <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-            <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-          </div>
-        </div>
 
         {/* Introduction Section */}
         <div className="mb-8 mx-auto max-w-5xl">

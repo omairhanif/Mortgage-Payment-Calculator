@@ -2,10 +2,61 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
+import { useState } from "react";
+import { getStructuredData } from "./server";
 
 export default function IncomeRequirementCalculatorArticle() {
+  const structuredData = getStructuredData();
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
+
+  const faqs = [
+    {
+      q: "How much income do I need to qualify for a $400,000 mortgage?",
+      a: "For a $400,000 mortgage in Canada, you need approximately $95,000-105,000 annual gross income. At 5.5% interest on a 25-year amortization, your monthly principal and interest payment is ~$2,457. Add property taxes ($400/month), insurance ($180/month), and heating ($150/month) for ~$3,187 total monthly housing costs. Canadian lenders require your Gross Debt Service (GDS) ratio to stay under 32-39% of gross income: $3,187 ÷ 0.35 = $109,057 annually. Factor in the mortgage stress test (qualifying at ~7.5% rate) and other debts, and you realistically need $95,000-$105,000 in stable income."
+    },
+    {
+      q: "What's the 28/36 rule for mortgage qualification?",
+      a: "The 28/36 rule is a U.S. mortgage qualification guideline: (1) Front-end ratio (28%)—housing costs (mortgage, taxes, insurance) should not exceed 28% of gross monthly income, and (2) Back-end ratio (36%)—total debt payments (housing + car loans, credit cards, student loans) should not exceed 36% of gross income. Example: $6,000 monthly gross income allows max $1,680/month for housing (28%) and max $2,160/month for all debts (36%). In Canada, similar ratios are used: 32-39% GDS (housing only) and 40-44% TDS (total debt). Income requirement calculators use these ratios to determine qualifying income for specific mortgage amounts."
+    },
+    {
+      q: "Can I use rental income to qualify for a larger mortgage?",
+      a: "Yes, but with limitations. Canadian lenders typically count 50-80% of gross rental income toward your qualifying income, depending on property type and lender. Example: buying a home with a $2,000/month basement apartment—lender might add $1,200-$1,600 (60-80%) to your qualifying income. For a duplex, triplex, or fourplex, lenders may count a higher percentage. Requirements: (1) signed lease agreement or rental market analysis, (2) property inspection confirming legal rental unit, (3) higher down payment (often 10-20% minimum), and (4) demonstrated landlord experience helps. This rental income boost can significantly increase your maximum mortgage amount—potentially adding $100,000-$200,000 to your buying power depending on the rental income and your base salary."
+    },
+    {
+      q: "How does the mortgage stress test affect income requirements?",
+      a: "Canada's mortgage stress test requires you to qualify at a higher interest rate than your actual rate—currently the greater of 5.25% or your contract rate + 2%. This significantly increases income requirements. Example: $400,000 mortgage at actual 5.5% rate = $2,457/month payment. But you must qualify as if the rate is 7.5% = $2,858/month payment (+$401/month). This $401 difference means you need ~$13,700 more annual income to qualify (~$401 × 12 ÷ 0.35). The stress test ensures you can still afford payments if rates rise, but it reduces maximum borrowing capacity by 15-20% for most buyers. Income requirement calculators must factor this in—ignoring the stress test produces unrealistically low income requirements."
+    },
+    {
+      q: "What counts as income for mortgage qualification in Canada?",
+      a: "Canadian lenders typically accept: (1) Employment income—base salary (100% counted), guaranteed overtime/bonuses (often 50-100% if 2+ year history), commission income (2-year average if consistent), (2) Self-employment income—2 years of tax returns showing net income (not gross revenue), (3) Rental income—50-80% of gross rent from existing or subject property, (4) Investment income—dividends, interest (must be stable and continuing), (5) Pension/disability/child support (if continuing 3+ years). NOT typically accepted: irregular bonuses, new employment income (less than 2 years), EI/temporary benefits, one-time windfalls. Documentation requirements are strict—expect to provide T4s/NOAs for 2 years, recent pay stubs, employment letters, and bank statements."
+    },
+    {
+      q: "How much income do self-employed buyers need for a mortgage?",
+      a: "Self-employed buyers face stricter requirements. Lenders use your 2-year average net income (after deductions) from tax returns (line 15000 on T1), NOT gross business revenue. Example: if your business grosses $200,000 but shows $75,000 net income on taxes, you qualify based on $75,000. This creates a dilemma—maximizing deductions reduces taxable income but also reduces qualifying income for mortgages. Options: (1) Traditional mortgage—2 years strong net income, 20%+ down payment, excellent credit, (2) Stated income mortgage—limited documentation but requires 35%+ down payment and higher rates, (3) Plan ahead—reduce deductions 2 years before buying to show higher qualifying income. Self-employed buyers typically need 20-30% higher gross business income than salaried buyers to qualify for the same mortgage due to deductions reducing reported income."
+    }
+  ];
+
   return (
+    <>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.softwareApplication) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }}
+      />
+      
     <main className="min-h-screen bg-white">
       {/* Navigation */}
       <div className="border-b border-slate-200 bg-white">
@@ -43,15 +94,6 @@ export default function IncomeRequirementCalculatorArticle() {
           <time>May 5, 2026</time>
           <span className="mx-3">•</span>
           <span>13 min read</span>
-        </div>
-      </div>
-
-      {/* Banner Ad */}
-      <div className="mx-auto max-w-4xl px-6 sm:px-8 mb-8">
-        <div className="w-full flex justify-center">
-          <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-            <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-          </div>
         </div>
       </div>
 
@@ -543,7 +585,45 @@ export default function IncomeRequirementCalculatorArticle() {
           </div>
         </div>
       </article>
+
+      {/* FAQ Section */}
+      <section className="py-12 bg-slate-50">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <h2 className="font-serif text-3xl font-bold text-slate-900 mb-8 text-center">
+            Frequently Asked Questions
+          </h2>
+
+          <div className="space-y-3">
+            {faqs.map((faq, index) => (
+              <div 
+                key={index}
+                className="border border-slate-200 rounded-lg overflow-hidden bg-white"
+              >
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-slate-50 transition-colors"
+                >
+                  <span className="font-semibold text-slate-900 pr-8">
+                    {faq.q}
+                  </span>
+                  {openFAQ === index ? (
+                    <ChevronUp className="h-5 w-5 text-indigo-600 flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="h-5 w-5 text-slate-400 flex-shrink-0" />
+                  )}
+                </button>
+                {openFAQ === index && (
+                  <div className="px-6 pb-4 text-slate-600">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
+    </>
   );
 }
 

@@ -57,16 +57,6 @@ export function ConfigConsolidatedResult({
 }: ConfigResultProps) {
   return (
     <div className={`space-y-4 ${className}`}>
-      {/* Display Ad Placeholder - Only when showAd is true */}
-      {showAd && (
-        <div className="flex justify-center">
-          <div className="w-full max-w-[400px] h-[300px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-            <span className="text-xs text-slate-400 font-medium">
-              Display Ad (400×300)
-            </span>
-          </div>
-        </div>
-      )}
 
       {/* Single Consolidated Results Card */}
       <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
@@ -213,16 +203,6 @@ export default function CalculatorResult({
 }: CalculatorResultProps) {
   return (
     <div className={`space-y-4 ${className}`}>
-      {/* Display Ad Placeholder */}
-      {showAd && (
-        <div className="flex justify-center">
-          <div className="w-full max-w-[400px] h-[300px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-            <span className="text-xs text-slate-400 font-medium">
-              Display Ad (400×300)
-            </span>
-          </div>
-        </div>
-      )}
 
       {/* Primary Result Card */}
       {primaryResult && (

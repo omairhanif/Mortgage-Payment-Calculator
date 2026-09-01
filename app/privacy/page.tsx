@@ -2,9 +2,17 @@
 
 import Link from 'next/link';
 import { ChevronRight, Shield } from 'lucide-react';
+import { getStructuredData } from './server';
 
 export default function PrivacyPage() {
+  const structuredData = getStructuredData();
+  
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
     <div>
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-sky-500 via-sky-550 to-sky-600 py-8">
@@ -154,6 +162,7 @@ export default function PrivacyPage() {
         </div>
       </section>
     </div>
+    </>
   );
 }
 

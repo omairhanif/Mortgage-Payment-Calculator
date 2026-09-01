@@ -5,8 +5,10 @@ import { ChevronDown, ChevronUp, RefreshCw, Calculator } from "lucide-react";
 import { calculateRefinance, type RefinanceInput } from "@/lib/mortgage";
 import { formatCurrency } from "@/lib/utils";
 import { NumberInput, Card } from "@/components/calculator/CalculatorFields";
+import { getStructuredData } from "./server";
 
 export default function RefinanceCalculatorPage() {
+  const structuredData = getStructuredData();
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
@@ -28,24 +30,32 @@ export default function RefinanceCalculatorPage() {
     ],
     faqs: [
       {
-        q: "How does a refinance work?",
-        a: "Refinancing replaces your current mortgage with a new loan that pays off the existing one. You might refinance to get a lower interest rate, change your loan term, switch between fixed and adjustable rates, or access your home equity through cash-out refinancing."
+        q: "Is it worth refinancing for 1% lower rate?",
+        a: "Yes, refinancing for a 1% rate reduction is usually worth it if you plan to stay in your home for at least 2-3 years. On a $300,000 mortgage, dropping from 7% to 6% saves approximately $200/month ($2,400/year). With typical closing costs of $3,000-6,000, you'd break even in 15-30 months. Over a 30-year term, you'd save roughly $72,000 in interest. However, consider your specific situation: remaining loan term, how long you'll stay in the home, closing costs, and whether you're resetting to a new 30-year term (which increases total interest despite lower rates). Use a refinance calculator to model your exact scenario with current balance, rates, and costs."
       },
       {
-        q: "What is the break-even point?",
-        a: "The break-even point is when your accumulated monthly savings from refinancing equal the closing costs you paid upfront. If closing costs are $3,000 and you save $150/month, your break-even point is 20 months. After that, you're gaining pure savings."
+        q: "How much should I save to refinance?",
+        a: "Most financial experts recommend refinancing when you can save at least 0.5-1% on your interest rate, which typically translates to saving $150-300/month on a $300,000 mortgage. The key metric is your break-even point—when monthly savings equal closing costs. With $5,000 in closing costs and $200/month savings, you break even in 25 months. If you're planning to stay in your home longer than the break-even period, refinancing makes financial sense. Also consider: resetting your loan term (refinancing into a new 30-year adds years of payments), credit score requirements (usually 620+ minimum, 740+ for best rates), and current equity position (typically need 20% equity for best terms)."
       },
       {
-        q: "Is refinancing worth it?",
-        a: "Refinancing is worth it if you'll stay in your home long enough to break even on closing costs and if the total interest savings exceed the costs. Generally, a rate drop of 0.5-1% or more makes refinancing attractive, but personal factors like how long you'll keep the loan matter significantly."
+        q: "What is a cash-out refinance and how does it work?",
+        a: "A cash-out refinance replaces your current mortgage with a larger loan, letting you pocket the difference in cash while using your home equity. For example, if you owe $200,000 on a home worth $400,000, you could refinance for $280,000—paying off your $200,000 loan and receiving $80,000 cash (minus closing costs). Lenders typically allow you to borrow up to 80% of your home's value. Cash-out refinances are popular for home renovations, debt consolidation, or major expenses. They usually have slightly higher interest rates than rate-and-term refinances. A cash-out refinance calculator helps you determine available equity and new payment amounts."
       },
       {
-        q: "How much does it cost to refinance?",
-        a: "Refinance closing costs typically range from 2-5% of the loan amount, often $2,000-$6,000 for most mortgages. Costs include appraisal fees, origination fees, title search and insurance, credit report fees, and other lender charges. Some lenders offer no-closing-cost refinancing with a slightly higher rate."
+        q: "How long does it take to refinance a mortgage?",
+        a: "Refinancing typically takes 30-45 days from application to closing, though it can be as quick as 20 days with streamlined programs or extend to 60+ days if complications arise. The process includes: application and document submission (1-3 days), loan processing and underwriting review (2-3 weeks), home appraisal (1-2 weeks), final underwriting approval (3-5 days), and closing (scheduling within 1 week of approval). Factors affecting timeline: appraisal availability, documentation completeness, credit or title issues, and lender workload. Streamline refinances for FHA and VA loans can be faster since they require less documentation and may skip appraisals."
       },
       {
-        q: "Should I refinance if I'm selling soon?",
-        a: "Refinancing usually doesn't make sense if you plan to sell within a year or two. The closing costs often won't be recovered through monthly savings in such a short time. Calculate your break-even point and compare it to your planned time in the home."
+        q: "Can I refinance with bad credit?",
+        a: "Yes, but refinancing with bad credit (below 620) is challenging and limits your options. Most conventional refinances require 620+ credit score, with best rates reserved for 740+. FHA streamline refinances accept scores as low as 580 with existing FHA loans. VA Interest Rate Reduction Refinance Loans (IRRRL) have no minimum credit requirement from VA, though lenders set their own minimums (usually 580-620). With bad credit, expect: higher interest rates (potentially 1-2% above prime rates), larger down payment or equity requirements (25-30% instead of 20%), limited lender options, and potentially needing to wait and improve credit first. Sometimes it's better to spend 6-12 months improving credit before refinancing to access better rates."
+      },
+      {
+        q: "What are current refinance rates?",
+        a: "Refinance rates fluctuate daily based on economic conditions, Federal Reserve policy, and bond market trends. As of 2024, typical refinance rates range from 6-8% for 30-year fixed mortgages, 5.5-7.5% for 15-year fixed, and 5.5-7% for 5/1 ARMs. Your actual rate depends on: credit score (740+ gets best rates), loan-to-value ratio (80% LTV or less is ideal), debt-to-income ratio (below 43% preferred), loan amount (jumbo loans carry higher rates), and property type (single-family homes get best rates). Refinance rates are typically 0.125-0.25% higher than purchase mortgage rates because refinances are considered slightly higher risk. Always shop multiple lenders—rates can vary by 0.25-0.5% between lenders for the same borrower."
+      },
+      {
+        q: "Should I refinance from 30-year to 15-year mortgage?",
+        a: "Refinancing from a 30-year to 15-year mortgage makes sense if you can afford higher monthly payments and want to save substantially on interest while building equity faster. For a $300,000 loan at 6.5% (30-year), payments are $1,896/month with $382,633 total interest. At 6% (15-year), payments jump to $2,532/month but total interest drops to only $155,743—saving $226,890. However, the $636/month payment increase requires sufficient income and cash flow flexibility. Consider refinancing to 15-year if: you're financially stable with good income, you've been paying extra principal already, you want to pay off your mortgage before retirement, and you can handle the higher payment without stress. Use a refinance calculator to compare scenarios and determine affordability."
       }
     ]
   };
@@ -110,13 +120,20 @@ export default function RefinanceCalculatorPage() {
 
   return (
     <section className="py-8">
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.softwareApplication) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }}
+      />
       <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-        {/* Banner Ad Placeholder */}
-        <div className="mb-6 flex justify-center">
-          <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-            <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-          </div>
-        </div>
 
         {/* Introduction Section */}
         <div className="mb-8 mx-auto max-w-5xl">

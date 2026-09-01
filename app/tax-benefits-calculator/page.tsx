@@ -3,8 +3,10 @@
 import { useState } from "react";
 import { ChevronDown, ChevronUp, Receipt } from "lucide-react";
 import MortgageCalculator from "@/components/calculator/MortgageCalculator";
+import { getStructuredData } from "./server";
 
 export default function TaxBenefitsCalculatorPage() {
+  const structuredData = getStructuredData();
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
@@ -18,37 +20,56 @@ export default function TaxBenefitsCalculatorPage() {
     "A tax benefits calculator helps you determine how tax deductions reduce your effective mortgage interest rate."
   ];
   const howItWorks = [
-    "This calculator demonstrates how biweekly payments accelerate mortgage payoff through a simple Receipt trick. By paying every two weeks instead of monthly, you make 26 half-payments annually—equivalent to 13 full monthly payments instead of 12. That extra payment each year goes entirely toward principal, dramatically reducing interest costs over the loan term.",
-    "Enter your current loan amount, interest rate, and loan term. The calculator compares traditional monthly payments against biweekly payments, showing you exactly how much interest you'll save and how many months faster you'll pay off your mortgage.",
-    "Results display side-by-side comparisons of payment schedules, total interest paid, and payoff timelines. You'll see how this simple adjustment can save tens of thousands of dollars without requiring you to find extra money in your budget—you're just restructuring when you make the same total annual payments."
+    "This calculator helps you understand how mortgage-related tax deductions reduce your effective borrowing cost. Mortgage interest, property taxes (within limits), and sometimes mortgage insurance premiums can be tax-deductible, significantly reducing your after-tax housing cost.",
+    "Enter your loan details, tax bracket, and deduction information. The calculator shows your annual deductions, tax savings, and effective after-tax interest rate—revealing your true cost of borrowing after accounting for federal tax benefits.",
+    "Results display your monthly payment, annual tax deductions, estimated tax savings, and effective interest rate. Understanding these tax benefits is crucial for comparing mortgage costs to other financial decisions and accurately budgeting your housing expenses."
   ];
   const faqs = [
     {
-      q: "How does biweekly payment save money?",
-      a: "By paying every two weeks instead of monthly, you make 26 half-payments (13 full payments) per year instead of 12. This extra payment per year reduces principal faster, saving thousands in interest and cutting years off your loan term."
+      q: "What mortgage expenses are tax deductible?",
+      a: "Mortgage interest on loans up to $750,000 ($375,000 if married filing separately) is deductible on your primary residence and one second home. Property taxes are deductible up to $10,000 combined state and local taxes (SALT cap). Mortgage insurance premiums may be deductible depending on income and current tax law—this deduction has expired and been extended multiple times."
     },
     {
-      q: "Can I set up biweekly payments myself?",
-      a: "Yes! You can replicate the benefits by making one extra monthly payment per year, or by paying 1/12 extra each month. This avoids fees some lenders charge for biweekly programs while achieving the same results."
+      q: "How much will I save on taxes with a mortgage?",
+      a: "Your savings depend on your marginal tax bracket and whether you itemize. If you're in the 24% bracket and pay $15,000 in mortgage interest, you save approximately $3,600 annually ($15,000 × 0.24). However, you only benefit if your total itemized deductions exceed the standard deduction ($13,850 single, $27,700 married filing jointly in 2023)."
     },
     {
-      q: "Are there fees for biweekly payment programs?",
-      a: "Some lenders charge $200-400 setup fees plus $2.50-5 per transaction for formal biweekly programs. You can achieve identical results without these fees by making extra payments yourself on your own schedule."
+      q: "Should I itemize deductions or take the standard deduction?",
+      a: "Itemize only if your total deductions (mortgage interest + property taxes + other deductions) exceed the standard deduction. With the increased standard deduction from recent tax law changes, many homeowners no longer benefit from itemizing. Use a mortgage tax benefits calculator to determine which approach saves more."
     },
     {
-      q: "Will biweekly payments work with my budget?",
-      a: "Biweekly payments work especially well if you're paid biweekly, as you can align payments with paychecks. The total annual amount is only slightly higher than monthly payments (equivalent to one extra monthly payment per year), making it manageable for most budgets."
+      q: "What is effective interest rate after tax deduction?",
+      a: "Your effective interest rate is your actual interest rate minus the tax benefit. If you're in the 22% bracket with a 6% mortgage rate, your effective rate is approximately 4.68% (6% × (1 - 0.22)). This calculation assumes you itemize and fully benefit from the mortgage interest deduction."
+    },
+    {
+      q: "Do I get a tax break for buying a house?",
+      a: "There's no direct tax break for purchasing a home, but homeownership provides ongoing deductions. Mortgage interest and property taxes are deductible if you itemize. Additionally, when you sell, you can exclude up to $250,000 ($500,000 married) of capital gains if you lived in the home 2 of the last 5 years."
+    },
+    {
+      q: "What is the $10,000 property tax deduction limit?",
+      a: "The Tax Cuts and Jobs Act instituted a $10,000 cap ($5,000 married filing separately) on combined state and local tax (SALT) deductions, including property taxes and state income/sales taxes. This particularly affects homeowners in high-tax states like California, New York, and New Jersey, where property taxes alone may exceed this limit."
+    },
+    {
+      q: "Can I deduct mortgage interest on a rental property?",
+      a: "Yes, but differently than personal residences. Rental property mortgage interest is deducted as a business expense on Schedule E without the $750,000 loan limit. However, rental properties don't qualify for the $250,000/$500,000 capital gains exclusion and have different depreciation and passive loss rules."
     }
   ];
 
   return (
     <>
-      {/* Banner Ad */}
-      <div className="mb-6 flex justify-center">
-        <div className="rounded bg-slate-100 px-4 py-6 text-center text-sm text-slate-500">
-          Advertisement (728×90)
-        </div>
-      </div>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.softwareApplication) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }}
+      />
 
       {/* Hero Section */}
       <div className="mx-auto max-w-5xl px-6 pb-12 pt-8 sm:px-8 lg:px-12">
@@ -89,142 +110,168 @@ export default function TaxBenefitsCalculatorPage() {
       <section className="py-12">
         <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
           <article className="prose prose-slate mx-auto max-w-3xl prose-headings:font-serif prose-h2:text-2xl prose-h2:font-bold prose-h2:text-slate-900 prose-p:text-slate-600 prose-p:leading-relaxed">
-            <h1 className="text-center">Understanding Biweekly Mortgage Payments: The Receipt Trick That Saves Thousands</h1>
+            <h1 className="text-center">Understanding Mortgage Tax Benefits: How Deductions Reduce Your Effective Interest Rate</h1>
 
             <p>
-              Biweekly mortgage payments represent one of the simplest yet most effective strategies for accelerating mortgage payoff and reducing total interest costs. By shifting from monthly payments to biweekly payments—paying half your monthly amount every two weeks—you leverage a Receipt quirk to make one full extra payment annually without significantly impacting your budget. This seemingly minor adjustment can save tens of thousands of dollars in interest and shave years off your mortgage term through the power of consistent additional principal reduction.
+              Mortgage tax benefits represent one of homeownership's most significant financial advantages, yet many borrowers misunderstand how these deductions work and whether they actually benefit from them. When you use a mortgage tax benefits calculator and see terms like "effective interest rate" or "after-tax cost," you're exploring the difference between your stated mortgage rate and your true borrowing cost after accounting for federal tax deductions. Understanding these benefits—and their limitations under current tax law—is essential for accurately comparing homeownership costs to renting and making informed decisions about mortgage size and structure.
             </p>
 
             <p>
-              The mathematics behind biweekly payments are elegantly simple. A traditional monthly payment schedule involves 12 payments annually. When you pay biweekly, you make 26 half-payments (every two weeks) throughout the year. Since 26 half-payments equal 13 full payments, you're effectively making one extra monthly payment each year. This extra payment applies entirely to principal, disrupting your amortization schedule in your favor and accelerating the payoff timeline without requiring you to find substantial additional funds beyond your existing payment obligation.
+              The primary mortgage-related tax benefits include mortgage interest deductions, property tax deductions (subject to caps), and sometimes mortgage insurance premium deductions. However, the Tax Cuts and Jobs Act of 2017 fundamentally changed how these benefits work for most Americans. The increased standard deduction ($13,850 for single filers, $27,700 for married filing jointly in 2023) means millions of homeowners no longer benefit from itemizing deductions, effectively eliminating their mortgage tax advantages. A mortgage interest tax deduction calculator helps you determine whether you're among those who still benefit from these provisions.
             </p>
 
             <p>
-              For many borrowers, biweekly payments offer psychological and practical advantages beyond the mathematical savings. If you're paid biweekly, aligning your mortgage payment with your paycheck schedule creates natural budgeting harmony—you never need to "save up" for a monthly payment. The smaller, more frequent payments feel more manageable than one large monthly obligation. Most importantly, the accelerated payoff happens automatically without requiring ongoing discipline to make voluntary extra payments, making it an ideal "set it and forget it" wealth-building strategy.
+              For homeowners who do itemize and benefit from these deductions, the savings can be substantial. A borrower in the 24% tax bracket paying $20,000 annually in mortgage interest saves approximately $4,800 in federal taxes—equivalent to reducing a 6% mortgage rate to an effective rate of 4.56%. Over 30 years, this compounds to significant savings. However, these benefits diminish as your mortgage balance decreases and interest payments decline, eventually falling below the standard deduction threshold for most homeowners. Understanding this lifecycle helps you make strategic decisions about mortgage payoff, refinancing, and tax planning.
             </p>
 
-            <h2>How Biweekly Payments Work</h2>
+            <h2>Mortgage Interest Deduction: The Primary Tax Benefit</h2>
 
             <p>
-              Under a traditional monthly payment schedule, you make 12 payments per year, typically on the same date each month. Each payment is split between principal and interest according to your amortization schedule. Early payments consist mostly of interest, with only a small portion reducing principal. As your loan progresses, the balance shifts gradually toward principal, with later payments reducing your balance more substantially.
-            </p>
-
-            <p>
-              Biweekly payments restructure this schedule by dividing your monthly payment in half and submitting that amount every 14 days. A $1,800 monthly payment becomes $900 every two weeks. Since most months are longer than four weeks, you'll occasionally make three half-payments in a single month, but over the course of a year, you make exactly 26 half-payments—13 full monthly equivalents. That 13th payment accelerates principal reduction significantly.
+              The mortgage interest deduction allows homeowners who itemize to deduct interest paid on mortgage debt from their taxable income. Under current law, you can deduct interest on up to $750,000 of mortgage debt ($375,000 if married filing separately) for loans originated after December 15, 2017. For loans originated before that date, the limit remains $1 million ($500,000 married filing separately). This applies to your primary residence and one second home—investment properties follow different rules.
             </p>
 
             <p>
-              The impact compounds over time because each biweekly payment slightly reduces your principal before the next payment is due. With monthly payments, interest accrues on your full balance for a month before you make your payment. With biweekly payments, you're reducing principal every two weeks, meaning slightly less interest accrues between payments. This incremental reduction, combined with the extra annual payment, creates substantial long-term savings.
+              To claim this deduction, you must itemize on Schedule A rather than taking the standard deduction. Your lender sends Form 1098 annually showing how much mortgage interest you paid. You report this amount on Schedule A, where it combines with other itemized deductions (property taxes, charitable contributions, medical expenses, etc.) to potentially exceed the standard deduction threshold.
+            </p>
+
+            <p>
+              The value of this deduction depends entirely on your marginal tax bracket. If you're in the 12% bracket, every $1,000 of mortgage interest deducted saves $120 in federal taxes. In the 32% bracket, that same $1,000 deduction saves $320. A mortgage tax benefits calculator accounts for your specific bracket to show your actual savings. Higher-income borrowers benefit more from these deductions in absolute dollars, though recent tax law changes capped many high-income deductions.
+            </p>
+
+            <h2>Property Tax Deduction and the SALT Cap</h2>
+
+            <p>
+              Property taxes paid on your primary residence and second homes are deductible, but with a significant limitation: the $10,000 state and local tax (SALT) cap. This $10,000 limit applies to the combined total of property taxes plus either state income taxes or sales taxes (you choose which to deduct). For married couples filing separately, the cap is $5,000 each.
+            </p>
+
+            <p>
+              This cap particularly affects homeowners in high-tax states. If you pay $12,000 in property taxes and $8,000 in state income taxes ($20,000 total SALT), you can only deduct $10,000, losing $10,000 of potential deductions. In states like California, New York, New Jersey, and Connecticut, many homeowners hit the SALT cap on property taxes alone, making state income taxes completely non-deductible for federal purposes.
+            </p>
+
+            <p>
+              Using a mortgage interest and property tax deduction calculator helps you understand how the SALT cap affects your total tax picture. For homeowners already capped out on SALT deductions, additional mortgage interest becomes even more valuable as it's not subject to the cap (up to the $750,000 loan limit).
             </p>
 
             <div className="my-8 rounded-lg border-l-4 border-indigo-500 bg-indigo-50 p-6">
-              <h3 className="mb-4 mt-0 text-lg font-semibold text-slate-900">Example: $300,000 Mortgage at 6% for 30 Years</h3>
+              <h3 className="mb-4 mt-0 text-lg font-semibold text-slate-900">Tax Savings Example: 24% Bracket</h3>
               <div className="space-y-2 text-sm text-slate-700">
                 <div className="flex justify-between">
-                  <span className="font-medium">Scenario 1: Monthly Payments</span>
+                  <span className="font-medium">Annual Mortgage Details:</span>
                   <span></span>
                 </div>
                 <div className="ml-4 space-y-1">
                   <div className="flex justify-between">
-                    <span>Payment Frequency:</span>
-                    <span className="font-mono">12x per year</span>
+                    <span>Mortgage Interest Paid:</span>
+                    <span className="font-mono">$18,000</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Payment Amount:</span>
-                    <span className="font-mono">$1,799/month</span>
+                    <span>Property Taxes Paid:</span>
+                    <span className="font-mono">$8,000</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Total Interest Paid:</span>
-                    <span className="font-mono">$347,515</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Payoff Time:</span>
-                    <span className="font-mono">360 months (30 years)</span>
+                    <span>Total Itemized Deductions:</span>
+                    <span className="font-mono">$30,000</span>
                   </div>
                 </div>
                 <div className="mt-4 flex justify-between border-t border-indigo-200 pt-2">
-                  <span className="font-medium">Scenario 2: Biweekly Payments</span>
+                  <span className="font-medium">Tax Comparison:</span>
                   <span></span>
                 </div>
                 <div className="ml-4 space-y-1">
                   <div className="flex justify-between">
-                    <span>Payment Frequency:</span>
-                    <span className="font-mono">26x per year</span>
+                    <span>Standard Deduction (MFJ):</span>
+                    <span className="font-mono">$27,700</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Payment Amount:</span>
-                    <span className="font-mono">$900 every 2 weeks</span>
+                    <span>Additional Benefit from Itemizing:</span>
+                    <span className="font-mono">$2,300</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Total Interest Paid:</span>
-                    <span className="font-mono">$282,496</span>
+                    <span>Tax Bracket:</span>
+                    <span className="font-mono">24%</span>
+                  </div>
+                  <div className="flex justify-between border-t border-indigo-200 pt-2 mt-2">
+                    <span className="font-semibold">Annual Tax Savings:</span>
+                    <span className="font-mono font-semibold text-green-600">$552</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Payoff Time:</span>
-                    <span className="font-mono">312 months (26 years)</span>
-                  </div>
-                  <div className="mt-2 flex justify-between border-t border-indigo-200 pt-2 font-semibold text-indigo-700">
-                    <span>Interest Saved:</span>
-                    <span className="font-mono">$65,019</span>
-                  </div>
-                  <div className="flex justify-between font-semibold text-indigo-700">
-                    <span>Time Saved:</span>
-                    <span className="font-mono">4 years</span>
+                    <span className="font-semibold">Effective Mortgage Rate (6.0%):</span>
+                    <span className="font-mono font-semibold text-indigo-600">5.89%</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <h2>Setting Up Biweekly Payments</h2>
+            <p>
+              This example demonstrates why many homeowners don't significantly benefit from mortgage tax deductions under current law. The couple saves only $552 annually despite paying $18,000 in mortgage interest, because their itemized deductions barely exceed the standard deduction. Early in a mortgage when interest payments are highest, benefits are greater; later in the mortgage, many homeowners fall back to the standard deduction.
+            </p>
+
+            <h2>Calculating Your Effective Interest Rate After Tax Benefits</h2>
 
             <p>
-              Many lenders offer formal biweekly payment programs, but these often come with setup fees ($200-400) and per-transaction charges ($2.50-5). Before enrolling in a lender program, consider whether you can replicate the benefits yourself. The key advantage of biweekly payments is making one extra payment annually—you can achieve this without special programs or fees.
+              Your effective interest rate represents your true borrowing cost after tax savings. The formula is: Effective Rate = Nominal Rate × (1 - Marginal Tax Rate). However, this simple formula only works if you itemize and fully benefit from the deduction.
             </p>
 
             <p>
-              The simplest DIY approach involves dividing your monthly payment by 12 and adding that amount to each regular monthly payment. For a $1,800 monthly payment, add $150 ($1,800 ÷ 12) to make your payment $1,950 monthly. This creates the equivalent of one extra payment spread across the year. You maintain your monthly payment schedule while achieving the same accelerated payoff as biweekly payments.
+              <strong>Example for 24% Tax Bracket:</strong> A 6.00% mortgage becomes 4.56% effective if you fully benefit from the deduction (6.00% × (1 - 0.24) = 4.56%). This 1.44 percentage point reduction is substantial over 30 years. On a $400,000 mortgage, the effective rate reduction saves approximately $78,000 over the loan term compared to paying 6% with no tax benefit.
             </p>
 
             <p>
-              Alternatively, make one extra full payment annually using a windfall like a tax refund or work bonus. This delivers identical results to biweekly payments without changing your payment frequency. Some borrowers prefer this approach because it maintains monthly payment simplicity while still capturing the accelerated payoff benefits.
+              However, most homeowners don't realize the full benefit because their itemized deductions don't sufficiently exceed the standard deduction. A mortgage tax calculator that accounts for the standard deduction provides a more accurate picture. If your itemized deductions are only $2,000 above the standard deduction, you're only benefiting from $2,000 of tax deductions, not your full mortgage interest payment.
+            </p>
+
+            <h2>The Tax Benefits Lifecycle: How Benefits Change Over Time</h2>
+
+            <p>
+              Mortgage tax benefits follow a predictable lifecycle that affects long-term financial planning. Early in your mortgage, interest payments are highest, providing maximum tax benefits. As your loan ages and principal payments increase while interest decreases, tax benefits diminish.
             </p>
 
             <p>
-              If your lender does offer a biweekly program and you're paid biweekly, the convenience might justify any fees—especially if automatic deductions align perfectly with your paychecks. However, always calculate whether the fees offset your interest savings. A $300 setup fee and $3 per payment ($78/year) reduces your net benefit, though you'll still come out ahead over the long term.
-            </p>
-
-            <h2>When Biweekly Payments Make Sense</h2>
-
-            <p>
-              Biweekly payments work best for borrowers who are paid biweekly and want to align mortgage payments with income. The natural synchronization creates budget simplicity—you never need to accumulate funds over several paychecks to make one large monthly payment. The smaller, more frequent payments feel less burdensome, and the accelerated payoff happens automatically without requiring ongoing decision-making about extra payments.
+              <strong>Years 1-10:</strong> Maximum tax benefits. On a 30-year loan, these early years feature the highest interest payments. If you itemize, you're likely well above the standard deduction threshold and realizing significant tax savings. This is when the effective interest rate reduction is greatest.
             </p>
 
             <p>
-              This strategy also appeals to borrowers who struggle with payment discipline. Because the extra payment is built into the schedule rather than requiring voluntary action each month, you benefit from accelerated payoff without needing to remember to make extra payments. The automation removes temptation to skip months or redirect funds elsewhere, ensuring consistent progress toward debt freedom.
+              <strong>Years 11-20:</strong> Declining benefits. As your balance decreases, annual interest payments drop. You may still exceed the standard deduction, but the margin narrows. Your effective tax savings decrease even if your tax bracket remains constant. Some homeowners fall back to the standard deduction during this period.
             </p>
 
             <p>
-              Consider biweekly payments if you plan to stay in your home long-term, as the benefits compound over many years. Short-term homeowners (planning to sell within 5-7 years) receive less benefit, as the major interest savings accumulate in later years. The strategy works for any interest rate, but higher rates produce more dramatic savings because you're avoiding more interest accumulation.
+              <strong>Years 21-30:</strong> Minimal or no benefits. By the final decade, interest payments are low enough that most homeowners benefit more from the standard deduction than itemizing. At this point, mortgage tax benefits effectively disappear, and your true cost equals your nominal rate. This lifecycle is why accelerated payoff strategies or refinancing to shorter terms may make more sense than commonly assumed.
+            </p>
+
+            <h2>Standard Deduction vs. Itemizing: Who Benefits?</h2>
+
+            <p>
+              The Tax Cuts and Jobs Act nearly doubled the standard deduction, fundamentally changing who benefits from mortgage tax deductions. For 2023, the standard deduction is $13,850 for single filers and $27,700 for married filing jointly. You should itemize only if your total deductions exceed these thresholds.
             </p>
 
             <p>
-              Conversely, if you're paid monthly or semi-monthly, biweekly mortgage payments may create budgeting challenges as payment dates won't align neatly with income. In these cases, adding 1/12 extra to each monthly payment provides equivalent benefits while maintaining monthly synchronization with your income schedule.
+              <strong>Homeowners Who Still Itemize:</strong> High-value homes with large mortgages, homeowners in high-property-tax states (even with the SALT cap), those with significant charitable contributions or medical expenses, and taxpayers with large state income tax bills combined with mortgage interest.
             </p>
 
             <p>
-              Before committing to biweekly payments, ensure the slightly higher annual payment amount (equivalent to one extra monthly payment) fits comfortably in your budget. Unlike true extra payments that you can stop during financial stress, enrolling in a formal biweekly program creates an obligation to maintain the schedule. Make sure you can sustain it without financial strain.
+              <strong>Homeowners Who No Longer Benefit:</strong> Smaller mortgages (under $300,000 in most markets), homes in low-property-tax states, homeowners who've paid down significant principal, and those without other substantial itemizable deductions. For these homeowners, mortgage tax benefits are essentially zero—they take the standard deduction regardless of homeownership.
+            </p>
+
+            <h2>Key Takeaways for Tax Planning</h2>
+
+            <p>
+              Use a mortgage tax benefits calculator annually to determine whether you should itemize or take the standard deduction. The answer can change as your mortgage ages, your income changes, or tax law evolves.
             </p>
 
             <p>
-              <strong>What if I need to skip a payment?</strong> Formal biweekly programs typically don't allow skipping payments, as they're structured obligations. This is why DIY approaches offer more flexibility—you can adjust or pause extra principal payments during financial challenges while maintaining your required minimum payment. Consider this flexibility when deciding between formal programs and self-managed strategies.
+              Don't overvalue mortgage tax benefits when making homebuying decisions. Many homebuyers assume significant tax savings that don't materialize because they end up taking the standard deduction. Make purchase decisions based on actual housing needs and affordability, not inflated assumptions about tax benefits.
             </p>
 
             <p>
-              <strong>Do biweekly payments affect my credit score?</strong> No. Your credit report reflects whether you make required payments on time, not the frequency of those payments. Biweekly payments help you pay off your mortgage faster, which can improve your debt-to-income ratio over time, but the payment schedule itself doesn't directly impact your credit score.
+              Consider the tax benefits lifecycle when deciding between 15-year and 30-year mortgages. The tax benefits are front-loaded, so paying off your mortgage early doesn't sacrifice as much tax benefit as commonly believed—by year 15-20, benefits are already diminished.
             </p>
 
             <p>
-              Consult with your lender about biweekly payment options and any associated fees. If they charge significant fees, calculate the break-even point where interest savings exceed fee costs. In most cases, DIY approaches provide better value unless the convenience of automated biweekly deductions aligned with your paychecks justifies the administrative costs.
+              Remember that tax laws change. The current $750,000 loan limit, $10,000 SALT cap, and standard deduction amounts could change with future legislation. Build flexibility into your financial planning.
+            </p>
+
+            <p>
+              Finally, consult a tax professional about your specific situation. A mortgage interest tax deduction calculator provides estimates, but individual circumstances require professional analysis. Tax planning should be part of your overall financial strategy, not an afterthought at tax time.
             </p>
 
           </article>

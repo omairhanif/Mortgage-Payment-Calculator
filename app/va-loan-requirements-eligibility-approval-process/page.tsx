@@ -1,14 +1,60 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft } from "lucide-react";
-
-export const metadata = {
-  title: "VA Loan Requirements: Eligibility & Approval Process | Military Mortgage Guide",
-  description: "Learn VA loan eligibility requirements for active duty, veterans, reserves, and surviving spouses. Understand credit scores, COE process, and approval steps for military mortgages.",
-};
+import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
+import { useState } from "react";
+import { getStructuredData } from "./server";
 
 export default function VALoanRequirementsArticle() {
+  const structuredData = getStructuredData();
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
+
+  const faqs = [
+    {
+      q: "Who qualifies for a VA loan?",
+      a: "Active duty service members with 90+ consecutive days of service, veterans who served 90+ days during wartime or 181+ days during peacetime, National Guard/Reserves members with 6+ years of service, and surviving spouses of service members who died in service or from service-connected disabilities qualify. Discharged service members must have received anything other than a dishonorable discharge. Current active duty members can qualify immediately after 90 days, while veterans need to obtain their DD Form 214 showing qualifying service."
+    },
+    {
+      q: "What is the minimum credit score for a VA loan?",
+      a: "The VA doesn't mandate a minimum credit score, but most lenders require 580-620. Many VA-approved lenders accept scores as low as 580 with compensating factors like low debt-to-income ratio, stable employment, or cash reserves. Scores of 640+ typically qualify for better interest rates. Unlike conventional loans that severely penalize scores below 680, VA loans are more forgiving for veterans with fair credit. Manual underwriting is available for scores below 620 if you have strong compensating factors."
+    },
+    {
+      q: "How do I get my Certificate of Eligibility (COE)?",
+      a: "Apply online through the VA's eBenefits portal (takes 5-10 business days), have your lender request it electronically (often instant if records are in the VA system), or mail Form 26-1880 with your DD Form 214 to your regional VA office (takes 2-3 weeks). Most veterans use eBenefits for speed. Active duty members need a Statement of Service from their commander instead of DD-214. Many lenders can pull your COE instantly during the application process if your service records are digitized."
+    },
+    {
+      q: "Do I need to pay a down payment on a VA loan?",
+      a: "No, VA loans allow 0% down payment on loan amounts up to $726,200 (or higher in expensive markets) with full entitlement. This is one of the program's biggest benefits—you can buy a $300,000 home with zero down, paying only closing costs (typically $6,000-$10,000, often covered by seller concessions). Some veterans choose to put 5-10% down to reduce their VA funding fee and monthly payments, but it's not required unless you're purchasing above your entitlement limit."
+    },
+    {
+      q: "Can National Guard and Reserve members get VA loans?",
+      a: "Yes! National Guard and Reserve members qualify after 6 years of service in the Selected Reserve or National Guard. If you've been activated for federal service, you may qualify with just 90 days of active duty (including at least 30 consecutive days). Many Guard/Reserve members don't realize they qualify even without deployments. Title 10 orders (federal activation) count toward the 90-day requirement, but Title 32 (state activation) may not unless federalized."
+    },
+    {
+      q: "What documents do I need to apply?",
+      a: "Required documents include: DD Form 214 (discharge papers) or Statement of Service for active duty, Certificate of Eligibility (COE), 2 years of W-2s or tax returns (self-employed need tax returns and business financials), most recent 30 days of pay stubs, 2 months of bank statements showing assets, photo ID, rental/mortgage payment history for 12 months, and divorce decrees if applicable. Deployed service members may need power of attorney for their spouse to sign documents. Most lenders provide a detailed checklist during pre-approval."
+    }
+  ];
+
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }}
+      />
     <main className="min-h-screen bg-white">
       {/* Navigation */}
       <div className="border-b border-slate-200 bg-white">
@@ -46,15 +92,6 @@ export default function VALoanRequirementsArticle() {
           <time>April 15, 2026</time>
           <span className="mx-3">•</span>
           <span>14 min read</span>
-        </div>
-      </div>
-
-      {/* Banner Ad */}
-      <div className="mx-auto max-w-4xl px-6 sm:px-8 mb-8">
-        <div className="w-full flex justify-center">
-          <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-            <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-          </div>
         </div>
       </div>
 
@@ -368,6 +405,44 @@ export default function VALoanRequirementsArticle() {
           </div>
         </div>
       </article>
+
+      {/* FAQ Section */}
+      <section className="py-12 bg-slate-50">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <h2 className="font-serif text-3xl font-bold text-slate-900 mb-8 text-center">
+            Frequently Asked Questions
+          </h2>
+
+          <div className="space-y-3">
+            {faqs.map((faq, index) => (
+              <div 
+                key={index}
+                className="border border-slate-200 rounded-lg overflow-hidden bg-white"
+              >
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-slate-50 transition-colors"
+                >
+                  <span className="font-semibold text-slate-900 pr-8">
+                    {faq.q}
+                  </span>
+                  {openFAQ === index ? (
+                    <ChevronUp className="h-5 w-5 text-indigo-600 flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="h-5 w-5 text-slate-400 flex-shrink-0" />
+                  )}
+                </button>
+                {openFAQ === index && (
+                  <div className="px-6 pb-4 text-slate-600">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
+    </>
   );
 }

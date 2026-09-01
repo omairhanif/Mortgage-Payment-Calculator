@@ -1,14 +1,62 @@
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
-import Image from "next/image";
+"use client";
 
-export const metadata = {
-  title: "Balloon Payment Calculator: Estimate Final Loan Amount | Free Tool",
-  description: "Calculate balloon mortgage payments with our free calculator. Estimate balloon amounts, view amortization schedules, and compare different terms. Plan your exit strategy.",
-};
+import Link from "next/link";
+import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
+import { getStructuredData } from "./server";
 
 export default function BalloonPaymentCalculatorArticle() {
+  const structuredData = getStructuredData();
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
+
+  const faqs = [
+    {
+      q: "What is a balloon payment on a mortgage?",
+      a: "A balloon payment is a large lump sum due at the end of a balloon mortgage term, typically representing the remaining principal balance. Unlike traditional mortgages that fully amortize over 15-30 years, balloon mortgages have lower monthly payments calculated on a longer amortization (like 30 years) but require full payoff after a shorter period (typically 5-7 years). For example, a $300,000 balloon mortgage at 7% with 30-year amortization but 7-year term would have $1,996 monthly payments, then a $280,847 balloon payment due in year 7."
+    },
+    {
+      q: "How do I calculate my balloon payment?",
+      a: "Use a balloon payment calculator by entering: loan amount, interest rate, amortization period (how payments are calculated), and balloon term (when it's due). The calculator computes monthly payments based on amortization, then calculates the remaining balance after your balloon term. Formula: Remaining Balance = P × [(1 + r)^n - (1 + r)^p] / [(1 + r)^n - 1], where P = principal, r = monthly rate, n = total amortization months, p = balloon term months. Most people use online calculators rather than manual calculation."
+    },
+    {
+      q: "What happens at the end of a balloon mortgage?",
+      a: "When your balloon term ends, you must pay the entire remaining balance immediately. Your options include: (1) Refinance into a traditional mortgage (most common—requires good credit and sufficient equity), (2) Sell the property and pay off the loan, (3) Pay cash if you've saved or received a windfall, (4) Negotiate a loan extension with your lender (rare and at their discretion), or (5) Default and face foreclosure (last resort). Having a concrete exit strategy planned before taking a balloon mortgage is critical."
+    },
+    {
+      q: "Are balloon mortgages a good idea?",
+      a: "Balloon mortgages work well for specific situations: short-term homeownership (planning to sell within 5-7 years), expecting significant income increase (bonus, inheritance, business sale), investment properties with planned sale dates, or bridge financing while selling another property. They're risky if: you lack a clear exit strategy, have uncertain income, or depend on refinancing in an unknown future rate environment. The 2008 recession proved many borrowers struggled when refinancing became impossible due to declining home values and tightened credit."
+    },
+    {
+      q: "Can I make extra payments on a balloon mortgage?",
+      a: "Yes, most balloon mortgages allow extra principal payments without penalties, though you should verify your specific loan terms. Making extra payments reduces your balloon amount significantly—every $100 extra monthly on a $250,000 loan at 7% over 5 years reduces the balloon by approximately $7,800-$8,500 depending on timing. Use a balloon mortgage calculator with extra payments to model different scenarios. Strategic extra payments can reduce refinancing amounts or potentially eliminate the need for a large balloon payment if you pay aggressively enough."
+    },
+    {
+      q: "What credit score do I need to refinance a balloon mortgage?",
+      a: "Most lenders require 620-680 minimum credit score to refinance a balloon mortgage into a conventional loan. Higher scores (740+) get better rates. You'll also need: 20%+ equity in the home (loan-to-value of 80% or less), debt-to-income ratio below 43-50%, stable employment history (2+ years), and documented income. Start planning refinancing 6-12 months before your balloon is due—don't wait until the last minute when options may be limited and lenders know you're desperate."
+    }
+  ];
+
   return (
+    <>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.softwareApplication) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }}
+      />
+      
     <main className="min-h-screen bg-white">
       {/* Navigation */}
       <div className="border-b border-slate-200 bg-white">
@@ -46,15 +94,6 @@ export default function BalloonPaymentCalculatorArticle() {
           <time>April 18, 2026</time>
           <span className="mx-3">•</span>
           <span>13 min read</span>
-        </div>
-      </div>
-
-      {/* Banner Ad */}
-      <div className="mx-auto max-w-4xl px-6 sm:px-8 mb-8">
-        <div className="w-full flex justify-center">
-          <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-            <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-          </div>
         </div>
       </div>
 
@@ -353,7 +392,45 @@ export default function BalloonPaymentCalculatorArticle() {
           </div>
         </div>
       </article>
+
+      {/* FAQ Section */}
+      <section className="py-12 bg-slate-50">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <h2 className="font-serif text-3xl font-bold text-slate-900 mb-8 text-center">
+            Frequently Asked Questions
+          </h2>
+
+          <div className="space-y-3">
+            {faqs.map((faq, index) => (
+              <div 
+                key={index}
+                className="border border-slate-200 rounded-lg overflow-hidden bg-white"
+              >
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-slate-50 transition-colors"
+                >
+                  <span className="font-semibold text-slate-900 pr-8">
+                    {faq.q}
+                  </span>
+                  {openFAQ === index ? (
+                    <ChevronUp className="h-5 w-5 text-indigo-600 flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="h-5 w-5 text-slate-400 flex-shrink-0" />
+                  )}
+                </button>
+                {openFAQ === index && (
+                  <div className="px-6 pb-4 text-slate-600">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
+    </>
   );
 }
 

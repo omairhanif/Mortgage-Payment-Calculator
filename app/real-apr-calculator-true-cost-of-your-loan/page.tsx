@@ -4,8 +4,10 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
+import { getStructuredData } from "./server";
 
 export default function RealAPRCalculator() {
+  const structuredData = getStructuredData();
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
@@ -53,6 +55,21 @@ export default function RealAPRCalculator() {
   const allFaqs = [...faqs, ...faqs2];
 
   return (
+    <>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.softwareApplication) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }}
+      />
+      
     <main className="min-h-screen bg-white">
       {/* Navigation */}
       <div className="border-b border-slate-200 bg-white">
@@ -515,17 +532,7 @@ export default function RealAPRCalculator() {
           </div>
         </div>
       </section>
-
-      {/* Bottom Ad Placeholder */}
-      <section className="py-8 bg-white">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="flex justify-center">
-            <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-              <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
+    </>
   );
 }

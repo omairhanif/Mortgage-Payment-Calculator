@@ -1,14 +1,62 @@
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
-import Image from "next/image";
+"use client";
 
-export const metadata = {
-  title: "How Mortgage Points Lower Your Interest Rate | Mortgage Lab",
-  description: "Understand the mechanics of how mortgage points reduce your interest rate. Learn lender pricing strategies, rate reduction calculations, and the step-by-step process with real Canadian examples."
-};
+import Link from "next/link";
+import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
+import { getStructuredData } from "./server";
 
 export default function HowMortgagePointsLowerRateArticle() {
+  const structuredData = getStructuredData();
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
+
+  const faqs = [
+    {
+      q: "Why do lenders offer lower rates when you pay points?",
+      a: "Lenders make money from two sources: (1) upfront fees/points paid at closing, and (2) interest charged over the loan life. When you pay points, you're prepaying some of the interest the lender would earn over time, giving them immediate cash. This lowers their risk—they get guaranteed money now instead of waiting 25 years for interest payments (with risk you might refinance or pay off early). Think of it as buying a discount on future interest. Example: $400,000 loan at 5.5% earns lender ~$337,000 interest over 25 years. You pay $8,000 in points upfront, lender reduces rate to 5.0% (earning ~$264,000 future interest). Lender still profits—gets $8,000 now + $264,000 later = $272,000 total, less than $337,000 but with lower risk and immediate cash."
+    },
+    {
+      q: "How exactly do points reduce my interest rate?",
+      a: "Points buy down your rate through lender pricing adjustments. Lenders use 'rate sheets' showing different rate/point combinations for each borrower profile. Standard rate: 5.50% with 0 points. Pay 1 point ($4,000 on $400,000 loan): 5.25% rate. Pay 2 points ($8,000): 5.00% rate. Each point typically reduces rate by 0.20-0.25% (20-25 basis points), though exact amount varies. The reduction is permanent for that loan—if you buy a point and get 5.25% instead of 5.50%, you pay 5.25% for the entire loan term. However, if you refinance to a new loan, you start fresh with new rates—the old point purchase doesn't carry over. That's why break-even analysis is critical—you need to keep the loan long enough for monthly savings to exceed upfront point cost."
+    },
+    {
+      q: "Is the rate reduction per point consistent across all loan amounts?",
+      a: "NO—rate reduction per point varies significantly based on: (1) Loan amount—larger loans often get better rate reductions per point because the absolute point cost is higher (1% of $800,000 is $8,000 vs. 1% of $200,000 is $2,000); (2) Credit score—excellent credit (760+) might get 0.25% reduction per point, fair credit (660-680) might get only 0.15%; (3) Down payment—20%+ down (no insurance) typically gets better point efficiency than <20% down; (4) Market conditions—high-rate environments (6%+) often provide better point value than low-rate environments (under 4%); (5) Lender—pricing varies wildly between lenders. Example: Lender A gives 0.20% per point, Lender B gives 0.25% per point—on a $400,000 loan, that's a $20/month difference (over 25 years = $6,000). Always shop multiple lenders for point pricing."
+    },
+    {
+      q: "Can I buy fractional points for smaller rate reductions?",
+      a: "Yes! You don't have to buy full points—most lenders offer fractional points (0.25, 0.5, 0.75 points). Example: $400,000 loan. Buy 0.5 points = $2,000 upfront, rate drops ~0.10-0.125% (5.50% becomes 5.375-5.40%). Buy 0.25 points = $1,000 upfront, rate drops ~0.05-0.0625% (5.50% becomes 5.4375-5.45%). This is useful when: (1) you have limited cash but want some rate reduction, (2) your break-even analysis shows half a point is optimal for your timeline, (3) you want to fine-tune closing costs to hit a specific budget. Fractional points follow proportional math—0.5 points costs half as much and provides roughly half the rate reduction of 1 full point. Some lenders allow purchases down to 0.125 points (1/8 of a point) for maximum flexibility."
+    },
+    {
+      q: "What are 'negative points' or lender credits?",
+      a: "Negative points (lender credits) are the reverse of buying points—you accept a HIGHER interest rate, and the lender pays YOU money to cover closing costs. Example: Standard offer: 5.50% rate with $6,000 closing costs. Negative points option: 5.75% rate, lender gives you $4,000 credit toward closing costs (you only pay $2,000 out-of-pocket). This makes sense when: (1) you're short on cash for closing, (2) you plan to refinance soon (within 2-3 years) so the higher rate is temporary, (3) you expect income to increase and plan to make large extra payments. Math comparison: $400,000 loan at 5.75% = $2,538/month vs. 5.50% at $2,457/month = $81/month higher. If you refinance in 2 years, you pay extra $1,944 in payments but saved $4,000 in closing costs = net $2,056 ahead. If you keep loan 10 years, you pay extra $9,720—bad deal."
+    },
+    {
+      q: "How do I calculate if points are worth it for my specific situation?",
+      a: "Use this step-by-step process: (1) Get quotes—ask lender for rate with 0 points, 0.5 points, 1 point, 1.5 points, 2 points. (2) Calculate monthly payment for each scenario (use online calculator or formula). (3) Find monthly savings—subtract lower-rate payment from higher-rate payment. (4) Calculate break-even months—point cost ÷ monthly savings. (5) Determine how long you'll keep mortgage—consider job stability, family plans, refinance likelihood. (6) Apply 1.5-2× rule—if break-even is 60 months, plan to keep mortgage 90-120+ months (7.5-10 years). Example: $400,000 loan. 5.5% at 0 points = $2,457/month, 5.25% at 1 point ($4,000) = $2,394/month (saves $63/month). Break-even: $4,000 ÷ $63 = 63.5 months. If you're confident you'll keep mortgage 10+ years (120 months), points save you ~$63 × (120-63.5) = $3,560 net benefit. If you might refinance in 5 years (60 months), skip the points."
+    }
+  ];
+
   return (
+    <>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }}
+      />
+      
     <main className="min-h-screen bg-white">
       {/* Navigation */}
       <div className="border-b border-slate-200 bg-white">
@@ -46,15 +94,6 @@ export default function HowMortgagePointsLowerRateArticle() {
           <time>August 27, 2026</time>
           <span className="mx-3">•</span>
           <span>11 min read</span>
-        </div>
-      </div>
-
-      {/* Banner Ad */}
-      <div className="mx-auto max-w-4xl px-6 sm:px-8 mb-8">
-        <div className="w-full flex justify-center">
-          <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-            <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-          </div>
         </div>
       </div>
 
@@ -625,17 +664,48 @@ export default function HowMortgagePointsLowerRateArticle() {
               </Link>
             </div>
 
-            {/* In-content Ad */}
-            <div className="w-full flex justify-center my-12">
-              <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-                <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-              </div>
-            </div>
-
           </div>
         </div>
       </article>
+
+      {/* FAQ Section */}
+      <section className="py-12 bg-slate-50">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <h2 className="font-serif text-3xl font-bold text-slate-900 mb-8 text-center">
+            Frequently Asked Questions
+          </h2>
+
+          <div className="space-y-3">
+            {faqs.map((faq, index) => (
+              <div 
+                key={index}
+                className="border border-slate-200 rounded-lg overflow-hidden bg-white"
+              >
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-slate-50 transition-colors"
+                >
+                  <span className="font-semibold text-slate-900 pr-8">
+                    {faq.q}
+                  </span>
+                  {openFAQ === index ? (
+                    <ChevronUp className="h-5 w-5 text-indigo-600 flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="h-5 w-5 text-slate-400 flex-shrink-0" />
+                  )}
+                </button>
+                {openFAQ === index && (
+                  <div className="px-6 pb-4 text-slate-600">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
+    </>
   );
 }
 

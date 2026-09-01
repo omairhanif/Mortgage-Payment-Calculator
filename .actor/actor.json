@@ -1,9 +1,0 @@
-{
-  "actorSpecification": 1,
-  "name": "mortgage-payment-calculator",
-  "title": "Mortgage Payment Calculator",
-  "version": "0.1",
-  "build": {
-    "dockerfile": "./Dockerfile"
-  }
-}

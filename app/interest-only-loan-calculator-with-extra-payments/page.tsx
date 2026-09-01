@@ -1,14 +1,62 @@
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
-import Image from "next/image";
+"use client";
 
-export const metadata = {
-  title: "Interest-Only Loan Calculator With Extra Payments | Free Tool",
-  description: "Calculate interest-only payments plus extra principal with our free calculator. See how extra payments reduce your balloon amount and build equity during interest-only periods.",
-};
+import Link from "next/link";
+import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
+import { getStructuredData } from "./server";
 
 export default function InterestOnlyLoanCalculatorWithExtraPaymentsArticle() {
+  const structuredData = getStructuredData();
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
+
+  const faqs = [
+    {
+      q: "Can I make extra payments on an interest-only loan?",
+      a: "Yes, you can absolutely make extra principal payments on interest-only loans. These payments go directly to reducing your principal balance and are not charged interest. Most lenders allow unlimited extra payments during the interest-only period without penalties. For example, if your interest-only payment is $1,458 and you pay $1,858, that extra $400 reduces your principal immediately. This flexibility is one advantage of interest-only loans—you're not required to pay principal, but you can pay as much as you want whenever your cash flow allows."
+    },
+    {
+      q: "Do extra payments on interest-only loans save me money?",
+      a: "Yes, extra payments save significant money by: (1) Reducing your balloon payment or principal balance when the loan adjusts, (2) Decreasing total interest paid over the life of the loan, (3) Building equity faster, and (4) Potentially avoiding payment shock when the interest-only period ends. For a $350,000 interest-only loan at 5%, paying an extra $300/month for 7 years reduces your balloon by $31,400+ and saves approximately $18,000-$22,000 in interest over 30 years. The earlier you start making extra payments, the greater your savings."
+    },
+    {
+      q: "How much extra should I pay on my interest-only loan?",
+      a: "Start with what's affordable—even $100-200/month makes a meaningful impact. A good target is 5-10% of what a fully amortized payment would be. For example, if your interest-only payment is $1,500 and a fully amortized payment would be $2,100, aim for $100-300 extra monthly. Many homeowners use the 'split difference' strategy: pay half the difference between interest-only and fully amortized payments. This builds equity while keeping payments lower than a traditional mortgage."
+    },
+    {
+      q: "What happens when my interest-only period ends?",
+      a: "When the interest-only period ends (typically 5-10 years), your loan converts to a fully amortizing loan where payments include both principal and interest. This causes 'payment shock'—your monthly payment can increase 30-50%. For example, a $350,000 loan at 5% with $1,458 interest-only payments would jump to $2,283/month when fully amortizing over the remaining 23 years. Making extra principal payments during the interest-only period reduces this payment shock by lowering your principal balance before conversion."
+    },
+    {
+      q: "Can I refinance my interest-only loan before it adjusts?",
+      a: "Yes, refinancing before your loan adjusts is a common strategy. You'll need: 620-680+ credit score, sufficient equity (typically 20%+), debt-to-income ratio below 43-50%, and stable income documentation. Start exploring refinancing 12-18 months before your interest-only period ends to ensure you have time to address any credit issues, build additional equity through extra payments, and compare multiple lender offers. Having made regular extra principal payments strengthens your refinancing application."
+    },
+    {
+      q: "Are interest-only loans with extra payments better than traditional mortgages?",
+      a: "It depends on your situation. Interest-only loans with extra payments offer flexibility—make minimum payments during lean months, extra payments during flush months. They're ideal for: commission-based income, bonus-heavy compensation, seasonal businesses, or those expecting significant future income increases. Traditional mortgages provide forced savings through required principal payments and psychological simplicity. If you have the discipline to consistently make extra payments on an interest-only loan, you get flexibility. If you need forced savings, traditional mortgages work better."
+    }
+  ];
+
   return (
+    <>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.softwareApplication) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }}
+      />
+      
     <main className="min-h-screen bg-white">
       {/* Navigation */}
       <div className="border-b border-slate-200 bg-white">
@@ -46,15 +94,6 @@ export default function InterestOnlyLoanCalculatorWithExtraPaymentsArticle() {
           <time>May 14, 2026</time>
           <span className="mx-3">•</span>
           <span>12 min read</span>
-        </div>
-      </div>
-
-      {/* Banner Ad */}
-      <div className="mx-auto max-w-4xl px-6 sm:px-8 mb-8">
-        <div className="w-full flex justify-center">
-          <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-            <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-          </div>
         </div>
       </div>
 
@@ -350,7 +389,45 @@ export default function InterestOnlyLoanCalculatorWithExtraPaymentsArticle() {
           </div>
         </div>
       </article>
+
+      {/* FAQ Section */}
+      <section className="py-12 bg-slate-50">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <h2 className="font-serif text-3xl font-bold text-slate-900 mb-8 text-center">
+            Frequently Asked Questions
+          </h2>
+
+          <div className="space-y-3">
+            {faqs.map((faq, index) => (
+              <div 
+                key={index}
+                className="border border-slate-200 rounded-lg overflow-hidden bg-white"
+              >
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-slate-50 transition-colors"
+                >
+                  <span className="font-semibold text-slate-900 pr-8">
+                    {faq.q}
+                  </span>
+                  {openFAQ === index ? (
+                    <ChevronUp className="h-5 w-5 text-indigo-600 flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="h-5 w-5 text-slate-400 flex-shrink-0" />
+                  )}
+                </button>
+                {openFAQ === index && (
+                  <div className="px-6 pb-4 text-slate-600">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
+    </>
   );
 }
 

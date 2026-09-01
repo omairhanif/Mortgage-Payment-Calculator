@@ -2,10 +2,61 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
+import { useState } from "react";
+import { getStructuredData } from "./server";
 
 export default function BiweeklyPaymentCalculatorArticle() {
+  const structuredData = getStructuredData();
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
+
+  const faqs = [
+    {
+      q: "How much can I save with biweekly mortgage payments?",
+      a: "Biweekly payments typically save $40,000-$80,000+ in interest over the life of a Canadian mortgage and shorten a 25-year mortgage by 3-5 years. Example: $400,000 mortgage at 5.5% for 25 years. Monthly payment: $2,457/month, total interest: $337,100. Biweekly payment: $1,228.50 every 2 weeks (26 payments yearly = $31,941 vs $29,484 monthly), total interest: $261,400, saving $75,700 and paying off in 21.3 years (3.7 years faster). The savings come from making one extra monthly payment per year (26 biweekly payments × $1,228.50 = 13 monthly payments) and slightly more frequent principal reduction."
+    },
+    {
+      q: "What's the difference between biweekly and semi-monthly payments?",
+      a: "Biweekly = every 14 days (26 payments/year = 13 monthly equivalents). Semi-monthly = twice per month (24 payments/year = 12 monthly equivalents). Biweekly results in one extra monthly payment annually, accelerating payoff and saving interest. Semi-monthly matches monthly payment totals with no acceleration benefit. Example: $2,400/month mortgage. Biweekly: $1,200 every 14 days = $31,200 annually. Semi-monthly: $1,200 twice per month = $28,800 annually. The $2,400 annual difference ($200/month) in biweekly payments creates the interest savings and faster payoff. Many people confuse these—ensure you're choosing true biweekly for acceleration benefits."
+    },
+    {
+      q: "Should I pay my mortgage biweekly or monthly?",
+      a: "Choose biweekly if: (1) you're paid biweekly and want payment/income alignment, (2) you plan to stay in the home 7+ years to realize compounded savings, (3) you have interest rate above 4.5% (higher rates = more savings), (4) you can comfortably afford the slightly higher annual payment (equivalent to one extra monthly payment/year), and (5) your lender offers fee-free or low-fee biweekly options. Stick with monthly if: (1) you're paid monthly or semi-monthly, (2) you plan to sell/refinance within 5 years, (3) you have ultra-low rate (under 3%) where extra payments might better go to investments, or (4) your lender charges high biweekly program fees. DIY alternative: make monthly payments plus 1/12 extra toward principal achieves same result with more flexibility."
+    },
+    {
+      q: "Do biweekly payments really shorten loan length?",
+      a: "Yes, significantly. Biweekly payments typically shorten a 25-year Canadian mortgage to 21-22 years (3-4 years faster) and a 30-year U.S. mortgage to 25-26 years (4-5 years faster). The acceleration comes from: (1) making 13 monthly payments instead of 12 (one extra payment/year), and (2) slightly more frequent principal reduction reducing interest accumulation. Example: $300,000 at 6% for 25 years = $1,932/month, pays off in exactly 25 years (300 months). Biweekly at $966 every 2 weeks = $25,116 annually (vs $23,184 monthly) = one extra $1,932 payment yearly, shortening term to ~21.5 years. The higher your rate and longer your term, the more dramatic the acceleration effect."
+    },
+    {
+      q: "Can I switch my existing mortgage to biweekly payments?",
+      a: "Yes, most Canadian lenders allow switching to biweekly payments at any time with minimal paperwork. Process: (1) Contact your lender or log into online banking, (2) Request biweekly payment schedule change, (3) Verify fees (most lenders offer free switching, some charge $50-100 one-time fee or $5/month), (4) Provide banking information for automatic withdrawals, (5) Confirm start date (usually 1-2 billing cycles). Important: ensure you're getting true accelerated biweekly (26 payments of half your monthly amount) NOT just your monthly payment split into two payments (which provides no benefit). Ask explicitly: 'Is this accelerated biweekly with 26 payments per year?' Document the confirmation."
+    },
+    {
+      q: "What if I can't afford biweekly payments?",
+      a: "Biweekly payments aren't right for everyone. Alternatives: (1) DIY monthly extra payments—add $50-200/month extra toward principal when you can afford it, with flexibility to skip during tight months, (2) Annual lump sum—many mortgages allow 10-20% principal prepayment once yearly; save tax refunds, bonuses, or windfalls for this, (3) Round-up method—if your payment is $1,847, pay $1,900 and the extra $53 goes to principal (small, painless, adds up), (4) Shorten amortization at renewal—when renewing, reduce from 25 to 20 years if you can afford slightly higher payments. Remember: biweekly payments equal one extra monthly payment per year (roughly 8% more annually). If that's too tight, any extra payment—even irregular—helps reduce interest and shortens the mortgage."
+    }
+  ];
+
   return (
+    <>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.softwareApplication) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }}
+      />
+      
     <main className="min-h-screen bg-white">
       {/* Navigation */}
       <div className="border-b border-slate-200 bg-white">
@@ -43,15 +94,6 @@ export default function BiweeklyPaymentCalculatorArticle() {
           <time>May 21, 2026</time>
           <span className="mx-3">â€¢</span>
           <span>10 min read</span>
-        </div>
-      </div>
-
-      {/* Banner Ad */}
-      <div className="mx-auto max-w-4xl px-6 sm:px-8 mb-8">
-        <div className="w-full flex justify-center">
-          <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-            <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-          </div>
         </div>
       </div>
 
@@ -257,6 +299,44 @@ export default function BiweeklyPaymentCalculatorArticle() {
           </div>
         </div>
       </article>
+
+      {/* FAQ Section */}
+      <section className="py-12 bg-slate-50">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <h2 className="font-serif text-3xl font-bold text-slate-900 mb-8 text-center">
+            Frequently Asked Questions
+          </h2>
+
+          <div className="space-y-3">
+            {faqs.map((faq, index) => (
+              <div 
+                key={index}
+                className="border border-slate-200 rounded-lg overflow-hidden bg-white"
+              >
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-slate-50 transition-colors"
+                >
+                  <span className="font-semibold text-slate-900 pr-8">
+                    {faq.q}
+                  </span>
+                  {openFAQ === index ? (
+                    <ChevronUp className="h-5 w-5 text-indigo-600 flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="h-5 w-5 text-slate-400 flex-shrink-0" />
+                  )}
+                </button>
+                {openFAQ === index && (
+                  <div className="px-6 pb-4 text-slate-600">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
+    </>
   );
 }

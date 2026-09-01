@@ -5,8 +5,10 @@ import { ChevronDown, ChevronUp, Home, Calculator } from "lucide-react";
 import { calculateSecondMortgage, type SecondMortgageInput } from "@/lib/mortgage";
 import { formatCurrency } from "@/lib/utils";
 import { NumberInput, Card } from "@/components/calculator/CalculatorFields";
+import { getStructuredData } from "./server";
 
 export default function SecondMortgageCalculatorPage() {
+  const structuredData = getStructuredData();
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
@@ -28,24 +30,32 @@ export default function SecondMortgageCalculatorPage() {
     ],
     faqs: [
       {
-        q: "What is a second mortgage?",
-        a: "A second mortgage is a loan taken out against your home equity while your original mortgage remains in place. It's called 'second' because it's subordinate to your first mortgage, meaning the first mortgage gets paid first if you default."
+        q: "How much can I borrow on a 2nd mortgage?",
+        a: "Most lenders allow you to borrow up to 80-85% of your home's current value minus your existing first mortgage balance, though this varies by lender and your credit profile. In Canada, the maximum combined loan-to-value (CLTV) ratio is typically 80%. For example, if your home is worth $400,000 and you owe $250,000, you could borrow up to $70,000 ($400,000 × 0.80 = $320,000 max total debt, minus $250,000 first mortgage). In the UK, second mortgage lenders may allow 75-90% CLTV. Your actual borrowing capacity depends on your income, credit score, debt-to-income ratio, and the lender's specific requirements."
       },
       {
-        q: "How much can I borrow with a second mortgage?",
-        a: "Most lenders allow you to borrow up to 80-85% of your home's value minus your existing mortgage balance. For example, if your home is worth $400,000 and you owe $250,000, you might borrow up to $70,000-$90,000 depending on lender requirements."
+        q: "How do I qualify for a 2nd mortgage?",
+        a: "To qualify for a second mortgage, you need sufficient home equity (typically at least 15-20% after the new loan), a credit score of 620+ (640-680+ for better rates), verifiable income to support debt-to-income ratios below 43%, and documented ability to repay both mortgages. Lenders assess your first mortgage payment history, current employment stability, and may require a home appraisal. In Canada, second mortgage lenders including CIBC and RBC have specific qualification criteria. Some private second mortgage lenders in Ontario and other provinces offer more flexible terms but at higher interest rates, typically 2-5 percentage points above first mortgage rates."
       },
       {
-        q: "What's the difference between a second mortgage and HELOC?",
-        a: "A second mortgage is a lump-sum loan with fixed payments over a set term, while a HELOC is a revolving line of credit you can draw from as needed. Second mortgages typically have fixed rates, while HELOCs usually have variable rates."
+        q: "Is it hard to get a 2nd mortgage?",
+        a: "Getting a second mortgage is generally harder than getting a first mortgage because you're asking lenders to take a subordinate position—they only get paid after the first mortgage holder in a foreclosure. This increased risk means stricter requirements: higher credit scores (typically 620-680+ minimum), lower loan-to-value ratios (usually 80% CLTV maximum), more thorough income verification, and higher interest rates (often 1-3% above first mortgage rates). However, if you have substantial equity, strong credit, and stable income, approval is quite achievable. Private second mortgage lenders and some credit unions may be more flexible than major banks but charge higher rates."
       },
       {
-        q: "How does a second mortgage affect my home equity?",
-        a: "A second mortgage reduces your available equity by the loan amount. As you make payments, you gradually rebuild equity. However, you're now making payments on two mortgages, which increases your overall housing costs."
+        q: "What is the 2 2 2 rule for mortgages?",
+        a: "The 2-2-2 rule for mortgages is a lending guideline suggesting that borrowers should have: 2 months of mortgage payments in savings as a reserve, a 2-year history of stable employment in the same field, and 2 years of good credit history with no major derogatory marks. While not a universal standard, many lenders use variations of this rule when evaluating mortgage applications, particularly for second mortgages where the added risk makes lenders more conservative. Some lenders may require even larger reserves (3-6 months of payments) for second mortgages, especially for jumbo loans or borrowers with higher debt-to-income ratios."
       },
       {
-        q: "Can I deduct second mortgage interest on my taxes?",
-        a: "You may be able to deduct interest if the loan is used to buy, build, or substantially improve your home. However, the Tax Cuts and Jobs Act limits total mortgage debt eligible for interest deduction to $750,000. Consult a tax professional for your specific situation."
+        q: "How to get a second mortgage to buy another house?",
+        a: "To use a second mortgage to buy another property, you'll borrow against the equity in your current home and use those funds as a down payment on the new property. This works if you have at least 20-25% equity in your existing home and qualify for two mortgages simultaneously. Lenders will evaluate your income against both mortgage payments plus any other debts—your total debt-to-income ratio typically can't exceed 43%. You'll need: strong credit (700+ recommended), stable income sufficient to cover both properties, and usually 10-20% additional cash for closing costs. In Canada, major lenders like CIBC, RBC, and TD offer second mortgages for this purpose, though rental income from the new property may help with qualification."
+      },
+      {
+        q: "What are second mortgage rates in Canada?",
+        a: "Second mortgage rates in Canada typically range from 6-12%, or 2-5 percentage points above prime first mortgage rates, depending on your lender type and credit profile. Major banks like CIBC, RBC, TD, BMO, and Scotiabank offer second mortgages (often called home equity loans) at their lowest rates (currently around 6-8%) for well-qualified borrowers. Private second mortgage lenders in Ontario, BC, and Alberta charge higher rates (8-12% or more) but offer more flexible approval criteria. Second mortgage rates depend on: your credit score, loan-to-value ratio, income verification, and whether you're working with a bank, credit union, or private lender. Always compare multiple second mortgage lenders before committing."
+      },
+      {
+        q: "Can I make extra payments on a second mortgage?",
+        a: "Yes, most second mortgages allow extra payments, though terms vary by lender. Many lenders permit annual prepayment privileges of 10-20% of the original principal without penalty, helping you pay off your second mortgage faster and save on interest. Using a second mortgage calculator with extra payments helps you see the savings impact. For example, adding $200/month extra to a $50,000 second mortgage at 8% over 10 years could save you $7,000+ in interest and pay off the loan 3-4 years early. Check your mortgage documents for prepayment terms—some lenders allow unlimited extra payments, while others charge penalties for exceeding annual limits."
       }
     ]
   };
@@ -189,13 +199,20 @@ export default function SecondMortgageCalculatorPage() {
 
   return (
     <section className="py-8">
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.softwareApplication) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }}
+      />
       <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-        {/* Banner Ad Placeholder */}
-        <div className="mb-6 flex justify-center">
-          <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-            <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-          </div>
-        </div>
 
         {/* Introduction Section */}
         <div className="mb-8 mx-auto max-w-5xl">

@@ -2,10 +2,61 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
+import { useState } from "react";
+import { getStructuredData } from "./server";
 
 export default function HowMuchIncomeArticle() {
+  const structuredData = getStructuredData();
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
+
+  const faqs = [
+    {
+      q: "What salary do I need to afford a $500,000 house?",
+      a: "To afford a $500,000 house in Canada, you need approximately $130,000-145,000 annual gross income with 20% down payment ($100,000). This leaves a $400,000 mortgage which at 5.5% interest creates ~$2,457/month principal and interest payments. Add property taxes ($550/month), insurance ($180/month), heating ($150/month), and maintenance ($250/month) for ~$3,587 total monthly housing costs. Canadian lenders require your GDS ratio to stay under 32-39% of gross income, meaning $3,587 ÷ 0.35 = $123,343 annually. However, with the mortgage stress test (qualifying at higher rates) and maintaining room for other debt payments (TDS under 44%), you realistically need $130,000-$145,000 stable income."
+    },
+    {
+      q: "How much income do you need for a $300,000 mortgage in Canada?",
+      a: "For a $300,000 mortgage in Canada, you need approximately $70,000-80,000 annual gross income. At 5.5% interest on a 25-year amortization, your monthly P&I payment is ~$1,843. Add property taxes ($300/month), insurance ($135/month), and heating ($120/month) for ~$2,398 total monthly housing costs. Using the standard 32-35% GDS ratio: $2,398 ÷ 0.33 = $87,212 annually. Factor in the mortgage stress test (must qualify at ~7.5% rate instead of 5.5%), which increases the qualifying payment significantly, and you realistically need $70,000-$80,000 in documented income depending on your other debts and down payment size."
+    },
+    {
+      q: "Can I buy a house making $70,000 a year in Canada?",
+      a: "Yes, earning $70,000 annually in Canada typically qualifies you for approximately a $280,000-$320,000 mortgage, allowing you to purchase a $350,000-$400,000 home with 20% down. Monthly gross income is $5,833. At 35% GDS ratio, you can afford $2,042/month in housing costs. With a $300,000 mortgage at 5.5%, your P&I is ~$1,843, leaving ~$200/month for property taxes and insurance. This works in markets like parts of Alberta, Saskatchewan, Atlantic Canada, and smaller Ontario cities. In expensive markets (Toronto, Vancouver, Victoria), $70,000 income limits you to condos or requires co-borrowers/larger down payments. Key: minimal other debts helps—car loans and credit card balances reduce your maximum mortgage significantly."
+    },
+    {
+      q: "What's the 28/36 rule and does Canada use it?",
+      a: "The 28/36 rule is a U.S. guideline: housing costs should be ≤28% of gross income (front-end ratio) and total debts ≤36% (back-end ratio). Canada uses similar but slightly different ratios: (1) Gross Debt Service (GDS)—housing costs should be ≤32-39% of gross income (varies by lender and insurer), and (2) Total Debt Service (TDS)—all debt payments should be ≤40-44% of gross income. Example with $6,000 monthly gross: Canada allows ~$1,920-2,340 for housing (32-39%) and ~$2,400-2,640 for all debts (40-44%). The U.S. 28/36 rule would allow $1,680 for housing and $2,160 for all debts. Canadian limits are generally slightly more generous, but the mortgage stress test offsets this by requiring qualification at higher interest rates."
+    },
+    {
+      q: "How does the mortgage stress test affect how much I can borrow?",
+      a: "Canada's mortgage stress test requires you to qualify at the higher of: (1) your contract rate + 2%, or (2) 5.25% (the minimum qualifying rate). This significantly reduces borrowing capacity. Example: $400,000 mortgage at 5.5% actual rate = $2,457/month payment. Stress test requires qualifying as if rate is 7.5% = $2,858/month (+$401/month or +16% higher). This means you need ~$13,700 more annual income to qualify, or you must borrow ~$60,000-80,000 less than you could without the stress test. The test reduces most buyers' maximum mortgage by 15-20%. While frustrating, it ensures you can still afford payments if rates rise at renewal. Uninsured mortgages (20%+ down) from some lenders may have slightly more flexibility."
+    },
+    {
+      q: "What other factors affect mortgage qualification beyond income?",
+      a: "Beyond income, key factors include: (1) Credit score—minimum 600 for insured mortgages, 680+ for best rates; higher scores can reduce required income by qualifying for lower rates, (2) Down payment size—20%+ avoids CMHC insurance and may reduce income requirements slightly; larger down = smaller mortgage, (3) Existing debts—car loans, credit cards, lines of credit all reduce maximum mortgage; every $400/month in other debt reduces mortgage capacity by ~$80,000-100,000, (4) Employment stability—2+ years in same field preferred; job hoppers or recent career changes face scrutiny, (5) Property type/location—condos, rural properties, or properties needing repairs may require more income or larger down payments. Best strategy: minimize other debts, save 20%+ down, maintain stable employment, and keep credit score 700+ before applying."
+    }
+  ];
+
   return (
+    <>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }}
+      />
+      
     <main className="min-h-screen bg-white">
       {/* Navigation */}
       <div className="border-b border-slate-200 bg-white">
@@ -43,15 +94,6 @@ export default function HowMuchIncomeArticle() {
           <time>May 5, 2026</time>
           <span className="mx-3">•</span>
           <span>9 min read</span>
-        </div>
-      </div>
-
-      {/* Banner Ad */}
-      <div className="mx-auto max-w-4xl px-6 sm:px-8 mb-8">
-        <div className="w-full flex justify-center">
-          <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-            <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-          </div>
         </div>
       </div>
 
@@ -385,7 +427,45 @@ export default function HowMuchIncomeArticle() {
           </div>
         </div>
       </article>
+
+      {/* FAQ Section */}
+      <section className="py-12 bg-slate-50">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <h2 className="font-serif text-3xl font-bold text-slate-900 mb-8 text-center">
+            Frequently Asked Questions
+          </h2>
+
+          <div className="space-y-3">
+            {faqs.map((faq, index) => (
+              <div 
+                key={index}
+                className="border border-slate-200 rounded-lg overflow-hidden bg-white"
+              >
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-slate-50 transition-colors"
+                >
+                  <span className="font-semibold text-slate-900 pr-8">
+                    {faq.q}
+                  </span>
+                  {openFAQ === index ? (
+                    <ChevronUp className="h-5 w-5 text-indigo-600 flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="h-5 w-5 text-slate-400 flex-shrink-0" />
+                  )}
+                </button>
+                {openFAQ === index && (
+                  <div className="px-6 pb-4 text-slate-600">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
+    </>
   );
 }
 

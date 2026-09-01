@@ -1,14 +1,62 @@
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
-import Image from "next/image";
+"use client";
 
-export const metadata = {
-  title: "Rent vs. Buy Calculator: Which Costs Less? | Compare Your Options",
-  description: "Use rent vs buy calculators to compare true costs. Learn the 5% rule, 20/30/3 rule, and how to calculate if buying or renting is better for your situation.",
-};
+import Link from "next/link";
+import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
+import { getStructuredData } from "./server";
 
 export default function RentVsBuyCalculatorArticle() {
+  const structuredData = getStructuredData();
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
+
+  const faqs = [
+    {
+      q: "How does a rent vs buy calculator work?",
+      a: "A rent vs buy calculator compares the total cost of renting versus buying over a specific time period by factoring in: (1) Buying costs—down payment, closing costs, monthly mortgage, property taxes, insurance, maintenance, and selling costs when you eventually move, (2) Renting costs—monthly rent plus projected annual increases, and (3) Opportunity cost—investment returns you could have earned on the down payment if you rented instead. The calculator shows which option costs less based on your timeline, market appreciation rates, and individual financial situation."
+    },
+    {
+      q: "What's the 5% rule for rent vs buy decisions?",
+      a: "The 5% rule is a quick test: if annual rent is less than 5% of the home's purchase price, renting is typically cheaper. The 5% represents unrecovered ownership costs: 1% property tax + 1% maintenance + 3% cost of capital. Example: $400,000 home × 5% = $20,000 yearly ($1,667/month). If comparable rent is $1,800/month ($21,600 yearly), buying is better. If rent is $1,400/month ($16,800 yearly), renting wins. This provides directional guidance before detailed calculator analysis."
+    },
+    {
+      q: "Is the New York Times rent vs buy calculator accurate?",
+      a: "The NYT rent vs buy calculator is one of the most sophisticated free tools available, accounting for opportunity cost, taxes, maintenance, closing costs, and home appreciation. It's highly accurate for modeling financial outcomes IF your inputs are realistic. The calculator's main limitations: it assumes you invest down payment savings if renting (many people don't), uses national averages that may not match your specific market, and can't account for personal factors like lifestyle value or forced savings benefits of homeownership. Use it for financial analysis, but recognize intangible factors also matter."
+    },
+    {
+      q: "How much should I spend on a home using the 20/30/3 rule?",
+      a: "The 20/30/3 rule is a conservative buying guideline: (1) 20% down payment—avoids PMI, gets better rates, ensures equity ($80,000 down on $400,000 home), (2) Housing costs under 30% of gross income—$100,000 income = max $2,500/month for mortgage, taxes, insurance, (3) Home price maximum 3× annual household income—$100,000 income = max $300,000 home price. This rule is more conservative than lender maximums (which allow 43-50% DTI and 5× income), leaving room for savings, emergencies, and lifestyle expenses."
+    },
+    {
+      q: "Should I use Zillow or Realtor.com rent vs buy calculator?",
+      a: "Zillow's rent vs buy calculator is better for quick comparisons with real-time market data for specific properties, while Realtor.com's calculator is simpler but less comprehensive. However, the New York Times calculator is the most sophisticated for financial modeling with opportunity cost considerations. Best approach: use Zillow for property-specific quick checks with actual market data, then the NYT calculator for comprehensive financial analysis including investment opportunity costs. Avoid oversimplified calculators that only compare monthly rent to monthly mortgage—they miss crucial ownership costs."
+    },
+    {
+      q: "What other factors should I consider beyond calculator results?",
+      a: "Beyond financial calculations, consider: (1) Mobility—how likely are you to relocate for career or family? Moving within 5 years often favors renting, (2) Market conditions—are home prices inflated, stable, or declining in your area? (3) Personal preferences—do you value stability and control (buy) or flexibility (rent)? (4) Maintenance tolerance—are you willing to handle repairs and yard work? (5) Financial discipline—will you actually invest down payment savings if you rent? (6) Life stage—are you establishing roots or exploring options? Use calculators for financial framework, but let your specific circumstances guide the final decision."
+    }
+  ];
+
   return (
+    <>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.softwareApplication) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }}
+      />
+      
     <main className="min-h-screen bg-white">
       {/* Navigation */}
       <div className="border-b border-slate-200 bg-white">
@@ -46,15 +94,6 @@ export default function RentVsBuyCalculatorArticle() {
           <time>May 1, 2026</time>
           <span className="mx-3">•</span>
           <span>12 min read</span>
-        </div>
-      </div>
-
-      {/* Banner Ad */}
-      <div className="mx-auto max-w-4xl px-6 sm:px-8 mb-8">
-        <div className="w-full flex justify-center">
-          <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-            <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-          </div>
         </div>
       </div>
 
@@ -346,7 +385,45 @@ export default function RentVsBuyCalculatorArticle() {
           </div>
         </div>
       </article>
+
+      {/* FAQ Section */}
+      <section className="py-12 bg-slate-50">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <h2 className="font-serif text-3xl font-bold text-slate-900 mb-8 text-center">
+            Frequently Asked Questions
+          </h2>
+
+          <div className="space-y-3">
+            {faqs.map((faq, index) => (
+              <div 
+                key={index}
+                className="border border-slate-200 rounded-lg overflow-hidden bg-white"
+              >
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-slate-50 transition-colors"
+                >
+                  <span className="font-semibold text-slate-900 pr-8">
+                    {faq.q}
+                  </span>
+                  {openFAQ === index ? (
+                    <ChevronUp className="h-5 w-5 text-indigo-600 flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="h-5 w-5 text-slate-400 flex-shrink-0" />
+                  )}
+                </button>
+                {openFAQ === index && (
+                  <div className="px-6 pb-4 text-slate-600">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
+    </>
   );
 }
 

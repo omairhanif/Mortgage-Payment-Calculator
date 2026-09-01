@@ -1,14 +1,60 @@
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
-import Image from "next/image";
+"use client";
 
-export const metadata = {
-  title: "Mortgage Points Calculator - Are Points Worth It? | Mortgage Lab",
-  description: "Calculate if buying mortgage points is worth it. Learn how points lower interest rates with real examples, break-even analysis, and when paying points makes sense for Canadian homeowners."
-};
+import Link from "next/link";
+import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
+import { getStructuredData } from "./server";
 
 export default function MortgagePointsCalculatorArticle() {
+  const structuredData = getStructuredData();
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
+
+  const faqs = [
+    {
+      q: "How much does 1 mortgage point cost and what rate reduction do I get?",
+      a: "One mortgage point costs 1% of your loan amount and typically reduces your interest rate by 0.20-0.25% (20-25 basis points). Example: $400,000 mortgage—one point costs $4,000 (1% of $400,000). If your quoted rate is 5.50%, buying one point might reduce it to 5.25-5.30%. Buying two points ($8,000) could reduce the rate to 5.00-5.05%. The exact rate reduction varies by lender, market conditions, and your credit profile. In high-rate environments (rates above 6%), points might offer 0.25-0.30% reduction per point. In low-rate environments (rates below 4%), rate reduction might be only 0.15-0.20% per point. Always ask for the specific rate reduction your lender offers—it's not standardized."
+    },
+    {
+      q: "What's the break-even point for buying mortgage points?",
+      a: "Break-even is when your monthly payment savings equal your upfront point cost. Calculate it: Point Cost ÷ Monthly Savings = Break-even Months. Example: $400,000 mortgage at 5.5% = $2,457/month payment. Buy 1 point for $4,000, rate drops to 5.25% = $2,394/month payment (saves $63/month). Break-even: $4,000 ÷ $63 = 63.5 months (5.3 years). If you keep the mortgage beyond 5.3 years, points save money. If you sell or refinance before 5.3 years, you lose money. Rule of thumb: buying points makes sense if you plan to stay in the home and keep the mortgage at least 1.5-2× the break-even period (gives cushion for unexpected moves). For 5.3-year break-even, keep mortgage 8-10+ years to maximize benefit."
+    },
+    {
+      q: "Are mortgage points tax-deductible in Canada?",
+      a: "NO—mortgage points are NOT tax-deductible in Canada for primary residences (unlike the U.S., where points can sometimes be deducted). Canadian tax law doesn't allow deductions for primary residence mortgage expenses, including points, fees, or interest. EXCEPTIONS: (1) Rental property—if you buy a rental property and pay points, they're deductible as a business expense (either all in year paid or amortized over loan term), (2) Investment property—points paid on loans for income-earning property may be deductible, (3) Business use—if part of your home is used exclusively for business, proportional point costs might be deductible. For regular Canadian homeowners buying a primary residence, points are simply an upfront cost to reduce your rate—no tax benefit."
+    },
+    {
+      q: "Should I buy points if I might refinance in 3-5 years?",
+      a: "Generally NO. If there's ANY chance you'll refinance within your break-even period (typically 4-7 years for 1 point), buying points is a poor financial decision. When you refinance, you get a new loan—your old loan with bought-down rate disappears, and you lose all future savings. Example: buy 1 point for $4,000, break-even is 6 years. If you refinance in year 4, you've paid $4,000 and saved only ~$3,000 in payments—net loss of $1,000. WHEN to buy points despite refi possibility: (1) rates are historically high and unlikely to drop enough to justify refi costs, (2) your break-even is very short (2-3 years) due to large loan or good rate reduction, (3) you're highly confident you'll keep this mortgage 10+ years. Generally, points work best for buyers who know they're settling long-term."
+    },
+    {
+      q: "Can I negotiate the cost or effectiveness of points with my lender?",
+      a: "Yes! Everything is negotiable. Strategies: (1) Ask multiple lenders to quote their point pricing—rate reduction per point varies significantly between lenders; (2) Ask if lender will offer 0.25% rate reduction per point instead of 0.20% (worth trying, especially with strong credit and large loan); (3) Negotiate the flat upfront cost—instead of 1% of loan, ask for 0.8% or 0.9%; (4) Request 'negative points' (lender credits)—you accept slightly higher rate, lender pays your closing costs; (5) Time your lock—point pricing improves when rates drop, worsens when rates rise. Example: Lender A offers 0.20% reduction per point, Lender B offers 0.25% reduction. On $400,000 loan, Lender B's better deal saves you significantly more over the life of the loan. Always compare at least 3 lenders."
+    },
+    {
+      q: "What's better: buying points or making a larger down payment?",
+      a: "Usually a larger down payment wins. Math comparison: $400,000 home, you have $90,000 available—use as $80,000 down + $10,000 in points, OR use as $90,000 down. Option 1: $320,000 mortgage + $10,000 points (2.5 points) = 5.5% drops to ~4.9%, payment $1,920/month. Option 2: $310,000 mortgage at 5.5% = $1,903/month. Option 2 wins—lower payment AND you didn't spend $10,000 upfront. Why larger down beats points: (1) permanent loan reduction vs. temporary rate improvement, (2) reduces/eliminates CMHC insurance if you hit 20% down, (3) saves interest on reduced principal every payment, (4) no break-even calculation needed. EXCEPTION: If you're already at 20%+ down (no insurance), markets are high-rate (6%+), and you're certain you'll keep mortgage 10+ years, points can make sense with extra cash."
+    }
+  ];
+
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }}
+      />
     <main className="min-h-screen bg-white">
       {/* Navigation */}
       <div className="border-b border-slate-200 bg-white">
@@ -46,15 +92,6 @@ export default function MortgagePointsCalculatorArticle() {
           <time>August 27, 2026</time>
           <span className="mx-3">•</span>
           <span>12 min read</span>
-        </div>
-      </div>
-
-      {/* Banner Ad */}
-      <div className="mx-auto max-w-4xl px-6 sm:px-8 mb-8">
-        <div className="w-full flex justify-center">
-          <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-            <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-          </div>
         </div>
       </div>
 
@@ -553,6 +590,44 @@ export default function MortgagePointsCalculatorArticle() {
           </div>
         </div>
       </div>
+
+      {/* FAQ Section */}
+      <section className="py-12 bg-slate-50">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <h2 className="font-serif text-3xl font-bold text-slate-900 mb-8 text-center">
+            Frequently Asked Questions
+          </h2>
+
+          <div className="space-y-3">
+            {faqs.map((faq, index) => (
+              <div 
+                key={index}
+                className="border border-slate-200 rounded-lg overflow-hidden bg-white"
+              >
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-slate-50 transition-colors"
+                >
+                  <span className="font-semibold text-slate-900 pr-8">
+                    {faq.q}
+                  </span>
+                  {openFAQ === index ? (
+                    <ChevronUp className="h-5 w-5 text-indigo-600 flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="h-5 w-5 text-slate-400 flex-shrink-0" />
+                  )}
+                </button>
+                {openFAQ === index && (
+                  <div className="px-6 pb-4 text-slate-600">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
+    </>
   );
 }

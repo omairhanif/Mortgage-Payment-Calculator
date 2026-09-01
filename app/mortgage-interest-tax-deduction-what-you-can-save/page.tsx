@@ -1,14 +1,60 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
-
-export const metadata = {
-  title: "Mortgage Interest Tax Deduction: What You Can Save | Mortgage Lab",
-  description: "Learn about mortgage interest tax deductions in Canada. Understand why primary residences don't qualify, how rental properties DO, the Smith Manoeuvre strategy, and real tax savings in Ontario, BC, and Alberta with 2026 calculations."
-};
+import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
+import { useState } from "react";
+import { getStructuredData } from "./server";
 
 export default function MortgageInterestTaxDeductionPage() {
+  const structuredData = getStructuredData();
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
+
+  const faqs = [
+    {
+      q: "Why isn't mortgage interest tax-deductible in Canada?",
+      a: "Canadian tax law follows the 'income use' principle—interest is only deductible if borrowed money is used to earn income. Your primary residence is personal use property that doesn't generate income, so mortgage interest isn't deductible. This differs fundamentally from the U.S., where mortgage interest is deductible as an itemized personal deduction (not tied to income production). The rationale: the government doesn't subsidize personal consumption expenses like housing, food, or vehicles. However, when you use borrowed money for income-earning purposes (rental property, business, investments), the interest becomes a legitimate business expense. This creates a clear line: personal home = no deduction, investment property = full deduction."
+    },
+    {
+      q: "How much can I save if I have a rental property?",
+      a: "Rental property mortgage interest is 100% tax-deductible, creating significant savings. Example: $400,000 rental property mortgage at 5.5% = ~$22,000 annual interest. If you're in the 43% combined federal/provincial tax bracket (Ontario $200,000+ income), deducting $22,000 in interest saves $9,460 in taxes annually. Over 25 years, that's $236,500 in tax savings (present value ~$120,000-140,000). Additional deductible expenses: property taxes ($4,000), insurance ($1,500), maintenance ($2,500), property management (10% of rent), utilities if you pay them. Total deductions might reach $35,000-40,000 annually, saving $15,000-17,000 in taxes yearly. Keep detailed records: bank statements, receipts, rental agreements. CRA audits rental properties frequently—documentation is critical."
+    },
+    {
+      q: "What is the Smith Manoeuvre and is it worth the risk?",
+      a: "The Smith Manoeuvre converts non-deductible mortgage interest into tax-deductible investment loan interest. Process: (1) get a readvanceable mortgage (HELOC + mortgage combo), (2) as you pay down mortgage principal, reborrow that amount from HELOC, (3) invest borrowed funds in dividend-paying stocks/investments, (4) deduct HELOC interest on taxes, (5) use tax refunds + investment returns to pay mortgage faster. Example: $300,000 mortgage, you pay $2,000/month. First month $1,100 goes to principal. Reborrow $1,100 from HELOC at 6%, invest in dividend stocks. That $66/month interest ($792 annual) is now deductible, saving $340/year in 43% tax bracket. Risks: (1) investment losses—if stocks drop, you still owe the loan, (2) interest rate risk—if rates rise, costs increase, (3) complexity requires professional advice ($2,000-5,000 annual accounting fees). Best for: high-income earners ($150,000+), comfortable with investment risk, long-term (10+ year) horizon, professional financial guidance."
+    },
+    {
+      q: "Can I deduct interest if I refinance to renovate?",
+      a: "It depends on what the renovations accomplish. General rule: if renovations are for personal enjoyment (new kitchen, bathroom remodel, landscaping), the refinanced mortgage interest is NOT deductible—it's still personal use property. HOWEVER, if renovations create income-earning capacity, interest may be deductible. Examples of deductible scenarios: (1) adding a legal basement apartment for rental—the portion of mortgage refinance attributable to creating rental space has deductible interest, (2) renovating to convert personal residence into licensed daycare—business portion deductible, (3) adding office space for business use—proportional deduction. Documentation requirements: (1) clear accounting separating personal vs. income-earning renovation costs, (2) receipts and contractor invoices, (3) rental income or business income to offset. Bottom line: personal renovations = no deduction; income-generating renovations = proportional deduction."
+    },
+    {
+      q: "What happens if I move and rent out my old home?",
+      a: "When you convert your principal residence to a rental property, the mortgage interest becomes tax-deductible from the conversion date forward (NOT retroactively). Process: (1) establish 'change of use' date when you start renting, (2) get property appraised on that date (establishes cost base for future capital gains), (3) from that date forward, deduct mortgage interest, property taxes, insurance, maintenance, (4) claim CCA (Capital Cost Allowance - depreciation) if desired, though this triggers capital gains on future sale. Important: the original mortgage must remain in place—if you refinance after converting to rental to pull out equity for personal use, that portion of interest isn't deductible. Example: $400,000 mortgage on former home, now rented. Interest is $22,000/year. If you're in 40% tax bracket, deducting saves $8,800 annually. Keep meticulous records: rental agreements, expense receipts, bank statements."
+    },
+    {
+      q: "Are there any legal ways to make primary residence mortgage interest deductible?",
+      a: "Yes, but they're complex and require professional guidance: (1) Smith Manoeuvre—converts mortgage to investment loan over time, (2) Leveraged investing—get a separate investment loan for investments; that interest IS deductible, (3) Rental suite—create legal rental unit in your home; portion of mortgage interest allocated to rental square footage becomes deductible, (4) Business use—if you use part of your home exclusively for business, proportional mortgage interest may be deductible. WARNING: aggressive strategies claiming home mortgage interest deductions attract CRA scrutiny. Penalties for incorrect claims: interest on unpaid taxes, potential penalties up to 50% of understated tax, possible audit of other years. Only pursue these with professional tax advisor."
+    }
+  ];
+
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }}
+      />
     <main className="min-h-screen bg-white">
       {/* Navigation */}
       <div className="border-b border-slate-200 bg-white">
@@ -46,15 +92,6 @@ export default function MortgageInterestTaxDeductionPage() {
           <time>August 27, 2026</time>
           <span className="mx-3">•</span>
           <span>13 min read</span>
-        </div>
-      </div>
-
-      {/* Banner Ad */}
-      <div className="mx-auto max-w-4xl px-6 sm:px-8 mb-8">
-        <div className="w-full flex justify-center">
-          <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-            <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-          </div>
         </div>
       </div>
 
@@ -511,7 +548,45 @@ export default function MortgageInterestTaxDeductionPage() {
         </div>
       </article>
 
+      {/* FAQ Section */}
+      <section className="py-12 bg-slate-50">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <h2 className="font-serif text-3xl font-bold text-slate-900 mb-8 text-center">
+            Frequently Asked Questions
+          </h2>
+
+          <div className="space-y-3">
+            {faqs.map((faq, index) => (
+              <div 
+                key={index}
+                className="border border-slate-200 rounded-lg overflow-hidden bg-white"
+              >
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-slate-50 transition-colors"
+                >
+                  <span className="font-semibold text-slate-900 pr-8">
+                    {faq.q}
+                  </span>
+                  {openFAQ === index ? (
+                    <ChevronUp className="h-5 w-5 text-indigo-600 flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="h-5 w-5 text-slate-400 flex-shrink-0" />
+                  )}
+                </button>
+                {openFAQ === index && (
+                  <div className="px-6 pb-4 text-slate-600">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
     </main>
+    </>
   );
 }
 

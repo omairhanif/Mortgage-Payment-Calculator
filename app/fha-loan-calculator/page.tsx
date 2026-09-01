@@ -3,8 +3,10 @@
 import { useState } from "react";
 import { ChevronDown, ChevronUp, Home } from "lucide-react";
 import MortgageCalculator from "@/components/calculator/MortgageCalculator";
+import { getStructuredData } from "./server";
 
 export default function FHALoanCalculatorPage() {
+  const structuredData = getStructuredData();
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
@@ -13,40 +15,51 @@ export default function FHALoanCalculatorPage() {
 
   const faqs = [
     {
-      q: "What is an FHA loan and who qualifies?",
-      a: "An FHA loan is a mortgage insured by the Federal Housing Administration, designed for borrowers who may not qualify for conventional loans. You need a minimum 580 credit score for 3.5% down (or 500-579 score with 10% down), steady employment history, and debt-to-income ratio typically below 43%."
+      q: "What is the payment on a $400,000 FHA loan at 7%?",
+      a: "For a $400,000 FHA loan at 7% interest over 30 years with 3.5% down ($14,000), your loan amount would be $386,000 plus the upfront mortgage insurance premium (UFMIP) of 1.75% ($6,755), totaling $392,755. Your monthly principal and interest payment would be approximately $2,611. Add annual MIP of about 0.85% ($277/month), property taxes (varies by location, typically $300-500/month), homeowners insurance ($150-250/month), bringing your total monthly payment to roughly $3,400-3,700. Use an FHA loan calculator to model your specific scenario with your local tax rates and insurance costs."
     },
     {
-      q: "What is the minimum down payment for an FHA loan?",
-      a: "The minimum down payment is 3.5% with a credit score of 580 or higher. If your credit score is between 500-579, you'll need 10% down. This lower down payment requirement makes FHA loans popular with first-time homebuyers who have limited savings."
+      q: "What income do I need to afford a $500,000 house with FHA?",
+      a: "To afford a $500,000 house with an FHA loan, you typically need annual income of $120,000-135,000, assuming you meet the standard 43% debt-to-income ratio limit. With 3.5% down ($17,500), your loan would be about $482,500 plus UFMIP, resulting in monthly payments around $4,000-4,500 (including MIP, taxes, insurance). Lenders divide your monthly housing payment by your gross monthly income to calculate your DTI. With $130,000 annual income ($10,833/month), a $4,300 payment represents 40% DTI before considering other debts. Using an FHA mortgage calculator with income requirements helps determine your specific affordability."
     },
     {
-      q: "What is FHA mortgage insurance (MIP) and how much does it cost?",
-      a: "FHA requires two types of mortgage insurance: an upfront premium (UFMIP) of 1.75% of the loan amount (typically financed into the loan), and annual MIP of 0.45%-1.05% depending on loan amount, term, and down payment. This insurance protects lenders if you default."
+      q: "What's the minimum credit score for an FHA loan?",
+      a: "The minimum credit score for an FHA loan is technically 500, but practical requirements are higher. With a 580+ credit score, you qualify for the minimum 3.5% down payment. With a 500-579 credit score, you need 10% down. However, many FHA lenders set their own minimum credit score requirements—typically 580-620—even though FHA allows lower scores. Additionally, borrowers with higher credit scores (640+) often receive better interest rates and more lender options. If your credit score is below 580, work on improving it before applying, or be prepared for a larger down payment and potentially higher rates."
     },
     {
-      q: "Can FHA mortgage insurance be removed?",
-      a: "For most FHA loans originated after June 2013, MIP lasts for the life of the loan if you put down less than 10%. With 10%+ down, MIP is removed after 11 years. The only way to eliminate MIP is to refinance to a conventional loan once you have 20% equity."
+      q: "Can I buy a condo or townhouse with an FHA loan?",
+      a: "Yes, you can buy a condo or townhouse with an FHA loan, but the property must be in an FHA-approved condominium project. The FHA maintains a list of approved condo buildings that meet specific financial and legal requirements. Individual townhouses or single-unit properties don't need project approval—only buildings with shared ownership structures. If you're interested in a condo, verify its FHA approval status before making an offer. Some sellers or HOAs prefer conventional loans due to FHA's stricter property condition requirements and appraisal standards. An FHA loan calculator works the same for condos as for single-family homes—just factor in potentially higher HOA fees."
     },
     {
-      q: "What are FHA loan limits in 2024?",
-      a: "FHA loan limits vary by county. For 2024, the floor limit is $498,257 in low-cost areas, while high-cost areas can go up to $1,149,825. Most counties fall somewhere in between. These limits apply to the base loan amount before financing the upfront MIP."
+      q: "What is FHA mortgage insurance (MIP) and can I remove it?",
+      a: "FHA mortgage insurance premium (MIP) has two components: an upfront premium of 1.75% of the loan amount (typically financed into the loan) and annual MIP of 0.45%-1.05% divided into monthly payments. For loans with less than 10% down, MIP remains for the life of the loan—you cannot remove it unless you refinance to a conventional loan once you have 20% equity. With 10%+ down payment, MIP drops off after 11 years. This differs from conventional PMI, which automatically cancels at 78% loan-to-value or can be requested at 80% LTV. Use an FHA loan calculator with MIP included to see your true monthly cost."
     },
     {
-      q: "Are FHA loans only for first-time homebuyers?",
-      a: "No! This is a common misconception. Anyone who qualifies can use an FHA loan, regardless of whether they've owned a home before. However, FHA loans must be used for your primary residence—you can't use them for investment properties or vacation homes."
+      q: "Are there FHA loan limits by state or county?",
+      a: "Yes, FHA loan limits vary by county based on local median home prices. For 2024, the FHA floor limit is $498,257 in low-cost counties, while high-cost areas (like parts of California, New York, Hawaii) can go up to $1,149,825 for single-family homes. Most counties fall between these extremes. These limits apply to the base loan amount before adding the 1.75% upfront MIP. You can find your specific county's FHA loan limit on the HUD website or by asking lenders. If the home you want exceeds your county's FHA loan limit, you'll need a conventional loan, jumbo loan, or larger down payment to cover the difference."
+    },
+    {
+      q: "What are FHA closing costs and who pays them?",
+      a: "FHA closing costs typically range from 3-6% of the loan amount and include: loan origination fees (0.5-1%), appraisal ($400-600), credit report ($25-50), title insurance and search (1-2% of purchase price), recording fees ($50-200), upfront MIP (1.75% of loan amount, usually financed), prepaid property taxes and insurance, and lender charges. FHA allows sellers to contribute up to 6% of the purchase price toward buyer closing costs—more generous than conventional loans (typically 3% seller concessions). You can also ask the seller to pay specific closing costs in your offer. Some lenders offer no-closing-cost FHA loans by rolling costs into a higher interest rate."
     }
   ];
 
   return (
     <section className="py-8">
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.softwareApplication) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }}
+      />
       <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-        {/* Banner Ad Placeholder */}
-        <div className="mb-6 flex justify-center">
-          <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-            <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-          </div>
-        </div>
 
         {/* Introduction Section */}
         <div className="mb-8 mx-auto max-w-5xl">

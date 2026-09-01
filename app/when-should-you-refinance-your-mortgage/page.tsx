@@ -1,14 +1,60 @@
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
-import Image from "next/image";
+"use client";
 
-export const metadata = {
-  title: "When Should You Refinance Your Mortgage? | Mortgage Lab",
-  description: "Discover the best times to refinance your mortgage. Learn when rate drops, home equity gains, and life changes make refinancing worth it with real Canadian examples."
-};
+import Link from "next/link";
+import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
+import { getStructuredData } from "./server";
 
 export default function WhenShouldYouRefinanceArticle() {
+  const structuredData = getStructuredData();
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
+
+  const faqs = [
+    {
+      q: "When is the best time to refinance my mortgage?",
+      a: "The best time to refinance is when interest rates drop 1-2% below your current rate, you've built 20%+ equity in your home, or you're experiencing major life changes like increased income. For Canadian homeowners, refinancing becomes financially worthwhile when your break-even point (total refinancing costs divided by monthly savings) is reached within 2-3 years of staying in the home. For example, if refinancing costs $6,800 but saves you $437/month, your break-even is 15.6 months—making it an excellent decision if you plan to stay longer than 2 years."
+    },
+    {
+      q: "How much can I save by refinancing my mortgage?",
+      a: "Savings vary significantly based on your loan amount, rate drop, and remaining term. A typical scenario: refinancing a $485,000 mortgage from 5.89% to 3.49% saves approximately $437/month or $26,220 over 5 years. Larger mortgages see bigger savings—a $750,000 mortgage refinanced from 6.2% to 4.5% could save $800+/month. Use a mortgage calculator to model your specific situation, factoring in closing costs ($2,500-$6,800 in Canada) and prepayment penalties if you're breaking a fixed-term mortgage early."
+    },
+    {
+      q: "What is a break-even point for refinancing?",
+      a: "Your break-even point is when your accumulated monthly savings equal your total refinancing costs. Calculate it by dividing total costs by monthly savings. Example: $6,800 in costs ÷ $437 monthly savings = 15.6 months. After this point, every payment saves you money. If you plan to stay in your home significantly longer than your break-even period (ideally 2-3x longer), refinancing makes financial sense. Breaking even in under 24 months is generally considered excellent for Canadian mortgages."
+    },
+    {
+      q: "Should I refinance if interest rates drop only 1%?",
+      a: "Yes, a 1% rate drop can absolutely justify refinancing, especially with larger mortgages or longer remaining terms. The old '2% rule' is outdated. For a $400,000 mortgage with 20 years remaining, dropping from 5.5% to 4.5% saves approximately $230/month ($55,200 over 20 years). If closing costs are $4,500, you break even in just 19.6 months. The key is calculating your specific break-even point—if it's under 2 years and you'll stay in the home longer, a 1% drop is worth it."
+    },
+    {
+      q: "What fees are involved in refinancing?",
+      a: "Canadian mortgage refinancing typically costs $2,500-$6,800 total, including: prepayment penalties ($0-$4,000+ depending on your mortgage terms and remaining time), legal fees ($800-$1,500), appraisal fees ($300-$500), title insurance ($200-$400), and lender administration fees ($200-$400). Breaking a fixed-rate mortgage early triggers Interest Rate Differential (IRD) penalties or 3 months' interest (whichever is higher). Variable-rate mortgages typically have lower penalties—often just 3 months of interest."
+    },
+    {
+      q: "Can I refinance if I just bought my home recently?",
+      a: "Yes, but timing matters strategically. Most Canadian lenders don't have strict waiting periods, but refinancing immediately after purchase rarely makes sense financially. You need significant rate drops or changed circumstances to justify the costs. However, if rates dropped dramatically since your purchase (like 2%+), you've experienced major income changes, or you want to eliminate CMHC insurance after reaching 20% equity, refinancing within 6-12 months can be worthwhile. Calculate your break-even point to determine if immediate refinancing makes sense."
+    }
+  ];
+
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.webPage) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }}
+      />
     <main className="min-h-screen bg-white">
       {/* Navigation */}
       <div className="border-b border-slate-200 bg-white">
@@ -46,15 +92,6 @@ export default function WhenShouldYouRefinanceArticle() {
           <time>August 27, 2026</time>
           <span className="mx-3">•</span>
           <span>14 min read</span>
-        </div>
-      </div>
-
-      {/* Banner Ad */}
-      <div className="mx-auto max-w-4xl px-6 sm:px-8 mb-8">
-        <div className="w-full flex justify-center">
-          <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
-            <span className="text-xs text-slate-400 font-medium">Banner Ad (728×90)</span>
-          </div>
         </div>
       </div>
 
@@ -337,7 +374,45 @@ export default function WhenShouldYouRefinanceArticle() {
           </div>
         </div>
       </article>
+
+      {/* FAQ Section */}
+      <section className="py-12 bg-slate-50">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <h2 className="font-serif text-3xl font-bold text-slate-900 mb-8 text-center">
+            Frequently Asked Questions
+          </h2>
+
+          <div className="space-y-3">
+            {faqs.map((faq, index) => (
+              <div 
+                key={index}
+                className="border border-slate-200 rounded-lg overflow-hidden bg-white"
+              >
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-slate-50 transition-colors"
+                >
+                  <span className="font-semibold text-slate-900 pr-8">
+                    {faq.q}
+                  </span>
+                  {openFAQ === index ? (
+                    <ChevronUp className="h-5 w-5 text-indigo-600 flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="h-5 w-5 text-slate-400 flex-shrink-0" />
+                  )}
+                </button>
+                {openFAQ === index && (
+                  <div className="px-6 pb-4 text-slate-600">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
+    </>
   );
 }
 

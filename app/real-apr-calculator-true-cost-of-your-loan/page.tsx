@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import Image from "next/image";
@@ -17,7 +17,7 @@ export default function RealAPRCalculator() {
   const faqs = [
     {
       q: "What's the difference between interest rate and APR?",
-      a: "The interest rate is the cost of borrowing the principal loan amount, expressed as a percentage. APR (Annual Percentage Rate) includes the interest rate plus other costs of borrowing—such as origination fees, closing costs, discount points, and prepaid interest—expressed as a single annualized rate. For example, a loan might have a 7% interest rate but an 7.5% APR once fees are included. APR gives you the true cost of borrowing and makes it easier to compare loan offers, even when they have different fee structures."
+      a: "The interest rate is the cost of borrowing the principal loan amount, expressed as a percentage. APR (Annual Percentage Rate) includes the interest rate plus other costs of borrowingâ€”such as origination fees, closing costs, discount points, and prepaid interestâ€”expressed as a single annualized rate. For example, a loan might have a 7% interest rate but an 7.5% APR once fees are included. APR gives you the true cost of borrowing and makes it easier to compare loan offers, even when they have different fee structures."
     },
     {
       q: "How do I calculate APR from an interest rate and fees?",
@@ -29,18 +29,18 @@ export default function RealAPRCalculator() {
     },
     {
       q: "If I have a 24% APR credit card, how much interest am I paying monthly?",
-      a: "Divide the APR by 365 to get your daily rate: 24% ÷ 365 = 0.0657% per day. Multiply by your average daily balance and the number of days in your billing cycle. For a hypothetical $5,000 balance over 30 days: $5,000 × 0.000657 × 30 = approximately $98.55 in interest for that month. If you only make minimum payments, this interest compounds, and you'll pay interest on accumulated interest. The only way to avoid interest charges entirely is to pay your full statement balance by the due date each month."
+      a: "Divide the APR by 365 to get your daily rate: 24% Ã· 365 = 0.0657% per day. Multiply by your average daily balance and the number of days in your billing cycle. For a hypothetical $5,000 balance over 30 days: $5,000 Ã— 0.000657 Ã— 30 = approximately $98.55 in interest for that month. If you only make minimum payments, this interest compounds, and you'll pay interest on accumulated interest. The only way to avoid interest charges entirely is to pay your full statement balance by the due date each month."
     }
   ];
 
   const faqs2 = [
     {
       q: "Is 2.9% APR good for a car loan?",
-      a: "Whether 2.9% APR is competitive depends on several factors: your credit score (excellent credit typically qualifies for the best rates), whether you're financing a new or used vehicle (new cars often have lower rates), loan term length (shorter terms usually have lower rates), and current market conditions. For borrowers with credit scores above 720 financing new vehicles, 2.9% might be competitive in certain market environments. However, if you have a 650 credit score financing a used car, 2.9% would be exceptional. Always compare offers from multiple lenders—banks, credit unions, and dealer financing—to determine what rates you actually qualify for based on your specific situation."
+      a: "Whether 2.9% APR is competitive depends on several factors: your credit score (excellent credit typically qualifies for the best rates), whether you're financing a new or used vehicle (new cars often have lower rates), loan term length (shorter terms usually have lower rates), and current market conditions. For borrowers with credit scores above 720 financing new vehicles, 2.9% might be competitive in certain market environments. However, if you have a 650 credit score financing a used car, 2.9% would be exceptional. Always compare offers from multiple lendersâ€”banks, credit unions, and dealer financingâ€”to determine what rates you actually qualify for based on your specific situation."
     },
     {
       q: "How much would 26.99% APR cost me on a $3,000 balance?",
-      a: "For a credit card at 26.99% APR, the daily rate is 26.99% ÷ 365 = 0.0739% per day. On a $3,000 balance, you'd accrue approximately $2.22 per day in interest. Over 30 days with no payments, that's about $66.60 in interest charges. Over a full year with an unchanging $3,000 balance (hypothetically), you'd pay approximately $809.70 in interest. However, if you make monthly payments, your balance decreases and so does the interest charged. If you only pay minimum payments (often 2-3% of the balance), it could take many years to pay off the debt, and you'd pay thousands in total interest. The best strategy is to pay as much above the minimum as possible each month."
+      a: "For a credit card at 26.99% APR, the daily rate is 26.99% Ã· 365 = 0.0739% per day. On a $3,000 balance, you'd accrue approximately $2.22 per day in interest. Over 30 days with no payments, that's about $66.60 in interest charges. Over a full year with an unchanging $3,000 balance (hypothetically), you'd pay approximately $809.70 in interest. However, if you make monthly payments, your balance decreases and so does the interest charged. If you only pay minimum payments (often 2-3% of the balance), it could take many years to pay off the debt, and you'd pay thousands in total interest. The best strategy is to pay as much above the minimum as possible each month."
     },
     {
       q: "Does APR include all fees?",
@@ -48,7 +48,7 @@ export default function RealAPRCalculator() {
     },
     {
       q: "Can APR be lower than the interest rate?",
-      a: "No, APR cannot be lower than the interest rate because APR includes the interest rate plus additional costs. If a loan has any fees whatsoever—origination fees, closing costs, points—the APR will be higher than the stated interest rate. The only scenario where APR equals the interest rate is when there are absolutely zero fees charged for the loan, which is extremely rare. If you see an APR lower than the interest rate, there's likely an error in the disclosure, a misunderstanding about what's being compared, or potentially misleading advertising that should be questioned."
+      a: "No, APR cannot be lower than the interest rate because APR includes the interest rate plus additional costs. If a loan has any fees whatsoeverâ€”origination fees, closing costs, pointsâ€”the APR will be higher than the stated interest rate. The only scenario where APR equals the interest rate is when there are absolutely zero fees charged for the loan, which is extremely rare. If you see an APR lower than the interest rate, there's likely an error in the disclosure, a misunderstanding about what's being compared, or potentially misleading advertising that should be questioned."
     }
   ];
 
@@ -105,23 +105,23 @@ export default function RealAPRCalculator() {
         
         <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
           <time>March 8, 2026</time>
-          <span className="mx-3">•</span>
+          <span className="mx-3">â€¢</span>
           <span>15 min read</span>
         </div>
       </div>
 
       {/* Article Content */}
-      <article className="pb-16">
+      <article className="pb-2">
         <div className="mx-auto max-w-3xl px-6 sm:px-8">
           <div className="prose prose-slate prose-lg max-w-none">
             
             {/* Introduction */}
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              When comparing loan offers, the interest rate alone doesn't tell the complete story. APR—Annual Percentage Rate—reveals the true cost of borrowing by including not just the interest rate but also origination fees, closing costs, discount points, and other charges rolled into a single annualized percentage. Understanding the difference between interest rate and APR empowers you to compare loans accurately, identify hidden costs, and choose the option that truly saves you money over the life of the loan.
+              When comparing loan offers, the interest rate alone doesn't tell the complete story. APRâ€”Annual Percentage Rateâ€”reveals the true cost of borrowing by including not just the interest rate but also origination fees, closing costs, discount points, and other charges rolled into a single annualized percentage. Understanding the difference between interest rate and APR empowers you to compare loans accurately, identify hidden costs, and choose the option that truly saves you money over the life of the loan.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-8">
-              This article explains what APR means, how it's calculated conceptually (without overwhelming math), and why it varies dramatically across different loan types—personal loans, auto loans, credit cards, and mortgages. You'll learn how to use APR as a comparison tool, understand daily APR calculations for credit cards, evaluate whether a specific APR is competitive for your situation, and see clear hypothetical examples that demonstrate APR's impact on your borrowing costs. By the end, you'll be equipped to ask lenders the right questions and make informed decisions about any loan offer. Note: This article covers loan APR, not cryptocurrency staking or investment APR which represents a different financial concept.
+              This article explains what APR means, how it's calculated conceptually (without overwhelming math), and why it varies dramatically across different loan typesâ€”personal loans, auto loans, credit cards, and mortgages. You'll learn how to use APR as a comparison tool, understand daily APR calculations for credit cards, evaluate whether a specific APR is competitive for your situation, and see clear hypothetical examples that demonstrate APR's impact on your borrowing costs. By the end, you'll be equipped to ask lenders the right questions and make informed decisions about any loan offer. Note: This article covers loan APR, not cryptocurrency staking or investment APR which represents a different financial concept.
             </p>
 
             {/* Section 1: What Is APR */}
@@ -173,7 +173,7 @@ export default function RealAPRCalculator() {
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              <strong>Conceptual Process:</strong> To calculate APR, you need to determine what annual interest rate would produce the same monthly payment on the cash amount you receive as you'll actually pay on the total amount financed. For example, if you borrow $10,000 but $500 is deducted as a fee (so you receive $9,500 cash), you're paying interest on $10,000 to repay $10,000—but you only got $9,500. The APR calculation determines the effective rate that reflects this gap.
+              <strong>Conceptual Process:</strong> To calculate APR, you need to determine what annual interest rate would produce the same monthly payment on the cash amount you receive as you'll actually pay on the total amount financed. For example, if you borrow $10,000 but $500 is deducted as a fee (so you receive $9,500 cash), you're paying interest on $10,000 to repay $10,000â€”but you only got $9,500. The APR calculation determines the effective rate that reflects this gap.
             </p>
 
             <h3 className="font-serif text-xl font-bold text-slate-900 mt-8 mb-4">
@@ -202,7 +202,7 @@ export default function RealAPRCalculator() {
             </ul>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              Because fee inclusion rules vary slightly by loan type and jurisdiction, always ask lenders which specific fees are included in their APR calculation. Most use financial calculators or software that follow regulatory formulas—it's not something borrowers calculate manually. Instead, you compare the APR figures lenders are required to disclose.
+              Because fee inclusion rules vary slightly by loan type and jurisdiction, always ask lenders which specific fees are included in their APR calculation. Most use financial calculators or software that follow regulatory formulasâ€”it's not something borrowers calculate manually. Instead, you compare the APR figures lenders are required to disclose.
             </p>
 
             {/* Section 3: APR by Loan Type */}
@@ -211,7 +211,7 @@ export default function RealAPRCalculator() {
             </h2>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              APR works the same conceptually across loan types—it includes interest plus fees—but the typical APR ranges, fee structures, and what constitutes a competitive APR vary dramatically depending on the loan category, collateral, and term length.
+              APR works the same conceptually across loan typesâ€”it includes interest plus feesâ€”but the typical APR ranges, fee structures, and what constitutes a competitive APR vary dramatically depending on the loan category, collateral, and term length.
             </p>
 
             <h3 className="font-serif text-xl font-bold text-slate-900 mt-8 mb-4">
@@ -236,7 +236,7 @@ export default function RealAPRCalculator() {
             </ul>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              The 2% origination fee adds roughly 0.8 percentage points to the APR. For personal loans, always compare APR across lenders—a loan with a slightly higher interest rate but lower fees may have a better APR than one with a lower rate and high upfront costs.
+              The 2% origination fee adds roughly 0.8 percentage points to the APR. For personal loans, always compare APR across lendersâ€”a loan with a slightly higher interest rate but lower fees may have a better APR than one with a lower rate and high upfront costs.
             </p>
 
             <h3 className="font-serif text-xl font-bold text-slate-900 mt-8 mb-4">
@@ -261,7 +261,7 @@ export default function RealAPRCalculator() {
             </ul>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              The $750 in fees increases APR by about 0.7 percentage points. When comparing dealer financing to bank or credit union auto loans, compare APR—not just the interest rate. Dealers may advertise "4.5% financing!" but the APR tells the real story after fees. Banks and credit unions often have fewer fees, resulting in APR closer to the interest rate.
+              The $750 in fees increases APR by about 0.7 percentage points. When comparing dealer financing to bank or credit union auto loans, compare APRâ€”not just the interest rate. Dealers may advertise "4.5% financing!" but the APR tells the real story after fees. Banks and credit unions often have fewer fees, resulting in APR closer to the interest rate.
             </p>
 
             <h3 className="font-serif text-xl font-bold text-slate-900 mt-8 mb-4">
@@ -269,7 +269,7 @@ export default function RealAPRCalculator() {
             </h3>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              Credit card APR works differently from term loans because credit cards are revolving credit—you can borrow, repay, and borrow again up to your limit. Credit card APRs are typically much higher than secured loans (commonly 15-30% or more) because there's no collateral, higher default risk, and the cost of providing flexible borrowing.
+              Credit card APR works differently from term loans because credit cards are revolving creditâ€”you can borrow, repay, and borrow again up to your limit. Credit card APRs are typically much higher than secured loans (commonly 15-30% or more) because there's no collateral, higher default risk, and the cost of providing flexible borrowing.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -281,9 +281,9 @@ export default function RealAPRCalculator() {
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              Daily Rate = APR ÷ 365<br/>
-              Daily Interest = Balance × Daily Rate<br/>
-              Monthly Interest = Daily Interest × Days in Billing Cycle
+              Daily Rate = APR Ã· 365<br/>
+              Daily Interest = Balance Ã— Daily Rate<br/>
+              Monthly Interest = Daily Interest Ã— Days in Billing Cycle
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -292,9 +292,9 @@ export default function RealAPRCalculator() {
 
             <ul className="list-disc list-inside space-y-2 text-base text-slate-600 mb-4 ml-4">
               <li>APR: 26.99%</li>
-              <li>Daily Rate: 26.99% ÷ 365 = 0.0739% per day (0.0007394 in decimal)</li>
-              <li>Daily Interest on $3,000: $3,000 × 0.0007394 = approximately $2.22/day</li>
-              <li>Monthly Interest (30-day cycle, no payments): $2.22 × 30 = approximately $66.60</li>
+              <li>Daily Rate: 26.99% Ã· 365 = 0.0739% per day (0.0007394 in decimal)</li>
+              <li>Daily Interest on $3,000: $3,000 Ã— 0.0007394 = approximately $2.22/day</li>
+              <li>Monthly Interest (30-day cycle, no payments): $2.22 Ã— 30 = approximately $66.60</li>
               <li>Annual Interest (if balance stayed $3,000 for a full year): approximately $809.70</li>
             </ul>
 
@@ -332,7 +332,7 @@ export default function RealAPRCalculator() {
             </div>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              Offer B has a lower interest rate but higher closing costs. The APR reveals that Offer B is actually more expensive over the loan's lifetime. However, APR assumes you keep the loan for the full 30 years. If you plan to refinance or sell within 5-7 years, the lower interest rate (Offer B) might save more money despite higher upfront costs. This is where APR has limitations—it's most accurate for borrowers who keep loans to term.
+              Offer B has a lower interest rate but higher closing costs. The APR reveals that Offer B is actually more expensive over the loan's lifetime. However, APR assumes you keep the loan for the full 30 years. If you plan to refinance or sell within 5-7 years, the lower interest rate (Offer B) might save more money despite higher upfront costs. This is where APR has limitationsâ€”it's most accurate for borrowers who keep loans to term.
             </p>
 
             {/* Section 4: Understanding Good APR */}
@@ -353,7 +353,7 @@ export default function RealAPRCalculator() {
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              <strong>For Personal Loans:</strong> 2.9% APR would be exceptionally low for an unsecured personal loan. Most personal loan APRs start in the 6-8% range for excellent credit borrowers and climb from there. If you see a 2.9% APR personal loan offer, verify the terms carefully—there may be hidden fees, shorter terms, or strict qualification requirements.
+              <strong>For Personal Loans:</strong> 2.9% APR would be exceptionally low for an unsecured personal loan. Most personal loan APRs start in the 6-8% range for excellent credit borrowers and climb from there. If you see a 2.9% APR personal loan offer, verify the terms carefullyâ€”there may be hidden fees, shorter terms, or strict qualification requirements.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -381,7 +381,7 @@ export default function RealAPRCalculator() {
             </ul>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              The key is comparison shopping. Get offers from multiple lenders, compare their APRs for the same loan amount and term, and choose the lowest APR that fits your situation—assuming the loan terms (payment amount, term length) work for your budget and goals.
+              The key is comparison shopping. Get offers from multiple lenders, compare their APRs for the same loan amount and term, and choose the lowest APR that fits your situationâ€”assuming the loan terms (payment amount, term length) work for your budget and goals.
             </p>
 
             {/* Section 5: How to Calculate APR Per Month */}
@@ -398,7 +398,7 @@ export default function RealAPRCalculator() {
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              Monthly Interest Rate = APR ÷ 12
+              Monthly Interest Rate = APR Ã· 12
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -406,9 +406,9 @@ export default function RealAPRCalculator() {
             </p>
 
             <ul className="list-disc list-inside space-y-2 text-base text-slate-600 mb-6 ml-4">
-              <li>18% APR ÷ 12 = 1.5% monthly rate</li>
-              <li>24% APR ÷ 12 = 2% monthly rate</li>
-              <li>6% APR ÷ 12 = 0.5% monthly rate</li>
+              <li>18% APR Ã· 12 = 1.5% monthly rate</li>
+              <li>24% APR Ã· 12 = 2% monthly rate</li>
+              <li>6% APR Ã· 12 = 0.5% monthly rate</li>
             </ul>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
@@ -442,7 +442,7 @@ export default function RealAPRCalculator() {
             <ul className="list-disc list-inside space-y-2 text-base text-slate-600 mb-4 ml-4">
               <li><strong>Assumes You Keep the Loan to Term:</strong> APR calculations spread fees over the full loan term. If you refinance or pay off early, the effective cost may differ.</li>
               <li><strong>Variable-Rate Loans:</strong> APR for adjustable-rate loans is an estimate based on the initial rate and assumed rate changes. Actual costs will vary.</li>
-              <li><strong>Credit Cards:</strong> APR doesn't show interest cost if you pay your balance in full monthly—you avoid interest entirely.</li>
+              <li><strong>Credit Cards:</strong> APR doesn't show interest cost if you pay your balance in full monthlyâ€”you avoid interest entirely.</li>
               <li><strong>Doesn't Show Total Interest Paid:</strong> APR is a rate, not a dollar amount. Calculate total interest separately.</li>
               <li><strong>Calculator Simplifications:</strong> Online APR calculators use standardized formulas that may differ slightly from lender calculations due to rounding or day-count conventions.</li>
             </ul>
@@ -462,14 +462,14 @@ export default function RealAPRCalculator() {
             <ol className="list-decimal list-inside space-y-2 text-base text-slate-600 mb-6 ml-4">
               <li>Request loan offers from 3-5 lenders for the same loan amount and term</li>
               <li>Review each lender's Truth in Lending disclosure (or equivalent) to find the APR</li>
-              <li>Compare APRs directly—lower APR = lower total cost</li>
+              <li>Compare APRs directlyâ€”lower APR = lower total cost</li>
               <li>Verify the monthly payment fits your budget comfortably</li>
               <li>Check for prepayment penalties or other terms that might affect your situation</li>
               <li>Choose the lowest APR offer that meets your needs</li>
             </ol>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              Remember: Don't compare APR across different loan types or terms. A 5-year auto loan APR isn't comparable to a 30-year mortgage APR. Only compare APRs for identical loan products—same type, same amount, same term. Different lenders may make different assumptions about fees, so always ask what's included in their APR calculation if it seems unusually high or low compared to others.
+              Remember: Don't compare APR across different loan types or terms. A 5-year auto loan APR isn't comparable to a 30-year mortgage APR. Only compare APRs for identical loan productsâ€”same type, same amount, same term. Different lenders may make different assumptions about fees, so always ask what's included in their APR calculation if it seems unusually high or low compared to others.
             </p>
 
             {/* Disclaimer Section */}
@@ -478,7 +478,7 @@ export default function RealAPRCalculator() {
             </h2>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              This article provides educational information about APR concepts, calculations, and comparisons. All examples are hypothetical and for illustration purposes only—they do not represent current loan offers, rates, or terms from any lender. Actual APRs vary significantly based on:
+              This article provides educational information about APR concepts, calculations, and comparisons. All examples are hypothetical and for illustration purposes onlyâ€”they do not represent current loan offers, rates, or terms from any lender. Actual APRs vary significantly based on:
             </p>
 
             <ul className="list-disc list-inside space-y-2 text-base text-slate-600 mb-4 ml-4">
@@ -497,6 +497,51 @@ export default function RealAPRCalculator() {
             </div>
         </div>
       </article>
+
+      {/* Related Articles */}
+      <section className="py-12 bg-white">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <div className="p-6 bg-slate-50 rounded-lg">
+            <h3 className="font-serif text-xl font-bold text-slate-900 mb-4">
+              Related Articles
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/apr-vs-interest-rate-whats-the-real-difference"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  APR vs. Interest Rate: What's the Real Difference?
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/mortgage-points-calculator-are-points-worth-it"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Mortgage Points Calculator - Are Points Worth It?
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/refinance-calculator-see-if-refinancing-pays-off"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Refinance Calculator: See If Refinancing Pays Off
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/how-to-calculate-your-monthly-mortgage-payment"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  How to Calculate Your Monthly Mortgage Payment
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
       {/* FAQ Section */}
       <section className="bg-slate-50 py-16">
@@ -536,3 +581,4 @@ export default function RealAPRCalculator() {
     </>
   );
 }
+

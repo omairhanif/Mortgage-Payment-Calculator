@@ -148,7 +148,7 @@ export default function PayingPointsCalculatorPage() {
               <strong>Example Calculation:</strong> Consider a $300,000 mortgage with two scenarios:
             </p>
 
-            <div className="my-8 rounded-lg border-l-4 border-indigo-500 bg-indigo-50 p-6">
+            <div className="my-8 rounded-lg border-l-4 border-slate-300 bg-slate-50 p-6">
               <h3 className="mb-4 mt-0 text-lg font-semibold text-slate-900">Break-Even Example: $300,000 Mortgage</h3>
               <div className="space-y-2 text-sm text-slate-700">
                 <div className="flex justify-between">

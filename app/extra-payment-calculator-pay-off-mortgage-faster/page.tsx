@@ -17,7 +17,7 @@ export default function ExtraPaymentCalculatorArticle() {
   const faqs = [
     {
       q: "How do extra mortgage payments reduce interest?",
-      a: "Extra payments reduce your principal balance faster, which decreases the amount of interest charged on future payments. Since mortgage interest is calculated on the remaining principal, every dollar paid toward principal saves you interest for the entire remaining loan term. For example, a $200 extra payment in year 2 of a 30-year mortgage at 5% saves approximately $465 in total interest—a 2.3x return. The earlier you make extra payments, the more interest you save because that reduced principal compounds over more years."
+      a: "Extra payments reduce your principal balance faster, which decreases the amount of interest charged on future payments. Since mortgage interest is calculated on the remaining principal, every dollar paid toward principal saves you interest for the entire remaining loan term. For example, a $200 extra payment in year 2 of a 30-year mortgage at 5% saves approximately $465 in total interestï¿½a 2.3x return. The earlier you make extra payments, the more interest you save because that reduced principal compounds over more years."
     },
     {
       q: "When should I start making extra mortgage payments?",
@@ -25,15 +25,15 @@ export default function ExtraPaymentCalculatorArticle() {
     },
     {
       q: "Are there prepayment penalties for extra payments?",
-      a: "Most Canadian mortgages allow 15-20% of the original principal as extra payments annually without penalties. For example, a $400,000 mortgage typically allows $60,000-$80,000 in extra payments per year. U.S. mortgages originated after 2014 rarely have prepayment penalties. However, always verify your specific mortgage terms—some older or subprime loans may have restrictions. Check your mortgage contract or ask your lender about your prepayment privileges before making large extra payments."
+      a: "Most Canadian mortgages allow 15-20% of the original principal as extra payments annually without penalties. For example, a $400,000 mortgage typically allows $60,000-$80,000 in extra payments per year. U.S. mortgages originated after 2014 rarely have prepayment penalties. However, always verify your specific mortgage termsï¿½some older or subprime loans may have restrictions. Check your mortgage contract or ask your lender about your prepayment privileges before making large extra payments."
     },
     {
       q: "Should I make extra monthly or lump-sum annual payments?",
-      a: "Monthly extra payments save slightly more interest because they reduce principal throughout the year, not just once annually. However, the difference is small (typically 0.5-2% of total interest savings). Choose based on your cash flow: monthly payments work better for steady income, while annual lump sums suit bonus-based income or tax refunds. Many Canadian homeowners combine both strategies—$100-200 extra monthly plus an annual $5,000 lump sum from bonuses, maximizing their 15-20% prepayment allowance."
+      a: "Monthly extra payments save slightly more interest because they reduce principal throughout the year, not just once annually. However, the difference is small (typically 0.5-2% of total interest savings). Choose based on your cash flow: monthly payments work better for steady income, while annual lump sums suit bonus-based income or tax refunds. Many Canadian homeowners combine both strategiesï¿½$100-200 extra monthly plus an annual $5,000 lump sum from bonuses, maximizing their 15-20% prepayment allowance."
     },
     {
       q: "How much extra should I pay on my mortgage?",
-      a: "Start with what's comfortable without straining your budget—even $100/month makes a significant impact. A good target is 10-15% of your regular payment. For a $2,000 monthly mortgage payment, adding $200-300 extra is sustainable for most homeowners. Use an extra payment calculator to model different amounts: you'll see that increasing from $100 to $200 extra monthly often doubles your interest savings. Balance extra payments against other financial goals like retirement savings and maintaining your emergency fund."
+      a: "Start with what's comfortable without straining your budgetï¿½even $100/month makes a significant impact. A good target is 10-15% of your regular payment. For a $2,000 monthly mortgage payment, adding $200-300 extra is sustainable for most homeowners. Use an extra payment calculator to model different amounts: you'll see that increasing from $100 to $200 extra monthly often doubles your interest savings. Balance extra payments against other financial goals like retirement savings and maintaining your emergency fund."
     },
     {
       q: "Is it better to make extra payments or invest the money?",
@@ -92,26 +92,26 @@ export default function ExtraPaymentCalculatorArticle() {
         
         <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
           <time>May 10, 2026</time>
-          <span className="mx-3">•</span>
+          <span className="mx-3">ï¿½</span>
           <span>12 min read</span>
         </div>
       </div>
 
       {/* Article Content */}
-      <article className="pb-16">
+      <article className="pb-2">
         <div className="mx-auto max-w-3xl px-6 sm:px-8">
           <div className="prose prose-slate prose-lg max-w-none">
 
             {/* Introduction */}
             <section className="mb-12">
               <p className="text-xl text-slate-700 leading-relaxed mb-6">
-                When Michael Chen from Mississauga refinanced his $485,000 mortgage in January 2023, he spent 20 minutes with an <strong>extra payment calculator</strong> before making a decision that would save him $127,000. By inputting different scenarios—$150 monthly, $250 monthly, then $5,000 annual lump sums—he discovered that combining both strategies could eliminate his mortgage 11 years early. "I'd been making minimum payments for five years," Michael told us in November 2025. "One calculator session changed my entire financial trajectory. I'm now on track to be mortgage-free at 48 instead of 59."
+                When Michael Chen from Mississauga refinanced his $485,000 mortgage in January 2023, he spent 20 minutes with an <strong>extra payment calculator</strong> before making a decision that would save him $127,000. By inputting different scenariosï¿½$150 monthly, $250 monthly, then $5,000 annual lump sumsï¿½he discovered that combining both strategies could eliminate his mortgage 11 years early. "I'd been making minimum payments for five years," Michael told us in November 2025. "One calculator session changed my entire financial trajectory. I'm now on track to be mortgage-free at 48 instead of 59."
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
                 An <strong>extra payment calculator</strong> is a financial planning tool that shows exactly how additional principal payments affect your loan payoff timeline and total interest costs. Whether you're using an <strong>extra payment calculator mortgage</strong>, <strong>car loan extra payment calculator</strong>, <strong>extra payment calculator student loans</strong>, or <strong>personal loan extra payment calculator</strong>, these tools answer one critical question: "How much faster can I become debt-free, and how much money will I save?"
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                This comprehensive guide explains how to use <strong>extra payment calculators</strong> across every loan type—mortgages, auto loans, student debt, credit cards, and personal loans. You'll learn which calculator features matter most, see real Canadian examples from Ontario and BC, understand how <strong>mortgage calculators with extra payments and lump sum</strong> capabilities work, and discover practical strategies for paying off loans years ahead of schedule. We'll cover everything from basic <strong>extra principal payment calculators</strong> to advanced tools that handle both monthly additions and annual lump sums.
+                This comprehensive guide explains how to use <strong>extra payment calculators</strong> across every loan typeï¿½mortgages, auto loans, student debt, credit cards, and personal loans. You'll learn which calculator features matter most, see real Canadian examples from Ontario and BC, understand how <strong>mortgage calculators with extra payments and lump sum</strong> capabilities work, and discover practical strategies for paying off loans years ahead of schedule. We'll cover everything from basic <strong>extra principal payment calculators</strong> to advanced tools that handle both monthly additions and annual lump sums.
               </p>
             </section>
 
@@ -122,15 +122,15 @@ export default function ExtraPaymentCalculatorArticle() {
               </h2>
 
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                An <strong>extra payment calculator</strong> models the accelerated payoff of any amortizing loan when you make additional principal payments beyond your required minimum. These calculators use your loan's amortization schedule—the payment-by-payment breakdown showing how much goes toward principal versus interest—to calculate the compound effect of extra payments over time.
+                An <strong>extra payment calculator</strong> models the accelerated payoff of any amortizing loan when you make additional principal payments beyond your required minimum. These calculators use your loan's amortization scheduleï¿½the payment-by-payment breakdown showing how much goes toward principal versus interestï¿½to calculate the compound effect of extra payments over time.
               </p>
 
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                Here's the fundamental mechanism: Every loan payment consists of two parts—principal (the borrowed amount) and interest (the cost of borrowing). Early in your loan term, most of each payment goes toward interest because you owe the full loan amount. When you make an <strong>extra principal payment</strong>, you reduce your outstanding balance immediately. Since interest accrues only on the remaining balance, lowering that balance means less interest charges on every subsequent payment. This creates a snowball effect where each extra dollar saves far more than one dollar in interest over the loan's life.
+                Here's the fundamental mechanism: Every loan payment consists of two partsï¿½principal (the borrowed amount) and interest (the cost of borrowing). Early in your loan term, most of each payment goes toward interest because you owe the full loan amount. When you make an <strong>extra principal payment</strong>, you reduce your outstanding balance immediately. Since interest accrues only on the remaining balance, lowering that balance means less interest charges on every subsequent payment. This creates a snowball effect where each extra dollar saves far more than one dollar in interest over the loan's life.
               </p>
 
-              <div className="bg-indigo-50 border-l-4 border-indigo-600 p-6 mb-8 rounded-r-lg">
-                <h3 className="font-bold text-indigo-900 mb-4">Real Example: The $100 Extra Payment Effect</h3>
+              <div className="bg-slate-50 border-l-4 border-slate-300 p-6 mb-8 rounded-r-lg">
+                <h3 className="font-bold text-slate-900 mb-4">Real Example: The $100 Extra Payment Effect</h3>
                 <p className="text-indigo-800 mb-4">
                   Jennifer Park in Oakville has a $320,000 mortgage at 5.89% over 25 years. Her regular payment is $2,043 monthly. In month one, $1,570 goes to interest and only $473 to principal.
                 </p>
@@ -138,10 +138,10 @@ export default function ExtraPaymentCalculatorArticle() {
                   <strong>What happens if she pays an extra $100 in month one?</strong>
                 </p>
                 <ul className="space-y-2 text-indigo-800">
-                  <li>✓ She pays $573 toward principal instead of $473</li>
-                  <li>✓ Her balance drops to $319,427 instead of $319,527</li>
-                  <li>✓ That $100 saves approximately $2.76 in interest over 25 years (the compound effect)</li>
-                  <li>✓ If she continues $100 extra monthly, total savings reach $51,400 and payoff accelerates by 4.2 years</li>
+                  <li>? She pays $573 toward principal instead of $473</li>
+                  <li>? Her balance drops to $319,427 instead of $319,527</li>
+                  <li>? That $100 saves approximately $2.76 in interest over 25 years (the compound effect)</li>
+                  <li>? If she continues $100 extra monthly, total savings reach $51,400 and payoff accelerates by 4.2 years</li>
                 </ul>
               </div>
 
@@ -171,23 +171,23 @@ export default function ExtraPaymentCalculatorArticle() {
               <div className="bg-slate-50 border border-slate-200 p-6 rounded-lg mb-6">
                 <h4 className="font-semibold text-slate-900 mb-4">Essential Mortgage Calculator Features:</h4>
                 <ul className="space-y-2 text-slate-700">
-                  <li>✓ <strong>Mortgage calculator with extra payments monthly and annually</strong> — handles both strategies simultaneously</li>
-                  <li>✓ <strong>Mortgage calculator with extra payments and lump sum</strong> — critical for Canadian prepayment privileges</li>
-                  <li>✓ Amortization schedule viewer showing payment-by-payment breakdown</li>
-                  <li>✓ Visual charts comparing standard vs accelerated payoff</li>
-                  <li>✓ Interest savings calculator showing cumulative savings over time</li>
+                  <li>? <strong>Mortgage calculator with extra payments monthly and annually</strong> ï¿½ handles both strategies simultaneously</li>
+                  <li>? <strong>Mortgage calculator with extra payments and lump sum</strong> ï¿½ critical for Canadian prepayment privileges</li>
+                  <li>? Amortization schedule viewer showing payment-by-payment breakdown</li>
+                  <li>? Visual charts comparing standard vs accelerated payoff</li>
+                  <li>? Interest savings calculator showing cumulative savings over time</li>
                 </ul>
               </div>
 
-              <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-8 rounded-r-lg">
-                <h4 className="font-bold text-blue-900 mb-4">Extra Payment Calculator Canada and Ontario Considerations</h4>
+              <div className="bg-slate-50 border-l-4 border-slate-300 p-6 mb-8 rounded-r-lg">
+                <h4 className="font-bold text-slate-900 mb-4">Extra Payment Calculator Canada and Ontario Considerations</h4>
                 <p className="text-blue-800 mb-4">
                   If you're using an <strong>extra payment calculator Canada</strong> or specifically an <strong>extra payment calculator Ontario</strong> tool, look for features addressing Canadian prepayment privileges. Most Canadian mortgages allow:
                 </p>
                 <ul className="space-y-2 text-blue-800">
-                  <li>• <strong>15/15, 20/20, or 25/25 prepayment options</strong> — increase payments by that percentage monthly AND make annual lump sums up to that percentage of original principal</li>
-                  <li>• <strong>Example:</strong> David Morrison in Burlington has a $410,000 mortgage with 20/20 privileges. He can increase his $2,350 monthly payment by up to $470 (20%) and make lump sum payments up to $82,000 annually (20% of $410,000)</li>
-                  <li>• <strong>Penalty-free:</strong> These prepayments don't trigger penalties even on closed mortgages</li>
+                  <li>ï¿½ <strong>15/15, 20/20, or 25/25 prepayment options</strong> ï¿½ increase payments by that percentage monthly AND make annual lump sums up to that percentage of original principal</li>
+                  <li>ï¿½ <strong>Example:</strong> David Morrison in Burlington has a $410,000 mortgage with 20/20 privileges. He can increase his $2,350 monthly payment by up to $470 (20%) and make lump sum payments up to $82,000 annually (20% of $410,000)</li>
+                  <li>ï¿½ <strong>Penalty-free:</strong> These prepayments don't trigger penalties even on closed mortgages</li>
                 </ul>
               </div>
 
@@ -199,8 +199,8 @@ export default function ExtraPaymentCalculatorArticle() {
                 A <strong>car loan extra payment calculator</strong> (also called an <strong>extra payment calculator auto loan</strong>, <strong>extra payment calculator car</strong>, or <strong>extra payment calculator auto</strong>) focuses on shorter terms (typically 3-7 years) and smaller balances ($15,000-$60,000). Because auto loans have shorter durations, even modest extra payments create dramatic results.
               </p>
 
-              <div className="bg-green-50 p-6 rounded-lg mb-6">
-                <h4 className="font-semibold text-green-900 mb-4">Real Auto Loan Example:</h4>
+              <div className="bg-slate-50 p-6 rounded-lg mb-6">
+                <h4 className="font-semibold text-slate-900 mb-4">Real Auto Loan Example:</h4>
                 <p className="text-green-800 mb-3">
                   <strong>Baseline:</strong> Rachel Tran in Richmond Hill financed a $32,000 Honda CR-V at 6.9% over 5 years (60 months). Her monthly payment is $632.
                 </p>
@@ -208,9 +208,9 @@ export default function ExtraPaymentCalculatorArticle() {
                   <strong>With $75 extra monthly:</strong> Using a <strong>car loan extra payment calculator</strong>, she discovers:
                 </p>
                 <ul className="space-y-2 text-green-800">
-                  <li>✓ Payoff time drops from 60 to 50 months (10 months early)</li>
-                  <li>✓ Total interest paid: $5,920 instead of $7,920</li>
-                  <li>✓ <strong>Total savings: $2,000</strong> from just $75 extra monthly</li>
+                  <li>? Payoff time drops from 60 to 50 months (10 months early)</li>
+                  <li>? Total interest paid: $5,920 instead of $7,920</li>
+                  <li>? <strong>Total savings: $2,000</strong> from just $75 extra monthly</li>
                 </ul>
               </div>
 
@@ -235,7 +235,7 @@ export default function ExtraPaymentCalculatorArticle() {
               </p>
 
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                <strong>Example:</strong> Kevin Patel in Calgary carries a $12,500 credit card balance at 21.99% APR. His minimum payment is $375 monthly. A <strong>credit card extra payment calculator</strong> reveals that paying minimums would take 7 years and cost $19,100 in interest. Increasing payments to $600 monthly ($225 extra) pays off the balance in 2 years with just $2,800 in interest—saving $16,300.
+                <strong>Example:</strong> Kevin Patel in Calgary carries a $12,500 credit card balance at 21.99% APR. His minimum payment is $375 monthly. A <strong>credit card extra payment calculator</strong> reveals that paying minimums would take 7 years and cost $19,100 in interest. Increasing payments to $600 monthly ($225 extra) pays off the balance in 2 years with just $2,800 in interestï¿½saving $16,300.
               </p>
             </section>
 
@@ -258,11 +258,11 @@ export default function ExtraPaymentCalculatorArticle() {
               </p>
 
               <ul className="space-y-2 text-slate-700 mb-6 ml-6">
-                <li>• Original loan: $390,000</li>
-                <li>• Interest rate: 5.79% (5-year fixed, renewed in 2025)</li>
-                <li>• Remaining term: 23 years</li>
-                <li>• Monthly payment: $2,551</li>
-                <li>• Current balance: $378,900</li>
+                <li>ï¿½ Original loan: $390,000</li>
+                <li>ï¿½ Interest rate: 5.79% (5-year fixed, renewed in 2025)</li>
+                <li>ï¿½ Remaining term: 23 years</li>
+                <li>ï¿½ Monthly payment: $2,551</li>
+                <li>ï¿½ Current balance: $378,900</li>
               </ul>
 
               <h3 className="font-serif text-2xl font-bold text-slate-900 mt-8 mb-4">
@@ -298,23 +298,23 @@ export default function ExtraPaymentCalculatorArticle() {
                       <td className="p-4">$0</td>
                       <td className="p-4">0</td>
                     </tr>
-                    <tr className="border-t border-slate-200 bg-blue-50">
+                    <tr className="border-t border-slate-200 bg-slate-50">
                       <td className="p-4 font-semibold">+$200/month</td>
                       <td className="p-4">18.9 years</td>
-                      <td className="p-4 text-green-700 font-semibold">$48,300</td>
-                      <td className="p-4 text-green-700">4.1 years</td>
+                      <td className="p-4 text-slate-900 font-semibold">$48,300</td>
+                      <td className="p-4 text-slate-900">4.1 years</td>
                     </tr>
-                    <tr className="border-t border-slate-200 bg-blue-50">
+                    <tr className="border-t border-slate-200 bg-slate-50">
                       <td className="p-4 font-semibold">+$10,000/year lump</td>
                       <td className="p-4">14.7 years</td>
-                      <td className="p-4 text-green-700 font-semibold">$89,200</td>
-                      <td className="p-4 text-green-700">8.3 years</td>
+                      <td className="p-4 text-slate-900 font-semibold">$89,200</td>
+                      <td className="p-4 text-slate-900">8.3 years</td>
                     </tr>
-                    <tr className="border-t border-slate-200 bg-green-100">
+                    <tr className="border-t border-slate-200 bg-slate-50">
                       <td className="p-4 font-semibold">+$200/month + $10,000/year</td>
                       <td className="p-4">12.1 years</td>
-                      <td className="p-4 text-green-700 font-bold">$112,400</td>
-                      <td className="p-4 text-green-700 font-bold">10.9 years</td>
+                      <td className="p-4 text-slate-900 font-bold">$112,400</td>
+                      <td className="p-4 text-slate-900 font-bold">10.9 years</td>
                     </tr>
                   </tbody>
                 </table>
@@ -340,29 +340,29 @@ export default function ExtraPaymentCalculatorArticle() {
                 <ul className="space-y-3 text-slate-700">
                   <li className="flex gap-3">
                     <span className="text-indigo-600 font-bold">1.</span>
-                    <span><strong>Monthly + Annual Input Fields</strong> — The best calculators (like our <strong>mortgage calculator with extra payments and lump sum</strong> tool) let you input both monthly extras AND annual lump sums simultaneously, mirroring real Canadian prepayment strategies</span>
+                    <span><strong>Monthly + Annual Input Fields</strong> ï¿½ The best calculators (like our <strong>mortgage calculator with extra payments and lump sum</strong> tool) let you input both monthly extras AND annual lump sums simultaneously, mirroring real Canadian prepayment strategies</span>
                   </li>
                   <li className="flex gap-3">
                     <span className="text-indigo-600 font-bold">2.</span>
-                    <span><strong>Side-by-Side Comparison</strong> — View baseline vs accelerated payoff scenarios together to see exact differences</span>
+                    <span><strong>Side-by-Side Comparison</strong> ï¿½ View baseline vs accelerated payoff scenarios together to see exact differences</span>
                   </li>
                   <li className="flex gap-3">
                     <span className="text-indigo-600 font-bold">3.</span>
-                    <span><strong>Payment-by-Payment Amortization</strong> — See how each extra payment affects principal reduction month by month</span>
+                    <span><strong>Payment-by-Payment Amortization</strong> ï¿½ See how each extra payment affects principal reduction month by month</span>
                   </li>
                   <li className="flex gap-3">
                     <span className="text-indigo-600 font-bold">4.</span>
-                    <span><strong>Cumulative Interest Savings</strong> — Track total interest saved over time, not just final savings</span>
+                    <span><strong>Cumulative Interest Savings</strong> ï¿½ Track total interest saved over time, not just final savings</span>
                   </li>
                   <li className="flex gap-3">
                     <span className="text-indigo-600 font-bold">5.</span>
-                    <span><strong>Break-Even Analysis</strong> — Some advanced calculators show when your extra payments "pay off" compared to investing that money elsewhere</span>
+                    <span><strong>Break-Even Analysis</strong> ï¿½ Some advanced calculators show when your extra payments "pay off" compared to investing that money elsewhere</span>
                   </li>
                 </ul>
               </div>
 
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                <strong>Pro Tip from mortgage broker Sarah Lin (Toronto):</strong> "I tell clients to run three scenarios: minimum payments, a comfortable extra amount, and an aggressive extra amount. The middle scenario usually reveals the sweet spot between financial progress and lifestyle flexibility. I've watched hundreds of homeowners succeed with $100-300 extra monthly—enough to matter, sustainable long-term."
+                <strong>Pro Tip from mortgage broker Sarah Lin (Toronto):</strong> "I tell clients to run three scenarios: minimum payments, a comfortable extra amount, and an aggressive extra amount. The middle scenario usually reveals the sweet spot between financial progress and lifestyle flexibility. I've watched hundreds of homeowners succeed with $100-300 extra monthlyï¿½enough to matter, sustainable long-term."
               </p>
             </section>
 
@@ -373,19 +373,19 @@ export default function ExtraPaymentCalculatorArticle() {
               </h2>
 
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                An <strong>extra payment calculator</strong>—whether for mortgages, car loans, student loans, personal loans, or credit cards—transforms abstract financial decisions into concrete numbers. The calculator session that saved Michael Chen $127,000 took 20 minutes. The analysis that convinced Lisa and Tom to combine monthly and annual strategies took one afternoon. These tools don't just calculate; they illuminate paths to financial freedom that would otherwise remain invisible.
+                An <strong>extra payment calculator</strong>ï¿½whether for mortgages, car loans, student loans, personal loans, or credit cardsï¿½transforms abstract financial decisions into concrete numbers. The calculator session that saved Michael Chen $127,000 took 20 minutes. The analysis that convinced Lisa and Tom to combine monthly and annual strategies took one afternoon. These tools don't just calculate; they illuminate paths to financial freedom that would otherwise remain invisible.
               </p>
 
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
                 Start by using a <strong>pay off loan early calculator with extra payments</strong> to model your current situation. Input your actual loan details, then test different extra payment amounts. If you have Canadian mortgage prepayment privileges, use a <strong>mortgage calculator with extra payments monthly and annually</strong> to model both strategies. Compare scenarios side-by-side. Download the amortization schedules. Share results with your partner or financial advisor.
               </p>
 
-              <div className="bg-gradient-to-r from-indigo-50 to-blue-50 border-2 border-indigo-200 rounded-lg p-6 mt-8">
+              <div className="bg-slate-50 border-2 border-slate-200 rounded-lg p-6 mt-8">
                 <h3 className="text-xl font-semibold text-slate-900 mb-3">
                   Ready to See Your Potential Savings?
                 </h3>
                 <p className="text-slate-700 mb-4">
-                  Use our free <strong>extra payment calculator</strong> to discover exactly how much you could save on your mortgage, auto loan, student loans, or other debt. Get personalized results showing interest savings, accelerated payoff dates, and year-by-year principal reduction—all based on your actual loan terms.
+                  Use our free <strong>extra payment calculator</strong> to discover exactly how much you could save on your mortgage, auto loan, student loans, or other debt. Get personalized results showing interest savings, accelerated payoff dates, and year-by-year principal reductionï¿½all based on your actual loan terms.
                 </p>
                 <p className="text-slate-700 text-sm">
                   Remember: The best financial decision is an informed one. Whether you choose to make extra payments, invest the money elsewhere, or split the difference, calculator analysis ensures you're choosing with full knowledge of the financial consequences.
@@ -396,6 +396,51 @@ export default function ExtraPaymentCalculatorArticle() {
           </div>
         </div>
       </article>
+
+      {/* Related Articles */}
+      <section className="py-12 bg-white">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <div className="p-6 bg-slate-50 rounded-lg">
+            <h3 className="font-serif text-xl font-bold text-slate-900 mb-4">
+              Related Articles
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/how-extra-mortgage-payments-save-you-money"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  How Extra Mortgage Payments Save You Money
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/biweekly-payment-calculator-pay-off-loans-faster"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Biweekly Payment Calculator: Pay Off Loans Faster
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/refinance-calculator-see-if-refinancing-pays-off"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Refinance Calculator: See If Refinancing Pays Off
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/mortgage-payment-calculator-estimate-monthly-costs"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Mortgage Payment Calculator: Estimate Monthly Costs
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
       {/* FAQ Section */}
       <section className="py-12 bg-slate-50">
@@ -437,3 +482,5 @@ export default function ExtraPaymentCalculatorArticle() {
     </>
   );
 }
+
+

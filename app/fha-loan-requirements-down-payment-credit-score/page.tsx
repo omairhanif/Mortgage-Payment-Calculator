@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -17,27 +17,27 @@ export default function FHALoanRequirementsPage() {
   const allFaqs = [
     {
       q: "What credit score do I need for an FHA loan?",
-      a: "FHA minimum credit score requirements are 580 for 3.5% down payment loans and 500-579 for 10% down payment loans. Borrowers with credit scores below 500 generally don't qualify for FHA financing. However, individual lenders may require higher credit scores as overlays—many set minimums at 580 or 600 even when FHA would allow lower scores. Your credit score affects not just eligibility but also your interest rate, with higher scores typically receiving better rates."
+      a: "FHA minimum credit score requirements are 580 for 3.5% down payment loans and 500-579 for 10% down payment loans. Borrowers with credit scores below 500 generally don't qualify for FHA financing. However, individual lenders may require higher credit scores as overlaysâ€”many set minimums at 580 or 600 even when FHA would allow lower scores. Your credit score affects not just eligibility but also your interest rate, with higher scores typically receiving better rates."
     },
     {
       q: "How much down payment is required for an FHA loan?",
-      a: "FHA down payment requirements are 3.5% of the purchase price with a 580+ credit score, or 10% with a 500-579 credit score. For a $300,000 home, that's $10,500 down (3.5%) or $30,000 down (10%). The down payment can come from savings, gifts from family members, down payment assistance programs, or employer programs—FHA allows 100% gift funds. The source must be documented, and gift donors must provide a gift letter stating no repayment is expected."
+      a: "FHA down payment requirements are 3.5% of the purchase price with a 580+ credit score, or 10% with a 500-579 credit score. For a $300,000 home, that's $10,500 down (3.5%) or $30,000 down (10%). The down payment can come from savings, gifts from family members, down payment assistance programs, or employer programsâ€”FHA allows 100% gift funds. The source must be documented, and gift donors must provide a gift letter stating no repayment is expected."
     },
     {
       q: "What are the income requirements for FHA loans?",
-      a: "FHA doesn't set specific minimum income amounts—instead, you must have sufficient income to meet debt-to-income ratio limits. Your total monthly housing payment (including mortgage insurance, taxes, and insurance) plus all other debts typically can't exceed 43% of your gross monthly income, though compensating factors can allow up to 50% in some cases. Income must be stable, verifiable, and likely to continue for at least three years. Acceptable income sources include employment wages, self-employment income, Social Security, disability, retirement, alimony, and certain other documented sources."
+      a: "FHA doesn't set specific minimum income amountsâ€”instead, you must have sufficient income to meet debt-to-income ratio limits. Your total monthly housing payment (including mortgage insurance, taxes, and insurance) plus all other debts typically can't exceed 43% of your gross monthly income, though compensating factors can allow up to 50% in some cases. Income must be stable, verifiable, and likely to continue for at least three years. Acceptable income sources include employment wages, self-employment income, Social Security, disability, retirement, alimony, and certain other documented sources."
     },
     {
       q: "What is the maximum DTI ratio for FHA loans?",
-      a: "FHA's standard maximum debt-to-income ratio is 43% for the back-end ratio (total monthly debts divided by gross monthly income) and 31% for the front-end ratio (housing payment divided by income). However, borrowers with strong compensating factors—such as large down payments, substantial cash reserves, minimal payment increases from current housing, excellent credit history, or conservative use of credit—may qualify with DTI ratios up to 50% or occasionally higher through manual underwriting. Each lender applies these guidelines differently based on the complete borrower profile."
+      a: "FHA's standard maximum debt-to-income ratio is 43% for the back-end ratio (total monthly debts divided by gross monthly income) and 31% for the front-end ratio (housing payment divided by income). However, borrowers with strong compensating factorsâ€”such as large down payments, substantial cash reserves, minimal payment increases from current housing, excellent credit history, or conservative use of creditâ€”may qualify with DTI ratios up to 50% or occasionally higher through manual underwriting. Each lender applies these guidelines differently based on the complete borrower profile."
     },
     {
       q: "What are the FHA loan limits in 2026?",
-      a: "FHA loan limits vary by county based on local housing costs. For 2026, the standard floor limit in most areas is typically around $498,000-$510,000 for single-family homes, while high-cost areas can have limits exceeding $1,000,000. California, parts of Oregon, and expensive metro areas generally have higher limits, while Texas, Florida, Ohio, and Utah typically use standard or moderately elevated limits. Exact amounts change annually and vary by county even within the same state—check HUD's website or use county-specific FHA loan calculators for your area's precise limits."
+      a: "FHA loan limits vary by county based on local housing costs. For 2026, the standard floor limit in most areas is typically around $498,000-$510,000 for single-family homes, while high-cost areas can have limits exceeding $1,000,000. California, parts of Oregon, and expensive metro areas generally have higher limits, while Texas, Florida, Ohio, and Utah typically use standard or moderately elevated limits. Exact amounts change annually and vary by county even within the same stateâ€”check HUD's website or use county-specific FHA loan calculators for your area's precise limits."
     },
     {
       q: "Can I get an FHA loan with a 580 credit score?",
-      a: "Yes, a 580 credit score meets FHA's minimum requirement for 3.5% down payment loans. However, qualifying involves more than just credit score—you must also meet income requirements, DTI ratio limits, employment stability standards, and property eligibility criteria. Additionally, many lenders impose credit score overlays requiring 600 or higher despite FHA allowing 580. Even when approved, a 580 credit score typically results in higher interest rates than borrowers with 680+ scores would receive. If your score is near 580, improving it before applying could save thousands in interest over the loan term."
+      a: "Yes, a 580 credit score meets FHA's minimum requirement for 3.5% down payment loans. However, qualifying involves more than just credit scoreâ€”you must also meet income requirements, DTI ratio limits, employment stability standards, and property eligibility criteria. Additionally, many lenders impose credit score overlays requiring 600 or higher despite FHA allowing 580. Even when approved, a 580 credit score typically results in higher interest rates than borrowers with 680+ scores would receive. If your score is near 580, improving it before applying could save thousands in interest over the loan term."
     },
     {
       q: "How much income do I need for a $500,000 FHA mortgage?",
@@ -45,7 +45,7 @@ export default function FHALoanRequirementsPage() {
     },
     {
       q: "Does FHA allow gift funds for down payment?",
-      a: "Yes, FHA allows the entire down payment and closing costs to come from gift funds—you can use 100% gifted money with no personal savings required, as long as the gifts come from acceptable sources. Acceptable donors include family members, employers, labor unions, charitable organizations, or government agencies providing down payment assistance. The donor must provide a signed gift letter stating the funds are a gift with no expectation of repayment, and the source of the donor's funds must be documented through bank statements showing the transfer. Friends' gifts typically aren't allowed unless there's a clearly defined interest in the borrower (such as a fiancé)."
+      a: "Yes, FHA allows the entire down payment and closing costs to come from gift fundsâ€”you can use 100% gifted money with no personal savings required, as long as the gifts come from acceptable sources. Acceptable donors include family members, employers, labor unions, charitable organizations, or government agencies providing down payment assistance. The donor must provide a signed gift letter stating the funds are a gift with no expectation of repayment, and the source of the donor's funds must be documented through bank statements showing the transfer. Friends' gifts typically aren't allowed unless there's a clearly defined interest in the borrower (such as a fiancÃ©)."
     }
   ];
 
@@ -98,19 +98,19 @@ export default function FHALoanRequirementsPage() {
         
         <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
           <time>March 25, 2026</time>
-          <span className="mx-3">•</span>
+          <span className="mx-3">â€¢</span>
           <span>18 min read</span>
         </div>
       </div>
 
       {/* Article Content */}
-      <article className="pb-16">
+      <article className="pb-2">
         <div className="mx-auto max-w-3xl px-6 sm:px-8">
           <div className="prose prose-slate prose-lg max-w-none">
 
             {/* Introduction */}
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              FHA loans make homeownership accessible to millions of Americans who might not qualify for conventional financing, but understanding whether you meet FHA loan requirements is essential before you start house hunting or use an FHA loan calculator. The Federal Housing Administration sets minimum standards for credit scores, down payments, income documentation, debt-to-income ratios, and property eligibility—yet individual lenders often add their own overlays that create higher bars than FHA's published minimums.
+              FHA loans make homeownership accessible to millions of Americans who might not qualify for conventional financing, but understanding whether you meet FHA loan requirements is essential before you start house hunting or use an FHA loan calculator. The Federal Housing Administration sets minimum standards for credit scores, down payments, income documentation, debt-to-income ratios, and property eligibilityâ€”yet individual lenders often add their own overlays that create higher bars than FHA's published minimums.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-8">
@@ -124,15 +124,15 @@ export default function FHALoanRequirementsPage() {
             </h2>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              FHA loan requirements establish baseline eligibility standards that every borrower must meet, though lenders may impose stricter overlays. Understanding how to calculate an FHA loan starts with knowing whether you meet these fundamental criteria—credit score minimums, down payment amounts, debt-to-income limits, employment stability, and property standards.
+              FHA loan requirements establish baseline eligibility standards that every borrower must meet, though lenders may impose stricter overlays. Understanding how to calculate an FHA loan starts with knowing whether you meet these fundamental criteriaâ€”credit score minimums, down payment amounts, debt-to-income limits, employment stability, and property standards.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              <strong>Credit Score Minimums:</strong> FHA requires a minimum 580 credit score for 3.5% down payment loans and allows credit scores between 500-579 with 10% down. Borrowers below 500 generally don't qualify. However, most lenders set overlays requiring 600+ scores, so FHA's published 580 minimum doesn't guarantee approval. Your credit score affects both eligibility and the interest rate you'll receive—higher scores secure better rates.
+              <strong>Credit Score Minimums:</strong> FHA requires a minimum 580 credit score for 3.5% down payment loans and allows credit scores between 500-579 with 10% down. Borrowers below 500 generally don't qualify. However, most lenders set overlays requiring 600+ scores, so FHA's published 580 minimum doesn't guarantee approval. Your credit score affects both eligibility and the interest rate you'll receiveâ€”higher scores secure better rates.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              <strong>Down Payment Requirements:</strong> The 3.5% minimum down payment is FHA's signature feature, requiring just $10,500 down on a $300,000 purchase versus $60,000 (20%) for conventional loans without PMI. Borrowers with 500-579 credit scores must put 10% down. The down payment can come from savings, gifts from family members, employer assistance, or down payment assistance programs—FHA allows 100% gift funds.
+              <strong>Down Payment Requirements:</strong> The 3.5% minimum down payment is FHA's signature feature, requiring just $10,500 down on a $300,000 purchase versus $60,000 (20%) for conventional loans without PMI. Borrowers with 500-579 credit scores must put 10% down. The down payment can come from savings, gifts from family members, employer assistance, or down payment assistance programsâ€”FHA allows 100% gift funds.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -150,15 +150,15 @@ export default function FHALoanRequirementsPage() {
             </h2>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              FHA's down payment structure creates a direct link between your credit score and your upfront cash requirement. The 3.5% minimum applies only to borrowers with 580+ credit scores, while those with 500-579 scores must contribute 10%—nearly three times more cash upfront.
+              FHA's down payment structure creates a direct link between your credit score and your upfront cash requirement. The 3.5% minimum applies only to borrowers with 580+ credit scores, while those with 500-579 scores must contribute 10%â€”nearly three times more cash upfront.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              <strong>3.5% Down Scenario (580+ Credit Score):</strong> For a $300,000 purchase price, 3.5% down equals $10,500. This creates a base loan amount of $289,500. FHA then adds the 1.75% upfront mortgage insurance premium ($5,066), making your total loan amount $294,566. While $10,500 is significantly more accessible than a 20% conventional down payment ($60,000), you'll also need funds for closing costs—typically 2-5% of the purchase price, or $6,000-$15,000 in this example. Some or all of these closing costs can come from seller concessions or lender credits.
+              <strong>3.5% Down Scenario (580+ Credit Score):</strong> For a $300,000 purchase price, 3.5% down equals $10,500. This creates a base loan amount of $289,500. FHA then adds the 1.75% upfront mortgage insurance premium ($5,066), making your total loan amount $294,566. While $10,500 is significantly more accessible than a 20% conventional down payment ($60,000), you'll also need funds for closing costsâ€”typically 2-5% of the purchase price, or $6,000-$15,000 in this example. Some or all of these closing costs can come from seller concessions or lender credits.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              <strong>10% Down Scenario (500-579 Credit Score):</strong> The same $300,000 purchase requires $30,000 down (10%), creating a $270,000 base loan. Adding 1.75% upfront MIP ($4,725) makes the total loan $274,725. While your loan amount is lower, the additional $19,500 in required down payment creates a significant barrier—this higher requirement exists because FHA views lower credit scores as higher risk.
+              <strong>10% Down Scenario (500-579 Credit Score):</strong> The same $300,000 purchase requires $30,000 down (10%), creating a $270,000 base loan. Adding 1.75% upfront MIP ($4,725) makes the total loan $274,725. While your loan amount is lower, the additional $19,500 in required down payment creates a significant barrierâ€”this higher requirement exists because FHA views lower credit scores as higher risk.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
@@ -181,7 +181,7 @@ export default function FHALoanRequirementsPage() {
             </h2>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              FHA loan requirements don't specify minimum income amounts—instead, your income must be sufficient to meet debt-to-income ratio limits. An FHA loan calculator income feature can help estimate your qualification range. FHA uses two DTI calculations: front-end (housing payment ÷ income, max 31%) and back-end (total debts ÷ income, max 43%).
+              FHA loan requirements don't specify minimum income amountsâ€”instead, your income must be sufficient to meet debt-to-income ratio limits. An FHA loan calculator income feature can help estimate your qualification range. FHA uses two DTI calculations: front-end (housing payment Ã· income, max 31%) and back-end (total debts Ã· income, max 43%).
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -203,7 +203,7 @@ export default function FHALoanRequirementsPage() {
             </h2>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              FHA mortgage insurance is mandatory. Understanding these costs is essential when using an FHA loan calculator with PMI. FHA charges 1.75% upfront MIP (financed into the loan) plus ongoing annual MIP (typically 0.55% for loans under $726,200 with 3.5% down). For most 30-year loans with less than 10% down, MIP is permanent—removable only by refinancing to conventional once you have 20% equity.
+              FHA mortgage insurance is mandatory. Understanding these costs is essential when using an FHA loan calculator with PMI. FHA charges 1.75% upfront MIP (financed into the loan) plus ongoing annual MIP (typically 0.55% for loans under $726,200 with 3.5% down). For most 30-year loans with less than 10% down, MIP is permanentâ€”removable only by refinancing to conventional once you have 20% equity.
             </p>
 
 
@@ -239,7 +239,7 @@ export default function FHALoanRequirementsPage() {
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              Before using FHA loan calculators to explore payment scenarios or starting your home search, verify you meet core requirements: sufficient credit score for your target down payment, stable documented income meeting DTI limits, property prices within your county's FHA loan limits, and readiness to occupy the property as your primary residence. Understanding what is required—and what lenders look for beyond published minimums—positions you to apply with realistic expectations, avoid homes outside your qualification range, and work toward approval rather than facing unexpected rejection.
+              Before using FHA loan calculators to explore payment scenarios or starting your home search, verify you meet core requirements: sufficient credit score for your target down payment, stable documented income meeting DTI limits, property prices within your county's FHA loan limits, and readiness to occupy the property as your primary residence. Understanding what is requiredâ€”and what lenders look for beyond published minimumsâ€”positions you to apply with realistic expectations, avoid homes outside your qualification range, and work toward approval rather than facing unexpected rejection.
             </p>
 
             {/* FAQs */}
@@ -274,8 +274,55 @@ export default function FHALoanRequirementsPage() {
           </div>
         </div>
       </article>
+
+      {/* Related Articles */}
+      <section className="py-12 bg-white">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <div className="p-6 bg-slate-50 rounded-lg">
+            <h3 className="font-serif text-xl font-bold text-slate-900 mb-4">
+              Related Articles
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/fha-loan-calculator-estimate-payments-costs"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  FHA Loan Calculator: Estimate Payments & Costs
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/va-loan-requirements-eligibility-approval-process"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  VA Loan Requirements: Eligibility & Approval Process
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/how-to-qualify-for-a-mortgage-key-requirements"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  How to Qualify for a Mortgage: Key Requirements
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/mortgage-qualification-calculator-do-you-qualify"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Mortgage Qualification Calculator: Do You Qualify?
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
     </main>
     </>
   );
 }
+
 

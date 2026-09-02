@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
@@ -17,11 +17,11 @@ export default function RentingVsBuyingArticle() {
   const faqs = [
     {
       q: "Is it better to rent or buy a home?",
-      a: "It depends on your timeline, local market, and personal circumstances. Buying typically wins financially if you stay 7+ years, benefit from home appreciation and equity building, and live in a market where monthly rent is close to or exceeds ownership costs. Renting wins if you're likely to move within 5 years (avoiding transaction costs), live in a high-cost market where home prices are 20×+ annual rent, or can invest your down payment savings at higher returns than home appreciation. Use a rent vs buy calculator with your actual numbers to find your break-even point."
+      a: "It depends on your timeline, local market, and personal circumstances. Buying typically wins financially if you stay 7+ years, benefit from home appreciation and equity building, and live in a market where monthly rent is close to or exceeds ownership costs. Renting wins if you're likely to move within 5 years (avoiding transaction costs), live in a high-cost market where home prices are 20Ã—+ annual rent, or can invest your down payment savings at higher returns than home appreciation. Use a rent vs buy calculator with your actual numbers to find your break-even point."
     },
     {
       q: "What's the 5% rule for renting vs. buying?",
-      a: "The 5% rule estimates unrecovered ownership costs: 1% property tax + 1% maintenance + 3% cost of capital (opportunity cost of down payment). If annual rent is less than 5% of the home's purchase price, renting is cheaper. Example: $400,000 home × 5% = $20,000 annually ($1,667/month). If comparable rent is $1,800/month ($21,600 yearly), buying is financially better. If rent is $1,400/month ($16,800 yearly), renting wins. This rule provides a quick directional check before detailed rent vs buy calculator analysis."
+      a: "The 5% rule estimates unrecovered ownership costs: 1% property tax + 1% maintenance + 3% cost of capital (opportunity cost of down payment). If annual rent is less than 5% of the home's purchase price, renting is cheaper. Example: $400,000 home Ã— 5% = $20,000 annually ($1,667/month). If comparable rent is $1,800/month ($21,600 yearly), buying is financially better. If rent is $1,400/month ($16,800 yearly), renting wins. This rule provides a quick directional check before detailed rent vs buy calculator analysis."
     },
     {
       q: "How long do you need to own a home before it pays off to buy vs. rent?",
@@ -29,7 +29,7 @@ export default function RentingVsBuyingArticle() {
     },
     {
       q: "What are the hidden costs of buying a home?",
-      a: "Hidden costs include: closing costs (2-5% of purchase price—$8,000-$20,000 on $400,000 home), ongoing maintenance ($4,000-$8,000 annually or 1-2% of home value), property taxes ($3,000-$10,000+ depending on location), homeowners insurance ($1,500-$3,000 yearly), HOA fees ($200-$600/month if applicable), major repairs (roof replacement $10,000-$20,000, HVAC $5,000-$10,000), and transaction costs when selling (6-10% of sale price). Many first-time buyers only focus on down payment and monthly mortgage, missing these substantial ongoing and eventual costs."
+      a: "Hidden costs include: closing costs (2-5% of purchase priceâ€”$8,000-$20,000 on $400,000 home), ongoing maintenance ($4,000-$8,000 annually or 1-2% of home value), property taxes ($3,000-$10,000+ depending on location), homeowners insurance ($1,500-$3,000 yearly), HOA fees ($200-$600/month if applicable), major repairs (roof replacement $10,000-$20,000, HVAC $5,000-$10,000), and transaction costs when selling (6-10% of sale price). Many first-time buyers only focus on down payment and monthly mortgage, missing these substantial ongoing and eventual costs."
     },
     {
       q: "Can I afford to buy if I'm paying less rent than a mortgage would cost?",
@@ -90,22 +90,22 @@ export default function RentingVsBuyingArticle() {
         
         <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
           <time>May 1, 2026</time>
-          <span className="mx-3">•</span>
+          <span className="mx-3">â€¢</span>
           <span>13 min read</span>
         </div>
       </div>
 
       {/* Article Content */}
-      <article className="pb-16">
+      <article className="pb-2">
         <div className="mx-auto max-w-3xl px-6 sm:px-8">
           <div className="prose prose-slate prose-lg max-w-none">
 
             <p className="text-xl text-slate-700 leading-relaxed mb-6">
-              David walked out of a mortgage broker's office in Denver with pre-approval for $480,000—more than enough to buy the $435,000 townhouse he'd been eyeing. His monthly payment would be $3,450 (including taxes, insurance, and HOA), compared to his current $2,300 rent. On the surface, renting looked $1,150 cheaper per month. But when his sister helped him build a complete cost comparison, he discovered the true numbers told a different story: buying would cost him $47,000 more over five years, but $82,000 less over ten years, factoring in equity, tax benefits, and rent increases.
+              David walked out of a mortgage broker's office in Denver with pre-approval for $480,000â€”more than enough to buy the $435,000 townhouse he'd been eyeing. His monthly payment would be $3,450 (including taxes, insurance, and HOA), compared to his current $2,300 rent. On the surface, renting looked $1,150 cheaper per month. But when his sister helped him build a complete cost comparison, he discovered the true numbers told a different story: buying would cost him $47,000 more over five years, but $82,000 less over ten years, factoring in equity, tax benefits, and rent increases.
           </p>
 
           <p className="text-base text-slate-600 leading-relaxed mb-6">
-            The renting vs buying decision isn't about comparing monthly payments—it's about understanding total costs, equity building, opportunity costs, and personal circumstances. A proper financial analysis includes hidden costs most buyers overlook, regional variations that dramatically shift the math, and break-even points that determine when each option wins financially. Whether you're evaluating options in NYC, Toronto, or anywhere else, this comprehensive guide breaks down the real costs so you can make an informed decision based on your actual situation, not generic assumptions.
+            The renting vs buying decision isn't about comparing monthly paymentsâ€”it's about understanding total costs, equity building, opportunity costs, and personal circumstances. A proper financial analysis includes hidden costs most buyers overlook, regional variations that dramatically shift the math, and break-even points that determine when each option wins financially. Whether you're evaluating options in NYC, Toronto, or anywhere else, this comprehensive guide breaks down the real costs so you can make an informed decision based on your actual situation, not generic assumptions.
           </p>
 
 
@@ -133,7 +133,7 @@ export default function RentingVsBuyingArticle() {
             <strong>Exit costs (when selling):</strong> Real estate agent commissions (5-6% of sale price), seller closing costs (1-3%), repairs and staging ($5,000-20,000), and potential capital gains tax.
           </p>
 
-          <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-8">
+          <div className="bg-slate-50 border-l-4 border-slate-300 p-6 my-8">
             <h3 className="font-bold text-lg text-slate-900 mb-3">
               Real Example: David's Denver Townhouse Complete Cost Breakdown
             </h3>
@@ -147,7 +147,7 @@ export default function RentingVsBuyingArticle() {
               <strong>Upfront Costs:</strong> $87,000 down + $13,050 closing (3%) + $8,000 repairs/updates + $4,500 moving = $112,550 total initial outlay
             </p>
             <p className="text-slate-700 mb-3">
-              <strong>Year 5 Total Cost:</strong> $112,550 upfront + ($3,747 × 60 months) = $337,370
+              <strong>Year 5 Total Cost:</strong> $112,550 upfront + ($3,747 Ã— 60 months) = $337,370
             </p>
             <p className="text-slate-700 mb-3">
               <strong>Year 5 Equity Gained:</strong> $65,000 principal paydown + $66,000 appreciation at 3% annually = $131,000
@@ -176,10 +176,10 @@ export default function RentingVsBuyingArticle() {
           </p>
 
           <p className="text-base text-slate-600 leading-relaxed mb-6">
-            <strong>The hidden cost—rent increases:</strong> Annual rent increases average 3-5% nationally, compounding yearly. Your $2,300 rent becomes $2,668 in year 5 and $3,099 in year 10 at 4% annual increases. Over 10 years, you'll pay $309,000 in rent that started at $2,300/month, with zero equity.
+            <strong>The hidden costâ€”rent increases:</strong> Annual rent increases average 3-5% nationally, compounding yearly. Your $2,300 rent becomes $2,668 in year 5 and $3,099 in year 10 at 4% annual increases. Over 10 years, you'll pay $309,000 in rent that started at $2,300/month, with zero equity.
           </p>
 
-          <div className="bg-amber-50 border-l-4 border-amber-600 p-6 my-8">
+          <div className="bg-slate-50 border-l-4 border-slate-300 p-6 my-8">
             <h3 className="font-bold text-lg text-slate-900 mb-3">
               David's Renting Alternative: Complete Cost Breakdown
             </h3>
@@ -190,7 +190,7 @@ export default function RentingVsBuyingArticle() {
               <strong>Year 5 Total Rent Paid:</strong> $2,300 (Year 1) growing to $2,668 (Year 5) = $148,200 cumulative
             </p>
             <p className="text-slate-700 mb-3">
-              <strong>Year 5 Additional Costs:</strong> $20/month insurance × 60 = $1,200 | $150/month parking × 60 = $9,000
+              <strong>Year 5 Additional Costs:</strong> $20/month insurance Ã— 60 = $1,200 | $150/month parking Ã— 60 = $9,000
             </p>
             <p className="text-slate-700">
               <strong>Year 5 Total Cost:</strong> $148,200 rent + $1,200 insurance + $9,000 parking = $158,400 ($2,640/month average)
@@ -213,7 +213,7 @@ export default function RentingVsBuyingArticle() {
           </p>
 
           <p className="text-base text-slate-600 leading-relaxed mb-6">
-            <strong>Variables that shift break-even:</strong> Home appreciation rate (each 1% adds significant equity—$13,000 per year on a $435,000 home). Interest rates (lower rates = faster equity building). Property tax rates (high taxes extend break-even). Rent increase rate (faster rent growth favors buying). Down payment size (larger down payment = less interest paid, faster break-even).
+            <strong>Variables that shift break-even:</strong> Home appreciation rate (each 1% adds significant equityâ€”$13,000 per year on a $435,000 home). Interest rates (lower rates = faster equity building). Property tax rates (high taxes extend break-even). Rent increase rate (faster rent growth favors buying). Down payment size (larger down payment = less interest paid, faster break-even).
           </p>
 
 
@@ -223,11 +223,11 @@ export default function RentingVsBuyingArticle() {
           </h2>
 
           <p className="text-base text-slate-600 leading-relaxed mb-4">
-            <strong>Strong buying scenarios:</strong> Planning to stay 7+ years in the same location. Stable career with reliable income and job security. Have 20%+ down payment saved plus 6-month emergency fund. Local market where monthly rent equals or exceeds 5% of home value divided by 12. Desire for control—renovations, pets, landscaping without landlord approval. Family planning—need for extra bedrooms, good school district, yard space. Building wealth through forced savings via mortgage principal paydown. Market with strong appreciation history (3%+ annually).
+            <strong>Strong buying scenarios:</strong> Planning to stay 7+ years in the same location. Stable career with reliable income and job security. Have 20%+ down payment saved plus 6-month emergency fund. Local market where monthly rent equals or exceeds 5% of home value divided by 12. Desire for controlâ€”renovations, pets, landscaping without landlord approval. Family planningâ€”need for extra bedrooms, good school district, yard space. Building wealth through forced savings via mortgage principal paydown. Market with strong appreciation history (3%+ annually).
           </p>
 
           <p className="text-base text-slate-600 leading-relaxed mb-6">
-            <strong>Real buyer example—Jessica in NYC:</strong> Jessica, 38, IT director earning $175,000, married with one child and planning a second. After renting a 2-bedroom apartment in Queens for $3,600/month (increasing 5% annually), they bought a $725,000 3-bedroom condo. Monthly costs jumped to $5,200 (mortgage + taxes + HOA + maintenance), but with dual incomes, good credit, and $180,000 down payment (25%), they qualified comfortably. Planning to stay 12+ years for school stability, needing more space, and tired of rent increases that brought their apartment from $2,800 to $3,600 in four years. At year 10, they'll have ~$240,000 in equity while comparable rent would be $5,850/month. Total 10-year cost: buying $384,000 net after equity, renting $528,000 with no equity—saving $144,000.
+            <strong>Real buyer exampleâ€”Jessica in NYC:</strong> Jessica, 38, IT director earning $175,000, married with one child and planning a second. After renting a 2-bedroom apartment in Queens for $3,600/month (increasing 5% annually), they bought a $725,000 3-bedroom condo. Monthly costs jumped to $5,200 (mortgage + taxes + HOA + maintenance), but with dual incomes, good credit, and $180,000 down payment (25%), they qualified comfortably. Planning to stay 12+ years for school stability, needing more space, and tired of rent increases that brought their apartment from $2,800 to $3,600 in four years. At year 10, they'll have ~$240,000 in equity while comparable rent would be $5,850/month. Total 10-year cost: buying $384,000 net after equity, renting $528,000 with no equityâ€”saving $144,000.
           </p>
 
           <h2 className="font-serif text-3xl font-bold text-slate-900 mt-12 mb-6">
@@ -235,22 +235,22 @@ export default function RentingVsBuyingArticle() {
           </h2>
 
           <p className="text-base text-slate-600 leading-relaxed mb-4">
-            <strong>Strong renting scenarios:</strong> Uncertain timeline—might relocate for work within 5 years. Career instability or income variability. Unable to save 20% down payment or would deplete all savings to buy. High-cost market where purchase price exceeds 20× annual rent. Value flexibility over stability—enjoy ability to move easily, try different neighborhoods, avoid maintenance responsibility. Aggressive investor—prefer to invest down payment savings in higher-return assets (stocks historically 7-10% vs real estate 3-4%). Short-term life situation—graduate school, temporary job, dating and likely to relocate.
+            <strong>Strong renting scenarios:</strong> Uncertain timelineâ€”might relocate for work within 5 years. Career instability or income variability. Unable to save 20% down payment or would deplete all savings to buy. High-cost market where purchase price exceeds 20Ã— annual rent. Value flexibility over stabilityâ€”enjoy ability to move easily, try different neighborhoods, avoid maintenance responsibility. Aggressive investorâ€”prefer to invest down payment savings in higher-return assets (stocks historically 7-10% vs real estate 3-4%). Short-term life situationâ€”graduate school, temporary job, dating and likely to relocate.
           </p>
 
           <p className="text-base text-slate-600 leading-relaxed mb-6">
-            <strong>Real renter example—Patel in Toronto:</strong> Raj Patel, 29, consultant earning $92,000 CAD, rents a 1-bedroom condo for $2,200 CAD monthly. To buy a comparable unit would cost $650,000 CAD (Toronto prices), requiring $130,000 down (20%). He has $75,000 saved but would need to borrow from family for the rest. Monthly ownership costs would be $4,800 (mortgage + taxes + maintenance + condo fees) versus his $2,200 rent. His consulting firm might promote him to a role requiring Vancouver relocation in 2-3 years. Selling costs (agent fees, legal, land transfer tax) would be ~$50,000, wiping out any equity gained. Financially, renting saves him $2,600/month, preserves his $75,000 for investment (earning 7% in diversified portfolio = $5,250 annually), and maintains career flexibility. He's financially sophisticated enough to actually invest the difference rather than spend it, making renting the optimal choice.
+            <strong>Real renter exampleâ€”Patel in Toronto:</strong> Raj Patel, 29, consultant earning $92,000 CAD, rents a 1-bedroom condo for $2,200 CAD monthly. To buy a comparable unit would cost $650,000 CAD (Toronto prices), requiring $130,000 down (20%). He has $75,000 saved but would need to borrow from family for the rest. Monthly ownership costs would be $4,800 (mortgage + taxes + maintenance + condo fees) versus his $2,200 rent. His consulting firm might promote him to a role requiring Vancouver relocation in 2-3 years. Selling costs (agent fees, legal, land transfer tax) would be ~$50,000, wiping out any equity gained. Financially, renting saves him $2,600/month, preserves his $75,000 for investment (earning 7% in diversified portfolio = $5,250 annually), and maintains career flexibility. He's financially sophisticated enough to actually invest the difference rather than spend it, making renting the optimal choice.
           </p>
 
-          <div className="bg-green-50 border-l-4 border-green-600 p-6 my-8">
+          <div className="bg-slate-50 border-l-4 border-slate-300 p-6 my-8">
             <h3 className="font-bold text-lg text-slate-900 mb-3">
               Decision Framework Summary
             </h3>
             <p className="text-slate-700 mb-3">
-              <strong>Buy if:</strong> Staying 7+ years, stable career, 20%+ down + reserves saved, monthly rent ≥ (home price × 5% ÷ 12), value control and stability over flexibility, local market appreciation history 3%+
+              <strong>Buy if:</strong> Staying 7+ years, stable career, 20%+ down + reserves saved, monthly rent â‰¥ (home price Ã— 5% Ã· 12), value control and stability over flexibility, local market appreciation history 3%+
             </p>
             <p className="text-slate-700">
-              <strong>Rent if:</strong> Uncertain timeline (less than 5 years), career or income instability, insufficient savings for down payment + reserves, monthly rent significantly less than (home price × 5% ÷ 12), value flexibility over control, disciplined investor who will actually invest the down payment savings
+              <strong>Rent if:</strong> Uncertain timeline (less than 5 years), career or income instability, insufficient savings for down payment + reserves, monthly rent significantly less than (home price Ã— 5% Ã· 12), value flexibility over control, disciplined investor who will actually invest the down payment savings
             </p>
           </div>
 
@@ -268,7 +268,7 @@ export default function RentingVsBuyingArticle() {
                   Is it financially better to rent or buy?
                 </h3>
                 <p className="text-base text-slate-600 leading-relaxed">
-                  It depends on your timeline, local market, and personal circumstances. Buying typically wins financially if you stay 7+ years, benefit from home appreciation and equity building, and live in a market where monthly rent is close to or exceeds your ownership costs. Renting wins if you're likely to move within 5 years (avoiding transaction costs), live in a high-cost market where home prices are 20×+ annual rent, or can disciplined invest your down payment savings at higher returns than home appreciation. Use a rent vs buy calculator with your actual numbers to find your break-even point.
+                  It depends on your timeline, local market, and personal circumstances. Buying typically wins financially if you stay 7+ years, benefit from home appreciation and equity building, and live in a market where monthly rent is close to or exceeds your ownership costs. Renting wins if you're likely to move within 5 years (avoiding transaction costs), live in a high-cost market where home prices are 20Ã—+ annual rent, or can disciplined invest your down payment savings at higher returns than home appreciation. Use a rent vs buy calculator with your actual numbers to find your break-even point.
                 </p>
               </div>
 
@@ -277,7 +277,7 @@ export default function RentingVsBuyingArticle() {
                   Why is it better to buy than rent?
                 </h3>
                 <p className="text-base text-slate-600 leading-relaxed">
-                  Buying builds wealth through two mechanisms: forced savings (mortgage principal paydown) and home appreciation. A $400,000 home with 3% annual appreciation grows to $537,000 in 10 years—$137,000 in equity from appreciation alone, plus ~$90,000 from principal paydown, totaling ~$227,000 in wealth creation. Meanwhile, rent paid over 10 years (starting $2,200/month, increasing 4% annually) totals $309,000 with $0 equity. Buying also provides fixed housing costs (principal and interest never change), control over your space, potential tax benefits, and hedge against inflation as your fixed payment becomes relatively cheaper while rents rise.
+                  Buying builds wealth through two mechanisms: forced savings (mortgage principal paydown) and home appreciation. A $400,000 home with 3% annual appreciation grows to $537,000 in 10 yearsâ€”$137,000 in equity from appreciation alone, plus ~$90,000 from principal paydown, totaling ~$227,000 in wealth creation. Meanwhile, rent paid over 10 years (starting $2,200/month, increasing 4% annually) totals $309,000 with $0 equity. Buying also provides fixed housing costs (principal and interest never change), control over your space, potential tax benefits, and hedge against inflation as your fixed payment becomes relatively cheaper while rents rise.
                 </p>
               </div>
 
@@ -286,7 +286,7 @@ export default function RentingVsBuyingArticle() {
                   Is it smarter to rent or buy in Canada?
                 </h3>
                 <p className="text-base text-slate-600 leading-relaxed">
-                  In 2026 Canada, buying makes sense if staying 7+ years in most markets outside Vancouver and Toronto cores, where extreme price-to-rent ratios (often 30×+ annual rent) favor renting. Canadian-specific considerations: 5-year mortgage terms mean rate renegotiation risk every 5 years, land transfer taxes add 1-4% upfront cost, CMHC insurance required if under 20% down adds 2.8-4% to mortgage, but strong rental regulations limit annual rent increases (typically 2-3% maximums). Calgary, Ottawa, Montreal, and Atlantic provinces generally favor buying at 7+ year timelines. Toronto and Vancouver often require 10+ years to break even financially.
+                  In 2026 Canada, buying makes sense if staying 7+ years in most markets outside Vancouver and Toronto cores, where extreme price-to-rent ratios (often 30Ã—+ annual rent) favor renting. Canadian-specific considerations: 5-year mortgage terms mean rate renegotiation risk every 5 years, land transfer taxes add 1-4% upfront cost, CMHC insurance required if under 20% down adds 2.8-4% to mortgage, but strong rental regulations limit annual rent increases (typically 2-3% maximums). Calgary, Ottawa, Montreal, and Atlantic provinces generally favor buying at 7+ year timelines. Toronto and Vancouver often require 10+ years to break even financially.
                 </p>
               </div>
 
@@ -295,7 +295,7 @@ export default function RentingVsBuyingArticle() {
                   How much income to buy a house vs rent?
                 </h3>
                 <p className="text-base text-slate-600 leading-relaxed">
-                  To buy: Lenders typically require your housing costs (PITI) stay under 28-30% of gross monthly income, and total debt payments under 36-43%. Using the 20/30/3 rule: you need income at least 3× the purchase price annually. A $300,000 home requires ~$75,000-80,000 annual income, while a $500,000 home needs ~$125,000-135,000. To rent: Most landlords require income 2.5-3× monthly rent. A $2,000/month apartment requires $60,000-72,000 annual income, while $3,000/month rent needs $90,000-108,000. The income requirements to buy are typically 20-40% higher than to rent equivalent housing due to ownership costs beyond the mortgage.
+                  To buy: Lenders typically require your housing costs (PITI) stay under 28-30% of gross monthly income, and total debt payments under 36-43%. Using the 20/30/3 rule: you need income at least 3Ã— the purchase price annually. A $300,000 home requires ~$75,000-80,000 annual income, while a $500,000 home needs ~$125,000-135,000. To rent: Most landlords require income 2.5-3Ã— monthly rent. A $2,000/month apartment requires $60,000-72,000 annual income, while $3,000/month rent needs $90,000-108,000. The income requirements to buy are typically 20-40% higher than to rent equivalent housing due to ownership costs beyond the mortgage.
                 </p>
               </div>
 
@@ -306,7 +306,7 @@ export default function RentingVsBuyingArticle() {
                   Is owning a home more expensive than renting?
                 </h3>
                 <p className="text-base text-slate-600 leading-relaxed">
-                  Month-to-month, yes—ownership typically costs 30-60% more than renting equivalent housing when you include all costs (mortgage, taxes, insurance, maintenance, HOA). A $400,000 home costs ~$3,400/month all-in versus ~$2,200/month rent for comparable space. However, this comparison ignores equity building. In year 1, you might pay $14,400 extra to own ($1,200/month × 12), but you'll gain $22,000-27,000 in equity ($10,000-12,000 principal + $12,000-15,000 appreciation at 3-4%). By year 7-10, the equity you've built typically surpasses the extra cash you've paid, making ownership cheaper long-term despite higher monthly costs.
+                  Month-to-month, yesâ€”ownership typically costs 30-60% more than renting equivalent housing when you include all costs (mortgage, taxes, insurance, maintenance, HOA). A $400,000 home costs ~$3,400/month all-in versus ~$2,200/month rent for comparable space. However, this comparison ignores equity building. In year 1, you might pay $14,400 extra to own ($1,200/month Ã— 12), but you'll gain $22,000-27,000 in equity ($10,000-12,000 principal + $12,000-15,000 appreciation at 3-4%). By year 7-10, the equity you've built typically surpasses the extra cash you've paid, making ownership cheaper long-term despite higher monthly costs.
                 </p>
               </div>
 
@@ -315,7 +315,7 @@ export default function RentingVsBuyingArticle() {
                   What are the pitfalls of buy to rent?
                 </h3>
                 <p className="text-base text-slate-600 leading-relaxed">
-                  Buying property to rent out (becoming a landlord) involves different risks than choosing between renting vs buying your primary residence. Key pitfalls: vacancy periods with no rental income but continued mortgage/tax/insurance payments, difficult tenants causing property damage or non-payment, unexpected major repairs (roof, HVAC, foundation) costing $5,000-30,000, property management fees if hiring help (8-12% of monthly rent), local rental market downturns reducing achievable rents, stricter mortgage requirements (investment property rates 0.5-1% higher), and significantly more complex taxes (depreciation, rental income, expense tracking). Buy-to-rent works best with significant cash reserves (12+ months expenses), experience or willingness to learn landlording, and strong local rental markets with 1% monthly rule (monthly rent ≥ 1% of purchase price).
+                  Buying property to rent out (becoming a landlord) involves different risks than choosing between renting vs buying your primary residence. Key pitfalls: vacancy periods with no rental income but continued mortgage/tax/insurance payments, difficult tenants causing property damage or non-payment, unexpected major repairs (roof, HVAC, foundation) costing $5,000-30,000, property management fees if hiring help (8-12% of monthly rent), local rental market downturns reducing achievable rents, stricter mortgage requirements (investment property rates 0.5-1% higher), and significantly more complex taxes (depreciation, rental income, expense tracking). Buy-to-rent works best with significant cash reserves (12+ months expenses), experience or willingness to learn landlording, and strong local rental markets with 1% monthly rule (monthly rent â‰¥ 1% of purchase price).
                 </p>
               </div>
 
@@ -324,7 +324,7 @@ export default function RentingVsBuyingArticle() {
                   What are the three disadvantages of owning a home?
                 </h3>
                 <p className="text-base text-slate-600 leading-relaxed">
-                  (1) Lack of flexibility—selling a home costs 8-10% of sale price (agent fees, closing costs, repairs) and takes 2-6 months, making relocation expensive and slow. Career opportunities requiring relocation become costly. (2) Large upfront and ongoing costs—need 20%+ down payment plus closing costs ($90,000-120,000 on a $400,000 home), plus ongoing maintenance ($4,000-8,000 annually), property taxes ($3,000-10,000+), and emergency repair funds. (3) Financial risk—home values can decline (2008 crash saw 30-50% drops in some markets), leaving you underwater on your mortgage, plus concentration risk of most wealth in single illiquid asset. You can't easily "sell half" if you need cash, unlike stocks or bonds.
+                  (1) Lack of flexibilityâ€”selling a home costs 8-10% of sale price (agent fees, closing costs, repairs) and takes 2-6 months, making relocation expensive and slow. Career opportunities requiring relocation become costly. (2) Large upfront and ongoing costsâ€”need 20%+ down payment plus closing costs ($90,000-120,000 on a $400,000 home), plus ongoing maintenance ($4,000-8,000 annually), property taxes ($3,000-10,000+), and emergency repair funds. (3) Financial riskâ€”home values can decline (2008 crash saw 30-50% drops in some markets), leaving you underwater on your mortgage, plus concentration risk of most wealth in single illiquid asset. You can't easily "sell half" if you need cash, unlike stocks or bonds.
                 </p>
               </div>
 
@@ -333,7 +333,7 @@ export default function RentingVsBuyingArticle() {
                   What salary do you need to buy a house in Canada?
                 </h3>
                 <p className="text-base text-slate-600 leading-relaxed">
-                  In 2026 Canada, you need approximately $80,000-90,000 annual gross income to buy a $300,000 home, or $130,000-145,000 to buy a $500,000 home using conservative 20/30/3 guidelines and typical Canadian mortgage rates (~5.5% for 5-year fixed). Calculation for $500,000 home: 20% down ($100,000) leaves $400,000 mortgage. At 5.5%, monthly P&I is ~$2,270, plus $550 property tax, $180 insurance, $250 maintenance = $3,250 total monthly. Lenders require this stays under 32% of gross income: $3,250 ÷ 0.32 = $10,156 monthly = $121,875 annual minimum. Add buffer for stress test (qualify at 7-8% rate) and total debt service ratio (43% max), requiring $130,000-145,000 income realistically. Vancouver and Toronto require higher incomes due to inflated property prices.
+                  In 2026 Canada, you need approximately $80,000-90,000 annual gross income to buy a $300,000 home, or $130,000-145,000 to buy a $500,000 home using conservative 20/30/3 guidelines and typical Canadian mortgage rates (~5.5% for 5-year fixed). Calculation for $500,000 home: 20% down ($100,000) leaves $400,000 mortgage. At 5.5%, monthly P&I is ~$2,270, plus $550 property tax, $180 insurance, $250 maintenance = $3,250 total monthly. Lenders require this stays under 32% of gross income: $3,250 Ã· 0.32 = $10,156 monthly = $121,875 annual minimum. Add buffer for stress test (qualify at 7-8% rate) and total debt service ratio (43% max), requiring $130,000-145,000 income realistically. Vancouver and Toronto require higher incomes due to inflated property prices.
                 </p>
               </div>
             </div>
@@ -347,48 +347,61 @@ export default function RentingVsBuyingArticle() {
               Make Your Decision Based on Your Reality
             </h2>
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              The renting vs buying decision isn't about which option is universally "better"—it's about which one aligns with your financial situation, timeline, and life goals. Buying typically wins financially at 7+ year timelines through equity building and fixed housing costs, but requires significant upfront capital, stable income, and acceptance of maintenance responsibilities and reduced flexibility.
+              The renting vs buying decision isn't about which option is universally "better"â€”it's about which one aligns with your financial situation, timeline, and life goals. Buying typically wins financially at 7+ year timelines through equity building and fixed housing costs, but requires significant upfront capital, stable income, and acceptance of maintenance responsibilities and reduced flexibility.
             </p>
             <p className="text-base text-slate-600 leading-relaxed">
               Renting preserves flexibility, requires minimal upfront costs, and can be financially superior in expensive markets or short timelines, but offers no equity building and subjects you to annual rent increases. Calculate your complete costs for both options, factor in your realistic timeline, honestly assess your financial readiness, and choose based on your actual circumstances. For help with the calculations, see our guide on <Link href="/rent-vs-buy-calculator-which-costs-less" className="text-indigo-600 hover:text-indigo-800 font-medium underline">rent vs buy calculators</Link>.
             </p>
           </div>
 
-          {/* Related Articles */}
-          <div className="mt-12 p-8 bg-gradient-to-br from-slate-50 to-indigo-50 rounded-lg border border-slate-200">
-            <h2 className="font-serif text-2xl font-bold text-slate-900 mb-6">
+          </div>
+        </div>
+      </article>
+
+      {/* Related Articles */}
+      <section className="py-12 bg-white">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <div className="p-6 bg-slate-50 rounded-lg">
+            <h3 className="font-serif text-xl font-bold text-slate-900 mb-4">
               Related Articles
-            </h2>
-            <ul className="space-y-4">
+            </h3>
+            <ul className="space-y-2">
               <li>
-                <Link 
+                <Link
                   href="/rent-vs-buy-calculator-which-costs-less"
-                  className="text-indigo-600 hover:text-indigo-800 font-medium text-lg hover:underline"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
                 >
                   Rent vs. Buy Calculator: Which Costs Less?
                 </Link>
               </li>
               <li>
-                <Link 
+                <Link
                   href="/mortgage-payment-calculator-estimate-monthly-costs"
-                  className="text-indigo-600 hover:text-indigo-800 font-medium text-lg hover:underline"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
                 >
                   Mortgage Payment Calculator: Estimate Monthly Costs
                 </Link>
               </li>
               <li>
-                <Link 
-                  href="/how-to-calculate-your-monthly-mortgage-payment"
-                  className="text-indigo-600 hover:text-indigo-800 font-medium text-lg hover:underline"
+                <Link
+                  href="/income-requirement-calculator-how-much-you-need"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
                 >
-                  How to Calculate Your Monthly Mortgage Payment
+                  Income Requirement Calculator: How Much You Need
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/how-much-income-do-you-need-to-buy-a-home"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  How Much Income Do You Need to Buy a Home?
                 </Link>
               </li>
             </ul>
           </div>
-          </div>
         </div>
-      </article>
+      </section>
 
       {/* FAQ Section */}
       <section className="py-12 bg-slate-50">
@@ -430,4 +443,6 @@ export default function RentingVsBuyingArticle() {
     </>
   );
 }
+
+
 

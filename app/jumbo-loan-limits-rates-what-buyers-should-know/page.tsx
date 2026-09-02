@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -17,7 +17,7 @@ export default function JumboLoanLimitsRatesPage() {
   const allFaqs = [
     {
       q: "What are current jumbo loan limits in the U.S.?",
-      a: "Jumbo loan limits are defined as loan amounts exceeding the conforming loan limit set by the Federal Housing Finance Agency (FHFA). In most U.S. counties, the 2026 conforming limit for single-family homes typically sits around $766,550, meaning loans above this threshold are considered jumbo. However, high-cost areas like many California counties, parts of New York, and expensive metro regions have higher conforming limits—sometimes exceeding $1 million—which means the jumbo threshold is correspondingly higher in those locations. These limits change annually based on national home price trends, so what qualifies as a jumbo loan in 2026 may differ from 2025 or 2027."
+      a: "Jumbo loan limits are defined as loan amounts exceeding the conforming loan limit set by the Federal Housing Finance Agency (FHFA). In most U.S. counties, the 2026 conforming limit for single-family homes typically sits around $766,550, meaning loans above this threshold are considered jumbo. However, high-cost areas like many California counties, parts of New York, and expensive metro regions have higher conforming limitsâ€”sometimes exceeding $1 millionâ€”which means the jumbo threshold is correspondingly higher in those locations. These limits change annually based on national home price trends, so what qualifies as a jumbo loan in 2026 may differ from 2025 or 2027."
     },
     {
       q: "Why are jumbo loan rates sometimes different from conforming rates?",
@@ -25,7 +25,7 @@ export default function JumboLoanLimitsRatesPage() {
     },
     {
       q: "What credit score do I need to qualify for a jumbo loan?",
-      a: "Most jumbo lenders require minimum credit scores between 680-740, with many setting the bar at 700 or higher for standard jumbo loan approval. Some lenders offer jumbo programs for borrowers with scores as low as 660-680, but these typically require larger down payments (25-30%), substantial cash reserves, and lower debt-to-income ratios. The strongest jumbo loan terms—lowest rates and most flexible qualification requirements—generally go to borrowers with 740+ credit scores, demonstrating excellent credit management over multiple years."
+      a: "Most jumbo lenders require minimum credit scores between 680-740, with many setting the bar at 700 or higher for standard jumbo loan approval. Some lenders offer jumbo programs for borrowers with scores as low as 660-680, but these typically require larger down payments (25-30%), substantial cash reserves, and lower debt-to-income ratios. The strongest jumbo loan termsâ€”lowest rates and most flexible qualification requirementsâ€”generally go to borrowers with 740+ credit scores, demonstrating excellent credit management over multiple years."
     },
     {
       q: "How much down payment do jumbo loans require?",
@@ -33,11 +33,11 @@ export default function JumboLoanLimitsRatesPage() {
     },
     {
       q: "How do I calculate monthly payments on a jumbo loan?",
-      a: "Calculate jumbo loan payments using the same mortgage payment formula as conventional loans: M = P[r(1+r)^n] / [(1+r)^n - 1], where M is monthly payment, P is principal (loan amount), r is monthly interest rate (annual rate ÷ 12), and n is number of payments (loan term in months). For a hypothetical $900,000 jumbo loan at 7.25% for 30 years: monthly rate = 0.0725 ÷ 12 = 0.006042; number of payments = 360. Monthly principal and interest = $6,142. Add property taxes, homeowner's insurance, and potentially HOA fees for complete payment. Use a jumbo mortgage calculator with taxes and insurance features for comprehensive estimates that include all housing costs."
+      a: "Calculate jumbo loan payments using the same mortgage payment formula as conventional loans: M = P[r(1+r)^n] / [(1+r)^n - 1], where M is monthly payment, P is principal (loan amount), r is monthly interest rate (annual rate Ã· 12), and n is number of payments (loan term in months). For a hypothetical $900,000 jumbo loan at 7.25% for 30 years: monthly rate = 0.0725 Ã· 12 = 0.006042; number of payments = 360. Monthly principal and interest = $6,142. Add property taxes, homeowner's insurance, and potentially HOA fees for complete payment. Use a jumbo mortgage calculator with taxes and insurance features for comprehensive estimates that include all housing costs."
     },
     {
       q: "Are jumbo loan calculators different in Canada, India, or the UK?",
-      a: "Yes—mortgage structures differ significantly across countries, making direct comparisons problematic. Canada doesn't use the term 'jumbo loan' but has distinct mortgage insurance requirements: CMHC-insured mortgages (under $1 million purchase price with less than 20% down) versus conventional mortgages (20%+ down or purchases over $1 million). Calculators like cmhc mortgage calculator commercial or simple mortgage calculator bmo reflect Canadian-specific amortization rules (typically 25-30 years maximum when insured). India's housing finance market, including institutions like HDFC Bank, uses EMI (Equated Monthly Installment) calculations with different interest application methods—jumbo loan calculator hdfc bank and jumbo loan calculator hdfc emi calculator tools reflect Indian banking regulations, interest conventions, and processing fees. The UK's large loan calculator uk tools account for British mortgage market structures, stamp duty considerations, and different loan-to-value conventions. Always use country-specific calculators and consult local lenders."
+      a: "Yesâ€”mortgage structures differ significantly across countries, making direct comparisons problematic. Canada doesn't use the term 'jumbo loan' but has distinct mortgage insurance requirements: CMHC-insured mortgages (under $1 million purchase price with less than 20% down) versus conventional mortgages (20%+ down or purchases over $1 million). Calculators like cmhc mortgage calculator commercial or simple mortgage calculator bmo reflect Canadian-specific amortization rules (typically 25-30 years maximum when insured). India's housing finance market, including institutions like HDFC Bank, uses EMI (Equated Monthly Installment) calculations with different interest application methodsâ€”jumbo loan calculator hdfc bank and jumbo loan calculator hdfc emi calculator tools reflect Indian banking regulations, interest conventions, and processing fees. The UK's large loan calculator uk tools account for British mortgage market structures, stamp duty considerations, and different loan-to-value conventions. Always use country-specific calculators and consult local lenders."
     },
     {
       q: "What factors do lenders consider beyond credit score for jumbo loans?",
@@ -45,7 +45,7 @@ export default function JumboLoanLimitsRatesPage() {
     },
     {
       q: "When does it make sense to use a jumbo loan versus staying below conforming limits?",
-      a: "Use a jumbo loan when purchasing a home above your area's conforming loan limit and you meet jumbo qualification requirements—this is often necessary in high-cost markets like California, New York, Boston, Seattle, and other expensive regions where median home prices exceed conforming limits. Jumbo loans make sense when you have strong credit (700+), significant down payment capacity (15-20%+), substantial reserves, and stable income adequate to support the payment. If you're borderline between conforming and jumbo loan amounts, consider whether a slightly smaller loan (staying under the conforming limit) might qualify you for better terms, lower rates, or easier approval. Compare actual rate quotes and qualification requirements using both conforming loan calculator and jumbo mortgage calculator tools with your specific financial details before deciding."
+      a: "Use a jumbo loan when purchasing a home above your area's conforming loan limit and you meet jumbo qualification requirementsâ€”this is often necessary in high-cost markets like California, New York, Boston, Seattle, and other expensive regions where median home prices exceed conforming limits. Jumbo loans make sense when you have strong credit (700+), significant down payment capacity (15-20%+), substantial reserves, and stable income adequate to support the payment. If you're borderline between conforming and jumbo loan amounts, consider whether a slightly smaller loan (staying under the conforming limit) might qualify you for better terms, lower rates, or easier approval. Compare actual rate quotes and qualification requirements using both conforming loan calculator and jumbo mortgage calculator tools with your specific financial details before deciding."
     }
   ];
 
@@ -98,19 +98,19 @@ export default function JumboLoanLimitsRatesPage() {
         
         <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
           <time>March 8, 2026</time>
-          <span className="mx-3">•</span>
+          <span className="mx-3">â€¢</span>
           <span>15 min read</span>
         </div>
       </div>
 
       {/* Article Content */}
-      <article className="pb-16">
+      <article className="pb-2">
         <div className="mx-auto max-w-3xl px-6 sm:px-8">
           <div className="prose prose-slate prose-lg max-w-none">
             
             {/* Introduction */}
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              When you're buying a home that exceeds standard loan limits—whether it's a luxury property in California, a high-value home in a major metro area, or simply a residence in an expensive market—you enter jumbo loan territory. These mortgages, which exceed the conforming loan limits established by federal housing finance agencies, come with distinct rate structures, qualification requirements, down payment expectations, and payment calculations that differ from conventional financing. Understanding jumbo loan limits, how rates are determined, and what lenders expect from borrowers is essential for anyone purchasing property above conforming thresholds.
+              When you're buying a home that exceeds standard loan limitsâ€”whether it's a luxury property in California, a high-value home in a major metro area, or simply a residence in an expensive marketâ€”you enter jumbo loan territory. These mortgages, which exceed the conforming loan limits established by federal housing finance agencies, come with distinct rate structures, qualification requirements, down payment expectations, and payment calculations that differ from conventional financing. Understanding jumbo loan limits, how rates are determined, and what lenders expect from borrowers is essential for anyone purchasing property above conforming thresholds.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-8">
@@ -123,15 +123,15 @@ export default function JumboLoanLimitsRatesPage() {
             </h2>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              Jumbo loan limits aren't actually limits on how much you can borrow—they're thresholds that define when a loan exceeds the conforming loan limit and becomes a jumbo loan. In the United States, the Federal Housing Finance Agency (FHFA) sets conforming loan limits annually for mortgages that Fannie Mae and Freddie Mac can purchase. For 2026, the baseline conforming limit in most counties typically sits around $766,550 for single-family homes, though this figure adjusts yearly based on national home price trends. Any mortgage amount above your area's conforming limit falls into jumbo loan territory.
+              Jumbo loan limits aren't actually limits on how much you can borrowâ€”they're thresholds that define when a loan exceeds the conforming loan limit and becomes a jumbo loan. In the United States, the Federal Housing Finance Agency (FHFA) sets conforming loan limits annually for mortgages that Fannie Mae and Freddie Mac can purchase. For 2026, the baseline conforming limit in most counties typically sits around $766,550 for single-family homes, though this figure adjusts yearly based on national home price trends. Any mortgage amount above your area's conforming limit falls into jumbo loan territory.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              <strong>Geographic Variation:</strong> Conforming limits aren't uniform nationwide. High-cost areas—locations where median home prices significantly exceed national averages—receive higher conforming limits. Many California counties (including San Francisco, Los Angeles, Orange County, San Diego, and others) have conforming limits exceeding $1 million for single-family homes. Parts of New York, Washington, Colorado, Hawaii, and other expensive metro areas similarly enjoy elevated limits. This means a $900,000 loan might be conforming in San Francisco but jumbo in most of Texas, Ohio, or Florida. The jumbo threshold in your specific county determines whether your loan receives conforming or jumbo classification.
+              <strong>Geographic Variation:</strong> Conforming limits aren't uniform nationwide. High-cost areasâ€”locations where median home prices significantly exceed national averagesâ€”receive higher conforming limits. Many California counties (including San Francisco, Los Angeles, Orange County, San Diego, and others) have conforming limits exceeding $1 million for single-family homes. Parts of New York, Washington, Colorado, Hawaii, and other expensive metro areas similarly enjoy elevated limits. This means a $900,000 loan might be conforming in San Francisco but jumbo in most of Texas, Ohio, or Florida. The jumbo threshold in your specific county determines whether your loan receives conforming or jumbo classification.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              <strong>International Context:</strong> The "jumbo loan" concept is primarily U.S.-specific. Other countries have different mortgage classification systems. Canada doesn't use jumbo loan terminology but distinguishes between CMHC-insured mortgages (requiring mortgage default insurance for down payments under 20% or purchase prices under $1 million CAD) and conventional mortgages (20%+ down or higher values). Using mortgage calculator Canada or best mortgage calculator Canada tools requires understanding these distinctions rather than U.S. jumbo limits. India's banking system, including major lenders like HDFC Bank, classifies loans by value and applies different processing approaches—terms like "jumbo loan calculator HDFC Bank" or "jumbo loan calculator HDFC EMI calculator" reflect large home loans under Indian banking regulations, not identical U.S. jumbo loan structures. The UK's mortgage market uses terms like "large loans" or "high-value mortgages" with large loan calculator UK tools designed for British lending conventions. Always apply country-specific limits, rates, and qualification standards.
+              <strong>International Context:</strong> The "jumbo loan" concept is primarily U.S.-specific. Other countries have different mortgage classification systems. Canada doesn't use jumbo loan terminology but distinguishes between CMHC-insured mortgages (requiring mortgage default insurance for down payments under 20% or purchase prices under $1 million CAD) and conventional mortgages (20%+ down or higher values). Using mortgage calculator Canada or best mortgage calculator Canada tools requires understanding these distinctions rather than U.S. jumbo limits. India's banking system, including major lenders like HDFC Bank, classifies loans by value and applies different processing approachesâ€”terms like "jumbo loan calculator HDFC Bank" or "jumbo loan calculator HDFC EMI calculator" reflect large home loans under Indian banking regulations, not identical U.S. jumbo loan structures. The UK's mortgage market uses terms like "large loans" or "high-value mortgages" with large loan calculator UK tools designed for British lending conventions. Always apply country-specific limits, rates, and qualification standards.
             </p>
 
             {/* Section 2: How Jumbo Loan Rates Differ from Conforming Rates */}
@@ -144,7 +144,7 @@ export default function JumboLoanLimitsRatesPage() {
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              <strong>Market Dynamics:</strong> Historically, jumbo rates often exceeded conforming rates by 0.25-0.75 percentage points to compensate for increased risk. However, market conditions in the mid-2020s have occasionally inverted this relationship. When lenders compete aggressively for well-qualified jumbo borrowers—buyers with excellent credit, substantial assets, and large down payments—jumbo rates sometimes fall below conforming rates. This happens because jumbo borrowers present lower default risk despite larger loan amounts: they typically have credit scores above 740, significant cash reserves, diversified income sources, and meaningful equity stakes. In 2026, specific rate spreads between jumbo and conforming loans depend on your credit profile, down payment, loan amount, property type, and current market conditions.
+              <strong>Market Dynamics:</strong> Historically, jumbo rates often exceeded conforming rates by 0.25-0.75 percentage points to compensate for increased risk. However, market conditions in the mid-2020s have occasionally inverted this relationship. When lenders compete aggressively for well-qualified jumbo borrowersâ€”buyers with excellent credit, substantial assets, and large down paymentsâ€”jumbo rates sometimes fall below conforming rates. This happens because jumbo borrowers present lower default risk despite larger loan amounts: they typically have credit scores above 740, significant cash reserves, diversified income sources, and meaningful equity stakes. In 2026, specific rate spreads between jumbo and conforming loans depend on your credit profile, down payment, loan amount, property type, and current market conditions.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
@@ -157,23 +157,23 @@ export default function JumboLoanLimitsRatesPage() {
             </h2>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              Jumbo loan underwriting typically involves stricter scrutiny than conforming loan approval because lenders bear greater risk on larger loan amounts. While the fundamental qualification criteria mirror conventional mortgages—credit score, income, assets, employment history, debt levels—the thresholds and documentation requirements are generally more stringent for jumbo financing.
+              Jumbo loan underwriting typically involves stricter scrutiny than conforming loan approval because lenders bear greater risk on larger loan amounts. While the fundamental qualification criteria mirror conventional mortgagesâ€”credit score, income, assets, employment history, debt levelsâ€”the thresholds and documentation requirements are generally more stringent for jumbo financing.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              <strong>Credit Score Requirements:</strong> Most jumbo lenders set minimum credit scores between 680-740, with 700 being a common baseline for standard programs. Some specialty jumbo programs accept scores as low as 660, but these require compensating factors like larger down payments (25-30%), substantial reserves (12-24 months), and lower debt-to-income ratios (under 36%). The strongest jumbo loan terms—lowest rates, most flexible guidelines, and easiest approval processes—typically require credit scores of 740 or higher. Borrowers with 780+ scores and otherwise strong profiles often qualify for the most competitive jumbo rates available in the current market.
+              <strong>Credit Score Requirements:</strong> Most jumbo lenders set minimum credit scores between 680-740, with 700 being a common baseline for standard programs. Some specialty jumbo programs accept scores as low as 660, but these require compensating factors like larger down payments (25-30%), substantial reserves (12-24 months), and lower debt-to-income ratios (under 36%). The strongest jumbo loan termsâ€”lowest rates, most flexible guidelines, and easiest approval processesâ€”typically require credit scores of 740 or higher. Borrowers with 780+ scores and otherwise strong profiles often qualify for the most competitive jumbo rates available in the current market.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              <strong>Debt-to-Income Ratios:</strong> Jumbo lenders generally require debt-to-income ratios no higher than 43%, with many preferring 36-38% for the most competitive programs. Your DTI includes all monthly debt obligations—the proposed mortgage payment (principal, interest, taxes, insurance, HOA fees), credit card minimum payments, auto loans, student loans, personal loans, and any other recurring debts—divided by gross monthly income. A borrower earning $25,000/month could have maximum total debts of $10,750/month at 43% DTI. Lower DTI ratios strengthen your jumbo loan application and may qualify you for better rates or terms even with other profile weaknesses.
+              <strong>Debt-to-Income Ratios:</strong> Jumbo lenders generally require debt-to-income ratios no higher than 43%, with many preferring 36-38% for the most competitive programs. Your DTI includes all monthly debt obligationsâ€”the proposed mortgage payment (principal, interest, taxes, insurance, HOA fees), credit card minimum payments, auto loans, student loans, personal loans, and any other recurring debtsâ€”divided by gross monthly income. A borrower earning $25,000/month could have maximum total debts of $10,750/month at 43% DTI. Lower DTI ratios strengthen your jumbo loan application and may qualify you for better rates or terms even with other profile weaknesses.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              <strong>Cash Reserves:</strong> One factor that distinguishes jumbo underwriting from conforming loans is the emphasis on cash reserves. Many jumbo lenders require documented reserves equal to 6-12 months of the proposed mortgage payment in liquid or semi-liquid accounts after closing—checking, savings, money market accounts, stocks, bonds, and retirement accounts (often counted at 60-70% of value). For very large jumbo loans (multiple millions), some lenders require 12-24 months of reserves. These reserve requirements ensure you can continue making payments even if income temporarily decreases or unexpected expenses arise. Reserves demonstrate financial stability beyond just qualifying income and down payment capacity.
+              <strong>Cash Reserves:</strong> One factor that distinguishes jumbo underwriting from conforming loans is the emphasis on cash reserves. Many jumbo lenders require documented reserves equal to 6-12 months of the proposed mortgage payment in liquid or semi-liquid accounts after closingâ€”checking, savings, money market accounts, stocks, bonds, and retirement accounts (often counted at 60-70% of value). For very large jumbo loans (multiple millions), some lenders require 12-24 months of reserves. These reserve requirements ensure you can continue making payments even if income temporarily decreases or unexpected expenses arise. Reserves demonstrate financial stability beyond just qualifying income and down payment capacity.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              <strong>Property Type and Other Considerations:</strong> Jumbo lenders scrutinize property type more carefully than conforming loan programs. Single-family primary residences receive the most favorable treatment. Condominiums face additional review of HOA financial health, owner-occupancy ratios, and project approval. Second homes require larger down payments (often 15-20% minimum) and may incur slightly higher rates. Investment properties typically need 20-30% down with rates 0.5-1.0% above primary residence jumbo loans. Unique properties—large acreage, unusual construction, properties in remote locations, or homes with non-standard features—may face limited jumbo lender appetite or require portfolio loan programs with different qualification criteria.
+              <strong>Property Type and Other Considerations:</strong> Jumbo lenders scrutinize property type more carefully than conforming loan programs. Single-family primary residences receive the most favorable treatment. Condominiums face additional review of HOA financial health, owner-occupancy ratios, and project approval. Second homes require larger down payments (often 15-20% minimum) and may incur slightly higher rates. Investment properties typically need 20-30% down with rates 0.5-1.0% above primary residence jumbo loans. Unique propertiesâ€”large acreage, unusual construction, properties in remote locations, or homes with non-standard featuresâ€”may face limited jumbo lender appetite or require portfolio loan programs with different qualification criteria.
             </p>
 
             {/* Section 4: Down Payment Considerations */}
@@ -186,15 +186,15 @@ export default function JumboLoanLimitsRatesPage() {
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              <strong>Standard Down Payment Expectations:</strong> Most jumbo lenders prefer 20% down payments because this creates an immediate 20% equity cushion, eliminates private mortgage insurance requirements (no jumbo equivalent to conventional PMI exists for many programs), and demonstrates significant financial commitment. For example, on a $1 million purchase, 20% down equals $200,000—a substantial sum that proves borrowing capacity and reduces lender risk. A 20% down payment typically unlocks the best available jumbo rates and most flexible underwriting guidelines. Use a down payment mortgage calculator to model how different down payment scenarios affect your loan amount, monthly payment, and qualification requirements.
+              <strong>Standard Down Payment Expectations:</strong> Most jumbo lenders prefer 20% down payments because this creates an immediate 20% equity cushion, eliminates private mortgage insurance requirements (no jumbo equivalent to conventional PMI exists for many programs), and demonstrates significant financial commitment. For example, on a $1 million purchase, 20% down equals $200,000â€”a substantial sum that proves borrowing capacity and reduces lender risk. A 20% down payment typically unlocks the best available jumbo rates and most flexible underwriting guidelines. Use a down payment mortgage calculator to model how different down payment scenarios affect your loan amount, monthly payment, and qualification requirements.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              <strong>Lower Down Payment Options:</strong> Some jumbo lenders offer programs accepting 10-15% down for highly qualified borrowers. These programs typically require credit scores above 740, debt-to-income ratios below 38%, substantial cash reserves (12+ months), and strong employment stability. The trade-off for lower down payments usually involves slightly higher interest rates (0.125-0.375% premium) and stricter qualification requirements in other areas. Borrowers considering lower down payments should compare the total cost using a jumbo mortgage calculator with taxes and insurance features—sometimes the rate premium on a lower-down-payment jumbo loan makes it more expensive long-term than delaying purchase to accumulate a larger down payment.
+              <strong>Lower Down Payment Options:</strong> Some jumbo lenders offer programs accepting 10-15% down for highly qualified borrowers. These programs typically require credit scores above 740, debt-to-income ratios below 38%, substantial cash reserves (12+ months), and strong employment stability. The trade-off for lower down payments usually involves slightly higher interest rates (0.125-0.375% premium) and stricter qualification requirements in other areas. Borrowers considering lower down payments should compare the total cost using a jumbo mortgage calculator with taxes and insurance featuresâ€”sometimes the rate premium on a lower-down-payment jumbo loan makes it more expensive long-term than delaying purchase to accumulate a larger down payment.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              <strong>Higher Down Payments for Large Loans:</strong> As loan amounts increase significantly above conforming limits—for example, $2 million, $3 million, or more—many lenders require larger down payments in the 25-30% range. Ultra-high-value properties sometimes require 30-40% down to offset the increased dollar risk lenders assume. These requirements vary by lender and borrower profile; exceptionally well-qualified borrowers might obtain $3-5 million jumbo loans with 20% down, while borderline-qualified borrowers might need 30% down on $1.5 million loans. Always discuss specific down payment expectations with potential jumbo lenders early in your home search to understand your realistic price range.
+              <strong>Higher Down Payments for Large Loans:</strong> As loan amounts increase significantly above conforming limitsâ€”for example, $2 million, $3 million, or moreâ€”many lenders require larger down payments in the 25-30% range. Ultra-high-value properties sometimes require 30-40% down to offset the increased dollar risk lenders assume. These requirements vary by lender and borrower profile; exceptionally well-qualified borrowers might obtain $3-5 million jumbo loans with 20% down, while borderline-qualified borrowers might need 30% down on $1.5 million loans. Always discuss specific down payment expectations with potential jumbo lenders early in your home search to understand your realistic price range.
             </p>
 
             {/* Section 5: Estimating Your Jumbo Loan Payment */}
@@ -208,19 +208,19 @@ export default function JumboLoanLimitsRatesPage() {
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
               <strong>Hypothetical Example 1: California Jumbo Loan</strong><br />
-              Consider a hypothetical purchase of a $1,100,000 home in a California county where the conforming loan limit is $766,550. With 20% down ($220,000), you need an $880,000 jumbo loan—well above the conforming threshold. Assume a 7.125% interest rate for 30 years (rates vary by date, borrower, and lender—this is illustrative only).<br /><br />
+              Consider a hypothetical purchase of a $1,100,000 home in a California county where the conforming loan limit is $766,550. With 20% down ($220,000), you need an $880,000 jumbo loanâ€”well above the conforming threshold. Assume a 7.125% interest rate for 30 years (rates vary by date, borrower, and lenderâ€”this is illustrative only).<br /><br />
               
               <strong>Calculation:</strong><br />
-              • Loan amount (P): $880,000<br />
-              • Annual interest rate: 7.125%<br />
-              • Monthly interest rate (r): 7.125% ÷ 12 = 0.0059375<br />
-              • Number of payments (n): 30 years × 12 = 360 months<br />
-              • Monthly principal and interest: M = 880,000[0.0059375(1.0059375)^360] / [(1.0059375)^360 - 1]<br />
-              • M = 880,000[0.0059375 × 8.1247] / [8.1247 - 1]<br />
-              • M = 880,000[0.04824] / 7.1247<br />
-              • M = 42,451 / 7.1247 = <strong>$5,960</strong> (principal and interest)<br /><br />
+              â€¢ Loan amount (P): $880,000<br />
+              â€¢ Annual interest rate: 7.125%<br />
+              â€¢ Monthly interest rate (r): 7.125% Ã· 12 = 0.0059375<br />
+              â€¢ Number of payments (n): 30 years Ã— 12 = 360 months<br />
+              â€¢ Monthly principal and interest: M = 880,000[0.0059375(1.0059375)^360] / [(1.0059375)^360 - 1]<br />
+              â€¢ M = 880,000[0.0059375 Ã— 8.1247] / [8.1247 - 1]<br />
+              â€¢ M = 880,000[0.04824] / 7.1247<br />
+              â€¢ M = 42,451 / 7.1247 = <strong>$5,960</strong> (principal and interest)<br /><br />
               
-              Add estimated property taxes ($11,000 annual ÷ 12 = $917/month), homeowner's insurance ($2,400 annual ÷ 12 = $200/month), and potential HOA fees ($150/month) for a total estimated payment of approximately <strong>$7,227/month</strong>. This hypothetical example demonstrates how jumbo loan amounts create substantial monthly obligations even at historically normal interest rates. Use a jumbo mortgage calculator with taxes and insurance to model your specific scenario with accurate local property tax rates and insurance costs.
+              Add estimated property taxes ($11,000 annual Ã· 12 = $917/month), homeowner's insurance ($2,400 annual Ã· 12 = $200/month), and potential HOA fees ($150/month) for a total estimated payment of approximately <strong>$7,227/month</strong>. This hypothetical example demonstrates how jumbo loan amounts create substantial monthly obligations even at historically normal interest rates. Use a jumbo mortgage calculator with taxes and insurance to model your specific scenario with accurate local property tax rates and insurance costs.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
@@ -228,18 +228,18 @@ export default function JumboLoanLimitsRatesPage() {
               Imagine a buyer choosing between a $750,000 home (within conforming limits in most areas) and an $850,000 home (requiring a jumbo loan). Assume 20% down on both, 30-year fixed terms, conforming rate of 6.875%, and jumbo rate of 7.00% (rates are illustrative).<br /><br />
               
               <strong>Conforming Scenario ($750K home, $600K loan at 6.875%):</strong><br />
-              • Monthly P&I: $3,943<br />
-              • Property taxes ($750K × 1.2% ÷ 12): $750/month<br />
-              • Insurance: $150/month<br />
-              • Total: $4,843/month<br /><br />
+              â€¢ Monthly P&I: $3,943<br />
+              â€¢ Property taxes ($750K Ã— 1.2% Ã· 12): $750/month<br />
+              â€¢ Insurance: $150/month<br />
+              â€¢ Total: $4,843/month<br /><br />
               
               <strong>Jumbo Scenario ($850K home, $680K loan at 7.00%):</strong><br />
-              • Monthly P&I: $4,521<br />
-              • Property taxes ($850K × 1.2% ÷ 12): $850/month<br />
-              • Insurance: $180/month<br />
-              • Total: $5,551/month<br /><br />
+              â€¢ Monthly P&I: $4,521<br />
+              â€¢ Property taxes ($850K Ã— 1.2% Ã· 12): $850/month<br />
+              â€¢ Insurance: $180/month<br />
+              â€¢ Total: $5,551/month<br /><br />
               
-              The step up from conforming to jumbo adds $708/month ($8,496 annually) in this hypothetical scenario. Over 30 years, that's over $254,000 in additional payments. A conforming loan calculator versus jumbo mortgage calculator comparison helps quantify whether the higher-priced property justifies the increased long-term cost. These calculations assume rates and taxes for illustration only—your actual figures will vary based on credit profile, market conditions, and location.
+              The step up from conforming to jumbo adds $708/month ($8,496 annually) in this hypothetical scenario. Over 30 years, that's over $254,000 in additional payments. A conforming loan calculator versus jumbo mortgage calculator comparison helps quantify whether the higher-priced property justifies the increased long-term cost. These calculations assume rates and taxes for illustration onlyâ€”your actual figures will vary based on credit profile, market conditions, and location.
             </p>
 
             {/* Section 6: Geographic and Product Variations */}
@@ -252,11 +252,11 @@ export default function JumboLoanLimitsRatesPage() {
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              <strong>United States (California and Other High-Cost Areas):</strong> California presents unique jumbo loan considerations because many counties have conforming limits above $1 million, pushing the jumbo threshold higher than most U.S. locations. A "jumbo loan calculator California" tool should account for these elevated limits—a $950,000 loan might be conforming in San Francisco but jumbo in Sacramento. Beyond limits, California buyers face high property taxes (averaging 1.0-1.2% of purchase price annually) and elevated insurance costs (particularly fire insurance in high-risk areas), making tools that include these elements (jumbo mortgage calculator with taxes) essential for accurate budgeting.
+              <strong>United States (California and Other High-Cost Areas):</strong> California presents unique jumbo loan considerations because many counties have conforming limits above $1 million, pushing the jumbo threshold higher than most U.S. locations. A "jumbo loan calculator California" tool should account for these elevated limitsâ€”a $950,000 loan might be conforming in San Francisco but jumbo in Sacramento. Beyond limits, California buyers face high property taxes (averaging 1.0-1.2% of purchase price annually) and elevated insurance costs (particularly fire insurance in high-risk areas), making tools that include these elements (jumbo mortgage calculator with taxes) essential for accurate budgeting.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              <strong>Canada:</strong> Canadian mortgages don't use "jumbo loan" terminology. Instead, the critical distinction is between CMHC-insured mortgages and conventional mortgages. Canada Mortgage and Housing Corporation (CMHC) provides mortgage default insurance for purchases under $1 million CAD with less than 20% down, enabling lower rates but requiring insurance premiums. Purchases over $1 million or conventional mortgages with 20%+ down don't qualify for CMHC insurance, requiring different lending criteria. Tools like "cmhc mortgage calculator commercial" or "simple mortgage calculator BMO" or "best mortgage calculator Canada" account for Canadian amortization rules, stress test requirements, and provincial variations. "Mortgage insurance calculator Canada" specifically addresses CMHC premium calculations. When researching Canadian large mortgages, use Canada-specific tools and consult Canadian lenders—U.S. jumbo loan guidelines don't apply.
+              <strong>Canada:</strong> Canadian mortgages don't use "jumbo loan" terminology. Instead, the critical distinction is between CMHC-insured mortgages and conventional mortgages. Canada Mortgage and Housing Corporation (CMHC) provides mortgage default insurance for purchases under $1 million CAD with less than 20% down, enabling lower rates but requiring insurance premiums. Purchases over $1 million or conventional mortgages with 20%+ down don't qualify for CMHC insurance, requiring different lending criteria. Tools like "cmhc mortgage calculator commercial" or "simple mortgage calculator BMO" or "best mortgage calculator Canada" account for Canadian amortization rules, stress test requirements, and provincial variations. "Mortgage insurance calculator Canada" specifically addresses CMHC premium calculations. When researching Canadian large mortgages, use Canada-specific tools and consult Canadian lendersâ€”U.S. jumbo loan guidelines don't apply.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -277,11 +277,11 @@ export default function JumboLoanLimitsRatesPage() {
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              However, if you're on the borderline between conforming and jumbo loan amounts—say, looking at homes in the $750,000-$900,000 range in an area with a $766,550 conforming limit—it's worth considering whether staying under the conforming limit might offer advantages. Compare actual rate quotes and qualification requirements for both scenarios. If conforming loans offer 0.25-0.50% lower rates and easier approval criteria, choosing a property priced to keep your loan conforming could save tens of thousands of dollars over the loan term.
+              However, if you're on the borderline between conforming and jumbo loan amountsâ€”say, looking at homes in the $750,000-$900,000 range in an area with a $766,550 conforming limitâ€”it's worth considering whether staying under the conforming limit might offer advantages. Compare actual rate quotes and qualification requirements for both scenarios. If conforming loans offer 0.25-0.50% lower rates and easier approval criteria, choosing a property priced to keep your loan conforming could save tens of thousands of dollars over the loan term.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              Jumbo loans make most sense when: (1) your desired property requires jumbo financing and you meet qualification criteria comfortably; (2) you have excellent credit (740+), substantial down payment (20%+), strong income relative to the loan amount, and adequate reserves (12+ months); (3) you've compared jumbo rates from multiple lenders and found competitive terms; (4) the property represents your best option for location, size, features, and long-term value—not just a stretch to reach a higher price point. Use multiple calculator tools—jumbo mortgage calculator, conforming loan calculator, down payment mortgage calculator, mortgage calculator with taxes—to model total costs before committing to a purchase price requiring jumbo financing. Make the decision based on complete financial pictures and long-term affordability, not just excitement about a particular property.
+              Jumbo loans make most sense when: (1) your desired property requires jumbo financing and you meet qualification criteria comfortably; (2) you have excellent credit (740+), substantial down payment (20%+), strong income relative to the loan amount, and adequate reserves (12+ months); (3) you've compared jumbo rates from multiple lenders and found competitive terms; (4) the property represents your best option for location, size, features, and long-term valueâ€”not just a stretch to reach a higher price point. Use multiple calculator toolsâ€”jumbo mortgage calculator, conforming loan calculator, down payment mortgage calculator, mortgage calculator with taxesâ€”to model total costs before committing to a purchase price requiring jumbo financing. Make the decision based on complete financial pictures and long-term affordability, not just excitement about a particular property.
             </p>
 
             {/* Conclusion */}
@@ -290,7 +290,7 @@ export default function JumboLoanLimitsRatesPage() {
             </h2>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              Jumbo loans serve buyers purchasing property above conforming loan limits, with thresholds varying significantly by location—from around $766,550 in most U.S. areas to over $1 million in high-cost counties. Jumbo loan rates depend on borrower qualifications, market conditions, and lender strategy rather than following a fixed relationship to conforming rates. Qualification typically requires 680-740+ credit scores, 20% down payments (sometimes 10-15% for exceptionally qualified borrowers), 36-43% maximum debt-to-income ratios, and 6-12 months of cash reserves after closing.
+              Jumbo loans serve buyers purchasing property above conforming loan limits, with thresholds varying significantly by locationâ€”from around $766,550 in most U.S. areas to over $1 million in high-cost counties. Jumbo loan rates depend on borrower qualifications, market conditions, and lender strategy rather than following a fixed relationship to conforming rates. Qualification typically requires 680-740+ credit scores, 20% down payments (sometimes 10-15% for exceptionally qualified borrowers), 36-43% maximum debt-to-income ratios, and 6-12 months of cash reserves after closing.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">

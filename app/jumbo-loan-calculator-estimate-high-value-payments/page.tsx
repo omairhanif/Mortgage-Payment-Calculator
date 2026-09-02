@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import Image from 'next/image';
@@ -17,7 +17,7 @@ export default function JumboLoanCalculatorPage() {
   const allFaqs = [
     {
       q: "How do I calculate my jumbo loan payment manually?",
-      a: "Use the standard mortgage payment formula: M = P[r(1+r)^n] / [(1+r)^n - 1], where M is monthly payment, P is loan amount (principal), r is monthly interest rate (annual rate ÷ 12), and n is total number of monthly payments (years × 12). For a hypothetical $800,000 loan at 7.0% for 30 years: r = 0.07 ÷ 12 = 0.005833; n = 360; M = $5,322. Then add property taxes, insurance, and HOA fees for your total housing payment. A jumbo mortgage calculator with taxes automates this process and includes all payment components."
+      a: "Use the standard mortgage payment formula: M = P[r(1+r)^n] / [(1+r)^n - 1], where M is monthly payment, P is loan amount (principal), r is monthly interest rate (annual rate Ã· 12), and n is total number of monthly payments (years Ã— 12). For a hypothetical $800,000 loan at 7.0% for 30 years: r = 0.07 Ã· 12 = 0.005833; n = 360; M = $5,322. Then add property taxes, insurance, and HOA fees for your total housing payment. A jumbo mortgage calculator with taxes automates this process and includes all payment components."
     },
     {
       q: "What's included in a jumbo mortgage payment?",
@@ -25,19 +25,19 @@ export default function JumboLoanCalculatorPage() {
     },
     {
       q: "How much does a $1 million jumbo loan cost per month?",
-      a: "A hypothetical $1 million jumbo loan at 7.0% interest for 30 years costs approximately $6,653/month in principal and interest alone. Add property taxes (example: $1,250/month at 1.5% annually), homeowner's insurance (~$300/month), and potential HOA fees (~$150/month) for a total around $8,353/month. At 7.25% interest, the same loan costs $6,822/month P&I—a $169/month difference from just 0.25% rate variation. These figures are illustrative only; actual rates, taxes, and insurance vary by borrower, location, property, and date. Use a jumbo loan calculator with your specific details for personalized estimates."
+      a: "A hypothetical $1 million jumbo loan at 7.0% interest for 30 years costs approximately $6,653/month in principal and interest alone. Add property taxes (example: $1,250/month at 1.5% annually), homeowner's insurance (~$300/month), and potential HOA fees (~$150/month) for a total around $8,353/month. At 7.25% interest, the same loan costs $6,822/month P&Iâ€”a $169/month difference from just 0.25% rate variation. These figures are illustrative only; actual rates, taxes, and insurance vary by borrower, location, property, and date. Use a jumbo loan calculator with your specific details for personalized estimates."
     },
     {
       q: "How does jumbo loan interest affect my payment?",
-      a: "Interest rate dramatically affects jumbo loan payments because the larger principal magnifies rate differences. On a $1 million loan over 30 years, each 0.25% rate difference changes monthly payment by approximately $150-170. For example (hypothetical rates): 6.75% = $6,485/month; 7.00% = $6,653/month; 7.25% = $6,822/month; 7.50% = $6,992/month. Over 30 years, a 0.5% rate difference on $1 million equals roughly $60,000 in total interest. This is why rate shopping is particularly valuable for jumbo mortgages—small percentage differences create substantial dollar impacts on high-value loans."
+      a: "Interest rate dramatically affects jumbo loan payments because the larger principal magnifies rate differences. On a $1 million loan over 30 years, each 0.25% rate difference changes monthly payment by approximately $150-170. For example (hypothetical rates): 6.75% = $6,485/month; 7.00% = $6,653/month; 7.25% = $6,822/month; 7.50% = $6,992/month. Over 30 years, a 0.5% rate difference on $1 million equals roughly $60,000 in total interest. This is why rate shopping is particularly valuable for jumbo mortgagesâ€”small percentage differences create substantial dollar impacts on high-value loans."
     },
     {
       q: "What's the difference between jumbo and conforming loan payments?",
-      a: "The payment calculation formula is identical for jumbo and conforming loans, but jumbo loans involve larger principals that magnify interest costs. A hypothetical comparison: conforming $600K loan at 6.875% = $3,943/month P&I; jumbo $900K loan at 7.125% = $6,096/month P&I. The jumbo loan's $300K additional principal plus 0.25% higher rate adds $2,153/month. However, jumbo rates aren't always higher—well-qualified borrowers sometimes get jumbo rates equal to or below conforming rates. Use both a conforming loan calculator and jumbo mortgage calculator to compare actual scenarios based on your purchase price and qualification profile."
+      a: "The payment calculation formula is identical for jumbo and conforming loans, but jumbo loans involve larger principals that magnify interest costs. A hypothetical comparison: conforming $600K loan at 6.875% = $3,943/month P&I; jumbo $900K loan at 7.125% = $6,096/month P&I. The jumbo loan's $300K additional principal plus 0.25% higher rate adds $2,153/month. However, jumbo rates aren't always higherâ€”well-qualified borrowers sometimes get jumbo rates equal to or below conforming rates. Use both a conforming loan calculator and jumbo mortgage calculator to compare actual scenarios based on your purchase price and qualification profile."
     },
     {
       q: "Are jumbo loan calculators the same in Canada, India, and the UK?",
-      a: "No—mortgage calculation tools must account for country-specific lending structures. In Canada, mortgage calculator canada and best mortgage calculator canada tools reflect CMHC insurance requirements, stress test qualifying rates, and 25-30 year maximum amortization for insured mortgages. Simple mortgage calculator bmo and similar bank tools use Canadian conventions. In India, jumbo loan calculator hdfc bank and jumbo loan calculator hdfc emi calculator use EMI (Equated Monthly Installment) methods with different interest applications—jumbo loan calculator india tools account for RBI regulations and processing fees. The UK's large loan calculator uk reflects loan-to-income multiples and stamp duty considerations. A U.S. jumbo loan calculator assumes different loan structures, tax treatments, and qualification criteria. Always use country-specific calculators and consult local lenders."
+      a: "Noâ€”mortgage calculation tools must account for country-specific lending structures. In Canada, mortgage calculator canada and best mortgage calculator canada tools reflect CMHC insurance requirements, stress test qualifying rates, and 25-30 year maximum amortization for insured mortgages. Simple mortgage calculator bmo and similar bank tools use Canadian conventions. In India, jumbo loan calculator hdfc bank and jumbo loan calculator hdfc emi calculator use EMI (Equated Monthly Installment) methods with different interest applicationsâ€”jumbo loan calculator india tools account for RBI regulations and processing fees. The UK's large loan calculator uk reflects loan-to-income multiples and stamp duty considerations. A U.S. jumbo loan calculator assumes different loan structures, tax treatments, and qualification criteria. Always use country-specific calculators and consult local lenders."
     },
     {
       q: "Do I need a special calculator for jumbo loans?",
@@ -45,7 +45,7 @@ export default function JumboLoanCalculatorPage() {
     },
     {
       q: "How accurate are online jumbo loan calculators?",
-      a: "Online jumbo loan calculators provide mathematically accurate payment estimates based on the inputs you provide, but they cannot predict your actual mortgage terms. Calculators show what a loan would cost at specified rates, but your actual interest rate depends on credit score, down payment, debt-to-income ratio, assets, employment, property type, and market conditions at application time. Property tax and insurance estimates in calculators are approximations—actual costs vary by location and property. Use calculators to understand payment ranges and compare scenarios, but obtain rate quotes from actual jumbo lenders for accurate financing projections. Down payment mortgage calculator tools help determine your loan amount; then use a jumbo mortgage calculator to estimate payments."
+      a: "Online jumbo loan calculators provide mathematically accurate payment estimates based on the inputs you provide, but they cannot predict your actual mortgage terms. Calculators show what a loan would cost at specified rates, but your actual interest rate depends on credit score, down payment, debt-to-income ratio, assets, employment, property type, and market conditions at application time. Property tax and insurance estimates in calculators are approximationsâ€”actual costs vary by location and property. Use calculators to understand payment ranges and compare scenarios, but obtain rate quotes from actual jumbo lenders for accurate financing projections. Down payment mortgage calculator tools help determine your loan amount; then use a jumbo mortgage calculator to estimate payments."
     }
   ];
 
@@ -100,19 +100,19 @@ export default function JumboLoanCalculatorPage() {
         
         <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
           <time>February 25, 2026</time>
-          <span className="mx-3">•</span>
+          <span className="mx-3">â€¢</span>
           <span>19 min read</span>
         </div>
       </div>
 
       {/* Article Content */}
-      <article className="pb-16">
+      <article className="pb-2">
         <div className="mx-auto max-w-3xl px-6 sm:px-8">
           <div className="prose prose-slate prose-lg max-w-none">
             
             {/* Introduction */}
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              Estimating monthly payments on a jumbo loan—a mortgage that exceeds conforming loan limits set by federal housing finance agencies—requires understanding both the standard mortgage payment formula and the additional cost components specific to high-value properties. Whether you're purchasing a $900,000 home in a standard-cost area or a $2 million property in California, accurately calculating your complete monthly obligation helps you budget realistically, compare loan scenarios, and make informed financing decisions. A jumbo mortgage calculator becomes particularly valuable when dealing with large loan amounts, where even small differences in interest rates, down payments, or loan terms create substantial monthly payment variations.
+              Estimating monthly payments on a jumbo loanâ€”a mortgage that exceeds conforming loan limits set by federal housing finance agenciesâ€”requires understanding both the standard mortgage payment formula and the additional cost components specific to high-value properties. Whether you're purchasing a $900,000 home in a standard-cost area or a $2 million property in California, accurately calculating your complete monthly obligation helps you budget realistically, compare loan scenarios, and make informed financing decisions. A jumbo mortgage calculator becomes particularly valuable when dealing with large loan amounts, where even small differences in interest rates, down payments, or loan terms create substantial monthly payment variations.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-8">
@@ -123,11 +123,11 @@ export default function JumboLoanCalculatorPage() {
             <h2 className="text-2xl font-bold text-slate-900 mt-10 mb-4">What Is a Jumbo Mortgage?</h2>
             
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              A jumbo mortgage is a home loan that exceeds the conforming loan limits established by the Federal Housing Finance Agency (FHFA). These limits define the maximum loan amount that Fannie Mae and Freddie Mac—the government-sponsored enterprises (GSEs) that purchase most conventional mortgages—can buy from lenders. In 2026, the baseline conforming limit in most U.S. counties typically sits around $766,550 for single-family homes, though this figure adjusts annually based on national home price trends. Loans above this threshold are classified as jumbo loans because they're too large for GSE purchase.
+              A jumbo mortgage is a home loan that exceeds the conforming loan limits established by the Federal Housing Finance Agency (FHFA). These limits define the maximum loan amount that Fannie Mae and Freddie Macâ€”the government-sponsored enterprises (GSEs) that purchase most conventional mortgagesâ€”can buy from lenders. In 2026, the baseline conforming limit in most U.S. counties typically sits around $766,550 for single-family homes, though this figure adjusts annually based on national home price trends. Loans above this threshold are classified as jumbo loans because they're too large for GSE purchase.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-8">
-              High-cost areas—including many California counties, parts of New York, Hawaii, Alaska, and expensive metropolitan regions—have higher conforming limits, sometimes exceeding $1 million. In these locations, what qualifies as a jumbo loan starts at a higher dollar amount. For payment calculation purposes, jumbo mortgages use the same mathematical formula as conforming loans, but the larger principal amounts mean that interest rate differences, down payment choices, and loan term selections have magnified financial impacts. A jumbo mortgage calculator helps model these high-value scenarios, while a conforming loan calculator serves as a comparison point for buyers deciding between properties priced just below versus above conforming limits.
+              High-cost areasâ€”including many California counties, parts of New York, Hawaii, Alaska, and expensive metropolitan regionsâ€”have higher conforming limits, sometimes exceeding $1 million. In these locations, what qualifies as a jumbo loan starts at a higher dollar amount. For payment calculation purposes, jumbo mortgages use the same mathematical formula as conforming loans, but the larger principal amounts mean that interest rate differences, down payment choices, and loan term selections have magnified financial impacts. A jumbo mortgage calculator helps model these high-value scenarios, while a conforming loan calculator serves as a comparison point for buyers deciding between properties priced just below versus above conforming limits.
             </p>
 
 
@@ -143,7 +143,7 @@ export default function JumboLoanCalculatorPage() {
             <ul className="list-disc pl-8 mb-6 space-y-2 text-base text-slate-600">
               <li><strong>Principal and Interest (P&I):</strong> The base loan repayment calculated using the mortgage payment formula. This portion pays down your loan balance and covers the lender's interest charge. For jumbo loans, P&I typically represents 60-75% of your total monthly payment.</li>
               
-              <li><strong>Property Taxes:</strong> Annual property tax obligations divided into monthly payments, usually collected by your lender through an escrow account. High-value properties naturally incur higher tax bills—a $1.5 million home in an area with 1.2% property tax rates costs $18,000 annually ($1,500/month). Tax rates vary dramatically by state and locality, from under 0.5% in some states to over 2.5% in others.</li>
+              <li><strong>Property Taxes:</strong> Annual property tax obligations divided into monthly payments, usually collected by your lender through an escrow account. High-value properties naturally incur higher tax billsâ€”a $1.5 million home in an area with 1.2% property tax rates costs $18,000 annually ($1,500/month). Tax rates vary dramatically by state and locality, from under 0.5% in some states to over 2.5% in others.</li>
               
               <li><strong>Homeowner's Insurance:</strong> Coverage protecting the property against fire, theft, natural disasters, and liability claims. Insurance premiums scale with property value and replacement cost. Luxury properties, homes in high-risk areas (flood zones, wildfire regions, hurricane-prone coastlines), and properties with expensive finishes face higher insurance costs.</li>
               
@@ -153,7 +153,7 @@ export default function JumboLoanCalculatorPage() {
             </ul>
 
             <p className="text-base text-slate-600 leading-relaxed mb-8">
-              A comprehensive jumbo mortgage calculator with taxes and insurance provides more accurate payment estimates than P&I-only calculators. When budgeting for a high-value purchase, always account for all components—focusing solely on principal and interest can underestimate your actual monthly housing cost by 30-50%.
+              A comprehensive jumbo mortgage calculator with taxes and insurance provides more accurate payment estimates than P&I-only calculators. When budgeting for a high-value purchase, always account for all componentsâ€”focusing solely on principal and interest can underestimate your actual monthly housing cost by 30-50%.
             </p>
 
             {/* Section 3: How to Calculate Jumbo Loan Payments */}
@@ -170,8 +170,8 @@ export default function JumboLoanCalculatorPage() {
               <div className="text-sm text-slate-600 space-y-1">
                 <p><strong>M</strong> = Monthly principal and interest payment</p>
                 <p><strong>P</strong> = Principal (loan amount)</p>
-                <p><strong>r</strong> = Monthly interest rate (annual interest rate ÷ 12)</p>
-                <p><strong>n</strong> = Total number of payments (loan term in years × 12)</p>
+                <p><strong>r</strong> = Monthly interest rate (annual interest rate Ã· 12)</p>
+                <p><strong>n</strong> = Total number of payments (loan term in years Ã— 12)</p>
               </div>
             </div>
 
@@ -182,13 +182,13 @@ export default function JumboLoanCalculatorPage() {
             <ol className="list-decimal pl-8 mb-6 space-y-3 text-base text-slate-600">
               <li><strong>Determine your loan amount:</strong> Subtract your down payment from the purchase price. Use a down payment mortgage calculator if you need to model different down payment percentages (10%, 15%, 20%, 25%) to see how each affects your loan amount and monthly payment.</li>
               
-              <li><strong>Convert the annual interest rate to a monthly rate:</strong> Divide the annual rate by 12. For example, 7.00% annual = 7.00 ÷ 12 = 0.5833% monthly = 0.005833 as a decimal.</li>
+              <li><strong>Convert the annual interest rate to a monthly rate:</strong> Divide the annual rate by 12. For example, 7.00% annual = 7.00 Ã· 12 = 0.5833% monthly = 0.005833 as a decimal.</li>
               
-              <li><strong>Calculate the total number of payments:</strong> Multiply loan term in years by 12. A 30-year mortgage = 30 × 12 = 360 payments; a 15-year mortgage = 15 × 12 = 180 payments.</li>
+              <li><strong>Calculate the total number of payments:</strong> Multiply loan term in years by 12. A 30-year mortgage = 30 Ã— 12 = 360 payments; a 15-year mortgage = 15 Ã— 12 = 180 payments.</li>
               
               <li><strong>Apply the formula:</strong> Calculate (1+r)^n first, then multiply by r and by P for the numerator. Subtract 1 from (1+r)^n for the denominator. Divide numerator by denominator to get your monthly P&I payment.</li>
               
-              <li><strong>Add taxes, insurance, and fees:</strong> Calculate monthly property tax (annual tax ÷ 12), homeowner's insurance (annual premium ÷ 12), and HOA fees to determine your complete monthly housing payment.</li>
+              <li><strong>Add taxes, insurance, and fees:</strong> Calculate monthly property tax (annual tax Ã· 12), homeowner's insurance (annual premium Ã· 12), and HOA fees to determine your complete monthly housing payment.</li>
             </ol>
 
             <p className="text-base text-slate-600 leading-relaxed mb-8">
@@ -201,17 +201,17 @@ export default function JumboLoanCalculatorPage() {
             <h2 className="text-2xl font-bold text-slate-900 mt-10 mb-4">Hypothetical Example 1: Standard Jumbo Loan Calculation</h2>
             
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              To see the formula in action, let's walk through a complete jumbo loan payment calculation. This example is hypothetical—rates, limits, and terms vary by borrower, lender, location, and date.
+              To see the formula in action, let's walk through a complete jumbo loan payment calculation. This example is hypotheticalâ€”rates, limits, and terms vary by borrower, lender, location, and date.
             </p>
 
             <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-6 mb-6">
               <p className="font-bold text-slate-900 mb-3">Scenario Parameters:</p>
               <ul className="space-y-1 text-sm text-slate-600">
-                <li>• Purchase price: $950,000</li>
-                <li>• Down payment: 20% ($190,000)</li>
-                <li>• Loan amount: $760,000</li>
-                <li>• Interest rate: 7.25% (hypothetical)</li>
-                <li>• Loan term: 30 years (360 payments)</li>
+                <li>â€¢ Purchase price: $950,000</li>
+                <li>â€¢ Down payment: 20% ($190,000)</li>
+                <li>â€¢ Loan amount: $760,000</li>
+                <li>â€¢ Interest rate: 7.25% (hypothetical)</li>
+                <li>â€¢ Loan term: 30 years (360 payments)</li>
               </ul>
             </div>
 
@@ -222,12 +222,12 @@ export default function JumboLoanCalculatorPage() {
             <ol className="list-decimal pl-8 mb-6 space-y-2 text-base text-slate-600">
               <li>Loan amount (P) = $760,000</li>
               <li>Annual interest rate = 7.25%</li>
-              <li>Monthly interest rate (r) = 7.25% ÷ 12 = 0.604167% = 0.00604167</li>
-              <li>Number of payments (n) = 30 years × 12 = 360 months</li>
+              <li>Monthly interest rate (r) = 7.25% Ã· 12 = 0.604167% = 0.00604167</li>
+              <li>Number of payments (n) = 30 years Ã— 12 = 360 months</li>
               <li>Calculate (1+r)^n = (1.00604167)^360 = 8.2678</li>
-              <li>Numerator: P × r × (1+r)^n = 760,000 × 0.00604167 × 8.2678 = 37,953</li>
+              <li>Numerator: P Ã— r Ã— (1+r)^n = 760,000 Ã— 0.00604167 Ã— 8.2678 = 37,953</li>
               <li>Denominator: (1+r)^n - 1 = 8.2678 - 1 = 7.2678</li>
-              <li>Monthly P&I = 37,953 ÷ 7.2678 = <strong>$5,222</strong></li>
+              <li>Monthly P&I = 37,953 Ã· 7.2678 = <strong>$5,222</strong></li>
             </ol>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -235,11 +235,11 @@ export default function JumboLoanCalculatorPage() {
             </p>
 
             <ul className="list-none space-y-2 text-base text-slate-600 mb-6">
-              <li>• Principal & Interest: $5,222/month</li>
-              <li>• Property Taxes ($950K × 1.2% ÷ 12): $950/month</li>
-              <li>• Homeowner's Insurance (~$2,600 annually): $217/month</li>
-              <li>• HOA Fees (if applicable): $150/month</li>
-              <li>• <strong>Total Monthly Payment: $6,539</strong></li>
+              <li>â€¢ Principal & Interest: $5,222/month</li>
+              <li>â€¢ Property Taxes ($950K Ã— 1.2% Ã· 12): $950/month</li>
+              <li>â€¢ Homeowner's Insurance (~$2,600 annually): $217/month</li>
+              <li>â€¢ HOA Fees (if applicable): $150/month</li>
+              <li>â€¢ <strong>Total Monthly Payment: $6,539</strong></li>
             </ul>
 
             <p className="text-base text-slate-600 leading-relaxed mb-8">
@@ -256,11 +256,11 @@ export default function JumboLoanCalculatorPage() {
             <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-6 mb-6">
               <p className="font-bold text-slate-900 mb-3">Scenario Parameters:</p>
               <ul className="space-y-1 text-sm text-slate-600">
-                <li>• Purchase price: $1,500,000 (California high-cost area)</li>
-                <li>• Down payment: 25% ($375,000)</li>
-                <li>• Loan amount: $1,125,000</li>
-                <li>• Interest rate: 7.00% (hypothetical)</li>
-                <li>• Loan term: 30 years (360 payments)</li>
+                <li>â€¢ Purchase price: $1,500,000 (California high-cost area)</li>
+                <li>â€¢ Down payment: 25% ($375,000)</li>
+                <li>â€¢ Loan amount: $1,125,000</li>
+                <li>â€¢ Interest rate: 7.00% (hypothetical)</li>
+                <li>â€¢ Loan term: 30 years (360 payments)</li>
               </ul>
             </div>
 
@@ -269,10 +269,10 @@ export default function JumboLoanCalculatorPage() {
             </p>
 
             <ul className="list-none space-y-2 text-base text-slate-600 mb-6">
-              <li>• Monthly interest rate: 7.00% ÷ 12 = 0.005833</li>
-              <li>• (1+r)^360 = 8.1247</li>
-              <li>• Monthly P&I = 1,125,000[0.005833 × 8.1247] / [8.1247 - 1]</li>
-              <li>• Monthly P&I = 1,125,000[0.04739] / 7.1247 = <strong>$7,485</strong></li>
+              <li>â€¢ Monthly interest rate: 7.00% Ã· 12 = 0.005833</li>
+              <li>â€¢ (1+r)^360 = 8.1247</li>
+              <li>â€¢ Monthly P&I = 1,125,000[0.005833 Ã— 8.1247] / [8.1247 - 1]</li>
+              <li>â€¢ Monthly P&I = 1,125,000[0.04739] / 7.1247 = <strong>$7,485</strong></li>
             </ul>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -280,15 +280,15 @@ export default function JumboLoanCalculatorPage() {
             </p>
 
             <ul className="list-none space-y-2 text-base text-slate-600 mb-6">
-              <li>• Principal & Interest: $7,485/month</li>
-              <li>• Property Taxes ($1.5M × 1.25% ÷ 12): $1,563/month</li>
-              <li>• Homeowner's Insurance (~$4,500 annually): $375/month</li>
-              <li>• HOA Fees: $200/month</li>
-              <li>• <strong>Total Monthly Payment: $9,623</strong></li>
+              <li>â€¢ Principal & Interest: $7,485/month</li>
+              <li>â€¢ Property Taxes ($1.5M Ã— 1.25% Ã· 12): $1,563/month</li>
+              <li>â€¢ Homeowner's Insurance (~$4,500 annually): $375/month</li>
+              <li>â€¢ HOA Fees: $200/month</li>
+              <li>â€¢ <strong>Total Monthly Payment: $9,623</strong></li>
             </ul>
 
             <p className="text-base text-slate-600 leading-relaxed mb-8">
-              This hypothetical California example shows how a $1,125,000 jumbo loan at 7.00% requires nearly $7,500 in monthly principal and interest, rising to over $9,600 when including property taxes, insurance, and HOA fees. A jumbo loan calculator california tool or jumbo mortgage calculator with California-specific tax and insurance defaults would help buyers in expensive markets estimate these costs accurately. Property taxes alone add $1,563 monthly to this payment—substantially more than many conforming-loan borrowers pay for their entire mortgage in lower-cost states.
+              This hypothetical California example shows how a $1,125,000 jumbo loan at 7.00% requires nearly $7,500 in monthly principal and interest, rising to over $9,600 when including property taxes, insurance, and HOA fees. A jumbo loan calculator california tool or jumbo mortgage calculator with California-specific tax and insurance defaults would help buyers in expensive markets estimate these costs accurately. Property taxes alone add $1,563 monthly to this paymentâ€”substantially more than many conforming-loan borrowers pay for their entire mortgage in lower-cost states.
             </p>
 
 
@@ -301,7 +301,7 @@ export default function JumboLoanCalculatorPage() {
             </p>
 
             <ul className="list-disc pl-8 mb-6 space-y-3 text-base text-slate-600">
-              <li><strong>Loan Amount:</strong> Every $100,000 in additional principal adds approximately $650-700/month to your payment (at 7% interest, 30-year term). On jumbo loans, this means the difference between an $800,000 and $1,000,000 loan is roughly $1,300-1,400 monthly—equivalent to a car payment or significant discretionary spending.</li>
+              <li><strong>Loan Amount:</strong> Every $100,000 in additional principal adds approximately $650-700/month to your payment (at 7% interest, 30-year term). On jumbo loans, this means the difference between an $800,000 and $1,000,000 loan is roughly $1,300-1,400 monthlyâ€”equivalent to a car payment or significant discretionary spending.</li>
               
               <li><strong>Interest Rate:</strong> Rate changes have magnified effects on large principals. A 0.25% rate difference on a $1 million loan changes monthly payment by approximately $150-170. Over 30 years, that's $50,000-60,000 in total interest. This is why rate shopping and credit score optimization are particularly valuable for jumbo borrowers.</li>
               
@@ -309,7 +309,7 @@ export default function JumboLoanCalculatorPage() {
               
               <li><strong>Loan Term:</strong> 30-year terms minimize monthly payment but maximize total interest paid. 15-year jumbo loans typically offer rates 0.25-0.50% lower than 30-year loans but roughly double the monthly principal payment. On a hypothetical $800,000 loan at 6.75%: 30-year = $5,189/month; 15-year = $7,088/month (saving $355,000 in total interest).</li>
               
-              <li><strong>Property Location:</strong> Property tax rates vary dramatically by jurisdiction. The same $1 million home might cost $4,200 annually in property taxes in one state (0.42% rate) versus $21,000 in another (2.1% rate)—a difference of $1,400 monthly.</li>
+              <li><strong>Property Location:</strong> Property tax rates vary dramatically by jurisdiction. The same $1 million home might cost $4,200 annually in property taxes in one state (0.42% rate) versus $21,000 in another (2.1% rate)â€”a difference of $1,400 monthly.</li>
               
               <li><strong>Property Value:</strong> Homeowner's insurance premiums scale with property value and replacement cost. A $750,000 home might cost $1,800 annually to insure; a $2 million home might cost $5,000-8,000, depending on location, construction, and risk factors.</li>
             </ul>
@@ -329,22 +329,22 @@ export default function JumboLoanCalculatorPage() {
               <div className="bg-slate-50 border border-slate-200 rounded-lg p-5">
                 <h3 className="font-bold text-slate-900 mb-3">Conforming Loan Scenario</h3>
                 <ul className="space-y-1 text-sm text-slate-600">
-                  <li>• Purchase price: $750,000</li>
-                  <li>• Down payment: 20% ($150,000)</li>
-                  <li>• Loan amount: $600,000</li>
-                  <li>• Interest rate: 6.875%</li>
-                  <li>• Monthly P&I: <strong>$3,943</strong></li>
+                  <li>â€¢ Purchase price: $750,000</li>
+                  <li>â€¢ Down payment: 20% ($150,000)</li>
+                  <li>â€¢ Loan amount: $600,000</li>
+                  <li>â€¢ Interest rate: 6.875%</li>
+                  <li>â€¢ Monthly P&I: <strong>$3,943</strong></li>
                 </ul>
               </div>
 
               <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-5">
                 <h3 className="font-bold text-slate-900 mb-3">Jumbo Loan Scenario</h3>
                 <ul className="space-y-1 text-sm text-slate-600">
-                  <li>• Purchase price: $900,000</li>
-                  <li>• Down payment: 20% ($180,000)</li>
-                  <li>• Loan amount: $720,000</li>
-                  <li>• Interest rate: 7.125%</li>
-                  <li>• Monthly P&I: <strong>$4,836</strong></li>
+                  <li>â€¢ Purchase price: $900,000</li>
+                  <li>â€¢ Down payment: 20% ($180,000)</li>
+                  <li>â€¢ Loan amount: $720,000</li>
+                  <li>â€¢ Interest rate: 7.125%</li>
+                  <li>â€¢ Monthly P&I: <strong>$4,836</strong></li>
                 </ul>
               </div>
             </div>
@@ -421,17 +421,17 @@ export default function JumboLoanCalculatorPage() {
             </p>
 
             <ul className="list-disc pl-8 mb-6 space-y-2 text-base text-slate-600">
-              <li><strong>Loan-to-Income Multiples:</strong> UK lenders typically limit mortgages to 4-4.5× annual income, with some offering up to 5-5.5× for high earners. This income-based ceiling affects how much you can borrow regardless of property value.</li>
+              <li><strong>Loan-to-Income Multiples:</strong> UK lenders typically limit mortgages to 4-4.5Ã— annual income, with some offering up to 5-5.5Ã— for high earners. This income-based ceiling affects how much you can borrow regardless of property value.</li>
               
               <li><strong>Interest-Only Options:</strong> UK mortgages commonly offer interest-only periods (paying only interest, no principal) followed by repayment mortgages. This creates different payment structures than U.S. fully-amortizing loans.</li>
               
               <li><strong>Fixed-Rate Terms:</strong> UK fixed rates typically lock for 2, 3, or 5 years before reverting to variable standard variable rates (SVR). This creates payment uncertainty after the initial period that differs from U.S. 30-year fixed mortgages.</li>
               
-              <li><strong>Stamp Duty Land Tax:</strong> UK property purchases incur stamp duty (a transaction tax) that isn't part of the mortgage but significantly affects total cost. Higher-value properties face higher stamp duty rates (up to 12% on portions over £1.5 million, plus additional 3% surcharge for additional properties).</li>
+              <li><strong>Stamp Duty Land Tax:</strong> UK property purchases incur stamp duty (a transaction tax) that isn't part of the mortgage but significantly affects total cost. Higher-value properties face higher stamp duty rates (up to 12% on portions over Â£1.5 million, plus additional 3% surcharge for additional properties).</li>
             </ul>
 
             <p className="text-base text-slate-600 leading-relaxed mb-8">
-              When using a large loan calculator uk or evaluating high-value UK mortgages, remember that a £1 million property might require £200,000-300,000 down (20-30%) plus £40,000-80,000 in stamp duty—substantially more upfront capital than the equivalent U.S. jumbo loan. UK calculators account for these local market conditions and lending practices.
+              When using a large loan calculator uk or evaluating high-value UK mortgages, remember that a Â£1 million property might require Â£200,000-300,000 down (20-30%) plus Â£40,000-80,000 in stamp dutyâ€”substantially more upfront capital than the equivalent U.S. jumbo loan. UK calculators account for these local market conditions and lending practices.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-8 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
@@ -458,7 +458,7 @@ export default function JumboLoanCalculatorPage() {
             </ul>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              Remember that any loan calculator or mortgage calculator provides estimates based on your inputs. Your actual rate depends on credit score, down payment, debt-to-income ratio, property type, loan amount, and market conditions at application time. Property tax and insurance figures are approximations—actual costs vary by location and property characteristics. Use calculators to understand payment ranges and compare scenarios, but obtain rate quotes from multiple jumbo lenders for accurate financing projections. After determining your loan amount with a down payment mortgage calculator, test that amount in a jumbo mortgage calculator with your area's estimated taxes and insurance for a complete monthly payment projection.
+              Remember that any loan calculator or mortgage calculator provides estimates based on your inputs. Your actual rate depends on credit score, down payment, debt-to-income ratio, property type, loan amount, and market conditions at application time. Property tax and insurance figures are approximationsâ€”actual costs vary by location and property characteristics. Use calculators to understand payment ranges and compare scenarios, but obtain rate quotes from multiple jumbo lenders for accurate financing projections. After determining your loan amount with a down payment mortgage calculator, test that amount in a jumbo mortgage calculator with your area's estimated taxes and insurance for a complete monthly payment projection.
             </p>
 
             {/* Conclusion */}
@@ -516,7 +516,7 @@ export default function JumboLoanCalculatorPage() {
           <div className="mx-auto max-w-3xl">
             <div className="flex items-center justify-between">
               <Link href="/" className="text-indigo-600 hover:text-indigo-700 font-medium flex items-center gap-2 transition-colors">
-                ← Back to Calculator
+                â† Back to Calculator
               </Link>
               <Link href="/blog" className="text-indigo-600 hover:text-indigo-700 font-medium flex items-center gap-2 transition-colors">
                 More Articles <ChevronRight className="h-4 w-4" />

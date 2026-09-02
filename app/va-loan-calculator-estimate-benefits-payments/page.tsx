@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -25,7 +25,7 @@ export default function VALoanCalculatorArticle() {
     },
     {
       q: "Can I avoid paying the VA funding fee?",
-      a: "Yes, veterans receiving VA disability compensation are exempt from the funding fee entirely—even 10% disability rating qualifies. Purple Heart recipients are also exempt. Additionally, surviving spouses receiving Dependency and Indemnity Compensation (DIC) don't pay the fee. If you're exempt, this saves $6,000+ on a typical $300,000 loan. Always check your VA disability status before applying, as the exemption applies automatically once verified by the lender."
+      a: "Yes, veterans receiving VA disability compensation are exempt from the funding fee entirelyâ€”even 10% disability rating qualifies. Purple Heart recipients are also exempt. Additionally, surviving spouses receiving Dependency and Indemnity Compensation (DIC) don't pay the fee. If you're exempt, this saves $6,000+ on a typical $300,000 loan. Always check your VA disability status before applying, as the exemption applies automatically once verified by the lender."
     },
     {
       q: "How accurate are online VA loan calculators?",
@@ -41,7 +41,7 @@ export default function VALoanCalculatorArticle() {
     },
     {
       q: "How much can I borrow with a VA loan?",
-      a: "VA loan limits were eliminated in 2020 for most borrowers with full entitlement, meaning you can technically borrow any amount the lender approves based on your income and debt-to-income ratio. However, practical limits exist: lenders typically cap DTI at 41-50%, and you must demonstrate ability to repay. For veterans without full entitlement (second use without selling first home), county-specific limits apply—typically $726,200 in standard areas, higher in expensive markets. Your VA entitlement calculator will show your specific borrowing power."
+      a: "VA loan limits were eliminated in 2020 for most borrowers with full entitlement, meaning you can technically borrow any amount the lender approves based on your income and debt-to-income ratio. However, practical limits exist: lenders typically cap DTI at 41-50%, and you must demonstrate ability to repay. For veterans without full entitlement (second use without selling first home), county-specific limits applyâ€”typically $726,200 in standard areas, higher in expensive markets. Your VA entitlement calculator will show your specific borrowing power."
     }
   ];
 
@@ -96,20 +96,20 @@ export default function VALoanCalculatorArticle() {
         
         <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
           <time>April 10, 2026</time>
-          <span className="mx-3">•</span>
+          <span className="mx-3">â€¢</span>
           <span>12 min read</span>
         </div>
       </div>
 
       {/* Article Content */}
-      <article className="pb-16">
+      <article className="pb-2">
         <div className="mx-auto max-w-3xl px-6 sm:px-8">
           <div className="prose prose-slate prose-lg max-w-none">
           
           {/* Introduction */}
           <section className="mb-12">
             <p className="text-xl text-slate-700 leading-relaxed mb-6">
-              Last month, I sat across from Sergeant Michael Chen, a Marine Corps veteran who'd served two tours in Afghanistan. He was convinced he couldn't afford a home because he had just $8,000 saved—nowhere near the 20% down payment ($48,000) needed for the $240,000 home he wanted. When I pulled up a <strong>VA loan calculator</strong> and showed him he could buy that same home with <em>zero down payment</em>, his eyes widened. "You're telling me I can actually do this?" he asked. Not only could he—but using a <strong>veterans affairs loan calculator</strong>, we calculated he'd save $73,200 over 30 years compared to an FHA loan with 3.5% down and mortgage insurance.
+              Last month, I sat across from Sergeant Michael Chen, a Marine Corps veteran who'd served two tours in Afghanistan. He was convinced he couldn't afford a home because he had just $8,000 savedâ€”nowhere near the 20% down payment ($48,000) needed for the $240,000 home he wanted. When I pulled up a <strong>VA loan calculator</strong> and showed him he could buy that same home with <em>zero down payment</em>, his eyes widened. "You're telling me I can actually do this?" he asked. Not only could heâ€”but using a <strong>veterans affairs loan calculator</strong>, we calculated he'd save $73,200 over 30 years compared to an FHA loan with 3.5% down and mortgage insurance.
             </p>
             <p className="text-xl text-slate-700 leading-relaxed mb-6">
               That's the power of VA loan benefits that too many veterans don't fully understand. Whether you're using a <strong>VA mortgage calculator</strong> to estimate your first home purchase, a <strong>VA home loan calculator</strong> to compare financing options, or a <strong>VA loan payment calculator</strong> to understand your monthly obligations, these tools reveal something remarkable: the government benefit you earned through military service can save you tens of thousands of dollars.
@@ -125,7 +125,7 @@ export default function VALoanCalculatorArticle() {
               How VA Loan Calculators Work: The Components That Matter
             </h2>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              A <strong>VA loan calculator</strong> differs from conventional mortgage calculators in three critical ways that directly impact your bottom line. First, it accounts for <em>zero down payment</em>—you can finance 100% of the home's value up to your VA entitlement limit. Second, it excludes private mortgage insurance (PMI), which conventional borrowers pay when putting down less than 20%. Third, it includes the VA funding fee, a one-time upfront cost that can be rolled into your loan amount.
+              A <strong>VA loan calculator</strong> differs from conventional mortgage calculators in three critical ways that directly impact your bottom line. First, it accounts for <em>zero down payment</em>â€”you can finance 100% of the home's value up to your VA entitlement limit. Second, it excludes private mortgage insurance (PMI), which conventional borrowers pay when putting down less than 20%. Third, it includes the VA funding fee, a one-time upfront cost that can be rolled into your loan amount.
             </p>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
               When Captain Sarah Williams from the Air Force used our <strong>VA mortgage calculator</strong>, here's what we calculated for her $325,000 home purchase in Austin, Texas:
@@ -140,7 +140,7 @@ export default function VALoanCalculatorArticle() {
               <li><strong>Total Monthly Payment:</strong> $2,722</li>
             </ul>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              Compare this to a conventional loan requiring 5% down ($16,250) plus PMI of $203/month, and you're looking at $2,925/month—Sarah saves $203 monthly, or $72,080 over 30 years, just by using her VA benefit. That's the power of a proper <strong>VA home loan calculator</strong> analysis.
+              Compare this to a conventional loan requiring 5% down ($16,250) plus PMI of $203/month, and you're looking at $2,925/monthâ€”Sarah saves $203 monthly, or $72,080 over 30 years, just by using her VA benefit. That's the power of a proper <strong>VA home loan calculator</strong> analysis.
             </p>
           </section>
 
@@ -209,7 +209,7 @@ export default function VALoanCalculatorArticle() {
               </table>
             </div>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              David chose the VA loan because he didn't need $10,000-$14,250 in down payment cash. He paid just $8,200 in closing costs, used savings for furniture and emergencies, and over 30 years saved $8,400 compared to FHA—all while never saving for a down payment.
+              David chose the VA loan because he didn't need $10,000-$14,250 in down payment cash. He paid just $8,200 in closing costs, used savings for furniture and emergencies, and over 30 years saved $8,400 compared to FHAâ€”all while never saving for a down payment.
             </p>
           </section>
 
@@ -219,7 +219,7 @@ export default function VALoanCalculatorArticle() {
               VA Entitlement: How Much Can You Borrow?
             </h2>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              Your <strong>VA entitlement calculator</strong> determines borrowing power. As of 2020, the VA eliminated loan limits for veterans with full entitlement—you can purchase a home of any value with zero down, as long as you qualify income-wise and the lender approves.
+              Your <strong>VA entitlement calculator</strong> determines borrowing power. As of 2020, the VA eliminated loan limits for veterans with full entitlementâ€”you can purchase a home of any value with zero down, as long as you qualify income-wise and the lender approves.
             </p>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
               <strong>Full entitlement:</strong> $36,000 basic + 25% of county conforming limit (2026: $806,500 for most counties = $201,625 + $36,000 = $237,625 total). However, lenders will approve loans above this with zero down if you qualify.
@@ -228,7 +228,7 @@ export default function VALoanCalculatorArticle() {
               Major Robert Thompson, a retired Army officer, used his VA entitlement to purchase a $625,000 home in San Diego with zero down. His income ($165,000) and credit score (750) qualified him for $639,375 (including funding fee). Using a <strong>military mortgage calculator</strong>, we verified his DTI ratio of 38% was within VA guidelines.
             </p>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              <strong>Partial entitlement:</strong> If you've used your benefit before and haven't sold that property, you have partial entitlement remaining. The calculation: $806,500 × 25% = $201,625 minus entitlement tied up in your first property. If your first VA loan was $200,000, you have approximately $150,000 remaining entitlement.
+              <strong>Partial entitlement:</strong> If you've used your benefit before and haven't sold that property, you have partial entitlement remaining. The calculation: $806,500 Ã— 25% = $201,625 minus entitlement tied up in your first property. If your first VA loan was $200,000, you have approximately $150,000 remaining entitlement.
             </p>
           </section>
 
@@ -256,13 +256,13 @@ export default function VALoanCalculatorArticle() {
               <div className="bg-slate-50 border-l-4 border-slate-600 p-6">
                 <h3 className="font-bold text-lg text-slate-900 mb-2">3. High-Cost Areas</h3>
                 <p className="text-slate-700">
-                  With no loan limits for full entitlement, you can buy a $600,000+ home with zero down—impossible with conventional financing (requiring $120,000 down for 20%). Even with the 2.3% funding fee, you preserve $100,000+ in cash.
+                  With no loan limits for full entitlement, you can buy a $600,000+ home with zero downâ€”impossible with conventional financing (requiring $120,000 down for 20%). Even with the 2.3% funding fee, you preserve $100,000+ in cash.
                 </p>
               </div>
               <div className="bg-slate-50 border-l-4 border-slate-600 p-6">
                 <h3 className="font-bold text-lg text-slate-900 mb-2">4. Refinancing</h3>
                 <p className="text-slate-700">
-                  The VA IRRRL charges only 0.5% funding fee with no appraisal, no income verification, minimal paperwork. A <strong>VA funding fee calculator</strong> shows you'll pay just $2,000 on a $400,000 refinance—far less than conventional closing costs.
+                  The VA IRRRL charges only 0.5% funding fee with no appraisal, no income verification, minimal paperwork. A <strong>VA funding fee calculator</strong> shows you'll pay just $2,000 on a $400,000 refinanceâ€”far less than conventional closing costs.
                 </p>
               </div>
             </div>
@@ -333,7 +333,7 @@ export default function VALoanCalculatorArticle() {
                   7. Can I roll closing costs into my VA loan?
                 </h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  You can roll the VA funding fee into the loan, but not other closing costs. However, you can negotiate with the seller to pay up to 4% of the home price toward your closing costs (called seller concessions)—more generous than conventional loans (3%) or FHA (6%). On a $300,000 home, that's $12,000 the seller can contribute.
+                  You can roll the VA funding fee into the loan, but not other closing costs. However, you can negotiate with the seller to pay up to 4% of the home price toward your closing costs (called seller concessions)â€”more generous than conventional loans (3%) or FHA (6%). On a $300,000 home, that's $12,000 the seller can contribute.
                 </p>
               </div>
 
@@ -342,7 +342,7 @@ export default function VALoanCalculatorArticle() {
                   8. How long does VA loan approval take?
                 </h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  With your Certificate of Eligibility (COE) already obtained, VA loans typically close in 30-45 days—similar to conventional loans. Getting your COE takes 5-10 business days if you apply online through the VA's eBenefits portal. Some lenders can pull your COE instantly during pre-approval. I recommend getting pre-approved before house hunting so you can move quickly in competitive markets.
+                  With your Certificate of Eligibility (COE) already obtained, VA loans typically close in 30-45 daysâ€”similar to conventional loans. Getting your COE takes 5-10 business days if you apply online through the VA's eBenefits portal. Some lenders can pull your COE instantly during pre-approval. I recommend getting pre-approved before house hunting so you can move quickly in competitive markets.
                 </p>
               </div>
             </div>
@@ -354,35 +354,65 @@ export default function VALoanCalculatorArticle() {
               Conclusion: Your VA Loan Benefit Is Worth Tens of Thousands
             </h2>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              When Sergeant Michael Chen walked out of my office that day, he wasn't just pre-approved for a home loan—he understood the full power of the benefit he'd earned through military service. Using a <strong>VA loan calculator</strong> and <strong>VA mortgage calculator</strong>, we'd mapped out exactly how zero down payment, no PMI, and competitive interest rates would save him over $70,000 compared to conventional financing. Three months later, he closed on his $240,000 home with just $6,800 in closing costs (seller paid $4,200), moved in with his family, and started building equity instead of paying rent.
+              When Sergeant Michael Chen walked out of my office that day, he wasn't just pre-approved for a home loanâ€”he understood the full power of the benefit he'd earned through military service. Using a <strong>VA loan calculator</strong> and <strong>VA mortgage calculator</strong>, we'd mapped out exactly how zero down payment, no PMI, and competitive interest rates would save him over $70,000 compared to conventional financing. Three months later, he closed on his $240,000 home with just $6,800 in closing costs (seller paid $4,200), moved in with his family, and started building equity instead of paying rent.
             </p>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              That's what the right <strong>VA home loan calculator</strong> and <strong>military mortgage calculator</strong> can do—transform "I can't afford this" into "I'm a homeowner." Whether you're using a <strong>VA loan payment calculator</strong> to estimate monthly costs, a <strong>VA funding fee calculator</strong> to understand upfront expenses, a <strong>zero down payment calculator</strong> to see how much cash you save, or a <strong>VA entitlement calculator</strong> to determine your borrowing power, these tools unlock the door to homeownership.
+              That's what the right <strong>VA home loan calculator</strong> and <strong>military mortgage calculator</strong> can doâ€”transform "I can't afford this" into "I'm a homeowner." Whether you're using a <strong>VA loan payment calculator</strong> to estimate monthly costs, a <strong>VA funding fee calculator</strong> to understand upfront expenses, a <strong>zero down payment calculator</strong> to see how much cash you save, or a <strong>VA entitlement calculator</strong> to determine your borrowing power, these tools unlock the door to homeownership.
             </p>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              I've seen veterans in every state, every branch, every rank—from E-3s buying their first $180,000 starter home to O-6s purchasing $750,000 properties in high-cost areas—leverage this benefit successfully. The math always comes down to this: <em>zero down payment + no PMI + competitive rates = tens of thousands saved</em>. Run the numbers with a <strong>VA loan eligibility calculator</strong> and <strong>veterans affairs loan calculator</strong>, talk to a VA-approved lender, get your Certificate of Eligibility, and claim the benefit you earned.
+              I've seen veterans in every state, every branch, every rankâ€”from E-3s buying their first $180,000 starter home to O-6s purchasing $750,000 properties in high-cost areasâ€”leverage this benefit successfully. The math always comes down to this: <em>zero down payment + no PMI + competitive rates = tens of thousands saved</em>. Run the numbers with a <strong>VA loan eligibility calculator</strong> and <strong>veterans affairs loan calculator</strong>, talk to a VA-approved lender, get your Certificate of Eligibility, and claim the benefit you earned.
             </p>
           </section>
 
-          {/* CTA */}
-          <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-8 text-center">
-            <h3 className="font-bold text-2xl text-slate-900 mb-4">
-              Ready to Calculate Your VA Loan Benefits?
-            </h3>
-            <p className="text-lg text-slate-700 mb-6">
-              Use our free VA loan calculator to estimate your monthly payments, funding fees, and total savings compared to conventional loans.
-            </p>
-            <Link
-              href="/"
-              className="inline-block bg-indigo-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-indigo-700 transition-colors"
-            >
-              Calculate My VA Loan →
-            </Link>
-          </div>
 
           </div>
         </div>
       </article>
+
+      {/* Related Articles */}
+      <section className="py-12 bg-white">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <div className="p-6 bg-slate-50 rounded-lg">
+            <h3 className="font-serif text-xl font-bold text-slate-900 mb-4">
+              Related Articles
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/va-loan-requirements-eligibility-approval-process"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  VA Loan Requirements: Eligibility & Approval Process
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/fha-loan-requirements-down-payment-credit-score"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  FHA Loan Requirements: Down Payment & Credit Score
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/fha-loan-calculator-estimate-payments-costs"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  FHA Loan Calculator: Estimate Payments & Costs
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/mortgage-qualification-calculator-do-you-qualify"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Mortgage Qualification Calculator: Do You Qualify?
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
       {/* FAQ Section */}
       <section className="py-12 bg-slate-50">
@@ -424,3 +454,4 @@ export default function VALoanCalculatorArticle() {
     </>
   );
 }
+

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -25,27 +25,27 @@ export default function FixedVsARMCalculatorPage() {
     },
     {
       q: "How are ARM payments calculated after the fixed period?",
-      a: "After the ARM's initial fixed period ends, the payment is recalculated using: (1) the remaining loan balance after the fixed period; (2) the new interest rate (Index + Margin), subject to rate caps; and (3) the remaining loan term. For example, if you have a 7/1 ARM with $362,000 remaining after 7 years and 276 months left, and the rate adjusts from 6.125% to 7.125%, the new payment is calculated using the mortgage formula with these new values. The adjusted rate cannot exceed cap limits—typically 2% on the first adjustment, 2% on subsequent adjustments, and 5-6% lifetime maximum above the initial rate. Use an ARM APR calculator to estimate composite costs across multiple adjustment scenarios."
+      a: "After the ARM's initial fixed period ends, the payment is recalculated using: (1) the remaining loan balance after the fixed period; (2) the new interest rate (Index + Margin), subject to rate caps; and (3) the remaining loan term. For example, if you have a 7/1 ARM with $362,000 remaining after 7 years and 276 months left, and the rate adjusts from 6.125% to 7.125%, the new payment is calculated using the mortgage formula with these new values. The adjusted rate cannot exceed cap limitsâ€”typically 2% on the first adjustment, 2% on subsequent adjustments, and 5-6% lifetime maximum above the initial rate. Use an ARM APR calculator to estimate composite costs across multiple adjustment scenarios."
     },
     {
       q: "Is an ARM or fixed-rate mortgage better?",
-      a: "Neither is universally better—the right choice depends on your circumstances. Fixed-rate mortgages provide payment certainty for the entire loan term, making them better for long-term ownership (10+ years), risk-averse borrowers, tight budgets that can't absorb payment increases, and situations where current rates are historically low. ARMs offer lower initial rates and payments, making them potentially better for short-term ownership (selling before the fixed period ends), buyers needing lower initial payments to qualify, those confident they'll refinance before adjustments, and financially flexible borrowers who can handle payment increases. Use an arm vs fixed rate calculator to model both options with your specific loan amount and ownership timeline. The question 'is fixed or adjustable rate better' or 'fixed rate vs adjustable rate' comes down to your risk tolerance, ownership plans, and financial situation."
+      a: "Neither is universally betterâ€”the right choice depends on your circumstances. Fixed-rate mortgages provide payment certainty for the entire loan term, making them better for long-term ownership (10+ years), risk-averse borrowers, tight budgets that can't absorb payment increases, and situations where current rates are historically low. ARMs offer lower initial rates and payments, making them potentially better for short-term ownership (selling before the fixed period ends), buyers needing lower initial payments to qualify, those confident they'll refinance before adjustments, and financially flexible borrowers who can handle payment increases. Use an arm vs fixed rate calculator to model both options with your specific loan amount and ownership timeline. The question 'is fixed or adjustable rate better' or 'fixed rate vs adjustable rate' comes down to your risk tolerance, ownership plans, and financial situation."
     },
     {
       q: "What are ARM rate caps?",
-      a: "ARM rate caps are contractual limits on how much your interest rate can increase, protecting borrowers from unlimited rate spikes. Three types of caps apply: (1) Initial adjustment cap—limits the first rate change after the fixed period (commonly 2% or 5%); (2) Periodic adjustment cap—limits subsequent rate changes (typically 2% per adjustment); (3) Lifetime cap—maximum total increase over the loan's life (usually 5-6% above the start rate). Example: A 7/1 ARM starting at 6.0% with 2/2/5 caps can adjust to maximum 8.0% in year 8, then 10.0% in year 9, with an 11.0% lifetime maximum. Even if market rates spike dramatically, your rate cannot exceed these caps. Always verify cap structure before choosing an ARM—it's your protection against worst-case rate scenarios."
+      a: "ARM rate caps are contractual limits on how much your interest rate can increase, protecting borrowers from unlimited rate spikes. Three types of caps apply: (1) Initial adjustment capâ€”limits the first rate change after the fixed period (commonly 2% or 5%); (2) Periodic adjustment capâ€”limits subsequent rate changes (typically 2% per adjustment); (3) Lifetime capâ€”maximum total increase over the loan's life (usually 5-6% above the start rate). Example: A 7/1 ARM starting at 6.0% with 2/2/5 caps can adjust to maximum 8.0% in year 8, then 10.0% in year 9, with an 11.0% lifetime maximum. Even if market rates spike dramatically, your rate cannot exceed these caps. Always verify cap structure before choosing an ARMâ€”it's your protection against worst-case rate scenarios."
     },
     {
       q: "How can I use a fixed vs ARM calculator?",
-      a: "A fixed vs arm mortgage calculator or fixed rate vs arm mortgage calculator requires these inputs: loan amount, down payment, loan term, fixed-rate interest rate, ARM initial rate, ARM adjustment period (5/1, 7/1, etc.), and estimated future rates or adjustment scenarios. The calculator shows: initial monthly payments for both options, total interest paid over various time periods, break-even analysis (when does ARM adjustment eliminate initial savings?), and side-by-side cost comparisons. Model multiple scenarios—rates stay flat, increase moderately, or hit maximum caps. Focus on your likely ownership period: if selling in 7 years, compare total costs through year 7. A mortgage calculator with ARM features or dedicated arm vs fixed rate calculator helps quantify the tradeoff between initial savings and adjustment risk."
+      a: "A fixed vs arm mortgage calculator or fixed rate vs arm mortgage calculator requires these inputs: loan amount, down payment, loan term, fixed-rate interest rate, ARM initial rate, ARM adjustment period (5/1, 7/1, etc.), and estimated future rates or adjustment scenarios. The calculator shows: initial monthly payments for both options, total interest paid over various time periods, break-even analysis (when does ARM adjustment eliminate initial savings?), and side-by-side cost comparisons. Model multiple scenariosâ€”rates stay flat, increase moderately, or hit maximum caps. Focus on your likely ownership period: if selling in 7 years, compare total costs through year 7. A mortgage calculator with ARM features or dedicated arm vs fixed rate calculator helps quantify the tradeoff between initial savings and adjustment risk."
     },
     {
       q: "Can my ARM payment go down after adjustment?",
-      a: "Yes—ARM payments can decrease if interest rates fall. When your ARM adjusts, the new rate equals the current index value plus your loan's margin. If the index (such as SOFR, Treasury rates, or prime rate) has declined since your loan originated, your adjusted rate could be lower than your initial rate, reducing your monthly payment. However, some ARMs have 'floor' rates preventing the rate from falling below a certain level. Rate decreases are less common in rising-rate environments but can occur during economic slowdowns or when central banks lower rates. This payment flexibility is one ARM advantage—fixed-rate borrowers must refinance to benefit from falling rates, while ARM borrowers automatically adjust downward (subject to any floor provisions)."
+      a: "Yesâ€”ARM payments can decrease if interest rates fall. When your ARM adjusts, the new rate equals the current index value plus your loan's margin. If the index (such as SOFR, Treasury rates, or prime rate) has declined since your loan originated, your adjusted rate could be lower than your initial rate, reducing your monthly payment. However, some ARMs have 'floor' rates preventing the rate from falling below a certain level. Rate decreases are less common in rising-rate environments but can occur during economic slowdowns or when central banks lower rates. This payment flexibility is one ARM advantageâ€”fixed-rate borrowers must refinance to benefit from falling rates, while ARM borrowers automatically adjust downward (subject to any floor provisions)."
     },
     {
       q: "Should I get a 7-year ARM if rates are high?",
-      a: "The question 'Is a 7 year ARM a good idea right now?' depends on current rate environment, your ownership timeline, and risk tolerance. When mortgage rates are elevated, a 7/1 ARM might offer a significantly lower initial rate than a 30-year fixed, providing substantial payment relief. This strategy makes sense if: (1) you plan to sell or refinance within 7-10 years; (2) you believe rates will stabilize or decline by adjustment time, allowing refinancing at better terms; (3) you can financially handle potential payment increases; (4) the initial savings meaningfully improve affordability. However, rates fluctuate constantly—'right now' changes monthly. Evaluate using a 7/1 ARM calculator with multiple adjustment scenarios, not just best-case assumptions. Consider whether payment increases at worst-case cap limits would strain your budget."
+      a: "The question 'Is a 7 year ARM a good idea right now?' depends on current rate environment, your ownership timeline, and risk tolerance. When mortgage rates are elevated, a 7/1 ARM might offer a significantly lower initial rate than a 30-year fixed, providing substantial payment relief. This strategy makes sense if: (1) you plan to sell or refinance within 7-10 years; (2) you believe rates will stabilize or decline by adjustment time, allowing refinancing at better terms; (3) you can financially handle potential payment increases; (4) the initial savings meaningfully improve affordability. However, rates fluctuate constantlyâ€”'right now' changes monthly. Evaluate using a 7/1 ARM calculator with multiple adjustment scenarios, not just best-case assumptions. Consider whether payment increases at worst-case cap limits would strain your budget."
     }
   ];
 
@@ -101,19 +101,19 @@ export default function FixedVsARMCalculatorPage() {
         
         <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
           <time>March 18, 2026</time>
-          <span className="mx-3">•</span>
+          <span className="mx-3">â€¢</span>
           <span>15 min read</span>
         </div>
       </div>
 
       {/* Article Content */}
-      <article className="pb-16">
+      <article className="pb-2">
         <div className="mx-auto max-w-3xl px-6 sm:px-8">
           <div className="prose prose-slate prose-lg max-w-none">
             
             {/* Introduction */}
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              Choosing between a fixed-rate mortgage and an adjustable-rate mortgage (ARM) ranks among the most consequential decisions in home financing. While a fixed-rate loan locks your interest rate and monthly payment for the entire loan term—typically 30 or 15 years—an ARM offers a lower initial rate that adjusts periodically after a fixed introductory period. The fundamental tradeoff is straightforward: fixed-rate mortgages provide complete payment certainty, while ARMs offer initial savings at the cost of future payment uncertainty. Understanding how to compare these options using a fixed vs arm mortgage calculator helps you quantify this tradeoff and make an informed choice based on your financial situation, ownership timeline, and risk tolerance.
+              Choosing between a fixed-rate mortgage and an adjustable-rate mortgage (ARM) ranks among the most consequential decisions in home financing. While a fixed-rate loan locks your interest rate and monthly payment for the entire loan termâ€”typically 30 or 15 yearsâ€”an ARM offers a lower initial rate that adjusts periodically after a fixed introductory period. The fundamental tradeoff is straightforward: fixed-rate mortgages provide complete payment certainty, while ARMs offer initial savings at the cost of future payment uncertainty. Understanding how to compare these options using a fixed vs arm mortgage calculator helps you quantify this tradeoff and make an informed choice based on your financial situation, ownership timeline, and risk tolerance.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-8">
@@ -126,7 +126,7 @@ export default function FixedVsARMCalculatorPage() {
             <h2 className="text-2xl font-bold text-slate-900 mt-10 mb-4">How Fixed-Rate Mortgages Work</h2>
             
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              A fixed-rate mortgage locks your interest rate for the entire loan term—commonly 30 years or 15 years in the United States. Your monthly principal and interest payment is calculated at loan origination using the standard mortgage formula and remains unchanged for the life of the loan. If you borrow $320,000 at 6.75% for 30 years, your monthly payment of $2,075 stays exactly $2,075 in month 1, month 180, and month 360. Property taxes and insurance may fluctuate over time, but your principal and interest component never changes unless you refinance.
+              A fixed-rate mortgage locks your interest rate for the entire loan termâ€”commonly 30 years or 15 years in the United States. Your monthly principal and interest payment is calculated at loan origination using the standard mortgage formula and remains unchanged for the life of the loan. If you borrow $320,000 at 6.75% for 30 years, your monthly payment of $2,075 stays exactly $2,075 in month 1, month 180, and month 360. Property taxes and insurance may fluctuate over time, but your principal and interest component never changes unless you refinance.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -141,7 +141,7 @@ export default function FixedVsARMCalculatorPage() {
             </ul>
 
             <p className="text-base text-slate-600 leading-relaxed mb-8">
-              The tradeoff for this certainty is typically a higher initial interest rate compared to ARMs. Lenders charge a premium for locking rates over long periods, meaning a 30-year fixed rate is usually 0.50-0.75% higher than a 5/1 or 7/1 ARM's initial rate. Whether this rate premium is worth paying depends on how you value payment certainty versus initial savings—a calculation a mortgage calculator or fixed rate vs arm mortgage calculator can help quantify.
+              The tradeoff for this certainty is typically a higher initial interest rate compared to ARMs. Lenders charge a premium for locking rates over long periods, meaning a 30-year fixed rate is usually 0.50-0.75% higher than a 5/1 or 7/1 ARM's initial rate. Whether this rate premium is worth paying depends on how you value payment certainty versus initial savingsâ€”a calculation a mortgage calculator or fixed rate vs arm mortgage calculator can help quantify.
             </p>
 
 
@@ -150,7 +150,7 @@ export default function FixedVsARMCalculatorPage() {
             <h2 className="text-2xl font-bold text-slate-900 mt-10 mb-4">How Adjustable-Rate Mortgages (ARMs) Work</h2>
             
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              An adjustable-rate mortgage starts with a fixed interest rate for an initial period—typically 5, 7, or 10 years—then adjusts periodically based on market interest rates plus the lender's margin. ARMs are named by their structure: a 5/1 ARM has a 5-year fixed period followed by annual adjustments; a 7/1 ARM provides 7 years of rate stability before annual adjustments; a 10/1 ARM locks the rate for 10 years. The initial fixed period gives you payment certainty for a defined timeframe, after which your rate (and payment) can change based on prevailing interest rate conditions.
+              An adjustable-rate mortgage starts with a fixed interest rate for an initial periodâ€”typically 5, 7, or 10 yearsâ€”then adjusts periodically based on market interest rates plus the lender's margin. ARMs are named by their structure: a 5/1 ARM has a 5-year fixed period followed by annual adjustments; a 7/1 ARM provides 7 years of rate stability before annual adjustments; a 10/1 ARM locks the rate for 10 years. The initial fixed period gives you payment certainty for a defined timeframe, after which your rate (and payment) can change based on prevailing interest rate conditions.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -158,9 +158,9 @@ export default function FixedVsARMCalculatorPage() {
             </p>
 
             <ol className="list-decimal pl-8 mb-6 space-y-3 text-base text-slate-600">
-              <li><strong>Index selection:</strong> Your ARM rate ties to a specific financial index that reflects market interest rates—commonly the Secured Overnight Financing Rate (SOFR), U.S. Treasury yields, or the prime rate. When the index moves up or down, your ARM rate follows.</li>
+              <li><strong>Index selection:</strong> Your ARM rate ties to a specific financial index that reflects market interest ratesâ€”commonly the Secured Overnight Financing Rate (SOFR), U.S. Treasury yields, or the prime rate. When the index moves up or down, your ARM rate follows.</li>
               
-              <li><strong>Margin addition:</strong> The lender adds a fixed percentage (the margin) to the index value. For example, if the index is 4.50% and your margin is 2.50%, your adjusted rate becomes 7.00%. The margin never changes—it's set at loan origination.</li>
+              <li><strong>Margin addition:</strong> The lender adds a fixed percentage (the margin) to the index value. For example, if the index is 4.50% and your margin is 2.50%, your adjusted rate becomes 7.00%. The margin never changesâ€”it's set at loan origination.</li>
               
               <li><strong>Rate cap protections:</strong> ARMs include contractual caps that limit rate increases:
                 <ul className="list-disc pl-6 mt-2 space-y-1">
@@ -172,7 +172,7 @@ export default function FixedVsARMCalculatorPage() {
             </ol>
 
             <p className="text-base text-slate-600 leading-relaxed mb-8">
-              ARM cap structures are often written as three numbers: 2/2/5 or 5/2/5 (initial cap / periodic cap / lifetime cap). These caps protect you from unlimited rate spikes—even if market rates soar, your rate increases are contractually limited. When comparing fixed vs arm rates or using a 7/1 ARM calculator, understanding these caps is essential for modeling worst-case payment scenarios.
+              ARM cap structures are often written as three numbers: 2/2/5 or 5/2/5 (initial cap / periodic cap / lifetime cap). These caps protect you from unlimited rate spikesâ€”even if market rates soar, your rate increases are contractually limited. When comparing fixed vs arm rates or using a 7/1 ARM calculator, understanding these caps is essential for modeling worst-case payment scenarios.
             </p>
 
 
@@ -181,7 +181,7 @@ export default function FixedVsARMCalculatorPage() {
             <h2 className="text-2xl font-bold text-slate-900 mt-10 mb-4">How to Calculate and Compare Payments</h2>
             
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              Both fixed-rate and ARM initial payments use the same standard mortgage payment formula: M = P[r(1+r)^n] / [(1+r)^n - 1], where M is monthly payment, P is principal (loan amount), r is monthly interest rate (annual rate ÷ 12), and n is total number of payments (loan term in years × 12). The difference emerges after an ARM's fixed period ends—at that point, the payment is recalculated using the remaining loan balance, the new adjusted interest rate, and the remaining loan term.
+              Both fixed-rate and ARM initial payments use the same standard mortgage payment formula: M = P[r(1+r)^n] / [(1+r)^n - 1], where M is monthly payment, P is principal (loan amount), r is monthly interest rate (annual rate Ã· 12), and n is total number of payments (loan term in years Ã— 12). The difference emerges after an ARM's fixed period endsâ€”at that point, the payment is recalculated using the remaining loan balance, the new adjusted interest rate, and the remaining loan term.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -191,7 +191,7 @@ export default function FixedVsARMCalculatorPage() {
             <ol className="list-decimal pl-8 mb-6 space-y-3 text-base text-slate-600">
               <li><strong>Calculate initial payments:</strong> Apply the mortgage formula to both options using their respective rates. A fixed vs arm mortgage calculator or arm vs fixed rate calculator performs this calculation instantly.</li>
               
-              <li><strong>Model ARM adjustments:</strong> Estimate the remaining balance when the ARM adjusts, then recalculate the payment using potential adjusted rates—best case (rates fall), moderate case (moderate increase), and worst case (hitting rate caps).</li>
+              <li><strong>Model ARM adjustments:</strong> Estimate the remaining balance when the ARM adjusts, then recalculate the payment using potential adjusted ratesâ€”best case (rates fall), moderate case (moderate increase), and worst case (hitting rate caps).</li>
               
               <li><strong>Compare total costs over your ownership timeline:</strong> If you plan to sell in 7 years, compare cumulative costs through year 7, not the full 30-year period. A 5/1 ARM vs 30-year fixed calculator helps visualize these comparisons.</li>
               
@@ -201,7 +201,7 @@ export default function FixedVsARMCalculatorPage() {
             </ol>
 
             <p className="text-base text-slate-600 leading-relaxed mb-8">
-              A comprehensive fixed rate vs arm mortgage calculator should allow you to input different adjustment scenarios rather than assuming rates stay constant. The most valuable analysis compares not just initial payments but total interest paid, required income for qualification, and financial flexibility to absorb payment changes. When evaluating ARM vs fixed rate options, focus on scenarios matching your likely behavior—will you actually sell in 5-7 years, or might circumstances change?
+              A comprehensive fixed rate vs arm mortgage calculator should allow you to input different adjustment scenarios rather than assuming rates stay constant. The most valuable analysis compares not just initial payments but total interest paid, required income for qualification, and financial flexibility to absorb payment changes. When evaluating ARM vs fixed rate options, focus on scenarios matching your likely behaviorâ€”will you actually sell in 5-7 years, or might circumstances change?
             </p>
 
 
@@ -210,16 +210,16 @@ export default function FixedVsARMCalculatorPage() {
             <h2 className="text-2xl font-bold text-slate-900 mt-10 mb-4">Hypothetical Example 1: 5/1 ARM vs 30-Year Fixed</h2>
             
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              This hypothetical comparison illustrates how a 5/1 ARM's lower initial rate creates payment savings but introduces adjustment risk. All figures are for illustration only—actual rates vary by borrower, market conditions, and date.
+              This hypothetical comparison illustrates how a 5/1 ARM's lower initial rate creates payment savings but introduces adjustment risk. All figures are for illustration onlyâ€”actual rates vary by borrower, market conditions, and date.
             </p>
 
             <div className="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-6">
               <p className="font-bold text-slate-900 mb-3">Common Scenario Parameters:</p>
               <ul className="space-y-1 text-sm text-slate-600">
-                <li>• Purchase price: $400,000</li>
-                <li>• Down payment: 20% ($80,000)</li>
-                <li>• Loan amount: $320,000</li>
-                <li>• Loan term: 30 years (360 months)</li>
+                <li>â€¢ Purchase price: $400,000</li>
+                <li>â€¢ Down payment: 20% ($80,000)</li>
+                <li>â€¢ Loan amount: $320,000</li>
+                <li>â€¢ Loan term: 30 years (360 months)</li>
               </ul>
             </div>
 
@@ -227,21 +227,21 @@ export default function FixedVsARMCalculatorPage() {
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-5">
                 <h3 className="font-bold text-slate-900 mb-3">Option A: 30-Year Fixed at 6.75%</h3>
                 <ul className="space-y-2 text-sm text-slate-600">
-                  <li>• Monthly interest rate: 6.75% ÷ 12 = 0.005625</li>
-                  <li>• Monthly P&I: <strong>$2,075</strong></li>
-                  <li>• Payment stays $2,075 all 360 months</li>
-                  <li>• Total interest over 30 years: $427,000</li>
+                  <li>â€¢ Monthly interest rate: 6.75% Ã· 12 = 0.005625</li>
+                  <li>â€¢ Monthly P&I: <strong>$2,075</strong></li>
+                  <li>â€¢ Payment stays $2,075 all 360 months</li>
+                  <li>â€¢ Total interest over 30 years: $427,000</li>
                 </ul>
               </div>
 
               <div className="bg-green-50 border border-green-200 rounded-lg p-5">
                 <h3 className="font-bold text-slate-900 mb-3">Option B: 5/1 ARM at 6.00%</h3>
                 <ul className="space-y-2 text-sm text-slate-600">
-                  <li>• Initial monthly rate: 6.00% ÷ 12 = 0.005</li>
-                  <li>• Initial monthly P&I: <strong>$1,918</strong></li>
-                  <li>• Years 1-5: Payment stays $1,918</li>
-                  <li>• Savings vs fixed: $157/month</li>
-                  <li>• Total 5-year savings: <strong>$9,420</strong></li>
+                  <li>â€¢ Initial monthly rate: 6.00% Ã· 12 = 0.005</li>
+                  <li>â€¢ Initial monthly P&I: <strong>$1,918</strong></li>
+                  <li>â€¢ Years 1-5: Payment stays $1,918</li>
+                  <li>â€¢ Savings vs fixed: $157/month</li>
+                  <li>â€¢ Total 5-year savings: <strong>$9,420</strong></li>
                 </ul>
               </div>
             </div>
@@ -258,31 +258,31 @@ export default function FixedVsARMCalculatorPage() {
               <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
                 <h4 className="font-bold text-slate-900 mb-2">Scenario 1: Rates Rise (Adjusted Rate = 7.50%)</h4>
                 <ul className="space-y-1 text-sm text-slate-600">
-                  <li>• New rate: 7.50% (1.50% increase, within 2% cap)</li>
-                  <li>• New monthly payment: <strong>$2,121</strong></li>
-                  <li>• Now paying <strong>$46/month MORE</strong> than the fixed option</li>
-                  <li>• Year 6 cost: $25,452 vs $24,900 (fixed) = $552 more</li>
-                  <li>• This $552 loss chips away at the $9,420 saved in years 1-5</li>
+                  <li>â€¢ New rate: 7.50% (1.50% increase, within 2% cap)</li>
+                  <li>â€¢ New monthly payment: <strong>$2,121</strong></li>
+                  <li>â€¢ Now paying <strong>$46/month MORE</strong> than the fixed option</li>
+                  <li>â€¢ Year 6 cost: $25,452 vs $24,900 (fixed) = $552 more</li>
+                  <li>â€¢ This $552 loss chips away at the $9,420 saved in years 1-5</li>
                 </ul>
               </div>
 
               <div className="bg-green-50 border border-green-200 rounded-lg p-4">
                 <h4 className="font-bold text-slate-900 mb-2">Scenario 2: Rates Stay Moderate (Adjusted Rate = 6.50%)</h4>
                 <ul className="space-y-1 text-sm text-slate-600">
-                  <li>• New rate: 6.50% (0.50% increase)</li>
-                  <li>• New monthly payment: <strong>$2,038</strong></li>
-                  <li>• Still saving <strong>$37/month</strong> vs fixed option</li>
-                  <li>• Continue accumulating savings beyond year 5</li>
+                  <li>â€¢ New rate: 6.50% (0.50% increase)</li>
+                  <li>â€¢ New monthly payment: <strong>$2,038</strong></li>
+                  <li>â€¢ Still saving <strong>$37/month</strong> vs fixed option</li>
+                  <li>â€¢ Continue accumulating savings beyond year 5</li>
                 </ul>
               </div>
 
               <div className="bg-red-50 border border-red-200 rounded-lg p-4">
                 <h4 className="font-bold text-slate-900 mb-2">Scenario 3: Maximum Caps Hit (Adjusted Rate = 8.00%)</h4>
                 <ul className="space-y-1 text-sm text-slate-600">
-                  <li>• New rate: 8.00% (2% increase, hitting initial cap)</li>
-                  <li>• New monthly payment: <strong>$2,205</strong></li>
-                  <li>• Paying <strong>$130/month MORE</strong> than fixed</li>
-                  <li>• Would eliminate 5-year savings in ~6 years if sustained</li>
+                  <li>â€¢ New rate: 8.00% (2% increase, hitting initial cap)</li>
+                  <li>â€¢ New monthly payment: <strong>$2,205</strong></li>
+                  <li>â€¢ Paying <strong>$130/month MORE</strong> than fixed</li>
+                  <li>â€¢ Would eliminate 5-year savings in ~6 years if sustained</li>
                 </ul>
               </div>
             </div>
@@ -303,10 +303,10 @@ export default function FixedVsARMCalculatorPage() {
             <div className="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-6">
               <p className="font-bold text-slate-900 mb-3">Common Scenario Parameters:</p>
               <ul className="space-y-1 text-sm text-slate-600">
-                <li>• Purchase price: $500,000</li>
-                <li>• Down payment: 20% ($100,000)</li>
-                <li>• Loan amount: $400,000</li>
-                <li>• Loan term: 30 years (360 months)</li>
+                <li>â€¢ Purchase price: $500,000</li>
+                <li>â€¢ Down payment: 20% ($100,000)</li>
+                <li>â€¢ Loan amount: $400,000</li>
+                <li>â€¢ Loan term: 30 years (360 months)</li>
               </ul>
             </div>
 
@@ -314,21 +314,21 @@ export default function FixedVsARMCalculatorPage() {
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-5">
                 <h3 className="font-bold text-slate-900 mb-3">Option A: 30-Year Fixed at 6.875%</h3>
                 <ul className="space-y-2 text-sm text-slate-600">
-                  <li>• Monthly interest rate: 0.0057292</li>
-                  <li>• Monthly P&I: <strong>$2,629</strong></li>
-                  <li>• Payment unchanged for 360 months</li>
-                  <li>• Total interest over 30 years: $546,440</li>
+                  <li>â€¢ Monthly interest rate: 0.0057292</li>
+                  <li>â€¢ Monthly P&I: <strong>$2,629</strong></li>
+                  <li>â€¢ Payment unchanged for 360 months</li>
+                  <li>â€¢ Total interest over 30 years: $546,440</li>
                 </ul>
               </div>
 
               <div className="bg-green-50 border border-green-200 rounded-lg p-5">
                 <h3 className="font-bold text-slate-900 mb-3">Option B: 7/1 ARM at 6.125%</h3>
                 <ul className="space-y-2 text-sm text-slate-600">
-                  <li>• Initial monthly rate: 0.0051042</li>
-                  <li>• Initial monthly P&I: <strong>$2,426</strong></li>
-                  <li>• Years 1-7: Payment stays $2,426</li>
-                  <li>• Savings vs fixed: $203/month</li>
-                  <li>• Total 7-year savings: <strong>$17,052</strong></li>
+                  <li>â€¢ Initial monthly rate: 0.0051042</li>
+                  <li>â€¢ Initial monthly P&I: <strong>$2,426</strong></li>
+                  <li>â€¢ Years 1-7: Payment stays $2,426</li>
+                  <li>â€¢ Savings vs fixed: $203/month</li>
+                  <li>â€¢ Total 7-year savings: <strong>$17,052</strong></li>
                 </ul>
               </div>
             </div>
@@ -345,38 +345,38 @@ export default function FixedVsARMCalculatorPage() {
               <div className="bg-red-50 border border-red-200 rounded-lg p-4">
                 <h4 className="font-bold text-slate-900 mb-2">Worst Case: Hitting Rate Cap (Adjusted Rate = 8.125%)</h4>
                 <ul className="space-y-1 text-sm text-slate-600">
-                  <li>• New rate: 8.125% (2% increase, maximum initial cap)</li>
-                  <li>• Remaining balance: $362,000</li>
-                  <li>• Remaining term: 23 years (276 months)</li>
-                  <li>• New monthly payment: <strong>$2,772</strong></li>
-                  <li>• Now paying <strong>$143/month MORE</strong> than fixed option</li>
-                  <li>• At this rate, would eliminate 7-year savings in ~10 years</li>
+                  <li>â€¢ New rate: 8.125% (2% increase, maximum initial cap)</li>
+                  <li>â€¢ Remaining balance: $362,000</li>
+                  <li>â€¢ Remaining term: 23 years (276 months)</li>
+                  <li>â€¢ New monthly payment: <strong>$2,772</strong></li>
+                  <li>â€¢ Now paying <strong>$143/month MORE</strong> than fixed option</li>
+                  <li>â€¢ At this rate, would eliminate 7-year savings in ~10 years</li>
                 </ul>
               </div>
 
               <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
                 <h4 className="font-bold text-slate-900 mb-2">Moderate Case: (Adjusted Rate = 7.125%)</h4>
                 <ul className="space-y-1 text-sm text-slate-600">
-                  <li>• New rate: 7.125% (1% increase)</li>
-                  <li>• New monthly payment: <strong>$2,607</strong></li>
-                  <li>• Still saving <strong>$22/month</strong> vs fixed option</li>
-                  <li>• Continue building cumulative savings advantage</li>
+                  <li>â€¢ New rate: 7.125% (1% increase)</li>
+                  <li>â€¢ New monthly payment: <strong>$2,607</strong></li>
+                  <li>â€¢ Still saving <strong>$22/month</strong> vs fixed option</li>
+                  <li>â€¢ Continue building cumulative savings advantage</li>
                 </ul>
               </div>
 
               <div className="bg-green-50 border border-green-200 rounded-lg p-4">
                 <h4 className="font-bold text-slate-900 mb-2">Best Case: Rates Decline (Adjusted Rate = 5.625%)</h4>
                 <ul className="space-y-1 text-sm text-slate-600">
-                  <li>• New rate: 5.625% (0.5% decrease)</li>
-                  <li>• New monthly payment: <strong>$2,319</strong></li>
-                  <li>• Saving <strong>$310/month</strong> vs fixed option</li>
-                  <li>• This scenario demonstrates ARM downside protection</li>
+                  <li>â€¢ New rate: 5.625% (0.5% decrease)</li>
+                  <li>â€¢ New monthly payment: <strong>$2,319</strong></li>
+                  <li>â€¢ Saving <strong>$310/month</strong> vs fixed option</li>
+                  <li>â€¢ This scenario demonstrates ARM downside protection</li>
                 </ul>
               </div>
             </div>
 
             <p className="text-base text-slate-600 leading-relaxed mb-8">
-              The 7/1 ARM provides more certainty than a 5/1 ARM while still offering substantial initial savings—in this hypothetical example, over $17,000 in the first 7 years. This structure suits buyers who plan 7-10 year ownership or expect to refinance before year 8. However, the adjustment risk remains: if rates rise significantly and hit caps, you could pay more than the fixed option. A 7/1 ARM vs 30-year fixed rates comparison using a 7/1 ARM calculator helps evaluate whether the extended fixed period and initial savings align with your financial plans and risk tolerance.
+              The 7/1 ARM provides more certainty than a 5/1 ARM while still offering substantial initial savingsâ€”in this hypothetical example, over $17,000 in the first 7 years. This structure suits buyers who plan 7-10 year ownership or expect to refinance before year 8. However, the adjustment risk remains: if rates rise significantly and hit caps, you could pay more than the fixed option. A 7/1 ARM vs 30-year fixed rates comparison using a 7/1 ARM calculator helps evaluate whether the extended fixed period and initial savings align with your financial plans and risk tolerance.
             </p>
 
 
@@ -385,7 +385,7 @@ export default function FixedVsARMCalculatorPage() {
             <h2 className="text-2xl font-bold text-slate-900 mt-10 mb-4">Fixed vs Adjustable Rate: Key Considerations</h2>
             
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              The question "is fixed or adjustable rate better" or "fixed rate vs adjustable rate" doesn't have a universal answer—the right choice depends on multiple factors specific to your situation. Here are the key considerations when comparing ARM vs fixed rate options:
+              The question "is fixed or adjustable rate better" or "fixed rate vs adjustable rate" doesn't have a universal answerâ€”the right choice depends on multiple factors specific to your situation. Here are the key considerations when comparing ARM vs fixed rate options:
             </p>
 
             <div className="space-y-6 mb-8">
@@ -416,8 +416,8 @@ export default function FixedVsARMCalculatorPage() {
               <div className="bg-slate-50 border-l-4 border-indigo-600 p-5">
                 <h3 className="font-bold text-slate-900 mb-2">Current Rate Environment</h3>
                 <p className="text-sm text-slate-600">
-                  <strong>Favor Fixed if:</strong> Current mortgage rates are historically low—locking in a low rate for 30 years provides long-term value.<br />
-                  <strong>Favor ARM if:</strong> Rates are historically high and you believe they'll decline, allowing refinancing or favorable adjustments. However, rate predictions are uncertain—don't base decisions solely on rate forecasts.
+                  <strong>Favor Fixed if:</strong> Current mortgage rates are historically lowâ€”locking in a low rate for 30 years provides long-term value.<br />
+                  <strong>Favor ARM if:</strong> Rates are historically high and you believe they'll decline, allowing refinancing or favorable adjustments. However, rate predictions are uncertainâ€”don't base decisions solely on rate forecasts.
                 </p>
               </div>
 
@@ -431,7 +431,7 @@ export default function FixedVsARMCalculatorPage() {
             </div>
 
             <p className="text-base text-slate-600 leading-relaxed mb-8">
-              Use a fixed vs arm mortgage calculator to quantify these tradeoffs with your specific numbers. Model scenarios matching your likely behavior—if you "plan" to sell in 5 years but might stay 10, stress test the ARM across that longer timeline. The goal isn't to predict the future perfectly but to ensure you can handle reasonable worst-case scenarios.
+              Use a fixed vs arm mortgage calculator to quantify these tradeoffs with your specific numbers. Model scenarios matching your likely behaviorâ€”if you "plan" to sell in 5 years but might stay 10, stress test the ARM across that longer timeline. The goal isn't to predict the future perfectly but to ensure you can handle reasonable worst-case scenarios.
             </p>
 
 
@@ -449,33 +449,33 @@ export default function FixedVsARMCalculatorPage() {
               <div className="space-y-4 text-sm text-slate-600">
                 <div>
                   <p className="font-semibold text-slate-900 mb-1">Scenario 1: Moderate Increase ($50/month more than fixed)</p>
-                  <p>Break-even time: $9,420 ÷ $50 = 188 months (15.7 years after adjustment)</p>
+                  <p>Break-even time: $9,420 Ã· $50 = 188 months (15.7 years after adjustment)</p>
                   <p className="italic">Total break-even: 5 years (savings period) + 15.7 years = 20.7 years into the loan</p>
                 </div>
 
                 <div>
                   <p className="font-semibold text-slate-900 mb-1">Scenario 2: Significant Increase ($150/month more than fixed)</p>
-                  <p>Break-even time: $9,420 ÷ $150 = 63 months (5.3 years after adjustment)</p>
+                  <p>Break-even time: $9,420 Ã· $150 = 63 months (5.3 years after adjustment)</p>
                   <p className="italic">Total break-even: 5 years + 5.3 years = 10.3 years into the loan</p>
                 </div>
 
                 <div>
                   <p className="font-semibold text-slate-900 mb-1">Scenario 3: Maximum Cap Increase ($250/month more than fixed)</p>
-                  <p>Break-even time: $9,420 ÷ $250 = 38 months (3.2 years after adjustment)</p>
+                  <p>Break-even time: $9,420 Ã· $250 = 38 months (3.2 years after adjustment)</p>
                   <p className="italic">Total break-even: 5 years + 3.2 years = 8.2 years into the loan</p>
                 </div>
               </div>
             </div>
 
             <p className="text-base text-slate-600 leading-relaxed mb-8">
-              If you plan to sell in 7-8 years and worst-case rate adjustments would break even at year 8.2, the ARM carries significant risk—you might not capture net savings. However, if you're selling in year 6, even worst-case adjustments wouldn't eliminate your cumulative savings. A comprehensive arm vs fixed rate calculator helps model these break-even points across different payment increase scenarios, showing you where your ownership timeline intersects with risk.
+              If you plan to sell in 7-8 years and worst-case rate adjustments would break even at year 8.2, the ARM carries significant riskâ€”you might not capture net savings. However, if you're selling in year 6, even worst-case adjustments wouldn't eliminate your cumulative savings. A comprehensive arm vs fixed rate calculator helps model these break-even points across different payment increase scenarios, showing you where your ownership timeline intersects with risk.
             </p>
 
             {/* Section 8: Canadian Mortgage Context */}
             <h2 className="text-2xl font-bold text-slate-900 mt-10 mb-4">Canadian Mortgage Context: Different Structure</h2>
             
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              Canadian mortgages operate fundamentally differently from U.S. mortgages, making direct comparisons challenging. In Canada, mortgages are structured with separate "terms" and "amortization periods." The amortization is typically 25 years (though it can be 30 years), but you choose a rate term—commonly 1, 3, 5, or 10 years—for which your rate is fixed or variable. At the end of each term, you must renew (refinance) the mortgage at prevailing rates.
+              Canadian mortgages operate fundamentally differently from U.S. mortgages, making direct comparisons challenging. In Canada, mortgages are structured with separate "terms" and "amortization periods." The amortization is typically 25 years (though it can be 30 years), but you choose a rate termâ€”commonly 1, 3, 5, or 10 yearsâ€”for which your rate is fixed or variable. At the end of each term, you must renew (refinance) the mortgage at prevailing rates.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -509,7 +509,7 @@ export default function FixedVsARMCalculatorPage() {
               <div>
                 <h3 className="font-semibold text-slate-900 mb-2">1. Input Accurate Loan Parameters</h3>
                 <p className="text-sm text-slate-600">
-                  Enter your actual loan amount, down payment, and term. Even small rate differences create significant payment variations on large loan amounts—$400,000 at 6.5% vs 6.75% is a $62/month difference, or $22,320 over 30 years.
+                  Enter your actual loan amount, down payment, and term. Even small rate differences create significant payment variations on large loan amountsâ€”$400,000 at 6.5% vs 6.75% is a $62/month difference, or $22,320 over 30 years.
                 </p>
               </div>
 
@@ -557,7 +557,7 @@ export default function FixedVsARMCalculatorPage() {
             </div>
 
             <p className="text-base text-slate-600 leading-relaxed mb-8">
-              A mortgage calculator comparing arm vs fixed rate options provides quantitative analysis, but you must supply reasonable assumptions and scenarios. The calculator shows what happens under different conditions—you decide which scenarios are most likely and whether you can handle adverse outcomes. Use the calculator to inform your decision, not to predict the future with false precision.
+              A mortgage calculator comparing arm vs fixed rate options provides quantitative analysis, but you must supply reasonable assumptions and scenarios. The calculator shows what happens under different conditionsâ€”you decide which scenarios are most likely and whether you can handle adverse outcomes. Use the calculator to inform your decision, not to predict the future with false precision.
             </p>
 
 
@@ -566,7 +566,7 @@ export default function FixedVsARMCalculatorPage() {
             <h2 className="text-2xl font-bold text-slate-900 mt-10 mb-4">Understanding ARM Rate Cap Protection</h2>
             
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              ARM rate caps are your contractual protection against unlimited rate increases. Every ARM must disclose its cap structure upfront, and these limits are legally binding—your rate cannot exceed them regardless of how high market rates rise. Understanding cap structure is essential when evaluating ARM vs fixed rate options.
+              ARM rate caps are your contractual protection against unlimited rate increases. Every ARM must disclose its cap structure upfront, and these limits are legally bindingâ€”your rate cannot exceed them regardless of how high market rates rise. Understanding cap structure is essential when evaluating ARM vs fixed rate options.
             </p>
 
             <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-6 mb-6">
@@ -580,7 +580,7 @@ export default function FixedVsARMCalculatorPage() {
 
                 <div>
                   <p className="font-semibold text-slate-900 mb-1">2. Periodic Adjustment Cap</p>
-                  <p>Limits subsequent rate changes after the initial adjustment. Typically 2% per adjustment period. If your rate is 8% after the first adjustment, it can't exceed 10% at the second adjustment, 12% at the third, etc.—subject to the lifetime cap.</p>
+                  <p>Limits subsequent rate changes after the initial adjustment. Typically 2% per adjustment period. If your rate is 8% after the first adjustment, it can't exceed 10% at the second adjustment, 12% at the third, etc.â€”subject to the lifetime cap.</p>
                 </div>
 
                 <div>
@@ -639,7 +639,7 @@ export default function FixedVsARMCalculatorPage() {
               <div className="bg-red-50 border-l-4 border-red-600 p-4">
                 <h3 className="font-bold text-slate-900 mb-1">Mistake 4: Treating Fixed Rates as Always Better</h3>
                 <p className="text-sm text-slate-600">
-                  The opposite error—paying hundreds of dollars per month extra for a fixed rate when you'll definitively sell in 3-4 years—wastes money. If your ownership timeline is genuinely short and certain, the ARM's lower rate is financially advantageous.
+                  The opposite errorâ€”paying hundreds of dollars per month extra for a fixed rate when you'll definitively sell in 3-4 yearsâ€”wastes money. If your ownership timeline is genuinely short and certain, the ARM's lower rate is financially advantageous.
                 </p>
               </div>
 
@@ -690,7 +690,7 @@ export default function FixedVsARMCalculatorPage() {
             <ul className="list-disc pl-8 mb-6 space-y-2 text-base text-slate-600">
               <li><strong>Qualification uncertainty:</strong> Tighter credit standards, income changes, or declining home values might prevent refinancing when you need it.</li>
               
-              <li><strong>Closing costs:</strong> Refinancing typically costs 2-5% of loan amount in fees—$8,000-$20,000 on a $400,000 mortgage. These costs can eliminate ARM savings.</li>
+              <li><strong>Closing costs:</strong> Refinancing typically costs 2-5% of loan amount in feesâ€”$8,000-$20,000 on a $400,000 mortgage. These costs can eliminate ARM savings.</li>
               
               <li><strong>Interest rate environment:</strong> If rates rise dramatically, refinancing might not improve your situation even if you qualify.</li>
               
@@ -726,7 +726,7 @@ export default function FixedVsARMCalculatorPage() {
 
                 <div>
                   <p className="font-semibold text-slate-900 mb-2">Step 3: Model Break-Even Scenarios</p>
-                  <p>Calculate how long adverse rate adjustments would need to persist to eliminate ARM savings. Compare this to your ownership timeline—are you likely to capture net savings?</p>
+                  <p>Calculate how long adverse rate adjustments would need to persist to eliminate ARM savings. Compare this to your ownership timelineâ€”are you likely to capture net savings?</p>
                 </div>
 
                 <div>
@@ -736,7 +736,7 @@ export default function FixedVsARMCalculatorPage() {
 
                 <div>
                   <p className="font-semibold text-slate-900 mb-2">Step 5: Consider Refinancing Realistically</p>
-                  <p>Don't assume refinancing will solve problems. Model scenarios where you can't refinance—can you still handle ARM adjustments?</p>
+                  <p>Don't assume refinancing will solve problems. Model scenarios where you can't refinanceâ€”can you still handle ARM adjustments?</p>
                 </div>
 
                 <div>
@@ -747,11 +747,11 @@ export default function FixedVsARMCalculatorPage() {
             </div>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              Remember that neither choice is universally "better"—the question of "is fixed or adjustable rate better" depends entirely on your circumstances. A 5/1 ARM might be perfect for someone planning to sell in 4 years but disastrous for someone who might keep the home 15 years. A 30-year fixed mortgage provides peace of mind for long-term owners but costs someone planning a 5-year ownership thousands in unnecessary interest.
+              Remember that neither choice is universally "better"â€”the question of "is fixed or adjustable rate better" depends entirely on your circumstances. A 5/1 ARM might be perfect for someone planning to sell in 4 years but disastrous for someone who might keep the home 15 years. A 30-year fixed mortgage provides peace of mind for long-term owners but costs someone planning a 5-year ownership thousands in unnecessary interest.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-8">
-              Use the tools available—a 5/1 ARM vs 30-year fixed calculator, 7/1 ARM vs 30-year fixed rates comparison, ARM APR calculator, or general arm vs fixed rate calculator—to model your specific situation with real numbers. Make your decision based on quantitative analysis of multiple scenarios, not just initial payment differences or speculation about future rate movements. The right choice aligns your mortgage structure with your financial capacity, ownership plans, and tolerance for payment uncertainty.
+              Use the tools availableâ€”a 5/1 ARM vs 30-year fixed calculator, 7/1 ARM vs 30-year fixed rates comparison, ARM APR calculator, or general arm vs fixed rate calculatorâ€”to model your specific situation with real numbers. Make your decision based on quantitative analysis of multiple scenarios, not just initial payment differences or speculation about future rate movements. The right choice aligns your mortgage structure with your financial capacity, ownership plans, and tolerance for payment uncertainty.
             </p>
 
 

@@ -369,7 +369,7 @@ function MortgageAffordabilityCalculatorContent() {
                 <h4 className="font-serif text-lg font-bold text-slate-900">Single Income Professional</h4>
                 <p className="text-sm text-slate-600">Income: $95,000 | Age: 35 | Upgrading from condo</p>
               </div>
-              <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">Moderate Position</span>
+              <span className="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-semibold">Moderate Position</span>
             </div>
             <div className="grid md:grid-cols-2 gap-4 text-sm">
               <div>
@@ -497,3 +497,4 @@ export default function MortgageAffordabilityCalculatorPage() {
     </Suspense>
   );
 }
+

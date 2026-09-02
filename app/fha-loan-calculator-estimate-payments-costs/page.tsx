@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import Image from "next/image";
@@ -17,11 +17,11 @@ export default function FHALoanCalculatorArticle() {
   const faqs = [
     {
       q: "What credit score do I need for an FHA loan?",
-      a: "FHA loans require a minimum credit score of 580 to qualify for the standard 3.5% down payment option. If your score is between 500-579, you can still qualify but will need to make a 10% down payment. Scores below 500 typically don't qualify for FHA financing. However, individual lenders may have their own overlays requiring higher scores—some require 600 or 620 minimum. Better credit scores also help you secure lower interest rates, even within FHA programs."
+      a: "FHA loans require a minimum credit score of 580 to qualify for the standard 3.5% down payment option. If your score is between 500-579, you can still qualify but will need to make a 10% down payment. Scores below 500 typically don't qualify for FHA financing. However, individual lenders may have their own overlays requiring higher scoresâ€”some require 600 or 620 minimum. Better credit scores also help you secure lower interest rates, even within FHA programs."
     },
     {
       q: "Can I use an FHA loan calculator for a $400,000 home?",
-      a: "Yes, as long as $400,000 falls within the FHA loan limits for your county. FHA limits vary by location—most areas have conforming limits around $498,000-$510,000 for single-family homes, while high-cost areas can exceed $1 million. With a $400,000 purchase using 3.5% down, you'd borrow $386,000 as your base loan amount. The calculator would add the 1.75% upfront mortgage insurance premium (bringing your total loan to approximately $392,755) and include monthly mortgage insurance in your payment calculation."
+      a: "Yes, as long as $400,000 falls within the FHA loan limits for your county. FHA limits vary by locationâ€”most areas have conforming limits around $498,000-$510,000 for single-family homes, while high-cost areas can exceed $1 million. With a $400,000 purchase using 3.5% down, you'd borrow $386,000 as your base loan amount. The calculator would add the 1.75% upfront mortgage insurance premium (bringing your total loan to approximately $392,755) and include monthly mortgage insurance in your payment calculation."
     },
     {
       q: "How is FHA mortgage insurance (MIP) calculated?",
@@ -36,15 +36,15 @@ export default function FHALoanCalculatorArticle() {
   const faqs2 = [
     {
       q: "What income do I need to qualify for an FHA loan?",
-      a: "There's no specific income minimum for FHA loans—qualification depends on your debt-to-income (DTI) ratio rather than absolute income. FHA typically allows DTI ratios up to 43% (sometimes 50% with strong compensating factors). Your total monthly debts (including the new mortgage payment with principal, interest, taxes, insurance, and MIP) cannot exceed this percentage of your gross monthly income. For example, if you earn $6,000/month, your maximum housing payment would be around $2,580 at 43% DTI. An FHA loan calculator with income features helps determine what you can afford based on your specific earnings and existing debts."
+      a: "There's no specific income minimum for FHA loansâ€”qualification depends on your debt-to-income (DTI) ratio rather than absolute income. FHA typically allows DTI ratios up to 43% (sometimes 50% with strong compensating factors). Your total monthly debts (including the new mortgage payment with principal, interest, taxes, insurance, and MIP) cannot exceed this percentage of your gross monthly income. For example, if you earn $6,000/month, your maximum housing payment would be around $2,580 at 43% DTI. An FHA loan calculator with income features helps determine what you can afford based on your specific earnings and existing debts."
     },
     {
       q: "Can I avoid paying MIP on an FHA loan?",
-      a: "No—all FHA loans require mortgage insurance regardless of down payment size. You must pay the 1.75% upfront MIP and ongoing annual MIP. If you put down less than 10%, annual MIP lasts the entire loan term. With 10% or more down, MIP ends after 11 years. The only way to completely eliminate MIP is to refinance into a conventional loan once you have at least 20% equity in your home. This is a key difference from conventional loans, where PMI can be removed at 20% equity without refinancing."
+      a: "Noâ€”all FHA loans require mortgage insurance regardless of down payment size. You must pay the 1.75% upfront MIP and ongoing annual MIP. If you put down less than 10%, annual MIP lasts the entire loan term. With 10% or more down, MIP ends after 11 years. The only way to completely eliminate MIP is to refinance into a conventional loan once you have at least 20% equity in your home. This is a key difference from conventional loans, where PMI can be removed at 20% equity without refinancing."
     },
     {
       q: "How do I find FHA loan limits for my area?",
-      a: "Visit the U.S. Department of Housing and Urban Development (HUD) website and search for 'FHA mortgage limits' to access their county-by-county lookup tool. You can search by state and county to find exact limits for single-family homes, duplexes, triplexes, and fourplexes. FHA-approved lenders can also provide this information instantly when you inquire about financing. Loan limits are updated annually, typically announced in November or December for the following calendar year. Remember that limits vary significantly—what's available in rural Ohio differs greatly from limits in California's high-cost counties."
+      a: "Visit the U.S. Department of Housing and Urban Development (HUD) website and search for 'FHA mortgage limits' to access their county-by-county lookup tool. You can search by state and county to find exact limits for single-family homes, duplexes, triplexes, and fourplexes. FHA-approved lenders can also provide this information instantly when you inquire about financing. Loan limits are updated annually, typically announced in November or December for the following calendar year. Remember that limits vary significantlyâ€”what's available in rural Ohio differs greatly from limits in California's high-cost counties."
     },
     {
       q: "Are there grants to help with FHA down payments?",
@@ -108,20 +108,20 @@ export default function FHALoanCalculatorArticle() {
         
         <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
           <time>March 1, 2026</time>
-          <span className="mx-3">•</span>
+          <span className="mx-3">â€¢</span>
           <span>18 min read</span>
         </div>
       </div>
 
       {/* Article Content */}
-      <article className="pb-16">
+      <article className="pb-2">
         <div className="mx-auto max-w-3xl px-6 sm:px-8">
           <div className="prose prose-slate prose-lg max-w-none">
             <div className="prose prose-slate prose-lg max-w-none">
             
             {/* Introduction */}
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              FHA loans make homeownership accessible to buyers who might not qualify for conventional financing. Backed by the Federal Housing Administration, these mortgages allow down payments as low as 3.5%, more lenient credit requirements, and competitive interest rates—but they come with mandatory mortgage insurance that significantly affects your monthly payment. Understanding how to calculate your FHA loan payment, including all insurance premiums and costs, is essential for determining what you can truly afford and comparing FHA financing to other loan options.
+              FHA loans make homeownership accessible to buyers who might not qualify for conventional financing. Backed by the Federal Housing Administration, these mortgages allow down payments as low as 3.5%, more lenient credit requirements, and competitive interest ratesâ€”but they come with mandatory mortgage insurance that significantly affects your monthly payment. Understanding how to calculate your FHA loan payment, including all insurance premiums and costs, is essential for determining what you can truly afford and comparing FHA financing to other loan options.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-8">
@@ -134,7 +134,7 @@ export default function FHALoanCalculatorArticle() {
             </h2>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              An FHA loan payment calculation starts with determining your base loan amount—the home purchase price minus your down payment. FHA requires a minimum 3.5% down payment if your credit score is 580 or higher. If your score is between 500-579, you'll need at least 10% down. This lower down payment requirement is one of FHA's primary advantages, allowing buyers to purchase with less cash upfront than conventional loans typically require.
+              An FHA loan payment calculation starts with determining your base loan amountâ€”the home purchase price minus your down payment. FHA requires a minimum 3.5% down payment if your credit score is 580 or higher. If your score is between 500-579, you'll need at least 10% down. This lower down payment requirement is one of FHA's primary advantages, allowing buyers to purchase with less cash upfront than conventional loans typically require.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -163,11 +163,11 @@ export default function FHALoanCalculatorArticle() {
             </h2>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              If you're searching for an "FHA loan calculator with PMI," it's important to understand that FHA loans don't have PMI (Private Mortgage Insurance)—they have MIP (Mortgage Insurance Premium). While both types of insurance protect the lender if you default, they work quite differently. This distinction matters significantly when calculating your monthly payment and long-term costs.
+              If you're searching for an "FHA loan calculator with PMI," it's important to understand that FHA loans don't have PMI (Private Mortgage Insurance)â€”they have MIP (Mortgage Insurance Premium). While both types of insurance protect the lender if you default, they work quite differently. This distinction matters significantly when calculating your monthly payment and long-term costs.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              <strong>Upfront Mortgage Insurance Premium (UFMIP):</strong> FHA charges an upfront premium of 1.75% of your base loan amount at closing. For a $300,000 loan, that's $5,250. The vast majority of borrowers finance this charge into their loan balance rather than paying it out of pocket. This increases your total loan amount and means you'll pay interest on this premium over your entire loan term. This upfront charge is unique to FHA—conventional loans don't have an equivalent upfront insurance cost.
+              <strong>Upfront Mortgage Insurance Premium (UFMIP):</strong> FHA charges an upfront premium of 1.75% of your base loan amount at closing. For a $300,000 loan, that's $5,250. The vast majority of borrowers finance this charge into their loan balance rather than paying it out of pocket. This increases your total loan amount and means you'll pay interest on this premium over your entire loan term. This upfront charge is unique to FHAâ€”conventional loans don't have an equivalent upfront insurance cost.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -175,7 +175,7 @@ export default function FHALoanCalculatorArticle() {
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              <strong>Duration of MIP:</strong> This is where FHA mortgage insurance differs most dramatically from conventional PMI. If you put down less than 10% (which includes the popular 3.5% down option), your annual MIP lasts for the entire life of the loan—it never goes away. With 10% or more down, MIP ends after 11 years. Conventional PMI, by contrast, can be removed once you reach 20% equity without refinancing. The only way to eliminate MIP before your loan term ends is to refinance into a conventional loan once you have sufficient equity. This permanent (or 11-year minimum) insurance requirement makes MIP one of FHA financing's most significant long-term costs.
+              <strong>Duration of MIP:</strong> This is where FHA mortgage insurance differs most dramatically from conventional PMI. If you put down less than 10% (which includes the popular 3.5% down option), your annual MIP lasts for the entire life of the loanâ€”it never goes away. With 10% or more down, MIP ends after 11 years. Conventional PMI, by contrast, can be removed once you reach 20% equity without refinancing. The only way to eliminate MIP before your loan term ends is to refinance into a conventional loan once you have sufficient equity. This permanent (or 11-year minimum) insurance requirement makes MIP one of FHA financing's most significant long-term costs.
             </p>
 
             {/* Section 3: Example Calculation $400,000 at 7% */}
@@ -237,11 +237,11 @@ export default function FHALoanCalculatorArticle() {
             </div>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              In this hypothetical scenario, your base monthly payment (principal, interest, and mortgage insurance) would be approximately $2,790. This doesn't include property taxes, homeowners insurance, or HOA fees, which vary by location and property. For budgeting purposes, you might add another $400-$800+ monthly for taxes and insurance depending on where you're buying—bringing your realistic total monthly payment to around $3,200-$3,600 or more.
+              In this hypothetical scenario, your base monthly payment (principal, interest, and mortgage insurance) would be approximately $2,790. This doesn't include property taxes, homeowners insurance, or HOA fees, which vary by location and property. For budgeting purposes, you might add another $400-$800+ monthly for taxes and insurance depending on where you're buyingâ€”bringing your realistic total monthly payment to around $3,200-$3,600 or more.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              The calculation demonstrates why mortgage insurance is such a significant factor in FHA financing. The $177/month in ongoing MIP adds up to $2,124 per year, or $63,720 over the full 30-year term (since MIP lasts the loan's life with less than 10% down). Combined with the $6,755 upfront premium, you're paying over $70,000 in mortgage insurance costs on this loan. This is the trade-off for FHA's low down payment requirement—while you need just $14,000 down instead of the $80,000 typically required for conventional financing with no PMI, you pay substantially more in insurance over time. It's essential to understand these numbers when comparing an FHA loan to saving for a larger down payment on a conventional mortgage.
+              The calculation demonstrates why mortgage insurance is such a significant factor in FHA financing. The $177/month in ongoing MIP adds up to $2,124 per year, or $63,720 over the full 30-year term (since MIP lasts the loan's life with less than 10% down). Combined with the $6,755 upfront premium, you're paying over $70,000 in mortgage insurance costs on this loan. This is the trade-off for FHA's low down payment requirementâ€”while you need just $14,000 down instead of the $80,000 typically required for conventional financing with no PMI, you pay substantially more in insurance over time. It's essential to understand these numbers when comparing an FHA loan to saving for a larger down payment on a conventional mortgage.
             </p>
 
             {/* Section 4: FHA Loan Limits & Location Considerations */}
@@ -258,11 +258,11 @@ export default function FHALoanCalculatorArticle() {
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              When using an FHA loan calculator, ensure your desired loan amount falls within your county's limits. If you're buying in a standard-limit area and want to finance $600,000, you'll need a different loan type—FHA won't work. Conversely, if you're in a high-cost county with limits of $900,000+, FHA remains an option for more expensive properties. Check HUD's official website or ask an FHA-approved lender for your exact county's current limits.
+              When using an FHA loan calculator, ensure your desired loan amount falls within your county's limits. If you're buying in a standard-limit area and want to finance $600,000, you'll need a different loan typeâ€”FHA won't work. Conversely, if you're in a high-cost county with limits of $900,000+, FHA remains an option for more expensive properties. Check HUD's official website or ask an FHA-approved lender for your exact county's current limits.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              <strong>FHA Loan Calculator Multifamily Considerations:</strong> FHA loan limits are higher for multifamily properties (2-4 units) than for single-family homes. If you're purchasing a duplex, triplex, or fourplex as your primary residence, the loan limit in your county might be 1.5 to 2 times higher than the single-family limit. This makes FHA financing attractive for buyers interested in house hacking—living in one unit while renting out the others. However, calculating payments for multifamily FHA loans is more complex because lenders may allow you to use a portion of projected rental income to qualify, which affects both your borrowing capacity and the accuracy of calculator results. For multifamily properties, work with an FHA-approved lender who can properly factor in rental income offsets.
+              <strong>FHA Loan Calculator Multifamily Considerations:</strong> FHA loan limits are higher for multifamily properties (2-4 units) than for single-family homes. If you're purchasing a duplex, triplex, or fourplex as your primary residence, the loan limit in your county might be 1.5 to 2 times higher than the single-family limit. This makes FHA financing attractive for buyers interested in house hackingâ€”living in one unit while renting out the others. However, calculating payments for multifamily FHA loans is more complex because lenders may allow you to use a portion of projected rental income to qualify, which affects both your borrowing capacity and the accuracy of calculator results. For multifamily properties, work with an FHA-approved lender who can properly factor in rental income offsets.
             </p>
 
             {/* Section 5: FHA Qualification Requirements */}
@@ -275,7 +275,7 @@ export default function FHALoanCalculatorArticle() {
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              <strong>Credit Score:</strong> FHA requires a minimum credit score of 580 to qualify for the 3.5% down payment option. Scores between 500-579 can still qualify but require a 10% down payment. Scores below 500 generally don't qualify for FHA financing. Keep in mind that while these are FHA's official minimums, individual lenders often add their own overlays—many require 600 or 620 as a practical minimum. Better credit scores also help you secure lower FHA loan interest rates, potentially saving thousands over the loan term.
+              <strong>Credit Score:</strong> FHA requires a minimum credit score of 580 to qualify for the 3.5% down payment option. Scores between 500-579 can still qualify but require a 10% down payment. Scores below 500 generally don't qualify for FHA financing. Keep in mind that while these are FHA's official minimums, individual lenders often add their own overlaysâ€”many require 600 or 620 as a practical minimum. Better credit scores also help you secure lower FHA loan interest rates, potentially saving thousands over the loan term.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -287,11 +287,11 @@ export default function FHALoanCalculatorArticle() {
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              <strong>Property Requirements:</strong> The property must be your primary residence—FHA loans aren't available for investment properties or vacation homes. The home must meet FHA's minimum property standards, verified through an FHA-approved appraisal. The appraiser checks for safety, security, and structural soundness. Homes with significant defects or needed repairs may require an FHA 203(k) renovation loan, which we'll discuss shortly.
+              <strong>Property Requirements:</strong> The property must be your primary residenceâ€”FHA loans aren't available for investment properties or vacation homes. The home must meet FHA's minimum property standards, verified through an FHA-approved appraisal. The appraiser checks for safety, security, and structural soundness. Homes with significant defects or needed repairs may require an FHA 203(k) renovation loan, which we'll discuss shortly.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              <strong>Down Payment Sources:</strong> Your down payment can come from savings, gifts from family members, down payment assistance programs, or grants. Many states and localities offer assistance programs specifically designed to work with FHA loans, helping first-time homebuyers or those meeting income limits cover down payments and closing costs. You may have seen references to programs like "$25,000 first-time home buyer grants"—such programs do exist in various forms across different jurisdictions, but availability, exact amounts, and eligibility requirements vary significantly by location and change frequently. Contact your state housing finance agency, local housing authorities, or an FHA-approved lender to learn about current assistance programs available where you're purchasing.
+              <strong>Down Payment Sources:</strong> Your down payment can come from savings, gifts from family members, down payment assistance programs, or grants. Many states and localities offer assistance programs specifically designed to work with FHA loans, helping first-time homebuyers or those meeting income limits cover down payments and closing costs. You may have seen references to programs like "$25,000 first-time home buyer grants"â€”such programs do exist in various forms across different jurisdictions, but availability, exact amounts, and eligibility requirements vary significantly by location and change frequently. Contact your state housing finance agency, local housing authorities, or an FHA-approved lender to learn about current assistance programs available where you're purchasing.
             </p>
 
             {/* Section 6: How Much Can You Borrow on an FHA Loan */}
@@ -308,11 +308,11 @@ export default function FHALoanCalculatorArticle() {
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              Add estimated property taxes and insurance—let's say $700/month—bringing your total housing payment to around $4,314. At 43% DTI, this payment would require gross monthly income of approximately $10,033, or about $120,400 annually. However, this assumes you have zero other debt. If you have car payments, student loans, or credit card debt, you'd need proportionally higher income to stay within the 43% DTI threshold.
+              Add estimated property taxes and insuranceâ€”let's say $700/monthâ€”bringing your total housing payment to around $4,314. At 43% DTI, this payment would require gross monthly income of approximately $10,033, or about $120,400 annually. However, this assumes you have zero other debt. If you have car payments, student loans, or credit card debt, you'd need proportionally higher income to stay within the 43% DTI threshold.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              This calculation also assumes your county's FHA loan limits allow a $500,000 loan—in standard-limit areas capped around $510,000, this works; in lower-limit counties, it wouldn't. The calculation demonstrates why FHA loan calculator income tools are valuable: they let you input your actual income and debts to determine your realistic borrowing capacity rather than guessing. Your actual approved loan amount may differ based on your specific financial profile, credit score, cash reserves, and lender-specific underwriting guidelines.
+              This calculation also assumes your county's FHA loan limits allow a $500,000 loanâ€”in standard-limit areas capped around $510,000, this works; in lower-limit counties, it wouldn't. The calculation demonstrates why FHA loan calculator income tools are valuable: they let you input your actual income and debts to determine your realistic borrowing capacity rather than guessing. Your actual approved loan amount may differ based on your specific financial profile, credit score, cash reserves, and lender-specific underwriting guidelines.
             </p>
 
             {/* Section 7: Using an FHA Loan Calculator Effectively */}
@@ -321,7 +321,7 @@ export default function FHALoanCalculatorArticle() {
             </h2>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              Whether you're using a basic FHA loan calculator, an FHA loan calculator with closing costs, or comparing results across different tools (including general mortgage calculators on sites like Zillow, which offer FHA options), the key is knowing what information to input and how to interpret the results. Different calculators serve different purposes—some focus on monthly payments, others on affordability and qualification, and still others on comparing FHA to conventional financing.
+              Whether you're using a basic FHA loan calculator, an FHA loan calculator with closing costs, or comparing results across different tools (including general mortgage calculators on sites like Zillow, which offer FHA options), the key is knowing what information to input and how to interpret the results. Different calculators serve different purposesâ€”some focus on monthly payments, others on affordability and qualification, and still others on comparing FHA to conventional financing.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -346,7 +346,7 @@ export default function FHALoanCalculatorArticle() {
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              Calculating payments on FHA construction loans is more complex than standard FHA mortgages because the loan amount includes both purchase price and renovation costs, and you may have different payment obligations during the construction period versus after completion. Standard FHA loan calculators typically don't handle 203(k) calculations accurately. If you're considering buying and renovating a property with FHA financing, work directly with lenders who specialize in FHA 203(k) loans—they can provide detailed payment estimates and walk you through the additional documentation and approval requirements these loans involve.
+              Calculating payments on FHA construction loans is more complex than standard FHA mortgages because the loan amount includes both purchase price and renovation costs, and you may have different payment obligations during the construction period versus after completion. Standard FHA loan calculators typically don't handle 203(k) calculations accurately. If you're considering buying and renovating a property with FHA financing, work directly with lenders who specialize in FHA 203(k) loansâ€”they can provide detailed payment estimates and walk you through the additional documentation and approval requirements these loans involve.
             </p>
 
             {/* Conclusion */}
@@ -355,13 +355,58 @@ export default function FHALoanCalculatorArticle() {
             </h2>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              FHA loans provide a valuable path to homeownership for buyers who benefit from lower down payment requirements and more flexible credit standards. Accurately calculating your FHA payment—including both upfront and ongoing mortgage insurance premiums—is essential for determining true affordability and comparing FHA financing to conventional options. While FHA's 3.5% down payment makes homebuying accessible with less cash upfront, the permanent MIP (for loans with less than 10% down) adds substantial cost over time. Understanding FHA loan limits in your area, meeting qualification requirements, and using comprehensive calculators that include all payment components helps you make informed borrowing decisions. For personalized payment estimates, loan limit information specific to your county, and guidance on whether FHA or conventional financing better fits your situation, consult with FHA-approved lenders who can provide detailed quotes based on your actual financial profile and the property you're purchasing.
+              FHA loans provide a valuable path to homeownership for buyers who benefit from lower down payment requirements and more flexible credit standards. Accurately calculating your FHA paymentâ€”including both upfront and ongoing mortgage insurance premiumsâ€”is essential for determining true affordability and comparing FHA financing to conventional options. While FHA's 3.5% down payment makes homebuying accessible with less cash upfront, the permanent MIP (for loans with less than 10% down) adds substantial cost over time. Understanding FHA loan limits in your area, meeting qualification requirements, and using comprehensive calculators that include all payment components helps you make informed borrowing decisions. For personalized payment estimates, loan limit information specific to your county, and guidance on whether FHA or conventional financing better fits your situation, consult with FHA-approved lenders who can provide detailed quotes based on your actual financial profile and the property you're purchasing.
             </p>
 
             </div>
           </div>
         </div>
       </article>
+
+      {/* Related Articles */}
+      <section className="py-12 bg-white">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <div className="p-6 bg-blue-50 rounded-lg">
+            <h3 className="font-serif text-xl font-bold text-slate-900 mb-4">
+              Related Articles
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/fha-loan-requirements-down-payment-credit-score"
+                  className="text-blue-600 hover:text-blue-800 underline"
+                >
+                  FHA Loan Requirements: Down Payment & Credit Score
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/va-loan-calculator-estimate-benefits-payments"
+                  className="text-blue-600 hover:text-blue-800 underline"
+                >
+                  VA Loan Calculator: Estimate Benefits & Payments
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/mortgage-qualification-calculator-do-you-qualify"
+                  className="text-blue-600 hover:text-blue-800 underline"
+                >
+                  Mortgage Qualification Calculator: Do You Qualify?
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/mortgage-payment-calculator-estimate-monthly-costs"
+                  className="text-blue-600 hover:text-blue-800 underline"
+                >
+                  Mortgage Payment Calculator: Estimate Monthly Costs
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
       {/* FAQ Section */}
       <section className="pb-16">

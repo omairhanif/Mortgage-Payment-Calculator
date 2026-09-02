@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -17,11 +17,11 @@ export default function MortgageTaxBenefitsCalculatorPage() {
   const faqs = [
     {
       q: "Can I deduct mortgage interest on my taxes in Canada?",
-      a: "NO—mortgage interest on your primary residence is NOT tax-deductible in Canada (unlike the U.S.). Canadian tax law only allows interest deductions when the borrowed money is used to earn income. Since your home is personal use (not income-earning), the interest isn't deductible. However, there ARE exceptions: (1) Rental properties—if you own a rental property, mortgage interest IS fully deductible as a business expense, (2) Investment properties—interest on loans to purchase investments (stocks, bonds, rental real estate) is deductible, (3) Smith Manoeuvre—a complex strategy that converts your mortgage into tax-deductible debt by borrowing against home equity to purchase investments (requires professional advice). Bottom line: regular homeowners with traditional mortgages get NO interest deduction on primary residences."
+      a: "NOâ€”mortgage interest on your primary residence is NOT tax-deductible in Canada (unlike the U.S.). Canadian tax law only allows interest deductions when the borrowed money is used to earn income. Since your home is personal use (not income-earning), the interest isn't deductible. However, there ARE exceptions: (1) Rental propertiesâ€”if you own a rental property, mortgage interest IS fully deductible as a business expense, (2) Investment propertiesâ€”interest on loans to purchase investments (stocks, bonds, rental real estate) is deductible, (3) Smith Manoeuvreâ€”a complex strategy that converts your mortgage into tax-deductible debt by borrowing against home equity to purchase investments (requires professional advice). Bottom line: regular homeowners with traditional mortgages get NO interest deduction on primary residences."
     },
     {
       q: "What mortgage-related tax benefits ARE available in Canada?",
-      a: "While interest isn't deductible, Canadians get these benefits: (1) First-Time Home Buyer Incentive—$10,000 tax credit (saves ~$1,500 in taxes) for first-time buyers; (2) Home Buyers' Plan (HBP)—withdraw up to $60,000 from RRSP tax-free ($120,000 for couples) for down payment, repay over 15 years; (3) GST/HST New Housing Rebate—up to $30,000-36,000 rebate on new homes under $450,000; (4) Land Transfer Tax Rebate—Ontario first-time buyers get up to $4,000 rebate, Toronto offers additional $4,475 city rebate; (5) Provincial programs—BC: First-Time Home Buyers' Program (eliminates transfer tax up to $500,000), Manitoba: $5,000 tax credit. These benefits add up to $10,000-50,000+ in savings for first-time buyers."
+      a: "While interest isn't deductible, Canadians get these benefits: (1) First-Time Home Buyer Incentiveâ€”$10,000 tax credit (saves ~$1,500 in taxes) for first-time buyers; (2) Home Buyers' Plan (HBP)â€”withdraw up to $60,000 from RRSP tax-free ($120,000 for couples) for down payment, repay over 15 years; (3) GST/HST New Housing Rebateâ€”up to $30,000-36,000 rebate on new homes under $450,000; (4) Land Transfer Tax Rebateâ€”Ontario first-time buyers get up to $4,000 rebate, Toronto offers additional $4,475 city rebate; (5) Provincial programsâ€”BC: First-Time Home Buyers' Program (eliminates transfer tax up to $500,000), Manitoba: $5,000 tax credit. These benefits add up to $10,000-50,000+ in savings for first-time buyers."
     },
     {
       q: "How does the Home Buyers' Plan (HBP) work?",
@@ -29,15 +29,15 @@ export default function MortgageTaxBenefitsCalculatorPage() {
     },
     {
       q: "What is the Smith Manoeuvre and should I use it?",
-      a: "The Smith Manoeuvre is an advanced strategy that converts non-deductible mortgage interest into tax-deductible investment loan interest. How it works: (1) Get a readvanceable mortgage (like HELOC combined with mortgage), (2) As you pay down your mortgage principal, reborrow that amount from the HELOC portion, (3) Use reborrowed funds to purchase income-earning investments (dividend stocks, rental property), (4) Deduct the investment loan interest on your taxes, (5) Use investment returns and tax refunds to accelerate mortgage payoff. Example: $400,000 mortgage at 5.5%, you pay $2,000/month. First month, $1,200 goes to principal. Reborrow that $1,200 from HELOC, buy investments. That $1,200's interest (~$66/month at 5.5%) is now tax-deductible. Should you? ONLY if: (1) you have high income (40%+ tax bracket), (2) you're comfortable with investment risk, (3) you have professional tax/financial advisor guidance. It's complex and risky—not for most homeowners."
+      a: "The Smith Manoeuvre is an advanced strategy that converts non-deductible mortgage interest into tax-deductible investment loan interest. How it works: (1) Get a readvanceable mortgage (like HELOC combined with mortgage), (2) As you pay down your mortgage principal, reborrow that amount from the HELOC portion, (3) Use reborrowed funds to purchase income-earning investments (dividend stocks, rental property), (4) Deduct the investment loan interest on your taxes, (5) Use investment returns and tax refunds to accelerate mortgage payoff. Example: $400,000 mortgage at 5.5%, you pay $2,000/month. First month, $1,200 goes to principal. Reborrow that $1,200 from HELOC, buy investments. That $1,200's interest (~$66/month at 5.5%) is now tax-deductible. Should you? ONLY if: (1) you have high income (40%+ tax bracket), (2) you're comfortable with investment risk, (3) you have professional tax/financial advisor guidance. It's complex and riskyâ€”not for most homeowners."
     },
     {
       q: "Are property taxes deductible in Canada?",
-      a: "NO—property taxes on your primary residence are NOT tax-deductible in Canada for regular homeowners. This differs from the U.S. where property taxes can be itemized deductions. Exception: If you use part of your home for business (home office), you CAN deduct a proportional amount of property taxes as a business expense. Example: if your home office is 200 sq ft in a 2,000 sq ft home (10%), and your property taxes are $5,000/year, you can deduct $500 (10% of $5,000) against business income. Requirements for home office deduction: (1) space used exclusively for business, (2) principal place of business OR used regularly to meet clients, (3) documented business use. For rental properties, 100% of property taxes are deductible as rental expenses."
+      a: "NOâ€”property taxes on your primary residence are NOT tax-deductible in Canada for regular homeowners. This differs from the U.S. where property taxes can be itemized deductions. Exception: If you use part of your home for business (home office), you CAN deduct a proportional amount of property taxes as a business expense. Example: if your home office is 200 sq ft in a 2,000 sq ft home (10%), and your property taxes are $5,000/year, you can deduct $500 (10% of $5,000) against business income. Requirements for home office deduction: (1) space used exclusively for business, (2) principal place of business OR used regularly to meet clients, (3) documented business use. For rental properties, 100% of property taxes are deductible as rental expenses."
     },
     {
       q: "How much can first-time home buyers save with all tax benefits combined?",
-      a: "First-time buyers in Canada can save $15,000-$60,000+ combining all benefits. Realistic example—Toronto couple buying $650,000 home with 10% down ($65,000): (1) First-Time Home Buyer Tax Credit—$10,000 credit = ~$1,500 federal tax savings, (2) Home Buyers' Plan—each withdraws $60,000 from RRSP ($120,000 total) = 0% interest loan worth ~$18,000 in saved interest over 15 years vs. regular loan, (3) Ontario Land Transfer Tax Rebate—$4,000 refund, (4) Toronto Municipal LTT Rebate—$4,475 refund, (5) Avoided CMHC insurance—using $65,000 down (10%) vs. $32,500 (5%) avoids ~$13,000 in insurance premiums. Total benefit: ~$41,000. Add GST rebate on new builds (~$30,000) and provincial programs, and total can exceed $60,000. The key is knowing and claiming ALL available benefits."
+      a: "First-time buyers in Canada can save $15,000-$60,000+ combining all benefits. Realistic exampleâ€”Toronto couple buying $650,000 home with 10% down ($65,000): (1) First-Time Home Buyer Tax Creditâ€”$10,000 credit = ~$1,500 federal tax savings, (2) Home Buyers' Planâ€”each withdraws $60,000 from RRSP ($120,000 total) = 0% interest loan worth ~$18,000 in saved interest over 15 years vs. regular loan, (3) Ontario Land Transfer Tax Rebateâ€”$4,000 refund, (4) Toronto Municipal LTT Rebateâ€”$4,475 refund, (5) Avoided CMHC insuranceâ€”using $65,000 down (10%) vs. $32,500 (5%) avoids ~$13,000 in insurance premiums. Total benefit: ~$41,000. Add GST rebate on new builds (~$30,000) and provincial programs, and total can exceed $60,000. The key is knowing and claiming ALL available benefits."
     }
   ];
 
@@ -90,23 +90,23 @@ export default function MortgageTaxBenefitsCalculatorPage() {
         
         <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
           <time>August 27, 2026</time>
-          <span className="mx-3">•</span>
+          <span className="mx-3">â€¢</span>
           <span>12 min read</span>
         </div>
       </div>
 
       {/* Article Content */}
-      <article className="pb-16">
+      <article className="pb-2">
         <div className="mx-auto max-w-3xl px-6 sm:px-8">
           <div className="prose prose-slate prose-lg max-w-none">
 
             {/* Introduction */}
             <section className="mb-12">
               <p className="text-xl text-slate-700 leading-relaxed mb-6">
-                Jennifer sat in her Toronto real estate agent's office, excitedly discussing her first home purchase. "Don't forget about the tax benefits," her agent mentioned. "You can use a <strong>tax benefit calculator on home loan</strong> to see how much you'll save." Jennifer immediately Googled "mortgage interest tax deduction Canada" on her phone—and discovered something surprising: <strong>Canada doesn't allow mortgage interest deductions on primary residences</strong> the way the United States does.
+                Jennifer sat in her Toronto real estate agent's office, excitedly discussing her first home purchase. "Don't forget about the tax benefits," her agent mentioned. "You can use a <strong>tax benefit calculator on home loan</strong> to see how much you'll save." Jennifer immediately Googled "mortgage interest tax deduction Canada" on her phoneâ€”and discovered something surprising: <strong>Canada doesn't allow mortgage interest deductions on primary residences</strong> the way the United States does.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                If you're searching for a <strong>tax benefit calculator Canada</strong> or "tax deduction calculator Ontario" specifically for mortgages, you need to understand the fundamental difference between Canadian and American tax systems. While Americans can deduct mortgage interest from their taxable income, Canadian homeowners cannot—at least not for their primary residence. However, this doesn't mean Canadian homebuyers lack tax benefits. Far from it.
+                If you're searching for a <strong>tax benefit calculator Canada</strong> or "tax deduction calculator Ontario" specifically for mortgages, you need to understand the fundamental difference between Canadian and American tax systems. While Americans can deduct mortgage interest from their taxable income, Canadian homeowners cannotâ€”at least not for their primary residence. However, this doesn't mean Canadian homebuyers lack tax benefits. Far from it.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
                 This comprehensive guide reveals all the actual tax benefits available to Canadian homebuyers in 2026, with specific focus on Ontario, British Columbia, and Alberta. You'll learn how to calculate your First-Time Home Buyer Incentive savings, maximize your Home Buyers' Plan RRSP withdrawal, claim GST/HST new housing rebates, utilize provincial tax credits, and understand when mortgage interest IS deductible (rental properties). We'll provide real calculation examples using current 2026 tax rates, showing exactly how much you can save using these programs.
@@ -141,10 +141,10 @@ export default function MortgageTaxBenefitsCalculatorPage() {
               </h3>
 
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                Canada Revenue Agency (CRA) considers your primary residence a personal expense, not an income-producing asset. The tax philosophy differs fundamentally: Canada provides tax relief through other mechanisms (detailed below) rather than ongoing interest deductions. Additionally, Canada offers a principal residence exemption—when you sell your primary home, capital gains are completely tax-free, which can save tens of thousands of dollars that would be taxable in many other countries.
+                Canada Revenue Agency (CRA) considers your primary residence a personal expense, not an income-producing asset. The tax philosophy differs fundamentally: Canada provides tax relief through other mechanisms (detailed below) rather than ongoing interest deductions. Additionally, Canada offers a principal residence exemptionâ€”when you sell your primary home, capital gains are completely tax-free, which can save tens of thousands of dollars that would be taxable in many other countries.
               </p>
 
-              <div className="bg-indigo-50 border-l-4 border-indigo-600 p-6 my-8 rounded-r-lg">
+              <div className="bg-slate-50 border-l-4 border-slate-300 p-6 my-8 rounded-r-lg">
                 <p className="font-semibold text-slate-900 mb-3">Key Difference: Primary Residence vs. Investment Property</p>
                 <ul className="space-y-2 text-slate-700">
                   <li><strong>Primary Residence:</strong> Mortgage interest NOT deductible in Canada</li>
@@ -155,7 +155,7 @@ export default function MortgageTaxBenefitsCalculatorPage() {
               </div>
 
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                This distinction is crucial. When using a <strong>tax deduction calculator BC</strong> or <strong>tax deduction calculator Ontario</strong>, you won't find primary residence mortgage interest deductions—but you will find substantial benefits through other programs specific to Canadian homebuyers.
+                This distinction is crucial. When using a <strong>tax deduction calculator BC</strong> or <strong>tax deduction calculator Ontario</strong>, you won't find primary residence mortgage interest deductionsâ€”but you will find substantial benefits through other programs specific to Canadian homebuyers.
               </p>
             </section>
 
@@ -178,12 +178,12 @@ export default function MortgageTaxBenefitsCalculatorPage() {
                 The federal Home Buyers' Tax Credit provides a non-refundable tax credit of $10,000 on your tax return, which translates to $1,500 in tax savings (15% of $10,000). This benefit applies if you or your spouse/common-law partner are purchasing your first home or haven't lived in a home owned by either of you in the past four calendar years.
               </p>
 
-              <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-8 rounded-r-lg">
+              <div className="bg-slate-50 border-l-4 border-slate-300 p-6 my-8 rounded-r-lg">
                 <p className="font-semibold text-slate-900 mb-3">HBTC Calculation Example (2026):</p>
                 <ul className="space-y-2 text-slate-700">
                   <li><strong>Credit Amount:</strong> $10,000</li>
                   <li><strong>Federal Tax Rate:</strong> 15% (lowest bracket)</li>
-                  <li><strong>Tax Savings:</strong> $10,000 × 15% = <strong>$1,500</strong></li>
+                  <li><strong>Tax Savings:</strong> $10,000 Ã— 15% = <strong>$1,500</strong></li>
                   <li><strong>How to Claim:</strong> Line 31270 on your federal tax return</li>
                 </ul>
               </div>
@@ -193,7 +193,7 @@ export default function MortgageTaxBenefitsCalculatorPage() {
               </h3>
 
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                The HBP allows you to withdraw up to <strong>$60,000</strong> from your RRSP (or $120,000 per couple) to purchase or build a qualifying home without paying tax on the withdrawal. You must repay this amount over 15 years starting two years after withdrawal. This is not technically a <strong>tax deduction calculator</strong> benefit, but rather tax-deferred access to your retirement funds—with massive practical value.
+                The HBP allows you to withdraw up to <strong>$60,000</strong> from your RRSP (or $120,000 per couple) to purchase or build a qualifying home without paying tax on the withdrawal. You must repay this amount over 15 years starting two years after withdrawal. This is not technically a <strong>tax deduction calculator</strong> benefit, but rather tax-deferred access to your retirement fundsâ€”with massive practical value.
               </p>
 
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -219,7 +219,7 @@ export default function MortgageTaxBenefitsCalculatorPage() {
                 <strong>Federal GST Rebate (5%):</strong> You can claim up to 36% of the federal component of GST/HST paid, to a maximum of $6,300, if the fair market value is $350,000 or less. The rebate gradually phases out between $350,000 and $450,000, and disappears completely above $450,000.
               </p>
 
-              <div className="bg-green-50 border-l-4 border-green-600 p-6 my-8 rounded-r-lg">
+              <div className="bg-slate-50 border-l-4 border-slate-300 p-6 my-8 rounded-r-lg">
                 <p className="font-semibold text-slate-900 mb-3">GST/HST Rebate Example - New Condo in Ontario:</p>
                 <ul className="space-y-2 text-slate-700">
                   <li><strong>Purchase Price:</strong> $500,000</li>
@@ -253,7 +253,7 @@ export default function MortgageTaxBenefitsCalculatorPage() {
                 Ontario charges Land Transfer Tax (LTT) on all property purchases, calculated on a tiered scale. However, first-time homebuyers in Ontario can claim a refund of up to <strong>$4,000</strong>. If you're buying in Toronto, you face double land transfer tax (provincial + municipal), but Toronto first-time buyers can claim an additional refund up to $4,475 on the municipal portion.
               </p>
 
-              <div className="bg-amber-50 border-l-4 border-amber-600 p-6 my-8 rounded-r-lg">
+              <div className="bg-slate-50 border-l-4 border-slate-300 p-6 my-8 rounded-r-lg">
                 <p className="font-semibold text-slate-900 mb-3">Ontario LTT Calculation - $650,000 Home in Toronto:</p>
                 <ul className="space-y-2 text-slate-700">
                   <li><strong>Provincial LTT:</strong> $8,475</li>
@@ -267,7 +267,7 @@ export default function MortgageTaxBenefitsCalculatorPage() {
               </div>
 
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                This is why any <strong>tax deduction calculator Ontario</strong> for homebuyers must include LTT rebate calculations—it represents thousands in immediate savings that dramatically reduce closing costs.
+                This is why any <strong>tax deduction calculator Ontario</strong> for homebuyers must include LTT rebate calculationsâ€”it represents thousands in immediate savings that dramatically reduce closing costs.
               </p>
 
               <h3 className="font-serif text-2xl font-bold text-slate-900 mb-4 mt-8">
@@ -282,12 +282,12 @@ export default function MortgageTaxBenefitsCalculatorPage() {
                 <p className="font-semibold text-slate-900 mb-3">BC PTT Exemption - $750,000 Home in Vancouver:</p>
                 <ul className="space-y-2 text-slate-700">
                   <li><strong>Standard PTT Calculation:</strong></li>
-                  <li className="ml-6">• $200,000 × 1% = $2,000</li>
-                  <li className="ml-6">• $550,000 × 2% = $11,000</li>
-                  <li className="ml-6">• Total PTT: $13,000</li>
+                  <li className="ml-6">â€¢ $200,000 Ã— 1% = $2,000</li>
+                  <li className="ml-6">â€¢ $550,000 Ã— 2% = $11,000</li>
+                  <li className="ml-6">â€¢ Total PTT: $13,000</li>
                   <li><strong>First-Time Buyer Partial Exemption:</strong></li>
-                  <li className="ml-6">• Full exemption on first $500,000</li>
-                  <li className="ml-6">• Partial exemption reduces remaining tax</li>
+                  <li className="ml-6">â€¢ Full exemption on first $500,000</li>
+                  <li className="ml-6">â€¢ Partial exemption reduces remaining tax</li>
                   <li><strong>Net PTT Payable:</strong> ~$3,200 (after exemption)</li>
                   <li><strong>Tax Savings:</strong> <strong>~$9,800</strong></li>
                 </ul>
@@ -295,7 +295,7 @@ export default function MortgageTaxBenefitsCalculatorPage() {
               </div>
 
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                A <strong>tax deduction calculator BC</strong> must account for this substantial benefit—saving nearly $10,000 on a $750,000 purchase makes homeownership significantly more accessible for first-time buyers in Vancouver, Victoria, or other BC markets.
+                A <strong>tax deduction calculator BC</strong> must account for this substantial benefitâ€”saving nearly $10,000 on a $750,000 purchase makes homeownership significantly more accessible for first-time buyers in Vancouver, Victoria, or other BC markets.
               </p>
 
 
@@ -304,7 +304,7 @@ export default function MortgageTaxBenefitsCalculatorPage() {
               </h3>
 
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                Alberta doesn't have provincial sales tax (PST), meaning no HST—just the 5% federal GST. Alberta also doesn't charge land transfer tax or property transfer tax. While this means Alberta doesn't offer specific rebates like Ontario or BC, the absence of these taxes results in significantly lower closing costs overall.
+                Alberta doesn't have provincial sales tax (PST), meaning no HSTâ€”just the 5% federal GST. Alberta also doesn't charge land transfer tax or property transfer tax. While this means Alberta doesn't offer specific rebates like Ontario or BC, the absence of these taxes results in significantly lower closing costs overall.
               </p>
 
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -350,7 +350,7 @@ export default function MortgageTaxBenefitsCalculatorPage() {
                   <li><strong>Annual Rental Income:</strong> $24,000</li>
                   <li><strong>Other Expenses:</strong> $8,000 (property tax, insurance, maintenance, condo fees)</li>
                   <li><strong>Taxable Rental Income:</strong> $24,000 - $18,400 - $8,000 = <strong>-$2,400 (loss)</strong></li>
-                  <li><strong>Tax Benefit (30% bracket):</strong> $2,400 × 30% = <strong>$720 tax reduction</strong></li>
+                  <li><strong>Tax Benefit (30% bracket):</strong> $2,400 Ã— 30% = <strong>$720 tax reduction</strong></li>
                 </ul>
                 <p className="text-slate-700 mt-3 text-sm italic">Rental losses can offset other income up to certain limits. Consult a tax professional for your specific situation.</p>
               </div>
@@ -376,7 +376,7 @@ export default function MortgageTaxBenefitsCalculatorPage() {
               </ul>
 
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                A <strong>tax deduction calculator Ontario</strong> showing $20,000 in rental property mortgage interest would calculate tax savings of $5,930 (29.65% × $20,000). The same deduction in BC saves $5,640, while Alberta saves $6,100. These differences matter when evaluating investment property returns across provinces.
+                A <strong>tax deduction calculator Ontario</strong> showing $20,000 in rental property mortgage interest would calculate tax savings of $5,930 (29.65% Ã— $20,000). The same deduction in BC saves $5,640, while Alberta saves $6,100. These differences matter when evaluating investment property returns across provinces.
               </p>
             </section>
 
@@ -387,7 +387,7 @@ export default function MortgageTaxBenefitsCalculatorPage() {
               </h2>
 
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                When people search for <strong>tax deduction calculator paycheck</strong> or <strong>payroll deductions online calculator</strong>, they're usually calculating take-home pay—not mortgage-related benefits. However, understanding your net income is crucial for mortgage affordability. Let's clarify what these calculators show and how they relate to homebuying.
+                When people search for <strong>tax deduction calculator paycheck</strong> or <strong>payroll deductions online calculator</strong>, they're usually calculating take-home payâ€”not mortgage-related benefits. However, understanding your net income is crucial for mortgage affordability. Let's clarify what these calculators show and how they relate to homebuying.
               </p>
 
               <h3 className="font-serif text-2xl font-bold text-slate-900 mb-4 mt-8">
@@ -425,8 +425,6 @@ export default function MortgageTaxBenefitsCalculatorPage() {
               </p>
             </section>
 
-
-
             {/* FAQs */}
             <section className="mb-12">
               <h2 className="font-serif text-3xl font-bold text-slate-900 mb-6">
@@ -439,7 +437,7 @@ export default function MortgageTaxBenefitsCalculatorPage() {
                     Can I deduct mortgage interest in Canada?
                   </h3>
                   <p className="text-slate-700">
-                    No—not for your primary residence. Canada does not allow mortgage interest deductions on homes you live in. However, mortgage interest IS deductible on investment properties (rentals) and through advanced strategies like the Smith Manoeuvre. If you're searching for a "tax benefit calculator on home loan" expecting to deduct interest, understand this only applies to rental/investment properties in Canada.
+                    Noâ€”not for your primary residence. Canada does not allow mortgage interest deductions on homes you live in. However, mortgage interest IS deductible on investment properties (rentals) and through advanced strategies like the Smith Manoeuvre. If you're searching for a "tax benefit calculator on home loan" expecting to deduct interest, understand this only applies to rental/investment properties in Canada.
                   </p>
                 </div>
 
@@ -466,7 +464,7 @@ export default function MortgageTaxBenefitsCalculatorPage() {
                     Does Alberta offer first-time buyer tax credits like Ontario and BC?
                   </h3>
                   <p className="text-slate-700">
-                    Alberta doesn't charge land transfer tax or provincial sales tax (PST), so there are no transfer tax rebates like Ontario or BC. However, the absence of these taxes means Alberta closing costs are inherently lower—sometimes by $8,000-$13,000 compared to ON/BC. Alberta buyers still qualify for federal benefits: Home Buyers' Tax Credit ($1,500) and Home Buyers' Plan ($60,000 RRSP access).
+                    Alberta doesn't charge land transfer tax or provincial sales tax (PST), so there are no transfer tax rebates like Ontario or BC. However, the absence of these taxes means Alberta closing costs are inherently lowerâ€”sometimes by $8,000-$13,000 compared to ON/BC. Alberta buyers still qualify for federal benefits: Home Buyers' Tax Credit ($1,500) and Home Buyers' Plan ($60,000 RRSP access).
                   </p>
                 </div>
 
@@ -475,7 +473,7 @@ export default function MortgageTaxBenefitsCalculatorPage() {
                     Can I deduct mortgage interest on a rental property?
                   </h3>
                   <p className="text-slate-700">
-                    Yes! Mortgage interest on investment/rental properties IS deductible in Canada. You report rental income and expenses (including mortgage interest) on Form T776. The interest deduction reduces your taxable rental income. In a 30% tax bracket, $20,000 in annual interest saves you $6,000 in taxes. This is why "tax benefit calculator on home loan" searches are relevant for investors—just not primary residence owners.
+                    Yes! Mortgage interest on investment/rental properties IS deductible in Canada. You report rental income and expenses (including mortgage interest) on Form T776. The interest deduction reduces your taxable rental income. In a 30% tax bracket, $20,000 in annual interest saves you $6,000 in taxes. This is why "tax benefit calculator on home loan" searches are relevant for investorsâ€”just not primary residence owners.
                   </p>
                 </div>
 
@@ -499,7 +497,7 @@ export default function MortgageTaxBenefitsCalculatorPage() {
               </h2>
 
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                While searching for a <strong>tax benefit calculator on home loan</strong> might initially lead you to U.S.-focused results about mortgage interest deductions, Canadian homebuyers have access to different but substantial benefits. Understanding what Canada DOES offer—rather than what it doesn't—helps you maximize your tax advantages when purchasing a home.
+                While searching for a <strong>tax benefit calculator on home loan</strong> might initially lead you to U.S.-focused results about mortgage interest deductions, Canadian homebuyers have access to different but substantial benefits. Understanding what Canada DOES offerâ€”rather than what it doesn'tâ€”helps you maximize your tax advantages when purchasing a home.
               </p>
 
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -507,33 +505,61 @@ export default function MortgageTaxBenefitsCalculatorPage() {
               </p>
 
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                For investment properties, mortgage interest IS deductible—making a <strong>tax deduction calculator Ontario</strong>, BC, or Alberta essential for evaluating rental property returns. Combined federal-provincial tax rates of 28-30% mean every dollar of mortgage interest on a rental property saves you $0.28-$0.30 in taxes.
+                For investment properties, mortgage interest IS deductibleâ€”making a <strong>tax deduction calculator Ontario</strong>, BC, or Alberta essential for evaluating rental property returns. Combined federal-provincial tax rates of 28-30% mean every dollar of mortgage interest on a rental property saves you $0.28-$0.30 in taxes.
               </p>
 
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                Whether you're using a <strong>payroll deductions online calculator 2026</strong> to understand your take-home pay, an <strong>income tax deductions Canada calculator</strong> to evaluate investment property benefits, or calculating first-time buyer credits, understanding the Canadian tax landscape helps you make informed homebuying decisions. The benefits exist—they just look different than what you'll find in U.S.-focused content.
+                Whether you're using a <strong>payroll deductions online calculator 2026</strong> to understand your take-home pay, an <strong>income tax deductions Canada calculator</strong> to evaluate investment property benefits, or calculating first-time buyer credits, understanding the Canadian tax landscape helps you make informed homebuying decisions. The benefits existâ€”they just look different than what you'll find in U.S.-focused content.
               </p>
             </section>
-
-            {/* CTA Section */}
-            <section className="mt-12 p-8 bg-gradient-to-br from-indigo-50 to-white rounded-lg border border-indigo-100">
-              <h3 className="font-serif text-2xl font-bold text-slate-900 mb-4">
-                Calculate Your Mortgage Affordability
-              </h3>
-              <p className="text-indigo-900 mb-6 text-lg">
-                Now that you understand Canadian mortgage tax benefits, use our mortgage calculator to determine how much home you can afford with your income and down payment.
-              </p>
-              <Link 
-                href="/"
-                className="inline-block bg-indigo-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-indigo-700 transition-colors"
-              >
-                Try Mortgage Calculator
-              </Link>
-            </section>
-
           </div>
         </div>
       </article>
+
+      {/* Related Articles */}
+      <section className="py-12 bg-white">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <div className="p-6 bg-slate-50 rounded-lg">
+            <h3 className="font-serif text-xl font-bold text-slate-900 mb-4">
+              Related Articles
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/mortgage-interest-tax-deduction-what-you-can-save"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Mortgage Interest Tax Deduction: What You Can Save
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/mortgage-qualification-calculator-do-you-qualify"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Mortgage Qualification Calculator: Do You Qualify?
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/income-requirement-calculator-how-much-you-need"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Income Requirement Calculator: How Much You Need
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/how-to-qualify-for-a-mortgage-key-requirements"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  How to Qualify for a Mortgage: Key Requirements
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
       {/* FAQ Section */}
       <section className="py-12 bg-slate-50">
@@ -576,4 +602,6 @@ export default function MortgageTaxBenefitsCalculatorPage() {
     </>
   );
 }
+
+
 

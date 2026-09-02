@@ -96,7 +96,7 @@ export default function MortgageInterestTaxDeductionPage() {
       </div>
 
       {/* Article Content */}
-      <article className="pb-16">
+      <article className="pb-2">
         <div className="mx-auto max-w-3xl px-6 sm:px-8">
           <div className="prose prose-slate prose-lg max-w-none">
 
@@ -136,7 +136,7 @@ export default function MortgageInterestTaxDeductionPage() {
                 This is fundamentally different from the United States, where homeowners can itemize deductions and claim mortgage interest on Schedule A of their tax return. The U.S. tax code views homeownership differently—as an economic activity worthy of subsidy through tax deductions. Canada's approach prioritizes other benefits instead (explained later).
               </p>
 
-              <div className="bg-red-50 border-l-4 border-red-600 p-6 my-8 rounded-r-lg">
+              <div className="bg-slate-50 border-l-4 border-slate-300 p-6 my-8 rounded-r-lg">
                 <p className="font-semibold text-slate-900 mb-3">What "Mortgage Interest Tax Deduction Canada" Searches Won't Find:</p>
                 <ul className="space-y-2 text-slate-700">
                   <li>❌ <strong>Primary Residence:</strong> Mortgage interest NOT deductible</li>
@@ -197,7 +197,7 @@ export default function MortgageInterestTaxDeductionPage() {
                 <strong>Claiming the Deduction:</strong> Report your rental income and expenses on Form T776 (Statement of Real Estate Rentals). Include mortgage interest alongside other deductible expenses: property taxes, insurance, repairs, maintenance, property management fees, utilities (if you pay them), and advertising costs.
               </p>
 
-              <div className="bg-green-50 border-l-4 border-green-600 p-6 my-8 rounded-r-lg">
+              <div className="bg-slate-50 border-l-4 border-slate-300 p-6 my-8 rounded-r-lg">
                 <p className="font-semibold text-slate-900 mb-3">Rental Property Deduction Example - Vancouver Condo:</p>
                 <ul className="space-y-2 text-slate-700">
                   <li><strong>Purchase Price:</strong> $750,000</li>
@@ -224,7 +224,7 @@ export default function MortgageInterestTaxDeductionPage() {
                 <strong>Calculation Method:</strong> Determine the percentage of your home used for business (typically based on square footage), then apply that percentage to eligible home expenses including mortgage interest.
               </p>
 
-              <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-8 rounded-r-lg">
+              <div className="bg-slate-50 border-l-4 border-slate-300 p-6 my-8 rounded-r-lg">
                 <p className="font-semibold text-slate-900 mb-3">Home Office Deduction - Calgary Entrepreneur:</p>
                 <ul className="space-y-2 text-slate-700">
                   <li><strong>Total Home Size:</strong> 2,000 sq ft</li>
@@ -366,7 +366,7 @@ export default function MortgageInterestTaxDeductionPage() {
                 <li><strong>$20,000 interest deduction value: $6,100</strong></li>
               </ul>
 
-              <div className="bg-amber-50 border-l-4 border-amber-600 p-6 my-8 rounded-r-lg">
+              <div className="bg-slate-50 border-l-4 border-slate-300 p-6 my-8 rounded-r-lg">
                 <p className="font-semibold text-slate-900 mb-3">Provincial Comparison: Same $20,000 Interest Deduction</p>
                 <ul className="space-y-2 text-slate-700">
                   <li><strong>Alberta:</strong> $6,100 tax savings (30.5% rate)</li>
@@ -433,8 +433,6 @@ export default function MortgageInterestTaxDeductionPage() {
                 For many Canadians, especially first-time buyers and those who sell their homes for significant gains, these benefits can exceed the lifetime value of U.S.-style mortgage interest deductions. A Toronto homeowner who buys for $700,000 and sells for $1.2 million pays $0 tax on that $500,000 gain. An American would pay capital gains tax on gains above the exemption threshold.
               </p>
             </section>
-
-
 
             {/* FAQs */}
             <section className="mb-12">
@@ -527,26 +525,54 @@ export default function MortgageInterestTaxDeductionPage() {
                 The key takeaway: while Canada doesn't mirror U.S. mortgage interest deduction policies for primary residences, it's not because Canadians lack tax benefits—it's because our tax system achieves homeowner support through different, often more generous, mechanisms.
               </p>
             </section>
-
-            {/* CTA Section */}
-            <section className="mt-12 p-8 bg-gradient-to-br from-indigo-50 to-white rounded-lg border border-indigo-100">
-              <h3 className="font-serif text-2xl font-bold text-slate-900 mb-4">
-                Calculate Your Mortgage Payments
-              </h3>
-              <p className="text-indigo-900 mb-6 text-lg">
-                Understanding tax deductions is important, but so is knowing your monthly mortgage payment. Use our calculator to see exactly what you'll pay based on current Canadian mortgage rates.
-              </p>
-              <Link 
-                href="/"
-                className="inline-block bg-indigo-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-indigo-700 transition-colors"
-              >
-                Calculate Your Mortgage
-              </Link>
-            </section>
-
           </div>
         </div>
       </article>
+
+      {/* Related Articles */}
+      <section className="py-2 bg-white">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <div className="p-6 bg-slate-50 rounded-lg">
+            <h3 className="font-serif text-xl font-bold text-slate-900 mb-4">
+              Related Articles
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/mortgage-tax-benefits-calculator-save-on-taxes"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Mortgage Tax Benefits Calculator: Save on Taxes
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/how-to-calculate-your-monthly-mortgage-payment"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  How to Calculate Your Monthly Mortgage Payment
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/refinance-calculator-see-if-refinancing-pays-off"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Refinance Calculator: See If Refinancing Pays Off
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/how-to-qualify-for-a-mortgage-key-requirements"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  How to Qualify for a Mortgage: Key Requirements
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
       {/* FAQ Section */}
       <section className="py-12 bg-slate-50">
@@ -589,4 +615,6 @@ export default function MortgageInterestTaxDeductionPage() {
     </>
   );
 }
+
+
 

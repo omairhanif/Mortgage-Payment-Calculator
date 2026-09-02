@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
@@ -21,23 +21,23 @@ export default function BalloonMortgagesExplainedArticle() {
     },
     {
       q: "What are the main risks of balloon mortgages?",
-      a: "Key risks include: (1) Refinancing uncertainty—if rates rise or your credit worsens, refinancing may be expensive or impossible, (2) Market downturn risk—falling home values can prevent refinancing due to insufficient equity, (3) Income disruption—job loss or income reduction when the balloon is due leaves no options, (4) Foreclosure—if you can't pay and have no exit strategy, you'll lose the home, and (5) Rate shock—refinancing at higher rates can dramatically increase payments. The 2008 recession showed these risks aren't theoretical."
+      a: "Key risks include: (1) Refinancing uncertaintyâ€”if rates rise or your credit worsens, refinancing may be expensive or impossible, (2) Market downturn riskâ€”falling home values can prevent refinancing due to insufficient equity, (3) Income disruptionâ€”job loss or income reduction when the balloon is due leaves no options, (4) Foreclosureâ€”if you can't pay and have no exit strategy, you'll lose the home, and (5) Rate shockâ€”refinancing at higher rates can dramatically increase payments. The 2008 recession showed these risks aren't theoretical."
     },
     {
       q: "When does a balloon mortgage make sense?",
-      a: "Balloon mortgages work well when: (1) You're flipping an investment property within 1-3 years, (2) You're certain you'll sell before the balloon date (military relocation, job transfer), (3) You're expecting a windfall (business sale, inheritance, bonus) to pay the balloon, (4) You're a business owner with growing income planning to refinance, or (5) You need bridge financing while selling another property. The key is having a concrete, low-risk exit strategy—not just hoping rates will be favorable when you need to refinance."
+      a: "Balloon mortgages work well when: (1) You're flipping an investment property within 1-3 years, (2) You're certain you'll sell before the balloon date (military relocation, job transfer), (3) You're expecting a windfall (business sale, inheritance, bonus) to pay the balloon, (4) You're a business owner with growing income planning to refinance, or (5) You need bridge financing while selling another property. The key is having a concrete, low-risk exit strategyâ€”not just hoping rates will be favorable when you need to refinance."
     },
     {
       q: "How can I prepare for a balloon payment?",
-      a: "Start preparing 18-24 months early: (1) Make extra principal payments to reduce the balloon amount, (2) Improve your credit score by paying bills on time and reducing debt, (3) Increase savings for closing costs or potential down payment, (4) Get pre-approved for refinancing 12 months before the balloon date, (5) Maintain stable employment and document income, (6) Track home values and build equity, and (7) Have 2-3 backup plans (refinance, sell, or pay cash). Never wait until 3 months before the balloon is due—options will be limited and expensive."
+      a: "Start preparing 18-24 months early: (1) Make extra principal payments to reduce the balloon amount, (2) Improve your credit score by paying bills on time and reducing debt, (3) Increase savings for closing costs or potential down payment, (4) Get pre-approved for refinancing 12 months before the balloon date, (5) Maintain stable employment and document income, (6) Track home values and build equity, and (7) Have 2-3 backup plans (refinance, sell, or pay cash). Never wait until 3 months before the balloon is dueâ€”options will be limited and expensive."
     },
     {
       q: "Can I convert a balloon mortgage to a regular mortgage?",
-      a: "Yes, through refinancing—but it's not automatic. You'll need to qualify for a new conventional mortgage with: 620-680+ credit score, sufficient equity (typically 20%+ to avoid PMI), debt-to-income ratio below 43-50%, stable employment history, and documented income. Some balloon mortgages have convertibility options built in, but most require full refinancing. Start the process 6-12 months before your balloon is due to ensure you have time to address any qualification issues or explore alternative lenders if needed."
+      a: "Yes, through refinancingâ€”but it's not automatic. You'll need to qualify for a new conventional mortgage with: 620-680+ credit score, sufficient equity (typically 20%+ to avoid PMI), debt-to-income ratio below 43-50%, stable employment history, and documented income. Some balloon mortgages have convertibility options built in, but most require full refinancing. Start the process 6-12 months before your balloon is due to ensure you have time to address any qualification issues or explore alternative lenders if needed."
     },
     {
       q: "What happens if I can't pay my balloon payment?",
-      a: "If you can't pay, first contact your lender immediately—some may offer extensions or loan modifications, though this is rare and at their discretion. Other options: (1) Sell the property quickly (even at a slight loss to avoid foreclosure), (2) Find a private lender or hard money loan (expensive but temporary), (3) Borrow from retirement accounts or family (if available), or (4) As a last resort, deed in lieu of foreclosure or short sale may avoid the full foreclosure process. Ignoring the problem leads to foreclosure, credit damage, and potential deficiency judgments."
+      a: "If you can't pay, first contact your lender immediatelyâ€”some may offer extensions or loan modifications, though this is rare and at their discretion. Other options: (1) Sell the property quickly (even at a slight loss to avoid foreclosure), (2) Find a private lender or hard money loan (expensive but temporary), (3) Borrow from retirement accounts or family (if available), or (4) As a last resort, deed in lieu of foreclosure or short sale may avoid the full foreclosure process. Ignoring the problem leads to foreclosure, credit damage, and potential deficiency judgments."
     }
   ];
 
@@ -90,23 +90,23 @@ export default function BalloonMortgagesExplainedArticle() {
         
         <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
           <time>April 20, 2026</time>
-          <span className="mx-3">•</span>
+          <span className="mx-3">â€¢</span>
           <span>15 min read</span>
         </div>
       </div>
 
       {/* Article Content */}
-      <article className="pb-16">
+      <article className="pb-2">
         <div className="mx-auto max-w-3xl px-6 sm:px-8">
           <div className="prose prose-slate prose-lg max-w-none">
 
             {/* Introduction */}
             <section className="mb-12">
               <p className="text-xl text-slate-700 leading-relaxed mb-6">
-                Robert was thrilled when he secured a $400,000 balloon mortgage for his Denver retail space in 2019. The monthly payments of $2,661 were $380 less than a conventional loan, giving his startup extra breathing room. His plan seemed solid: build the business for five years, then refinance when the balloon payment came due in 2024. But March 2024 brought a harsh reality—interest rates had soared from 6.5% to 8.2%, and his business revenue hadn't grown as expected. Now he faced a $376,000 balloon payment with limited refinancing options.
+                Robert was thrilled when he secured a $400,000 balloon mortgage for his Denver retail space in 2019. The monthly payments of $2,661 were $380 less than a conventional loan, giving his startup extra breathing room. His plan seemed solid: build the business for five years, then refinance when the balloon payment came due in 2024. But March 2024 brought a harsh realityâ€”interest rates had soared from 6.5% to 8.2%, and his business revenue hadn't grown as expected. Now he faced a $376,000 balloon payment with limited refinancing options.
             </p>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              Robert's story illustrates the double-edged sword of <strong>balloon mortgages</strong>. These loans can be powerful financial tools in the right circumstances—or devastating traps when misunderstood. Unlike traditional mortgages where you gradually pay down the principal over 15-30 years, a <strong>balloon mortgage</strong> requires a massive lump sum payment after just 3-10 years.
+              Robert's story illustrates the double-edged sword of <strong>balloon mortgages</strong>. These loans can be powerful financial tools in the right circumstancesâ€”or devastating traps when misunderstood. Unlike traditional mortgages where you gradually pay down the principal over 15-30 years, a <strong>balloon mortgage</strong> requires a massive lump sum payment after just 3-10 years.
             </p>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
               Whether you're considering a <strong>balloon mortgage for investment property</strong>, evaluating <strong>balloon mortgage pros and cons</strong>, or trying to understand exactly <strong>what is a balloon mortgage</strong>, this comprehensive guide will give you the knowledge to make an informed decision.
@@ -128,7 +128,7 @@ export default function BalloonMortgagesExplainedArticle() {
               How Does a Balloon Mortgage Work?
             </h3>
             
-            <div className="bg-indigo-50 border-l-4 border-indigo-600 p-6 my-8 rounded-r-lg">
+            <div className="bg-slate-50 border-l-4 border-slate-300 p-6 my-8 rounded-r-lg">
               <p className="font-semibold text-slate-900 mb-3">Example: 7-Year Balloon Mortgage</p>
               <ul className="space-y-2 text-slate-700">
                 <li><strong>Loan Amount:</strong> $300,000</li>
@@ -155,13 +155,13 @@ export default function BalloonMortgagesExplainedArticle() {
               Advantages of Balloon Mortgages
             </h3>
 
-            <div className="bg-green-50 p-6 rounded-lg my-8">
+            <div className="bg-slate-50 p-6 rounded-lg my-8">
               <ul className="space-y-3 text-slate-700">
-                <li><strong>✓ Lower Monthly Payments:</strong> 15-25% lower than fully amortizing loans</li>
-                <li><strong>✓ Easier Qualification:</strong> Better debt-to-income ratios</li>
-                <li><strong>✓ Short-Term Flexibility:</strong> Ideal for properties you plan to sell</li>
-                <li><strong>✓ Business Cash Flow:</strong> Preserve capital for operations</li>
-                <li><strong>✓ Bridge Financing:</strong> Perfect for temporary situations</li>
+                <li><strong>âœ“ Lower Monthly Payments:</strong> 15-25% lower than fully amortizing loans</li>
+                <li><strong>âœ“ Easier Qualification:</strong> Better debt-to-income ratios</li>
+                <li><strong>âœ“ Short-Term Flexibility:</strong> Ideal for properties you plan to sell</li>
+                <li><strong>âœ“ Business Cash Flow:</strong> Preserve capital for operations</li>
+                <li><strong>âœ“ Bridge Financing:</strong> Perfect for temporary situations</li>
               </ul>
             </div>
 
@@ -169,14 +169,14 @@ export default function BalloonMortgagesExplainedArticle() {
               Disadvantages of Balloon Mortgages
             </h3>
 
-            <div className="bg-red-50 p-6 rounded-lg my-8">
+            <div className="bg-slate-50 p-6 rounded-lg my-8">
               <ul className="space-y-3 text-slate-700">
-                <li><strong>✗ Massive Payment Risk:</strong> Must pay hundreds of thousands in one lump sum</li>
-                <li><strong>✗ Refinancing Uncertainty:</strong> Rates may be higher when balloon comes due</li>
-                <li><strong>✗ Market Dependency:</strong> Property values must support refinancing</li>
-                <li><strong>✗ Limited Equity Building:</strong> Only 5-10% equity after 5-7 years</li>
-                <li><strong>✗ Foreclosure Risk:</strong> Can't pay balloon = potential foreclosure</li>
-                <li><strong>✗ Higher Interest Rates:</strong> Usually 0.25-0.75% higher</li>
+                <li><strong>âœ— Massive Payment Risk:</strong> Must pay hundreds of thousands in one lump sum</li>
+                <li><strong>âœ— Refinancing Uncertainty:</strong> Rates may be higher when balloon comes due</li>
+                <li><strong>âœ— Market Dependency:</strong> Property values must support refinancing</li>
+                <li><strong>âœ— Limited Equity Building:</strong> Only 5-10% equity after 5-7 years</li>
+                <li><strong>âœ— Foreclosure Risk:</strong> Can't pay balloon = potential foreclosure</li>
+                <li><strong>âœ— Higher Interest Rates:</strong> Usually 0.25-0.75% higher</li>
               </ul>
             </div>
           </section>
@@ -193,7 +193,7 @@ export default function BalloonMortgagesExplainedArticle() {
               <strong>Balloon mortgages make sense</strong> in specific, well-defined scenarios. Here are the situations where they can be smart financial tools:
             </p>
 
-            <div className="bg-green-50 border-l-4 border-green-600 p-6 my-8 rounded-r-lg">
+            <div className="bg-slate-50 border-l-4 border-slate-300 p-6 my-8 rounded-r-lg">
               <h4 className="font-semibold text-slate-900 mb-4">6 Scenarios When Balloon Mortgages Work:</h4>
               <ul className="space-y-3 text-slate-700">
                 <li><strong>1. Short-Term Investment Property:</strong> Buying to renovate and sell within 3-5 years</li>
@@ -205,7 +205,7 @@ export default function BalloonMortgagesExplainedArticle() {
               </ul>
             </div>
 
-            <div className="bg-green-50 border-l-4 border-green-600 p-6 my-8 rounded-r-lg">
+            <div className="bg-slate-50 border-l-4 border-slate-300 p-6 my-8 rounded-r-lg">
               <p className="font-semibold text-slate-900 mb-3">Success Story: Phoenix House Flip</p>
               <p className="text-slate-700 mb-3">
                 Maria, a Phoenix investor, used a <strong>balloon mortgage for investment property</strong>:
@@ -222,7 +222,7 @@ export default function BalloonMortgagesExplainedArticle() {
               When to Avoid Balloon Mortgages
             </h3>
 
-            <div className="bg-red-50 border-l-4 border-red-600 p-6 my-8 rounded-r-lg">
+            <div className="bg-slate-50 border-l-4 border-slate-300 p-6 my-8 rounded-r-lg">
               <h4 className="font-semibold text-slate-900 mb-4">6 Scenarios to Avoid Balloon Mortgages:</h4>
               <ul className="space-y-3 text-slate-700">
                 <li><strong>1. First-Time Homebuyer:</strong> Planning to stay long-term</li>
@@ -246,7 +246,7 @@ export default function BalloonMortgagesExplainedArticle() {
             </h3>
 
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              If interest rates rise significantly, refinancing becomes more expensive—or impossible. You could face monthly payments you can't afford or be forced to sell at an inopportune time.
+              If interest rates rise significantly, refinancing becomes more expensiveâ€”or impossible. You could face monthly payments you can't afford or be forced to sell at an inopportune time.
             </p>
 
             <h3 className="font-serif text-2xl font-bold text-slate-900 mb-4 mt-8">
@@ -265,8 +265,8 @@ export default function BalloonMortgagesExplainedArticle() {
               Job loss, business downturn, or credit score decline can disqualify you from refinancing, leaving you unable to pay the balloon.
             </p>
 
-            <div className="bg-yellow-50 border-l-4 border-yellow-600 p-6 my-8 rounded-r-lg">
-              <p className="font-semibold text-slate-900 mb-3">⚠️ Cautionary Tale: 2008 Crisis Example</p>
+            <div className="bg-slate-50 border-l-4 border-slate-300 p-6 my-8 rounded-r-lg">
+              <p className="font-semibold text-slate-900 mb-3">âš ï¸ Cautionary Tale: 2008 Crisis Example</p>
               <p className="text-slate-700 mb-3">
                 James bought a $450,000 home in Las Vegas with a 7-year balloon in 2004, planning to refinance in 2011:
               </p>
@@ -371,7 +371,7 @@ export default function BalloonMortgagesExplainedArticle() {
               Making the Right Decision
             </h2>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              Balloon mortgages are neither inherently good nor bad—they're powerful financial tools that demand careful analysis and ironclad exit strategies. The success stories prove they can work brilliantly for short-term investors, business owners with growth plans, and strategic real estate moves. The cautionary tales prove they can be devastating for unprepared borrowers.
+              Balloon mortgages are neither inherently good nor badâ€”they're powerful financial tools that demand careful analysis and ironclad exit strategies. The success stories prove they can work brilliantly for short-term investors, business owners with growth plans, and strategic real estate moves. The cautionary tales prove they can be devastating for unprepared borrowers.
             </p>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
               Before committing to a balloon mortgage, honestly assess: (1) Do you have a concrete plan to pay the balloon? (2) Do you have 2-3 backup exit strategies? (3) Can you handle refinancing at higher rates? (4) Is your income stable enough? (5) Does your property support future refinancing or sale?
@@ -381,33 +381,54 @@ export default function BalloonMortgagesExplainedArticle() {
             </p>
           </section>
 
-          {/* CTA */}
-          <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-2xl p-8 my-12 border border-indigo-100">
-            <h3 className="font-serif text-2xl font-bold text-slate-900 mb-4">
-              Calculate Your Balloon Mortgage Options
-            </h3>
-            <p className="text-slate-700 mb-6">
-              Before deciding on a balloon mortgage, use our calculator to see the exact numbers, compare terms, and model different scenarios.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                href="/balloon-payment-calculator-estimate-final-loan-amount"
-                className="inline-flex items-center px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition-colors"
-              >
-                Use Balloon Calculator
-              </Link>
-              <Link
-                href="/"
-                className="inline-flex items-center px-6 py-3 bg-white text-indigo-600 font-semibold rounded-lg border-2 border-indigo-600 hover:bg-indigo-50 transition-colors"
-              >
-                Compare All Options →
-              </Link>
-            </div>
-          </div>
-
           </div>
         </div>
       </article>
+
+      {/* Related Articles */}
+      <section className="py-12 bg-white">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <div className="p-6 bg-slate-50 rounded-lg">
+            <h3 className="font-serif text-xl font-bold text-slate-900 mb-4">
+              Related Articles
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/fixed-rate-vs-arm-which-mortgage-fits-you"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Fixed-Rate vs. ARM: Which Mortgage Fits You?
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/interest-only-loan-calculator-with-extra-payments"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Interest-Only Loan Calculator With Extra Payments
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/balloon-payment-calculator-estimate-final-loan-amount"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Balloon Payment Calculator: Estimate Final Loan Amount
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/apr-vs-interest-rate-whats-the-real-difference"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  APR vs. Interest Rate: What's the Real Difference?
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
       {/* FAQ Section */}
       <section className="py-12 bg-slate-50">
@@ -449,4 +470,6 @@ export default function BalloonMortgagesExplainedArticle() {
     </>
   );
 }
+
+
 

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import Link from 'next/link';
@@ -25,30 +25,30 @@ export default function HowSecondMortgagesWork() {
     },
     {
       q: "Is it hard to get a 2nd mortgage?",
-      a: "It's more challenging than getting a first mortgage because second mortgages carry higher risk for lenders due to their subordinate position. However, approval is realistic if you have strong equity (30%+ is ideal), good credit (680+), stable income, and manageable existing debt. Borrowers with marginal credit (620-680), high debt-to-income ratios, or limited equity face more difficulty and higher interest rates. Private lenders may approve applications that traditional banks decline, but at significantly higher rates—sometimes 10-15% or more. The key factors are demonstrating both sufficient collateral and ability to handle the additional payment comfortably."
+      a: "It's more challenging than getting a first mortgage because second mortgages carry higher risk for lenders due to their subordinate position. However, approval is realistic if you have strong equity (30%+ is ideal), good credit (680+), stable income, and manageable existing debt. Borrowers with marginal credit (620-680), high debt-to-income ratios, or limited equity face more difficulty and higher interest rates. Private lenders may approve applications that traditional banks decline, but at significantly higher ratesâ€”sometimes 10-15% or more. The key factors are demonstrating both sufficient collateral and ability to handle the additional payment comfortably."
     },
     {
       q: "What is the 2 2 2 rule for mortgages?",
-      a: "The 2-2-2 rule is a guideline some lenders use for credit assessment: 2 years of employment history in the same field, 2 years of tax returns showing stable income, and 2 months of bank statements demonstrating reserves. This isn't a universal standard—different lenders have varying documentation requirements—but it reflects common verification practices. The rule helps lenders confirm employment stability, income consistency, and financial reserves to handle unexpected expenses. Some lenders may be more flexible, while others require additional documentation depending on your employment type, income sources, and overall financial profile."
+      a: "The 2-2-2 rule is a guideline some lenders use for credit assessment: 2 years of employment history in the same field, 2 years of tax returns showing stable income, and 2 months of bank statements demonstrating reserves. This isn't a universal standardâ€”different lenders have varying documentation requirementsâ€”but it reflects common verification practices. The rule helps lenders confirm employment stability, income consistency, and financial reserves to handle unexpected expenses. Some lenders may be more flexible, while others require additional documentation depending on your employment type, income sources, and overall financial profile."
     }
   ];
 
   const faqs2 = [
     {
       q: "Are second mortgage rates higher than first mortgage rates?",
-      a: "Yes, second mortgage rates are typically 1-3 percentage points higher than first mortgage rates, sometimes more. This rate premium compensates lenders for the increased risk of the subordinate lien position—if you default and your home is foreclosed, the first mortgage lender is paid before the second mortgage lender, meaning the second lender faces greater potential loss. Your specific rate depends on your credit score, loan-to-value ratio, debt-to-income ratio, and property characteristics. Borrowers with excellent credit (740+) and lower CLTV ratios receive better rates. Private lenders typically charge even higher rates than traditional banks but may approve applications that banks decline."
+      a: "Yes, second mortgage rates are typically 1-3 percentage points higher than first mortgage rates, sometimes more. This rate premium compensates lenders for the increased risk of the subordinate lien positionâ€”if you default and your home is foreclosed, the first mortgage lender is paid before the second mortgage lender, meaning the second lender faces greater potential loss. Your specific rate depends on your credit score, loan-to-value ratio, debt-to-income ratio, and property characteristics. Borrowers with excellent credit (740+) and lower CLTV ratios receive better rates. Private lenders typically charge even higher rates than traditional banks but may approve applications that banks decline."
     },
     {
       q: "Can I deduct second mortgage interest on taxes?",
-      a: "Tax treatment varies by jurisdiction and loan purpose. In the United States, you may deduct second mortgage interest if you use the loan to buy, build, or substantially improve your home, and your total mortgage debt (first and second combined) doesn't exceed $750,000 ($375,000 if married filing separately). Interest on second mortgages used for other purposes—debt consolidation, education, business investments—is generally not deductible under current U.S. tax law. Canada, the UK, Ireland, and other countries have different rules. Always consult a qualified tax professional for your specific situation, as tax laws change frequently and individual circumstances vary significantly."
+      a: "Tax treatment varies by jurisdiction and loan purpose. In the United States, you may deduct second mortgage interest if you use the loan to buy, build, or substantially improve your home, and your total mortgage debt (first and second combined) doesn't exceed $750,000 ($375,000 if married filing separately). Interest on second mortgages used for other purposesâ€”debt consolidation, education, business investmentsâ€”is generally not deductible under current U.S. tax law. Canada, the UK, Ireland, and other countries have different rules. Always consult a qualified tax professional for your specific situation, as tax laws change frequently and individual circumstances vary significantly."
     },
     {
       q: "What happens if I can't make payments on my second mortgage?",
-      a: "Missing second mortgage payments triggers serious consequences. The lender can initiate foreclosure proceedings, just like a first mortgage lender, though they're paid after the first mortgage if your home is sold. Missed payments severely damage your credit score (drops of 100+ points are common), and late fees accumulate quickly. If you're struggling, contact your lender immediately—many offer hardship programs including temporary payment reduction, forbearance periods, or loan modification. Other options include refinancing both mortgages into one loan, selling your home before foreclosure proceedings advance, or negotiating a short sale. Act quickly before falling too far behind, as options decrease as delinquency worsens."
+      a: "Missing second mortgage payments triggers serious consequences. The lender can initiate foreclosure proceedings, just like a first mortgage lender, though they're paid after the first mortgage if your home is sold. Missed payments severely damage your credit score (drops of 100+ points are common), and late fees accumulate quickly. If you're struggling, contact your lender immediatelyâ€”many offer hardship programs including temporary payment reduction, forbearance periods, or loan modification. Other options include refinancing both mortgages into one loan, selling your home before foreclosure proceedings advance, or negotiating a short sale. Act quickly before falling too far behind, as options decrease as delinquency worsens."
     },
     {
       q: "Should I get a second mortgage or refinance my first mortgage?",
-      a: "The better choice depends on your first mortgage rate, current market rates, and how much you need to borrow. If your first mortgage rate is significantly lower than current rates, a second mortgage preserves that low rate while accessing equity—you pay higher rates only on the additional borrowed amount. If current rates are similar to or lower than your first mortgage rate, cash-out refinancing might make more sense, consolidating everything into one payment at a competitive rate. Compare total costs: closing costs for each option (refinancing typically costs more), monthly payment differences, total interest over the life of both loans, and whether you'll face prepayment penalties on your existing mortgage. A break-even analysis shows how long until refinancing costs are recouped through payment savings."
+      a: "The better choice depends on your first mortgage rate, current market rates, and how much you need to borrow. If your first mortgage rate is significantly lower than current rates, a second mortgage preserves that low rate while accessing equityâ€”you pay higher rates only on the additional borrowed amount. If current rates are similar to or lower than your first mortgage rate, cash-out refinancing might make more sense, consolidating everything into one payment at a competitive rate. Compare total costs: closing costs for each option (refinancing typically costs more), monthly payment differences, total interest over the life of both loans, and whether you'll face prepayment penalties on your existing mortgage. A break-even analysis shows how long until refinancing costs are recouped through payment savings."
     }
   ];
 
@@ -105,13 +105,13 @@ export default function HowSecondMortgagesWork() {
         
         <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
           <time>March 15, 2026</time>
-          <span className="mx-3">•</span>
+          <span className="mx-3">â€¢</span>
           <span>17 min read</span>
         </div>
       </div>
 
       {/* Article Content */}
-      <article className="pb-16">
+      <article className="pb-2">
         <div className="mx-auto max-w-3xl px-6 sm:px-8">
           <div className="prose prose-slate prose-lg max-w-none">
             
@@ -146,7 +146,7 @@ export default function HowSecondMortgagesWork() {
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              Using the formula: The monthly interest rate is 6.5% ÷ 12 = 0.00542. The number of payments is 30 years × 12 = 360 months. Plugging these into the formula yields a principal and interest payment of approximately $1,991 per month. Over 30 years, you'll pay roughly $716,760 total—the original $315,000 principal plus $401,760 in interest.
+              Using the formula: The monthly interest rate is 6.5% Ã· 12 = 0.00542. The number of payments is 30 years Ã— 12 = 360 months. Plugging these into the formula yields a principal and interest payment of approximately $1,991 per month. Over 30 years, you'll pay roughly $716,760 totalâ€”the original $315,000 principal plus $401,760 in interest.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
@@ -162,7 +162,7 @@ export default function HowSecondMortgagesWork() {
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              The 20% down payment saves you $332 monthly in principal and interest alone—nearly $4,000 annually and almost $120,000 over the loan's life. Beyond lower payments, larger down payments often secure better interest rates and eliminate private mortgage insurance requirements, compounding your savings.
+              The 20% down payment saves you $332 monthly in principal and interest aloneâ€”nearly $4,000 annually and almost $120,000 over the loan's life. Beyond lower payments, larger down payments often secure better interest rates and eliminate private mortgage insurance requirements, compounding your savings.
             </p>
 
             {/* Complete Payment Components */}
@@ -179,11 +179,11 @@ export default function HowSecondMortgagesWork() {
             </h3>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              Property taxes fund local services like schools, roads, and emergency services. Rates vary dramatically by location—from under 0.5% annually in some areas to over 2.5% in others. Most lenders require you to pay property taxes through an escrow account, dividing the annual amount into monthly payments included in your mortgage bill.
+              Property taxes fund local services like schools, roads, and emergency services. Rates vary dramatically by locationâ€”from under 0.5% annually in some areas to over 2.5% in others. Most lenders require you to pay property taxes through an escrow account, dividing the annual amount into monthly payments included in your mortgage bill.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              <strong>Hypothetical Example:</strong> On a $350,000 home in an area with 1.5% property tax, annual taxes are $5,250, or roughly $438 monthly. In areas like Ontario or BC in Canada, effective rates might be 0.7-1.0%, resulting in $204-292 monthly. In California or Alberta, rates could be 1.0-1.2%, yielding $292-350 monthly. Always research local tax rates—many municipalities publish assessment data online.
+              <strong>Hypothetical Example:</strong> On a $350,000 home in an area with 1.5% property tax, annual taxes are $5,250, or roughly $438 monthly. In areas like Ontario or BC in Canada, effective rates might be 0.7-1.0%, resulting in $204-292 monthly. In California or Alberta, rates could be 1.0-1.2%, yielding $292-350 monthly. Always research local tax ratesâ€”many municipalities publish assessment data online.
             </p>
 
             <h3 className="font-serif text-xl font-bold text-slate-900 mt-8 mb-4">
@@ -195,7 +195,7 @@ export default function HowSecondMortgagesWork() {
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              <strong>Hypothetical Example:</strong> A $350,000 home might require $1,400 annual insurance ($117 monthly) in a low-risk area, or $2,400 annually ($200 monthly) in a coastal region with hurricane exposure. In the UK, building insurance costs vary by region and property age but typically run £200-500 annually, while in Canada, premiums generally fall between $900-1,800 annually depending on province and coverage.
+              <strong>Hypothetical Example:</strong> A $350,000 home might require $1,400 annual insurance ($117 monthly) in a low-risk area, or $2,400 annually ($200 monthly) in a coastal region with hurricane exposure. In the UK, building insurance costs vary by region and property age but typically run Â£200-500 annually, while in Canada, premiums generally fall between $900-1,800 annually depending on province and coverage.
             </p>
 
             <h3 className="font-serif text-xl font-bold text-slate-900 mt-8 mb-4">
@@ -207,7 +207,7 @@ export default function HowSecondMortgagesWork() {
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              <strong>Hypothetical Example:</strong> With 10% down on a $350,000 home, you borrow $315,000. At 0.7% PMI, you'd pay $2,205 annually, or about $184 monthly. This PMI would drop off after approximately 7-8 years as you build equity through payments and modest appreciation. With just 5% down, PMI might be 1.0%, costing $264 monthly—another reason to save for a larger down payment when possible.
+              <strong>Hypothetical Example:</strong> With 10% down on a $350,000 home, you borrow $315,000. At 0.7% PMI, you'd pay $2,205 annually, or about $184 monthly. This PMI would drop off after approximately 7-8 years as you build equity through payments and modest appreciation. With just 5% down, PMI might be 1.0%, costing $264 monthlyâ€”another reason to save for a larger down payment when possible.
             </p>
 
             <h3 className="font-serif text-xl font-bold text-slate-900 mt-8 mb-4">
@@ -228,15 +228,15 @@ export default function HowSecondMortgagesWork() {
 
             <ul className="list-disc list-inside space-y-2 text-base text-slate-600 mb-6 ml-4">
               <li><strong>Principal & Interest:</strong> $1,991</li>
-              <li><strong>Property Taxes:</strong> $438 (1.5% of $350,000 ÷ 12)</li>
-              <li><strong>Homeowners Insurance:</strong> $142 ($1,700 annual ÷ 12)</li>
-              <li><strong>PMI:</strong> $184 (0.7% of $315,000 ÷ 12)</li>
+              <li><strong>Property Taxes:</strong> $438 (1.5% of $350,000 Ã· 12)</li>
+              <li><strong>Homeowners Insurance:</strong> $142 ($1,700 annual Ã· 12)</li>
+              <li><strong>PMI:</strong> $184 (0.7% of $315,000 Ã· 12)</li>
               <li><strong>HOA Fees:</strong> $225</li>
               <li><strong>Total Monthly Payment:</strong> $2,980</li>
             </ul>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              This complete view shows why a mortgage payment calculator with taxes and insurance is crucial. The principal and interest alone ($1,991) represents only 67% of your actual monthly cost. Budgeting for just P&I would leave you short by nearly $1,000 monthly—a potentially devastating oversight.
+              This complete view shows why a mortgage payment calculator with taxes and insurance is crucial. The principal and interest alone ($1,991) represents only 67% of your actual monthly cost. Budgeting for just P&I would leave you short by nearly $1,000 monthlyâ€”a potentially devastating oversight.
             </p>
 
             {/* Extra Payments Section */}
@@ -249,7 +249,7 @@ export default function HowSecondMortgagesWork() {
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              <strong>Hypothetical Extra Payment Example:</strong> Using our $315,000 loan at 6.5% for 30 years with a $1,991 monthly P&I payment: Adding just $200 extra monthly reduces your loan term from 360 months to 289 months—shortening it by 71 months (nearly 6 years). Total interest paid drops from $401,760 to $317,445—saving $84,315 over the life of the loan.
+              <strong>Hypothetical Extra Payment Example:</strong> Using our $315,000 loan at 6.5% for 30 years with a $1,991 monthly P&I payment: Adding just $200 extra monthly reduces your loan term from 360 months to 289 monthsâ€”shortening it by 71 months (nearly 6 years). Total interest paid drops from $401,760 to $317,445â€”saving $84,315 over the life of the loan.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
@@ -262,11 +262,11 @@ export default function HowSecondMortgagesWork() {
             </h2>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              When conducting a mortgage payment calculator comparison, you'll notice different tools serve different purposes. A simple mortgage payment calculator shows only principal and interest—ideal for quick loan amount comparisons. Comprehensive calculators include taxes, insurance, PMI, and HOA fees—better for accurate budgeting. Specialized calculators explore scenarios like extra payments, different payment frequencies, or adjustable-rate mortgages.
+              When conducting a mortgage payment calculator comparison, you'll notice different tools serve different purposes. A simple mortgage payment calculator shows only principal and interestâ€”ideal for quick loan amount comparisons. Comprehensive calculators include taxes, insurance, PMI, and HOA feesâ€”better for accurate budgeting. Specialized calculators explore scenarios like extra payments, different payment frequencies, or adjustable-rate mortgages.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              Many homebuyers search for specific institutional calculators, looking for "mortgage payment calculator TD" or "mortgage payment calculator CIBC" when they're current customers of those banks. While many Canadian financial institutions offer mortgage calculators on their websites, third-party tools often provide more flexibility and aren't tied to a specific lender's products. The underlying mathematics remain identical regardless of which calculator you use—what matters is ensuring you input accurate information and understand what the calculator includes in its estimates.
+              Many homebuyers search for specific institutional calculators, looking for "mortgage payment calculator TD" or "mortgage payment calculator CIBC" when they're current customers of those banks. While many Canadian financial institutions offer mortgage calculators on their websites, third-party tools often provide more flexibility and aren't tied to a specific lender's products. The underlying mathematics remain identical regardless of which calculator you useâ€”what matters is ensuring you input accurate information and understand what the calculator includes in its estimates.
             </p>
 
             <h3 className="font-serif text-xl font-bold text-slate-900 mt-8 mb-4">
@@ -274,7 +274,7 @@ export default function HowSecondMortgagesWork() {
             </h3>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              Understanding what calculators show—and don't show—is critical. Most display your monthly payment, total interest over the loan life, and total amount paid. Some provide amortization schedules showing how each payment divides between principal and interest. Advanced calculators might show your loan-to-value ratio, equity build-up over time, or payoff progress.
+              Understanding what calculators showâ€”and don't showâ€”is critical. Most display your monthly payment, total interest over the loan life, and total amount paid. Some provide amortization schedules showing how each payment divides between principal and interest. Advanced calculators might show your loan-to-value ratio, equity build-up over time, or payoff progress.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
@@ -291,7 +291,7 @@ export default function HowSecondMortgagesWork() {
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              In Canada, mortgage calculations have unique features. Canadian mortgages typically use semi-annual compounding rather than monthly, which slightly affects the effective interest rate. A mortgage payment calculator Canada should account for this difference. Additionally, Canadian mortgage terms often differ from amortization periods—you might have a 25-year amortization with a 5-year term, after which you renegotiate rates. Down payment requirements and mortgage insurance rules (CMHC insurance for down payments under 20%) also differ from U.S. standards.
+              In Canada, mortgage calculations have unique features. Canadian mortgages typically use semi-annual compounding rather than monthly, which slightly affects the effective interest rate. A mortgage payment calculator Canada should account for this difference. Additionally, Canadian mortgage terms often differ from amortization periodsâ€”you might have a 25-year amortization with a 5-year term, after which you renegotiate rates. Down payment requirements and mortgage insurance rules (CMHC insurance for down payments under 20%) also differ from U.S. standards.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -299,7 +299,7 @@ export default function HowSecondMortgagesWork() {
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              Lender-specific factors also affect actual payments. Some lenders have higher or lower PMI rates based on their risk models. Escrow account requirements vary—some lenders require tax and insurance escrow, others make it optional above certain down payment thresholds. Servicing fees, though typically small, can differ between lenders. This is why your actual payment might vary slightly from calculator estimates, even with identical loan terms.
+              Lender-specific factors also affect actual payments. Some lenders have higher or lower PMI rates based on their risk models. Escrow account requirements varyâ€”some lenders require tax and insurance escrow, others make it optional above certain down payment thresholds. Servicing fees, though typically small, can differ between lenders. This is why your actual payment might vary slightly from calculator estimates, even with identical loan terms.
             </p>
 
             {/* Affordability Considerations */}
@@ -312,7 +312,7 @@ export default function HowSecondMortgagesWork() {
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              <strong>Hypothetical Affordability Example:</strong> With $100,000 annual income ($8,333 monthly), the 28% front-end ratio allows $2,333 monthly for housing costs. Subtracting estimated taxes ($350), insurance ($125), and PMI ($150) leaves $1,708 for principal and interest. At 6.5% for 30 years, you can afford a loan of roughly $270,000. Add your down payment to find your maximum home price—with 10% down, you'd qualify for approximately a $300,000 home. Use payment calculators to fine-tune your target once you know your affordability range.
+              <strong>Hypothetical Affordability Example:</strong> With $100,000 annual income ($8,333 monthly), the 28% front-end ratio allows $2,333 monthly for housing costs. Subtracting estimated taxes ($350), insurance ($125), and PMI ($150) leaves $1,708 for principal and interest. At 6.5% for 30 years, you can afford a loan of roughly $270,000. Add your down payment to find your maximum home priceâ€”with 10% down, you'd qualify for approximately a $300,000 home. Use payment calculators to fine-tune your target once you know your affordability range.
             </p>
 
             {/* Conclusion */}
@@ -321,11 +321,11 @@ export default function HowSecondMortgagesWork() {
             </h2>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              Mortgage payment calculators are essential tools for home financing decisions, whether you're evaluating affordability, comparing loan options, or planning your payoff strategy. Understanding how these calculators work—from the mathematical formulas they use to the components they include—helps you interpret results accurately and avoid costly surprises.
+              Mortgage payment calculators are essential tools for home financing decisions, whether you're evaluating affordability, comparing loan options, or planning your payoff strategy. Understanding how these calculators workâ€”from the mathematical formulas they use to the components they includeâ€”helps you interpret results accurately and avoid costly surprises.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              Start with comprehensive calculators that include taxes, insurance, and PMI for realistic payment estimates. Compare different scenarios: larger versus smaller down payments, 15-year versus 30-year terms, or the impact of extra payments. Research location-specific costs like property tax rates and insurance premiums in your target area. Finally, remember that calculator estimates are starting points—obtain detailed quotes from multiple lenders to understand your actual costs and available options before committing to a mortgage.
+              Start with comprehensive calculators that include taxes, insurance, and PMI for realistic payment estimates. Compare different scenarios: larger versus smaller down payments, 15-year versus 30-year terms, or the impact of extra payments. Research location-specific costs like property tax rates and insurance premiums in your target area. Finally, remember that calculator estimates are starting pointsâ€”obtain detailed quotes from multiple lenders to understand your actual costs and available options before committing to a mortgage.
             </p>
 
             {/* FAQ Section */}

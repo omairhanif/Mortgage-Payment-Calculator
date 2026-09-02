@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -29,7 +29,7 @@ export default function VALoanRequirementsArticle() {
     },
     {
       q: "Do I need to pay a down payment on a VA loan?",
-      a: "No, VA loans allow 0% down payment on loan amounts up to $726,200 (or higher in expensive markets) with full entitlement. This is one of the program's biggest benefits—you can buy a $300,000 home with zero down, paying only closing costs (typically $6,000-$10,000, often covered by seller concessions). Some veterans choose to put 5-10% down to reduce their VA funding fee and monthly payments, but it's not required unless you're purchasing above your entitlement limit."
+      a: "No, VA loans allow 0% down payment on loan amounts up to $726,200 (or higher in expensive markets) with full entitlement. This is one of the program's biggest benefitsâ€”you can buy a $300,000 home with zero down, paying only closing costs (typically $6,000-$10,000, often covered by seller concessions). Some veterans choose to put 5-10% down to reduce their VA funding fee and monthly payments, but it's not required unless you're purchasing above your entitlement limit."
     },
     {
       q: "Can National Guard and Reserve members get VA loans?",
@@ -90,23 +90,23 @@ export default function VALoanRequirementsArticle() {
         
         <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
           <time>April 15, 2026</time>
-          <span className="mx-3">•</span>
+          <span className="mx-3">â€¢</span>
           <span>14 min read</span>
         </div>
       </div>
 
       {/* Article Content */}
-      <article className="pb-16">
+      <article className="pb-2">
         <div className="mx-auto max-w-3xl px-6 sm:px-8">
           <div className="prose prose-slate prose-lg max-w-none">
           
           {/* Introduction */}
           <section className="mb-12">
             <p className="text-xl text-slate-700 leading-relaxed mb-6">
-              Three weeks ago, Staff Sergeant David Patterson sat in my office convinced he didn't qualify for a VA loan. "I only served 90 days active duty before being discharged," he explained. "And my credit score is 610. There's no way I'm approved, right?" Wrong. After pulling his Certificate of Eligibility and reviewing his service records—90 days active duty during the Gulf War qualified him perfectly—and confirming his $68,000 annual income gave him a 32% debt-to-income ratio, I pre-approved him for a $285,000 <strong>VA home loan</strong> with <strong>VA loan requirements</strong> that were far more flexible than he realized.
+              Three weeks ago, Staff Sergeant David Patterson sat in my office convinced he didn't qualify for a VA loan. "I only served 90 days active duty before being discharged," he explained. "And my credit score is 610. There's no way I'm approved, right?" Wrong. After pulling his Certificate of Eligibility and reviewing his service recordsâ€”90 days active duty during the Gulf War qualified him perfectlyâ€”and confirming his $68,000 annual income gave him a 32% debt-to-income ratio, I pre-approved him for a $285,000 <strong>VA home loan</strong> with <strong>VA loan requirements</strong> that were far more flexible than he realized.
             </p>
             <p className="text-xl text-slate-700 leading-relaxed mb-6">
-              That's the reality of <strong>VA loan eligibility</strong> that too many service members misunderstand. Whether you're active duty, a veteran, National Guard, Reserves, or a surviving spouse, the <strong>military mortgage requirements</strong> and <strong>veterans affairs loan eligibility</strong> standards are more accessible than conventional loans. The <strong>VA loan credit score</strong> minimums are lower, the <strong>COE requirements</strong> are straightforward, and the <strong>VA loan service requirements</strong> cover more scenarios than most people realize—including <strong>National Guard VA loan</strong> and <strong>reserves VA loan eligibility</strong>.
+              That's the reality of <strong>VA loan eligibility</strong> that too many service members misunderstand. Whether you're active duty, a veteran, National Guard, Reserves, or a surviving spouse, the <strong>military mortgage requirements</strong> and <strong>veterans affairs loan eligibility</strong> standards are more accessible than conventional loans. The <strong>VA loan credit score</strong> minimums are lower, the <strong>COE requirements</strong> are straightforward, and the <strong>VA loan service requirements</strong> cover more scenarios than most people realizeâ€”including <strong>National Guard VA loan</strong> and <strong>reserves VA loan eligibility</strong>.
             </p>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
               I've helped over 300 service members navigate the <strong>VA loan certificate of eligibility</strong> process, and I've seen everyone from E-2s with 6 months of service to 20-year retirees successfully qualify. Let me walk you through exactly what you need: service eligibility requirements, credit standards, the COE application process, income verification, property requirements, and real approval stories that prove this benefit is more attainable than you think.
@@ -129,7 +129,7 @@ export default function VALoanRequirementsArticle() {
                   <strong>Requirement:</strong> 90 consecutive days of active service during wartime, OR 181 days during peacetime.
                 </p>
                 <p className="text-slate-700">
-                  <strong>Example:</strong> Petty Officer Lisa Martinez, Navy, served 120 days active duty during Operation Iraqi Freedom—qualified immediately. She bought her first home in San Diego at age 24 with zero down payment.
+                  <strong>Example:</strong> Petty Officer Lisa Martinez, Navy, served 120 days active duty during Operation Iraqi Freedomâ€”qualified immediately. She bought her first home in San Diego at age 24 with zero down payment.
                 </p>
               </div>
 
@@ -189,7 +189,7 @@ export default function VALoanRequirementsArticle() {
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
               The VA doesn't set a minimum <strong>VA loan credit score</strong>, but lenders typically require 580-620. Here's what I've seen approved:
             </p>
-            <div className="bg-indigo-50 border-l-4 border-indigo-600 p-6 mb-6">
+            <div className="bg-slate-50 border-l-4 border-slate-300 p-6 mb-6">
               <h3 className="font-bold text-xl text-slate-900 mb-4">Credit Score Ranges</h3>
               <ul className="space-y-3 text-lg text-slate-700">
                 <li><strong>640+:</strong> Excellent odds, best rates (6.0-6.5%)</li>
@@ -226,7 +226,7 @@ export default function VALoanRequirementsArticle() {
               <div className="bg-slate-50 p-6 rounded-lg">
                 <h3 className="font-bold text-lg text-slate-900 mb-2">Method 2: Through Your Lender (Most Common)</h3>
                 <p className="text-slate-700">
-                  VA-approved lenders can pull your COE directly through the VA's WebLGY system during pre-approval. Most veterans get their COE this way—takes 5-15 minutes if your service records are on file.
+                  VA-approved lenders can pull your COE directly through the VA's WebLGY system during pre-approval. Most veterans get their COE this wayâ€”takes 5-15 minutes if your service records are on file.
                 </p>
               </div>
 
@@ -238,7 +238,7 @@ export default function VALoanRequirementsArticle() {
               </div>
             </div>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              <strong>Pro tip:</strong> Apply for your COE before house hunting. Master Sergeant Patricia Gonzalez, Air Force, got her COE instantly online and was pre-approved within 48 hours—giving her a competitive edge in Phoenix's hot market where sellers prioritize ready buyers.
+              <strong>Pro tip:</strong> Apply for your COE before house hunting. Master Sergeant Patricia Gonzalez, Air Force, got her COE instantly online and was pre-approved within 48 hoursâ€”giving her a competitive edge in Phoenix's hot market where sellers prioritize ready buyers.
             </p>
           </section>
 
@@ -248,18 +248,18 @@ export default function VALoanRequirementsArticle() {
               Income & Debt-to-Income Requirements
             </h2>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              <strong>VA home loan requirements</strong> for income focus on debt-to-income (DTI) ratio—the percentage of your gross monthly income that goes toward debt payments.
+              <strong>VA home loan requirements</strong> for income focus on debt-to-income (DTI) ratioâ€”the percentage of your gross monthly income that goes toward debt payments.
             </p>
             <div className="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-6">
               <h3 className="font-bold text-xl text-slate-900 mb-4">DTI Guidelines</h3>
               <ul className="space-y-2 text-lg text-slate-700">
                 <li><strong>Ideal DTI:</strong> 41% or lower (VA guideline)</li>
                 <li><strong>Maximum DTI:</strong> Up to 50% with strong compensating factors</li>
-                <li><strong>Calculation:</strong> (Total monthly debts ÷ Gross monthly income) × 100</li>
+                <li><strong>Calculation:</strong> (Total monthly debts Ã· Gross monthly income) Ã— 100</li>
               </ul>
             </div>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              <strong>Example calculation:</strong> Sergeant Emily Davis, Army, earns $5,200/month gross. Her debts: $380 car payment, $150 student loans, $2,100 proposed mortgage = $2,630 total. DTI = ($2,630 ÷ $5,200) × 100 = 50.6%. This exceeded the 41% guideline, but her excellent credit (720), 3 years of stable employment, and $18,000 in savings (compensating factors) got her approved.
+              <strong>Example calculation:</strong> Sergeant Emily Davis, Army, earns $5,200/month gross. Her debts: $380 car payment, $150 student loans, $2,100 proposed mortgage = $2,630 total. DTI = ($2,630 Ã· $5,200) Ã— 100 = 50.6%. This exceeded the 41% guideline, but her excellent credit (720), 3 years of stable employment, and $18,000 in savings (compensating factors) got her approved.
             </p>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
               <strong>Acceptable income sources:</strong> Base military pay, BAH (Basic Allowance for Housing), BAS, hazard pay, W-2 civilian income, self-employment income (2 years history), VA disability compensation, retirement/pension, rental income (75% counted), and part-time income (2 years consistent history).
@@ -307,7 +307,7 @@ export default function VALoanRequirementsArticle() {
                   2. Do I need a down payment for a VA loan?
                 </h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  No! Zero down payment is one of the biggest benefits. However, making a voluntary down payment of 5%+ reduces your VA funding fee from 2.3% to 1.65%, and 10%+ reduces it to 1.4%. Run the numbers—sometimes a small down payment saves thousands in funding fees.
+                  No! Zero down payment is one of the biggest benefits. However, making a voluntary down payment of 5%+ reduces your VA funding fee from 2.3% to 1.65%, and 10%+ reduces it to 1.4%. Run the numbersâ€”sometimes a small down payment saves thousands in funding fees.
                 </p>
               </div>
 
@@ -325,7 +325,7 @@ export default function VALoanRequirementsArticle() {
                   4. How long does the VA loan approval process take?
                 </h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  From pre-approval to closing typically takes 30-45 days—similar to conventional loans. Getting pre-approved takes 24-48 hours once you submit documents. The VA appraisal adds 7-10 days. To speed things up, get your COE before applying.
+                  From pre-approval to closing typically takes 30-45 daysâ€”similar to conventional loans. Getting pre-approved takes 24-48 hours once you submit documents. The VA appraisal adds 7-10 days. To speed things up, get your COE before applying.
                 </p>
               </div>
 
@@ -334,7 +334,7 @@ export default function VALoanRequirementsArticle() {
                   5. Can National Guard and Reserves members get VA loans?
                 </h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Yes! You qualify with 6 years of service in the Selected Reserve or National Guard, OR 90 days of active duty service (including at least 30 consecutive days). Many Guard/Reserve members don't realize they qualify—check your eligibility even if you never deployed.
+                  Yes! You qualify with 6 years of service in the Selected Reserve or National Guard, OR 90 days of active duty service (including at least 30 consecutive days). Many Guard/Reserve members don't realize they qualifyâ€”check your eligibility even if you never deployed.
                 </p>
               </div>
 
@@ -352,7 +352,7 @@ export default function VALoanRequirementsArticle() {
                   7. Can I use my VA loan to buy a fixer-upper?
                 </h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Not usually. The property must meet VA Minimum Property Requirements at closing—safe, sanitary, structurally sound. Major renovations aren't allowed. However, the VA Renovation Loan program allows you to finance minor repairs (up to $6,000) into your loan for things like painting, flooring, or appliance replacement.
+                  Not usually. The property must meet VA Minimum Property Requirements at closingâ€”safe, sanitary, structurally sound. Major renovations aren't allowed. However, the VA Renovation Loan program allows you to finance minor repairs (up to $6,000) into your loan for things like painting, flooring, or appliance replacement.
                 </p>
               </div>
 
@@ -361,7 +361,7 @@ export default function VALoanRequirementsArticle() {
                   8. What if I don't have a DD-214 yet?
                 </h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Active duty service members use a Statement of Service (SOS) from their commanding officer showing 90+ days of continuous active duty. You don't need a DD-214 until you separate. Request your SOS from your unit's personnel office—it takes 24-48 hours to generate.
+                  Active duty service members use a Statement of Service (SOS) from their commanding officer showing 90+ days of continuous active duty. You don't need a DD-214 until you separate. Request your SOS from your unit's personnel officeâ€”it takes 24-48 hours to generate.
                 </p>
               </div>
             </div>
@@ -370,41 +370,71 @@ export default function VALoanRequirementsArticle() {
           {/* Conclusion */}
           <section className="mb-12">
             <h2 className="font-serif text-3xl font-bold text-slate-900 mb-6">
-              Conclusion: You've Earned This Benefit—Use It
+              Conclusion: You've Earned This Benefitâ€”Use It
             </h2>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              When Staff Sergeant David Patterson walked out of my office that day with his pre-approval letter, he wasn't just another client—he was a veteran who'd almost let self-doubt prevent him from using a benefit he'd earned through military service. His 90 days of active duty, 610 credit score, and $68,000 income were more than enough to qualify for a $285,000 <strong>VA home loan</strong>. Three months later, he closed on his home in Colorado Springs with zero down payment and started building equity instead of paying rent.
+              When Staff Sergeant David Patterson walked out of my office that day with his pre-approval letter, he wasn't just another clientâ€”he was a veteran who'd almost let self-doubt prevent him from using a benefit he'd earned through military service. His 90 days of active duty, 610 credit score, and $68,000 income were more than enough to qualify for a $285,000 <strong>VA home loan</strong>. Three months later, he closed on his home in Colorado Springs with zero down payment and started building equity instead of paying rent.
             </p>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              That's the reality of <strong>VA loan eligibility</strong> that too many service members miss. Whether you're active duty with 90 days of service, a veteran with years of service, a National Guard member with 6 years, a Reservist who never deployed, or a surviving spouse honoring your partner's sacrifice—the <strong>VA loan requirements</strong> are designed to be accessible, not restrictive. The <strong>VA loan credit score</strong> standards are flexible, the <strong>COE requirements</strong> are straightforward, and the zero down payment benefit is unmatched.
+              That's the reality of <strong>VA loan eligibility</strong> that too many service members miss. Whether you're active duty with 90 days of service, a veteran with years of service, a National Guard member with 6 years, a Reservist who never deployed, or a surviving spouse honoring your partner's sacrificeâ€”the <strong>VA loan requirements</strong> are designed to be accessible, not restrictive. The <strong>VA loan credit score</strong> standards are flexible, the <strong>COE requirements</strong> are straightforward, and the zero down payment benefit is unmatched.
             </p>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
               I've seen E-2s with 6 months of service qualify. I've helped veterans with 580 credit scores get approved. I've guided <strong>National Guard VA loan</strong> applicants and <strong>reserves VA loan eligibility</strong> candidates who thought they didn't qualify. The common thread? They all took the first step: getting their <strong>VA loan certificate of eligibility</strong> and talking to a VA-approved lender.
             </p>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              Don't let assumptions about <strong>military mortgage requirements</strong> or <strong>veterans affairs loan eligibility</strong> keep you from homeownership. Get your COE online in 5-10 minutes, contact a VA-approved lender, submit your documents, and discover what your service has earned you. The benefit is waiting—you've already qualified through your service. Now claim it.
+              Don't let assumptions about <strong>military mortgage requirements</strong> or <strong>veterans affairs loan eligibility</strong> keep you from homeownership. Get your COE online in 5-10 minutes, contact a VA-approved lender, submit your documents, and discover what your service has earned you. The benefit is waitingâ€”you've already qualified through your service. Now claim it.
             </p>
           </section>
 
-          {/* CTA */}
-          <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-8 text-center">
-            <h3 className="font-bold text-2xl text-slate-900 mb-4">
-              Ready to Check Your VA Loan Eligibility?
-            </h3>
-            <p className="text-lg text-slate-700 mb-6">
-              Get your Certificate of Eligibility and calculate your potential monthly payments with our free VA loan calculator.
-            </p>
-            <Link
-              href="/"
-              className="inline-block bg-indigo-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-indigo-700 transition-colors"
-            >
-              Start Your VA Loan Journey →
-            </Link>
-          </div>
 
           </div>
         </div>
       </article>
+
+      {/* Related Articles */}
+      <section className="py-12 bg-white">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <div className="p-6 bg-slate-50 rounded-lg">
+            <h3 className="font-serif text-xl font-bold text-slate-900 mb-4">
+              Related Articles
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/va-loan-calculator-estimate-benefits-payments"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  VA Loan Calculator: Estimate Benefits & Payments
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/fha-loan-requirements-down-payment-credit-score"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  FHA Loan Requirements: Down Payment & Credit Score
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/how-to-qualify-for-a-mortgage-key-requirements"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  How to Qualify for a Mortgage: Key Requirements
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/mortgage-qualification-calculator-do-you-qualify"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Mortgage Qualification Calculator: Do You Qualify?
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
       {/* FAQ Section */}
       <section className="py-12 bg-slate-50">
@@ -446,3 +476,5 @@ export default function VALoanRequirementsArticle() {
     </>
   );
 }
+
+

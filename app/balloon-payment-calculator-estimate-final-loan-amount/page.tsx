@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
@@ -21,11 +21,11 @@ export default function BalloonPaymentCalculatorArticle() {
     },
     {
       q: "How do I calculate my balloon payment?",
-      a: "Use a balloon payment calculator by entering: loan amount, interest rate, amortization period (how payments are calculated), and balloon term (when it's due). The calculator computes monthly payments based on amortization, then calculates the remaining balance after your balloon term. Formula: Remaining Balance = P × [(1 + r)^n - (1 + r)^p] / [(1 + r)^n - 1], where P = principal, r = monthly rate, n = total amortization months, p = balloon term months. Most people use online calculators rather than manual calculation."
+      a: "Use a balloon payment calculator by entering: loan amount, interest rate, amortization period (how payments are calculated), and balloon term (when it's due). The calculator computes monthly payments based on amortization, then calculates the remaining balance after your balloon term. Formula: Remaining Balance = P Ã— [(1 + r)^n - (1 + r)^p] / [(1 + r)^n - 1], where P = principal, r = monthly rate, n = total amortization months, p = balloon term months. Most people use online calculators rather than manual calculation."
     },
     {
       q: "What happens at the end of a balloon mortgage?",
-      a: "When your balloon term ends, you must pay the entire remaining balance immediately. Your options include: (1) Refinance into a traditional mortgage (most common—requires good credit and sufficient equity), (2) Sell the property and pay off the loan, (3) Pay cash if you've saved or received a windfall, (4) Negotiate a loan extension with your lender (rare and at their discretion), or (5) Default and face foreclosure (last resort). Having a concrete exit strategy planned before taking a balloon mortgage is critical."
+      a: "When your balloon term ends, you must pay the entire remaining balance immediately. Your options include: (1) Refinance into a traditional mortgage (most commonâ€”requires good credit and sufficient equity), (2) Sell the property and pay off the loan, (3) Pay cash if you've saved or received a windfall, (4) Negotiate a loan extension with your lender (rare and at their discretion), or (5) Default and face foreclosure (last resort). Having a concrete exit strategy planned before taking a balloon mortgage is critical."
     },
     {
       q: "Are balloon mortgages a good idea?",
@@ -33,11 +33,11 @@ export default function BalloonPaymentCalculatorArticle() {
     },
     {
       q: "Can I make extra payments on a balloon mortgage?",
-      a: "Yes, most balloon mortgages allow extra principal payments without penalties, though you should verify your specific loan terms. Making extra payments reduces your balloon amount significantly—every $100 extra monthly on a $250,000 loan at 7% over 5 years reduces the balloon by approximately $7,800-$8,500 depending on timing. Use a balloon mortgage calculator with extra payments to model different scenarios. Strategic extra payments can reduce refinancing amounts or potentially eliminate the need for a large balloon payment if you pay aggressively enough."
+      a: "Yes, most balloon mortgages allow extra principal payments without penalties, though you should verify your specific loan terms. Making extra payments reduces your balloon amount significantlyâ€”every $100 extra monthly on a $250,000 loan at 7% over 5 years reduces the balloon by approximately $7,800-$8,500 depending on timing. Use a balloon mortgage calculator with extra payments to model different scenarios. Strategic extra payments can reduce refinancing amounts or potentially eliminate the need for a large balloon payment if you pay aggressively enough."
     },
     {
       q: "What credit score do I need to refinance a balloon mortgage?",
-      a: "Most lenders require 620-680 minimum credit score to refinance a balloon mortgage into a conventional loan. Higher scores (740+) get better rates. You'll also need: 20%+ equity in the home (loan-to-value of 80% or less), debt-to-income ratio below 43-50%, stable employment history (2+ years), and documented income. Start planning refinancing 6-12 months before your balloon is due—don't wait until the last minute when options may be limited and lenders know you're desperate."
+      a: "Most lenders require 620-680 minimum credit score to refinance a balloon mortgage into a conventional loan. Higher scores (740+) get better rates. You'll also need: 20%+ equity in the home (loan-to-value of 80% or less), debt-to-income ratio below 43-50%, stable employment history (2+ years), and documented income. Start planning refinancing 6-12 months before your balloon is dueâ€”don't wait until the last minute when options may be limited and lenders know you're desperate."
     }
   ];
 
@@ -92,13 +92,13 @@ export default function BalloonPaymentCalculatorArticle() {
         
         <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
           <time>April 18, 2026</time>
-          <span className="mx-3">•</span>
+          <span className="mx-3">â€¢</span>
           <span>13 min read</span>
         </div>
       </div>
 
       {/* Article Content */}
-      <article className="pb-16">
+      <article className="pb-2">
         <div className="mx-auto max-w-3xl px-6 sm:px-8">
           <div className="prose prose-slate prose-lg max-w-none">
 
@@ -108,7 +108,7 @@ export default function BalloonPaymentCalculatorArticle() {
                 Marcus thought he understood his $350,000 commercial property loan. His monthly payments of $2,328 seemed manageable for his growing restaurant business. But when his accountant asked about his "exit strategy for the balloon payment," Marcus went pale. He'd barely registered the fine print: in five years, he'd owe a stunning $331,704 in one lump sum.
             </p>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              This moment of realization happens to thousands of borrowers every year. A <strong>balloon mortgage calculator</strong> isn't just a helpful tool—it's an essential planning instrument that prevents financial shocks and helps you prepare for one of the biggest payments you'll ever make.
+              This moment of realization happens to thousands of borrowers every year. A <strong>balloon mortgage calculator</strong> isn't just a helpful toolâ€”it's an essential planning instrument that prevents financial shocks and helps you prepare for one of the biggest payments you'll ever make.
             </p>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
               Whether you're considering a <strong>5 year balloon mortgage calculator</strong>, evaluating interest-only options with a <strong>balloon mortgage calculator interest only</strong>, or comparing different amortization schedules using a <strong>balloon mortgage calculator with amortization schedule</strong>, understanding how to calculate your balloon payment accurately can mean the difference between a strategic financial move and a devastating surprise.
@@ -139,11 +139,11 @@ export default function BalloonPaymentCalculatorArticle() {
             <div className="bg-slate-50 p-6 rounded-lg my-8">
               <h4 className="font-semibold text-slate-900 mb-4">Simple Calculator Features:</h4>
               <ul className="space-y-2 text-slate-700">
-                <li>✓ Requires only loan amount, interest rate, and balloon term</li>
-                <li>✓ Assumes standard 30-year amortization</li>
-                <li>✓ Provides monthly payment and balloon amount instantly</li>
-                <li>✓ Best for: Quick "what-if" scenarios</li>
-                <li>✗ Limitations: Can't model extra payments</li>
+                <li>âœ“ Requires only loan amount, interest rate, and balloon term</li>
+                <li>âœ“ Assumes standard 30-year amortization</li>
+                <li>âœ“ Provides monthly payment and balloon amount instantly</li>
+                <li>âœ“ Best for: Quick "what-if" scenarios</li>
+                <li>âœ— Limitations: Can't model extra payments</li>
               </ul>
             </div>
 
@@ -163,13 +163,13 @@ export default function BalloonPaymentCalculatorArticle() {
               A <strong>balloon mortgage calculator interest only</strong> models a higher-risk scenario where payments cover only interest, with no principal reduction.
             </p>
 
-            <div className="bg-yellow-50 border-l-4 border-yellow-600 p-6 my-8 rounded-r-lg">
-              <p className="font-semibold text-slate-900 mb-3">⚠️ Interest-Only Example</p>
+            <div className="bg-slate-50 border-l-4 border-slate-300 p-6 my-8 rounded-r-lg">
+              <p className="font-semibold text-slate-900 mb-3">âš ï¸ Interest-Only Example</p>
               <ul className="space-y-2 text-slate-700">
                 <li><strong>Loan Amount:</strong> $250,000 at 8.0%</li>
                 <li><strong>Interest-Only Payment:</strong> $1,667/month</li>
                 <li><strong>After 5 years:</strong> Paid $100,020 in interest</li>
-                <li><strong>Balloon Due:</strong> $250,000—full amount</li>
+                <li><strong>Balloon Due:</strong> $250,000â€”full amount</li>
                 <li><strong>Equity Built:</strong> $0</li>
               </ul>
             </div>
@@ -182,7 +182,7 @@ export default function BalloonPaymentCalculatorArticle() {
               A <strong>balloon mortgage calculator with extra payments</strong> lets you model how additional principal payments reduce your balloon amount.
             </p>
 
-            <div className="bg-green-50 border-l-4 border-green-600 p-6 my-8 rounded-r-lg">
+            <div className="bg-slate-50 border-l-4 border-slate-300 p-6 my-8 rounded-r-lg">
               <p className="font-semibold text-slate-900 mb-3">Real-World Success</p>
               <p className="text-slate-700 mb-3">
                 David modeled a $185,000 loan with extra payments:
@@ -210,10 +210,10 @@ export default function BalloonPaymentCalculatorArticle() {
             </h3>
             
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              Understanding the mechanics of a <strong>balloon mortgage calculator with amortization</strong> helps you grasp why these loans work differently. Here's the key concept: your monthly payments are calculated as if you're paying off the loan over 15, 20, or 30 years, but the entire remaining balance comes due much earlier—typically in 3, 5, 7, or 10 years.
+              Understanding the mechanics of a <strong>balloon mortgage calculator with amortization</strong> helps you grasp why these loans work differently. Here's the key concept: your monthly payments are calculated as if you're paying off the loan over 15, 20, or 30 years, but the entire remaining balance comes due much earlierâ€”typically in 3, 5, 7, or 10 years.
             </p>
 
-            <div className="bg-indigo-50 border-l-4 border-indigo-600 p-6 my-8 rounded-r-lg">
+            <div className="bg-slate-50 border-l-4 border-slate-300 p-6 my-8 rounded-r-lg">
               <p className="font-semibold text-slate-900 mb-3">Example: 30-Year Amortization with 7-Year Balloon</p>
               <ul className="space-y-2 text-slate-700">
                 <li><strong>Loan Amount:</strong> $300,000</li>
@@ -228,7 +228,7 @@ export default function BalloonPaymentCalculatorArticle() {
             </div>
 
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              The calculator determines your monthly payment using the standard mortgage payment formula, but then calculates the remaining principal balance after your balloon term expires. This is where many borrowers get surprised—after seven years of payments, you still owe 93.6% of the original loan amount.
+              The calculator determines your monthly payment using the standard mortgage payment formula, but then calculates the remaining principal balance after your balloon term expires. This is where many borrowers get surprisedâ€”after seven years of payments, you still owe 93.6% of the original loan amount.
             </p>
 
             <h3 className="font-serif text-2xl font-bold text-slate-900 mb-4 mt-8">
@@ -245,12 +245,12 @@ export default function BalloonPaymentCalculatorArticle() {
                 <li><strong>Loan Amount:</strong> Typically $150,000 to $500,000 for residential; higher for commercial properties</li>
                 <li><strong>Interest Rate:</strong> Current balloon mortgage rates range from 6.5% to 8.5% (as of April 2026), usually 0.25%-0.75% higher than conventional rates</li>
                 <li><strong>Amortization Period:</strong> Most commonly 30 years, but can be 15, 20, or 25 years depending on your needs</li>
-                <li><strong>Balloon Term:</strong> When the entire balance comes due—typically 3, 5, 7, or 10 years</li>
+                <li><strong>Balloon Term:</strong> When the entire balance comes dueâ€”typically 3, 5, 7, or 10 years</li>
                 <li><strong>Extra Payments:</strong> Optional additional principal payments that reduce your balloon amount</li>
               </ul>
             </div>
 
-            <div className="bg-green-50 border-l-4 border-green-600 p-6 my-8 rounded-r-lg">
+            <div className="bg-slate-50 border-l-4 border-slate-300 p-6 my-8 rounded-r-lg">
               <p className="font-semibold text-slate-900 mb-3">Real-World Success: Chicago House Flipper</p>
               <p className="text-slate-700 mb-3">
                 Jennifer, a real estate investor in Chicago, used a <strong>balloon mortgage calculator with amortization</strong> before purchasing a $250,000 investment property:
@@ -358,40 +358,61 @@ export default function BalloonPaymentCalculatorArticle() {
               Plan Your Balloon Payment Strategy
             </h2>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              A <strong>balloon mortgage calculator</strong> is more than just a number-crunching tool—it's your first line of defense against financial surprises. Whether you use a <strong>simple balloon mortgage calculator</strong> for quick estimates, a <strong>balloon mortgage calculator with amortization schedule</strong> for detailed planning, or a <strong>balloon mortgage calculator with extra payments</strong> to reduce your risk, the key is understanding your numbers before you sign.
+              A <strong>balloon mortgage calculator</strong> is more than just a number-crunching toolâ€”it's your first line of defense against financial surprises. Whether you use a <strong>simple balloon mortgage calculator</strong> for quick estimates, a <strong>balloon mortgage calculator with amortization schedule</strong> for detailed planning, or a <strong>balloon mortgage calculator with extra payments</strong> to reduce your risk, the key is understanding your numbers before you sign.
             </p>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              Remember the success stories—Jennifer, David, and others succeeded through thorough planning, accurate calculations, and clear exit strategies. Use your calculator to model different scenarios and always have multiple exit strategies ready.
+              Remember the success storiesâ€”Jennifer, David, and others succeeded through thorough planning, accurate calculations, and clear exit strategies. Use your calculator to model different scenarios and always have multiple exit strategies ready.
             </p>
           </section>
-
-          {/* CTA */}
-          <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-2xl p-8 my-12 border border-indigo-100">
-            <h3 className="font-serif text-2xl font-bold text-slate-900 mb-4">
-              Ready to Calculate Your Balloon Payment?
-            </h3>
-            <p className="text-slate-700 mb-6">
-              Use our comprehensive mortgage calculators to estimate your balloon payment, compare different terms, and plan your financial strategy.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                href="/"
-                className="inline-flex items-center px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition-colors"
-              >
-                Calculate Your Payment
-              </Link>
-              <Link
-                href="/balloon-mortgages-explained-risks-when-they-make-sense"
-                className="inline-flex items-center px-6 py-3 bg-white text-indigo-600 font-semibold rounded-lg border-2 border-indigo-600 hover:bg-indigo-50 transition-colors"
-              >
-                Learn About Balloon Risks →
-              </Link>
-            </div>
-          </div>
 
           </div>
         </div>
       </article>
+
+      {/* Related Articles */}
+      <section className="py-12 bg-white">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <div className="p-6 bg-slate-50 rounded-lg">
+            <h3 className="font-serif text-xl font-bold text-slate-900 mb-4">
+              Related Articles
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/balloon-mortgages-explained-risks-when-they-make-sense"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Balloon Mortgages Explained: Risks & When They Make Sense
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/interest-only-loan-calculator-with-extra-payments"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Interest-Only Loan Calculator With Extra Payments
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/mortgage-payment-calculator-estimate-monthly-costs"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Mortgage Payment Calculator: Estimate Monthly Costs
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/fixed-rate-vs-arm-which-mortgage-fits-you"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Fixed-Rate vs. ARM: Which Mortgage Fits You?
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
       {/* FAQ Section */}
       <section className="py-12 bg-slate-50">
@@ -433,4 +454,6 @@ export default function BalloonPaymentCalculatorArticle() {
     </>
   );
 }
+
+
 

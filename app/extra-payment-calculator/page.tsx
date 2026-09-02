@@ -138,7 +138,7 @@ export default function ExtraPaymentCalculatorPage() {
               The compounding effect accelerates over time. That same $100 extra payment not only saves interest on itself but also enables more of your subsequent regular payments to go toward principal rather than interest. You're essentially "jumping ahead" in your amortization schedule, reaching the later years where payments are more effective at reducing balance. Make that $100 extra payment every month, and you'll save approximately $60,000 in interest while paying off a $300,000 mortgage at 6% five years earlier.
             </p>
 
-            <div className="my-8 rounded-lg border-l-4 border-indigo-500 bg-indigo-50 p-6">
+            <div className="my-8 rounded-lg border-l-4 border-slate-300 bg-slate-50 p-6">
               <h3 className="mb-4 mt-0 text-lg font-semibold text-slate-900">Example: $300,000 Mortgage at 6% for 30 Years</h3>
               <div className="space-y-2 text-sm text-slate-700">
                 <div className="flex justify-between">

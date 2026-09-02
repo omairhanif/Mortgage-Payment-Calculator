@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
@@ -17,11 +17,11 @@ export default function RentVsBuyCalculatorArticle() {
   const faqs = [
     {
       q: "How does a rent vs buy calculator work?",
-      a: "A rent vs buy calculator compares the total cost of renting versus buying over a specific time period by factoring in: (1) Buying costs—down payment, closing costs, monthly mortgage, property taxes, insurance, maintenance, and selling costs when you eventually move, (2) Renting costs—monthly rent plus projected annual increases, and (3) Opportunity cost—investment returns you could have earned on the down payment if you rented instead. The calculator shows which option costs less based on your timeline, market appreciation rates, and individual financial situation."
+      a: "A rent vs buy calculator compares the total cost of renting versus buying over a specific time period by factoring in: (1) Buying costsâ€”down payment, closing costs, monthly mortgage, property taxes, insurance, maintenance, and selling costs when you eventually move, (2) Renting costsâ€”monthly rent plus projected annual increases, and (3) Opportunity costâ€”investment returns you could have earned on the down payment if you rented instead. The calculator shows which option costs less based on your timeline, market appreciation rates, and individual financial situation."
     },
     {
       q: "What's the 5% rule for rent vs buy decisions?",
-      a: "The 5% rule is a quick test: if annual rent is less than 5% of the home's purchase price, renting is typically cheaper. The 5% represents unrecovered ownership costs: 1% property tax + 1% maintenance + 3% cost of capital. Example: $400,000 home × 5% = $20,000 yearly ($1,667/month). If comparable rent is $1,800/month ($21,600 yearly), buying is better. If rent is $1,400/month ($16,800 yearly), renting wins. This provides directional guidance before detailed calculator analysis."
+      a: "The 5% rule is a quick test: if annual rent is less than 5% of the home's purchase price, renting is typically cheaper. The 5% represents unrecovered ownership costs: 1% property tax + 1% maintenance + 3% cost of capital. Example: $400,000 home Ã— 5% = $20,000 yearly ($1,667/month). If comparable rent is $1,800/month ($21,600 yearly), buying is better. If rent is $1,400/month ($16,800 yearly), renting wins. This provides directional guidance before detailed calculator analysis."
     },
     {
       q: "Is the New York Times rent vs buy calculator accurate?",
@@ -29,15 +29,15 @@ export default function RentVsBuyCalculatorArticle() {
     },
     {
       q: "How much should I spend on a home using the 20/30/3 rule?",
-      a: "The 20/30/3 rule is a conservative buying guideline: (1) 20% down payment—avoids PMI, gets better rates, ensures equity ($80,000 down on $400,000 home), (2) Housing costs under 30% of gross income—$100,000 income = max $2,500/month for mortgage, taxes, insurance, (3) Home price maximum 3× annual household income—$100,000 income = max $300,000 home price. This rule is more conservative than lender maximums (which allow 43-50% DTI and 5× income), leaving room for savings, emergencies, and lifestyle expenses."
+      a: "The 20/30/3 rule is a conservative buying guideline: (1) 20% down paymentâ€”avoids PMI, gets better rates, ensures equity ($80,000 down on $400,000 home), (2) Housing costs under 30% of gross incomeâ€”$100,000 income = max $2,500/month for mortgage, taxes, insurance, (3) Home price maximum 3Ã— annual household incomeâ€”$100,000 income = max $300,000 home price. This rule is more conservative than lender maximums (which allow 43-50% DTI and 5Ã— income), leaving room for savings, emergencies, and lifestyle expenses."
     },
     {
       q: "Should I use Zillow or Realtor.com rent vs buy calculator?",
-      a: "Zillow's rent vs buy calculator is better for quick comparisons with real-time market data for specific properties, while Realtor.com's calculator is simpler but less comprehensive. However, the New York Times calculator is the most sophisticated for financial modeling with opportunity cost considerations. Best approach: use Zillow for property-specific quick checks with actual market data, then the NYT calculator for comprehensive financial analysis including investment opportunity costs. Avoid oversimplified calculators that only compare monthly rent to monthly mortgage—they miss crucial ownership costs."
+      a: "Zillow's rent vs buy calculator is better for quick comparisons with real-time market data for specific properties, while Realtor.com's calculator is simpler but less comprehensive. However, the New York Times calculator is the most sophisticated for financial modeling with opportunity cost considerations. Best approach: use Zillow for property-specific quick checks with actual market data, then the NYT calculator for comprehensive financial analysis including investment opportunity costs. Avoid oversimplified calculators that only compare monthly rent to monthly mortgageâ€”they miss crucial ownership costs."
     },
     {
       q: "What other factors should I consider beyond calculator results?",
-      a: "Beyond financial calculations, consider: (1) Mobility—how likely are you to relocate for career or family? Moving within 5 years often favors renting, (2) Market conditions—are home prices inflated, stable, or declining in your area? (3) Personal preferences—do you value stability and control (buy) or flexibility (rent)? (4) Maintenance tolerance—are you willing to handle repairs and yard work? (5) Financial discipline—will you actually invest down payment savings if you rent? (6) Life stage—are you establishing roots or exploring options? Use calculators for financial framework, but let your specific circumstances guide the final decision."
+      a: "Beyond financial calculations, consider: (1) Mobilityâ€”how likely are you to relocate for career or family? Moving within 5 years often favors renting, (2) Market conditionsâ€”are home prices inflated, stable, or declining in your area? (3) Personal preferencesâ€”do you value stability and control (buy) or flexibility (rent)? (4) Maintenance toleranceâ€”are you willing to handle repairs and yard work? (5) Financial disciplineâ€”will you actually invest down payment savings if you rent? (6) Life stageâ€”are you establishing roots or exploring options? Use calculators for financial framework, but let your specific circumstances guide the final decision."
     }
   ];
 
@@ -92,13 +92,13 @@ export default function RentVsBuyCalculatorArticle() {
         
         <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
           <time>May 1, 2026</time>
-          <span className="mx-3">•</span>
+          <span className="mx-3">â€¢</span>
           <span>12 min read</span>
         </div>
       </div>
 
       {/* Article Content */}
-      <article className="pb-16">
+      <article className="pb-2">
         <div className="mx-auto max-w-3xl px-6 sm:px-8">
           <div className="prose prose-slate prose-lg max-w-none">
 
@@ -107,7 +107,7 @@ export default function RentVsBuyCalculatorArticle() {
           </p>
 
           <p className="text-base text-slate-600 leading-relaxed mb-6">
-            The confusion wasn't about bad calculators—it was about different methodologies and assumptions. Understanding how rent vs buy calculators actually work, what variables matter most, and which tool to use for your situation can mean the difference between a smart financial decision and a costly mistake. Whether you're comparing options in NYC, Toronto, London, or anywhere else, the right calculator approach combined with decision frameworks like the 5% rule and 20/30/3 rule will guide you to the answer that's right for your circumstances.
+            The confusion wasn't about bad calculatorsâ€”it was about different methodologies and assumptions. Understanding how rent vs buy calculators actually work, what variables matter most, and which tool to use for your situation can mean the difference between a smart financial decision and a costly mistake. Whether you're comparing options in NYC, Toronto, London, or anywhere else, the right calculator approach combined with decision frameworks like the 5% rule and 20/30/3 rule will guide you to the answer that's right for your circumstances.
           </p>
 
           <h2 className="font-serif text-3xl font-bold text-slate-900 mt-12 mb-6">
@@ -126,7 +126,7 @@ export default function RentVsBuyCalculatorArticle() {
             <strong>The renting costs calculation includes:</strong> Monthly rent multiplied by the number of months, plus annual rent increases (typically 3-5% per year based on historical averages), minus potential investment returns on the money you didn't spend on a down payment and the difference between rent and buying costs if rent is lower. Some calculators, particularly the NYT version, subtract investment returns assuming you invest your down payment savings at historical stock market returns (roughly 7% after inflation).
           </p>
 
-          <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-8">
+          <div className="bg-slate-50 border-l-4 border-slate-300 p-6 my-8">
             <h3 className="font-bold text-lg text-slate-900 mb-3">
               Why Calculator Results Differ: Sarah's Real Brooklyn Example
             </h3>
@@ -140,10 +140,10 @@ export default function RentVsBuyCalculatorArticle() {
               <strong>Zillow Calculator Result:</strong> Buy if staying 6+ years. Zillow assumes 3% home appreciation, doesn't account for investment returns on the $130,000 down payment, uses simplified transaction cost estimates.
             </p>
             <p className="text-slate-700 mb-3">
-              <strong>NYT Calculator Result:</strong> Rent if staying less than 8 years. The NYT calculator includes opportunity cost—that $130,000 down payment invested at 7% annual return would grow to $182,000 in 5 years.
+              <strong>NYT Calculator Result:</strong> Rent if staying less than 8 years. The NYT calculator includes opportunity costâ€”that $130,000 down payment invested at 7% annual return would grow to $182,000 in 5 years.
             </p>
             <p className="text-slate-700">
-              <strong>Her Decision:</strong> Sarah plans to stay 10+ years. She bought the condo. At year 10, she'll have approximately $215,000 in equity while total extra costs compared to renting will be about $190,000—ahead by roughly $25,000 plus the intangible benefits of ownership she values.
+              <strong>Her Decision:</strong> Sarah plans to stay 10+ years. She bought the condo. At year 10, she'll have approximately $215,000 in equity while total extra costs compared to renting will be about $190,000â€”ahead by roughly $25,000 plus the intangible benefits of ownership she values.
             </p>
           </div>
 
@@ -157,7 +157,7 @@ export default function RentVsBuyCalculatorArticle() {
           </p>
 
           <p className="text-base text-slate-600 leading-relaxed mb-4">
-            <strong>Home price and down payment:</strong> Most calculators default to 20% down, which avoids PMI. However, if you're putting down less, you must include PMI costs ($100-300 monthly). The down payment also represents opportunity cost—that $80,000 could be invested earning 7-8% annually. A rent vs buy calculator with investment returns explicitly accounts for this.
+            <strong>Home price and down payment:</strong> Most calculators default to 20% down, which avoids PMI. However, if you're putting down less, you must include PMI costs ($100-300 monthly). The down payment also represents opportunity costâ€”that $80,000 could be invested earning 7-8% annually. A rent vs buy calculator with investment returns explicitly accounts for this.
           </p>
 
           <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -172,7 +172,7 @@ export default function RentVsBuyCalculatorArticle() {
             <strong>Home appreciation:</strong> The national average is 3-4% annually. Use your local market's 10-year historical average rather than recent boom years.
           </p>
 
-          <div className="bg-amber-50 border-l-4 border-amber-600 p-6 my-8">
+          <div className="bg-slate-50 border-l-4 border-slate-300 p-6 my-8">
             <h3 className="font-bold text-lg text-slate-900 mb-3">
               Regional Calculator Variations
             </h3>
@@ -186,11 +186,11 @@ export default function RentVsBuyCalculatorArticle() {
             </p>
 
             <p className="text-slate-700 mb-3">
-              <strong>UK (Rent vs Buy Calculator UK):</strong> Stamp duty 2-12% on purchase. A £500,000 London flat costs ~£3,200/month versus £2,000 rent. Break-even: 9-12 years.
+              <strong>UK (Rent vs Buy Calculator UK):</strong> Stamp duty 2-12% on purchase. A Â£500,000 London flat costs ~Â£3,200/month versus Â£2,000 rent. Break-even: 9-12 years.
             </p>
 
             <p className="text-slate-700">
-              <strong>India (Rent vs Buy Calculator India):</strong> EMI calculations, purchase prices typically 30-40× annual rent. A ₹1 crore Mumbai flat rents for ₹35,000/month while mortgage EMI is ₹75,000/month.
+              <strong>India (Rent vs Buy Calculator India):</strong> EMI calculations, purchase prices typically 30-40Ã— annual rent. A â‚¹1 crore Mumbai flat rents for â‚¹35,000/month while mortgage EMI is â‚¹75,000/month.
             </p>
           </div>
 
@@ -201,7 +201,7 @@ export default function RentVsBuyCalculatorArticle() {
           </h2>
 
           <p className="text-base text-slate-600 leading-relaxed mb-4">
-            <strong>The 5% Rule for Renting vs Buying:</strong> Unrecoverable homeownership costs equal roughly 5% of home value annually: 1% property tax + 1% maintenance + 1% cost of capital + 2% other costs. If monthly rent is less than (home price × 5% ÷ 12), renting is likely better.
+            <strong>The 5% Rule for Renting vs Buying:</strong> Unrecoverable homeownership costs equal roughly 5% of home value annually: 1% property tax + 1% maintenance + 1% cost of capital + 2% other costs. If monthly rent is less than (home price Ã— 5% Ã· 12), renting is likely better.
           </p>
 
           <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -209,11 +209,11 @@ export default function RentVsBuyCalculatorArticle() {
           </p>
 
           <p className="text-base text-slate-600 leading-relaxed mb-4">
-            <strong>The 20/30/3 Rule:</strong> 20% down payment minimum, maximum 30% of gross monthly income on housing, and home price should not exceed 3× annual household income.
+            <strong>The 20/30/3 Rule:</strong> 20% down payment minimum, maximum 30% of gross monthly income on housing, and home price should not exceed 3Ã— annual household income.
           </p>
 
           <p className="text-base text-slate-600 leading-relaxed mb-6">
-            <strong>Example:</strong> $100,000 annual income → max $300,000 home, $60,000 down payment, $2,500/month maximum housing costs. This ensures you can afford not just the mortgage but also maintenance, repairs, and other life expenses.
+            <strong>Example:</strong> $100,000 annual income â†’ max $300,000 home, $60,000 down payment, $2,500/month maximum housing costs. This ensures you can afford not just the mortgage but also maintenance, repairs, and other life expenses.
           </p>
 
           <h2 className="font-serif text-3xl font-bold text-slate-900 mt-12 mb-6">
@@ -221,18 +221,18 @@ export default function RentVsBuyCalculatorArticle() {
           </h2>
 
           <p className="text-base text-slate-600 leading-relaxed mb-4">
-            Rather than searching for the single "best" calculator, use multiple tools. Start with Zillow's rent vs buy calculator for quick estimates. It uses simplified assumptions (3% appreciation, basic transaction costs)—good for directional guidance within 2-3 minutes.
+            Rather than searching for the single "best" calculator, use multiple tools. Start with Zillow's rent vs buy calculator for quick estimates. It uses simplified assumptions (3% appreciation, basic transaction costs)â€”good for directional guidance within 2-3 minutes.
           </p>
 
           <p className="text-base text-slate-600 leading-relaxed mb-4">
-            Next, use the New York Times (NYT/NYTimes) rent vs buy calculator for sophisticated analysis. This calculator's key advantage is including investment opportunity cost—what your down payment could earn if invested in index funds at 7% returns. It typically shows longer break-even timelines because it accounts for foregone investment returns.
+            Next, use the New York Times (NYT/NYTimes) rent vs buy calculator for sophisticated analysis. This calculator's key advantage is including investment opportunity costâ€”what your down payment could earn if invested in index funds at 7% returns. It typically shows longer break-even timelines because it accounts for foregone investment returns.
           </p>
 
           <p className="text-base text-slate-600 leading-relaxed mb-6">
             For detailed customization, use an Excel rent vs buy calculator. Excel templates let you adjust every variable: property tax rates, maintenance costs, different appreciation scenarios, varying rent increases, and selling costs. You can model "what if" scenarios to assess risk.
           </p>
 
-          <div className="bg-indigo-50 border-l-4 border-indigo-600 p-6 my-8">
+          <div className="bg-slate-50 border-l-4 border-slate-300 p-6 my-8">
             <h3 className="font-bold text-lg text-slate-900 mb-3">
               Real Decision Process: Marcus in Austin
             </h3>
@@ -264,7 +264,7 @@ export default function RentVsBuyCalculatorArticle() {
                   How to calculate if buying or renting is better?
                 </h3>
                 <p className="text-base text-slate-600 leading-relaxed">
-                  Compare total costs over your expected timeframe. For buying: Add down payment + closing costs + monthly payments + maintenance + opportunity cost + selling costs, then subtract equity gained. For renting: Multiply monthly rent by time period, add rent increases, subtract investment returns. If buying total cost is less than renting total cost at your timeline, buying wins. Use multiple calculators—Zillow for quick estimates, NYT for investment opportunity cost, Excel for customization. Break-even is typically 5-7 years.
+                  Compare total costs over your expected timeframe. For buying: Add down payment + closing costs + monthly payments + maintenance + opportunity cost + selling costs, then subtract equity gained. For renting: Multiply monthly rent by time period, add rent increases, subtract investment returns. If buying total cost is less than renting total cost at your timeline, buying wins. Use multiple calculatorsâ€”Zillow for quick estimates, NYT for investment opportunity cost, Excel for customization. Break-even is typically 5-7 years.
                 </p>
               </div>
 
@@ -273,7 +273,7 @@ export default function RentVsBuyCalculatorArticle() {
                   What is the 5% rule for renting vs. buying a home?
                 </h3>
                 <p className="text-base text-slate-600 leading-relaxed">
-                  The 5% rule estimates annual unrecoverable homeownership costs at 5% of home value: 1% property tax + 1% maintenance + 1% cost of capital + 2% other costs. If monthly rent is less than (home price × 5% ÷ 12), renting is likely better. Example: A $400,000 home has $20,000 annual unrecoverable costs ($1,667/month). If rent is $1,400/month, renting saves money. If rent is $2,200/month, buying makes sense. Adjust the percentages for your local property tax rates.
+                  The 5% rule estimates annual unrecoverable homeownership costs at 5% of home value: 1% property tax + 1% maintenance + 1% cost of capital + 2% other costs. If monthly rent is less than (home price Ã— 5% Ã· 12), renting is likely better. Example: A $400,000 home has $20,000 annual unrecoverable costs ($1,667/month). If rent is $1,400/month, renting saves money. If rent is $2,200/month, buying makes sense. Adjust the percentages for your local property tax rates.
                 </p>
               </div>
 
@@ -282,7 +282,7 @@ export default function RentVsBuyCalculatorArticle() {
                   Is it cheaper to rent or buy monthly?
                 </h3>
                 <p className="text-base text-slate-600 leading-relaxed">
-                  Renting is usually cheaper month-to-month in the short term. A $400,000 home costs approximately $3,388 monthly (P&I + taxes + insurance + maintenance) versus $2,200 rent. However, buying builds equity—roughly $10,000-15,000 in principal paydown year 1, plus $12,000 if the home appreciates 3%. Over 7+ years, buying typically becomes cheaper when you factor in equity gains, fixed payments, and avoided rent increases.
+                  Renting is usually cheaper month-to-month in the short term. A $400,000 home costs approximately $3,388 monthly (P&I + taxes + insurance + maintenance) versus $2,200 rent. However, buying builds equityâ€”roughly $10,000-15,000 in principal paydown year 1, plus $12,000 if the home appreciates 3%. Over 7+ years, buying typically becomes cheaper when you factor in equity gains, fixed payments, and avoided rent increases.
                 </p>
               </div>
 
@@ -291,7 +291,7 @@ export default function RentVsBuyCalculatorArticle() {
                   What is the 20/30/3 rule?
                 </h3>
                 <p className="text-base text-slate-600 leading-relaxed">
-                  The 20/30/3 rule is an affordability guideline: 20% down payment minimum, maximum 30% of gross monthly income on housing, and home price should not exceed 3× your annual household income. Example: With $100,000 annual income, target a maximum $300,000 home, save $60,000 for down payment, and ensure total monthly housing costs stay under $2,500. This prevents overextending financially.
+                  The 20/30/3 rule is an affordability guideline: 20% down payment minimum, maximum 30% of gross monthly income on housing, and home price should not exceed 3Ã— your annual household income. Example: With $100,000 annual income, target a maximum $300,000 home, save $60,000 for down payment, and ensure total monthly housing costs stay under $2,500. This prevents overextending financially.
                 </p>
               </div>
 
@@ -299,10 +299,10 @@ export default function RentVsBuyCalculatorArticle() {
 
               <div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">
-                  Which rent vs buy calculator is most accurate—Zillow, NYT, or Excel?
+                  Which rent vs buy calculator is most accurateâ€”Zillow, NYT, or Excel?
                 </h3>
                 <p className="text-base text-slate-600 leading-relaxed">
-                  Each serves different purposes. Zillow offers quick estimates—good for initial screening. The New York Times (NYT/NYTimes) calculator is more sophisticated, includes investment opportunity cost with adjustable returns (default 7%)—best for comprehensive analysis. Excel offers complete customization—ideal for detailed planning. Use all three: Zillow for quick check, NYT for thorough analysis, Excel to model your specific assumptions.
+                  Each serves different purposes. Zillow offers quick estimatesâ€”good for initial screening. The New York Times (NYT/NYTimes) calculator is more sophisticated, includes investment opportunity cost with adjustable returns (default 7%)â€”best for comprehensive analysis. Excel offers complete customizationâ€”ideal for detailed planning. Use all three: Zillow for quick check, NYT for thorough analysis, Excel to model your specific assumptions.
                 </p>
               </div>
 
@@ -311,7 +311,7 @@ export default function RentVsBuyCalculatorArticle() {
                   How does rent vs buy calculator with investment returns work?
                 </h3>
                 <p className="text-base text-slate-600 leading-relaxed">
-                  A rent vs buy calculator with investment considers opportunity cost—what your down payment could earn if invested elsewhere. If you have $80,000 for down payment, investing it at 7% average annual return would grow to approximately $112,000 in 5 years. The calculator compares this investment growth against home equity gained. This often extends break-even timelines because investment returns (7-10% historically) can outpace home equity growth in early years when most mortgage payments go to interest.
+                  A rent vs buy calculator with investment considers opportunity costâ€”what your down payment could earn if invested elsewhere. If you have $80,000 for down payment, investing it at 7% average annual return would grow to approximately $112,000 in 5 years. The calculator compares this investment growth against home equity gained. This often extends break-even timelines because investment returns (7-10% historically) can outpace home equity growth in early years when most mortgage payments go to interest.
                 </p>
               </div>
 
@@ -320,7 +320,7 @@ export default function RentVsBuyCalculatorArticle() {
                   Is it better for me to rent or buy?
                 </h3>
                 <p className="text-base text-slate-600 leading-relaxed">
-                  It depends on five key factors: (1) Timeline—if staying less than 5 years, usually rent; 7+ years typically favors buying. (2) Financial readiness—can you afford 20% down plus 6 months reserves? (3) Career stability—uncertain job or likely relocation favors renting. (4) Local market—calculate price-to-rent ratio; above 20 suggests renting, below 15 suggests buying. (5) Life stage—value stability and control (buy) or flexibility (rent)? Use a calculator with your actual numbers, apply the 5% rule and 20/30/3 rule.
+                  It depends on five key factors: (1) Timelineâ€”if staying less than 5 years, usually rent; 7+ years typically favors buying. (2) Financial readinessâ€”can you afford 20% down plus 6 months reserves? (3) Career stabilityâ€”uncertain job or likely relocation favors renting. (4) Local marketâ€”calculate price-to-rent ratio; above 20 suggests renting, below 15 suggests buying. (5) Life stageâ€”value stability and control (buy) or flexibility (rent)? Use a calculator with your actual numbers, apply the 5% rule and 20/30/3 rule.
                 </p>
               </div>
 
@@ -329,7 +329,7 @@ export default function RentVsBuyCalculatorArticle() {
                   How much income do you need to buy a $300,000 house in Canada?
                 </h3>
                 <p className="text-base text-slate-600 leading-relaxed">
-                  For a $300,000 house in Canada, you need approximately $75,000-80,000 annual gross income. With 20% down ($60,000), your mortgage is $240,000. At 5.5% interest (typical Canadian 5-year fixed), monthly P&I is $1,360. Add property taxes ($250/month), insurance ($120/month), and maintenance ($250/month) for total housing costs of $1,980/month. Lenders require housing costs under 30-32% of gross income: $1,980 ÷ 0.30 = $79,200 annually. Additionally, total debt payments must stay under 40-44% of income due to Canada's mortgage stress test.
+                  For a $300,000 house in Canada, you need approximately $75,000-80,000 annual gross income. With 20% down ($60,000), your mortgage is $240,000. At 5.5% interest (typical Canadian 5-year fixed), monthly P&I is $1,360. Add property taxes ($250/month), insurance ($120/month), and maintenance ($250/month) for total housing costs of $1,980/month. Lenders require housing costs under 30-32% of gross income: $1,980 Ã· 0.30 = $79,200 annually. Additionally, total debt payments must stay under 40-44% of income due to Canada's mortgage stress test.
                 </p>
               </div>
             </div>
@@ -343,48 +343,61 @@ export default function RentVsBuyCalculatorArticle() {
               Make Your Decision With Confidence
             </h2>
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              The rent vs buy decision isn't about finding the "right" calculator—it's about understanding your market, your finances, and your timeline. Use Zillow's rent vs buy calculator for a quick directional check, the New York Times calculator for sophisticated analysis including investment opportunity cost, and Excel for customized scenario planning.
+              The rent vs buy decision isn't about finding the "right" calculatorâ€”it's about understanding your market, your finances, and your timeline. Use Zillow's rent vs buy calculator for a quick directional check, the New York Times calculator for sophisticated analysis including investment opportunity cost, and Excel for customized scenario planning.
             </p>
             <p className="text-base text-slate-600 leading-relaxed">
               Apply the 5% rule to determine if your market's price-to-rent ratio favors buying, and verify affordability with the 20/30/3 rule. For a deeper dive into the complete costs of each option, read our companion guide on <Link href="/renting-vs-buying-a-home-full-cost-comparison" className="text-indigo-600 hover:text-indigo-800 font-medium underline">renting vs buying a home with full cost comparison</Link>.
             </p>
           </div>
 
-          {/* Related Articles */}
-          <div className="mt-12 p-8 bg-gradient-to-br from-slate-50 to-indigo-50 rounded-lg border border-slate-200">
-            <h2 className="font-serif text-2xl font-bold text-slate-900 mb-6">
+          </div>
+        </div>
+      </article>
+
+      {/* Related Articles */}
+      <section className="py-12 bg-white">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <div className="p-6 bg-slate-50 rounded-lg">
+            <h3 className="font-serif text-xl font-bold text-slate-900 mb-4">
               Related Articles
-            </h2>
-            <ul className="space-y-4">
+            </h3>
+            <ul className="space-y-2">
               <li>
-                <Link 
+                <Link
                   href="/renting-vs-buying-a-home-full-cost-comparison"
-                  className="text-indigo-600 hover:text-indigo-800 font-medium text-lg hover:underline"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
                 >
                   Renting vs. Buying a Home: A Full Cost Comparison
                 </Link>
               </li>
               <li>
-                <Link 
+                <Link
                   href="/mortgage-payment-calculator-estimate-monthly-costs"
-                  className="text-indigo-600 hover:text-indigo-800 font-medium text-lg hover:underline"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
                 >
                   Mortgage Payment Calculator: Estimate Monthly Costs
                 </Link>
               </li>
               <li>
-                <Link 
+                <Link
                   href="/how-to-calculate-your-monthly-mortgage-payment"
-                  className="text-indigo-600 hover:text-indigo-800 font-medium text-lg hover:underline"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
                 >
                   How to Calculate Your Monthly Mortgage Payment
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/income-requirement-calculator-how-much-you-need"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Income Requirement Calculator: How Much You Need
+                </Link>
+              </li>
             </ul>
           </div>
-          </div>
         </div>
-      </article>
+      </section>
 
       {/* FAQ Section */}
       <section className="py-12 bg-slate-50">
@@ -426,4 +439,6 @@ export default function RentVsBuyCalculatorArticle() {
     </>
   );
 }
+
+
 

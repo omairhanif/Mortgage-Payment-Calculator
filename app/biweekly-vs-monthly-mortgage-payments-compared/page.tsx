@@ -21,23 +21,23 @@ export default function BiweeklyVsMonthlyArticle() {
     },
     {
       q: "How much faster will I pay off my mortgage with biweekly payments?",
-      a: "Biweekly payments typically reduce a 25-year Canadian mortgage to 21-22 years (3-4 years faster) and a 30-year U.S. mortgage to 25-26 years (4-5 years faster). The exact acceleration depends on your interest rate and loan amount. Example: $350,000 mortgage at 5.5% for 25 years with $2,148/month payments pays off in exactly 300 months. Switch to biweekly at $1,074 every 2 weeks (26 payments = $27,924 annually vs $25,776 monthly), and it pays off in approximately 256 months (21.3 years)—3.7 years faster. Higher interest rates produce more dramatic acceleration because you're avoiding more interest accumulation."
+      a: "Biweekly payments typically reduce a 25-year Canadian mortgage to 21-22 years (3-4 years faster) and a 30-year U.S. mortgage to 25-26 years (4-5 years faster). The exact acceleration depends on your interest rate and loan amount. Example: $350,000 mortgage at 5.5% for 25 years with $2,148/month payments pays off in exactly 300 months. Switch to biweekly at $1,074 every 2 weeks (26 payments = $27,924 annually vs $25,776 monthly), and it pays off in approximately 256 months (21.3 years)ï¿½3.7 years faster. Higher interest rates produce more dramatic acceleration because you're avoiding more interest accumulation."
     },
     {
       q: "What's the catch with biweekly mortgage payments?",
-      a: "The main 'catches' are: (1) Higher annual cost—you pay 13 monthly payments instead of 12 (roughly 8% more annually), which strains some budgets, (2) Fee risk—some lenders charge $50-150 setup fees or $5-15/month service fees that reduce savings (verify your lender's fee structure), (3) Lender processing—if your lender holds biweekly payments and only applies them monthly, you lose the benefit of more frequent principal reduction (though the extra annual payment still helps), (4) Reduced flexibility—formal biweekly programs create obligations; you can't skip payments during financial stress unlike DIY extra payments. There's no financial trickery—biweekly payments simply force you to pay more annually (one extra month), which mathematically must reduce interest and shorten the term."
+      a: "The main 'catches' are: (1) Higher annual costï¿½you pay 13 monthly payments instead of 12 (roughly 8% more annually), which strains some budgets, (2) Fee riskï¿½some lenders charge $50-150 setup fees or $5-15/month service fees that reduce savings (verify your lender's fee structure), (3) Lender processingï¿½if your lender holds biweekly payments and only applies them monthly, you lose the benefit of more frequent principal reduction (though the extra annual payment still helps), (4) Reduced flexibilityï¿½formal biweekly programs create obligations; you can't skip payments during financial stress unlike DIY extra payments. There's no financial trickeryï¿½biweekly payments simply force you to pay more annually (one extra month), which mathematically must reduce interest and shorten the term."
     },
     {
       q: "Can I achieve the same result by adding extra to monthly payments?",
-      a: "Yes! Adding 1/12 of your monthly payment as extra principal each month achieves the identical result as biweekly payments, often with more flexibility. Example: $2,400/month mortgage. Biweekly option: pay $1,200 every 2 weeks (26 payments = $31,200 yearly). DIY monthly option: pay $2,400 + $200 extra to principal = $31,200 yearly. Both create the same one extra monthly payment annually. Advantages of DIY: (1) no setup or monthly fees, (2) flexibility to skip extra payments during tight months while maintaining regular payment, (3) works regardless of your pay schedule, (4) maintains your existing payment date. Disadvantage: requires discipline—automatic biweekly deductions force the behavior."
+      a: "Yes! Adding 1/12 of your monthly payment as extra principal each month achieves the identical result as biweekly payments, often with more flexibility. Example: $2,400/month mortgage. Biweekly option: pay $1,200 every 2 weeks (26 payments = $31,200 yearly). DIY monthly option: pay $2,400 + $200 extra to principal = $31,200 yearly. Both create the same one extra monthly payment annually. Advantages of DIY: (1) no setup or monthly fees, (2) flexibility to skip extra payments during tight months while maintaining regular payment, (3) works regardless of your pay schedule, (4) maintains your existing payment date. Disadvantage: requires disciplineï¿½automatic biweekly deductions force the behavior."
     },
     {
       q: "Do biweekly payments help with cash flow management?",
-      a: "Yes, significantly—if you're paid biweekly. Biweekly mortgage payments align perfectly with biweekly paycheques, making budgeting simpler and more natural. You never need to accumulate funds over multiple pays to make one large monthly payment. Psychology benefit: smaller, more frequent payments feel less burdensome than one large monthly payment, even though the annual total is higher. However, if you're paid monthly or semi-monthly, biweekly mortgage payments create misalignment—your payment dates won't sync with income, potentially causing budget challenges. For monthly-paid borrowers, monthly mortgage payments (with optional DIY extra principal) maintain better cash flow alignment."
+      a: "Yes, significantlyï¿½if you're paid biweekly. Biweekly mortgage payments align perfectly with biweekly paycheques, making budgeting simpler and more natural. You never need to accumulate funds over multiple pays to make one large monthly payment. Psychology benefit: smaller, more frequent payments feel less burdensome than one large monthly payment, even though the annual total is higher. However, if you're paid monthly or semi-monthly, biweekly mortgage payments create misalignmentï¿½your payment dates won't sync with income, potentially causing budget challenges. For monthly-paid borrowers, monthly mortgage payments (with optional DIY extra principal) maintain better cash flow alignment."
     },
     {
       q: "Will my lender automatically apply biweekly payments correctly?",
-      a: "Not always—verify explicitly before enrolling. Problems occur when lenders hold your biweekly payments and only apply them monthly. Example: you pay $1,000 every 2 weeks expecting frequent principal reduction. Lender holds first payment, combines it with second payment two weeks later, then applies one $2,000 payment monthly. This eliminates the benefit of more frequent principal reduction (though the 26 annual payments still create one extra monthly payment). Before switching, ask: 'Do you apply biweekly payments immediately upon receipt, or hold and apply monthly?' and 'How many payments do I make annually—26?' Get written confirmation. If they hold payments, consider DIY monthly extra payments instead for transparency and control."
+      a: "Not alwaysï¿½verify explicitly before enrolling. Problems occur when lenders hold your biweekly payments and only apply them monthly. Example: you pay $1,000 every 2 weeks expecting frequent principal reduction. Lender holds first payment, combines it with second payment two weeks later, then applies one $2,000 payment monthly. This eliminates the benefit of more frequent principal reduction (though the 26 annual payments still create one extra monthly payment). Before switching, ask: 'Do you apply biweekly payments immediately upon receipt, or hold and apply monthly?' and 'How many payments do I make annuallyï¿½26?' Get written confirmation. If they hold payments, consider DIY monthly extra payments instead for transparency and control."
     }
   ];
 
@@ -96,7 +96,7 @@ export default function BiweeklyVsMonthlyArticle() {
       </div>
 
       {/* Article Content */}
-      <article className="pb-16">
+      <article className="pb-2">
         <div className="mx-auto max-w-3xl px-6 sm:px-8">
           
           {/* Introduction */}
@@ -128,7 +128,7 @@ export default function BiweeklyVsMonthlyArticle() {
               The Accelerated Payment Math
             </h3>
 
-            <div className="bg-indigo-50 border-l-4 border-indigo-600 p-6 mb-8 rounded-r-lg">
+            <div className="bg-slate-50 border-l-4 border-slate-300 p-6 mb-8 rounded-r-lg">
               <p className="text-slate-900 font-semibold mb-4">Monthly Payment Schedule</p>
               <p className="text-slate-700 mb-4">
                 <strong>$2,400/month Ã— 12 months = $28,800 annually</strong>
@@ -184,35 +184,35 @@ export default function BiweeklyVsMonthlyArticle() {
                     <td className="py-2 pr-3">$300,000</td>
                     <td className="py-2 pr-3">$1,840/mo</td>
                     <td className="py-2 pr-3">$920 bi-wk</td>
-                    <td className="py-2 pr-3 text-green-700 font-semibold">$42,380</td>
+                    <td className="py-2 pr-3 text-slate-900 font-semibold">$42,380</td>
                     <td className="py-2">3.8 years</td>
                   </tr>
                   <tr className="border-b border-slate-200">
                     <td className="py-2 pr-3">$450,000</td>
                     <td className="py-2 pr-3">$2,760/mo</td>
                     <td className="py-2 pr-3">$1,380 bi-wk</td>
-                    <td className="py-2 pr-3 text-green-700 font-semibold">$63,570</td>
+                    <td className="py-2 pr-3 text-slate-900 font-semibold">$63,570</td>
                     <td className="py-2">3.8 years</td>
                   </tr>
                   <tr className="border-b border-slate-200">
                     <td className="py-2 pr-3">$600,000</td>
                     <td className="py-2 pr-3">$3,680/mo</td>
                     <td className="py-2 pr-3">$1,840 bi-wk</td>
-                    <td className="py-2 pr-3 text-green-700 font-semibold">$84,760</td>
+                    <td className="py-2 pr-3 text-slate-900 font-semibold">$84,760</td>
                     <td className="py-2">3.8 years</td>
                   </tr>
                   <tr className="border-b border-slate-200">
                     <td className="py-2 pr-3">$750,000</td>
                     <td className="py-2 pr-3">$4,600/mo</td>
                     <td className="py-2 pr-3">$2,300 bi-wk</td>
-                    <td className="py-2 pr-3 text-green-700 font-semibold">$105,950</td>
+                    <td className="py-2 pr-3 text-slate-900 font-semibold">$105,950</td>
                     <td className="py-2">3.8 years</td>
                   </tr>
                   <tr>
                     <td className="py-2 pr-3">$900,000</td>
                     <td className="py-2 pr-3">$5,520/mo</td>
                     <td className="py-2 pr-3">$2,760 bi-wk</td>
-                    <td className="py-2 pr-3 text-green-700 font-semibold">$127,140</td>
+                    <td className="py-2 pr-3 text-slate-900 font-semibold">$127,140</td>
                     <td className="py-2">3.8 years</td>
                   </tr>
                 </tbody>
@@ -230,7 +230,7 @@ export default function BiweeklyVsMonthlyArticle() {
               Sarah's $450,000 mortgage at 5.5% with 25-year amortization:
             </p>
 
-            <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-6 rounded-r-lg">
+            <div className="bg-slate-50 border-l-4 border-slate-300 p-6 mb-6 rounded-r-lg">
               <p className="font-semibold text-slate-900 mb-2">Monthly Payment Strategy</p>
               <p className="text-slate-700 mb-1">Payment: $2,760/month Ã— 12 = $33,120/year</p>
               <p className="text-slate-700 mb-1">Total interest paid over 25 years: $378,000</p>
@@ -240,7 +240,7 @@ export default function BiweeklyVsMonthlyArticle() {
               <p className="text-slate-700 mb-1">Payment: $1,380 every 2 weeks Ã— 26 = $35,880/year</p>
               <p className="text-slate-700 mb-1">Total interest paid: $314,430</p>
               <p className="text-slate-700 mb-1">Mortgage-free date: September 2047</p>
-              <p className="text-green-700 font-semibold mt-3">ðŸ’° Savings: $63,570 in interest | â±ï¸ Payoff: 3.8 years earlier</p>
+              <p className="text-slate-900 font-semibold mt-3">ðŸ’° Savings: $63,570 in interest | â±ï¸ Payoff: 3.8 years earlier</p>
             </div>
 
 
@@ -299,6 +299,51 @@ export default function BiweeklyVsMonthlyArticle() {
         </div>
       </article>
 
+      {/* Related Articles */}
+      <section className="py-12 bg-white">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <div className="p-6 bg-slate-50 rounded-lg">
+            <h3 className="font-serif text-xl font-bold text-slate-900 mb-4">
+              Related Articles
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/biweekly-payment-calculator-pay-off-loans-faster"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Biweekly Payment Calculator: Pay Off Loans Faster
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/extra-payment-calculator-pay-off-mortgage-faster"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Extra Payment Calculator: Pay Off Mortgage Faster
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/how-extra-mortgage-payments-save-you-money"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  How Extra Mortgage Payments Save You Money
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/mortgage-payment-calculator-estimate-monthly-costs"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Mortgage Payment Calculator: Estimate Monthly Costs
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="py-12 bg-slate-50">
         <div className="mx-auto max-w-4xl px-6 sm:px-8">
@@ -339,3 +384,5 @@ export default function BiweeklyVsMonthlyArticle() {
     </>
   );
 }
+
+

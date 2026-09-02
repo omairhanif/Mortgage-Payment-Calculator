@@ -138,7 +138,7 @@ export default function BiweeklyPaymentCalculatorPage() {
               The impact compounds over time because each biweekly payment slightly reduces your principal before the next payment is due. With monthly payments, interest accrues on your full balance for a month before you make your payment. With biweekly payments, you're reducing principal every two weeks, meaning slightly less interest accrues between payments. This incremental reduction, combined with the extra annual payment, creates substantial long-term savings.
             </p>
 
-            <div className="my-8 rounded-lg border-l-4 border-indigo-500 bg-indigo-50 p-6">
+            <div className="my-8 rounded-lg border-l-4 border-slate-300 bg-slate-50 p-6">
               <h3 className="mb-4 mt-0 text-lg font-semibold text-slate-900">Example: $300,000 Mortgage at 6% for 30 Years</h3>
               <div className="space-y-2 text-sm text-slate-700">
                 <div className="flex justify-between">

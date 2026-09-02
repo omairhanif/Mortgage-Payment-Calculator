@@ -152,7 +152,7 @@ export default function TaxBenefitsCalculatorPage() {
               Using a mortgage interest and property tax deduction calculator helps you understand how the SALT cap affects your total tax picture. For homeowners already capped out on SALT deductions, additional mortgage interest becomes even more valuable as it's not subject to the cap (up to the $750,000 loan limit).
             </p>
 
-            <div className="my-8 rounded-lg border-l-4 border-indigo-500 bg-indigo-50 p-6">
+            <div className="my-8 rounded-lg border-l-4 border-slate-300 bg-slate-50 p-6">
               <h3 className="mb-4 mt-0 text-lg font-semibold text-slate-900">Tax Savings Example: 24% Bracket</h3>
               <div className="space-y-2 text-sm text-slate-700">
                 <div className="flex justify-between">

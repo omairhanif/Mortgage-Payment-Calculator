@@ -112,7 +112,7 @@ export default function BalloonMortgageCalculatorPage() {
         <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
           <article className="mx-auto max-w-3xl prose prose-slate prose-headings:font-serif prose-headings:font-bold prose-h2:text-2xl prose-h2:md:text-3xl prose-h2:text-slate-900 prose-h2:mb-6 prose-h2:mt-10 prose-p:text-slate-600 prose-p:leading-relaxed prose-p:mb-4 prose-strong:text-slate-900 prose-strong:font-semibold prose-ul:text-slate-600 prose-li:mb-2">
             <div className="mb-8">
-              <h2 className="!mt-0">Balloon Mortgages: How Payments and Balloon Amounts Are Calculated</h2>
+              <h1 className="text-xl font-bold text-slate-900 mt-8 mb-4">Balloon Mortgages: How Payments and Balloon Amounts Are Calculated</h1>
             </div>
 
             <h3 className="text-xl font-bold text-slate-900 mt-8 mb-4">Understanding Balloon Mortgages</h3>

@@ -66,7 +66,7 @@ export interface CalculatorInput extends FieldConfig {
 export interface InputConfig {
   id: string;
   label: string;
-  type: "currency" | "percent" | "years" | "number" | "select" | "checkbox";
+  type: "currency" | "percent" | "years" | "number" | "select" | "checkbox" | "toggle";
   defaultValue: number | string | boolean;
   min?: number;
   max?: number;
@@ -172,6 +172,7 @@ export interface SubCalculatorConfig {
   showAmortization?: boolean;
   showChart?: boolean;
   warnings?: string[];
+  customResultComponent?: string; // Name of custom result component to use
 }
 
 // ============================================================================

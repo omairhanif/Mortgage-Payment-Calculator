@@ -109,6 +109,94 @@ export default function HelocCalculatorPage() {
     setHelocDebts(updated);
   };
 
+  // Helper function to calculate metrics for existing debts
+  const calculateDebtMetrics = (debts: Array<{name: string, balance: number, monthlyPayment: number, rate: number}>) => {
+    if (debts.length === 0) {
+      return {
+        totalInterest: 0,
+        totalCost: 0,
+        payoffYears: 0,
+        weightedAvgRate: 0
+      };
+    }
+
+    let totalInterest = 0;
+    let totalBalance = 0;
+    let weightedMonths = 0;
+    let weightedRate = 0;
+
+    debts.forEach(debt => {
+      const balance = debt.balance || 0;
+      const monthlyPayment = debt.monthlyPayment || 0;
+      const rate = debt.rate || 0;
+      
+      if (balance > 0 && monthlyPayment > 0) {
+        totalBalance += balance;
+        
+        // Calculate monthly interest rate
+        const monthlyRate = (rate / 100) / 12;
+        
+        // Estimate payoff months using amortization formula
+        let months = 0;
+        if (monthlyRate > 0 && monthlyPayment > balance * monthlyRate) {
+          months = Math.log(monthlyPayment / (monthlyPayment - balance * monthlyRate)) / Math.log(1 + monthlyRate);
+        } else if (monthlyRate === 0 && monthlyPayment > 0) {
+          months = balance / monthlyPayment;
+        } else {
+          // If payment barely covers interest, estimate 360 months (30 years)
+          months = 360;
+        }
+        
+        // Calculate total interest for this debt
+        const totalPaid = monthlyPayment * months;
+        const interest = totalPaid - balance;
+        totalInterest += Math.max(0, interest);
+        
+        // Weighted average calculations
+        weightedMonths += months * balance;
+        weightedRate += rate * balance;
+      }
+    });
+
+    const avgMonths = totalBalance > 0 ? weightedMonths / totalBalance : 0;
+    const avgRate = totalBalance > 0 ? weightedRate / totalBalance : 0;
+
+    return {
+      totalInterest: totalInterest,
+      totalCost: totalBalance + totalInterest,
+      payoffYears: avgMonths / 12,
+      weightedAvgRate: avgRate
+    };
+  };
+
+  // Helper function to calculate HELOC metrics
+  const calculateHelocMetrics = (
+    amountUsed: number,
+    helocRate: number,
+    drawPeriodYears: number,
+    repaymentPeriodYears: number,
+    drawPayment: number,
+    repaymentPayment: number
+  ) => {
+    // Draw period interest (interest-only)
+    const drawPeriodInterest = drawPayment * drawPeriodYears * 12;
+    
+    // Repayment period interest
+    const repaymentPeriodTotalPaid = repaymentPayment * repaymentPeriodYears * 12;
+    const repaymentPeriodInterest = repaymentPeriodTotalPaid - amountUsed;
+    
+    const totalInterest = drawPeriodInterest + repaymentPeriodInterest;
+    const totalCost = amountUsed + totalInterest;
+    const totalYears = drawPeriodYears + repaymentPeriodYears;
+    
+    return {
+      totalInterest,
+      totalCost,
+      payoffYears: totalYears,
+      rate: helocRate
+    };
+  };
+
   // Handle HELOC Calculate
   const handleHelocCalculate = (shouldScroll = true) => {
     const input: HelocInput = {
@@ -277,51 +365,79 @@ export default function HelocCalculatorPage() {
                     <h3 className="font-serif text-base font-bold text-slate-900">Results</h3>
                   </div>
 
-                  {/* Primary Result - Available Equity */}
-                  <div className="mb-4 rounded-lg border-2 border-blue-200 bg-blue-50 p-4">
-                    <div className="mb-1">
-                      <p className="text-xs font-semibold uppercase tracking-wide text-slate-600">
-                        Home Equity
-                      </p>
-                    </div>
-                    <p className="font-serif text-3xl font-bold text-blue-600">
-                      {formatCurrency(helocResults.homeEquity)}
-                    </p>
-                    <p className="text-xs text-slate-600 mt-2">
-                      Available HELOC: {formatCurrency(helocResults.actualAvailableHeloc)}
-                    </p>
-                  </div>
+                  {/* Calculate comparison metrics */}
+                  {(() => {
+                    const debtMetrics = calculateDebtMetrics(helocDebts);
+                    const helocMetrics = calculateHelocMetrics(
+                      helocResults.amountUsedForDebtConsolidation,
+                      helocInterestRate,
+                      helocDrawPeriod,
+                      helocRepaymentPeriod,
+                      helocResults.helocMonthlyPaymentDrawPeriod,
+                      helocResults.helocMonthlyPaymentRepaymentPeriod
+                    );
 
-                  {/* Divider */}
-                  <div className="mb-3 border-t border-slate-200"></div>
-
-                  {/* Other Metrics - Two-column layout */}
-                  <div className="space-y-2.5">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-slate-700">Draw Period Payment</span>
-                      <span className="text-sm font-semibold text-slate-900">{formatCurrency(helocResults.helocMonthlyPaymentDrawPeriod)}/mo</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-slate-700">Repayment Period Payment</span>
-                      <span className="text-sm font-semibold text-slate-900">{formatCurrency(helocResults.helocMonthlyPaymentRepaymentPeriod)}/mo</span>
-                    </div>
-                    <div className="flex items-center justify-between pt-2 border-t border-slate-200">
-                      <span className="text-sm text-slate-700">Monthly Savings</span>
-                      <span className="text-sm font-semibold text-blue-600">{formatCurrency(helocResults.monthlySavings)}/mo</span>
-                    </div>
-                    <div className="flex items-center justify-between pt-2 border-t border-slate-200">
-                      <span className="text-sm text-slate-700">Total Existing Debt</span>
-                      <span className="text-sm font-semibold text-slate-900">{formatCurrency(helocResults.totalExistingDebt)}</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-slate-700">DTI Before HELOC</span>
-                      <span className="text-sm font-semibold text-slate-900">
-                        {helocResults.dtiBeforeHeloc !== null 
-                          ? `${helocResults.dtiBeforeHeloc.toFixed(1)}%` 
-                          : 'N/A'}
-                      </span>
-                    </div>
-                  </div>
+                    return (
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-sm">
+                          <thead>
+                            <tr className="border-b-2 border-slate-200">
+                              <th className="py-3 px-2 text-left font-semibold text-slate-700">Metric</th>
+                              <th className="py-3 px-2 text-right font-semibold text-slate-700">Debt + Personal Loan</th>
+                              <th className="py-3 px-2 text-right font-semibold text-indigo-700">HELOC</th>
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-slate-100">
+                            <tr className="hover:bg-slate-50">
+                              <td className="py-3 px-2 text-slate-600">Monthly Payment</td>
+                              <td className="py-3 px-2 text-right font-medium text-slate-900">
+                                {formatCurrency(helocResults.totalMonthlyDebtPayments)}
+                              </td>
+                              <td className="py-3 px-2 text-right font-medium text-indigo-900">
+                                {formatCurrency(helocResults.helocMonthlyPaymentRepaymentPeriod)}
+                              </td>
+                            </tr>
+                            <tr className="hover:bg-slate-50">
+                              <td className="py-3 px-2 text-slate-600">Total Interest</td>
+                              <td className="py-3 px-2 text-right font-medium text-slate-900">
+                                {formatCurrency(debtMetrics.totalInterest)}
+                              </td>
+                              <td className="py-3 px-2 text-right font-medium text-indigo-900">
+                                {formatCurrency(helocMetrics.totalInterest)}
+                              </td>
+                            </tr>
+                            <tr className="hover:bg-slate-50">
+                              <td className="py-3 px-2 text-slate-600">Total Cost</td>
+                              <td className="py-3 px-2 text-right font-medium text-slate-900">
+                                {formatCurrency(debtMetrics.totalCost)}
+                              </td>
+                              <td className="py-3 px-2 text-right font-medium text-indigo-900">
+                                {formatCurrency(helocMetrics.totalCost)}
+                              </td>
+                            </tr>
+                            <tr className="hover:bg-slate-50">
+                              <td className="py-3 px-2 text-slate-600">Payoff Timeline</td>
+                              <td className="py-3 px-2 text-right font-medium text-slate-900">
+                                {debtMetrics.payoffYears.toFixed(1)} years
+                              </td>
+                              <td className="py-3 px-2 text-right font-medium text-indigo-900">
+                                {helocMetrics.payoffYears.toFixed(1)} years
+                              </td>
+                            </tr>
+                            <tr className="hover:bg-slate-50">
+                              <td className="py-3 px-2 text-slate-600">Interest Rate</td>
+                              <td className="py-3 px-2 text-right font-medium text-slate-900">
+                                {debtMetrics.weightedAvgRate.toFixed(2)}%
+                              </td>
+                              <td className="py-3 px-2 text-right font-medium text-indigo-900">
+                                {helocMetrics.rate.toFixed(2)}%
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    );
+                  })()}
                 </div>
               </div>
             )}

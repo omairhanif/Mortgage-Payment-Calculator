@@ -323,6 +323,7 @@ export function ConfigInputField({ input, value, inputs, onChange }: ConfigInput
     // Type-specific defaults as last resort
     switch (input.type) {
       case 'checkbox':
+      case 'toggle':
         return false;
       case 'select':
         return input.options?.[0]?.value ?? '';
@@ -378,6 +379,42 @@ export function ConfigInputField({ input, value, inputs, onChange }: ConfigInput
               </option>
             ))}
           </select>
+          {input.tooltip && (
+            <p className="mt-1 text-xs text-slate-500">{input.tooltip}</p>
+          )}
+        </div>
+      );
+
+    case 'toggle':
+      return (
+        <div className="md:col-span-2">
+          <label className="mb-1.5 block text-xs font-semibold text-slate-700">
+            {input.label}
+          </label>
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => onChange(input.id, false)}
+              className={`flex-1 rounded-md border px-3 py-1.5 text-sm font-medium transition-all ${
+                !safeValue
+                  ? 'border-indigo-600 bg-indigo-50 text-indigo-700'
+                  : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
+              }`}
+            >
+              No
+            </button>
+            <button
+              type="button"
+              onClick={() => onChange(input.id, true)}
+              className={`flex-1 rounded-md border px-3 py-1.5 text-sm font-medium transition-all ${
+                safeValue
+                  ? 'border-indigo-600 bg-indigo-50 text-indigo-700'
+                  : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
+              }`}
+            >
+              Yes
+            </button>
+          </div>
           {input.tooltip && (
             <p className="mt-1 text-xs text-slate-500">{input.tooltip}</p>
           )}

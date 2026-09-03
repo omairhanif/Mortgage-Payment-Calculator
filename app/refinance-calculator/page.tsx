@@ -67,7 +67,16 @@ export default function RefinanceCalculatorPage() {
   const [refMonthsPaid, setRefMonthsPaid] = useState<number>(60); // 5 years
   const [refNewTerm, setRefNewTerm] = useState<number>(30);
   const [refNewRate, setRefNewRate] = useState<number>(5.5);
-  const [refRefinanceCosts, setRefRefinanceCosts] = useState<number>(5000);
+  
+  // New state variables
+  const [refOriginalHomePrice, setRefOriginalHomePrice] = useState<number>(400000);
+  const [refOriginalDownPayment, setRefOriginalDownPayment] = useState<number>(80000);
+  const [refYearsBeforeSale, setRefYearsBeforeSale] = useState<number>(5);
+  const [refDiscountPoints, setRefDiscountPoints] = useState<number>(0);
+  const [refOriginationFees, setRefOriginationFees] = useState<number>(1);
+  const [refOtherClosingCosts, setRefOtherClosingCosts] = useState<number>(3000);
+  const [refFederalTaxRate, setRefFederalTaxRate] = useState<number>(24);
+  const [refStateTaxRate, setRefStateTaxRate] = useState<number>(6);
   
   const [refResults, setRefResults] = useState<any>(null);
 
@@ -94,7 +103,14 @@ export default function RefinanceCalculatorPage() {
         monthsPaid: refMonthsPaid,
         newRate: refNewRate,
         newTermYears: refNewTerm,
-        refinanceCosts: refRefinanceCosts,
+        discountPoints: refDiscountPoints,
+        originationFees: refOriginationFees,
+        otherClosingCosts: refOtherClosingCosts,
+        originalHomePrice: refOriginalHomePrice,
+        originalDownPayment: refOriginalDownPayment,
+        yearsBeforeSale: refYearsBeforeSale,
+        federalTaxRate: refFederalTaxRate,
+        stateTaxRate: refStateTaxRate,
       };
 
       const results = calculateRefinance(input);
@@ -166,6 +182,16 @@ export default function RefinanceCalculatorPage() {
                   <h4 className="text-sm font-semibold text-slate-700 mb-2">Current Loan</h4>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     <NumberInput
+                      label="Original Home Price"
+                      value={refOriginalHomePrice}
+                      onChange={(value) => setRefOriginalHomePrice(Math.max(0, value))}
+                    />
+                    <NumberInput
+                      label="Original Down Payment"
+                      value={refOriginalDownPayment}
+                      onChange={(value) => setRefOriginalDownPayment(Math.max(0, value))}
+                    />
+                    <NumberInput
                       label="Original Loan Amount"
                       value={refOriginalLoanAmount}
                       onChange={(value) => setRefOriginalLoanAmount(Math.max(0, value))}
@@ -204,10 +230,53 @@ export default function RefinanceCalculatorPage() {
                       value={refNewTerm}
                       onChange={(value) => setRefNewTerm(Math.max(0, value))}
                     />
+                  </div>
+                </div>
+                
+                {/* Closing Costs Section */}
+                <div>
+                  <h4 className="text-sm font-semibold text-slate-700 mb-2">Closing Costs</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     <NumberInput
-                      label="Refinance Costs"
-                      value={refRefinanceCosts}
-                      onChange={(value) => setRefRefinanceCosts(Math.max(0, value))}
+                      label="Discount Points (%)"
+                      value={refDiscountPoints}
+                      onChange={(value) => setRefDiscountPoints(Math.max(0, value))}
+                      step={0.1}
+                    />
+                    <NumberInput
+                      label="Origination Fees (%)"
+                      value={refOriginationFees}
+                      onChange={(value) => setRefOriginationFees(Math.max(0, value))}
+                      step={0.1}
+                    />
+                    <NumberInput
+                      label="Other Closing Costs ($)"
+                      value={refOtherClosingCosts}
+                      onChange={(value) => setRefOtherClosingCosts(Math.max(0, value))}
+                    />
+                  </div>
+                </div>
+                
+                {/* Additional Details Section */}
+                <div>
+                  <h4 className="text-sm font-semibold text-slate-700 mb-2">Additional Details</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <NumberInput
+                      label="Years Before Sale"
+                      value={refYearsBeforeSale}
+                      onChange={(value) => setRefYearsBeforeSale(Math.max(0, value))}
+                    />
+                    <NumberInput
+                      label="Federal Tax Rate (%)"
+                      value={refFederalTaxRate}
+                      onChange={(value) => setRefFederalTaxRate(Math.max(0, value))}
+                      step={1}
+                    />
+                    <NumberInput
+                      label="State Tax Rate (%)"
+                      value={refStateTaxRate}
+                      onChange={(value) => setRefStateTaxRate(Math.max(0, value))}
+                      step={1}
                     />
                   </div>
                 </div>
@@ -247,31 +316,115 @@ export default function RefinanceCalculatorPage() {
                   {/* Divider */}
                   <div className="mb-3 border-t border-slate-200"></div>
 
-                  {/* Other Metrics - Two-column layout */}
-                  <div className="space-y-2.5">
+                  {/* Key Metrics */}
+                  <div className="space-y-2.5 mb-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-sm text-slate-700">Current Payment</span>
-                      <span className="text-sm font-semibold text-slate-900">{formatCurrency(refResults.currentMonthlyPI)}/mo</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-slate-700">New Payment</span>
-                      <span className="text-sm font-semibold text-blue-600">{formatCurrency(refResults.newMonthlyPI)}/mo</span>
-                    </div>
-                    <div className="flex items-center justify-between pt-2 border-t border-slate-200">
                       <span className="text-sm text-slate-700">Break Even Point</span>
-                      <span className="text-sm font-semibold text-slate-900">{refResults.breakEvenMonths.toFixed(0)} months</span>
-                    </div>
-                    <div className="flex items-center justify-between pt-2 border-t border-slate-200">
-                      <span className="text-sm text-slate-700">Current Lifetime Interest</span>
-                      <span className="text-sm font-semibold text-slate-900">{formatCurrency(refResults.lifetimeCurrentInterest)}</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-slate-700">New Lifetime Interest</span>
-                      <span className="text-sm font-semibold text-slate-900">{formatCurrency(refResults.lifetimeNewInterest)}</span>
+                      <span className="text-sm font-semibold text-slate-900">
+                        {refResults.breakEvenMonths > 0 
+                          ? `${refResults.breakEvenMonths.toFixed(0)} months` 
+                          : 'N/A'}
+                      </span>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-sm text-slate-700">Total Interest Savings</span>
                       <span className="text-sm font-semibold text-blue-600">{formatCurrency(refResults.lifetimeSavings)}</span>
+                    </div>
+                  </div>
+                  
+                  {/* Divider */}
+                  <div className="mb-3 border-t border-slate-200"></div>
+                  
+                  {/* Comparison Table */}
+                  <div>
+                    <h4 className="text-sm font-semibold text-slate-700 mb-3">
+                      {refYearsBeforeSale}-Year Comparison
+                    </h4>
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-xs">
+                        <thead>
+                          <tr className="border-b-2 border-slate-200">
+                            <th className="py-2 px-1 text-left font-semibold text-slate-700">Metric</th>
+                            <th className="py-2 px-1 text-right font-semibold text-slate-700">Before</th>
+                            <th className="py-2 px-1 text-right font-semibold text-indigo-700">After</th>
+                            <th className="py-2 px-1 text-right font-semibold text-green-700">Savings</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-100">
+                          <tr className="hover:bg-slate-50">
+                            <td className="py-2 px-1 text-slate-600">Monthly Payment</td>
+                            <td className="py-2 px-1 text-right font-medium text-slate-900">
+                              {formatCurrency(refResults.currentMonthlyPI)}
+                            </td>
+                            <td className="py-2 px-1 text-right font-medium text-indigo-900">
+                              {formatCurrency(refResults.newMonthlyPI)}
+                            </td>
+                            <td className="py-2 px-1 text-right font-medium text-green-900">
+                              {formatCurrency(refResults.monthlySavings)}
+                            </td>
+                          </tr>
+                          <tr className="hover:bg-slate-50">
+                            <td className="py-2 px-1 text-slate-600">Total Payments</td>
+                            <td className="py-2 px-1 text-right font-medium text-slate-900">
+                              {formatCurrency(refResults.beforeRefi.totalPayments)}
+                            </td>
+                            <td className="py-2 px-1 text-right font-medium text-indigo-900">
+                              {formatCurrency(refResults.afterRefi.totalPayments)}
+                            </td>
+                            <td className="py-2 px-1 text-right font-medium text-green-900">
+                              {formatCurrency(refResults.differences.totalPayments)}
+                            </td>
+                          </tr>
+                          <tr className="hover:bg-slate-50">
+                            <td className="py-2 px-1 text-slate-600">Total Interest</td>
+                            <td className="py-2 px-1 text-right font-medium text-slate-900">
+                              {formatCurrency(refResults.beforeRefi.totalInterest)}
+                            </td>
+                            <td className="py-2 px-1 text-right font-medium text-indigo-900">
+                              {formatCurrency(refResults.afterRefi.totalInterest)}
+                            </td>
+                            <td className="py-2 px-1 text-right font-medium text-green-900">
+                              {formatCurrency(refResults.differences.totalInterest)}
+                            </td>
+                          </tr>
+                          <tr className="hover:bg-slate-50">
+                            <td className="py-2 px-1 text-slate-600">Tax Savings</td>
+                            <td className="py-2 px-1 text-right font-medium text-slate-900">
+                              {formatCurrency(refResults.beforeRefi.taxSavings)}
+                            </td>
+                            <td className="py-2 px-1 text-right font-medium text-indigo-900">
+                              {formatCurrency(refResults.afterRefi.taxSavings)}
+                            </td>
+                            <td className="py-2 px-1 text-right font-medium text-slate-900">
+                              {formatCurrency(refResults.differences.taxSavings)}
+                            </td>
+                          </tr>
+                          <tr className="hover:bg-slate-50">
+                            <td className="py-2 px-1 text-slate-600">Loan Balance at Sale</td>
+                            <td className="py-2 px-1 text-right font-medium text-slate-900">
+                              {formatCurrency(refResults.beforeRefi.loanBalanceAtSale)}
+                            </td>
+                            <td className="py-2 px-1 text-right font-medium text-indigo-900">
+                              {formatCurrency(refResults.afterRefi.loanBalanceAtSale)}
+                            </td>
+                            <td className="py-2 px-1 text-right font-medium text-green-900">
+                              {formatCurrency(refResults.differences.loanBalanceAtSale)}
+                            </td>
+                          </tr>
+                          <tr className="hover:bg-slate-50">
+                            <td className="py-2 px-1 text-slate-600">Closing Costs</td>
+                            <td className="py-2 px-1 text-right font-medium text-slate-900">
+                              —
+                            </td>
+                            <td className="py-2 px-1 text-right font-medium text-indigo-900">
+                              {formatCurrency(refResults.totalClosingCosts)}
+                            </td>
+                            <td className="py-2 px-1 text-right font-medium text-slate-900">
+                              {formatCurrency(refResults.totalClosingCosts)}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </div>

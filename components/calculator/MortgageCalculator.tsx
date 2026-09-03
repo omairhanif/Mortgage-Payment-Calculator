@@ -33,7 +33,7 @@ import {
   Trash2,
   TrendingUp,
 } from "lucide-react";
-import CalculatorResult, { type ResultMetric, ConfigConsolidatedResult, ConfigAmortizationSchedule } from "./CalculatorResult";
+import CalculatorResult, { type ResultMetric, ConfigConsolidatedResult, ConfigAmortizationSchedule, FixedVsARMResult, RentVsBuyResult, IncomeRequirementResult } from "./CalculatorResult";
 import {
   NumberInput,
   NumberInputWithBadge,
@@ -513,7 +513,16 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
       monthsPaid: refMonthsPaid,
       newRate: refNewRate,
       newTermYears: refNewTerm,
-      refinanceCosts: refClosingCosts,
+      // Breakdown from single closing costs
+      discountPoints: 0,
+      originationFees: (refClosingCosts / refOriginalLoanAmount) * 100, // Convert to %
+      otherClosingCosts: 0,
+      // Default values for new fields
+      originalHomePrice: refOriginalLoanAmount / 0.8, // Assume 20% down
+      originalDownPayment: refOriginalLoanAmount * 0.25, // Assume 20% down
+      yearsBeforeSale: 5,
+      federalTaxRate: 24,
+      stateTaxRate: 6,
     };
 
     try {
@@ -1678,11 +1687,31 @@ function ConfigCalculatorRenderer({ config, onBack, isHomepage = false }: Config
         <div ref={resultsRef} className="lg:col-span-5 space-y-4">
           {results && (
             <>
-              <ConfigConsolidatedResult
-                primaryResult={formattedPrimaryResult}
-                metrics={metrics}
-                showAd={isHomepage}
-              />
+              {/* Use custom component for Fixed vs ARM comparison */}
+              {config.customResultComponent === "FixedVsARMComparison" ? (
+                <FixedVsARMResult
+                  results={results}
+                  showAd={isHomepage}
+                />
+              ) : config.customResultComponent === "RentVsBuyComparison" ? (
+                <RentVsBuyResult
+                  results={results}
+                  showAd={isHomepage}
+                />
+              ) : config.customResultComponent === "IncomeRequirementComparison" ? (
+                <IncomeRequirementResult
+                  results={results}
+                  showAd={isHomepage}
+                />
+              ) : (
+                <>
+                  <ConfigConsolidatedResult
+                    primaryResult={formattedPrimaryResult}
+                    metrics={metrics}
+                    showAd={isHomepage}
+                  />
+                </>
+              )}
               
               {/* Amortization Schedule - Within Results Column */}
               {(inputs.showAmortization !== undefined ? inputs.showAmortization : config.showAmortization) && results.amortizationSchedule && results.amortizationSchedule.length > 0 && (

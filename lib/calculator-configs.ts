@@ -816,9 +816,21 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
           showAmortization: inputs.showAmortization,
         }),
         results: [
-          { id: "payoffTimeMonthly", label: "Payoff Time: Monthly (months)", format: "number" },
-          { id: "payoffTimeBiweekly", label: "Payoff Time: Biweekly (months)", format: "number", isPrimary: true },
-          { id: "interestSaved", label: "Interest Saved", format: "currency", highlight: true },
+          // Payment Type — Standard vs Bi-Weekly comparison table
+          { id: "loanRepaymentTermMonthly", label: "📅 Loan Repayment Term (Standard)", format: "text" },
+          { id: "loanRepaymentTermBiweekly", label: "📅 Loan Repayment Term (Bi-Weekly)", format: "text" },
+          { id: "timeSaved", label: "⏱️ Time Saved", format: "text", highlight: true },
+          { id: "biweeklyPayment", label: "💵 Bi-Weekly Payment", format: "currency" },
+          { id: "monthlyPayment", label: "💵 Monthly Payment", format: "currency" },
+          { id: "totalInterestMonthly", label: "💰 Total Interest Paid (Standard)", format: "currency" },
+          { id: "totalInterestBiweekly", label: "💰 Total Interest Paid (Bi-Weekly)", format: "currency" },
+          { id: "interestSaved", label: "✅ Interest Savings", format: "currency", highlight: true, isPrimary: true },
+          
+          // Income Tax Savings — Standard vs Bi-Weekly comparison table
+          { id: "taxSavingsMonthly", label: "🏛️ Tax Savings (Standard)", format: "currency" },
+          { id: "taxSavingsBiweekly", label: "🏛️ Tax Savings (Bi-Weekly)", format: "currency" },
+          { id: "taxSavingLosses", label: "⚠️ Tax Saving Losses", format: "currency" },
+          { id: "totalBenefit", label: "🎯 Total Benefit (Interest Savings − Tax Losses)", format: "currency", highlight: true },
         ],
         showAmortization: true,
         showChart: false,

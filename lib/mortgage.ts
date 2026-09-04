@@ -2160,6 +2160,13 @@ export interface BiweeklyPaymentResult {
   totalInterestMonthly: number;
   totalInterestBiweekly: number;
   monthsSaved: number;
+  timeSaved: string;
+  taxSavingsMonthly: number;
+  taxSavingsBiweekly: number;
+  taxSavingLosses: number;
+  totalBenefit: number;
+  loanRepaymentTermMonthly: string;
+  loanRepaymentTermBiweekly: string;
   amortizationSchedule?: Array<{
     month: number;
     payment: number;
@@ -2216,6 +2223,39 @@ export function calculateBiweeklyPaymentEnhanced(input: BiweeklyPaymentInput): B
   const monthsSaved = originalMonths - biweeklyMonths;
   const interestSaved = totalInterestMonthly - totalInterestBiweekly;
 
+  // Calculate tax savings
+  const taxRateDecimal = input.taxRate / 100;
+  const taxSavingsMonthly = totalInterestMonthly * taxRateDecimal;
+  const taxSavingsBiweekly = totalInterestBiweekly * taxRateDecimal;
+  const taxSavingLosses = taxSavingsMonthly - taxSavingsBiweekly;
+  const totalBenefit = interestSaved - taxSavingLosses;
+
+  // Format time saved as "X years Y months"
+  const yearsSaved = Math.floor(monthsSaved / 12);
+  const monthsRemainder = Math.round(monthsSaved % 12);
+  let timeSaved = "";
+  if (yearsSaved > 0) {
+    timeSaved = `${yearsSaved} year${yearsSaved !== 1 ? 's' : ''}`;
+    if (monthsRemainder > 0) {
+      timeSaved += ` ${monthsRemainder} month${monthsRemainder !== 1 ? 's' : ''}`;
+    }
+  } else {
+    timeSaved = `${monthsRemainder} month${monthsRemainder !== 1 ? 's' : ''}`;
+  }
+
+  // Format loan repayment terms
+  const monthlyYears = Math.floor(originalMonths / 12);
+  const monthlyMonthsRem = originalMonths % 12;
+  const loanRepaymentTermMonthly = monthlyMonthsRem > 0 
+    ? `${monthlyYears} years ${monthlyMonthsRem} months`
+    : `${monthlyYears} years`;
+
+  const biweeklyYears = Math.floor(biweeklyMonths / 12);
+  const biweeklyMonthsRem = Math.round(biweeklyMonths % 12);
+  const loanRepaymentTermBiweekly = biweeklyMonthsRem > 0 
+    ? `${biweeklyYears} years ${biweeklyMonthsRem} months`
+    : `${biweeklyYears} years`;
+
   return {
     payoffTimeMonthly: originalMonths,
     payoffTimeBiweekly: Math.round(biweeklyMonths * 10) / 10,
@@ -2225,6 +2265,13 @@ export function calculateBiweeklyPaymentEnhanced(input: BiweeklyPaymentInput): B
     totalInterestMonthly: Math.round(totalInterestMonthly),
     totalInterestBiweekly: Math.round(totalInterestBiweekly),
     monthsSaved: Math.round(monthsSaved * 10) / 10,
+    timeSaved,
+    taxSavingsMonthly: Math.round(taxSavingsMonthly),
+    taxSavingsBiweekly: Math.round(taxSavingsBiweekly),
+    taxSavingLosses: Math.round(taxSavingLosses),
+    totalBenefit: Math.round(totalBenefit),
+    loanRepaymentTermMonthly,
+    loanRepaymentTermBiweekly,
     amortizationSchedule: input.showAmortization ? schedule : undefined
   };
 }

@@ -1,4 +1,4 @@
- "use client";
+﻿ "use client";
 
 import { Suspense, useState } from "react";
 import Image from "next/image";
@@ -62,316 +62,6 @@ export default function Page() {
           <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
             <MortgageCalculator category="mortgage" isHomepage={true} />
           </Suspense>
-        </div>
-      </section>
-
-      {/* Informational Article Section */}
-      <section className="py-16 bg-white">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-4xl">
-            <article className="prose prose-slate max-w-none">
-              
-              {/* Article Header */}
-              <div className="mb-12">
-                <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">
-                  Understanding Mortgage Payment Calculators: A Comprehensive Guide
-                </h2>
-                <p className="text-lg text-slate-600 leading-relaxed">
-                  Whether you're a first-time homebuyer or refinancing your existing mortgage, understanding how mortgage payment calculators work can help you make more informed financial decisions. This guide explains what these tools calculate, why results can differ between calculators, and how to interpret the estimates you receive.
-                </p>
-              </div>
-
-              {/* Section 1: Core Components */}
-              <div className="mb-10">
-                <h3 className="font-serif text-2xl md:text-3xl font-semibold text-slate-900 mb-4 mt-8">
-                  What Goes Into Your Monthly Mortgage Payment?
-                </h3>
-                
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  A complete mortgage payment calculator with taxes and insurance accounts for several distinct components that together determine your total monthly housing cost. Understanding each piece helps explain why a simple mortgage payment calculator might show a different number than a comprehensive tool.
-                </p>
-
-                <h4 className="font-serif text-xl font-semibold text-slate-800 mb-3 mt-6">
-                  Principal and Interest: The Foundation
-                </h4>
-                
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  When you see a mortgage payment calculator for principal and interest, it's calculating the core loan repayment. The principal is the amount you borrowed, while interest is what the lender charges for lending you that money. These two components are calculated using a standard amortization formula based on your loan amount, interest rate, and loan term.
-                </p>
-
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  For example, if you're using a hypothetical scenario with a $300,000 loan at 6.5% interest over 30 years, the monthly principal and interest payment would be approximately $1,896. This doesn't include any other costs—just the loan repayment itself. Early in your loan term, most of each payment goes toward interest. As years pass, more goes toward principal.
-                </p>
-
-                <h4 className="font-serif text-xl font-semibold text-slate-800 mb-3 mt-6">
-                  Property Taxes: Location Matters
-                </h4>
-                
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Property taxes vary significantly by location and are typically collected by your lender through an escrow account, then paid to local tax authorities on your behalf. This is one reason why mortgage payment calculators for specific regions like a mortgage payment calculator for Ontario, a mortgage payment calculator for BC, or a mortgage payment calculator for Alberta might show different total costs even with identical loan terms.
-                </p>
-
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  In Canada, property tax rates can differ substantially between provinces and municipalities. Similarly, a mortgage payment calculator for California needs to account for that state's property tax structure, which operates differently than other US states due to Proposition 13's assessment limitations. When using any calculator, verify that the property tax estimate reflects your actual location.
-                </p>
-
-                <h4 className="font-serif text-xl font-semibold text-slate-800 mb-3 mt-6">
-                  Homeowners Insurance: Protecting Your Investment
-                </h4>
-                
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Lenders require homeowners insurance to protect their investment in your property. Insurance costs vary based on home value, location, coverage level, and local risk factors. A mortgage payment calculator that includes insurance gives you a more complete picture of your actual monthly cost than a basic calculator that only shows principal and interest.
-                </p>
-
-                <h4 className="font-serif text-xl font-semibold text-slate-800 mb-3 mt-6">
-                  Private Mortgage Insurance (PMI) and Down Payment Impact
-                </h4>
-                
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  When exploring options with a down payment mortgage calculator, you'll notice a significant change when crossing the 20% down payment threshold. If you put down less than 20% on a conventional loan, you'll typically pay PMI—an additional monthly cost that protects the lender if you default. This can add $100-$200 or more to your monthly payment depending on your loan amount.
-                </p>
-
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  A mortgage affordability calculator helps you understand how different down payment amounts affect both your monthly payment and your overall borrowing capacity. Larger down payments reduce your loan amount, eliminate PMI, and often qualify you for better interest rates.
-                </p>
-              </div>
-
-              {/* Section 2: Calculator Comparisons */}
-              <div className="mb-10">
-                <h3 className="font-serif text-2xl md:text-3xl font-semibold text-slate-900 mb-4 mt-8">
-                  Why Different Calculators Show Different Results
-                </h3>
-                
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  When conducting a mortgage payment calculator comparison, you might notice that results vary between tools—even when you enter identical information. Understanding why this happens helps you choose the right calculator for your needs.
-                </p>
-
-                <h4 className="font-serif text-xl font-semibold text-slate-800 mb-3 mt-6">
-                  Simple vs. Comprehensive Calculators
-                </h4>
-                
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  A simple mortgage payment calculator typically calculates only principal and interest. These basic tools are useful for quick estimates or comparing how different interest rates or loan terms affect your base payment. However, they don't show your complete monthly housing cost.
-                </p>
-
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  More comprehensive calculators include property taxes, homeowners insurance, HOA fees, and PMI when applicable. These provide a more realistic estimate of what you'll actually pay each month. The difference between a simple calculator's result and a comprehensive calculator's result can easily be $500-$1,000 or more per month.
-                </p>
-
-                <h4 className="font-serif text-xl font-semibold text-slate-800 mb-3 mt-6">
-                  Bank-Provided Calculator Tools
-                </h4>
-                
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Many Canadian banks and financial institutions provide their own calculator tools. For instance, some borrowers search for a mortgage payment calculator from TD or a mortgage payment calculator from CIBC when researching their options. These bank-provided calculators can be helpful for getting estimates, though it's important to understand that using a bank's calculator tool doesn't mean you're receiving a rate quote or pre-approval—it's simply a planning tool.
-                </p>
-
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Bank calculators may incorporate assumptions or defaults specific to that institution's typical products, which could differ from independent online calculators. When using any calculator tool from a financial institution, review what components are included in the calculation and verify the assumptions being made.
-                </p>
-
-                <h4 className="font-serif text-xl font-semibold text-slate-800 mb-3 mt-6">
-                  Excel Spreadsheet Calculators
-                </h4>
-                
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Some people prefer using a mortgage payment calculator in Excel because spreadsheets offer complete transparency and customization. You can see exactly what formulas are being used, adjust every assumption, and create detailed amortization schedules. The trade-off is that you need to ensure your formulas are correct and keep tax and insurance estimates current.
-                </p>
-
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Excel calculators are particularly useful for comparing multiple scenarios side-by-side or for borrowers with non-standard situations that don't fit neatly into online calculator templates. However, they require more initial setup and maintenance than simply using an online tool.
-                </p>
-              </div>
-
-              {/* Section 3: Location-Specific Considerations */}
-              <div className="mb-10">
-                <h3 className="font-serif text-2xl md:text-3xl font-semibold text-slate-900 mb-4 mt-8">
-                  How Location Affects Your Mortgage Calculations
-                </h3>
-                
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Mortgage costs and structures vary by country, province, and state. Using a calculator designed for your specific location helps ensure more accurate estimates.
-                </p>
-
-                <h4 className="font-serif text-xl font-semibold text-slate-800 mb-3 mt-6">
-                  Canadian Mortgage Calculations
-                </h4>
-                
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  When using a mortgage payment calculator for Canada, several factors differ from US mortgages. Canadian mortgages typically use semi-annual compounding for interest calculations rather than monthly compounding. Additionally, mortgage terms in Canada are often shorter than the amortization period—you might have a 25-year amortization but renew your mortgage every 5 years, potentially at a different interest rate.
-                </p>
-
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Property tax rates vary significantly across Canadian provinces. A mortgage payment calculator for Ontario needs to account for that province's property tax structure, which differs from a mortgage payment calculator for BC or Alberta. BC homebuyers should also consider additional costs like the Property Transfer Tax, while Alberta has its own land transfer considerations. Each province has unique characteristics that affect overall housing costs.
-                </p>
-
-                <h4 className="font-serif text-xl font-semibold text-slate-800 mb-3 mt-6">
-                  UK Mortgage Calculations
-                </h4>
-                
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  A mortgage payment calculator for the UK operates within a different system entirely. UK mortgages often use different interest rate structures (including tracker mortgages and fixed-rate periods), and the calculation methods can differ from North American mortgages. UK property purchases also involve Stamp Duty Land Tax, which affects affordability even though it's not part of the monthly payment itself.
-                </p>
-
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  When researching UK mortgages, it's important to use a calculator specifically designed for that market rather than trying to adapt a US or Canadian calculator, as the underlying assumptions and requirements are often quite different.
-                </p>
-
-                <h4 className="font-serif text-xl font-semibold text-slate-800 mb-3 mt-6">
-                  US Regional Variations
-                </h4>
-                
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Within the United States, property tax rates and insurance costs vary dramatically by state and locality. A mortgage payment calculator for California should account for that state's relatively high home prices but capped property tax assessment increases under Proposition 13. This creates a different affordability picture than states with lower home prices but higher effective tax rates, or states with frequent reassessments.
-                </p>
-
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Some areas require additional insurance coverage—such as flood insurance in certain zones or earthquake insurance in seismically active regions. These location-specific costs aren't always included in basic calculator tools but significantly affect your actual monthly payment.
-                </p>
-              </div>
-
-              {/* Section 4: Extra Payments */}
-              <div className="mb-10">
-                <h3 className="font-serif text-2xl md:text-3xl font-semibold text-slate-900 mb-4 mt-8">
-                  The Impact of Extra Payments on Your Mortgage
-                </h3>
-                
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  A mortgage payment calculator with extra payments helps you understand how additional principal payments affect your loan payoff timeline and total interest costs. This feature is valuable for borrowers who want to explore paying off their mortgage faster.
-                </p>
-
-                <h4 className="font-serif text-xl font-semibold text-slate-800 mb-3 mt-6">
-                  How Extra Payments Work
-                </h4>
-                
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  When you make an extra payment specifically designated toward principal, you reduce your loan balance faster than the regular amortization schedule. Since interest is calculated on the remaining principal balance, a lower balance means less interest charged on future payments. This creates a compounding effect—early extra payments have a much larger impact than extra payments made late in your loan term.
-                </p>
-
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  For example, in a hypothetical scenario with a $300,000 loan at 6.5% over 30 years, adding just $200 extra to your principal each month could potentially save over $100,000 in interest and shorten your loan by approximately 8 years. These numbers illustrate why many borrowers prioritize making extra payments when financially possible.
-                </p>
-
-                <h4 className="font-serif text-xl font-semibold text-slate-800 mb-3 mt-6">
-                  When Extra Payments Make Sense
-                </h4>
-                
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Extra payments are most beneficial when you have a higher interest rate, plan to stay in the home long-term, and don't have higher-interest debt elsewhere. Before committing to extra mortgage payments, consider whether you have an adequate emergency fund, whether you're maximizing retirement contributions, and whether you have other debts with higher interest rates.
-                </p>
-
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Some borrowers prefer the flexibility of making extra payments when they have surplus cash rather than committing to a higher monthly payment through a shorter loan term. A calculator that models extra payments helps you explore these different strategies.
-                </p>
-              </div>
-
-              {/* Section 5: Interpreting Results */}
-              <div className="mb-10">
-                <h3 className="font-serif text-2xl md:text-3xl font-semibold text-slate-900 mb-4 mt-8">
-                  Understanding Calculator Limitations and Next Steps
-                </h3>
-                
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  While mortgage calculators provide valuable estimates, it's important to understand what they can and cannot tell you about your actual mortgage costs.
-                </p>
-
-                <h4 className="font-serif text-xl font-semibold text-slate-800 mb-3 mt-6">
-                  Estimates vs. Actual Offers
-                </h4>
-                
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Calculator results are estimates based on the information you provide and certain assumptions. Your actual mortgage payment will be determined by the specific loan offer you receive from a lender, which depends on factors including your credit score, debt-to-income ratio, employment history, and the lender's current rates and programs.
-                </p>
-
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Interest rates change frequently—sometimes multiple times in a single day. The rate you use in a calculator should be a current market rate, but your actual rate will be locked in when you complete your loan application. Property tax and insurance estimates in calculators are often based on typical ranges or your inputs, but your actual costs will depend on the specific property you purchase and the insurance coverage you choose.
-                </p>
-
-                <h4 className="font-serif text-xl font-semibold text-slate-800 mb-3 mt-6">
-                  Using Calculators for Planning
-                </h4>
-                
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  The most valuable use of mortgage calculators is exploring different scenarios. Compare how different down payment amounts affect your monthly payment. See how choosing a 15-year vs. 30-year term changes your payment and total interest. Test whether you can comfortably afford the payment at slightly higher interest rates than you expect—this helps you prepare for potential rate changes if you're getting an adjustable-rate mortgage or refinancing in the future.
-                </p>
-
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  A mortgage affordability calculator is particularly useful before you start house hunting, as it helps you understand what price range fits your budget. This prevents the disappointment of falling in love with homes you cannot comfortably afford and helps you focus your search productively.
-                </p>
-
-                <h4 className="font-serif text-xl font-semibold text-slate-800 mb-3 mt-6">
-                  When to Speak with a Lender
-                </h4>
-                
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  After using calculators to understand your general affordability and comfortable payment range, the next step is getting pre-approved by actual lenders. A pre-approval involves a lender reviewing your financial situation, credit, and documentation to determine what they're willing to lend you and at what terms.
-                </p>
-
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Shop with multiple lenders if possible. Different lenders may offer different rates, fees, and loan programs. What you learn from calculators helps you ask informed questions and understand whether the offers you receive are competitive. You'll be better prepared to evaluate closing costs, points, and other loan features beyond just the interest rate.
-                </p>
-              </div>
-
-              {/* Section 6: Choosing the Right Calculator */}
-              <div className="mb-10">
-                <h3 className="font-serif text-2xl md:text-3xl font-semibold text-slate-900 mb-4 mt-8">
-                  Selecting the Right Calculator for Your Needs
-                </h3>
-                
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Different situations call for different calculator tools. Understanding what each type offers helps you get the most relevant information for your decision-making.
-                </p>
-
-                <h4 className="font-serif text-xl font-semibold text-slate-800 mb-3 mt-6">
-                  For Quick Estimates
-                </h4>
-                
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  If you're just starting to explore homebuying and want quick ballpark figures, a simple mortgage payment calculator that focuses on principal and interest is fine for initial research. These tools help you understand baseline costs before diving into the details of taxes, insurance, and other expenses.
-                </p>
-
-                <h4 className="font-serif text-xl font-semibold text-slate-800 mb-3 mt-6">
-                  For Comprehensive Planning
-                </h4>
-                
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  When you're serious about buying and need realistic monthly payment estimates, use a comprehensive calculator that includes all cost components. Look for tools that let you input actual property tax rates for your area, get insurance estimates, include PMI calculations, and account for HOA fees if relevant to properties you're considering.
-                </p>
-
-                <h4 className="font-serif text-xl font-semibold text-slate-800 mb-3 mt-6">
-                  For Detailed Analysis
-                </h4>
-                
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  If you want to compare multiple scenarios in detail, explore prepayment strategies, or analyze refinancing options, consider using an Excel-based calculator or a comprehensive online tool with advanced features. These allow you to model complex situations and see exactly how different choices affect your long-term costs.
-                </p>
-
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  The best calculator is one that matches your specific situation—whether that means regional considerations, the ability to model extra payments, or features that help you compare different loan structures. Take time to verify that any calculator you use includes the cost components relevant to your purchase and provides results in a clear, understandable format.
-                </p>
-              </div>
-
-              {/* Conclusion */}
-              <div className="mb-8">
-                <h3 className="font-serif text-2xl md:text-3xl font-semibold text-slate-900 mb-4 mt-8">
-                  Making Informed Mortgage Decisions
-                </h3>
-                
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Mortgage payment calculators are valuable tools for understanding affordability, comparing loan options, and planning your home purchase. By understanding what these calculators measure, why results vary between tools, and how to interpret the estimates they provide, you'll be better prepared to make informed decisions about one of the largest financial commitments most people make.
-                </p>
-
-                <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Remember that calculator results are starting points for your research, not final answers. Use them to explore possibilities, understand how different variables affect your costs, and determine what monthly payment fits comfortably in your budget. Then work with qualified lenders and, when appropriate, financial advisors to make decisions specific to your situation.
-                </p>
-
-                <p className="text-base text-slate-600 leading-relaxed">
-                  Whether you're using a simple calculator for initial research or a comprehensive tool for detailed planning, the insights you gain help you approach your mortgage with confidence and realistic expectations about the costs involved.
-                </p>
-              </div>
-
-            </article>
-          </div>
         </div>
       </section>
 
@@ -499,7 +189,7 @@ export default function Page() {
                     Calculate your estimated monthly mortgage payment including principal, interest, taxes, and insurance. Get accurate estimates in seconds with our free calculator.
                   </p>
                   <div className="flex items-center text-indigo-600 font-medium text-sm mt-auto">
-                    Read Article →
+                    Read Article â†’
                   </div>
                 </div>
               </Link>
@@ -526,7 +216,7 @@ export default function Page() {
                     Estimate your home equity line of credit costs and monthly payments. Compare rates and terms to find the best HELOC option for your situation.
                   </p>
                   <div className="flex items-center text-indigo-600 font-medium text-sm mt-auto">
-                    Read Article →
+                    Read Article â†’
                   </div>
                 </div>
               </Link>
@@ -553,7 +243,7 @@ export default function Page() {
                     Calculate FHA loan payments including mortgage insurance premiums. Estimate your total monthly costs for an FHA-insured mortgage loan.
                   </p>
                   <div className="flex items-center text-indigo-600 font-medium text-sm mt-auto">
-                    Read Article →
+                    Read Article â†’
                   </div>
                 </div>
               </Link>
@@ -580,7 +270,7 @@ export default function Page() {
                     Calculate interest-only mortgage payments and compare them to traditional loans. See how much you'll save initially and pay over the full loan term.
                   </p>
                   <div className="flex items-center text-indigo-600 font-medium text-sm mt-auto">
-                    Read Article →
+                    Read Article â†’
                   </div>
                 </div>
               </Link>
@@ -746,7 +436,7 @@ export default function Page() {
                 {openFAQ === 5 && (
                   <div className="px-4 pb-4 border-t border-slate-100">
                     <p className="text-sm text-slate-600 leading-relaxed mt-3">
-                      A simple mortgage payment calculator shows only principal and interest (P&I)—the amount needed to repay the loan itself. This might be $1,500/month on a $300,000 loan. A comprehensive mortgage payment calculator with taxes and insurance adds property taxes (often $200-500/month), homeowners insurance ($100-200/month), PMI if applicable ($100-300/month), and HOA fees, bringing your actual monthly housing cost to perhaps $2,100-2,500/month. Simple calculators are useful for comparing loan terms, but full calculators reveal your true monthly obligation.
+                      A simple mortgage payment calculator shows only principal and interest (P&I)â€”the amount needed to repay the loan itself. This might be $1,500/month on a $300,000 loan. A comprehensive mortgage payment calculator with taxes and insurance adds property taxes (often $200-500/month), homeowners insurance ($100-200/month), PMI if applicable ($100-300/month), and HOA fees, bringing your actual monthly housing cost to perhaps $2,100-2,500/month. Simple calculators are useful for comparing loan terms, but full calculators reveal your true monthly obligation.
                     </p>
                   </div>
                 )}
@@ -794,7 +484,7 @@ export default function Page() {
                 {openFAQ === 7 && (
                   <div className="px-4 pb-4 border-t border-slate-100">
                     <p className="text-sm text-slate-600 leading-relaxed mt-3">
-                      A mortgage payment calculator for principal and interest uses the amortization formula: M = P[r(1+r)^n]/[(1+r)^n-1], where M is monthly payment, P is principal, r is monthly interest rate (annual rate ÷ 12), and n is number of payments. For practical use, online calculators handle this automatically. For a $250,000 loan at 7% for 30 years: monthly rate is 0.07÷12 = 0.005833, and the calculation yields approximately $1,663/month in principal and interest. This doesn't include taxes, insurance, or other costs—just the loan repayment itself.
+                      A mortgage payment calculator for principal and interest uses the amortization formula: M = P[r(1+r)^n]/[(1+r)^n-1], where M is monthly payment, P is principal, r is monthly interest rate (annual rate Ã· 12), and n is number of payments. For practical use, online calculators handle this automatically. For a $250,000 loan at 7% for 30 years: monthly rate is 0.07Ã·12 = 0.005833, and the calculation yields approximately $1,663/month in principal and interest. This doesn't include taxes, insurance, or other costsâ€”just the loan repayment itself.
                     </p>
                   </div>
                 )}
@@ -842,7 +532,7 @@ export default function Page() {
                 {openFAQ === 9 && (
                   <div className="px-4 pb-4 border-t border-slate-100">
                     <p className="text-sm text-slate-600 leading-relaxed mt-3">
-                      While the basic math is identical across all mortgage calculators—whether from TD, CIBC, BMO, Scotiabank, or independent tools—bank-specific calculators like a mortgage payment calculator TD or mortgage payment calculator CIBC might pre-populate their current advertised rates and may include bank-specific mortgage insurance costs. Independent calculators like ours let you input any rate for comparison shopping. The underlying calculation formula is standardized, so a $300,000 loan at 6.5% for 30 years yields the same $1,896 P&I payment regardless of which calculator you use.
+                      While the basic math is identical across all mortgage calculatorsâ€”whether from TD, CIBC, BMO, Scotiabank, or independent toolsâ€”bank-specific calculators like a mortgage payment calculator TD or mortgage payment calculator CIBC might pre-populate their current advertised rates and may include bank-specific mortgage insurance costs. Independent calculators like ours let you input any rate for comparison shopping. The underlying calculation formula is standardized, so a $300,000 loan at 6.5% for 30 years yields the same $1,896 P&I payment regardless of which calculator you use.
                     </p>
                   </div>
                 )}

@@ -149,7 +149,7 @@ export default function AdvicePage() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-[1200px] px-6 py-12 sm:px-8">
+      <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-12 py-12">
 
         {/* Written Content Section 1: Understanding Mortgage Types */}
         <section className="mb-16">

@@ -772,7 +772,8 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
   const monthlyPMI = isPMIRequired ? calculateMonthlyPMI(calcInputs.loanAmount, calcInputs.pmiRate) : 0;
   const monthlyTax = calcInputs.annualPropertyTax / 12;
   const monthlyInsurance = calcInputs.annualInsurance / 12;
-  const totalMonthlyPayment = monthlyPI + monthlyPMI + monthlyTax + monthlyInsurance + calcInputs.monthlyHOA;
+  const monthlyClosingCostsEquivalent = ((calcInputs.loanAmount * calcInputs.originationPoints) / 100 + calcInputs.otherClosingCosts) / (calcInputs.loanTermYears * 12);
+  const totalMonthlyPayment = monthlyPI + monthlyPMI + monthlyTax + monthlyInsurance + calcInputs.monthlyHOA + monthlyClosingCostsEquivalent;
   const totalInterest = calculateTotalInterest(monthlyPI, calcInputs.loanTermYears, calcInputs.loanAmount);
   const cashToClose = calculateClosingCash(calcInputs.downPayment, calcInputs.loanAmount, calcInputs.discountPoints, calcInputs.originationPoints, calcInputs.otherClosingCosts);
   const payoffDate = calculatePayoffDate(new Date(), calcInputs.loanTermYears);
@@ -996,6 +997,10 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-slate-700">HOA Fees</span>
                     <span className="text-sm font-semibold text-slate-900">{formatCurrency(monthlyHOA)}</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-slate-700">Closing Costs Equivalent</span>
+                    <span className="text-sm font-semibold text-slate-900">{formatCurrency(monthlyClosingCostsEquivalent)}</span>
                   </div>
                   <div className="flex items-center justify-between pt-2 border-t border-slate-200">
                     <span className="text-sm text-slate-700">Total Interest</span>

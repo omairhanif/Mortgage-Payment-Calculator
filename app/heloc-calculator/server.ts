@@ -58,7 +58,7 @@ export function getStructuredData() {
           "name": "What would payments be on a $100,000 HELOC?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "For a $100,000 HELOC balance, expect interest-only payments of approximately $625/month during the draw period at 7.5% APR. When the repayment period starts, payments increase dramatically—to about $927/month over 15 years at 7.5%. Over the full HELOC term, you'll pay roughly $241,000 total ($100,000 principal + $141,000 interest)."
+            "text": "For a $100,000 HELOC balance, expect interest-only payments of approximately $625/month during the draw period at 7.5% APR. When the repayment period starts, payments increase dramatically to about $927/month over 15 years at 7.5%. Over the full HELOC term, you'll pay roughly $241,000 total ($100,000 principal + $141,000 interest)."
           }
         },
         {
@@ -66,7 +66,7 @@ export function getStructuredData() {
           "name": "How much is a HELOC payment on $150,000?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A $150,000 HELOC generates interest-only payments of approximately $937.50/month during the draw period at 7.5% APR. When you enter the repayment period, payments surge to around $1,390/month over 15 years. Total cost over a typical HELOC structure would be about $362,000—that's $150,000 in principal and $212,000 in interest."
+            "text": "A $150,000 HELOC generates interest-only payments of approximately $937.50/month during the draw period at 7.5% APR. When you enter the repayment period, payments surge to around $1,390/month over 15 years. Total cost over a typical HELOC structure would be about $362,000 that's $150,000 in principal and $212,000 in interest."
           }
         },
         {
@@ -90,7 +90,7 @@ export function getStructuredData() {
           "name": "Is a HELOC or home equity loan better?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A HELOC is better for ongoing, flexible access to funds—you draw what you need, pay interest only on what you've borrowed, and can pay down and reborrow. A home equity loan is better when you need a fixed lump sum with predictable payments. Use a HELOC for flexibility; use a home equity loan for discipline and fixed rates."
+            "text": "A HELOC is better for ongoing, flexible access to funds you draw what you need, pay interest only on what you've borrowed, and can pay down and reborrow. A home equity loan is better when you need a fixed lump sum with predictable payments. Use a HELOC for flexibility; use a home equity loan for discipline and fixed rates."
           }
         }
       ]

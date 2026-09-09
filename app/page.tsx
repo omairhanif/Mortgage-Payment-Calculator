@@ -4,12 +4,13 @@ import { Suspense, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import MortgageCalculator from "@/components/calculator/MortgageCalculator";
-import { 
-  Home,
-  DollarSign,
+import {
   Zap,
-  PieChart,
-  Shield,
+  Calculator,
+  Percent,
+  GitCompare,
+  Wallet,
+  Receipt,
   ChevronDown,
   ChevronUp,
   ArrowRight
@@ -42,20 +43,28 @@ export default function Page() {
     <div>
       {/* Calculator Section with Introduction */}
       <section className="pt-12 pb-12">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
 
           {/* Introduction */}
-          <div className="mb-8 mx-auto max-w-5xl">
-            <div className="flex items-center gap-3 mb-4">
-              <Home className="h-8 w-8 text-indigo-600 flex-shrink-0" />
-              <h1 className="font-serif text-3xl md:text-4xl font-bold text-indigo-600 leading-tight">
+          <div className="mb-8 mx-auto max-w-4xl text-center">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <h1 className="font-serif text-6xl md:text-6xl font-bold text-indigo-600 leading-tight">
                 Mortgage Payment Calculator
               </h1>
             </div>
-            <div className="h-px bg-indigo-600 mb-6"></div>
-            <div className="space-y-4 text-base text-slate-600 leading-relaxed">
-              <p>Estimate your complete monthly housing cost based on your loan amount, interest rate, down payment, and loan term, while including property taxes, homeowners insurance, PMI, and HOA fees.</p>
-              <p>Understand how your loan terms affect your monthly payment, total interest, and overall cost so you can make a more informed home financing decision.</p>
+            <div className="text-lg text-slate-600 leading-relaxed">
+              <p>Calculate your monthly mortgage payment, estimate total interest, and understand the true cost of your home loan with our simple and accurate mortgage calculator.</p>
+            </div>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+              <span className="rounded-full border border-indigo-200 bg-indigo-50 px-4 py-2 text-sm font-medium text-indigo-700">
+                Free to Use
+              </span>
+              <span className="rounded-full border border-indigo-200 bg-indigo-50 px-4 py-2 text-sm font-medium text-indigo-700">
+                No Sign-Up Required
+              </span>
+              <span className="rounded-full border border-indigo-200 bg-indigo-50 px-4 py-2 text-sm font-medium text-indigo-700">
+                100% Free
+              </span>
             </div>
           </div>
           
@@ -65,82 +74,124 @@ export default function Page() {
         </div>
       </section>
 
+      {/* How It Works Section */}
+      <section className="border-t border-slate-200 bg-white py-14">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-10 text-center">
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900">
+              How It Works
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-5">
+            <div className="relative border-b border-slate-200 px-4 pb-6 text-center md:border-b-0 md:border-r md:px-6 md:pb-0">
+              <div className="mx-auto mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-indigo-600 text-sm font-bold text-white shadow-sm">
+                1
+              </div>
+              <h3 className="mb-2 font-serif text-lg font-bold text-slate-900">
+                Enter Your Loan Details
+              </h3>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Add home price, down payment, interest rate, and loan term.
+              </p>
+            </div>
+
+            <div className="relative border-b border-slate-200 px-4 pb-6 text-center md:border-b-0 md:border-r md:px-6 md:pb-0">
+              <div className="mx-auto mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-indigo-600 text-sm font-bold text-white shadow-sm">
+                2
+              </div>
+              <h3 className="mb-2 font-serif text-lg font-bold text-slate-900">
+                Calculate Your Payment
+              </h3>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                The calculator instantly calculates your estimated mortgage payment and loan costs.
+              </p>
+            </div>
+
+            <div className="relative px-4 text-center md:px-6">
+              <div className="mx-auto mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-indigo-600 text-sm font-bold text-white shadow-sm">
+                3
+              </div>
+              <h3 className="mb-2 font-serif text-lg font-bold text-slate-900">
+                Review Your Results
+              </h3>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                View your monthly payment, total interest, and other key mortgage details.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Why Use Us Section */}
-      <section className="py-12 bg-slate-50/60">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+      <section className="border-y border-slate-200 bg-slate-50/60 py-14">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="mb-10 text-center">
-            <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-3">
-              Why Use Our Calculator
+            <h2 className="mb-3 font-serif text-2xl font-bold text-slate-900 md:text-3xl">
+              Why Use Our Mortgage Payment Calculator?
             </h2>
-            <p className="text-slate-600 text-base max-w-2xl mx-auto">
-              Get accurate mortgage estimates with our free, easy-to-use calculator
+            <p className="text-slate-600 text-base max-w-2xl mx-auto leading-relaxed">
+              Understand your mortgage costs before making a home-buying decision. Get a clear estimate of your monthly payment, total interest, and overall loan costs based on your specific numbers.
             </p>
           </div>
 
-          {/* Benefits Grid - 4 Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            
-            {/* Card 1: Free to Use */}
-            <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex justify-center mb-4">
-                <div className="rounded-full bg-indigo-50 p-3">
-                  <DollarSign className="h-6 w-6 text-indigo-600" />
-                </div>
+          {/* Benefits Grid */}
+          <div className="grid grid-cols-1 gap-x-8 gap-y-3 md:grid-cols-2">
+            <div className="flex gap-4 border-b border-slate-200 py-4 md:border-b-0">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-indigo-50">
+                <Calculator className="h-5 w-5 text-indigo-600" />
+              </span>
+              <div>
+                <h3 className="font-serif text-lg font-bold text-slate-900 mb-1">Accurate Monthly Payment</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">Estimate your monthly principal and interest payment based on your loan details.</p>
               </div>
-              <h3 className="text-center font-serif text-lg font-bold text-slate-900 mb-2">
-                Free to Use
-              </h3>
-              <p className="text-center text-sm text-slate-600 leading-relaxed">
-                Use our comprehensive mortgage calculator completely free with no hidden fees or charges.
-              </p>
             </div>
-
-            {/* Card 2: Instant Calculations */}
-            <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex justify-center mb-4">
-                <div className="rounded-full bg-indigo-50 p-3">
-                  <Zap className="h-6 w-6 text-indigo-600" />
-                </div>
+            <div className="flex gap-4 border-b border-slate-200 py-4 md:border-b-0">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-indigo-50">
+                <Percent className="h-5 w-5 text-indigo-600" />
+              </span>
+              <div>
+                <h3 className="font-serif text-lg font-bold text-slate-900 mb-1">See Total Interest</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">Understand how much interest you could pay over the full life of your mortgage.</p>
               </div>
-              <h3 className="text-center font-serif text-lg font-bold text-slate-900 mb-2">
-                Instant Calculations
-              </h3>
-              <p className="text-center text-sm text-slate-600 leading-relaxed">
-                Get accurate mortgage payment estimates in real-time as you adjust your loan parameters.
-              </p>
             </div>
-
-            {/* Card 3: Detailed Payment Breakdown */}
-            <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex justify-center mb-4">
-                <div className="rounded-full bg-indigo-50 p-3">
-                  <PieChart className="h-6 w-6 text-indigo-600" />
-                </div>
+            <div className="flex gap-4 border-b border-slate-200 py-4 md:border-b-0">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-indigo-50">
+                <GitCompare className="h-5 w-5 text-indigo-600" />
+              </span>
+              <div>
+                <h3 className="font-serif text-lg font-bold text-slate-900 mb-1">Compare Loan Scenarios</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">Adjust your loan amount, interest rate, down payment, or term to compare different options.</p>
               </div>
-              <h3 className="text-center font-serif text-lg font-bold text-slate-900 mb-2">
-                Detailed Payment Breakdown
-              </h3>
-              <p className="text-center text-sm text-slate-600 leading-relaxed">
-                View complete breakdowns including principal, interest, taxes, insurance, PMI, and HOA fees.
-              </p>
             </div>
-
-            {/* Card 4: No Sign-Up Required */}
-            <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex justify-center mb-4">
-                <div className="rounded-full bg-indigo-50 p-3">
-                  <Shield className="h-6 w-6 text-indigo-600" />
-                </div>
+            <div className="flex gap-4 border-b border-slate-200 py-4 md:border-b-0">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-indigo-50">
+                <Wallet className="h-5 w-5 text-indigo-600" />
+              </span>
+              <div>
+                <h3 className="font-serif text-lg font-bold text-slate-900 mb-1">Plan Your Budget</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">Get a clearer idea of how a potential mortgage payment fits into your monthly budget.</p>
               </div>
-              <h3 className="text-center font-serif text-lg font-bold text-slate-900 mb-2">
-                No Sign-Up Required
-              </h3>
-              <p className="text-center text-sm text-slate-600 leading-relaxed">
-                Calculate your mortgage payments instantly without creating an account or providing personal information.
-              </p>
             </div>
-
+            <div className="flex gap-4 border-b border-slate-200 py-4 md:border-b-0">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-indigo-50">
+                <Receipt className="h-5 w-5 text-indigo-600" />
+              </span>
+              <div>
+                <h3 className="font-serif text-lg font-bold text-slate-900 mb-1">Understand Loan Costs</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">See the bigger picture of your mortgage costs instead of focusing only on the monthly payment.</p>
+              </div>
+            </div>
+            <div className="flex gap-4 py-4">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-indigo-50">
+                <Zap className="h-5 w-5 text-indigo-600" />
+              </span>
+              <div>
+                <h3 className="font-serif text-lg font-bold text-slate-900 mb-1">Fast &amp; Easy to Use</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">Enter your information and get your mortgage estimates instantly.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -156,7 +207,7 @@ export default function Page() {
                 Latest Articles
               </h2>
               <Link
-                href="/articles"
+                href="/blog"
                 className="flex items-center gap-2 text-indigo-600 hover:text-indigo-700 font-semibold transition-colors group"
               >
                 <span>See More</span>
@@ -169,7 +220,7 @@ export default function Page() {
               
               {/* Article 1: Mortgage Payment Calculator */}
               <Link
-                href="/mortgage-payment-calculator-estimate-monthly-costs"
+                href="/blog/mortgage-payment-calculator-estimate-monthly-costs"
                 className="flex flex-col h-full group rounded-lg border border-slate-200 bg-white shadow-sm overflow-hidden hover:shadow-lg hover:border-indigo-300 transition-all"
               >
                 <div className="relative w-full h-48 overflow-hidden">
@@ -189,14 +240,15 @@ export default function Page() {
                     Calculate your estimated monthly mortgage payment including principal, interest, taxes, and insurance. Get accurate estimates in seconds with our free calculator.
                   </p>
                   <div className="flex items-center text-indigo-600 font-medium text-sm mt-auto">
-                    Read Article â†’
+                    Read Article 
+                    <ArrowRight size={16} className="mr-2" />
                   </div>
                 </div>
               </Link>
 
               {/* Article 2: HELOC Calculator */}
               <Link
-                href="/heloc-calculator-estimate-credit-line-costs"
+                href="/blog/heloc-calculator-estimate-credit-line-costs"
                 className="flex flex-col h-full group rounded-lg border border-slate-200 bg-white shadow-sm overflow-hidden hover:shadow-lg hover:border-indigo-300 transition-all"
               >
                 <div className="relative w-full h-48 overflow-hidden">
@@ -216,14 +268,15 @@ export default function Page() {
                     Estimate your home equity line of credit costs and monthly payments. Compare rates and terms to find the best HELOC option for your situation.
                   </p>
                   <div className="flex items-center text-indigo-600 font-medium text-sm mt-auto">
-                    Read Article â†’
+                    Read Article 
+                    <ArrowRight size={16} className="mr-2" />
                   </div>
                 </div>
               </Link>
 
               {/* Article 3: FHA Loan Calculator */}
               <Link
-                href="/fha-loan-calculator-estimate-payments-costs"
+                href="/blog/fha-loan-calculator-estimate-payments-costs"
                 className="flex flex-col h-full group rounded-lg border border-slate-200 bg-white shadow-sm overflow-hidden hover:shadow-lg hover:border-indigo-300 transition-all"
               >
                 <div className="relative w-full h-48 overflow-hidden">
@@ -243,14 +296,16 @@ export default function Page() {
                     Calculate FHA loan payments including mortgage insurance premiums. Estimate your total monthly costs for an FHA-insured mortgage loan.
                   </p>
                   <div className="flex items-center text-indigo-600 font-medium text-sm mt-auto">
-                    Read Article â†’
+
+                    Read Article 
+                   <ArrowRight size={16} className="mr-2" />
                   </div>
                 </div>
               </Link>
 
               {/* Article 4: Interest-Only Calculator */}
               <Link
-                href="/interest-only-calculator-estimate-loan-payments"
+                href="/blog/interest-only-calculator-estimate-loan-payments"
                 className="flex flex-col h-full group rounded-lg border border-slate-200 bg-white shadow-sm overflow-hidden hover:shadow-lg hover:border-indigo-300 transition-all"
               >
                 <div className="relative w-full h-48 overflow-hidden">
@@ -270,7 +325,9 @@ export default function Page() {
                     Calculate interest-only mortgage payments and compare them to traditional loans. See how much you'll save initially and pay over the full loan term.
                   </p>
                   <div className="flex items-center text-indigo-600 font-medium text-sm mt-auto">
-                    Read Article â†’
+
+                    Read Article 
+                   <ArrowRight size={16} className="mr-2" />
                   </div>
                 </div>
               </Link>
@@ -436,7 +493,7 @@ export default function Page() {
                 {openFAQ === 5 && (
                   <div className="px-4 pb-4 border-t border-slate-100">
                     <p className="text-sm text-slate-600 leading-relaxed mt-3">
-                      A simple mortgage payment calculator shows only principal and interest (P&I)â€”the amount needed to repay the loan itself. This might be $1,500/month on a $300,000 loan. A comprehensive mortgage payment calculator with taxes and insurance adds property taxes (often $200-500/month), homeowners insurance ($100-200/month), PMI if applicable ($100-300/month), and HOA fees, bringing your actual monthly housing cost to perhaps $2,100-2,500/month. Simple calculators are useful for comparing loan terms, but full calculators reveal your true monthly obligation.
+                      A simple mortgage payment calculator shows only principal and interest (P&I) the amount needed to repay the loan itself. This might be $1,500/month on a $300,000 loan. A comprehensive mortgage payment calculator with taxes and insurance adds property taxes (often $200-500/month), homeowners insurance ($100-200/month), PMI if applicable ($100-300/month), and HOA fees, bringing your actual monthly housing cost to perhaps $2,100-2,500/month. Simple calculators are useful for comparing loan terms, but full calculators reveal your true monthly obligation.
                     </p>
                   </div>
                 )}
@@ -484,7 +541,7 @@ export default function Page() {
                 {openFAQ === 7 && (
                   <div className="px-4 pb-4 border-t border-slate-100">
                     <p className="text-sm text-slate-600 leading-relaxed mt-3">
-                      A mortgage payment calculator for principal and interest uses the amortization formula: M = P[r(1+r)^n]/[(1+r)^n-1], where M is monthly payment, P is principal, r is monthly interest rate (annual rate Ã· 12), and n is number of payments. For practical use, online calculators handle this automatically. For a $250,000 loan at 7% for 30 years: monthly rate is 0.07Ã·12 = 0.005833, and the calculation yields approximately $1,663/month in principal and interest. This doesn't include taxes, insurance, or other costsâ€”just the loan repayment itself.
+                      A mortgage payment calculator for principal and interest uses the amortization formula: M = P[r(1+r)^n]/[(1+r)^n-1], where M is monthly payment, P is principal, r is monthly interest rate (annual rate Ã· 12), and n is number of payments. For practical use, online calculators handle this automatically. For a $250,000 loan at 7% for 30 years: monthly rate is 0.07Ã·12 = 0.005833, and the calculation yields approximately $1,663/month in principal and interest. This doesn't include taxes, insurance, or other costs just the loan repayment itself.
                     </p>
                   </div>
                 )}
@@ -532,7 +589,7 @@ export default function Page() {
                 {openFAQ === 9 && (
                   <div className="px-4 pb-4 border-t border-slate-100">
                     <p className="text-sm text-slate-600 leading-relaxed mt-3">
-                      While the basic math is identical across all mortgage calculatorsâ€”whether from TD, CIBC, BMO, Scotiabank, or independent toolsâ€”bank-specific calculators like a mortgage payment calculator TD or mortgage payment calculator CIBC might pre-populate their current advertised rates and may include bank-specific mortgage insurance costs. Independent calculators like ours let you input any rate for comparison shopping. The underlying calculation formula is standardized, so a $300,000 loan at 6.5% for 30 years yields the same $1,896 P&I payment regardless of which calculator you use.
+                      While the basic math is identical across all mortgage calculators whether from TD, CIBC, BMO, Scotiabank, or independent tools bank-specific calculators like a mortgage payment calculator TD or mortgage payment calculator CIBC might pre-populate their current advertised rates and may include bank-specific mortgage insurance costs. Independent calculators like ours let you input any rate for comparison shopping. The underlying calculation formula is standardized, so a $300,000 loan at 6.5% for 30 years yields the same $1,896 P&I payment regardless of which calculator you use.
                     </p>
                   </div>
                 )}

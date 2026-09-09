@@ -21,13 +21,13 @@ export default function TaxBenefitsCalculatorPage() {
   ];
   const howItWorks = [
     "This calculator helps you understand how mortgage-related tax deductions reduce your effective borrowing cost. Mortgage interest, property taxes (within limits), and sometimes mortgage insurance premiums can be tax-deductible, significantly reducing your after-tax housing cost.",
-    "Enter your loan details, tax bracket, and deduction information. The calculator shows your annual deductions, tax savings, and effective after-tax interest rate—revealing your true cost of borrowing after accounting for federal tax benefits.",
+    "Enter your loan details, tax bracket, and deduction information. The calculator shows your annual deductions, tax savings, and effective after-tax interest rate revealing your true cost of borrowing after accounting for federal tax benefits.",
     "Results display your monthly payment, annual tax deductions, estimated tax savings, and effective interest rate. Understanding these tax benefits is crucial for comparing mortgage costs to other financial decisions and accurately budgeting your housing expenses."
   ];
   const faqs = [
     {
       q: "What mortgage expenses are tax deductible?",
-      a: "Mortgage interest on loans up to $750,000 ($375,000 if married filing separately) is deductible on your primary residence and one second home. Property taxes are deductible up to $10,000 combined state and local taxes (SALT cap). Mortgage insurance premiums may be deductible depending on income and current tax law—this deduction has expired and been extended multiple times."
+      a: "Mortgage interest on loans up to $750,000 ($375,000 if married filing separately) is deductible on your primary residence and one second home. Property taxes are deductible up to $10,000 combined state and local taxes (SALT cap). Mortgage insurance premiums may be deductible depending on income and current tax law this deduction has expired and been extended multiple times."
     },
     {
       q: "How much will I save on taxes with a mortgage?",
@@ -72,7 +72,7 @@ export default function TaxBenefitsCalculatorPage() {
       />
 
       {/* Hero Section */}
-      <div className="mx-auto max-w-5xl px-6 pb-12 pt-8 sm:px-8 lg:px-12">
+      <div className="w-full mx-auto max-w-4xl px-4 pb-12 pt-8 sm:px-6 lg:px-8">
         <div className="mb-6 flex items-center gap-3">
           <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-indigo-100 text-indigo-600">
             <Icon className="h-6 w-6" />
@@ -90,13 +90,13 @@ export default function TaxBenefitsCalculatorPage() {
       </div>
 
       {/* Calculator */}
-      <div className="mx-auto max-w-[1400px] px-6 pb-12 sm:px-8 lg:px-12">
+      <div className="w-full mx-auto max-w-4xl px-4 pb-12 sm:px-6 lg:px-8">
         <MortgageCalculator category="savings" forcedSubcalculator="tax-benefits" />
       </div>
 
       {/* How It Works */}
       <section className="bg-slate-50 py-12">
-        <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-12">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <h2 className="mb-8 text-center text-2xl font-bold text-slate-900 sm:text-3xl">How It Works</h2>
           <div className="space-y-6 text-base leading-relaxed text-slate-600">
             {howItWorks.map((paragraph, index) => (
@@ -108,12 +108,12 @@ export default function TaxBenefitsCalculatorPage() {
 
       {/* Educational Article */}
       <section className="py-12">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <article className="prose prose-slate mx-auto max-w-3xl prose-headings:font-serif prose-h2:text-2xl prose-h2:font-bold prose-h2:text-slate-900 prose-p:text-slate-600 prose-p:leading-relaxed">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <article className="prose prose-slate w-full mx-auto max-w-4xl prose-headings:font-serif prose-h2:text-2xl prose-h2:font-bold prose-h2:text-slate-900 prose-p:text-slate-600 prose-p:leading-relaxed">
             <h1 className="text-center">Understanding Mortgage Tax Benefits: How Deductions Reduce Your Effective Interest Rate</h1>
 
             <p>
-              Mortgage tax benefits represent one of homeownership's most significant financial advantages, yet many borrowers misunderstand how these deductions work and whether they actually benefit from them. When you use a mortgage tax benefits calculator and see terms like "effective interest rate" or "after-tax cost," you're exploring the difference between your stated mortgage rate and your true borrowing cost after accounting for federal tax deductions. Understanding these benefits—and their limitations under current tax law—is essential for accurately comparing homeownership costs to renting and making informed decisions about mortgage size and structure.
+              Mortgage tax benefits represent one of homeownership's most significant financial advantages, yet many borrowers misunderstand how these deductions work and whether they actually benefit from them. When you use a mortgage tax benefits calculator and see terms like "effective interest rate" or "after-tax cost," you're exploring the difference between your stated mortgage rate and your true borrowing cost after accounting for federal tax deductions. Understanding these benefits and their limitations under current tax law is essential for accurately comparing homeownership costs to renting and making informed decisions about mortgage size and structure.
             </p>
 
             <p>
@@ -121,13 +121,13 @@ export default function TaxBenefitsCalculatorPage() {
             </p>
 
             <p>
-              For homeowners who do itemize and benefit from these deductions, the savings can be substantial. A borrower in the 24% tax bracket paying $20,000 annually in mortgage interest saves approximately $4,800 in federal taxes—equivalent to reducing a 6% mortgage rate to an effective rate of 4.56%. Over 30 years, this compounds to significant savings. However, these benefits diminish as your mortgage balance decreases and interest payments decline, eventually falling below the standard deduction threshold for most homeowners. Understanding this lifecycle helps you make strategic decisions about mortgage payoff, refinancing, and tax planning.
+              For homeowners who do itemize and benefit from these deductions, the savings can be substantial. A borrower in the 24% tax bracket paying $20,000 annually in mortgage interest saves approximately $4,800 in federal taxes equivalent to reducing a 6% mortgage rate to an effective rate of 4.56%. Over 30 years, this compounds to significant savings. However, these benefits diminish as your mortgage balance decreases and interest payments decline, eventually falling below the standard deduction threshold for most homeowners. Understanding this lifecycle helps you make strategic decisions about mortgage payoff, refinancing, and tax planning.
             </p>
 
             <h2>Mortgage Interest Deduction: The Primary Tax Benefit</h2>
 
             <p>
-              The mortgage interest deduction allows homeowners who itemize to deduct interest paid on mortgage debt from their taxable income. Under current law, you can deduct interest on up to $750,000 of mortgage debt ($375,000 if married filing separately) for loans originated after December 15, 2017. For loans originated before that date, the limit remains $1 million ($500,000 married filing separately). This applies to your primary residence and one second home—investment properties follow different rules.
+              The mortgage interest deduction allows homeowners who itemize to deduct interest paid on mortgage debt from their taxable income. Under current law, you can deduct interest on up to $750,000 of mortgage debt ($375,000 if married filing separately) for loans originated after December 15, 2017. For loans originated before that date, the limit remains $1 million ($500,000 married filing separately). This applies to your primary residence and one second home investment properties follow different rules.
             </p>
 
             <p>
@@ -249,7 +249,7 @@ export default function TaxBenefitsCalculatorPage() {
             </p>
 
             <p>
-              <strong>Homeowners Who No Longer Benefit:</strong> Smaller mortgages (under $300,000 in most markets), homes in low-property-tax states, homeowners who've paid down significant principal, and those without other substantial itemizable deductions. For these homeowners, mortgage tax benefits are essentially zero—they take the standard deduction regardless of homeownership.
+              <strong>Homeowners Who No Longer Benefit:</strong> Smaller mortgages (under $300,000 in most markets), homes in low-property-tax states, homeowners who've paid down significant principal, and those without other substantial itemizable deductions. For these homeowners, mortgage tax benefits are essentially zero they take the standard deduction regardless of homeownership.
             </p>
 
             <h2>Key Takeaways for Tax Planning</h2>
@@ -263,7 +263,7 @@ export default function TaxBenefitsCalculatorPage() {
             </p>
 
             <p>
-              Consider the tax benefits lifecycle when deciding between 15-year and 30-year mortgages. The tax benefits are front-loaded, so paying off your mortgage early doesn't sacrifice as much tax benefit as commonly believed—by year 15-20, benefits are already diminished.
+              Consider the tax benefits lifecycle when deciding between 15-year and 30-year mortgages. The tax benefits are front-loaded, so paying off your mortgage early doesn't sacrifice as much tax benefit as commonly believed by year 15-20, benefits are already diminished.
             </p>
 
             <p>
@@ -278,10 +278,10 @@ export default function TaxBenefitsCalculatorPage() {
         </div>
       </section>
 
-      
+
       {/* FAQ Section */}
       <section className="py-12 bg-slate-50">
-        <div className="mx-auto max-w-3xl px-6 sm:px-8 lg:px-12">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <h2 className="mb-8 text-2xl font-bold text-slate-900 sm:text-3xl">Frequently Asked Questions</h2>
           <div className="space-y-4">
             {faqs.map((faq, index) => (

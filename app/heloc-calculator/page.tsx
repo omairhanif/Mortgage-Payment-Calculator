@@ -4,7 +4,10 @@ import { useState, useRef, useEffect } from "react";
 import { ChevronDown, ChevronUp, CreditCard, Calculator, Plus, Trash2 } from "lucide-react";
 import { calculateHeloc, type HelocInput } from "@/lib/mortgage";
 import { formatCurrency } from "@/lib/utils";
+import { hasValidationErrors, validateCalculatorInputs } from "@/lib/calculator-validation";
+import type { InputConfig } from "@/lib/calculator-config.types";
 import { NumberInput, Card } from "@/components/calculator/CalculatorFields";
+import { ResultActions } from "@/components/calculator/CalculatorResult";
 import { getStructuredData } from "./server";
 
 export default function HelocCalculatorPage() {
@@ -35,11 +38,11 @@ export default function HelocCalculatorPage() {
       },
       {
         q: "What would payments be on a $100,000 HELOC?",
-        a: "For a $100,000 HELOC balance, expect interest-only payments of approximately $625/month during the draw period at 7.5% APR ($100,000 × 0.075 ÷ 12). When the repayment period starts, principal and interest payments increase dramatically—to about $927/month over 15 years at 7.5%. Over the full HELOC term (10-year draw + 15-year repayment), you'll pay roughly $241,000 total ($100,000 principal + $141,000 interest). Using a HELOC payment calculator helps you model different scenarios. Remember that HELOC rates are typically variable and tied to prime rate, so your actual payments will fluctuate as rates change."
+        a: "For a $100,000 HELOC balance, expect interest-only payments of approximately $625/month during the draw period at 7.5% APR ($100,000 × 0.075 ÷ 12). When the repayment period starts, principal and interest payments increase dramatically to about $927/month over 15 years at 7.5%. Over the full HELOC term (10-year draw + 15-year repayment), you'll pay roughly $241,000 total ($100,000 principal + $141,000 interest). Using a HELOC payment calculator helps you model different scenarios. Remember that HELOC rates are typically variable and tied to prime rate, so your actual payments will fluctuate as rates change."
       },
       {
         q: "How much is a HELOC payment on $150,000?",
-        a: "A $150,000 HELOC generates interest-only payments of approximately $937.50/month during the draw period at 7.5% APR. When you enter the repayment period, payments surge to around $1,390/month over 15 years (principal + interest at 7.5%). Total cost over a typical HELOC structure (10-year draw, 15-year repayment) would be about $362,000—that's $150,000 in principal and $212,000 in interest. HELOC payment calculators from major banks like TD HELOC calculator, CIBC HELOC calculator, or RBC HELOC calculator can show your specific scenario. Many Canadians use HELOC calculators Canada-specific to account for regional lending practices."
+        a: "A $150,000 HELOC generates interest-only payments of approximately $937.50/month during the draw period at 7.5% APR. When you enter the repayment period, payments surge to around $1,390/month over 15 years (principal + interest at 7.5%). Total cost over a typical HELOC structure (10-year draw, 15-year repayment) would be about $362,000 that's $150,000 in principal and $212,000 in interest. HELOC payment calculators from major banks like TD HELOC calculator, CIBC HELOC calculator, or RBC HELOC calculator can show your specific scenario. Many Canadians use HELOC calculators Canada-specific to account for regional lending practices."
       },
       {
         q: "Can I get a HELOC from TD, CIBC, RBC, or BMO?",
@@ -47,15 +50,15 @@ export default function HelocCalculatorPage() {
       },
       {
         q: "What are HELOC rates in Canada?",
-        a: "HELOC rates in Canada typically range from prime rate + 0.5% to prime + 1% for qualified borrowers at major banks (TD, RBC, CIBC, BMO, Scotiabank). With the current prime rate around 6.95%, most HELOC rates fall between 7.45-7.95% for well-qualified borrowers. Your actual HELOC interest rate depends on your credit score, loan-to-value ratio, existing relationship with the lender, and overall financial profile. Some lenders offer promotional rates temporarily. Unlike fixed-rate mortgages, HELOC rates are variable and adjust when the Bank of Canada changes its policy rate, directly affecting your monthly interest charges. Always compare HELOC rates across multiple lenders—even a 0.25% difference saves hundreds annually on a large balance."
+        a: "HELOC rates in Canada typically range from prime rate + 0.5% to prime + 1% for qualified borrowers at major banks (TD, RBC, CIBC, BMO, Scotiabank). With the current prime rate around 6.95%, most HELOC rates fall between 7.45-7.95% for well-qualified borrowers. Your actual HELOC interest rate depends on your credit score, loan-to-value ratio, existing relationship with the lender, and overall financial profile. Some lenders offer promotional rates temporarily. Unlike fixed-rate mortgages, HELOC rates are variable and adjust when the Bank of Canada changes its policy rate, directly affecting your monthly interest charges. Always compare HELOC rates across multiple lenders even a 0.25% difference saves hundreds annually on a large balance."
       },
       {
         q: "How to pay off a HELOC fast?",
-        a: "To pay off a HELOC faster: (1) Make principal payments during the draw period instead of just interest-only payments—this prevents balance growth and reduces total interest; (2) Set up automatic biweekly or weekly payments totaling more than the minimum monthly amount; (3) Apply windfalls (bonuses, tax refunds, inheritances) directly to principal; (4) Stop drawing from the line—treat it like a closed loan rather than revolving credit; (5) Consider refinancing to a fixed-rate term loan if rates drop, locking in lower rates and forced amortization. Using a HELOC payoff calculator or HELOC calculator with extra payments shows your savings—for example, adding $200/month extra to a $75,000 balance could save $15,000+ in interest and pay it off years earlier."
+        a: "To pay off a HELOC faster: (1) Make principal payments during the draw period instead of just interest-only payments this prevents balance growth and reduces total interest; (2) Set up automatic biweekly or weekly payments totaling more than the minimum monthly amount; (3) Apply windfalls (bonuses, tax refunds, inheritances) directly to principal; (4) Stop drawing from the line treat it like a closed loan rather than revolving credit; (5) Consider refinancing to a fixed-rate term loan if rates drop, locking in lower rates and forced amortization. Using a HELOC payoff calculator or HELOC calculator with extra payments shows your savings for example, adding $200/month extra to a $75,000 balance could save $15,000+ in interest and pay it off years earlier."
       },
       {
         q: "Is a HELOC or home equity loan better?",
-        a: "A HELOC is better for ongoing, flexible access to funds—you draw what you need when you need it, pay interest only on what you've borrowed, and can pay down and reborrow during the draw period. It's ideal for ongoing renovations, emergency reserves, or variable expenses. A home equity loan is better when you need a fixed lump sum with predictable payments—you receive all funds upfront, make fixed principal and interest payments immediately, and often get a lower, fixed interest rate. Use a HELOC for flexibility; use a home equity loan for discipline, lower rates, and predictable budgeting. HELOC rates are typically variable (currently 7-8% in Canada), while home equity loans may offer fixed rates around 6-9%."
+        a: "A HELOC is better for ongoing, flexible access to funds you draw what you need when you need it, pay interest only on what you've borrowed, and can pay down and reborrow during the draw period. It's ideal for ongoing renovations, emergency reserves, or variable expenses. A home equity loan is better when you need a fixed lump sum with predictable payments you receive all funds upfront, make fixed principal and interest payments immediately, and often get a lower, fixed interest rate. Use a HELOC for flexibility; use a home equity loan for discipline, lower rates, and predictable budgeting. HELOC rates are typically variable (currently 7-8% in Canada), while home equity loans may offer fixed rates around 6-9%."
       }
     ]
   };
@@ -70,7 +73,7 @@ export default function HelocCalculatorPage() {
   const [helocClosingCosts, setHelocClosingCosts] = useState<number>(2000);
   const [helocFederalTaxRate, setHelocFederalTaxRate] = useState<number>(22);
   const [helocMonthlyIncome, setHelocMonthlyIncome] = useState<number>(8000);
-  
+
   // Dynamic debt list
   const [helocDebts, setHelocDebts] = useState<Array<{name: string, balance: number, monthlyPayment: number, rate: number}>>(
     [
@@ -78,8 +81,16 @@ export default function HelocCalculatorPage() {
       { name: "Credit Card 2", balance: 8000, monthlyPayment: 200, rate: 21.0 },
     ]
   );
-  
+
   const [helocResults, setHelocResults] = useState<any>(null);
+  const [inlineValidationErrors, setInlineValidationErrors] = useState<Record<string, string>>({});
+
+  const validateInline = (values: Record<string, any>, fields: Array<{ id: string; type: InputConfig["type"]; min?: number; max?: number }>) => {
+    return validateCalculatorInputs(
+      fields.map((field) => ({ ...field, label: field.id, defaultValue: values[field.id] } as InputConfig)),
+      values,
+    );
+  };
 
   // Ref for scrolling to results
   const helocResultsRef = useRef<HTMLDivElement>(null);
@@ -129,13 +140,13 @@ export default function HelocCalculatorPage() {
       const balance = debt.balance || 0;
       const monthlyPayment = debt.monthlyPayment || 0;
       const rate = debt.rate || 0;
-      
+
       if (balance > 0 && monthlyPayment > 0) {
         totalBalance += balance;
-        
+
         // Calculate monthly interest rate
         const monthlyRate = (rate / 100) / 12;
-        
+
         // Estimate payoff months using amortization formula
         let months = 0;
         if (monthlyRate > 0 && monthlyPayment > balance * monthlyRate) {
@@ -146,12 +157,12 @@ export default function HelocCalculatorPage() {
           // If payment barely covers interest, estimate 360 months (30 years)
           months = 360;
         }
-        
+
         // Calculate total interest for this debt
         const totalPaid = monthlyPayment * months;
         const interest = totalPaid - balance;
         totalInterest += Math.max(0, interest);
-        
+
         // Weighted average calculations
         weightedMonths += months * balance;
         weightedRate += rate * balance;
@@ -180,15 +191,15 @@ export default function HelocCalculatorPage() {
   ) => {
     // Draw period interest (interest-only)
     const drawPeriodInterest = drawPayment * drawPeriodYears * 12;
-    
+
     // Repayment period interest
     const repaymentPeriodTotalPaid = repaymentPayment * repaymentPeriodYears * 12;
     const repaymentPeriodInterest = repaymentPeriodTotalPaid - amountUsed;
-    
+
     const totalInterest = drawPeriodInterest + repaymentPeriodInterest;
     const totalCost = amountUsed + totalInterest;
     const totalYears = drawPeriodYears + repaymentPeriodYears;
-    
+
     return {
       totalInterest,
       totalCost,
@@ -199,6 +210,36 @@ export default function HelocCalculatorPage() {
 
   // Handle HELOC Calculate
   const handleHelocCalculate = (shouldScroll = true) => {
+    const fieldErrors = validateInline(
+      { helocHomeValue, helocExistingMortgage, helocCreditLimit, helocInterestRate, helocDrawPeriod, helocRepaymentPeriod, helocClosingCosts, helocFederalTaxRate, helocMonthlyIncome },
+      [
+        { id: "helocHomeValue", type: "currency", min: 1_000, max: 100_000_000 },
+        { id: "helocExistingMortgage", type: "currency", max: 100_000_000 },
+        { id: "helocCreditLimit", type: "currency", max: 100_000_000 },
+        { id: "helocInterestRate", type: "percent", min: 0.01, max: 30 },
+        { id: "helocDrawPeriod", type: "years", min: 1, max: 20 },
+        { id: "helocRepaymentPeriod", type: "years", min: 1, max: 30 },
+        { id: "helocClosingCosts", type: "currency", max: 1_000_000 },
+        { id: "helocFederalTaxRate", type: "percent", max: 100 },
+        { id: "helocMonthlyIncome", type: "currency", min: 1, max: 10_000_000 },
+      ],
+    );
+    if (hasValidationErrors(fieldErrors)) {
+      setInlineValidationErrors(fieldErrors);
+      return;
+    }
+
+    const helocErrors: Record<string, string> = {};
+    if (helocExistingMortgage > helocHomeValue) helocErrors.helocExistingMortgage = "Existing mortgage cannot exceed home value.";
+    if (helocExistingMortgage + helocCreditLimit > helocHomeValue) helocErrors.helocCreditLimit = "HELOC amount cannot exceed available equity.";
+    if (helocDebts.some((debt) => !debt.name.trim() || !Number.isFinite(debt.balance) || debt.balance < 0 || debt.balance > 100_000_000 || !Number.isFinite(debt.monthlyPayment) || debt.monthlyPayment < 0 || debt.monthlyPayment > 1_000_000 || !Number.isFinite(debt.rate) || debt.rate < 0 || debt.rate > 100)) {
+      helocErrors.helocDebts = "Enter valid debt balances, payments, and rates.";
+    }
+    if (hasValidationErrors(helocErrors)) {
+      setInlineValidationErrors({ ...fieldErrors, ...helocErrors });
+      return;
+    }
+
     const input: HelocInput = {
       homeValue: helocHomeValue,
       existingMortgageBalance: helocExistingMortgage,
@@ -214,7 +255,7 @@ export default function HelocCalculatorPage() {
 
     const results = calculateHeloc(input);
     setHelocResults(results);
-    
+
     if (shouldScroll) {
       setTimeout(() => {
         scrollToResults(helocResultsRef);
@@ -222,10 +263,45 @@ export default function HelocCalculatorPage() {
     }
   };
 
-  // Calculate results on initial page load
+  // Calculate results on initial page load and as edits change
   useEffect(() => {
     handleHelocCalculate(false);
-  }, []);
+  }, [helocHomeValue, helocExistingMortgage, helocCreditLimit, helocInterestRate, helocDrawPeriod, helocRepaymentPeriod, helocClosingCosts, helocFederalTaxRate, helocMonthlyIncome, helocDebts]);
+
+  const helocComparisonMetrics = helocResults ? (() => {
+    const debtMetrics = calculateDebtMetrics(helocDebts);
+    const helocMetrics = calculateHelocMetrics(
+      helocResults.amountUsedForDebtConsolidation,
+      helocInterestRate,
+      helocDrawPeriod,
+      helocRepaymentPeriod,
+      helocResults.helocMonthlyPaymentDrawPeriod,
+      helocResults.helocMonthlyPaymentRepaymentPeriod,
+    );
+    return { debtMetrics, helocMetrics };
+  })() : null;
+
+  const helocSummary = helocResults && helocComparisonMetrics ? [
+    "HELOC Calculator Results",
+    "Inputs",
+    `Home Value: ${formatCurrency(helocHomeValue)}`,
+    `Existing Mortgage: ${formatCurrency(helocExistingMortgage)}`,
+    `HELOC Limit: ${formatCurrency(helocCreditLimit)}`,
+    `Interest Rate: ${helocInterestRate.toFixed(2)}%`,
+    `Draw Period: ${helocDrawPeriod} years`,
+    `Repayment Period: ${helocRepaymentPeriod} years`,
+    `Closing Costs: ${formatCurrency(helocClosingCosts)}`,
+    `Income: ${formatCurrency(helocMonthlyIncome)}`,
+    `Results`,
+    `Draw Monthly Payment: ${formatCurrency(helocResults.helocMonthlyPaymentDrawPeriod)}`,
+    `Repayment Monthly Payment: ${formatCurrency(helocResults.helocMonthlyPaymentRepaymentPeriod)}`,
+    `Monthly Savings: ${formatCurrency(helocResults.monthlySavings)}`,
+    `Debt Monthly Payments: ${formatCurrency(helocResults.totalMonthlyDebtPayments)}`,
+    `Debt + Personal Loan Interest: ${formatCurrency(helocComparisonMetrics.debtMetrics.totalInterest)}`,
+    `HELOC Interest: ${formatCurrency(helocComparisonMetrics.helocMetrics.totalInterest)}`,
+    `Debt + Personal Loan Total Cost: ${formatCurrency(helocComparisonMetrics.debtMetrics.totalCost)}`,
+    `HELOC Total Cost: ${formatCurrency(helocComparisonMetrics.helocMetrics.totalCost)}`,
+  ].join("\n") : "HELOC Calculator Results";
 
   const Icon = content.icon;
   const currentContent = content;
@@ -245,10 +321,15 @@ export default function HelocCalculatorPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }}
       />
-      <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+      <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        {hasValidationErrors(inlineValidationErrors) && (
+          <div role="alert" className="mb-4 rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">
+            {Object.values(inlineValidationErrors)[0]}
+          </div>
+        )}
 
         {/* Introduction Section */}
-        <div className="mb-8 mx-auto max-w-5xl">
+        <div className="mb-8 w-full mx-auto max-w-4xl">
           <div className="flex items-center gap-3 mb-4">
             <Icon className="h-8 w-8 text-indigo-600 flex-shrink-0" />
             <h1 className="font-serif text-3xl md:text-4xl font-bold text-indigo-600 leading-tight">
@@ -278,37 +359,44 @@ export default function HelocCalculatorPage() {
                     label="Home Value"
                     value={helocHomeValue}
                     onChange={(value) => setHelocHomeValue(Math.max(0, value))}
+                    error={inlineValidationErrors.helocHomeValue}
                   />
                   <NumberInput
                     label="Existing Mortgage"
                     value={helocExistingMortgage}
                     onChange={(value) => setHelocExistingMortgage(Math.max(0, value))}
+                    error={inlineValidationErrors.helocExistingMortgage}
                   />
                   <NumberInput
                     label="HELOC Limit"
                     value={helocCreditLimit}
                     onChange={(value) => setHelocCreditLimit(Math.max(0, value))}
+                    error={inlineValidationErrors.helocCreditLimit}
                   />
                   <NumberInput
                     label="Interest Rate (%)"
                     value={helocInterestRate}
                     onChange={(value) => setHelocInterestRate(Math.max(0, value))}
                     step={0.1}
+                    error={inlineValidationErrors.helocInterestRate}
                   />
                   <NumberInput
                     label="Draw Period (years)"
                     value={helocDrawPeriod}
                     onChange={(value) => setHelocDrawPeriod(Math.max(0, value))}
+                    error={inlineValidationErrors.helocDrawPeriod}
                   />
                   <NumberInput
                     label="Repayment Period (years)"
                     value={helocRepaymentPeriod}
                     onChange={(value) => setHelocRepaymentPeriod(Math.max(0, value))}
+                    error={inlineValidationErrors.helocRepaymentPeriod}
                   />
                   <NumberInput
                     label="Gross Monthly Income"
                     value={helocMonthlyIncome}
                     onChange={(value) => setHelocMonthlyIncome(Math.max(0, value))}
+                    error={inlineValidationErrors.helocMonthlyIncome}
                   />
                 </div>
 
@@ -346,12 +434,6 @@ export default function HelocCalculatorPage() {
                 </div>
               </div>
             </Card>
-
-            {/* Calculate Button */}
-            <button onClick={() => handleHelocCalculate()} className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-4 rounded-lg font-bold text-base shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
-              <Calculator className="h-4 w-4" />
-              <span>Calculate</span>
-            </button>
             </div>
 
             {/* RIGHT COLUMN - RESULTS */}
@@ -363,6 +445,7 @@ export default function HelocCalculatorPage() {
                   <div className="mb-4 flex items-center gap-1.5">
                     <Calculator className="h-4 w-4 text-indigo-600" />
                     <h3 className="font-serif text-base font-bold text-slate-900">Results</h3>
+                    <ResultActions title="HELOC Calculator Results" content={helocSummary} />
                   </div>
 
                   {/* Calculate comparison metrics */}
@@ -463,13 +546,13 @@ export default function HelocCalculatorPage() {
       </div>
 
       {/* Article will be added next */}
-      
+
       {/* Comprehensive HELOC Article */}
       <section className="py-16 bg-white">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl">
             <article className="prose prose-slate prose-lg max-w-none">
-              
+
               {/* Article Header */}
               <div className="mb-12">
                 <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">
@@ -485,9 +568,9 @@ export default function HelocCalculatorPage() {
                 <h3 className="font-serif text-2xl md:text-3xl font-semibold text-slate-900 mb-4 mt-8">
                   What Is a HELOC and How Does It Differ From Other Home Equity Products?
                 </h3>
-                
+
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  A Home Equity Line of Credit (HELOC) is a revolving credit line secured by your home equity—the difference between your home's current market value and what you owe on your existing mortgage. Unlike a traditional mortgage where you receive a lump sum and make fixed monthly payments over a predetermined term, a HELOC works more like a credit card. You're approved for a maximum credit limit, and you can borrow money as needed up to that limit, pay it back, and borrow again during what's called the "draw period."
+                  A Home Equity Line of Credit (HELOC) is a revolving credit line secured by your home equity the difference between your home's current market value and what you owe on your existing mortgage. Unlike a traditional mortgage where you receive a lump sum and make fixed monthly payments over a predetermined term, a HELOC works more like a credit card. You're approved for a maximum credit limit, and you can borrow money as needed up to that limit, pay it back, and borrow again during what's called the "draw period."
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -495,7 +578,7 @@ export default function HelocCalculatorPage() {
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  HELOCs typically operate in two distinct phases. During the draw period—usually lasting 5 to 10 years—you can borrow from your credit line and generally make interest-only payments, though many lenders allow you to pay down principal if you choose. When the draw period ends, the HELOC enters the repayment period, which typically lasts 10 to 20 years. During repayment, you can no longer draw additional funds, and your monthly payment increases to include both principal and interest as the outstanding balance is amortized over the remaining term.
+                  HELOCs typically operate in two distinct phases. During the draw period usually lasting 5 to 10 years you can borrow from your credit line and generally make interest-only payments, though many lenders allow you to pay down principal if you choose. When the draw period ends, the HELOC enters the repayment period, which typically lasts 10 to 20 years. During repayment, you can no longer draw additional funds, and your monthly payment increases to include both principal and interest as the outstanding balance is amortized over the remaining term.
                 </p>
               </div>
 
@@ -504,13 +587,13 @@ export default function HelocCalculatorPage() {
                 <h3 className="font-serif text-2xl md:text-3xl font-semibold text-slate-900 mb-4 mt-8">
                   How a HELOC Calculator Works and What Variables Affect Your Estimate
                 </h3>
-                
+
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
                   A HELOC calculator estimates your potential credit limit, monthly payments during the draw period, and monthly payments during the repayment period based on several key variables you provide. The primary inputs typically include your home's current market value, your existing mortgage balance (if any), the interest rate you expect to receive, the length of the draw period, and the length of the repayment period.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  The calculator first determines your available equity—your home's value minus your existing mortgage balance. Then it applies the lender's maximum combined loan-to-value (CLTV) ratio to calculate your potential borrowing capacity. Most lenders cap total debt against your home at 80% to 85% of the property value, though this varies by lender and your creditworthiness. For example, if your home is worth $400,000 and you owe $200,000 on your first mortgage, with an 85% CLTV limit, your maximum combined debt would be $340,000, leaving up to $140,000 potentially available as a HELOC—though your actual approved limit depends on additional underwriting factors.
+                  The calculator first determines your available equity your home's value minus your existing mortgage balance. Then it applies the lender's maximum combined loan-to-value (CLTV) ratio to calculate your potential borrowing capacity. Most lenders cap total debt against your home at 80% to 85% of the property value, though this varies by lender and your creditworthiness. For example, if your home is worth $400,000 and you owe $200,000 on your first mortgage, with an 85% CLTV limit, your maximum combined debt would be $340,000, leaving up to $140,000 potentially available as a HELOC though your actual approved limit depends on additional underwriting factors.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -527,7 +610,7 @@ export default function HelocCalculatorPage() {
                 <h3 className="font-serif text-2xl md:text-3xl font-semibold text-slate-900 mb-4 mt-8">
                   How Much Can I Borrow With a HELOC? Understanding Equity and Lender Limits
                 </h3>
-                
+
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
                   The amount you can borrow through a HELOC depends primarily on two factors: the equity you've built in your home and your lender's maximum combined loan-to-value (CLTV) ratio requirements. Home equity is calculated by subtracting your existing mortgage balance from your home's current market value. This equity represents the portion of your home that you own outright, and it serves as the collateral securing your HELOC.
                 </p>
@@ -537,7 +620,7 @@ export default function HelocCalculatorPage() {
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Consider this hypothetical example to illustrate how HELOC borrowing capacity is calculated: Suppose your home is currently worth $400,000, and you have an existing mortgage balance of $200,000. Your home equity is $200,000 ($400,000 minus $200,000). However, your maximum HELOC availability isn't simply your $200,000 in equity—it's constrained by your lender's combined loan-to-value requirements.
+                  Consider this hypothetical example to illustrate how HELOC borrowing capacity is calculated: Suppose your home is currently worth $400,000, and you have an existing mortgage balance of $200,000. Your home equity is $200,000 ($400,000 minus $200,000). However, your maximum HELOC availability isn't simply your $200,000 in equity it's constrained by your lender's combined loan-to-value requirements.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -553,12 +636,12 @@ export default function HelocCalculatorPage() {
           </div>
         </div>
       </section>
-      
+
       {/* FAQ Section */}
       {currentContent && currentContent.faqs.length > 0 && (
         <section className="py-12">
-          <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-            <div className="mx-auto max-w-3xl">
+          <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <div className="w-full mx-auto max-w-4xl">
               <div className="mb-8 text-center">
                 <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-3">
                   Frequently Asked Questions

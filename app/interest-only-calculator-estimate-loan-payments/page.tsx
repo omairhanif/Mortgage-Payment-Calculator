@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState } from 'react';
 import Image from 'next/image';
@@ -17,19 +17,19 @@ export default function InterestOnlyCalculatorPage() {
   const allFaqs = [
     {
       q: "How do I calculate interest-only payments?",
-      a: "To calculate an interest-only payment, multiply your loan amount by the annual interest rate, then divide by 12. The formula is: Monthly Payment = (Loan Amount Ã— Annual Rate) Ã· 12. For example, a $300,000 loan at 6.5% annual rate: ($300,000 Ã— 0.065) Ã· 12 = $1,625 per month. This payment covers only the interest accruing each monthâ€”your principal balance remains unchanged. During the interest-only period, you're not building equity through principal reduction unless you make additional payments beyond the required minimum. An interest only calculator automates this calculation and can show you the contrast with fully amortizing payments."
+      a: "To calculate an interest-only payment, multiply your loan amount by the annual interest rate, then divide by 12. The formula is: Monthly Payment = (Loan Amount Ã  Annual Rate) Ã· 12. For example, a $300,000 loan at 6.5% annual rate: ($300,000 Ã  0.065) Ã· 12 = $1,625 per month. This payment covers only the interest accruing each month your principal balance remains unchanged. During the interest-only period, you're not building equity through principal reduction unless you make additional payments beyond the required minimum. An interest only calculator automates this calculation and can show you the contrast with fully amortizing payments."
     },
     {
       q: "What is the monthly payment on a $400,000 loan at 7% interest-only?",
-      a: "For a $400,000 loan at 7% annual interest with interest-only payments, the monthly payment is $2,333.33. This is calculated as: ($400,000 Ã— 0.07) Ã· 12 = $2,333.33. This payment remains constant throughout the interest-only period and covers only the interest that accumulates each month. The $400,000 principal balance doesn't decrease during this time. In contrast, a fully amortizing 30-year payment on the same loan would be approximately $2,661 per month, which is $328 more but includes both principal and interest, gradually reducing your balance over time."
+      a: "For a $400,000 loan at 7% annual interest with interest-only payments, the monthly payment is $2,333.33. This is calculated as: ($400,000 Ã  0.07) Ã· 12 = $2,333.33. This payment remains constant throughout the interest-only period and covers only the interest that accumulates each month. The $400,000 principal balance doesn't decrease during this time. In contrast, a fully amortizing 30-year payment on the same loan would be approximately $2,661 per month, which is $328 more but includes both principal and interest, gradually reducing your balance over time."
     },
     {
       q: "Is 1% per month the same as 12% per annum?",
-      a: "Noâ€”1% per month is not the same as 12% per annum when interest compounds. If you pay 1% per month with monthly compounding, the effective annual rate is 12.68%, calculated as (1.01)^12 - 1 = 0.1268. This is higher than 12% because each month's interest is added to the balance, and subsequent months charge interest on that accumulated interest. However, for simple interest-only payment calculations (where you're just calculating the monthly interest charge), 1% monthly does equal 12% annually for payment purposes. The distinction matters for APR disclosures and compound interest calculations, which is why lenders must disclose both nominal rates and effective annual rates."
+      a: "No 1% per month is not the same as 12% per annum when interest compounds. If you pay 1% per month with monthly compounding, the effective annual rate is 12.68%, calculated as (1.01)^12 - 1 = 0.1268. This is higher than 12% because each month's interest is added to the balance, and subsequent months charge interest on that accumulated interest. However, for simple interest-only payment calculations (where you're just calculating the monthly interest charge), 1% monthly does equal 12% annually for payment purposes. The distinction matters for APR disclosures and compound interest calculations, which is why lenders must disclose both nominal rates and effective annual rates."
     },
     {
       q: "What happens when my interest-only period ends?",
-      a: "When your interest-only period ends, your loan typically converts to a fully amortizing structure, meaning your payments suddenly include both principal and interest. For example, if you had a $400,000 loan at 7% with a 10-year interest-only period, your payment starts at $2,333/month. After 10 years, the remaining $400,000 balance must amortize over the remaining term (often 20 years), increasing your payment to approximately $3,101/monthâ€”a $768 jump. Some loans require a balloon payment of the entire balance instead. This payment shock is why planning ahead is critical. Borrowers often refinance before conversion, but this requires sufficient home equity, good credit, and favorable market rates."
+      a: "When your interest-only period ends, your loan typically converts to a fully amortizing structure, meaning your payments suddenly include both principal and interest. For example, if you had a $400,000 loan at 7% with a 10-year interest-only period, your payment starts at $2,333/month. After 10 years, the remaining $400,000 balance must amortize over the remaining term (often 20 years), increasing your payment to approximately $3,101/month a $768 jump. Some loans require a balloon payment of the entire balance instead. This payment shock is why planning ahead is critical. Borrowers often refinance before conversion, but this requires sufficient home equity, good credit, and favorable market rates."
     },
     {
       q: "How much income do you need to qualify for a $500,000 mortgage?",
@@ -41,7 +41,7 @@ export default function InterestOnlyCalculatorPage() {
     },
     {
       q: "Do interest-only calculators work for HELOCs?",
-      a: "Yes, an interest only calculator can estimate HELOC payments during the draw period, when most HELOCs require only interest payments. However, HELOCs have unique features that standard calculators may not capture: revolving credit (you can borrow, repay, and re-borrow during the draw period), variable interest rates that adjust monthly or quarterly, and balance fluctuations. For an interest only calculator heloc application, you'll need your current balance, current interest rate, and understanding that payments change as rates adjust or you draw additional funds. During the typical 10-year draw period, calculate interest-only payments using the same formula: (Balance Ã— Annual Rate) Ã· 12. When the draw period ends, the HELOC converts to a repayment period (often 20 years) with principal and interest payments."
+      a: "Yes, an interest only calculator can estimate HELOC payments during the draw period, when most HELOCs require only interest payments. However, HELOCs have unique features that standard calculators may not capture: revolving credit (you can borrow, repay, and re-borrow during the draw period), variable interest rates that adjust monthly or quarterly, and balance fluctuations. For an interest only calculator heloc application, you'll need your current balance, current interest rate, and understanding that payments change as rates adjust or you draw additional funds. During the typical 10-year draw period, calculate interest-only payments using the same formula: (Balance Ã  Annual Rate) Ã· 12. When the draw period ends, the HELOC converts to a repayment period (often 20 years) with principal and interest payments."
     },
     {
       q: "Are interest-only loans available in my country?",
@@ -66,17 +66,17 @@ export default function InterestOnlyCalculatorPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }}
       />
-      
+
     <main className="min-h-screen bg-white">
       {/* Navigation */}
       <div className="border-b border-slate-200 bg-white">
         <div className="mx-auto max-w-4xl px-6 sm:px-8 py-6">
-          <Link 
-            href="/articles" 
+          <Link
+            href="/blog"
             className="inline-flex items-center text-indigo-600 hover:text-indigo-700 transition-colors group"
           >
             <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
-            Back to Articles
+            Back to Blogs
           </Link>
         </div>
       </div>
@@ -99,22 +99,22 @@ export default function InterestOnlyCalculatorPage() {
         <h1 className="font-serif text-4xl md:text-5xl font-bold text-slate-900 mb-4">
           Interest-Only Calculator: Estimate Loan Payments
         </h1>
-        
+
         <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
           <time>February 28, 2026</time>
-          <span className="mx-3">â€¢</span>
+          <span className="mx-3"> </span>
           <span>17 min read</span>
         </div>
       </div>
 
       {/* Article Content */}
       <article className="pb-2">
-        <div className="mx-auto max-w-3xl px-6 sm:px-8">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="prose prose-slate prose-lg max-w-none">
-            
+
             {/* Introduction */}
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              An interest-only calculator helps you estimate monthly payments on loans structured so you pay only the interest for a specified period, with no principal reduction during that time. Understanding how these payments work is essential before using any interest only calculator mortgage tool, because the mechanics differ fundamentally from traditional amortizing loans. During the interest-only periodâ€”typically 5, 7, or 10 yearsâ€”your monthly payment is lower since you're not paying down the loan balance, but this creates significant changes when that period ends. Whether you're evaluating an interest only calculator home loan, interest only calculator heloc, or interest only calculator line of credit application, knowing what the numbers mean and how they're calculated enables informed borrowing decisions rather than surprises later.
+              An interest-only calculator helps you estimate monthly payments on loans structured so you pay only the interest for a specified period, with no principal reduction during that time. Understanding how these payments work is essential before using any interest only calculator mortgage tool, because the mechanics differ fundamentally from traditional amortizing loans. During the interest-only period typically 5, 7, or 10 years your monthly payment is lower since you're not paying down the loan balance, but this creates significant changes when that period ends. Whether you're evaluating an interest only calculator home loan, interest only calculator heloc, or interest only calculator line of credit application, knowing what the numbers mean and how they're calculated enables informed borrowing decisions rather than surprises later.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-8">
@@ -125,14 +125,14 @@ export default function InterestOnlyCalculatorPage() {
 
             {/* Section 1: What Is an Interest-Only Loan? */}
             <h2 className="text-2xl font-bold text-slate-900 mt-10 mb-4">What Is an Interest-Only Loan?</h2>
-            
+
             <p className="text-base text-slate-600 leading-relaxed mb-6">
               An interest-only loan is a borrowing structure where, for a defined initial period, your required monthly payment covers only the interest that accrues on the outstanding principal balance. Unlike traditional amortizing loans where each payment includes both interest and principal reduction, interest-only payments leave your loan balance completely unchanged during the interest-only period. If you borrow $300,000 with a 10-year interest-only period, your balance remains $300,000 throughout those entire 10 years, assuming you make only the required minimum payments. This structure is available across various products: interest-only mortgages (less common in the U.S. post-2008 but still available), HELOCs during their draw period, personal lines of credit, and some investment property loans. The interest-only period typically lasts 5, 7, or 10 years, though terms vary by lender, loan type, and country. After this period ends, the loan either converts to a fully amortizing structure (where you pay both principal and interest), requires a balloon payment of the entire balance, or must be refinanced.
             </p>
 
             {/* Section 2: The Interest-Only Payment Formula */}
             <h2 className="text-2xl font-bold text-slate-900 mt-10 mb-4">The Interest-Only Payment Formula</h2>
-            
+
             <p className="text-base text-slate-600 leading-relaxed mb-4">
               Calculating an interest-only payment is significantly simpler than calculating a fully amortizing payment. The interest-only payment formula is:
             </p>
@@ -140,7 +140,7 @@ export default function InterestOnlyCalculatorPage() {
             <div className="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-6">
               <p className="text-center text-lg font-bold text-slate-900 mb-4">Interest-Only Payment Formula</p>
               <p className="text-center text-xl font-mono text-slate-900 mb-4">
-                Monthly Payment = (Loan Amount Ã— Annual Interest Rate) Ã· 12
+                Monthly Payment = (Loan Amount Ã  Annual Interest Rate) Ã· 12
               </p>
               <p className="text-sm text-slate-600 text-center">
                 This formula calculates the simple monthly interest charge based on your current balance and annual rate.
@@ -158,21 +158,21 @@ export default function InterestOnlyCalculatorPage() {
             </ol>
 
             <p className="text-base text-slate-600 leading-relaxed mb-8">
-              This calculation determines how much interest accumulates on your balance each month. Unlike amortizing payment formulas that involve complex exponential calculations to determine how much of each payment goes to principal versus interest over time, the interest-only payment formula is straightforward because 100% of your payment is interest. This is a simple interest-only calculator approachâ€”you're calculating the monthly interest expense, not dealing with compound interest within the payment structure itself (though APR calculations do involve compounding for disclosure purposes).
+              This calculation determines how much interest accumulates on your balance each month. Unlike amortizing payment formulas that involve complex exponential calculations to determine how much of each payment goes to principal versus interest over time, the interest-only payment formula is straightforward because 100% of your payment is interest. This is a simple interest-only calculator approach you're calculating the monthly interest expense, not dealing with compound interest within the payment structure itself (though APR calculations do involve compounding for disclosure purposes).
             </p>
 
 
 
             {/* Section 3: $400,000 @ 7% Example */}
             <h2 className="text-2xl font-bold text-slate-900 mt-10 mb-4">Hypothetical Example: $400,000 Loan at 7%</h2>
-            
+
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              Let's calculate the monthly interest-only payment for a $400,000 loan at 7% annual interestâ€”a common question being "What is the monthly payment on a $400,000 loan at 7%?" when evaluating interest-only options.
+              Let's calculate the monthly interest-only payment for a $400,000 loan at 7% annual interest a common question being "What is the monthly payment on a $400,000 loan at 7%?" when evaluating interest-only options.
             </p>
 
             <div className="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-6">
               <h3 className="font-bold text-slate-900 mb-4">Step-by-Step Calculation:</h3>
-              
+
               <div className="space-y-3 text-sm text-slate-600 mb-4">
                 <div className="flex justify-between items-center border-b border-slate-200 pb-2">
                   <span>Loan Amount:</span>
@@ -184,7 +184,7 @@ export default function InterestOnlyCalculatorPage() {
                 </div>
                 <div className="flex justify-between items-center border-b border-slate-200 pb-2">
                   <span>Calculation:</span>
-                  <span className="font-mono text-xs">($400,000 Ã— 0.07) Ã· 12</span>
+                  <span className="font-mono text-xs">($400,000 Ã  0.07) Ã· 12</span>
                 </div>
                 <div className="flex justify-between items-center border-b border-slate-200 pb-2">
                   <span>Annual Interest:</span>
@@ -200,11 +200,11 @@ export default function InterestOnlyCalculatorPage() {
                 <strong>What this means:</strong>
               </p>
               <ul className="space-y-1 text-sm text-slate-600 pl-4">
-                <li>â€¢ You pay $2,333.33 every month during the interest-only period</li>
-                <li>â€¢ 100% of your payment goes to interest</li>
-                <li>â€¢ $0 goes toward reducing the $400,000 principal balance</li>
-                <li>â€¢ After 5 years of payments, your balance is still $400,000</li>
-                <li>â€¢ After 10 years of payments, your balance remains $400,000</li>
+                <li>  You pay $2,333.33 every month during the interest-only period</li>
+                <li>  100% of your payment goes to interest</li>
+                <li>  $0 goes toward reducing the $400,000 principal balance</li>
+                <li>  After 5 years of payments, your balance is still $400,000</li>
+                <li>  After 10 years of payments, your balance remains $400,000</li>
               </ul>
             </div>
 
@@ -217,10 +217,10 @@ export default function InterestOnlyCalculatorPage() {
                 <p className="font-bold text-slate-900 mb-2">Interest-Only Payment</p>
                 <p className="text-3xl font-bold text-slate-900 mb-2">$2,333.33</p>
                 <ul className="space-y-1 text-xs text-slate-600">
-                  <li>â€¢ Lower monthly payment</li>
-                  <li>â€¢ All interest, no principal</li>
-                  <li>â€¢ Balance stays at $400,000</li>
-                  <li>â€¢ No equity building</li>
+                  <li>  Lower monthly payment</li>
+                  <li>  All interest, no principal</li>
+                  <li>  Balance stays at $400,000</li>
+                  <li>  No equity building</li>
                 </ul>
               </div>
 
@@ -228,10 +228,10 @@ export default function InterestOnlyCalculatorPage() {
                 <p className="font-bold text-slate-900 mb-2">30-Year Fully Amortizing</p>
                 <p className="text-3xl font-bold text-slate-900 mb-2">$2,661.21</p>
                 <ul className="space-y-1 text-xs text-slate-600">
-                  <li>â€¢ Higher monthly payment</li>
-                  <li>â€¢ Includes principal + interest</li>
-                  <li>â€¢ Balance decreases monthly</li>
-                  <li>â€¢ Builds equity over time</li>
+                  <li>  Higher monthly payment</li>
+                  <li>  Includes principal + interest</li>
+                  <li>  Balance decreases monthly</li>
+                  <li>  Builds equity over time</li>
                 </ul>
               </div>
             </div>
@@ -244,7 +244,7 @@ export default function InterestOnlyCalculatorPage() {
 
             {/* Section 4: What Happens When Interest-Only Period Ends */}
             <h2 className="text-2xl font-bold text-slate-900 mt-10 mb-4">What Happens When the Interest-Only Period Ends?</h2>
-            
+
             <p className="text-base text-slate-600 leading-relaxed mb-6">
               Understanding what happens when your interest-only period ends is critical before choosing this loan structure. Most borrowers experience one of three scenarios, with payment shock being the most common concern.
             </p>
@@ -253,14 +253,14 @@ export default function InterestOnlyCalculatorPage() {
               <div className="border-l-4 border-slate-300 bg-slate-50 p-5">
                 <h3 className="font-bold text-slate-900 mb-2">Scenario 1: Loan Converts to Fully Amortizing (Most Common)</h3>
                 <p className="text-sm text-slate-600 mb-3">
-                  Your loan automatically converts to a traditional principal-and-interest payment structure. The remaining balance must amortize over the remaining term, creating a payment increaseâ€”often called "payment shock."
+                  Your loan automatically converts to a traditional principal-and-interest payment structure. The remaining balance must amortize over the remaining term, creating a payment increase often called "payment shock."
                 </p>
                 <p className="text-sm font-semibold text-slate-900 mb-2">Using our $400,000 @ 7% example with 10-year interest-only period:</p>
                 <ul className="space-y-1 text-sm text-slate-600 pl-4">
-                  <li>â€¢ <strong>Years 1-10:</strong> Payment = $2,333.33/month (interest only)</li>
-                  <li>â€¢ <strong>Year 11 onward:</strong> $400,000 balance amortizes over remaining 20 years</li>
-                  <li>â€¢ <strong>New payment:</strong> Approximately $3,101/month (principal + interest)</li>
-                  <li>â€¢ <strong>Payment increase:</strong> $768/month (33% jump)</li>
+                  <li>  <strong>Years 1-10:</strong> Payment = $2,333.33/month (interest only)</li>
+                  <li>  <strong>Year 11 onward:</strong> $400,000 balance amortizes over remaining 20 years</li>
+                  <li>  <strong>New payment:</strong> Approximately $3,101/month (principal + interest)</li>
+                  <li>  <strong>Payment increase:</strong> $768/month (33% jump)</li>
                 </ul>
               </div>
 
@@ -274,7 +274,7 @@ export default function InterestOnlyCalculatorPage() {
               <div className="border-l-4 border-slate-300 bg-slate-50 p-5">
                 <h3 className="font-bold text-slate-900 mb-2">Scenario 3: Refinance or Sell Before Conversion</h3>
                 <p className="text-sm text-slate-600">
-                  Many borrowers plan to refinance to a new loan or sell the property before the interest-only period ends, avoiding payment shock entirely. This works if you have sufficient home equity, strong credit, stable income, and favorable market conditions. However, relying on this strategy without backup plans is riskyâ€”the 2008 financial crisis demonstrated how property value declines, tightened lending, and economic disruption can prevent refinancing when borrowers most need it.
+                  Many borrowers plan to refinance to a new loan or sell the property before the interest-only period ends, avoiding payment shock entirely. This works if you have sufficient home equity, strong credit, stable income, and favorable market conditions. However, relying on this strategy without backup plans is risky the 2008 financial crisis demonstrated how property value declines, tightened lending, and economic disruption can prevent refinancing when borrowers most need it.
                 </p>
               </div>
             </div>
@@ -283,7 +283,7 @@ export default function InterestOnlyCalculatorPage() {
 
             {/* Section 5: Types of Interest-Only Loans */}
             <h2 className="text-2xl font-bold text-slate-900 mt-10 mb-4">Types of Interest-Only Loans and Products</h2>
-            
+
             <p className="text-base text-slate-600 leading-relaxed mb-6">
               Interest-only payment structures appear across multiple lending products, each with distinct characteristics. Using the right interest only calculator loan type ensures accurate estimates.
             </p>
@@ -321,14 +321,14 @@ export default function InterestOnlyCalculatorPage() {
 
             {/* Section 6: Simple vs Compound Interest */}
             <h2 className="text-2xl font-bold text-slate-900 mt-10 mb-4">Simple vs. Compound Interest: Is 1% Per Month the Same as 12% Per Annum?</h2>
-            
+
             <p className="text-base text-slate-600 leading-relaxed mb-6">
               A common question when evaluating interest only loan rates is whether a monthly rate of 1% equals an annual rate of 12%. The answer depends on whether you're calculating simple interest (for payment purposes) or compound interest (for APR disclosure).
             </p>
 
             <div className="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-6">
               <h3 className="font-bold text-slate-900 mb-4">The Short Answer: No (Usually)</h3>
-              
+
               <p className="text-sm text-slate-600 mb-4">
                 <strong>For compound interest calculations:</strong> 1% per month is NOT the same as 12% per annum. When interest compounds monthly, 1% per month equals an effective annual rate of 12.68%.
               </p>
@@ -338,11 +338,11 @@ export default function InterestOnlyCalculatorPage() {
               </p>
 
               <p className="text-sm text-slate-600 mb-4">
-                This happens because each month's interest is added to your balance, and the following months charge interest on that accumulated interestâ€”compound interest. The difference may seem small, but on large loans over long periods, it's significant.
+                This happens because each month's interest is added to your balance, and the following months charge interest on that accumulated interest compound interest. The difference may seem small, but on large loans over long periods, it's significant.
               </p>
 
               <p className="text-sm text-slate-600">
-                <strong>For simple interest-only payment calculations:</strong> 1% monthly does equal 12% annually for payment estimation purposes. If your loan charges 1% of the current balance each month, you're paying 12% of the balance annually (1% Ã— 12 months = 12% per year), assuming the balance doesn't change.
+                <strong>For simple interest-only payment calculations:</strong> 1% monthly does equal 12% annually for payment estimation purposes. If your loan charges 1% of the current balance each month, you're paying 12% of the balance annually (1% Ã  12 months = 12% per year), assuming the balance doesn't change.
               </p>
             </div>
 
@@ -352,19 +352,19 @@ export default function InterestOnlyCalculatorPage() {
 
             <ul className="list-disc pl-8 mb-8 space-y-2 text-base text-slate-600">
               <li>A <strong>simple interest-only calculator</strong> uses straightforward monthly rate calculations to estimate your payment during the interest-only period</li>
-              
+
               <li>A <strong>compound interest only calculator</strong> may be used for APR disclosures or comparing total costs when evaluating different loan structures</li>
-              
+
               <li>Lenders must disclose both the nominal rate (e.g., "12% annual") and the APR (which includes compounding effects), which is why you see two rate figures on loan documents</li>
-              
-              <li>For monthly payment estimation during the interest-only period, the simple calculation (Loan Ã— Rate Ã· 12) is what you needâ€”an interest only payment calculator uses this approach</li>
+
+              <li>For monthly payment estimation during the interest-only period, the simple calculation (Loan Ã  Rate Ã· 12) is what you need an interest only payment calculator uses this approach</li>
             </ul>
 
 
 
             {/* Section 7: Geographic Variations */}
             <h2 className="text-2xl font-bold text-slate-900 mt-10 mb-4">Geographic and Regulatory Variations</h2>
-            
+
             <p className="text-base text-slate-600 leading-relaxed mb-6">
               Interest-only loan availability, structures, and regulations vary significantly by country. Using an interest only calculator canada, interest only calculator uk, interest only calculator australia, or interest only calculator nz requires understanding local market conditions.
             </p>
@@ -414,7 +414,7 @@ export default function InterestOnlyCalculatorPage() {
 
             {/* Section 8: Using Calculator & Extra Payments */}
             <h2 className="text-2xl font-bold text-slate-900 mt-10 mb-4">Using an Interest-Only Calculator and Making Extra Payments</h2>
-            
+
             <p className="text-base text-slate-600 leading-relaxed mb-6">
               An interest only payment calculator is a planning tool that helps you estimate payments during and after the interest-only period. Understanding what inputs you need and what outputs to expect ensures you use the calculator effectively. Additionally, many borrowers can make extra principal payments during the interest-only period to reduce future payment shock.
             </p>
@@ -422,11 +422,11 @@ export default function InterestOnlyCalculatorPage() {
             <div className="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-6">
               <h3 className="font-bold text-slate-900 mb-4">Calculator Inputs Typically Required:</h3>
               <ul className="space-y-2 text-sm text-slate-600">
-                <li>â€¢ <strong>Loan amount:</strong> The principal balance (current balance for HELOCs)</li>
-                <li>â€¢ <strong>Interest rate:</strong> Annual rate (verify if fixed or variable)</li>
-                <li>â€¢ <strong>Interest-only period:</strong> Duration in years (e.g., 5, 7, or 10 years)</li>
-                <li>â€¢ <strong>Total loan term:</strong> Full term including amortizing period (e.g., 30 years total)</li>
-                <li>â€¢ <strong>Extra payments (optional):</strong> Additional principal payments you plan to make</li>
+                <li>  <strong>Loan amount:</strong> The principal balance (current balance for HELOCs)</li>
+                <li>  <strong>Interest rate:</strong> Annual rate (verify if fixed or variable)</li>
+                <li>  <strong>Interest-only period:</strong> Duration in years (e.g., 5, 7, or 10 years)</li>
+                <li>  <strong>Total loan term:</strong> Full term including amortizing period (e.g., 30 years total)</li>
+                <li>  <strong>Extra payments (optional):</strong> Additional principal payments you plan to make</li>
               </ul>
             </div>
 
@@ -452,7 +452,7 @@ export default function InterestOnlyCalculatorPage() {
 
             {/* FAQ Section */}
             <h2 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Frequently Asked Questions</h2>
-            
+
             <div className="space-y-4 mb-12">
               {allFaqs.map((faq, index) => (
                 <div key={index} className="border border-slate-200 rounded-lg overflow-hidden">
@@ -484,8 +484,8 @@ export default function InterestOnlyCalculatorPage() {
 
       {/* Related Calculators Section */}
       <section className="bg-slate-50 py-12">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-3xl">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="w-full mx-auto max-w-4xl">
             <h2 className="text-2xl font-bold text-slate-900 mb-6">Related Mortgage Calculators</h2>
             <div className="grid gap-4 sm:grid-cols-2">
               <Link
@@ -499,7 +499,7 @@ export default function InterestOnlyCalculatorPage() {
                 </div>
                 <ChevronRight className="ml-auto h-5 w-5 text-slate-400" />
               </Link>
-              
+
               <Link
                 href="/heloc-calculator-estimate-credit-line-costs"
                 className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white p-4 transition-all hover:border-indigo-600 hover:shadow-md"

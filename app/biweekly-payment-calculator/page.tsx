@@ -50,7 +50,7 @@ export default function BiweeklyPaymentCalculatorPage() {
     <>
       {/* Hero Section */}
       <section className="border-b border-slate-200 bg-gradient-to-br from-slate-50 to-white pb-12 pt-8">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-6">
             <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-lg">
               <Icon />
@@ -77,7 +77,7 @@ export default function BiweeklyPaymentCalculatorPage() {
 
       {/* Calculator Section */}
       <section className="bg-white py-12">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <MortgageCalculator 
             category="savings" 
             forcedSubcalculator="biweekly" 
@@ -87,7 +87,7 @@ export default function BiweeklyPaymentCalculatorPage() {
 
       {/* How It Works Section */}
       <section className="border-t border-slate-200 bg-slate-50 py-12">
-        <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-12">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <h2 className="mb-8 text-center text-2xl font-bold text-slate-900 sm:text-3xl">
             How It Works
           </h2>
@@ -112,7 +112,7 @@ export default function BiweeklyPaymentCalculatorPage() {
 
       {/* Educational Article */}
       <section className="py-12 bg-white">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <article className="mx-auto max-w-4xl">
             <div className="prose prose-slate max-w-none prose-headings:font-serif prose-headings:text-slate-900 prose-p:text-slate-600 prose-p:leading-relaxed prose-li:text-slate-600">
               <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-6">
@@ -139,15 +139,15 @@ export default function BiweeklyPaymentCalculatorPage() {
                 </h4>
                 <ul className="space-y-2 text-slate-600">
                   <li className="flex gap-3">
-                    <span className="text-blue-600 font-bold">•</span>
+                    <span className="text-blue-600 font-bold"> </span>
                     <span>Regular payment: $1,799/month → Total interest: $347,515</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-blue-600 font-bold">•</span>
+                    <span className="text-blue-600 font-bold"> </span>
                     <span>Adding $200/month extra → Total interest: $251,406 (Save $96,109!)</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-blue-600 font-bold">•</span>
+                    <span className="text-blue-600 font-bold"> </span>
                     <span>Loan paid off in 22.5 years instead of 30 (7.5 years sooner!)</span>
                   </li>
                 </ul>
@@ -172,7 +172,7 @@ export default function BiweeklyPaymentCalculatorPage() {
 
       {/* FAQ Section */}
       <section className="py-12 bg-slate-50">
-        <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-12">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <h2 className="mb-8 text-2xl font-bold text-slate-900 sm:text-3xl">
             Frequently Asked Questions
           </h2>

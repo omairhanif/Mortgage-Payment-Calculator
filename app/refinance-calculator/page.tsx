@@ -4,7 +4,10 @@ import { useState, useRef, useEffect } from "react";
 import { ChevronDown, ChevronUp, RefreshCw, Calculator } from "lucide-react";
 import { calculateRefinance, type RefinanceInput } from "@/lib/mortgage";
 import { formatCurrency } from "@/lib/utils";
+import { hasValidationErrors, validateCalculatorInputs } from "@/lib/calculator-validation";
+import type { InputConfig } from "@/lib/calculator-config.types";
 import { NumberInput, Card } from "@/components/calculator/CalculatorFields";
+import { ResultActions } from "@/components/calculator/CalculatorResult";
 import { getStructuredData } from "./server";
 
 export default function RefinanceCalculatorPage() {
@@ -35,11 +38,11 @@ export default function RefinanceCalculatorPage() {
       },
       {
         q: "How much should I save to refinance?",
-        a: "Most financial experts recommend refinancing when you can save at least 0.5-1% on your interest rate, which typically translates to saving $150-300/month on a $300,000 mortgage. The key metric is your break-even point—when monthly savings equal closing costs. With $5,000 in closing costs and $200/month savings, you break even in 25 months. If you're planning to stay in your home longer than the break-even period, refinancing makes financial sense. Also consider: resetting your loan term (refinancing into a new 30-year adds years of payments), credit score requirements (usually 620+ minimum, 740+ for best rates), and current equity position (typically need 20% equity for best terms)."
+        a: "Most financial experts recommend refinancing when you can save at least 0.5-1% on your interest rate, which typically translates to saving $150-300/month on a $300,000 mortgage. The key metric is your break-even point when monthly savings equal closing costs. With $5,000 in closing costs and $200/month savings, you break even in 25 months. If you're planning to stay in your home longer than the break-even period, refinancing makes financial sense. Also consider: resetting your loan term (refinancing into a new 30-year adds years of payments), credit score requirements (usually 620+ minimum, 740+ for best rates), and current equity position (typically need 20% equity for best terms)."
       },
       {
         q: "What is a cash-out refinance and how does it work?",
-        a: "A cash-out refinance replaces your current mortgage with a larger loan, letting you pocket the difference in cash while using your home equity. For example, if you owe $200,000 on a home worth $400,000, you could refinance for $280,000—paying off your $200,000 loan and receiving $80,000 cash (minus closing costs). Lenders typically allow you to borrow up to 80% of your home's value. Cash-out refinances are popular for home renovations, debt consolidation, or major expenses. They usually have slightly higher interest rates than rate-and-term refinances. A cash-out refinance calculator helps you determine available equity and new payment amounts."
+        a: "A cash-out refinance replaces your current mortgage with a larger loan, letting you pocket the difference in cash while using your home equity. For example, if you owe $200,000 on a home worth $400,000, you could refinance for $280,000 paying off your $200,000 loan and receiving $80,000 cash (minus closing costs). Lenders typically allow you to borrow up to 80% of your home's value. Cash-out refinances are popular for home renovations, debt consolidation, or major expenses. They usually have slightly higher interest rates than rate-and-term refinances. A cash-out refinance calculator helps you determine available equity and new payment amounts."
       },
       {
         q: "How long does it take to refinance a mortgage?",
@@ -51,11 +54,11 @@ export default function RefinanceCalculatorPage() {
       },
       {
         q: "What are current refinance rates?",
-        a: "Refinance rates fluctuate daily based on economic conditions, Federal Reserve policy, and bond market trends. As of 2024, typical refinance rates range from 6-8% for 30-year fixed mortgages, 5.5-7.5% for 15-year fixed, and 5.5-7% for 5/1 ARMs. Your actual rate depends on: credit score (740+ gets best rates), loan-to-value ratio (80% LTV or less is ideal), debt-to-income ratio (below 43% preferred), loan amount (jumbo loans carry higher rates), and property type (single-family homes get best rates). Refinance rates are typically 0.125-0.25% higher than purchase mortgage rates because refinances are considered slightly higher risk. Always shop multiple lenders—rates can vary by 0.25-0.5% between lenders for the same borrower."
+        a: "Refinance rates fluctuate daily based on economic conditions, Federal Reserve policy, and bond market trends. As of 2024, typical refinance rates range from 6-8% for 30-year fixed mortgages, 5.5-7.5% for 15-year fixed, and 5.5-7% for 5/1 ARMs. Your actual rate depends on: credit score (740+ gets best rates), loan-to-value ratio (80% LTV or less is ideal), debt-to-income ratio (below 43% preferred), loan amount (jumbo loans carry higher rates), and property type (single-family homes get best rates). Refinance rates are typically 0.125-0.25% higher than purchase mortgage rates because refinances are considered slightly higher risk. Always shop multiple lenders rates can vary by 0.25-0.5% between lenders for the same borrower."
       },
       {
         q: "Should I refinance from 30-year to 15-year mortgage?",
-        a: "Refinancing from a 30-year to 15-year mortgage makes sense if you can afford higher monthly payments and want to save substantially on interest while building equity faster. For a $300,000 loan at 6.5% (30-year), payments are $1,896/month with $382,633 total interest. At 6% (15-year), payments jump to $2,532/month but total interest drops to only $155,743—saving $226,890. However, the $636/month payment increase requires sufficient income and cash flow flexibility. Consider refinancing to 15-year if: you're financially stable with good income, you've been paying extra principal already, you want to pay off your mortgage before retirement, and you can handle the higher payment without stress. Use a refinance calculator to compare scenarios and determine affordability."
+        a: "Refinancing from a 30-year to 15-year mortgage makes sense if you can afford higher monthly payments and want to save substantially on interest while building equity faster. For a $300,000 loan at 6.5% (30-year), payments are $1,896/month with $382,633 total interest. At 6% (15-year), payments jump to $2,532/month but total interest drops to only $155,743 saving $226,890. However, the $636/month payment increase requires sufficient income and cash flow flexibility. Consider refinancing to 15-year if: you're financially stable with good income, you've been paying extra principal already, you want to pay off your mortgage before retirement, and you can handle the higher payment without stress. Use a refinance calculator to compare scenarios and determine affordability."
       }
     ]
   };
@@ -67,7 +70,7 @@ export default function RefinanceCalculatorPage() {
   const [refMonthsPaid, setRefMonthsPaid] = useState<number>(60); // 5 years
   const [refNewTerm, setRefNewTerm] = useState<number>(30);
   const [refNewRate, setRefNewRate] = useState<number>(5.5);
-  
+
   // New state variables
   const [refOriginalHomePrice, setRefOriginalHomePrice] = useState<number>(400000);
   const [refOriginalDownPayment, setRefOriginalDownPayment] = useState<number>(80000);
@@ -77,8 +80,31 @@ export default function RefinanceCalculatorPage() {
   const [refOtherClosingCosts, setRefOtherClosingCosts] = useState<number>(3000);
   const [refFederalTaxRate, setRefFederalTaxRate] = useState<number>(24);
   const [refStateTaxRate, setRefStateTaxRate] = useState<number>(6);
-  
+
   const [refResults, setRefResults] = useState<any>(null);
+  const [inlineValidationErrors, setInlineValidationErrors] = useState<Record<string, string>>({});
+
+  const validateInline = (values: Record<string, any>, fields: Array<{ id: string; type: InputConfig["type"]; min?: number; max?: number }>) => {
+    const errors = validateCalculatorInputs(
+      fields.map((field) => ({ ...field, label: field.id, defaultValue: values[field.id] } as InputConfig)),
+      values,
+    );
+
+    if (values.refOriginalLoanAmount <= 0) {
+      errors.refOriginalLoanAmount = "Enter a value greater than 0.";
+    }
+    if (values.refOriginalDownPayment > values.refOriginalHomePrice) {
+      errors.refOriginalDownPayment = "Down payment cannot exceed the original home price.";
+    }
+    if (values.refMonthsPaid > values.refOriginalTerm * 12) {
+      errors.refMonthsPaid = `Months paid cannot exceed ${values.refOriginalTerm * 12}.`;
+    }
+    if (values.refOtherClosingCosts < 0) {
+      errors.refOtherClosingCosts = "Closing costs cannot be negative.";
+    }
+
+    return errors;
+  };
 
   // Ref for scrolling to results
   const refinanceResultsRef = useRef<HTMLDivElement>(null);
@@ -95,6 +121,56 @@ export default function RefinanceCalculatorPage() {
 
   // Handle Refinance Calculate
   const handleRefinanceCalculate = (shouldScroll = true) => {
+    const valueMap = {
+      refOriginalLoanAmount,
+      refOriginalTerm,
+      refCurrentRate,
+      refMonthsPaid,
+      refNewRate,
+      refNewTerm,
+      refOriginalHomePrice,
+      refOriginalDownPayment,
+      refYearsBeforeSale,
+      refDiscountPoints,
+      refOriginationFees,
+      refOtherClosingCosts,
+      refFederalTaxRate,
+      refStateTaxRate,
+    };
+
+    const fieldErrors = validateInline(valueMap, [
+      { id: "refOriginalLoanAmount", type: "currency", min: 1_000, max: 100_000_000 },
+      { id: "refOriginalTerm", type: "years", min: 1, max: 50 },
+      { id: "refCurrentRate", type: "percent", min: 0.01, max: 30 },
+      { id: "refMonthsPaid", type: "number", min: 0, max: 600 },
+      { id: "refNewRate", type: "percent", min: 0.01, max: 30 },
+      { id: "refNewTerm", type: "years", min: 1, max: 50 },
+      { id: "refOriginalHomePrice", type: "currency", min: 1_000, max: 100_000_000 },
+      { id: "refOriginalDownPayment", type: "currency", min: 0, max: 100_000_000 },
+      { id: "refYearsBeforeSale", type: "number", min: 0, max: 50 },
+      { id: "refDiscountPoints", type: "percent", min: 0, max: 10 },
+      { id: "refOriginationFees", type: "percent", min: 0, max: 10 },
+      { id: "refOtherClosingCosts", type: "currency", min: 0, max: 1_000_000 },
+      { id: "refFederalTaxRate", type: "percent", min: 0, max: 100 },
+      { id: "refStateTaxRate", type: "percent", min: 0, max: 100 },
+    ]);
+
+    if (hasValidationErrors(fieldErrors)) {
+      setInlineValidationErrors(fieldErrors);
+      return;
+    }
+
+    const maxMonthsPaid = refOriginalTerm * 12;
+    const refinanceErrors: Record<string, string> = {};
+    if (refMonthsPaid > maxMonthsPaid) refinanceErrors.refMonthsPaid = `Months paid cannot exceed ${maxMonthsPaid}.`;
+    if (refMonthsPaid === maxMonthsPaid) refinanceErrors.refMonthsPaid = "New loan amount must be greater than 0.";
+    if (hasValidationErrors(refinanceErrors)) {
+      setInlineValidationErrors({ ...fieldErrors, ...refinanceErrors });
+      return;
+    }
+
+    setInlineValidationErrors({});
+
     try {
       const input: RefinanceInput = {
         originalLoanAmount: refOriginalLoanAmount,
@@ -115,7 +191,7 @@ export default function RefinanceCalculatorPage() {
 
       const results = calculateRefinance(input);
       setRefResults(results);
-      
+
       if (shouldScroll) {
         setTimeout(() => {
           scrollToResults(refinanceResultsRef);
@@ -126,10 +202,37 @@ export default function RefinanceCalculatorPage() {
     }
   };
 
-  // Calculate results on initial page load
+  // Calculate results on initial page load and as edits change
   useEffect(() => {
     handleRefinanceCalculate(false);
-  }, []);
+  }, [refOriginalLoanAmount, refOriginalTerm, refCurrentRate, refMonthsPaid, refNewRate, refNewTerm, refOtherClosingCosts, refDiscountPoints, refOriginationFees, refOriginalHomePrice, refOriginalDownPayment, refYearsBeforeSale, refFederalTaxRate, refStateTaxRate]);
+
+  const refinanceSummary = refResults ? [
+    "Refinance Calculator Results",
+    "Inputs",
+    `Original Loan Amount: ${formatCurrency(refOriginalLoanAmount)}`,
+    `Original Term: ${refOriginalTerm} years`,
+    `Current Rate: ${refCurrentRate.toFixed(2)}%`,
+    `Months Paid: ${refMonthsPaid}`,
+    `New Rate: ${refNewRate.toFixed(2)}%`,
+    `New Term: ${refNewTerm} years`,
+    `Discount Points: ${refDiscountPoints.toFixed(2)}%`,
+    `Origination Fees: ${refOriginationFees.toFixed(2)}%`,
+    `Other Closing Costs: ${formatCurrency(refOtherClosingCosts)}`,
+    `Original Home Price: ${formatCurrency(refOriginalHomePrice)}`,
+    `Original Down Payment: ${formatCurrency(refOriginalDownPayment)}`,
+    `Years Before Sale: ${refYearsBeforeSale}`,
+    `Federal Tax Rate: ${refFederalTaxRate.toFixed(2)}%`,
+    `State Tax Rate: ${refStateTaxRate.toFixed(2)}%`,
+    `Results`,
+    `Monthly Savings: ${formatCurrency(refResults.monthlySavings)}`,
+    `Break Even Point: ${refResults.breakEvenMonths > 0 ? `${refResults.breakEvenMonths.toFixed(0)} months` : 'N/A'}`,
+    `Total Interest Savings: ${formatCurrency(refResults.lifetimeSavings)}`,
+    `Current Monthly Payment: ${formatCurrency(refResults.currentMonthlyPI)}`,
+    `New Monthly Payment: ${formatCurrency(refResults.newMonthlyPI)}`,
+    `Closing Costs: ${formatCurrency(refResults.totalClosingCosts)}`,
+    `Loan Balance at Sale: Before ${formatCurrency(refResults.beforeRefi.loanBalanceAtSale)} / After ${formatCurrency(refResults.afterRefi.loanBalanceAtSale)}`,
+  ].join("\n") : "Refinance Calculator Results";
 
   const Icon = content.icon;
   const currentContent = content;
@@ -149,10 +252,15 @@ export default function RefinanceCalculatorPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }}
       />
-      <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+      <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        {hasValidationErrors(inlineValidationErrors) && (
+          <div role="alert" className="mb-4 rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">
+            {Object.values(inlineValidationErrors)[0]}
+          </div>
+        )}
 
         {/* Introduction Section */}
-        <div className="mb-8 mx-auto max-w-5xl">
+        <div className="mb-8 w-full mx-auto max-w-4xl">
           <div className="flex items-center gap-3 mb-4">
             <Icon className="h-8 w-8 text-indigo-600 flex-shrink-0" />
             <h1 className="font-serif text-3xl md:text-4xl font-bold text-indigo-600 leading-tight">
@@ -185,32 +293,38 @@ export default function RefinanceCalculatorPage() {
                       label="Original Home Price"
                       value={refOriginalHomePrice}
                       onChange={(value) => setRefOriginalHomePrice(Math.max(0, value))}
+                      error={inlineValidationErrors.refOriginalHomePrice}
                     />
                     <NumberInput
                       label="Original Down Payment"
                       value={refOriginalDownPayment}
                       onChange={(value) => setRefOriginalDownPayment(Math.max(0, value))}
+                      error={inlineValidationErrors.refOriginalDownPayment}
                     />
                     <NumberInput
                       label="Original Loan Amount"
                       value={refOriginalLoanAmount}
                       onChange={(value) => setRefOriginalLoanAmount(Math.max(0, value))}
+                      error={inlineValidationErrors.refOriginalLoanAmount}
                     />
                     <NumberInput
                       label="Current Rate (%)"
                       value={refCurrentRate}
                       onChange={(value) => setRefCurrentRate(Math.max(0, value))}
                       step={0.1}
+                      error={inlineValidationErrors.refCurrentRate}
                     />
                     <NumberInput
                       label="Term (years)"
                       value={refOriginalTerm}
                       onChange={(value) => setRefOriginalTerm(Math.max(0, value))}
+                      error={inlineValidationErrors.refOriginalTerm}
                     />
                     <NumberInput
                       label="Months Paid"
                       value={refMonthsPaid}
                       onChange={(value) => setRefMonthsPaid(Math.max(0, value))}
+                      error={inlineValidationErrors.refMonthsPaid}
                     />
                   </div>
                 </div>
@@ -224,15 +338,17 @@ export default function RefinanceCalculatorPage() {
                       value={refNewRate}
                       onChange={(value) => setRefNewRate(Math.max(0, value))}
                       step={0.1}
+                      error={inlineValidationErrors.refNewRate}
                     />
                     <NumberInput
                       label="New Term (years)"
                       value={refNewTerm}
                       onChange={(value) => setRefNewTerm(Math.max(0, value))}
+                      error={inlineValidationErrors.refNewTerm}
                     />
                   </div>
                 </div>
-                
+
                 {/* Closing Costs Section */}
                 <div>
                   <h4 className="text-sm font-semibold text-slate-700 mb-2">Closing Costs</h4>
@@ -242,21 +358,24 @@ export default function RefinanceCalculatorPage() {
                       value={refDiscountPoints}
                       onChange={(value) => setRefDiscountPoints(Math.max(0, value))}
                       step={0.1}
+                      error={inlineValidationErrors.refDiscountPoints}
                     />
                     <NumberInput
                       label="Origination Fees (%)"
                       value={refOriginationFees}
                       onChange={(value) => setRefOriginationFees(Math.max(0, value))}
                       step={0.1}
+                      error={inlineValidationErrors.refOriginationFees}
                     />
                     <NumberInput
                       label="Other Closing Costs ($)"
                       value={refOtherClosingCosts}
                       onChange={(value) => setRefOtherClosingCosts(Math.max(0, value))}
+                      error={inlineValidationErrors.refOtherClosingCosts}
                     />
                   </div>
                 </div>
-                
+
                 {/* Additional Details Section */}
                 <div>
                   <h4 className="text-sm font-semibold text-slate-700 mb-2">Additional Details</h4>
@@ -282,12 +401,6 @@ export default function RefinanceCalculatorPage() {
                 </div>
               </div>
             </Card>
-
-            {/* Calculate Button */}
-            <button onClick={() => handleRefinanceCalculate()} className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-4 rounded-lg font-bold text-base shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
-              <Calculator className="h-4 w-4" />
-              <span>Calculate</span>
-            </button>
             </div>
 
             {/* RIGHT COLUMN - RESULTS */}
@@ -299,6 +412,7 @@ export default function RefinanceCalculatorPage() {
                   <div className="mb-4 flex items-center gap-1.5">
                     <Calculator className="h-4 w-4 text-indigo-600" />
                     <h3 className="font-serif text-base font-bold text-slate-900">Results</h3>
+                    <ResultActions title="Refinance Calculator Results" content={refinanceSummary} />
                   </div>
 
                   {/* Primary Result - Monthly Savings */}
@@ -321,8 +435,8 @@ export default function RefinanceCalculatorPage() {
                     <div className="flex items-center justify-between">
                       <span className="text-sm text-slate-700">Break Even Point</span>
                       <span className="text-sm font-semibold text-slate-900">
-                        {refResults.breakEvenMonths > 0 
-                          ? `${refResults.breakEvenMonths.toFixed(0)} months` 
+                        {refResults.breakEvenMonths > 0
+                          ? `${refResults.breakEvenMonths.toFixed(0)} months`
                           : 'N/A'}
                       </span>
                     </div>
@@ -331,10 +445,10 @@ export default function RefinanceCalculatorPage() {
                       <span className="text-sm font-semibold text-blue-600">{formatCurrency(refResults.lifetimeSavings)}</span>
                     </div>
                   </div>
-                  
+
                   {/* Divider */}
                   <div className="mb-3 border-t border-slate-200"></div>
-                  
+
                   {/* Comparison Table */}
                   <div>
                     <h4 className="text-sm font-semibold text-slate-700 mb-3">
@@ -414,7 +528,7 @@ export default function RefinanceCalculatorPage() {
                           <tr className="hover:bg-slate-50">
                             <td className="py-2 px-1 text-slate-600">Closing Costs</td>
                             <td className="py-2 px-1 text-right font-medium text-slate-900">
-                              —
+
                             </td>
                             <td className="py-2 px-1 text-right font-medium text-indigo-900">
                               {formatCurrency(refResults.totalClosingCosts)}
@@ -452,13 +566,13 @@ export default function RefinanceCalculatorPage() {
       </div>
 
       {/* Article will be added */}
-      
+
       {/* Comprehensive Refinance Article */}
       <section className="py-16 bg-white">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl">
             <article className="prose prose-slate prose-lg max-w-none">
-              
+
               {/* Article Header */}
               <div className="mb-12">
                 <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">
@@ -474,13 +588,13 @@ export default function RefinanceCalculatorPage() {
                 <h3 className="font-serif text-2xl md:text-3xl font-semibold text-slate-900 mb-4 mt-8">
                   What Refinance Calculators Show You
                 </h3>
-                
+
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
                   A refinance calculator compares your existing loan to a potential new loan, helping you see how changing your interest rate, loan term, or borrowing amount might affect your finances. These tools typically show you several key metrics: your current monthly payment versus what your new payment would be, how long it would take to recover the costs of refinancing (the break-even point), and how much interest you might pay over the life of each loan.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  The calculator needs specific information about your current loan—including your remaining balance, current interest rate, and how much time remains on your loan term. You'll also enter details about the potential new loan, such as the interest rate you expect to qualify for, the term length you're considering, and the closing costs you'll need to pay. With these inputs, the calculator can provide estimates that help you evaluate whether refinancing aligns with your financial goals.
+                  The calculator needs specific information about your current loan including your remaining balance, current interest rate, and how much time remains on your loan term. You'll also enter details about the potential new loan, such as the interest rate you expect to qualify for, the term length you're considering, and the closing costs you'll need to pay. With these inputs, the calculator can provide estimates that help you evaluate whether refinancing aligns with your financial goals.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -497,13 +611,13 @@ export default function RefinanceCalculatorPage() {
                 <h4 className="font-serif text-xl font-semibold text-slate-800 mb-3 mt-6">
                   Rate-and-Term Refinancing
                 </h4>
-                
+
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
                   Rate-and-term refinancing means replacing your current mortgage with a new one that has different interest rate or loan term, without significantly changing the loan amount. Borrowers often pursue this type of refinancing when interest rates have dropped since they originally borrowed, or when they want to shorten or lengthen their loan term.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  If market rates have fallen significantly since you took out your original mortgage, refinancing to a lower rate can reduce your monthly payment, decrease the total interest you pay over the life of the loan, or both. For example, if you originally borrowed $300,000 at 6.5% for 30 years, your monthly principal and interest payment would be approximately $1,896. If rates drop to 5.0% and you refinance the remaining balance to a new 30-year loan, your payment might decrease to around $1,610—a monthly savings of roughly $286.
+                  If market rates have fallen significantly since you took out your original mortgage, refinancing to a lower rate can reduce your monthly payment, decrease the total interest you pay over the life of the loan, or both. For example, if you originally borrowed $300,000 at 6.5% for 30 years, your monthly principal and interest payment would be approximately $1,896. If rates drop to 5.0% and you refinance the remaining balance to a new 30-year loan, your payment might decrease to around $1,610 a monthly savings of roughly $286.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -528,7 +642,7 @@ export default function RefinanceCalculatorPage() {
                 <h3 className="font-serif text-2xl md:text-3xl font-semibold text-slate-900 mb-4 mt-8">
                   Understanding the Break-Even Point in Refinancing
                 </h3>
-                
+
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
                   The break-even point is one of the most important concepts in refinancing analysis. It represents how long you need to keep the new loan before the monthly savings offset the upfront costs of refinancing. This calculation helps you determine whether refinancing makes sense given your plans and timeline.
                 </p>
@@ -551,13 +665,13 @@ export default function RefinanceCalculatorPage() {
                 <h3 className="font-serif text-2xl md:text-3xl font-semibold text-slate-900 mb-4 mt-8">
                   Auto Loan Refinancing Considerations
                 </h3>
-                
+
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Auto loan refinancing works similarly to mortgage refinancing—you replace your existing car loan with a new loan, ideally at a better interest rate or more favorable terms. Borrowers typically consider auto refinancing when their credit has improved since the original purchase, when market rates have fallen, or when their original loan had unfavorable terms.
+                  Auto loan refinancing works similarly to mortgage refinancing you replace your existing car loan with a new loan, ideally at a better interest rate or more favorable terms. Borrowers typically consider auto refinancing when their credit has improved since the original purchase, when market rates have fallen, or when their original loan had unfavorable terms.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  An auto loan refinance calculator helps you compare your current loan payment and total interest cost against what you'd pay with a new loan. Unlike mortgages, auto loan closing costs are generally much lower—often just a modest application or origination fee—making the break-even calculation simpler and the break-even period shorter.
+                  An auto loan refinance calculator helps you compare your current loan payment and total interest cost against what you'd pay with a new loan. Unlike mortgages, auto loan closing costs are generally much lower often just a modest application or origination fee making the break-even calculation simpler and the break-even period shorter.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -565,7 +679,7 @@ export default function RefinanceCalculatorPage() {
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Before refinancing an auto loan, verify that your current loan doesn't have prepayment penalties, which would add to your refinancing costs. Also consider how much time remains on your current loan—if you're already near the end of your loan term, refinancing might not provide meaningful benefits and could even extend the time you're paying interest.
+                  Before refinancing an auto loan, verify that your current loan doesn't have prepayment penalties, which would add to your refinancing costs. Also consider how much time remains on your current loan if you're already near the end of your loan term, refinancing might not provide meaningful benefits and could even extend the time you're paying interest.
                 </p>
               </div>
 
@@ -574,9 +688,9 @@ export default function RefinanceCalculatorPage() {
                 <h3 className="font-serif text-2xl md:text-3xl font-semibold text-slate-900 mb-4 mt-8">
                   Making Informed Refinancing Decisions
                 </h3>
-                
+
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Refinance calculators serve as valuable starting points for evaluating whether replacing your current loan makes financial sense. By modeling different scenarios—varying interest rates, loan terms, and costs—you can better understand the potential benefits and trade-offs of refinancing before committing to the process.
+                  Refinance calculators serve as valuable starting points for evaluating whether replacing your current loan makes financial sense. By modeling different scenarios varying interest rates, loan terms, and costs you can better understand the potential benefits and trade-offs of refinancing before committing to the process.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -596,8 +710,8 @@ export default function RefinanceCalculatorPage() {
       {/* FAQ Section */}
       {currentContent && currentContent.faqs.length > 0 && (
         <section className="py-12">
-          <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-            <div className="mx-auto max-w-3xl">
+          <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <div className="w-full mx-auto max-w-4xl">
               <div className="mb-8 text-center">
                 <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-3">
                   Frequently Asked Questions

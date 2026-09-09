@@ -74,7 +74,7 @@ export function getStructuredData() {
           "name": "What happens when balloon payment is due?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "When your balloon payment comes due, you have three options: (1) Refinance into a new mortgage at current market rates—most common but requires qualifying again with good credit/income; (2) Sell the property and pay off the loan from proceeds—works if property value exceeds loan balance; (3) Pay the balloon in cash—rare unless you've saved or received large windfall. If you can't do any of these, the lender may foreclose."
+            "text": "When your balloon payment comes due, you have three options: (1) Refinance into a new mortgage at current market rates most common but requires qualifying again with good credit/income; (2) Sell the property and pay off the loan from proceeds works if property value exceeds loan balance; (3) Pay the balloon in cash rare unless you've saved or received large windfall. If you can't do any of these, the lender may foreclose."
           }
         },
         {
@@ -87,7 +87,7 @@ export function getStructuredData() {
         },
         {
           "@type": "Question",
-          "name": "Balloon mortgage vs traditional mortgage—which is better?",
+          "name": "Balloon mortgage vs traditional mortgage which is better?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Traditional mortgages are better for 90% of homebuyers due to predictability and full amortization. Traditional (30-year fixed) advantages: fully paid off at term end (no balloon shock), predictable payments for 30 years, no refinancing risk, easier to qualify for, better for long-term homeowners. Balloon mortgage advantages: potentially lower initial rates (0.25-0.75% less), lower monthly payments during balloon period, good for short-term ownership (5-7 years), suits real estate investors/flippers."

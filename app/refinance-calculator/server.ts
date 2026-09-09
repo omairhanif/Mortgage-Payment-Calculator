@@ -58,7 +58,7 @@ export function getStructuredData() {
           "name": "How much should I save to refinance?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Most financial experts recommend refinancing when you can save at least 0.5-1% on your interest rate, typically translating to $150-300/month on a $300,000 mortgage. The key metric is your break-even point—when monthly savings equal closing costs. If you're staying longer than the break-even period, refinancing makes sense."
+            "text": "Most financial experts recommend refinancing when you can save at least 0.5-1% on your interest rate, typically translating to $150-300/month on a $300,000 mortgage. The key metric is your break-even point when monthly savings equal closing costs. If you're staying longer than the break-even period, refinancing makes sense."
           }
         },
         {
@@ -98,7 +98,7 @@ export function getStructuredData() {
           "name": "Should I refinance from 30-year to 15-year mortgage?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Refinancing to a 15-year makes sense if you can afford higher monthly payments and want to save substantially on interest while building equity faster. For a $300,000 loan at 6.5% (30-year), total interest is $382,633. At 6% (15-year), total interest drops to $155,743—saving $226,890."
+            "text": "Refinancing to a 15-year makes sense if you can afford higher monthly payments and want to save substantially on interest while building equity faster. For a $300,000 loan at 6.5% (30-year), total interest is $382,633. At 6% (15-year), total interest drops to $155,743 saving $226,890."
           }
         }
       ]

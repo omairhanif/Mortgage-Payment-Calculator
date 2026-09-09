@@ -177,9 +177,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
 
-    // Articles Index
+    // Blogs Index
     {
-      url: `${baseUrl}/articles`,
+      url: `${baseUrl}/blog`,
       lastModified,
       changeFrequency: 'weekly',
       priority: 0.8,

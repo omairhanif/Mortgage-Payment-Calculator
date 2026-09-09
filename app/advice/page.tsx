@@ -10,21 +10,21 @@ import { getStructuredData } from './server';
 const guideArticles = [
   {
     title: "How to Qualify for a Mortgage: Key Requirements",
-    slug: "/how-to-qualify-for-a-mortgage-key-requirements",
+    slug: "/guide/how-to-qualify-for-a-mortgage-key-requirements",
     image: "/images/articles/bridge-loans-explained-costs-terms-when-to-use-them.jpg",
     date: "August 21, 2026",
     excerpt: "Learn the key requirements to qualify for a mortgage in Canada. Understand income needs, credit scores, debt ratios (GDS/TDS), and down payment requirements with real Canadian examples."
   },
   {
     title: "Fixed Rate vs ARM: Which Mortgage Fits You?",
-    slug: "/fixed-rate-vs-arm-which-mortgage-fits-you",
+    slug: "/guide/fixed-rate-vs-arm-which-mortgage-fits-you",
     image: "/images/articles/fixed-rate-vs-arm-which-mortgage-fits-you.jpg",
     date: "April 15, 2026",
     excerpt: "Compare fixed-rate and adjustable-rate mortgages to determine which loan type best fits your financial situation and homeownership timeline."
   },
   {
     title: "When Should You Refinance Your Mortgage?",
-    slug: "/when-should-you-refinance-your-mortgage",
+    slug: "/guide/when-should-you-refinance-your-mortgage",
     image: "/images/articles/when-should-you-refinance.jpg",
     date: "August 02, 2026",
     excerpt: "Discover the best times to refinance your mortgage. Learn when rate drops, home equity gains, and life changes make refinancing worth it with real-world scenarios and break-even analysis."
@@ -38,7 +38,7 @@ const topicCategories = [
   { label: "Home Affordability", path: "/income-requirement-calculator" },
   { label: "Payment Strategies", path: "/extra-payment-calculator" },
   { label: "Loan Types", path: "/fha-loan-calculator" },
-  { label: "First-Time Buyers", path: "/articles" },
+  { label: "First-Time Buyers", path: "/blog" },
   { label: "Tax Benefits", path: "/tax-benefits-calculator" }
 ];
 
@@ -46,7 +46,7 @@ const topicCategories = [
 const faqs = [
   {
     question: "When should I refinance my mortgage?",
-    answer: "Refinancing makes sense when interest rates drop by at least 0.5-1%, you've built substantial equity, or your financial situation has improved. Consider your break-even period—the time it takes for monthly savings to offset closing costs. If you plan to stay in your home beyond the break-even point, refinancing could save you thousands."
+    answer: "Refinancing makes sense when interest rates drop by at least 0.5-1%, you've built substantial equity, or your financial situation has improved. Consider your break-even period the time it takes for monthly savings to offset closing costs. If you plan to stay in your home beyond the break-even point, refinancing could save you thousands."
   },
   {
     question: "How can I reduce or eliminate PMI?",
@@ -62,7 +62,7 @@ const faqs = [
   },
   {
     question: "Should I pay discount points to lower my rate?",
-    answer: "Paying points makes sense if you plan to keep the loan long enough to recoup the upfront cost through monthly payment savings. Calculate your break-even period—typically 3-5 years. If you'll stay in the home or keep the mortgage longer than that, points can save significant interest over time."
+    answer: "Paying points makes sense if you plan to keep the loan long enough to recoup the upfront cost through monthly payment savings. Calculate your break-even period typically 3-5 years. If you'll stay in the home or keep the mortgage longer than that, points can save significant interest over time."
   },
   {
     question: "How do extra payments affect my loan?",
@@ -88,7 +88,7 @@ export default function AdvicePage() {
       
       {/* Hero Section */}
       <section className="py-12 sm:py-16 border-b border-slate-100">
-        <div className="mx-auto max-w-[1200px] px-6 sm:px-8">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-10 sm:mb-12">
             <h1 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-4">
@@ -100,7 +100,7 @@ export default function AdvicePage() {
           </div>
 
           {/* Three Instruction Cards */}
-          <div className="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto">
+          <div className="grid gap-6 md:grid-cols-3 w-full max-w-4xl mx-auto">
             {/* Card 1: Learn First */}
             <div className="group relative bg-white rounded-lg border border-slate-200 p-6 hover:shadow-md hover:border-indigo-200 transition-all">
               <div className="flex items-center gap-3 mb-3">
@@ -149,7 +149,7 @@ export default function AdvicePage() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-12 py-12">
+      <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
 
         {/* Written Content Section 1: Understanding Mortgage Types */}
         <section className="mb-16">
@@ -193,22 +193,22 @@ export default function AdvicePage() {
 
             <h3 className="text-xl font-semibold text-slate-900 mt-6 mb-3">What Determines Your Interest Rate</h3>
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              Multiple factors influence the interest rate you'll receive. Your credit score is paramount—higher scores (740+) typically qualify for the best rates, while lower scores result in higher rates to compensate for increased risk. Your down payment size matters too; putting down 20% or more usually secures better rates and eliminates PMI. The loan term affects your rate, with shorter terms (15 years) generally offering lower rates than longer terms (30 years). Your debt-to-income ratio, employment history, and the type of property you're buying all play roles. Market conditions, Federal Reserve policies, and the overall economy also influence the rates lenders offer.
+              Multiple factors influence the interest rate you'll receive. Your credit score is paramount higher scores (740+) typically qualify for the best rates, while lower scores result in higher rates to compensate for increased risk. Your down payment size matters too; putting down 20% or more usually secures better rates and eliminates PMI. The loan term affects your rate, with shorter terms (15 years) generally offering lower rates than longer terms (30 years). Your debt-to-income ratio, employment history, and the type of property you're buying all play roles. Market conditions, Federal Reserve policies, and the overall economy also influence the rates lenders offer.
             </p>
 
             <h3 className="text-xl font-semibold text-slate-900 mt-6 mb-3">Fixed vs Variable Rates</h3>
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              Fixed rates provide certainty—your rate never changes regardless of market fluctuations. You're protected if rates rise but can't benefit if rates fall without refinancing. Variable rates (in ARMs) start lower but can adjust up or down based on index rates plus a margin. The initial lower rate can save money if you don't keep the loan long-term, but you risk higher payments if rates increase. Consider your risk tolerance, how long you'll keep the loan, and rate forecasts when choosing between fixed and variable.
+              Fixed rates provide certainty your rate never changes regardless of market fluctuations. You're protected if rates rise but can't benefit if rates fall without refinancing. Variable rates (in ARMs) start lower but can adjust up or down based on index rates plus a margin. The initial lower rate can save money if you don't keep the loan long-term, but you risk higher payments if rates increase. Consider your risk tolerance, how long you'll keep the loan, and rate forecasts when choosing between fixed and variable.
             </p>
 
             <h3 className="text-xl font-semibold text-slate-900 mt-6 mb-3">APR vs Interest Rate</h3>
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              The interest rate is what you pay to borrow the principal, while the APR (Annual Percentage Rate) includes the interest rate plus other costs like origination fees, discount points, and mortgage insurance, expressed as a yearly rate. APR gives you a more complete picture of the loan's true cost. A loan with a lower interest rate might have a higher APR if it includes significant fees. Always compare APRs when shopping for mortgages—a difference of even 0.25% in APR can cost thousands over the loan term.
+              The interest rate is what you pay to borrow the principal, while the APR (Annual Percentage Rate) includes the interest rate plus other costs like origination fees, discount points, and mortgage insurance, expressed as a yearly rate. APR gives you a more complete picture of the loan's true cost. A loan with a lower interest rate might have a higher APR if it includes significant fees. Always compare APRs when shopping for mortgages a difference of even 0.25% in APR can cost thousands over the loan term.
             </p>
 
             <h3 className="text-xl font-semibold text-slate-900 mt-6 mb-3">How Rates Affect Your Payment</h3>
             <p className="text-base text-slate-600 leading-relaxed">
-              Interest rate changes dramatically impact your monthly payment and total interest paid. On a $300,000 30-year loan, the difference between 6% and 7% is about $180 per month and over $64,000 in total interest. This is why rate shopping is essential—getting quotes from multiple lenders and negotiating can save substantial money. Even if you can't control market rates, improving your credit score, increasing your down payment, or choosing a shorter loan term can help you secure a better rate.
+              Interest rate changes dramatically impact your monthly payment and total interest paid. On a $300,000 30-year loan, the difference between 6% and 7% is about $180 per month and over $64,000 in total interest. This is why rate shopping is essential getting quotes from multiple lenders and negotiating can save substantial money. Even if you can't control market rates, improving your credit score, increasing your down payment, or choosing a shorter loan term can help you secure a better rate.
             </p>
           </div>
         </section>
@@ -223,7 +223,7 @@ export default function AdvicePage() {
 
             <h3 className="text-xl font-semibold text-slate-900 mt-6 mb-3">Standard 20% Down Payment</h3>
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              The traditional 20% down payment has long been considered the gold standard. Putting down 20% eliminates private mortgage insurance (PMI), which can cost 0.5% to 1% of the loan amount annually. You'll also typically get better interest rates, lower monthly payments, and build immediate equity in your home. A 20% down payment shows lenders you're financially stable and committed, making you a lower-risk borrower. However, saving 20% can take years—on a $400,000 home, that's $80,000—which might not align with your timeline or financial goals.
+              The traditional 20% down payment has long been considered the gold standard. Putting down 20% eliminates private mortgage insurance (PMI), which can cost 0.5% to 1% of the loan amount annually. You'll also typically get better interest rates, lower monthly payments, and build immediate equity in your home. A 20% down payment shows lenders you're financially stable and committed, making you a lower-risk borrower. However, saving 20% can take years on a $400,000 home, that's $80,000 which might not align with your timeline or financial goals.
             </p>
 
             <h3 className="text-xl font-semibold text-slate-900 mt-6 mb-3">Low Down Payment Options (3-5%)</h3>
@@ -238,7 +238,7 @@ export default function AdvicePage() {
 
             <h3 className="text-xl font-semibold text-slate-900 mt-6 mb-3">Saving Strategies</h3>
             <p className="text-base text-slate-600 leading-relaxed">
-              Building your down payment requires discipline and strategy. Start by setting a specific goal and timeline—if you need $40,000 in 4 years, that's roughly $833 per month. Automate transfers to a dedicated high-yield savings account to separate these funds from daily expenses. Cut discretionary spending by reducing dining out, subscriptions, or entertainment. Look for ways to increase income through side hustles, freelancing, or asking for a raise. Consider gift funds from family members—most lenders allow gift money for part or all of your down payment with proper documentation. First-time buyer programs, down payment assistance programs, and employer benefits might offer additional resources. Track your progress regularly and adjust your strategy as needed to stay on target.
+              Building your down payment requires discipline and strategy. Start by setting a specific goal and timeline if you need $40,000 in 4 years, that's roughly $833 per month. Automate transfers to a dedicated high-yield savings account to separate these funds from daily expenses. Cut discretionary spending by reducing dining out, subscriptions, or entertainment. Look for ways to increase income through side hustles, freelancing, or asking for a raise. Consider gift funds from family members most lenders allow gift money for part or all of your down payment with proper documentation. First-time buyer programs, down payment assistance programs, and employer benefits might offer additional resources. Track your progress regularly and adjust your strategy as needed to stay on target.
             </p>
           </div>
         </section>

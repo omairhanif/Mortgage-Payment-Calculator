@@ -6,7 +6,7 @@ import { getStructuredData } from './server';
 
 export default function AboutPage() {
   const structuredData = getStructuredData();
-  
+
   return (
     <>
       <script
@@ -16,7 +16,7 @@ export default function AboutPage() {
     <div>
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-sky-500 via-sky-550 to-sky-600 py-8">
-        <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-12">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           {/* Breadcrumbs */}
           <nav className="flex items-center space-x-2 text-sm text-slate-300 mb-8">
             <Link href="/" className="hover:text-white transition-colors">
@@ -42,13 +42,13 @@ export default function AboutPage() {
       <section className="py-12 bg-white">
         <div className="mx-auto max-w-4xl px-6 sm:px-8 lg:px-12">
           <article className="prose prose-slate max-w-none">
-            
+
             {/* Mission Statement */}
             <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mt-8 mb-6">
               Our Mission
             </h2>
             <p className="text-lg text-slate-600 leading-relaxed mb-8">
-              At Mortgage Calculators, our mission is to simplify the home-buying journey by providing free, accurate, and easy-to-use mortgage calculation tools. We believe that everyone deserves access to clear, transparent information when making one of life's biggest financial decisions—buying a home.
+              At Mortgage Calculators, our mission is to simplify the home-buying journey by providing free, accurate, and easy-to-use mortgage calculation tools. We believe that everyone deserves access to clear, transparent information when making one of life's biggest financial decisions buying a home.
             </p>
 
             {/* What We Offer */}
@@ -119,7 +119,7 @@ export default function AboutPage() {
                 <div>
                   <h3 className="font-semibold text-slate-900 mb-1">Choose Your Calculator</h3>
                   <p className="text-base text-slate-600">
-                    Select from our wide range of mortgage calculators based on your specific needs—whether you're buying, refinancing, or exploring loan options.
+                    Select from our wide range of mortgage calculators based on your specific needs whether you're buying, refinancing, or exploring loan options.
                   </p>
                 </div>
               </div>
@@ -172,7 +172,7 @@ export default function AboutPage() {
               <li><strong>100% Free:</strong> All our calculators and resources are completely free to use with no hidden costs</li>
               <li><strong>No Data Collection:</strong> We don't collect, store, or sell your personal financial information</li>
               <li><strong>Educational Purpose:</strong> Our tools provide estimates to help you understand mortgage costs, not financial advice</li>
-              <li><strong>No Lending Services:</strong> We are not a lender or broker—we don't originate loans or earn commissions</li>
+              <li><strong>No Lending Services:</strong> We are not a lender or broker we don't originate loans or earn commissions</li>
               <li><strong>Accurate Formulas:</strong> We use industry-standard mortgage calculations trusted by financial professionals</li>
               <li><strong>Regular Updates:</strong> We continuously improve our calculators based on user feedback and market changes</li>
             </ul>

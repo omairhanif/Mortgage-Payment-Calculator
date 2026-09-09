@@ -66,7 +66,7 @@ export function getStructuredData() {
           "name": "What's the minimum credit score for an FHA loan?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The minimum credit score for an FHA loan is technically 500, but practical requirements are higher. With a 580+ credit score, you qualify for the minimum 3.5% down payment. With a 500-579 credit score, you need 10% down. However, many FHA lenders set their own minimum credit score requirements—typically 580-620."
+            "text": "The minimum credit score for an FHA loan is technically 500, but practical requirements are higher. With a 580+ credit score, you qualify for the minimum 3.5% down payment. With a 500-579 credit score, you need 10% down. However, many FHA lenders set their own minimum credit score requirements typically 580-620."
           }
         },
         {
@@ -82,7 +82,7 @@ export function getStructuredData() {
           "name": "What is FHA mortgage insurance (MIP) and can I remove it?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "FHA mortgage insurance premium (MIP) has two components: an upfront premium of 1.75% of the loan amount (typically financed into the loan) and annual MIP of 0.45%-1.05% divided into monthly payments. For loans with less than 10% down, MIP remains for the life of the loan—you cannot remove it unless you refinance to a conventional loan once you have 20% equity."
+            "text": "FHA mortgage insurance premium (MIP) has two components: an upfront premium of 1.75% of the loan amount (typically financed into the loan) and annual MIP of 0.45%-1.05% divided into monthly payments. For loans with less than 10% down, MIP remains for the life of the loan you cannot remove it unless you refinance to a conventional loan once you have 20% equity."
           }
         },
         {
@@ -98,7 +98,7 @@ export function getStructuredData() {
           "name": "What are FHA closing costs and who pays them?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "FHA closing costs typically range from 3-6% of the loan amount and include loan origination fees, appraisal, credit report, title insurance, recording fees, upfront MIP (1.75%), prepaid property taxes and insurance, and lender charges. FHA allows sellers to contribute up to 6% of the purchase price toward buyer closing costs—more generous than conventional loans."
+            "text": "FHA closing costs typically range from 3-6% of the loan amount and include loan origination fees, appraisal, credit report, title insurance, recording fees, upfront MIP (1.75%), prepaid property taxes and insurance, and lender charges. FHA allows sellers to contribute up to 6% of the purchase price toward buyer closing costs more generous than conventional loans."
           }
         }
       ]

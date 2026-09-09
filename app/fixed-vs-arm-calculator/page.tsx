@@ -27,7 +27,7 @@ export default function FixedVsARMCalculatorPage() {
   const faqs = [
     {
       q: "What is a 5/1 ARM and how does it work?",
-      a: "A 5/1 ARM (Adjustable-Rate Mortgage) has a fixed interest rate for the first 5 years, then adjusts annually for the remaining loan term based on market index rates. For example, if you get a 5/1 ARM at 5.5% in 2024, you pay that rate through 2029. Starting in year 6, the rate adjusts each year based on a benchmark (typically SOFR or Treasury index) plus a lender margin of 2-3%. Rate caps protect you—common structure is 2/2/5, meaning the rate can increase maximum 2% at first adjustment, 2% per subsequent adjustment, and 5% total over loan life. If your start rate is 5.5% with 2/2/5 caps, the worst-case rate is 10.5% (5.5% + 5%). ARMs work best if you plan to sell or refinance within the initial fixed period."
+      a: "A 5/1 ARM (Adjustable-Rate Mortgage) has a fixed interest rate for the first 5 years, then adjusts annually for the remaining loan term based on market index rates. For example, if you get a 5/1 ARM at 5.5% in 2024, you pay that rate through 2029. Starting in year 6, the rate adjusts each year based on a benchmark (typically SOFR or Treasury index) plus a lender margin of 2-3%. Rate caps protect you common structure is 2/2/5, meaning the rate can increase maximum 2% at first adjustment, 2% per subsequent adjustment, and 5% total over loan life. If your start rate is 5.5% with 2/2/5 caps, the worst-case rate is 10.5% (5.5% + 5%). ARMs work best if you plan to sell or refinance within the initial fixed period."
     },
     {
       q: "Is a 7/1 ARM better than a 5/1 ARM?",
@@ -39,7 +39,7 @@ export default function FixedVsARMCalculatorPage() {
     },
     {
       q: "What are ARM rate caps and how do they protect me?",
-      a: "ARM rate caps are contractual limits protecting borrowers from excessive interest rate increases. Three types of caps: (1) Initial Adjustment Cap—limits first rate change after fixed period ends, typically 2-5%; (2) Periodic Adjustment Cap—limits subsequent annual adjustments, usually 2%; (3) Lifetime Cap—maximum rate increase over loan life, commonly 5-6% above start rate. Example with 2/2/5 caps on 5.5% ARM: Year 6 maximum = 7.5% (5.5% + 2%), Year 7 maximum = 9.5% (7.5% + 2%), Lifetime maximum = 10.5% (5.5% + 5%). Even if market rates soar to 12%, your rate can't exceed 10.5%. Always verify caps before choosing an ARM—they're your protection against worst-case scenarios."
+      a: "ARM rate caps are contractual limits protecting borrowers from excessive interest rate increases. Three types of caps: (1) Initial Adjustment Cap limits first rate change after fixed period ends, typically 2-5%; (2) Periodic Adjustment Cap limits subsequent annual adjustments, usually 2%; (3) Lifetime Cap maximum rate increase over loan life, commonly 5-6% above start rate. Example with 2/2/5 caps on 5.5% ARM: Year 6 maximum = 7.5% (5.5% + 2%), Year 7 maximum = 9.5% (7.5% + 2%), Lifetime maximum = 10.5% (5.5% + 5%). Even if market rates soar to 12%, your rate can't exceed 10.5%. Always verify caps before choosing an ARM they're your protection against worst-case scenarios."
     },
     {
       q: "How much can I save with a 5/1 ARM vs 30-year fixed?",
@@ -47,11 +47,11 @@ export default function FixedVsARMCalculatorPage() {
     },
     {
       q: "What happens when my ARM adjusts?",
-      a: "When your ARM adjusts (after the initial fixed period), your rate changes based on current market rates: (1) Lender checks the specified index rate (SOFR, CMT, etc.); (2) Adds their fixed margin (typically 2.25-2.75%); (3) Compares result to your rate caps—whichever is lower becomes your new rate; (4) Recalculates monthly payment based on remaining loan balance and new rate. Example: you have a 5/1 ARM at 5.5% with 2.5% margin. At year 6, if SOFR is 4%, your new rate would be 6.5% (4% + 2.5%), subject to 2% initial cap making it maximum 7.5%. Your lender notifies you 30-120 days before adjustment. You can refinance to a fixed rate before adjustment if you want to lock in predictability."
+      a: "When your ARM adjusts (after the initial fixed period), your rate changes based on current market rates: (1) Lender checks the specified index rate (SOFR, CMT, etc.); (2) Adds their fixed margin (typically 2.25-2.75%); (3) Compares result to your rate caps whichever is lower becomes your new rate; (4) Recalculates monthly payment based on remaining loan balance and new rate. Example: you have a 5/1 ARM at 5.5% with 2.5% margin. At year 6, if SOFR is 4%, your new rate would be 6.5% (4% + 2.5%), subject to 2% initial cap making it maximum 7.5%. Your lender notifies you 30-120 days before adjustment. You can refinance to a fixed rate before adjustment if you want to lock in predictability."
     },
     {
       q: "Is an ARM a good idea in 2024?",
-      a: "In 2024 with rates at 6-8%, ARMs can be smart for specific situations: good if you're certain you'll sell within 5-7 years (job relocation, starter home, life changes expected), ARM rates are 0.75-1.5% below fixed rates (meaningful monthly savings), or you expect income increases to handle potential payment hikes. ARMs are risky if: you plan to stay 10+ years, can't afford payment increases, have tight budget with no cushion, or rates are expected to rise further. Current environment: if fixed rates are 7% and 5/1 ARMs are 5.75%, the 1.25% spread saves $245/month on $300,000—that's $14,700 over 5 years. But if rates spike, your payment could increase $300-600/month after year 5. Run multiple scenarios with a fixed vs ARM calculator before deciding."
+      a: "In 2024 with rates at 6-8%, ARMs can be smart for specific situations: good if you're certain you'll sell within 5-7 years (job relocation, starter home, life changes expected), ARM rates are 0.75-1.5% below fixed rates (meaningful monthly savings), or you expect income increases to handle potential payment hikes. ARMs are risky if: you plan to stay 10+ years, can't afford payment increases, have tight budget with no cushion, or rates are expected to rise further. Current environment: if fixed rates are 7% and 5/1 ARMs are 5.75%, the 1.25% spread saves $245/month on $300,000 that's $14,700 over 5 years. But if rates spike, your payment could increase $300-600/month after year 5. Run multiple scenarios with a fixed vs ARM calculator before deciding."
     }
   ];
 
@@ -73,7 +73,7 @@ export default function FixedVsARMCalculatorPage() {
 
       {/* Hero Section */}
       <div className="mb-8">
-        <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-12">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-4">
             <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-indigo-100 text-indigo-600">
               <Icon className="h-6 w-6" />
@@ -95,7 +95,7 @@ export default function FixedVsARMCalculatorPage() {
 
       {/* How It Works Section */}
       <section className="py-12 bg-slate-50">
-        <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-12">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <h2 className="mb-8 text-center text-2xl font-bold text-slate-900 sm:text-3xl">How It Works</h2>
           <div className="space-y-6">
             {howItWorks.map((paragraph, index) => (
@@ -109,9 +109,9 @@ export default function FixedVsARMCalculatorPage() {
 
       {/* Fixed vs ARM Educational Article */}
       <section className="py-12">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <article className="mx-auto max-w-3xl prose prose-slate prose-headings:font-serif prose-headings:font-bold prose-h2:text-2xl prose-h2:md:text-3xl prose-h2:text-slate-900 prose-h2:mb-6 prose-h2:mt-10 prose-p:text-slate-600 prose-p:leading-relaxed prose-p:mb-4 prose-strong:text-slate-900 prose-strong:font-semibold prose-ul:text-slate-600 prose-li:mb-2">
-            
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <article className="w-full mx-auto max-w-4xl prose prose-slate prose-headings:font-serif prose-headings:font-bold prose-h2:text-2xl prose-h2:md:text-3xl prose-h2:text-slate-900 prose-h2:mb-6 prose-h2:mt-10 prose-p:text-slate-600 prose-p:leading-relaxed prose-p:mb-4 prose-strong:text-slate-900 prose-strong:font-semibold prose-ul:text-slate-600 prose-li:mb-2">
+
             <div className="mb-8">
               <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-6 text-center">
                 Fixed vs ARM Mortgage: A Complete Comparison Guide
@@ -119,11 +119,11 @@ export default function FixedVsARMCalculatorPage() {
             </div>
 
             <p>
-              When choosing between a fixed-rate mortgage and an adjustable-rate mortgage (ARM), you&apos;re making one of the most consequential financial decisions in home buying. This isn&apos;t merely a question of picking the loan with the lower rate today—it&apos;s about aligning your mortgage structure with your financial timeline, risk tolerance, and expectations about both your future and the interest rate environment.
+              When choosing between a fixed-rate mortgage and an adjustable-rate mortgage (ARM), you&apos;re making one of the most consequential financial decisions in home buying. This isn&apos;t merely a question of picking the loan with the lower rate today it&apos;s about aligning your mortgage structure with your financial timeline, risk tolerance, and expectations about both your future and the interest rate environment.
             </p>
 
             <p>
-              A fixed-rate mortgage locks your interest rate for the entire loan term, typically 15 or 30 years. Your principal and interest payment never changes, regardless of what happens in financial markets. An ARM starts with a fixed rate for an initial period—commonly 5, 7, or 10 years—then adjusts periodically based on market conditions. The initial ARM rate is typically lower than comparable fixed rates, sometimes by half a percentage point or more, translating to meaningful monthly savings during that fixed period.
+              A fixed-rate mortgage locks your interest rate for the entire loan term, typically 15 or 30 years. Your principal and interest payment never changes, regardless of what happens in financial markets. An ARM starts with a fixed rate for an initial period commonly 5, 7, or 10 years then adjusts periodically based on market conditions. The initial ARM rate is typically lower than comparable fixed rates, sometimes by half a percentage point or more, translating to meaningful monthly savings during that fixed period.
             </p>
 
             <p>
@@ -137,7 +137,7 @@ export default function FixedVsARMCalculatorPage() {
             </p>
 
             <p>
-              This stability provides powerful financial planning advantages. You know exactly what your housing cost will be in year five, year fifteen, and year thirty. You&apos;re protected if rates spike—a borrower who locked 3% in 2021 avoided the rate increases that followed. You never face payment shock or need to refinance because your rate became unaffordable. For many borrowers, this certainty justifies paying a premium over initial ARM rates.
+              This stability provides powerful financial planning advantages. You know exactly what your housing cost will be in year five, year fifteen, and year thirty. You&apos;re protected if rates spike a borrower who locked 3% in 2021 avoided the rate increases that followed. You never face payment shock or need to refinance because your rate became unaffordable. For many borrowers, this certainty justifies paying a premium over initial ARM rates.
             </p>
 
             <p>
@@ -151,23 +151,23 @@ export default function FixedVsARMCalculatorPage() {
             <h2>Understanding Adjustable-Rate Mortgages</h2>
 
             <p>
-              An ARM features an interest rate that changes over time, but not randomly—it follows a specific structure with consumer protections built in. The most common ARM structures are 5/1, 7/1, and 10/1, where the first number indicates how many years the initial rate stays fixed, and the second number indicates how frequently the rate adjusts after that initial period.
+              An ARM features an interest rate that changes over time, but not randomly it follows a specific structure with consumer protections built in. The most common ARM structures are 5/1, 7/1, and 10/1, where the first number indicates how many years the initial rate stays fixed, and the second number indicates how frequently the rate adjusts after that initial period.
             </p>
 
             <p>
-              A 5/1 ARM, for example, maintains your initial rate for five years, then adjusts annually thereafter. During those first five years, your ARM payment behaves identically to a fixed-rate mortgage—you pay the same principal and interest amount monthly, just at a lower rate than fixed-rate equivalents. After year five, your rate recalculates based on a predetermined index plus a margin specified in your loan agreement.
+              A 5/1 ARM, for example, maintains your initial rate for five years, then adjusts annually thereafter. During those first five years, your ARM payment behaves identically to a fixed-rate mortgage you pay the same principal and interest amount monthly, just at a lower rate than fixed-rate equivalents. After year five, your rate recalculates based on a predetermined index plus a margin specified in your loan agreement.
             </p>
 
             <p>
-              The adjustment mechanism typically ties to the Secured Overnight Financing Rate (SOFR) or another market index, plus a lender margin (commonly 2-3%). If SOFR is 4.5% and your margin is 2.5%, your adjusted rate becomes 7%. This adjustment happens at specified intervals—annually for most ARMs—with your payment changing accordingly. Importantly, your rate can decrease if the index falls, though most borrowers focus on worst-case increases when evaluating ARM risk.
+              The adjustment mechanism typically ties to the Secured Overnight Financing Rate (SOFR) or another market index, plus a lender margin (commonly 2-3%). If SOFR is 4.5% and your margin is 2.5%, your adjusted rate becomes 7%. This adjustment happens at specified intervals annually for most ARMs with your payment changing accordingly. Importantly, your rate can decrease if the index falls, though most borrowers focus on worst-case increases when evaluating ARM risk.
             </p>
 
             <p>
-              Rate caps protect you from unlimited payment shock. ARM caps typically follow a 2/2/5 structure (though variations exist). The first number caps your initial adjustment—if you have a 5% starting rate, it can&apos;t exceed 7% at the first adjustment two years later. The second number limits subsequent annual adjustments—your rate can&apos;t jump more than 2% in any single year. The third number represents the lifetime cap—your rate can never exceed 5% above your initial rate, capping you at 10% in this example.
+              Rate caps protect you from unlimited payment shock. ARM caps typically follow a 2/2/5 structure (though variations exist). The first number caps your initial adjustment if you have a 5% starting rate, it can&apos;t exceed 7% at the first adjustment two years later. The second number limits subsequent annual adjustments your rate can&apos;t jump more than 2% in any single year. The third number represents the lifetime cap your rate can never exceed 5% above your initial rate, capping you at 10% in this example.
             </p>
 
             <p>
-              Understanding these caps is critical for risk assessment. If you start with a 6% ARM with 2/2/5 caps, your maximum possible rate is 11%, and you can calculate exactly what that payment would be. This represents your worst-case scenario—rates could rise less or even fall, but you know your maximum exposure. Before choosing an ARM, calculate this maximum payment and confirm it fits your budget with comfortable margin.
+              Understanding these caps is critical for risk assessment. If you start with a 6% ARM with 2/2/5 caps, your maximum possible rate is 11%, and you can calculate exactly what that payment would be. This represents your worst-case scenario rates could rise less or even fall, but you know your maximum exposure. Before choosing an ARM, calculate this maximum payment and confirm it fits your budget with comfortable margin.
             </p>
 
             <h2>Comparing Initial Rates and Payments</h2>
@@ -203,7 +203,7 @@ export default function FixedVsARMCalculatorPage() {
             </p>
 
             <p>
-              The worst-case scenario involves rates rising to your lifetime cap, creating maximum payments. If your 5% initial rate ARM has a 5% lifetime cap, your rate could reach 10% when adjustments begin. On a $400,000 loan, the difference between 5% and 10% represents roughly $1,900 in additional monthly payment—a dramatic increase that could strain your budget severely or force refinancing or sale under unfavorable conditions.
+              The worst-case scenario involves rates rising to your lifetime cap, creating maximum payments. If your 5% initial rate ARM has a 5% lifetime cap, your rate could reach 10% when adjustments begin. On a $400,000 loan, the difference between 5% and 10% represents roughly $1,900 in additional monthly payment a dramatic increase that could strain your budget severely or force refinancing or sale under unfavorable conditions.
             </p>
 
             <p>
@@ -211,7 +211,7 @@ export default function FixedVsARMCalculatorPage() {
             </p>
 
             <p>
-              Rate environment considerations matter, though predicting rates is notoriously difficult. If rates are historically high, ARM risk is lower because rates have more room to fall than rise. If rates are historically low, ARMs carry more risk because rates have more room to rise. However, attempting to time rate movements is speculative—base your decision primarily on your timeline and risk tolerance rather than rate predictions.
+              Rate environment considerations matter, though predicting rates is notoriously difficult. If rates are historically high, ARM risk is lower because rates have more room to fall than rise. If rates are historically low, ARMs carry more risk because rates have more room to rise. However, attempting to time rate movements is speculative base your decision primarily on your timeline and risk tolerance rather than rate predictions.
             </p>
 
             <h2>Hypothetical Calculation Examples</h2>
@@ -222,11 +222,11 @@ export default function FixedVsARMCalculatorPage() {
 
             <div className="bg-slate-50 border-l-4 border-indigo-600 p-6 my-6">
               <h3 className="font-serif font-bold text-lg text-slate-900 mb-4">Hypothetical Example 1: 5/1 ARM vs 30-Year Fixed ($400,000 loan)</h3>
-              
+
               <p className="text-slate-700 mb-4">
                 Consider a borrower purchasing a $500,000 home with 20% down, financing $400,000. They&apos;re comparing:
               </p>
-              
+
               <ul className="list-disc pl-6 space-y-2 text-slate-700 mb-4">
                 <li>30-year fixed rate: 7.00% (hypothetical)</li>
                 <li>5/1 ARM initial rate: 6.00% (hypothetical)</li>
@@ -274,11 +274,11 @@ export default function FixedVsARMCalculatorPage() {
 
             <div className="bg-slate-50 border-l-4 border-indigo-600 p-6 my-6">
               <h3 className="font-serif font-bold text-lg text-slate-900 mb-4">Hypothetical Example 2: 7/1 ARM vs 30-Year Fixed ($600,000 loan)</h3>
-              
+
               <p className="text-slate-700 mb-4">
                 Consider a borrower financing $600,000 on a $750,000 home with 20% down:
               </p>
-              
+
               <ul className="list-disc pl-6 space-y-2 text-slate-700 mb-4">
                 <li>30-year fixed rate: 6.75% (hypothetical)</li>
                 <li>7/1 ARM initial rate: 5.75% (hypothetical)</li>
@@ -335,7 +335,7 @@ export default function FixedVsARMCalculatorPage() {
             </p>
 
             <p>
-              <strong>If your timeline is 5-10 years,</strong> the decision becomes more nuanced. You&apos;ll capture initial savings but may face some adjustment period. Model scenarios carefully. Calculate break-even points—how long would higher adjusted payments take to erase your initial savings? If break-even extends beyond your likely exit, the ARM wins. If adjustment risks creating financial stress, fixed rates provide better insurance.
+              <strong>If your timeline is 5-10 years,</strong> the decision becomes more nuanced. You&apos;ll capture initial savings but may face some adjustment period. Model scenarios carefully. Calculate break-even points how long would higher adjusted payments take to erase your initial savings? If break-even extends beyond your likely exit, the ARM wins. If adjustment risks creating financial stress, fixed rates provide better insurance.
             </p>
 
             <p>
@@ -347,15 +347,15 @@ export default function FixedVsARMCalculatorPage() {
             </p>
 
             <p>
-              <strong>Is a 7-year ARM a good idea right now?</strong> The answer depends entirely on your specific timeline and risk tolerance rather than current market conditions. If you&apos;re confident you&apos;ll exit within 7-10 years and can afford maximum payments at the lifetime cap, a 7/1 ARM can save substantial money during the initial period. However, no one can predict where rates will be in seven years. If you need long-term payment certainty, current market conditions don&apos;t make an ARM &quot;good&quot; or &quot;bad&quot;—they make it inappropriate for your situation regardless of rates.
+              <strong>Is a 7-year ARM a good idea right now?</strong> The answer depends entirely on your specific timeline and risk tolerance rather than current market conditions. If you&apos;re confident you&apos;ll exit within 7-10 years and can afford maximum payments at the lifetime cap, a 7/1 ARM can save substantial money during the initial period. However, no one can predict where rates will be in seven years. If you need long-term payment certainty, current market conditions don&apos;t make an ARM &quot;good&quot; or &quot;bad&quot; they make it inappropriate for your situation regardless of rates.
             </p>
 
             <p>
-              <strong>Is an ARM better than a fixed mortgage?</strong> Neither is universally &quot;better&quot;—each serves different borrower situations. ARMs excel for short-term owners and those accepting rate risk for immediate savings. Fixed mortgages excel for long-term owners and those prioritizing payment stability. &quot;Better&quot; depends on whether your priorities align with the loan&apos;s structure.
+              <strong>Is an ARM better than a fixed mortgage?</strong> Neither is universally &quot;better&quot; each serves different borrower situations. ARMs excel for short-term owners and those accepting rate risk for immediate savings. Fixed mortgages excel for long-term owners and those prioritizing payment stability. &quot;Better&quot; depends on whether your priorities align with the loan&apos;s structure.
             </p>
 
             <p>
-              <strong>What is the 2-2-2 rule for mortgages?</strong> This refers to a common ARM rate cap structure (more precisely written as 2/2/5 or similar). The first &quot;2&quot; limits how much your rate can increase at the first adjustment—typically 2 percentage points. The second &quot;2&quot; caps subsequent annual adjustments—also usually 2 points per year. The final number (often 5) represents the lifetime maximum increase above your initial rate. If you have a 5% initial rate with 2/2/5 caps, your rate can&apos;t exceed 10% even if market rates soar higher.
+              <strong>What is the 2-2-2 rule for mortgages?</strong> This refers to a common ARM rate cap structure (more precisely written as 2/2/5 or similar). The first &quot;2&quot; limits how much your rate can increase at the first adjustment typically 2 percentage points. The second &quot;2&quot; caps subsequent annual adjustments also usually 2 points per year. The final number (often 5) represents the lifetime maximum increase above your initial rate. If you have a 5% initial rate with 2/2/5 caps, your rate can&apos;t exceed 10% even if market rates soar higher.
             </p>
 
             <p>
@@ -367,21 +367,21 @@ export default function FixedVsARMCalculatorPage() {
             </p>
 
             <p>
-              Consult with your lender about specific ARM terms, adjustment mechanisms, and cap structures—these vary by loan program and lender. Some ARMs feature more favorable caps or longer initial periods that might shift your analysis. Understanding the specific terms of your ARM offer is as important as understanding ARM structures generally.
+              Consult with your lender about specific ARM terms, adjustment mechanisms, and cap structures these vary by loan program and lender. Some ARMs feature more favorable caps or longer initial periods that might shift your analysis. Understanding the specific terms of your ARM offer is as important as understanding ARM structures generally.
             </p>
 
             <p>
-              Consult with your lender about specific ARM terms, adjustment mechanisms, and cap structures—these vary by loan program and lender. Some ARMs feature more favorable caps or longer initial periods that might shift your analysis. Understanding the specific terms of your ARM offer is as important as understanding ARM structures generally.
+              Consult with your lender about specific ARM terms, adjustment mechanisms, and cap structures these vary by loan program and lender. Some ARMs feature more favorable caps or longer initial periods that might shift your analysis. Understanding the specific terms of your ARM offer is as important as understanding ARM structures generally.
             </p>
 
           </article>
         </div>
       </section>
 
-      
+
       {/* FAQ Section */}
       <section className="py-12 bg-slate-50">
-        <div className="mx-auto max-w-3xl px-6 sm:px-8 lg:px-12">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <h2 className="mb-8 text-center text-2xl font-bold text-slate-900 sm:text-3xl">Frequently Asked Questions</h2>
           <div className="space-y-4">
             {faqs.map((faq, index) => (

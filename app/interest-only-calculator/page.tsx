@@ -65,7 +65,7 @@ export default function InterestOnlyCalculatorPage() {
 
       {/* Hero Section */}
       <div className="mb-8">
-        <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-12">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-4">
             <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-indigo-100 text-indigo-600">
               <Icon className="h-6 w-6" />
@@ -87,7 +87,7 @@ export default function InterestOnlyCalculatorPage() {
 
       {/* How It Works Section */}
       <section className="py-12 bg-slate-50">
-        <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-12">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <h2 className="mb-8 text-center text-2xl font-bold text-slate-900 sm:text-3xl">How It Works</h2>
           <div className="space-y-6">
             {howItWorks.map((paragraph, index) => (
@@ -101,14 +101,14 @@ export default function InterestOnlyCalculatorPage() {
 
       {/* Educational Article - Complete content from ARM page */}
       <section className="py-12">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <article className="mx-auto max-w-3xl prose prose-slate prose-headings:font-serif prose-headings:font-bold prose-h2:text-2xl prose-h2:md:text-3xl prose-h2:text-slate-900 prose-h2:mb-6 prose-h2:mt-10 prose-p:text-slate-600 prose-p:leading-relaxed prose-p:mb-4 prose-strong:text-slate-900 prose-strong:font-semibold prose-ul:text-slate-600 prose-li:mb-2">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <article className="w-full mx-auto max-w-4xl prose prose-slate prose-headings:font-serif prose-headings:font-bold prose-h2:text-2xl prose-h2:md:text-3xl prose-h2:text-slate-900 prose-h2:mb-6 prose-h2:mt-10 prose-p:text-slate-600 prose-p:leading-relaxed prose-p:mb-4 prose-strong:text-slate-900 prose-strong:font-semibold prose-ul:text-slate-600 prose-li:mb-2">
             <div className="mb-8">
               <h2 className="!mt-0">Interest-Only Loans: How They Work and What They Cost</h2>
             </div>
 
             <p>
-              When evaluating an interest-only loan, you're choosing a payment structure that prioritizes immediate cash flow over long-term debt reduction. For an initial period—typically 5 to 10 years—you pay only the interest that accrues each month, with no reduction in your principal balance. Your loan balance stays exactly the same until the interest-only period ends, at which point your payment recalculates to include both principal and interest over the remaining loan term.
+              When evaluating an interest-only loan, you're choosing a payment structure that prioritizes immediate cash flow over long-term debt reduction. For an initial period typically 5 to 10 years you pay only the interest that accrues each month, with no reduction in your principal balance. Your loan balance stays exactly the same until the interest-only period ends, at which point your payment recalculates to include both principal and interest over the remaining loan term.
             </p>
 
             <p>
@@ -122,16 +122,16 @@ export default function InterestOnlyCalculatorPage() {
             <h2>Understanding Interest-Only Loans</h2>
 
             <p>
-              An interest-only loan allows you to pay only the interest that accumulates on your loan balance each month, with no mandatory principal reduction during the interest-only period. If you borrow $400,000 at 7% annual interest, you pay $2,333 monthly (the interest) but your loan balance remains $400,000 throughout the interest-only period. Unlike traditional mortgages where each payment gradually reduces your debt, interest-only payments don't build equity through loan paydown—equity only increases if your property appreciates.
+              An interest-only loan allows you to pay only the interest that accumulates on your loan balance each month, with no mandatory principal reduction during the interest-only period. If you borrow $400,000 at 7% annual interest, you pay $2,333 monthly (the interest) but your loan balance remains $400,000 throughout the interest-only period. Unlike traditional mortgages where each payment gradually reduces your debt, interest-only payments don't build equity through loan paydown equity only increases if your property appreciates.
             </p>
 
             <p>
-              Interest-only periods typically last 5 to 10 years, though some loans offer shorter or longer terms depending on the lender and loan type. During this period, your required payment covers only interest, though most loans permit voluntary principal payments if you choose. When the interest-only period ends, the loan recalculates payments to fully amortize the remaining balance over the remaining term. This transition creates significant payment increases—often 30% to 50% or more—as you begin paying both principal and interest.
+              Interest-only periods typically last 5 to 10 years, though some loans offer shorter or longer terms depending on the lender and loan type. During this period, your required payment covers only interest, though most loans permit voluntary principal payments if you choose. When the interest-only period ends, the loan recalculates payments to fully amortize the remaining balance over the remaining term. This transition creates significant payment increases often 30% to 50% or more as you begin paying both principal and interest.
             </p>
 
 
             <p>
-              Real estate investors commonly use interest-only mortgages on rental properties to maximize cash flow. Lower monthly payments improve rental income margins, and investors often plan to sell or refinance before amortization begins. High-income professionals expecting substantial income growth—such as doctors completing residency or executives with deferred compensation—may use interest-only periods to manage cash flow during lower-earning years, then handle higher payments when income increases. Buyers planning short-term ownership (3-7 years) sometimes choose interest-only loans to minimize near-term housing costs, intending to sell before payment increases occur. However, these strategies assume favorable market conditions, income growth, and exit options that may not materialize.
+              Real estate investors commonly use interest-only mortgages on rental properties to maximize cash flow. Lower monthly payments improve rental income margins, and investors often plan to sell or refinance before amortization begins. High-income professionals expecting substantial income growth such as doctors completing residency or executives with deferred compensation may use interest-only periods to manage cash flow during lower-earning years, then handle higher payments when income increases. Buyers planning short-term ownership (3-7 years) sometimes choose interest-only loans to minimize near-term housing costs, intending to sell before payment increases occur. However, these strategies assume favorable market conditions, income growth, and exit options that may not materialize.
             </p>
 
             <h2>How Interest-Only Payments Are Calculated</h2>
@@ -158,7 +158,7 @@ export default function InterestOnlyCalculatorPage() {
             </p>
 
             <p>
-              This formula applies to fixed-rate interest-only mortgages. If you have a $500,000 loan at 6.5% interest, your monthly interest-only payment is ($500,000 × 0.065) ÷ 12 = $2,708.33. If your rate is 8%, the payment is ($500,000 × 0.08) ÷ 12 = $3,333.33. The calculation is linear—your payment scales directly with loan amount and rate.
+              This formula applies to fixed-rate interest-only mortgages. If you have a $500,000 loan at 6.5% interest, your monthly interest-only payment is ($500,000 × 0.065) ÷ 12 = $2,708.33. If your rate is 8%, the payment is ($500,000 × 0.08) ÷ 12 = $3,333.33. The calculation is linear your payment scales directly with loan amount and rate.
             </p>
 
             <p>
@@ -166,33 +166,33 @@ export default function InterestOnlyCalculatorPage() {
             </p>
 
             <p>
-              Interest-only mortgages use simple interest, not compound interest. Simple interest calculates each month's charge based solely on your principal balance—there's no &quot;interest on interest.&quot; Compound interest, where unpaid interest is added to your balance and itself accrues interest, is uncommon in U.S. residential mortgages but appears in some consumer loans and investment products. When searching for &quot;compound interest-only calculator&quot; versus &quot;simple interest-only calculator,&quot; ensure you're using the appropriate tool for your loan type. Residential mortgages almost always use simple interest calculations.
+              Interest-only mortgages use simple interest, not compound interest. Simple interest calculates each month's charge based solely on your principal balance there's no &quot;interest on interest.&quot; Compound interest, where unpaid interest is added to your balance and itself accrues interest, is uncommon in U.S. residential mortgages but appears in some consumer loans and investment products. When searching for &quot;compound interest-only calculator&quot; versus &quot;simple interest-only calculator,&quot; ensure you're using the appropriate tool for your loan type. Residential mortgages almost always use simple interest calculations.
             </p>
 
 
             <h2>What Happens When the Interest-Only Period Ends</h2>
 
             <p>
-              When your interest-only period expires, the loan recalculates your payment to fully amortize the remaining balance over the remaining term. This is where payment shock occurs—your payment can increase dramatically because you're now paying both principal and interest, and you have fewer years to pay off the debt.
+              When your interest-only period expires, the loan recalculates your payment to fully amortize the remaining balance over the remaining term. This is where payment shock occurs your payment can increase dramatically because you're now paying both principal and interest, and you have fewer years to pay off the debt.
             </p>
 
             <p>
-              Consider a $400,000 loan at 7% with a 10-year interest-only period on a 30-year total term. During the first 10 years, you pay $2,333 monthly (interest only). After year 10, the full $400,000 balance must be repaid over the remaining 20 years at 7%. Using standard amortization formulas, your new payment is approximately $3,101 per month—a $768 increase (33% higher). You're not just adding principal repayment; you're compressing 30 years of principal paydown into 20 years, which drives the higher payment.
+              Consider a $400,000 loan at 7% with a 10-year interest-only period on a 30-year total term. During the first 10 years, you pay $2,333 monthly (interest only). After year 10, the full $400,000 balance must be repaid over the remaining 20 years at 7%. Using standard amortization formulas, your new payment is approximately $3,101 per month a $768 increase (33% higher). You're not just adding principal repayment; you're compressing 30 years of principal paydown into 20 years, which drives the higher payment.
             </p>
 
 
             <p>
-              When the interest-only period ends, you typically have three options: continue with the higher payment if your income supports it, refinance into a new loan (requiring qualification and possibly higher rates), or sell the property. Refinancing isn't guaranteed—you need sufficient equity, qualifying income, and acceptable credit, and market rates may be higher than your original rate. Selling depends on market conditions and may result in losses if property values have declined. Many borrowers underestimate how constrained their options may be when the interest-only period expires.
+              When the interest-only period ends, you typically have three options: continue with the higher payment if your income supports it, refinance into a new loan (requiring qualification and possibly higher rates), or sell the property. Refinancing isn't guaranteed you need sufficient equity, qualifying income, and acceptable credit, and market rates may be higher than your original rate. Selling depends on market conditions and may result in losses if property values have declined. Many borrowers underestimate how constrained their options may be when the interest-only period expires.
             </p>
 
             <h2>Total Cost Comparison and Equity Considerations</h2>
 
             <p>
-              Interest-only loans cost significantly more in total interest than traditional amortizing mortgages. With a traditional 30-year loan at 7% on $400,000, you'd pay approximately $558,900 in total interest over the full term. With a 10-year interest-only period followed by 20-year amortization at the same 7% rate, you pay $280,000 in interest during the interest-only period (10 years × $2,333 × 12 months) plus approximately $343,200 during the amortization phase, totaling roughly $623,200—about $64,300 more. The longer your loan balance remains unpaid, the more interest accumulates.
+              Interest-only loans cost significantly more in total interest than traditional amortizing mortgages. With a traditional 30-year loan at 7% on $400,000, you'd pay approximately $558,900 in total interest over the full term. With a 10-year interest-only period followed by 20-year amortization at the same 7% rate, you pay $280,000 in interest during the interest-only period (10 years × $2,333 × 12 months) plus approximately $343,200 during the amortization phase, totaling roughly $623,200 about $64,300 more. The longer your loan balance remains unpaid, the more interest accumulates.
             </p>
 
             <p>
-              During the interest-only period, you build zero equity through loan paydown. Your equity increases only if your property appreciates. If you buy a $500,000 home with $100,000 down (borrowing $400,000 interest-only) and the home value stays flat, you still have exactly $100,000 equity after 10 years—the same as day one. A traditional mortgage would have paid down roughly $52,000 in principal over the same period, giving you $152,000 equity. If property values decline, interest-only borrowers face greater underwater risk because they have no equity cushion from loan paydown.
+              During the interest-only period, you build zero equity through loan paydown. Your equity increases only if your property appreciates. If you buy a $500,000 home with $100,000 down (borrowing $400,000 interest-only) and the home value stays flat, you still have exactly $100,000 equity after 10 years the same as day one. A traditional mortgage would have paid down roughly $52,000 in principal over the same period, giving you $152,000 equity. If property values decline, interest-only borrowers face greater underwater risk because they have no equity cushion from loan paydown.
             </p>
 
             <p>
@@ -208,7 +208,7 @@ export default function InterestOnlyCalculatorPage() {
 
             <div className="bg-slate-50 border-l-4 border-indigo-600 p-6 my-6">
               <h3 className="font-serif font-bold text-lg text-slate-900 mb-4">Example 1: Standard Interest-Only Loan</h3>
-              
+
               <p className="text-slate-700 mb-2">Loan Details (Hypothetical):</p>
               <ul className="list-disc pl-6 space-y-2 text-slate-700 mb-4">
                 <li>Loan amount: $400,000</li>
@@ -247,14 +247,14 @@ export default function InterestOnlyCalculatorPage() {
               </ul>
 
               <p className="text-slate-700 mt-4 text-sm">
-                This example demonstrates the payment shock that occurs when the interest-only period ends. Your payment jumps from $2,333 to $3,101—an increase of nearly one-third.
+                This example demonstrates the payment shock that occurs when the interest-only period ends. Your payment jumps from $2,333 to $3,101 an increase of nearly one-third.
               </p>
             </div>
 
             <h2>Making Your Decision and Planning Your Exit Strategy</h2>
 
             <p>
-              Interest-only loans serve specific circumstances and require careful planning. The decision to use an interest-only structure depends on your income trajectory, investment strategy, homeownership timeline, and risk tolerance—not just the lower initial payment.
+              Interest-only loans serve specific circumstances and require careful planning. The decision to use an interest-only structure depends on your income trajectory, investment strategy, homeownership timeline, and risk tolerance not just the lower initial payment.
             </p>
 
             <p>
@@ -262,15 +262,15 @@ export default function InterestOnlyCalculatorPage() {
             </p>
 
             <p>
-              <strong>What is the monthly payment on a $400,000 loan at 7%?</strong> During the interest-only period, the payment is $2,333 (interest only). After the interest-only period ends, the payment depends on the remaining term. If you have 20 years remaining, the fully amortizing payment is approximately $3,101—33% higher. If you have 25 years remaining, it's about $2,828—still 21% higher. The payment increase is substantial regardless of remaining term length.
+              <strong>What is the monthly payment on a $400,000 loan at 7%?</strong> During the interest-only period, the payment is $2,333 (interest only). After the interest-only period ends, the payment depends on the remaining term. If you have 20 years remaining, the fully amortizing payment is approximately $3,101 33% higher. If you have 25 years remaining, it's about $2,828 still 21% higher. The payment increase is substantial regardless of remaining term length.
             </p>
 
             <p>
-              Exit strategy planning is essential for interest-only loans. If you plan to sell before the interest-only period ends, you need realistic expectations about property appreciation, selling costs, and market conditions. If you plan to refinance when the interest-only period ends, you need qualifying income, credit, and sufficient equity—none of which are guaranteed. If you plan to continue with higher payments, ensure your income can support the 30-50% payment increase.
+              Exit strategy planning is essential for interest-only loans. If you plan to sell before the interest-only period ends, you need realistic expectations about property appreciation, selling costs, and market conditions. If you plan to refinance when the interest-only period ends, you need qualifying income, credit, and sufficient equity none of which are guaranteed. If you plan to continue with higher payments, ensure your income can support the 30-50% payment increase.
             </p>
 
             <p>
-              Making extra principal payments during the interest-only period mitigates some risks. Even modest additional payments—$300-500 monthly—reduce your balance, lower your future required payment, build equity that improves refinancing options, and decrease total interest costs. An interest-only loan calculator with extra payments shows how voluntary principal reduction affects long-term costs and payment shock.
+              Making extra principal payments during the interest-only period mitigates some risks. Even modest additional payments $300-500 monthly reduce your balance, lower your future required payment, build equity that improves refinancing options, and decrease total interest costs. An interest-only loan calculator with extra payments shows how voluntary principal reduction affects long-term costs and payment shock.
             </p>
 
             <p>
@@ -283,7 +283,7 @@ export default function InterestOnlyCalculatorPage() {
 
       {/* FAQ Section */}
       <section className="py-12 bg-slate-50">
-        <div className="mx-auto max-w-3xl px-6 sm:px-8 lg:px-12">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <h2 className="mb-8 text-center text-2xl font-bold text-slate-900 sm:text-3xl">Frequently Asked Questions</h2>
           <div className="space-y-4">
             {faqs.map((faq, index) => (

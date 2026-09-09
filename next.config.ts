@@ -9,6 +9,16 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   turbopack: {},
+  rewrites: async () => [
+    {
+      source: '/blog/:slug*',
+      destination: '/:slug*',
+    },
+    {
+      source: '/guide/:slug*',
+      destination: '/:slug*',
+    },
+  ],
   // Allow access to remote image placeholder.
   images: {
     remotePatterns: [

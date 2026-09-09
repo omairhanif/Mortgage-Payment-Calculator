@@ -39,18 +39,18 @@ export default function BalloonMortgageCalculatorPage() {
     },
     {
       q: "What happens if I can't pay my balloon payment?",
-      a: "If you can't pay your balloon payment, you have limited options—all with serious consequences: (1) Refinance—but requires qualifying with sufficient credit (usually 620+), income, and equity (20%+); if property value dropped or your finances weakened, you may not qualify; (2) Sell the property—must sell quickly, potentially at unfavorable prices; if you owe more than current value, you'll need cash to cover difference; (3) Negotiate with lender—some may offer modification or extension, but not guaranteed; (4) Default and foreclosure—if you can't refinance or sell, lender forecloses on the property, destroying your credit for 7+ years. Always have a backup plan before signing a balloon mortgage. Check refinancing requirements well before balloon due date."
+      a: "If you can't pay your balloon payment, you have limited options all with serious consequences: (1) Refinance but requires qualifying with sufficient credit (usually 620+), income, and equity (20%+); if property value dropped or your finances weakened, you may not qualify; (2) Sell the property must sell quickly, potentially at unfavorable prices; if you owe more than current value, you'll need cash to cover difference; (3) Negotiate with lender some may offer modification or extension, but not guaranteed; (4) Default and foreclosure if you can't refinance or sell, lender forecloses on the property, destroying your credit for 7+ years. Always have a backup plan before signing a balloon mortgage. Check refinancing requirements well before balloon due date."
     },
     {
       q: "How much is the balloon payment on a 5-year mortgage?",
-      a: "On a 5-year balloon mortgage with 30-year amortization, you'll owe approximately 92-95% of the original loan amount as the balloon payment, depending on interest rate. Examples: $200,000 at 6% = ~$186,108 balloon; $300,000 at 6.5% = ~$281,000 balloon; $400,000 at 7% = ~$377,300 balloon. After 5 years (60 monthly payments), you've paid mostly interest and very little principal—that's why the balloon is so large. On a $300,000 loan at 6.5%, your 60 payments of $1,896 total $113,760, but only $19,000 goes to principal while $94,760 goes to interest. Use a balloon mortgage calculator with amortization schedule to see your specific balloon amount."
+      a: "On a 5-year balloon mortgage with 30-year amortization, you'll owe approximately 92-95% of the original loan amount as the balloon payment, depending on interest rate. Examples: $200,000 at 6% = ~$186,108 balloon; $300,000 at 6.5% = ~$281,000 balloon; $400,000 at 7% = ~$377,300 balloon. After 5 years (60 monthly payments), you've paid mostly interest and very little principal that's why the balloon is so large. On a $300,000 loan at 6.5%, your 60 payments of $1,896 total $113,760, but only $19,000 goes to principal while $94,760 goes to interest. Use a balloon mortgage calculator with amortization schedule to see your specific balloon amount."
     },
     {
       q: "Can you pay off a balloon mortgage early?",
       a: "Yes, you can pay off a balloon mortgage early, but check your loan documents for prepayment penalties. Most residential balloon mortgages allow early payoff without penalties, but some charge 1-3% of the remaining balance if you pay off within the first 3-5 years. Benefits of early payoff: avoid refinancing risk, save on interest costs, eliminate balloon payment stress, own home free and clear. You can pay extra toward principal monthly, make lump sum payments, or refinance to a traditional mortgage before balloon due. Making extra principal payments throughout the loan term significantly reduces your eventual balloon amount. Always verify prepayment terms before committing to a balloon mortgage."
     },
     {
-      q: "Balloon mortgage vs traditional mortgage—which is better?",
+      q: "Balloon mortgage vs traditional mortgage which is better?",
       a: "Traditional mortgages are better for 90% of homebuyers due to predictability and full amortization. Traditional (30-year fixed) advantages: fully paid off at term end (no balloon shock), predictable payments for 30 years, no refinancing risk, easier to qualify for, better for long-term homeowners. Balloon mortgage advantages: potentially lower initial rates (0.25-0.75% less), lower monthly payments during balloon period, good for short-term ownership (5-7 years), suits real estate investors/flippers. Example on $350,000: traditional at 7% = $2,329/month for 30 years, owns home fully; balloon at 6.5% = $2,212/month for 7 years, then $320,000 balloon due. Choose traditional for primary residence and long-term ownership; choose balloon only with concrete exit strategy and tolerance for refinancing risk."
     }
   ];
@@ -73,12 +73,12 @@ export default function BalloonMortgageCalculatorPage() {
 
       {/* Hero Section */}
       <div className="mb-8">
-        <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-12">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-4">
             <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-indigo-100 text-indigo-600">
               <Icon className="h-6 w-6" />
             </div>
-            <h1 className="text-3xl font-bold text-indigo-600 sm:text-4xl">{title}</h1>
+            <h1 className="text-4xl font-bold text-indigo-600 sm:text-4xl">{title}</h1>
           </div>
           <div className="mb-6 h-px bg-gradient-to-r from-slate-200 via-slate-300 to-slate-200"></div>
           <div className="space-y-3 text-slate-600">
@@ -95,7 +95,7 @@ export default function BalloonMortgageCalculatorPage() {
 
       {/* How It Works Section */}
       <section className="py-12 bg-slate-50">
-        <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-12">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <h2 className="mb-8 text-center text-2xl font-bold text-slate-900 sm:text-3xl">How It Works</h2>
           <div className="space-y-6">
             {howItWorks.map((paragraph, index) => (
@@ -109,8 +109,8 @@ export default function BalloonMortgageCalculatorPage() {
 
       {/* Educational Article */}
       <section className="py-12">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <article className="mx-auto max-w-3xl prose prose-slate prose-headings:font-serif prose-headings:font-bold prose-h2:text-2xl prose-h2:md:text-3xl prose-h2:text-slate-900 prose-h2:mb-6 prose-h2:mt-10 prose-p:text-slate-600 prose-p:leading-relaxed prose-p:mb-4 prose-strong:text-slate-900 prose-strong:font-semibold prose-ul:text-slate-600 prose-li:mb-2">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <article className="w-full mx-auto max-w-4xl prose prose-slate prose-headings:font-serif prose-headings:font-bold prose-h2:text-2xl prose-h2:md:text-3xl prose-h2:text-slate-900 prose-h2:mb-6 prose-h2:mt-10 prose-p:text-slate-600 prose-p:leading-relaxed prose-p:mb-4 prose-strong:text-slate-900 prose-strong:font-semibold prose-ul:text-slate-600 prose-li:mb-2">
             <div className="mb-8">
               <h1 className="text-xl font-bold text-slate-900 mt-8 mb-4">Balloon Mortgages: How Payments and Balloon Amounts Are Calculated</h1>
             </div>
@@ -118,7 +118,7 @@ export default function BalloonMortgageCalculatorPage() {
             <h3 className="text-xl font-bold text-slate-900 mt-8 mb-4">Understanding Balloon Mortgages</h3>
 
             <p>
-              A balloon mortgage is a loan structured with regular monthly payments calculated as if it will be repaid over a long period—typically 15, 20, or 30 years—but with the full remaining balance coming due much earlier, usually after 5, 7, or 10 years. This creates a large lump-sum payment at the end of the balloon term, hence the name &quot;balloon payment.&quot; The critical distinction in a balloon mortgage is between the <strong>amortization period</strong> (how long the payments are calculated to last) and the <strong>balloon due date</strong> (when you must pay off the entire remaining balance).
+              A balloon mortgage is a loan structured with regular monthly payments calculated as if it will be repaid over a long period typically 15, 20, or 30 years but with the full remaining balance coming due much earlier, usually after 5, 7, or 10 years. This creates a large lump-sum payment at the end of the balloon term, hence the name &quot;balloon payment.&quot; The critical distinction in a balloon mortgage is between the <strong>amortization period</strong> (how long the payments are calculated to last) and the <strong>balloon due date</strong> (when you must pay off the entire remaining balance).
             </p>
 
             <p>
@@ -187,7 +187,7 @@ export default function BalloonMortgageCalculatorPage() {
 
             <div className="bg-slate-50 border-l-4 border-indigo-600 p-6 my-6">
               <h4 className="font-serif font-bold text-lg text-slate-900 mb-4">Hypothetical Example: How Does a 7-Year Balloon Mortgage Work?</h4>
-              
+
               <p className="text-slate-700 mb-2">Loan Details:</p>
               <ul className="list-disc pl-6 space-y-2 text-slate-700 mb-4">
                 <li>Loan amount: $300,000</li>
@@ -218,7 +218,7 @@ export default function BalloonMortgageCalculatorPage() {
 
               <p className="text-slate-700 mb-2">Key Insight:</p>
               <p className="text-slate-700">
-                After paying $159,264 over 7 years, you still owe 92.3% of the original loan amount. This demonstrates why balloon mortgages require solid exit strategies—the balloon payment is nearly as large as the original loan.
+                After paying $159,264 over 7 years, you still owe 92.3% of the original loan amount. This demonstrates why balloon mortgages require solid exit strategies the balloon payment is nearly as large as the original loan.
               </p>
             </div>
 
@@ -246,7 +246,7 @@ export default function BalloonMortgageCalculatorPage() {
 
       {/* FAQ Section */}
       <section className="py-12 bg-slate-50">
-        <div className="mx-auto max-w-3xl px-6 sm:px-8 lg:px-12">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <h2 className="mb-8 text-center text-2xl font-bold text-slate-900 sm:text-3xl">Frequently Asked Questions</h2>
           <div className="space-y-4">
             {faqs.map((faq, index) => (

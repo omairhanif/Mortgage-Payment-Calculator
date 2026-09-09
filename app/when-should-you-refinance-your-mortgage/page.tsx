@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
@@ -17,11 +17,11 @@ export default function WhenShouldYouRefinanceArticle() {
   const faqs = [
     {
       q: "When is the best time to refinance my mortgage?",
-      a: "The best time to refinance is when interest rates drop 1-2% below your current rate, you've built 20%+ equity in your home, or you're experiencing major life changes like increased income. For Canadian homeowners, refinancing becomes financially worthwhile when your break-even point (total refinancing costs divided by monthly savings) is reached within 2-3 years of staying in the home. For example, if refinancing costs $6,800 but saves you $437/month, your break-even is 15.6 monthsâ€”making it an excellent decision if you plan to stay longer than 2 years."
+      a: "The best time to refinance is when interest rates drop 1-2% below your current rate, you've built 20%+ equity in your home, or you're experiencing major life changes like increased income. For Canadian homeowners, refinancing becomes financially worthwhile when your break-even point (total refinancing costs divided by monthly savings) is reached within 2-3 years of staying in the home. For example, if refinancing costs $6,800 but saves you $437/month, your break-even is 15.6 months making it an excellent decision if you plan to stay longer than 2 years."
     },
     {
       q: "How much can I save by refinancing my mortgage?",
-      a: "Savings vary significantly based on your loan amount, rate drop, and remaining term. A typical scenario: refinancing a $485,000 mortgage from 5.89% to 3.49% saves approximately $437/month or $26,220 over 5 years. Larger mortgages see bigger savingsâ€”a $750,000 mortgage refinanced from 6.2% to 4.5% could save $800+/month. Use a mortgage calculator to model your specific situation, factoring in closing costs ($2,500-$6,800 in Canada) and prepayment penalties if you're breaking a fixed-term mortgage early."
+      a: "Savings vary significantly based on your loan amount, rate drop, and remaining term. A typical scenario: refinancing a $485,000 mortgage from 5.89% to 3.49% saves approximately $437/month or $26,220 over 5 years. Larger mortgages see bigger savings a $750,000 mortgage refinanced from 6.2% to 4.5% could save $800+/month. Use a mortgage calculator to model your specific situation, factoring in closing costs ($2,500-$6,800 in Canada) and prepayment penalties if you're breaking a fixed-term mortgage early."
     },
     {
       q: "What is a break-even point for refinancing?",
@@ -29,11 +29,11 @@ export default function WhenShouldYouRefinanceArticle() {
     },
     {
       q: "Should I refinance if interest rates drop only 1%?",
-      a: "Yes, a 1% rate drop can absolutely justify refinancing, especially with larger mortgages or longer remaining terms. The old '2% rule' is outdated. For a $400,000 mortgage with 20 years remaining, dropping from 5.5% to 4.5% saves approximately $230/month ($55,200 over 20 years). If closing costs are $4,500, you break even in just 19.6 months. The key is calculating your specific break-even pointâ€”if it's under 2 years and you'll stay in the home longer, a 1% drop is worth it."
+      a: "Yes, a 1% rate drop can absolutely justify refinancing, especially with larger mortgages or longer remaining terms. The old '2% rule' is outdated. For a $400,000 mortgage with 20 years remaining, dropping from 5.5% to 4.5% saves approximately $230/month ($55,200 over 20 years). If closing costs are $4,500, you break even in just 19.6 months. The key is calculating your specific break-even point if it's under 2 years and you'll stay in the home longer, a 1% drop is worth it."
     },
     {
       q: "What fees are involved in refinancing?",
-      a: "Canadian mortgage refinancing typically costs $2,500-$6,800 total, including: prepayment penalties ($0-$4,000+ depending on your mortgage terms and remaining time), legal fees ($800-$1,500), appraisal fees ($300-$500), title insurance ($200-$400), and lender administration fees ($200-$400). Breaking a fixed-rate mortgage early triggers Interest Rate Differential (IRD) penalties or 3 months' interest (whichever is higher). Variable-rate mortgages typically have lower penaltiesâ€”often just 3 months of interest."
+      a: "Canadian mortgage refinancing typically costs $2,500-$6,800 total, including: prepayment penalties ($0-$4,000+ depending on your mortgage terms and remaining time), legal fees ($800-$1,500), appraisal fees ($300-$500), title insurance ($200-$400), and lender administration fees ($200-$400). Breaking a fixed-rate mortgage early triggers Interest Rate Differential (IRD) penalties or 3 months' interest (whichever is higher). Variable-rate mortgages typically have lower penalties often just 3 months of interest."
     },
     {
       q: "Can I refinance if I just bought my home recently?",
@@ -60,11 +60,11 @@ export default function WhenShouldYouRefinanceArticle() {
       <div className="border-b border-slate-200 bg-white">
         <div className="mx-auto max-w-4xl px-6 sm:px-8 py-6">
           <Link 
-            href="/articles" 
+            href="/blog" 
             className="inline-flex items-center text-indigo-600 hover:text-indigo-700 transition-colors group"
           >
             <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
-            Back to Articles
+            Back to Blogs
           </Link>
         </div>
       </div>
@@ -90,26 +90,26 @@ export default function WhenShouldYouRefinanceArticle() {
         
         <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
           <time>August 27, 2026</time>
-          <span className="mx-3">â€¢</span>
+          <span className="mx-3"> </span>
           <span>14 min read</span>
         </div>
       </div>
 
       {/* Article Content */}
       <article className="pb-2">
-        <div className="mx-auto max-w-3xl px-6 sm:px-8">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="prose prose-slate prose-lg max-w-none">
 
             {/* Introduction */}
             <section className="mb-12">
               <p className="text-xl text-slate-700 leading-relaxed mb-6">
-                Sarah locked in a 5-year fixed mortgage at 5.89% with TD Bank in March 2022 for her Toronto condo. Fast forward to August 2026, and rates have dropped to 3.49% at most major Canadian banks. By refinancing, she could save $437 per monthâ€”$26,220 over five years. But with $6,800 in prepayment penalties and $2,500 in refinancing costs, is it worth it? Her break-even point is 21 months. If she plans to stay in her condo for at least two more years, refinancing makes financial sense.
+                Sarah locked in a 5-year fixed mortgage at 5.89% with TD Bank in March 2022 for her Toronto condo. Fast forward to August 2026, and rates have dropped to 3.49% at most major Canadian banks. By refinancing, she could save $437 per month $26,220 over five years. But with $6,800 in prepayment penalties and $2,500 in refinancing costs, is it worth it? Her break-even point is 21 months. If she plans to stay in her condo for at least two more years, refinancing makes financial sense.
             </p>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
               Sarah's situation illustrates the critical question thousands of Canadian homeowners face: <strong>When should you refinance your mortgage?</strong> The answer isn't always straightforward. Refinancing at the right time can save tens of thousands of dollars over your mortgage life, while refinancing at the wrong time can cost you significantly in fees and lost opportunities.
             </p>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              This comprehensive guide examines the key indicators that signal it's time to refinanceâ€”from interest rate drops and equity gains to life changes and loan type switches. We'll analyze real Canadian scenarios, calculate break-even points, and help you determine whether refinancing makes sense for your specific situation.
+              This comprehensive guide examines the key indicators that signal it's time to refinance from interest rate drops and equity gains to life changes and loan type switches. We'll analyze real Canadian scenarios, calculate break-even points, and help you determine whether refinancing makes sense for your specific situation.
             </p>
           </section>
 
@@ -125,7 +125,7 @@ export default function WhenShouldYouRefinanceArticle() {
             </p>
 
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              <strong>Example:</strong> Consider a homeowner with a $392,000 mortgage balance at RBC at 5.89% with 22 years remaining. If they refinance to Scotiabank at 3.49%, their monthly payment drops from $2,748 to $2,011â€”saving $737/month. With $10,640 in total refinancing costs (prepayment penalties + fees), they break even in just 14.4 months and save $183,132 over the remaining term.
+              <strong>Example:</strong> Consider a homeowner with a $392,000 mortgage balance at RBC at 5.89% with 22 years remaining. If they refinance to Scotiabank at 3.49%, their monthly payment drops from $2,748 to $2,011 saving $737/month. With $10,640 in total refinancing costs (prepayment penalties + fees), they break even in just 14.4 months and save $183,132 over the remaining term.
             </p>
 
             <h3 className="font-serif text-2xl font-bold text-slate-900 mb-4 mt-8">
@@ -160,7 +160,7 @@ export default function WhenShouldYouRefinanceArticle() {
             </h2>
 
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              As your home value increases and your mortgage balance decreases, you build equityâ€”the portion of your home you actually own. When you reach 20% or more equity, refinancing can eliminate costly mortgage insurance or allow you to access cash for renovations, investments, or debt consolidation.
+              As your home value increases and your mortgage balance decreases, you build equity the portion of your home you actually own. When you reach 20% or more equity, refinancing can eliminate costly mortgage insurance or allow you to access cash for renovations, investments, or debt consolidation.
             </p>
 
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -250,7 +250,7 @@ export default function WhenShouldYouRefinanceArticle() {
             </p>
 
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              <strong>Example:</strong> Emma bought a Calgary home for $450,000 with 10% down. Her $405,000 mortgage included $11,340 in insurance premiums (~$55/month over 25 years). Four years later, her home is worth $490,000 and her balance is $375,000â€”she now has 23.5% equity. By refinancing, she eliminates the ongoing insurance cost.
+              <strong>Example:</strong> Emma bought a Calgary home for $450,000 with 10% down. Her $405,000 mortgage included $11,340 in insurance premiums (~$55/month over 25 years). Four years later, her home is worth $490,000 and her balance is $375,000 she now has 23.5% equity. By refinancing, she eliminates the ongoing insurance cost.
             </p>
           </section>
 

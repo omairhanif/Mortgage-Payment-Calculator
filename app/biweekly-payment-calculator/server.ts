@@ -50,7 +50,7 @@ export function getStructuredData() {
           "name": "How much will I save with biweekly mortgage payments?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Biweekly payments typically save $30,000-$80,000 in interest and cut 4-7 years off a 30-year mortgage, depending on loan amount and rate. For example, a $300,000 mortgage at 6.5% with monthly payments costs $382,633 in total interest over 30 years. Switching to biweekly payments reduces total interest to $338,000—saving $44,633—and pays off the loan in approximately 25.5 years instead of 30."
+            "text": "Biweekly payments typically save $30,000-$80,000 in interest and cut 4-7 years off a 30-year mortgage, depending on loan amount and rate. For example, a $300,000 mortgage at 6.5% with monthly payments costs $382,633 in total interest over 30 years. Switching to biweekly payments reduces total interest to $338,000 saving $44,633 and pays off the loan in approximately 25.5 years instead of 30."
           }
         },
         {
@@ -58,7 +58,7 @@ export function getStructuredData() {
           "name": "Is it better to pay mortgage biweekly or monthly with extra payment?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Both strategies save similar amounts—the key is making 13 payments per year instead of 12. Biweekly payments (half payment every 2 weeks) automatically result in 13 payments annually. Monthly payments plus one extra payment annually achieve the same result with more flexibility. On a $300,000 loan at 6%, both methods save roughly $40,000-45,000 in interest."
+            "text": "Both strategies save similar amounts the key is making 13 payments per year instead of 12. Biweekly payments (half payment every 2 weeks) automatically result in 13 payments annually. Monthly payments plus one extra payment annually achieve the same result with more flexibility. On a $300,000 loan at 6%, both methods save roughly $40,000-45,000 in interest."
           }
         },
         {

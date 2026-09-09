@@ -1,6 +1,43 @@
 import React from "react";
-import { Calculator, ChevronDown, ChevronUp } from "lucide-react";
+import { Calculator, ChevronDown, ChevronUp, Copy, Download } from "lucide-react";
+import { jsPDF } from "jspdf";
 import { formatCurrency } from "@/lib/utils";
+
+export function ResultActions({ title, content }: { title: string; content: string }) {
+  const [copied, setCopied] = React.useState(false);
+
+  const copyResults = async () => {
+    await navigator.clipboard.writeText(content);
+    setCopied(true);
+    window.setTimeout(() => setCopied(false), 1600);
+  };
+
+  const exportPdf = () => {
+    const pdf = new jsPDF();
+    const lines = pdf.splitTextToSize(content, 175);
+    pdf.setFontSize(16);
+    pdf.text(title, 18, 20);
+    pdf.setFontSize(10);
+    pdf.text(lines, 18, 32);
+    pdf.save(`${title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}.pdf`);
+  };
+
+  return (
+    <div className="ml-auto flex items-center gap-1">
+      <button type="button" onClick={copyResults} title={copied ? "Copied" : "Copy results"} aria-label={copied ? "Results copied" : "Copy results"} className="rounded p-1.5 text-slate-500 hover:bg-slate-100 hover:text-indigo-600">
+        <Copy className="h-4 w-4" />
+      </button>
+      <button type="button" onClick={exportPdf} title="Export PDF" aria-label="Export results as PDF" className="rounded p-1.5 text-slate-500 hover:bg-slate-100 hover:text-indigo-600">
+        <Download className="h-4 w-4" />
+      </button>
+      {copied && <span className="text-xs text-emerald-600">Copied</span>}
+    </div>
+  );
+}
+
+function resultText(title: string, primaryResult?: { label: string; value: string | number }, metrics: ResultMetric[] = []) {
+  return [title, primaryResult && `${primaryResult.label}: ${primaryResult.value}`, ...metrics.map((metric) => `${metric.label}: ${metric.value ?? "-"}`)].filter(Boolean).join("\n");
+}
 
 export interface ResultMetric {
   id: string;
@@ -47,6 +84,7 @@ export interface ConfigResultProps {
   metrics: ResultMetric[];
   showAd?: boolean;
   className?: string;
+  inputSummary?: string;
 }
 
 export function ConfigConsolidatedResult({
@@ -54,6 +92,7 @@ export function ConfigConsolidatedResult({
   metrics = [],
   showAd = false,
   className = "",
+  inputSummary = "",
 }: ConfigResultProps) {
   return (
     <div className={`space-y-4 ${className}`}>
@@ -63,6 +102,7 @@ export function ConfigConsolidatedResult({
         <div className="mb-4 flex items-center gap-1.5">
           <Calculator className="h-4 w-4 text-indigo-600" />
           <h3 className="font-serif text-base font-bold text-slate-900">Results</h3>
+          <ResultActions title="Mortgage Calculator Results" content={`${resultText("Mortgage Calculator Results", primaryResult, metrics)}${inputSummary ? `\n\nInputs\n${inputSummary}` : ""}`} />
         </div>
 
         {/* Primary Result Section - Light blue highlight box */}
@@ -88,7 +128,7 @@ export function ConfigConsolidatedResult({
           <div className="space-y-2.5">
             {metrics.map((metric) => {
               let displayValue: string;
-              
+
               // Handle undefined or null values
               if (metric.value === undefined || metric.value === null) {
                 displayValue = "-";
@@ -135,13 +175,13 @@ export function ConfigAmortizationSchedule({
   className = "",
 }: ConfigAmortizationProps) {
   const [isExpanded, setIsExpanded] = React.useState(false);
-  
-  const displayEntries = isExpanded 
-    ? amortizationSchedule 
+
+  const displayEntries = isExpanded
+    ? amortizationSchedule
     : amortizationSchedule.slice(0, 20);
-  
+
   const hasMoreEntries = amortizationSchedule.length > 20;
-  
+
   return (
     <div className={className}>
       <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
@@ -211,6 +251,7 @@ export default function CalculatorResult({
             <p className="text-xs font-semibold uppercase tracking-wide text-slate-600">
               {primaryResult.label}
             </p>
+            <ResultActions title="Mortgage Calculator Results" content={resultText("Mortgage Calculator Results", primaryResult, metrics)} />
           </div>
           <p className="font-serif text-4xl font-bold text-indigo-600">
             {primaryResult.value}
@@ -228,7 +269,7 @@ export default function CalculatorResult({
         <div className="grid grid-cols-1 gap-3">
           {metrics.map((metric) => {
             let displayValue: string;
-            
+
             // Handle undefined or null values
             if (metric.value === undefined || metric.value === null) {
               displayValue = "-";
@@ -370,6 +411,7 @@ export function FixedVsARMResult({
           <h3 className="font-serif text-base font-bold text-slate-900">
             Fixed vs ARM Comparison
           </h3>
+          <ResultActions title="Fixed vs ARM Comparison" content={`Fixed vs ARM Comparison\n${JSON.stringify(results, null, 2)}`} />
         </div>
 
         {/* Comparison Table */}
@@ -412,7 +454,7 @@ export function FixedVsARMResult({
               <tr className="hover:bg-slate-50">
                 <td className="py-2 pr-2 text-slate-600">Maximum P&I Payment</td>
                 <td className="py-2 px-2 text-right font-medium text-slate-400">
-                  —
+
                 </td>
                 <td className="py-2 pl-2 text-right font-medium text-slate-900">
                   {formatCurrency(results.armMaximumMonthlyPI)}
@@ -423,7 +465,7 @@ export function FixedVsARMResult({
                   Maximum Monthly Payment
                 </td>
                 <td className="py-2 px-2 text-right font-medium text-slate-400">
-                  —
+
                 </td>
                 <td className="py-2 pl-2 text-right font-medium text-slate-900">
                   {formatCurrency(results.armMaximumMonthlyPayment)}
@@ -524,6 +566,7 @@ export function RentVsBuyResult({
         <div className="mb-4 flex items-center gap-1.5">
           <Calculator className="h-4 w-4 text-indigo-600" />
           <h3 className="font-serif text-base font-bold text-slate-900">Results</h3>
+          <ResultActions title="Rent vs Buy Results" content={`Rent vs Buy Results\n${JSON.stringify(results, null, 2)}`} />
         </div>
 
         {/* Primary Result Section - Light blue highlight box */}
@@ -556,21 +599,21 @@ export function RentVsBuyResult({
               <tbody className="divide-y divide-slate-100">
                 <tr className="hover:bg-slate-50">
                   <td className="py-1.5 pr-2 text-slate-600">Taxes & Insurance</td>
-                  <td className="py-1.5 px-2 text-right font-medium text-slate-900">—</td>
+                  <td className="py-1.5 px-2 text-right font-medium text-slate-900"> </td>
                   <td className="py-1.5 pl-2 text-right font-medium text-slate-900">
                     {formatCurrency(results.totalTaxesAndInsurance)}
                   </td>
                 </tr>
                 <tr className="hover:bg-slate-50">
                   <td className="py-1.5 pr-2 text-slate-600">Total PMI</td>
-                  <td className="py-1.5 px-2 text-right font-medium text-slate-900">—</td>
+                  <td className="py-1.5 px-2 text-right font-medium text-slate-900"> </td>
                   <td className="py-1.5 pl-2 text-right font-medium text-slate-900">
                     {formatCurrency(results.totalPMI)}
                   </td>
                 </tr>
                 <tr className="hover:bg-slate-50">
                   <td className="py-1.5 pr-2 text-slate-600">Total Maintenance</td>
-                  <td className="py-1.5 px-2 text-right font-medium text-slate-900">—</td>
+                  <td className="py-1.5 px-2 text-right font-medium text-slate-900"> </td>
                   <td className="py-1.5 pl-2 text-right font-medium text-slate-900">
                     {formatCurrency(results.totalMaintenance)}
                   </td>
@@ -614,7 +657,7 @@ export function RentVsBuyResult({
                 </tr>
                 <tr className="hover:bg-slate-50">
                   <td className="py-1.5 pr-2 text-slate-600">Monthly Rent Savings</td>
-                  <td className="py-1.5 px-2 text-right font-medium text-slate-900">—</td>
+                  <td className="py-1.5 px-2 text-right font-medium text-slate-900"> </td>
                   <td className="py-1.5 pl-2 text-right font-medium text-slate-900">
                     {formatCurrency(results.monthlyRentSavings)}
                   </td>
@@ -639,28 +682,28 @@ export function RentVsBuyResult({
               <tbody className="divide-y divide-slate-100">
                 <tr className="hover:bg-slate-50">
                   <td className="py-1.5 pr-2 text-slate-600">Average Annual Tax Deduction</td>
-                  <td className="py-1.5 px-2 text-right font-medium text-slate-900">—</td>
+                  <td className="py-1.5 px-2 text-right font-medium text-slate-900"> </td>
                   <td className="py-1.5 pl-2 text-right font-medium text-slate-900">
                     {formatCurrency(results.averageAnnualTaxDeduction)}
                   </td>
                 </tr>
                 <tr className="hover:bg-slate-50">
                   <td className="py-1.5 pr-2 text-slate-600">Total Tax Deduction</td>
-                  <td className="py-1.5 px-2 text-right font-medium text-slate-900">—</td>
+                  <td className="py-1.5 px-2 text-right font-medium text-slate-900"> </td>
                   <td className="py-1.5 pl-2 text-right font-medium text-slate-900">
                     {formatCurrency(results.totalTaxDeduction)}
                   </td>
                 </tr>
                 <tr className="hover:bg-slate-50">
                   <td className="py-1.5 pr-2 text-slate-600">Average Annual Tax Savings</td>
-                  <td className="py-1.5 px-2 text-right font-medium text-slate-900">—</td>
+                  <td className="py-1.5 px-2 text-right font-medium text-slate-900"> </td>
                   <td className="py-1.5 pl-2 text-right font-medium text-slate-900">
                     {formatCurrency(results.averageAnnualTaxSavings)}
                   </td>
                 </tr>
                 <tr className="hover:bg-slate-50">
                   <td className="py-1.5 pr-2 text-slate-600">Total Tax Savings</td>
-                  <td className="py-1.5 px-2 text-right font-medium text-slate-900">—</td>
+                  <td className="py-1.5 px-2 text-right font-medium text-slate-900"> </td>
                   <td className="py-1.5 pl-2 text-right font-medium text-slate-900">
                     {formatCurrency(results.totalTaxSavings)}
                   </td>
@@ -679,7 +722,7 @@ export function RentVsBuyResult({
           <div className="flex items-center justify-between">
             <span className="text-xs text-slate-600">Breakeven Year</span>
             <span className="text-sm font-semibold text-slate-900">
-              {results.breakevenYear !== null ? results.breakevenYear : "—"}
+              {results.breakevenYear !== null ? results.breakevenYear : " "}
             </span>
           </div>
           <div className="flex items-center justify-between">
@@ -768,7 +811,7 @@ export function IncomeRequirementResult({
 }: IncomeRequirementResultProps) {
   // Determine which DTI is the constraining factor
   const isConstrainedByFrontEnd = results.frontEndRequiredIncome >= results.backEndRequiredIncome;
-  
+
   return (
     <div className={`space-y-4 ${className}`}>
       {/* Single Consolidated Results Card */}
@@ -776,6 +819,7 @@ export function IncomeRequirementResult({
         <div className="mb-4 flex items-center gap-1.5">
           <Calculator className="h-4 w-4 text-indigo-600" />
           <h3 className="font-serif text-base font-bold text-slate-900">Results</h3>
+          <ResultActions title="Income Requirement Results" content={`Income Requirement Results\n${JSON.stringify(results, null, 2)}`} />
         </div>
 
         {/* Primary Result Section - Light blue highlight box */}

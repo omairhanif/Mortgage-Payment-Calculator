@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -56,17 +56,17 @@ export default function BiweeklyPaymentCalculatorArticle() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }}
       />
-      
+
     <main className="min-h-screen bg-white">
       {/* Navigation */}
       <div className="border-b border-slate-200 bg-white">
         <div className="mx-auto max-w-4xl px-6 sm:px-8 py-6">
-          <Link 
-            href="/articles" 
+          <Link
+            href="/blog"
             className="inline-flex items-center text-indigo-600 hover:text-indigo-700 transition-colors group"
           >
             <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
-            Back to Articles
+            Back to Blogs
           </Link>
         </div>
       </div>
@@ -89,23 +89,23 @@ export default function BiweeklyPaymentCalculatorArticle() {
         <h1 className="font-serif text-4xl md:text-5xl font-bold text-slate-900 mb-4">
           Biweekly Payment Calculator: Pay Off Loans Faster
         </h1>
-        
+
         <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
           <time>May 21, 2026</time>
-          <span className="mx-3">â€¢</span>
+          <span className="mx-3"> </span>
           <span>10 min read</span>
         </div>
       </div>
 
       {/* Article Content */}
       <article className="pb-2">
-        <div className="mx-auto max-w-3xl px-6 sm:px-8">
-          
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+
           {/* Introduction */}
           <div className="prose prose-slate prose-lg max-w-none">
-            
+
             <p className="text-xl text-slate-700 leading-relaxed mb-8">
-              <strong>Should you make biweekly or monthly mortgage payments?</strong> This seemingly simple choice can save Canadian homeowners $40,000-$80,000 in interest and shave 3-5 years off a 25-year mortgageâ€”but only if you understand the mechanics and avoid common mistakes.
+              <strong>Should you make biweekly or monthly mortgage payments?</strong> This seemingly simple choice can save Canadian homeowners $40,000-$80,000 in interest and shave 3-5 years off a 25-year mortgage but only if you understand the mechanics and avoid common mistakes.
             </p>
 
             <p className="text-slate-700 leading-relaxed mb-6">
@@ -132,7 +132,7 @@ export default function BiweeklyPaymentCalculatorArticle() {
             <div className="bg-slate-50 border-l-4 border-slate-300 p-6 mb-8 rounded-r-lg">
               <p className="text-slate-900 font-semibold mb-4">Monthly Payment Schedule</p>
               <p className="text-slate-700 mb-4">
-                <strong>$2,400/month Ã— 12 months = $28,800 annually</strong>
+                <strong>$2,400/month Ã  12 months = $28,800 annually</strong>
               </p>
               <p className="text-slate-700 mb-6">
                 Making 12 full monthly payments, following the standard amortization schedule.
@@ -140,7 +140,7 @@ export default function BiweeklyPaymentCalculatorArticle() {
 
               <p className="text-slate-900 font-semibold mb-4">Biweekly Payment Schedule</p>
               <p className="text-slate-700 mb-4">
-                <strong>$1,200 every 2 weeks Ã— 26 payments = $31,200 annually</strong>
+                <strong>$1,200 every 2 weeks Ã  26 payments = $31,200 annually</strong>
               </p>
               <p className="text-slate-700">
                 This is $2,400 more per year (equivalent to one extra monthly payment), which goes directly toward principal reduction.
@@ -156,7 +156,7 @@ export default function BiweeklyPaymentCalculatorArticle() {
             </p>
 
             <p className="text-slate-700 leading-relaxed mb-6">
-              <strong>Key insight:</strong> Making biweekly payments isn't about paying moreâ€”it's about paying more frequently. The extra $2,400 annually represents just 8.3% more in total payments, yet it typically reduces mortgage terms by 15-20% and saves 20-30% in total interest paid.
+              <strong>Key insight:</strong> Making biweekly payments isn't about paying more it's about paying more frequently. The extra $2,400 annually represents just 8.3% more in total payments, yet it typically reduces mortgage terms by 15-20% and saves 20-30% in total interest paid.
             </p>
 
 
@@ -233,12 +233,12 @@ export default function BiweeklyPaymentCalculatorArticle() {
 
             <div className="bg-slate-50 border-l-4 border-slate-300 p-6 mb-6 rounded-r-lg">
               <p className="font-semibold text-slate-900 mb-2">Monthly Payment Strategy</p>
-              <p className="text-slate-700 mb-1">Payment: $2,760/month Ã— 12 = $33,120/year</p>
+              <p className="text-slate-700 mb-1">Payment: $2,760/month Ã  12 = $33,120/year</p>
               <p className="text-slate-700 mb-1">Total interest paid over 25 years: $378,000</p>
               <p className="text-slate-700 mb-4">Mortgage-free date: May 2051</p>
 
               <p className="font-semibold text-slate-900 mb-2 mt-4">Biweekly Payment Strategy</p>
-              <p className="text-slate-700 mb-1">Payment: $1,380 every 2 weeks Ã— 26 = $35,880/year</p>
+              <p className="text-slate-700 mb-1">Payment: $1,380 every 2 weeks Ã  26 = $35,880/year</p>
               <p className="text-slate-700 mb-1">Total interest paid: $314,430</p>
               <p className="text-slate-700 mb-1">Mortgage-free date: September 2047</p>
               <p className="text-slate-900 font-semibold mt-3">ðŸ’° Savings: $63,570 in interest | â±ï¸ Payoff: 3.8 years earlier</p>
@@ -293,7 +293,7 @@ export default function BiweeklyPaymentCalculatorArticle() {
             </p>
 
             <p className="text-slate-700 leading-relaxed mb-6">
-              Contact your lender today to switchâ€”most complete the change within 1-2 billing cycles at little or no cost.
+              Contact your lender today to switch most complete the change within 1-2 billing cycles at little or no cost.
             </p>
 
           </div>
@@ -354,7 +354,7 @@ export default function BiweeklyPaymentCalculatorArticle() {
 
           <div className="space-y-3">
             {faqs.map((faq, index) => (
-              <div 
+              <div
                 key={index}
                 className="border border-slate-200 rounded-lg overflow-hidden bg-white"
               >

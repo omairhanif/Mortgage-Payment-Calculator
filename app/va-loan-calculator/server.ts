@@ -98,7 +98,7 @@ export function getStructuredData() {
           "name": "Can I buy a multi-family property with a VA loan?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes! VA loans can finance properties with up to 4 units, as long as you occupy one unit as your primary residence. This is an excellent wealth-building strategy—you can live in one unit while renting out the others. The same VA loan benefits apply: 0% down payment, no monthly mortgage insurance, competitive rates."
+            "text": "Yes! VA loans can finance properties with up to 4 units, as long as you occupy one unit as your primary residence. This is an excellent wealth-building strategy you can live in one unit while renting out the others. The same VA loan benefits apply: 0% down payment, no monthly mortgage insurance, competitive rates."
           }
         }
       ]

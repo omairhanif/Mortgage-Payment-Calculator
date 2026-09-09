@@ -1,4 +1,5 @@
 import React from "react";
+import { getEffectiveRange } from "@/lib/calculator-validation";
 
 export interface NumberInputProps {
   label: string;
@@ -9,6 +10,7 @@ export interface NumberInputProps {
   step?: number;
   icon?: React.ReactNode;
   helpText?: string;
+  error?: string;
   className?: string;
 }
 
@@ -42,6 +44,7 @@ export interface DualInputFieldProps {
   onDollarChange: (value: number) => void;
   onPercentChange: (value: number) => void;
   helpText?: string;
+  error?: string;
 }
 
 export interface ConditionalFieldProps {
@@ -58,6 +61,7 @@ export function NumberInput({
   step,
   icon,
   helpText,
+  error,
   className,
 }: NumberInputProps) {
   return (
@@ -68,14 +72,15 @@ export function NumberInput({
       </label>
       <input
         type="number"
-        value={value}
-        onChange={(e) => onChange(parseFloat(e.target.value) || 0)}
+        value={Number.isFinite(value) ? value : ""}
+        onChange={(e) => onChange(e.target.value === "" ? Number.NaN : parseFloat(e.target.value))}
         min={min}
         max={max}
         step={step}
-        className="w-full rounded-md border border-slate-200 bg-white px-2.5 py-1.5 text-sm font-medium focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-200"
+        className={`w-full rounded-md border bg-white px-2.5 py-1.5 text-sm font-medium focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-200 ${error ? "border-red-500" : "border-slate-200"}`}
       />
       {helpText && <p className="mt-1 text-xs text-slate-500">{helpText}</p>}
+      {error && <p className="mt-1 text-xs text-red-600">{error}</p>}
     </div>
   );
 }
@@ -91,6 +96,7 @@ export function NumberInputWithBadge({
   step,
   icon,
   helpText,
+  error,
   className,
 }: NumberInputWithBadgeProps) {
   const badgeClasses =
@@ -116,12 +122,12 @@ export function NumberInputWithBadge({
       </div>
       <input
         type="number"
-        value={value}
-        onChange={(e) => onChange(parseFloat(e.target.value) || 0)}
+        value={Number.isFinite(value) ? value : ""}
+        onChange={(e) => onChange(e.target.value === "" ? Number.NaN : parseFloat(e.target.value))}
         min={min}
         max={max}
         step={step}
-        className="w-full rounded-md border border-slate-200 bg-white px-2.5 py-1.5 text-sm font-medium focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-200"
+        className={`w-full rounded-md border bg-white px-2.5 py-1.5 text-sm font-medium focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-200 ${error ? "border-red-500" : "border-slate-200"}`}
       />
       {helpText && (
         <p
@@ -132,6 +138,7 @@ export function NumberInputWithBadge({
           {helpText}
         </p>
       )}
+      {error && <p className="mt-1 text-xs text-red-600">{error}</p>}
     </div>
   );
 }
@@ -214,6 +221,7 @@ export function DualInputField({
   onDollarChange,
   onPercentChange,
   helpText,
+  error,
 }: DualInputFieldProps) {
   return (
     <div>
@@ -246,20 +254,21 @@ export function DualInputField({
       {mode === "dollar" ? (
         <input
           type="number"
-          value={dollarValue}
-          onChange={(e) => onDollarChange(Math.max(0, parseInt(e.target.value) || 0))}
+          value={Number.isFinite(dollarValue) ? dollarValue : ""}
+          onChange={(e) => onDollarChange(e.target.value === "" ? Number.NaN : parseFloat(e.target.value))}
           className="w-full rounded-md border border-slate-200 bg-white px-2.5 py-1.5 text-sm font-medium focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-200"
         />
       ) : (
         <input
           type="number"
-          value={percentValue}
-          onChange={(e) => onPercentChange(Math.max(0, parseFloat(e.target.value) || 0))}
+          value={Number.isFinite(percentValue) ? percentValue : ""}
+          onChange={(e) => onPercentChange(e.target.value === "" ? Number.NaN : parseFloat(e.target.value))}
           className="w-full rounded-md border border-slate-200 bg-white px-2.5 py-1.5 text-sm font-medium focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-200"
           step="0.1"
         />
       )}
       {helpText && <p className="mt-1 text-xs text-slate-500">{helpText}</p>}
+      {error && <p className="mt-1 text-xs text-red-600">{error}</p>}
     </div>
   );
 }
@@ -311,9 +320,10 @@ export interface ConfigInputFieldProps {
   value: any;
   inputs: Record<string, any>;
   onChange: (id: string, value: any) => void;
+  error?: string;
 }
 
-export function ConfigInputField({ input, value, inputs, onChange }: ConfigInputFieldProps) {
+export function ConfigInputField({ input, value, inputs, onChange, error }: ConfigInputFieldProps) {
   // Ensure value is always defined to prevent uncontrolled->controlled warning
   // Fallback order: provided value -> input's defaultValue -> type-appropriate default
   const getSafeValue = () => {
@@ -337,6 +347,7 @@ export function ConfigInputField({ input, value, inputs, onChange }: ConfigInput
   };
   
   const safeValue = getSafeValue();
+  const range = getEffectiveRange(input as any);
   
   // Check conditional visibility
   if (input.condition) {
@@ -356,9 +367,10 @@ export function ConfigInputField({ input, value, inputs, onChange }: ConfigInput
           label={input.label}
           value={safeValue}
           onChange={(val) => onChange(input.id, val)}
-          min={input.min}
-          max={input.max}
+          min={range.min}
+          max={range.max}
           step={input.step}
+          error={error}
         />
       );
 
@@ -450,4 +462,3 @@ export function ConfigInputField({ input, value, inputs, onChange }: ConfigInput
       );
   }
 }
-

@@ -50,7 +50,7 @@ export function getStructuredData() {
           "name": "What is the difference between interest rate and APR?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The interest rate is the cost of borrowing money expressed as a percentage of the loan amount—it determines your monthly principal and interest payment. APR (Annual Percentage Rate) includes the interest rate PLUS other borrowing costs like origination fees, discount points, mortgage insurance, and certain lender fees. APR is always equal to or higher than the interest rate."
+            "text": "The interest rate is the cost of borrowing money expressed as a percentage of the loan amount it determines your monthly principal and interest payment. APR (Annual Percentage Rate) includes the interest rate PLUS other borrowing costs like origination fees, discount points, mortgage insurance, and certain lender fees. APR is always equal to or higher than the interest rate."
           }
         },
         {
@@ -66,7 +66,7 @@ export function getStructuredData() {
           "name": "Is 7% APR high for a mortgage?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Whether 7% APR is high depends on current market conditions. As of 2024, with rates ranging from 6-8%, a 7% APR is moderate. Compare to multiple lenders' offers—if others quote 6.5%, then 7% is high; if others quote 7.5%, it's competitive. Shop at least 3 lenders within 14 days to compare."
+            "text": "Whether 7% APR is high depends on current market conditions. As of 2024, with rates ranging from 6-8%, a 7% APR is moderate. Compare to multiple lenders' offers if others quote 6.5%, then 7% is high; if others quote 7.5%, it's competitive. Shop at least 3 lenders within 14 days to compare."
           }
         },
         {
@@ -74,7 +74,7 @@ export function getStructuredData() {
           "name": "What's the difference between APR and APY?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "APR (Annual Percentage Rate) is used for loans and shows what you'll pay, including interest and fees. APY (Annual Percentage Yield) is used for savings/investments and shows what you'll earn, including compound interest. For mortgages, you'll see APR—not APY."
+            "text": "APR (Annual Percentage Rate) is used for loans and shows what you'll pay, including interest and fees. APY (Annual Percentage Yield) is used for savings/investments and shows what you'll earn, including compound interest. For mortgages, you'll see APR not APY."
           }
         },
         {

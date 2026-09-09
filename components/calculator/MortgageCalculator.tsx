@@ -19,6 +19,7 @@ import {
   type RealAPRInput,
 } from "@/lib/mortgage";
 import { formatCurrency } from "@/lib/utils";
+import { hasValidationErrors, validateCalculatorInputs } from "@/lib/calculator-validation";
 import { getCalculatorConfig, type SubCalculatorConfig, type CalculatorInput as ConfigCalculatorInput, type InputConfig, type ResultConfig } from "@/lib/calculator-configs";
 import {
   Home,
@@ -33,7 +34,7 @@ import {
   Trash2,
   TrendingUp,
 } from "lucide-react";
-import CalculatorResult, { type ResultMetric, ConfigConsolidatedResult, ConfigAmortizationSchedule, FixedVsARMResult, RentVsBuyResult, IncomeRequirementResult } from "./CalculatorResult";
+import CalculatorResult, { type ResultMetric, ConfigConsolidatedResult, ConfigAmortizationSchedule, FixedVsARMResult, RentVsBuyResult, IncomeRequirementResult, ResultActions } from "./CalculatorResult";
 import {
   NumberInput,
   NumberInputWithBadge,
@@ -51,6 +52,34 @@ interface MortgageCalculatorProps {
   forcedSubcalculator?: string; // Force a specific subcalculator (for standalone pages)
 }
 
+function ScenarioNumberInput({
+  label,
+  value,
+  onChange,
+  error,
+  step,
+}: {
+  label: string;
+  value: number;
+  onChange: (value: number) => void;
+  error?: string;
+  step?: number;
+}) {
+  return (
+    <div>
+      <label className="block text-xs text-slate-600 mb-1">{label}</label>
+      <input
+        type="number"
+        value={Number.isFinite(value) ? value : ""}
+        onChange={(e) => onChange(e.target.value === "" ? Number.NaN : parseFloat(e.target.value))}
+        step={step}
+        className={`w-full rounded border px-2 py-1 text-xs ${error ? "border-red-500" : "border-slate-200"}`}
+      />
+      {error && <p className="mt-1 text-xs text-red-600">{error}</p>}
+    </div>
+  );
+}
+
 interface ConfigCalculatorRendererProps {
   config: SubCalculatorConfig;
   onBack: () => void;
@@ -60,7 +89,7 @@ interface ConfigCalculatorRendererProps {
 export default function MortgageCalculator({ category = "mortgage", isHomepage = false, forcedSubcalculator }: MortgageCalculatorProps) {
   const searchParams = forcedSubcalculator ? null : useSearchParams();
   const router = useRouter();
-  
+
   // Get sub-calculators based on category
   const getTabs = () => {
     switch (category) {
@@ -103,13 +132,13 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
   };
 
   const tabs = getTabs();
-  
+
   // Get subcalculator from URL or use forced subcalculator or default to first calculator in list
   // forcedSubcalculator takes precedence (for standalone pages)
   // Homepage doesn't use tab system, category pages do
   const subcalculatorParam = forcedSubcalculator || (isHomepage ? null : (searchParams?.get("subcalculator") || tabs[0].id));
   const activeTab = subcalculatorParam || tabs[0].id;
-  
+
   // Get the base path for the current category
   const getBasePath = () => {
     switch (category) {
@@ -122,7 +151,7 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
       default: return "/";
     }
   };
-  
+
   // Input States
   const [homeValue, setHomeValue] = useState<number>(400000);
   const [downPayment, setDownPayment] = useState<number>(80000); // 20%
@@ -131,17 +160,17 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
   const [interestRate, setInterestRate] = useState<number>(6.5);
   const [loanTermYears, setLoanTermYears] = useState<number>(30);
   const [pmiRate, setPmiRate] = useState<number>(0.7);
-  
+
   // Closing Costs
   const [discountPoints, setDiscountPoints] = useState<number>(0);
   const [originationPoints, setOriginationPoints] = useState<number>(0);
   const [otherClosingCosts, setOtherClosingCosts] = useState<number>(5000);
-  
+
   // Homeownership Expenses
   const [annualPropertyTax, setAnnualPropertyTax] = useState<number>(4800);
   const [annualInsurance, setAnnualInsurance] = useState<number>(1200);
   const [monthlyHOA, setMonthlyHOA] = useState<number>(150);
-  
+
   // UI State
   const [showAmortization, setShowAmortization] = useState<boolean>(false);
   const [dpMode, setDpMode] = useState<"dollar" | "percent">("percent");
@@ -167,32 +196,32 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
   const [smHomeValue, setSmHomeValue] = useState<number>(400000);
   const [smExistingMortgage, setSmExistingMortgage] = useState<number>(0);
   const [smDownPayment, setSmDownPayment] = useState<number>(80000);
-  
+
   // Loan amounts for each scenario (editable by user)
   const [sm1LoanAmount, setSm1LoanAmount] = useState<number>(320000);
   const [sm2LoanAmount, setSm2LoanAmount] = useState<number>(320000);
   const [sm3FirstLoanAmount, setSm3FirstLoanAmount] = useState<number>(320000);
   const [sm3SecondLoanAmount, setSm3SecondLoanAmount] = useState<number>(0);
-  
+
   // Scenario 1: Single loan with PMI
   const [sm1Rate, setSm1Rate] = useState<number>(6.5);
   const [sm1Term, setSm1Term] = useState<number>(30);
   const [sm1Points, setSm1Points] = useState<number>(0);
   const [sm1Closing, setSm1Closing] = useState<number>(3000);
-  
+
   // Scenario 2: 80% LTV, no PMI
   const [sm2Rate, setSm2Rate] = useState<number>(6.5);
   const [sm2Term, setSm2Term] = useState<number>(30);
   const [sm2Points, setSm2Points] = useState<number>(0);
   const [sm2Closing, setSm2Closing] = useState<number>(3000);
-  
+
   // Scenario 3: Piggyback second mortgage
   const [sm3FirstRate, setSm3FirstRate] = useState<number>(6.5);
   const [sm3SecondRate, setSm3SecondRate] = useState<number>(7.5);
   const [sm3Term, setSm3Term] = useState<number>(30);
   const [sm3Points, setSm3Points] = useState<number>(0);
   const [sm3Closing, setSm3Closing] = useState<number>(3500);
-  
+
   const [smResults, setSmResults] = useState<any>(null);
 
   // HELOC Calculator State
@@ -205,13 +234,13 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
   const [helocClosingCosts, setHelocClosingCosts] = useState<number>(2000);
   const [helocFederalTaxRate, setHelocFederalTaxRate] = useState<number>(22);
   const [helocMonthlyIncome, setHelocMonthlyIncome] = useState<number>(8000);
-  
+
   // Dynamic debt list
   const [helocDebts, setHelocDebts] = useState<Array<{name: string, balance: number, monthlyPayment: number, rate: number}>>([
     { name: "Credit Card 1", balance: 5000, monthlyPayment: 150, rate: 18.5 },
     { name: "Credit Card 2", balance: 8000, monthlyPayment: 200, rate: 21.0 },
   ]);
-  
+
   const [helocResults, setHelocResults] = useState<any>(null);
 
   // Refinance Calculator State
@@ -224,7 +253,7 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
   const [refNewTerm, setRefNewTerm] = useState<number>(30);
   const [refNewRate, setRefNewRate] = useState<number>(5.5);
   const [refClosingCosts, setRefClosingCosts] = useState<number>(5000);
-  
+
   const [refResults, setRefResults] = useState<any>(null);
 
   // Real APR Calculator State
@@ -236,6 +265,16 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
   const [aprOriginationFees, setAprOriginationFees] = useState<number>(1);
   const [aprOtherClosingCosts, setAprOtherClosingCosts] = useState<number>(5000);
   const [aprResults, setAprResults] = useState<any>(null);
+  const [inlineValidationErrors, setInlineValidationErrors] = useState<Record<string, string>>({});
+
+  const validateInline = (values: Record<string, any>, fields: Array<{ id: string; type: InputConfig["type"]; min?: number; max?: number }>) => {
+    const errors = validateCalculatorInputs(
+      fields.map((field) => ({ ...field, defaultValue: values[field.id] } as InputConfig)),
+      values,
+    );
+    setInlineValidationErrors(errors);
+    return !hasValidationErrors(errors);
+  };
 
   // Refs for scrolling to results
   const mainResultsRef = useRef<HTMLDivElement>(null);
@@ -250,61 +289,58 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
       const yOffset = -100; // Negative offset for padding from top (100px breathing room)
       const element = ref.current;
       const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      
+
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
   };
 
-  // Handlers for syncing home value, down payment, and loan amount
+  // Keep user-editable homepage inputs independent while editing.
   const handleHomeValueChange = (newHomeValue: number) => {
     setHomeValue(newHomeValue);
-    const newLoanAmount = Math.max(0, newHomeValue - downPayment);
-    setLoanAmount(newLoanAmount);
-    
-    if (newHomeValue > 0) {
-      const calculatedPercent = parseFloat(((downPayment / newHomeValue) * 100).toFixed(2));
-      setDownPaymentPercent(calculatedPercent);
-    } else {
-      setDownPaymentPercent(0);
-    }
   };
 
   const handleDpChange = (val: number) => {
     setDownPayment(val);
-    const newLoanAmount = Math.max(0, homeValue - val);
-    setLoanAmount(newLoanAmount);
-    
-    if (homeValue > 0) {
-      setDownPaymentPercent(parseFloat(((val / homeValue) * 100).toFixed(2)));
-    }
   };
 
   const handleDpPercentChange = (val: number) => {
     setDownPaymentPercent(val);
-    const calculatedDp = Math.round((homeValue * val) / 100);
-    setDownPayment(calculatedDp);
-    const newLoanAmount = Math.max(0, homeValue - calculatedDp);
-    setLoanAmount(newLoanAmount);
+  };
+
+  const handleDpModeChange = (nextMode: "dollar" | "percent") => {
+    if (nextMode === dpMode) return;
+
+    if (!Number.isFinite(homeValue) || homeValue <= 0) {
+      setDpMode(nextMode);
+      return;
+    }
+
+    if (nextMode === "percent") {
+      setDownPaymentPercent(
+        Number.isFinite(downPayment)
+          ? parseFloat(((downPayment / homeValue) * 100).toFixed(3))
+          : Number.NaN,
+      );
+    } else {
+      setDownPayment(
+        Number.isFinite(downPaymentPercent)
+          ? parseFloat(((homeValue * downPaymentPercent) / 100).toFixed(2))
+          : Number.NaN,
+      );
+    }
+
+    setDpMode(nextMode);
   };
 
   const handleLoanAmountChange = (newLoan: number) => {
     setLoanAmount(newLoan);
-    const newDp = Math.max(0, homeValue - newLoan);
-    setDownPayment(newDp);
-    
-    if (homeValue > 0) {
-      const calculatedPercent = parseFloat(((newDp / homeValue) * 100).toFixed(2));
-      setDownPaymentPercent(calculatedPercent);
-    } else {
-      setDownPaymentPercent(0);
-    }
   };
 
   // Auto-sync second mortgage scenario loan amounts when home value or down payment changes
   useEffect(() => {
     const totalNeeded = smHomeValue - smDownPayment;
     const eightyPercentLTV = Math.round(smHomeValue * 0.8);
-    
+
     setSm1LoanAmount(totalNeeded); // Scenario 1: borrow what's needed
     setSm2LoanAmount(eightyPercentLTV); // Scenario 2: 80% LTV only
     setSm3FirstLoanAmount(eightyPercentLTV); // Scenario 3 first: 80%
@@ -313,6 +349,23 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
 
   // Handle Calculate button click - update calcInputs with current input values
   const handleCalculate = (shouldScroll = true) => {
+    if (!validateInline(
+      { homeValue, downPayment, loanAmount, interestRate, loanTermYears, pmiRate, discountPoints, originationPoints, otherClosingCosts, annualPropertyTax, annualInsurance, monthlyHOA },
+      [
+        { id: "homeValue", type: "currency", min: 1_000, max: 100_000_000 },
+        { id: "downPayment", type: "currency", max: 100_000_000 },
+        { id: "loanAmount", type: "currency", min: 1_000, max: 100_000_000 },
+        { id: "interestRate", type: "percent", min: 0.01, max: 20 },
+        { id: "loanTermYears", type: "years", min: 1, max: 50 },
+        { id: "pmiRate", type: "percent", max: 5 },
+        { id: "discountPoints", type: "percent", max: 5 },
+        { id: "originationPoints", type: "percent", max: 5 },
+        { id: "otherClosingCosts", type: "currency", max: 50_000_000 },
+        { id: "annualPropertyTax", type: "currency", max: 1_000_000 },
+        { id: "annualInsurance", type: "currency", max: 1_000_000 },
+        { id: "monthlyHOA", type: "currency", max: 100_000 },
+      ],
+    )) return;
     setCalcInputs({
       homeValue,
       downPayment,
@@ -328,7 +381,7 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
       annualInsurance,
       monthlyHOA,
     });
-    
+
     // Scroll to results after a short delay to ensure results are rendered
     if (shouldScroll) {
       setTimeout(() => {
@@ -339,6 +392,44 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
 
   // Handle Second Mortgage Calculate
   const handleSecondMortgageCalculate = (shouldScroll = true) => {
+    if (!validateInline(
+      { smHomeValue, smDownPayment, smExistingMortgage, sm1LoanAmount, sm2LoanAmount, sm3FirstLoanAmount, sm3SecondLoanAmount, sm1Rate, sm2Rate, sm3FirstRate, sm3SecondRate, sm1Term, sm2Term, sm3Term, sm1Points, sm2Points, sm3Points, sm1Closing, sm2Closing, sm3Closing },
+      [
+        { id: "smHomeValue", type: "currency", min: 1_000, max: 100_000_000 },
+        { id: "smDownPayment", type: "currency", min: 0, max: 100_000_000 },
+        { id: "smExistingMortgage", type: "currency", min: 0, max: 100_000_000 },
+        { id: "sm1LoanAmount", type: "currency", min: 1_000, max: 100_000_000 },
+        { id: "sm2LoanAmount", type: "currency", min: 1_000, max: 100_000_000 },
+        { id: "sm3FirstLoanAmount", type: "currency", min: 1_000, max: 100_000_000 },
+        { id: "sm3SecondLoanAmount", type: "currency", min: 0, max: 100_000_000 },
+        { id: "sm1Rate", type: "percent", min: 0.01, max: 30 },
+        { id: "sm2Rate", type: "percent", min: 0.01, max: 30 },
+        { id: "sm3FirstRate", type: "percent", min: 0.01, max: 30 },
+        { id: "sm3SecondRate", type: "percent", min: 0.01, max: 30 },
+        { id: "sm1Term", type: "years", min: 1, max: 50 },
+        { id: "sm2Term", type: "years", min: 1, max: 50 },
+        { id: "sm3Term", type: "years", min: 1, max: 50 },
+        { id: "sm1Points", type: "percent", min: 0, max: 10 },
+        { id: "sm2Points", type: "percent", min: 0, max: 10 },
+        { id: "sm3Points", type: "percent", min: 0, max: 10 },
+        { id: "sm1Closing", type: "currency", min: 0, max: 1_000_000 },
+        { id: "sm2Closing", type: "currency", min: 0, max: 1_000_000 },
+        { id: "sm3Closing", type: "currency", min: 0, max: 1_000_000 },
+      ],
+    )) return;
+    const secondMortgageErrors: Record<string, string> = {};
+    if (smDownPayment > smHomeValue) secondMortgageErrors.smDownPayment = "Down payment cannot exceed the property value.";
+    if (smExistingMortgage > smHomeValue) secondMortgageErrors.smExistingMortgage = "Existing mortgage cannot exceed home value.";
+    if (sm1LoanAmount > smHomeValue) secondMortgageErrors.sm1LoanAmount = "Loan amount cannot exceed the property value.";
+    if (sm2LoanAmount > smHomeValue) secondMortgageErrors.sm2LoanAmount = "Loan amount cannot exceed the property value.";
+    if (sm3FirstLoanAmount + sm3SecondLoanAmount > smHomeValue) secondMortgageErrors.sm3SecondLoanAmount = "Combined mortgages cannot exceed home value.";
+    if (smExistingMortgage + sm1LoanAmount > smHomeValue) secondMortgageErrors.sm1LoanAmount = "Combined mortgages cannot exceed home value.";
+    if (smExistingMortgage + sm2LoanAmount > smHomeValue) secondMortgageErrors.sm2LoanAmount = "Combined mortgages cannot exceed home value.";
+    if (smExistingMortgage + sm3FirstLoanAmount + sm3SecondLoanAmount > smHomeValue) secondMortgageErrors.sm3SecondLoanAmount = "Combined mortgages cannot exceed home value.";
+    if (hasValidationErrors(secondMortgageErrors)) {
+      setInlineValidationErrors(secondMortgageErrors);
+      return;
+    }
     // Use user-entered loan amounts from state (editable by user)
     const loanAmount1 = sm1LoanAmount;
     const loanAmount2 = sm2LoanAmount;
@@ -376,7 +467,7 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
 
     // Calculate standard scenarios
     const results = calculateSecondMortgage(input);
-    
+
     // For Scenario 3, manually calculate piggyback with two separate loans
     const calculateLoanPayment = (principal: number, rate: number, years: number) => {
       const monthlyRate = rate / 12 / 100;
@@ -392,7 +483,7 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
     const firstLoanPayment = calculateLoanPayment(firstLoan3, sm3FirstRate, sm3Term);
     const secondLoanPayment = calculateLoanPayment(secondLoan3, sm3SecondRate, sm3Term);
     const totalMonthlyPayment3 = firstLoanPayment + secondLoanPayment;
-    
+
     const totalPayments3 = totalMonthlyPayment3 * sm3Term * 12;
     const totalInterest3 = totalPayments3 - (firstLoan3 + secondLoan3);
     const upfrontCosts3 = sm3Closing + ((firstLoan3 + secondLoan3) * (sm3Points / 100));
@@ -418,7 +509,7 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
     results.recommendedScenario = costs[0].scenario;
 
     setSmResults(results);
-    
+
     // Scroll to results after a short delay to ensure results are rendered
     if (shouldScroll) {
       setTimeout(() => {
@@ -444,6 +535,37 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
 
   // Handle HELOC Calculate
   const handleHelocCalculate = (shouldScroll = true) => {
+    if (!validateInline(
+      { helocHomeValue, helocExistingMortgage, helocCreditLimit, helocInterestRate, helocDrawPeriod, helocRepaymentPeriod, helocClosingCosts, helocFederalTaxRate, helocMonthlyIncome },
+      [
+        { id: "helocHomeValue", type: "currency", min: 1_000, max: 100_000_000 },
+        { id: "helocExistingMortgage", type: "currency", max: 100_000_000 },
+        { id: "helocCreditLimit", type: "currency", max: 100_000_000 },
+        { id: "helocInterestRate", type: "percent", min: 0.01, max: 30 },
+        { id: "helocDrawPeriod", type: "years", min: 1, max: 20 },
+        { id: "helocRepaymentPeriod", type: "years", min: 1, max: 30 },
+        { id: "helocClosingCosts", type: "currency", max: 1_000_000 },
+        { id: "helocFederalTaxRate", type: "percent", max: 100 },
+        { id: "helocMonthlyIncome", type: "currency", min: 1, max: 10_000_000 },
+      ],
+    )) return;
+    if (helocExistingMortgage > helocHomeValue) {
+      setInlineValidationErrors({ helocExistingMortgage: "Existing mortgage cannot exceed home value." });
+      return;
+    }
+    if (helocExistingMortgage + helocCreditLimit > helocHomeValue) {
+      setInlineValidationErrors({ helocCreditLimit: "HELOC amount cannot exceed available equity." });
+      return;
+    }
+    if (helocDebts.some((debt) =>
+      !debt.name.trim() ||
+      !Number.isFinite(debt.balance) || debt.balance < 0 || debt.balance > 100_000_000 ||
+      !Number.isFinite(debt.monthlyPayment) || debt.monthlyPayment < 0 || debt.monthlyPayment > 1_000_000 ||
+      !Number.isFinite(debt.rate) || debt.rate < 0 || debt.rate > 100
+    )) {
+      setInlineValidationErrors({ helocDebts: "Enter valid debt balances, payments, and rates." });
+      return;
+    }
     const input: HelocInput = {
       homeValue: helocHomeValue,
       existingMortgageBalance: helocExistingMortgage,
@@ -459,7 +581,7 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
 
     const results = calculateHeloc(input);
     setHelocResults(results);
-    
+
     // Scroll to results after a short delay to ensure results are rendered
     if (shouldScroll) {
       setTimeout(() => {
@@ -470,39 +592,25 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
 
   // Handle Refinance Calculate
   const handleRefinanceCalculate = (shouldScroll = true) => {
-    // Input validation
+    if (!validateInline(
+      { refOriginalLoanAmount, refOriginalTerm, refOriginalRate, refMonthsPaid, refNewRate, refNewTerm, refClosingCosts },
+      [
+        { id: "refOriginalLoanAmount", type: "currency", min: 1_000, max: 100_000_000 },
+        { id: "refOriginalTerm", type: "years", min: 1, max: 50 },
+        { id: "refOriginalRate", type: "percent", min: 0.01, max: 30 },
+        { id: "refMonthsPaid", type: "number", min: 0, max: 600 },
+        { id: "refNewRate", type: "percent", min: 0.01, max: 30 },
+        { id: "refNewTerm", type: "years", min: 1, max: 50 },
+        { id: "refClosingCosts", type: "currency", max: 1_000_000 },
+      ],
+    )) return;
     const maxMonthsPaid = refOriginalTerm * 12;
-    
-    if (refOriginalLoanAmount <= 0) {
-      alert('Original loan amount must be greater than 0');
-      return;
-    }
-    if (refOriginalTerm <= 0) {
-      alert('Original term must be greater than 0');
-      return;
-    }
-    if (refOriginalRate < 0) {
-      alert('Current rate cannot be negative');
-      return;
-    }
-    if (refMonthsPaid < 0) {
-      alert('Months paid cannot be negative');
-      return;
-    }
     if (refMonthsPaid > maxMonthsPaid) {
-      alert(`Months paid cannot exceed ${maxMonthsPaid} months (${refOriginalTerm} years)`);
+      setInlineValidationErrors({ refMonthsPaid: `Months paid cannot exceed ${maxMonthsPaid}.` });
       return;
     }
-    if (refNewRate < 0) {
-      alert('New rate cannot be negative');
-      return;
-    }
-    if (refNewTerm <= 0) {
-      alert('New term must be greater than 0');
-      return;
-    }
-    if (refClosingCosts < 0) {
-      alert('Closing costs cannot be negative');
+    if (refMonthsPaid === maxMonthsPaid) {
+      setInlineValidationErrors({ refMonthsPaid: "New loan amount must be greater than 0." });
       return;
     }
 
@@ -528,7 +636,7 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
     try {
       const results = calculateRefinance(input);
       setRefResults(results);
-      
+
       // Scroll to results after a short delay to ensure results are rendered
       if (shouldScroll) {
         setTimeout(() => {
@@ -542,6 +650,22 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
 
   // Handle Real APR Calculate
   const handleRealAPRCalculate = (shouldScroll = true) => {
+    if (!validateInline(
+      { aprHomePrice, aprDownPayment, aprInterestRate, aprLoanTerm, aprDiscountPoints, aprOriginationFees, aprOtherClosingCosts },
+      [
+        { id: "aprHomePrice", type: "currency", min: 1_000, max: 100_000_000 },
+        { id: "aprDownPayment", type: "currency", max: 100_000_000 },
+        { id: "aprInterestRate", type: "percent", min: 0.01, max: 30 },
+        { id: "aprLoanTerm", type: "years", min: 1, max: 50 },
+        { id: "aprDiscountPoints", type: "percent", max: 5 },
+        { id: "aprOriginationFees", type: "percent", max: 10 },
+        { id: "aprOtherClosingCosts", type: "currency", max: 1_000_000 },
+      ],
+    )) return;
+    if (aprDownPayment > aprHomePrice) {
+      setInlineValidationErrors({ aprDownPayment: "Down payment cannot exceed home price." });
+      return;
+    }
     const input: RealAPRInput = {
       homePrice: aprHomePrice,
       downPayment: aprDownPayment,
@@ -554,7 +678,7 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
 
     const results = calculateRealAPR(input);
     setAprResults(results);
-    
+
     // Scroll to results after a short delay to ensure results are rendered
     if (shouldScroll) {
       setTimeout(() => {
@@ -565,12 +689,11 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
 
 
 
-  // Calculate default results on component mount or tab change
-  // Note: We intentionally call setState handlers within useEffect to display
-  // pre-calculated results immediately when component mounts or tab changes.
+  // Recalculate inline calculators on mount, tab changes, and input changes.
   useEffect(() => {
+    if (getCalculatorConfig(category, activeTab)) return;
     if (isHomepage) {
-      handleCalculate(false); // Don't scroll on auto-load
+      handleCalculate(false);
     } else if (activeTab === "second") {
       handleSecondMortgageCalculate(false);
     } else if (activeTab === "heloc") {
@@ -580,7 +703,68 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
     } else if (activeTab === "real-apr") {
       handleRealAPRCalculate(false);
     }
-  }, [activeTab, isHomepage]);
+  }, [
+    activeTab,
+    isHomepage,
+    category,
+    homeValue,
+    downPayment,
+    downPaymentPercent,
+    loanAmount,
+    interestRate,
+    loanTermYears,
+    pmiRate,
+    discountPoints,
+    originationPoints,
+    otherClosingCosts,
+    annualPropertyTax,
+    annualInsurance,
+    monthlyHOA,
+    smHomeValue,
+    smDownPayment,
+    smExistingMortgage,
+    sm1LoanAmount,
+    sm2LoanAmount,
+    sm3FirstLoanAmount,
+    sm3SecondLoanAmount,
+    sm1Rate,
+    sm1Term,
+    sm1Points,
+    sm1Closing,
+    sm2Rate,
+    sm2Term,
+    sm2Points,
+    sm2Closing,
+    sm3FirstRate,
+    sm3SecondRate,
+    sm3Term,
+    sm3Points,
+    sm3Closing,
+    helocHomeValue,
+    helocExistingMortgage,
+    helocCreditLimit,
+    helocInterestRate,
+    helocDrawPeriod,
+    helocRepaymentPeriod,
+    helocClosingCosts,
+    helocFederalTaxRate,
+    helocMonthlyIncome,
+    helocDebts,
+    refOriginalLoanAmount,
+    refOriginalTerm,
+    refOriginalRate,
+    refMonthsPaid,
+    refNewTerm,
+    refNewRate,
+    refClosingCosts,
+    aprHomePrice,
+    aprDownPayment,
+    aprInterestRate,
+    aprLoanTerm,
+    aprDiscountPoints,
+    aprOriginationFees,
+    aprOtherClosingCosts,
+  ]);
 
   // Calculations using our helper functions (using calcInputs)
   const isPMIRequired = calcInputs.downPaymentPercent < 20 && calcInputs.loanAmount > 0;
@@ -600,8 +784,8 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
   // If there's a config, use the generic ConfigCalculatorRenderer
   if (calculatorConfig) {
     return (
-      <div className="mx-auto max-w-5xl">
-        <ConfigCalculatorRenderer 
+      <div className="w-full mx-auto max-w-4xl">
+        <ConfigCalculatorRenderer
           config={calculatorConfig}
           onBack={() => router.push(getBasePath())}
           isHomepage={isHomepage}
@@ -613,11 +797,16 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
   // Otherwise, use inline implementations below (Second Mortgage, HELOC, Refinance)
 
   return (
-    <div className="mx-auto max-w-5xl">
+    <div className="w-full mx-auto max-w-4xl">
+      {hasValidationErrors(inlineValidationErrors) && (
+        <div role="alert" className="mb-4 rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">
+          {Object.values(inlineValidationErrors)[0]}
+        </div>
+      )}
       {/* Main Calculator Grid */}
       {isHomepage ? (
           <>
-        
+
 
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-12">
             {/* LEFT COLUMN - INPUTS */}
@@ -640,21 +829,26 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                         min={50000}
                         max={1500000}
                         step={10000}
+                        error={inlineValidationErrors.homeValue}
                       />
                       <NumberInput
                         label="Loan Amount"
                         value={loanAmount}
                         onChange={handleLoanAmountChange}
+                        min={1}
+                        max={50000000}
+                        error={inlineValidationErrors.loanAmount}
                       />
                       <div className="md:col-span-2">
                         <DualInputField
                           label="Down Payment"
                           mode={dpMode}
-                          onModeChange={setDpMode}
+                          onModeChange={handleDpModeChange}
                           dollarValue={downPayment}
                           percentValue={downPaymentPercent}
                           onDollarChange={handleDpChange}
                           onPercentChange={handleDpPercentChange}
+                          error={inlineValidationErrors.downPayment || inlineValidationErrors.downPaymentPercent}
                           helpText={
                             dpMode === "dollar"
                               ? `${downPaymentPercent.toFixed(1)}% of home value`
@@ -747,12 +941,6 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                 </div>
               </Card>
 
-              {/* Calculate Button */}
-              <button onClick={() => handleCalculate()} className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-4 rounded-lg font-bold text-base shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
-                <Calculator className="h-4 w-4" />
-                <span>Calculate</span>
-              </button>
-
             </div>
 
             {/* RIGHT COLUMN - RESULTS */}
@@ -763,6 +951,7 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                 <div className="mb-4 flex items-center gap-1.5">
                   <Calculator className="h-4 w-4 text-indigo-600" />
                   <h3 className="font-serif text-base font-bold text-slate-900">Results</h3>
+                  <ResultActions title="Mortgage Payment Calculator Results" content={`Inputs\n${JSON.stringify(calcInputs, null, 2)}\n\nResults\nMonthly Payment: ${formatCurrency(totalMonthlyPayment)}\nTotal Interest: ${formatCurrency(totalInterest)}`} />
                 </div>
 
                 {/* Primary Result - Monthly Payment */}
@@ -882,18 +1071,27 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                       <NumberInput
                         label="Home Value"
                         value={smHomeValue}
-                        onChange={(value) => setSmHomeValue(Math.max(0, value))}
+                        onChange={setSmHomeValue}
+                        min={1000}
+                        max={100000000}
+                        error={inlineValidationErrors.smHomeValue}
                       />
                       <NumberInput
                         label="Down Payment"
                         value={smDownPayment}
-                        onChange={(value) => setSmDownPayment(Math.max(0, value))}
+                        onChange={setSmDownPayment}
+                        min={0}
+                        max={100000000}
+                        error={inlineValidationErrors.smDownPayment}
                       />
                       <div className="md:col-span-2">
                         <NumberInput
                           label="Existing Mortgage Balance"
                           value={smExistingMortgage}
-                          onChange={(value) => setSmExistingMortgage(Math.max(0, value))}
+                          onChange={setSmExistingMortgage}
+                          min={0}
+                          max={100000000}
+                          error={inlineValidationErrors.smExistingMortgage}
                         />
                       </div>
                     </div>
@@ -906,14 +1104,8 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                         <div className="border rounded-lg p-3 bg-slate-50">
                           <h5 className="font-semibold text-xs mb-2">Scenario 1: Single Loan with PMI</h5>
                           <div className="space-y-2">
-                            <div>
-                              <label className="block text-xs text-slate-600 mb-1">Loan Amount</label>
-                              <input type="number" value={sm1LoanAmount} onChange={(e) => setSm1LoanAmount(parseFloat(e.target.value) || 0)} className="w-full rounded border border-slate-200 px-2 py-1 text-xs" />
-                            </div>
-                            <div>
-                              <label className="block text-xs text-slate-600 mb-1">Rate (%)</label>
-                              <input type="number" value={sm1Rate} onChange={(e) => setSm1Rate(parseFloat(e.target.value) || 0)} step="0.1" className="w-full rounded border border-slate-200 px-2 py-1 text-xs" />
-                            </div>
+                            <ScenarioNumberInput label="Loan Amount" value={sm1LoanAmount} onChange={setSm1LoanAmount} error={inlineValidationErrors.sm1LoanAmount} />
+                            <ScenarioNumberInput label="Rate (%)" value={sm1Rate} onChange={setSm1Rate} step={0.1} error={inlineValidationErrors.sm1Rate} />
                             <div>
                               <label className="block text-xs text-slate-600 mb-1">Term</label>
                               <select value={sm1Term} onChange={(e) => setSm1Term(parseInt(e.target.value))} className="w-full rounded border border-slate-200 px-2 py-1 text-xs">
@@ -923,14 +1115,8 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                                 <option value={30}>30 years</option>
                               </select>
                             </div>
-                            <div>
-                              <label className="block text-xs text-slate-600 mb-1">Points</label>
-                              <input type="number" value={sm1Points} onChange={(e) => setSm1Points(parseFloat(e.target.value) || 0)} step="0.1" className="w-full rounded border border-slate-200 px-2 py-1 text-xs" />
-                            </div>
-                            <div>
-                              <label className="block text-xs text-slate-600 mb-1">Closing Costs</label>
-                              <input type="number" value={sm1Closing} onChange={(e) => setSm1Closing(parseFloat(e.target.value) || 0)} className="w-full rounded border border-slate-200 px-2 py-1 text-xs" />
-                            </div>
+                            <ScenarioNumberInput label="Points" value={sm1Points} onChange={setSm1Points} step={0.1} error={inlineValidationErrors.sm1Points} />
+                            <ScenarioNumberInput label="Closing Costs" value={sm1Closing} onChange={setSm1Closing} error={inlineValidationErrors.sm1Closing} />
                           </div>
                         </div>
 
@@ -938,14 +1124,8 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                         <div className="border rounded-lg p-3 bg-slate-50">
                           <h5 className="font-semibold text-xs mb-2">Scenario 2: 80% LTV (No PMI)</h5>
                           <div className="space-y-2">
-                            <div>
-                              <label className="block text-xs text-slate-600 mb-1">Loan Amount</label>
-                              <input type="number" value={sm2LoanAmount} onChange={(e) => setSm2LoanAmount(parseFloat(e.target.value) || 0)} className="w-full rounded border border-slate-200 px-2 py-1 text-xs" />
-                            </div>
-                            <div>
-                              <label className="block text-xs text-slate-600 mb-1">Rate (%)</label>
-                              <input type="number" value={sm2Rate} onChange={(e) => setSm2Rate(parseFloat(e.target.value) || 0)} step="0.1" className="w-full rounded border border-slate-200 px-2 py-1 text-xs" />
-                            </div>
+                            <ScenarioNumberInput label="Loan Amount" value={sm2LoanAmount} onChange={setSm2LoanAmount} error={inlineValidationErrors.sm2LoanAmount} />
+                            <ScenarioNumberInput label="Rate (%)" value={sm2Rate} onChange={setSm2Rate} step={0.1} error={inlineValidationErrors.sm2Rate} />
                             <div>
                               <label className="block text-xs text-slate-600 mb-1">Term</label>
                               <select value={sm2Term} onChange={(e) => setSm2Term(parseInt(e.target.value))} className="w-full rounded border border-slate-200 px-2 py-1 text-xs">
@@ -955,14 +1135,8 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                                 <option value={30}>30 years</option>
                               </select>
                             </div>
-                            <div>
-                              <label className="block text-xs text-slate-600 mb-1">Points</label>
-                              <input type="number" value={sm2Points} onChange={(e) => setSm2Points(parseFloat(e.target.value) || 0)} step="0.1" className="w-full rounded border border-slate-200 px-2 py-1 text-xs" />
-                            </div>
-                            <div>
-                              <label className="block text-xs text-slate-600 mb-1">Closing Costs</label>
-                              <input type="number" value={sm2Closing} onChange={(e) => setSm2Closing(parseFloat(e.target.value) || 0)} className="w-full rounded border border-slate-200 px-2 py-1 text-xs" />
-                            </div>
+                            <ScenarioNumberInput label="Points" value={sm2Points} onChange={setSm2Points} step={0.1} error={inlineValidationErrors.sm2Points} />
+                            <ScenarioNumberInput label="Closing Costs" value={sm2Closing} onChange={setSm2Closing} error={inlineValidationErrors.sm2Closing} />
                           </div>
                         </div>
 
@@ -970,22 +1144,10 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                         <div className="border rounded-lg p-3 bg-slate-50">
                           <h5 className="font-semibold text-xs mb-2">Scenario 3: Piggyback</h5>
                           <div className="space-y-2">
-                            <div>
-                              <label className="block text-xs text-slate-600 mb-1">First Loan (80%)</label>
-                              <input type="number" value={sm3FirstLoanAmount} onChange={(e) => setSm3FirstLoanAmount(parseFloat(e.target.value) || 0)} className="w-full rounded border border-slate-200 px-2 py-1 text-xs" />
-                            </div>
-                            <div>
-                              <label className="block text-xs text-slate-600 mb-1">Second Loan</label>
-                              <input type="number" value={sm3SecondLoanAmount} onChange={(e) => setSm3SecondLoanAmount(parseFloat(e.target.value) || 0)} className="w-full rounded border border-slate-200 px-2 py-1 text-xs" />
-                            </div>
-                            <div>
-                              <label className="block text-xs text-slate-600 mb-1">First Rate (%)</label>
-                              <input type="number" value={sm3FirstRate} onChange={(e) => setSm3FirstRate(parseFloat(e.target.value) || 0)} step="0.1" className="w-full rounded border border-slate-200 px-2 py-1 text-xs" />
-                            </div>
-                            <div>
-                              <label className="block text-xs text-slate-600 mb-1">Second Rate (%)</label>
-                              <input type="number" value={sm3SecondRate} onChange={(e) => setSm3SecondRate(parseFloat(e.target.value) || 0)} step="0.1" className="w-full rounded border border-slate-200 px-2 py-1 text-xs" />
-                            </div>
+                            <ScenarioNumberInput label="First Loan (80%)" value={sm3FirstLoanAmount} onChange={setSm3FirstLoanAmount} error={inlineValidationErrors.sm3FirstLoanAmount} />
+                            <ScenarioNumberInput label="Second Loan" value={sm3SecondLoanAmount} onChange={setSm3SecondLoanAmount} error={inlineValidationErrors.sm3SecondLoanAmount} />
+                            <ScenarioNumberInput label="First Rate (%)" value={sm3FirstRate} onChange={setSm3FirstRate} step={0.1} error={inlineValidationErrors.sm3FirstRate} />
+                            <ScenarioNumberInput label="Second Rate (%)" value={sm3SecondRate} onChange={setSm3SecondRate} step={0.1} error={inlineValidationErrors.sm3SecondRate} />
                             <div>
                               <label className="block text-xs text-slate-600 mb-1">Term</label>
                               <select value={sm3Term} onChange={(e) => setSm3Term(parseInt(e.target.value))} className="w-full rounded border border-slate-200 px-2 py-1 text-xs">
@@ -995,14 +1157,8 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                                 <option value={30}>30 years</option>
                               </select>
                             </div>
-                            <div>
-                              <label className="block text-xs text-slate-600 mb-1">Points</label>
-                              <input type="number" value={sm3Points} onChange={(e) => setSm3Points(parseFloat(e.target.value) || 0)} step="0.1" className="w-full rounded border border-slate-200 px-2 py-1 text-xs" />
-                            </div>
-                            <div>
-                              <label className="block text-xs text-slate-600 mb-1">Closing Costs</label>
-                              <input type="number" value={sm3Closing} onChange={(e) => setSm3Closing(parseFloat(e.target.value) || 0)} className="w-full rounded border border-slate-200 px-2 py-1 text-xs" />
-                            </div>
+                            <ScenarioNumberInput label="Points" value={sm3Points} onChange={setSm3Points} step={0.1} error={inlineValidationErrors.sm3Points} />
+                            <ScenarioNumberInput label="Closing Costs" value={sm3Closing} onChange={setSm3Closing} error={inlineValidationErrors.sm3Closing} />
                           </div>
                         </div>
                       </div>
@@ -1010,30 +1166,27 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                   </div>
                 </Card>
 
-                {/* Calculate Button */}
-                <button onClick={() => handleSecondMortgageCalculate()} className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-4 rounded-lg font-bold text-base shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
-                  <Calculator className="h-4 w-4" />
-                  <span>Calculate</span>
-                </button>
               </div>
 
               {/* RIGHT COLUMN - RESULTS */}
               <div ref={secondMortgageResultsRef} className="lg:col-span-5 space-y-4">
                 {/* Results Display */}
                 {smResults && (
+                  <>
+                  <ResultActions title="Second Mortgage Results" content={`Inputs\nHome Value: ${smHomeValue}\nExisting Mortgage: ${smExistingMortgage}\n\nResults\n${JSON.stringify(smResults, null, 2)}`} />
                   <div className="space-y-4">
                     {[1, 2, 3].map((scenarioNum) => {
-                      const result = scenarioNum === 1 ? smResults.scenario1Result : 
-                                     scenarioNum === 2 ? smResults.scenario2Result : 
+                      const result = scenarioNum === 1 ? smResults.scenario1Result :
+                                     scenarioNum === 2 ? smResults.scenario2Result :
                                      smResults.scenario3Result;
                       const isRecommended = smResults.recommendedScenario === scenarioNum;
                       const scenarioName = scenarioNum === 1 ? "Single Loan with PMI" :
                                           scenarioNum === 2 ? "80% LTV (No PMI)" :
                                           "Piggyback";
-                      
+
                       return (
-                        <div 
-                          key={scenarioNum} 
+                        <div
+                          key={scenarioNum}
                           className={`rounded-lg border p-4 shadow-sm ${isRecommended ? 'border-green-400 bg-green-50' : 'border-slate-200 bg-white'}`}
                         >
                           <div className="flex items-center justify-between mb-3">
@@ -1044,7 +1197,7 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                               </span>
                             )}
                           </div>
-                          
+
                           <div className="space-y-3">
                             <div>
                               <p className="text-xs text-slate-600 mb-1">Monthly Payment</p>
@@ -1052,7 +1205,7 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                                 {formatCurrency(result.monthlyPayment)}/mo
                               </p>
                             </div>
-                            
+
                             <div className="grid grid-cols-2 gap-3 pt-2 border-t border-slate-200">
                               <div>
                                 <p className="text-xs text-slate-600 mb-1">Total Interest</p>
@@ -1067,7 +1220,7 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                                 </p>
                               </div>
                             </div>
-                            
+
                             <div className="pt-2 border-t border-slate-200">
                               <p className="text-xs text-slate-600 mb-1">Total Cost</p>
                               <p className="text-lg font-bold text-slate-900">
@@ -1082,6 +1235,7 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                       );
                     })}
                   </div>
+                  </>
                 )}
               </div>
             </div>
@@ -1101,38 +1255,59 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                       <NumberInput
                         label="Home Value"
                         value={helocHomeValue}
-                        onChange={(value) => setHelocHomeValue(Math.max(0, value))}
+                        onChange={setHelocHomeValue}
+                        min={1000}
+                        max={100000000}
+                        error={inlineValidationErrors.helocHomeValue}
                       />
                       <NumberInput
                         label="Existing Mortgage"
                         value={helocExistingMortgage}
-                        onChange={(value) => setHelocExistingMortgage(Math.max(0, value))}
+                        onChange={setHelocExistingMortgage}
+                        min={0}
+                        max={100000000}
+                        error={inlineValidationErrors.helocExistingMortgage}
                       />
                       <NumberInput
                         label="HELOC Limit"
                         value={helocCreditLimit}
-                        onChange={(value) => setHelocCreditLimit(Math.max(0, value))}
+                        onChange={setHelocCreditLimit}
+                        min={0}
+                        max={100000000}
+                        error={inlineValidationErrors.helocCreditLimit}
                       />
                       <NumberInput
                         label="Interest Rate (%)"
                         value={helocInterestRate}
-                        onChange={(value) => setHelocInterestRate(Math.max(0, value))}
+                        onChange={setHelocInterestRate}
+                        min={0.01}
+                        max={30}
                         step={0.1}
+                        error={inlineValidationErrors.helocInterestRate}
                       />
                       <NumberInput
                         label="Draw Period (years)"
                         value={helocDrawPeriod}
-                        onChange={(value) => setHelocDrawPeriod(Math.max(0, value))}
+                        onChange={setHelocDrawPeriod}
+                        min={1}
+                        max={20}
+                        error={inlineValidationErrors.helocDrawPeriod}
                       />
                       <NumberInput
                         label="Repayment Period (years)"
                         value={helocRepaymentPeriod}
-                        onChange={(value) => setHelocRepaymentPeriod(Math.max(0, value))}
+                        onChange={setHelocRepaymentPeriod}
+                        min={1}
+                        max={30}
+                        error={inlineValidationErrors.helocRepaymentPeriod}
                       />
                       <NumberInput
                         label="Gross Monthly Income"
                         value={helocMonthlyIncome}
-                        onChange={(value) => setHelocMonthlyIncome(Math.max(0, value))}
+                        onChange={setHelocMonthlyIncome}
+                        min={0}
+                        max={1000000}
+                        error={inlineValidationErrors.helocMonthlyIncome}
                       />
                     </div>
 
@@ -1144,7 +1319,7 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                           <Plus className="h-3 w-3" /> Add
                         </button>
                       </div>
-                  
+
                       {/* Column Headings */}
                       <div className="grid grid-cols-5 gap-2 items-center mb-2 pb-2 border-b border-slate-200">
                         <div className="text-xs font-semibold text-slate-700">Debt Name</div>
@@ -1153,7 +1328,7 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                     <div className="text-xs font-semibold text-slate-700">Rate (%)</div>
                     <div className="text-xs font-semibold text-slate-700 text-center">Action</div>
                   </div>
-                  
+
                   <div className="space-y-2">
                     {helocDebts.map((debt, idx) => (
                       <div key={idx} className="grid grid-cols-5 gap-2 items-center">
@@ -1171,17 +1346,14 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                   </div>
                 </Card>
 
-                {/* Calculate Button */}
-                <button onClick={() => handleHelocCalculate()} className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-4 rounded-lg font-bold text-base shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
-                  <Calculator className="h-4 w-4" />
-                  <span>Calculate</span>
-                </button>
               </div>
 
               {/* RIGHT COLUMN - RESULTS */}
               <div ref={helocResultsRef} className="lg:col-span-5 space-y-4">
                 {/* Results Display */}
                 {helocResults && (
+                  <>
+                  <ResultActions title="HELOC Results" content={`Inputs\nHome Value: ${helocHomeValue}\nExisting Mortgage: ${helocExistingMortgage}\nCredit Limit: ${helocCreditLimit}\n\nResults\n${JSON.stringify(helocResults, null, 2)}`} />
                   <div className="space-y-4">
 
                     {/* Consolidated Results Card */}
@@ -1230,14 +1402,15 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                         <div className="flex items-center justify-between">
                           <span className="text-sm text-slate-700">DTI Before HELOC</span>
                           <span className="text-sm font-semibold text-slate-900">
-                            {helocResults.dtiBeforeHeloc !== null 
-                              ? `${helocResults.dtiBeforeHeloc.toFixed(1)}%` 
+                            {helocResults.dtiBeforeHeloc !== null
+                              ? `${helocResults.dtiBeforeHeloc.toFixed(1)}%`
                               : 'N/A'}
                           </span>
                         </div>
                       </div>
                     </div>
                   </div>
+                  </>
                 )}
               </div>
             </div>
@@ -1260,23 +1433,35 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                         <NumberInput
                           label="Original Loan Amount"
                           value={refOriginalLoanAmount}
-                          onChange={(value) => setRefOriginalLoanAmount(Math.max(0, value))}
+                          onChange={setRefOriginalLoanAmount}
+                          min={1000}
+                          max={100000000}
+                          error={inlineValidationErrors.refOriginalLoanAmount}
                         />
                         <NumberInput
                           label="Current Rate (%)"
                           value={refOriginalRate}
-                          onChange={(value) => setRefOriginalRate(Math.max(0, value))}
+                          onChange={setRefOriginalRate}
+                          min={0.01}
+                          max={30}
                           step={0.1}
+                          error={inlineValidationErrors.refOriginalRate}
                         />
                         <NumberInput
                           label="Term (years)"
                           value={refOriginalTerm}
-                          onChange={(value) => setRefOriginalTerm(Math.max(0, value))}
+                          onChange={setRefOriginalTerm}
+                          min={1}
+                          max={50}
+                          error={inlineValidationErrors.refOriginalTerm}
                         />
                         <NumberInput
                           label="Months Paid"
                           value={refMonthsPaid}
-                          onChange={(value) => setRefMonthsPaid(Math.max(0, value))}
+                          onChange={setRefMonthsPaid}
+                          min={0}
+                          max={600}
+                          error={inlineValidationErrors.refMonthsPaid}
                         />
                       </div>
                     </div>
@@ -1288,35 +1473,41 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                         <NumberInput
                           label="New Rate (%)"
                           value={refNewRate}
-                          onChange={(value) => setRefNewRate(Math.max(0, value))}
+                          onChange={setRefNewRate}
+                          min={0.01}
+                          max={30}
                           step={0.1}
+                          error={inlineValidationErrors.refNewRate}
                         />
                         <NumberInput
                           label="New Term (years)"
                           value={refNewTerm}
-                          onChange={(value) => setRefNewTerm(Math.max(0, value))}
+                          onChange={setRefNewTerm}
+                          min={1}
+                          max={50}
+                          error={inlineValidationErrors.refNewTerm}
                         />
                         <NumberInput
                           label="Closing Costs"
                           value={refClosingCosts}
-                          onChange={(value) => setRefClosingCosts(Math.max(0, value))}
+                          onChange={setRefClosingCosts}
+                          min={0}
+                          max={1000000}
+                          error={inlineValidationErrors.refClosingCosts}
                         />
                       </div>
                     </div>
                   </div>
                 </Card>
 
-                {/* Calculate Button */}
-                <button onClick={() => handleRefinanceCalculate()} className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-4 rounded-lg font-bold text-base shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
-                  <Calculator className="h-4 w-4" />
-                  <span>Calculate</span>
-                </button>
               </div>
 
               {/* RIGHT COLUMN - RESULTS */}
               <div ref={refinanceResultsRef} className="lg:col-span-5 space-y-4">
                 {/* Results Display */}
                 {refResults && (
+                  <>
+                  <ResultActions title="Refinance Results" content={`Inputs\nOriginal Loan: ${refOriginalLoanAmount}\nMonths Paid: ${refMonthsPaid}\n\nResults\n${JSON.stringify(refResults, null, 2)}`} />
                   <div className="space-y-4">
 
                     {/* Consolidated Results Card */}
@@ -1370,6 +1561,7 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                       </div>
                     </div>
                   </div>
+                  </>
                 )}
               </div>
             </div>
@@ -1437,11 +1629,6 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                   </div>
                 </div>
 
-                {/* Calculate Button */}
-                <button onClick={() => handleRealAPRCalculate()} className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-4 rounded-lg font-bold text-base shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
-                  <Calculator className="h-4 w-4" />
-                  <span>Calculate</span>
-                </button>
               </div>
 
               {/* RIGHT COLUMN - RESULTS */}
@@ -1449,6 +1636,7 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
 
                 {aprResults && (
                   <>
+                    <ResultActions title="Real APR Results" content={`Inputs\nHome Price: ${aprHomePrice}\nDown Payment: ${aprDownPayment}\n\nResults\n${JSON.stringify(aprResults, null, 2)}`} />
                     {/* APR Comparison Card */}
                     <div className="rounded-lg border border-indigo-200 bg-gradient-to-br from-indigo-50 to-white p-4 shadow-sm">
                       <div className="mb-3 flex items-center gap-1.5">
@@ -1469,7 +1657,7 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                         </div>
                       </div>
                     </div>
-                    
+
                     {/* Cost Breakdown Card */}
                     <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
                       <h3 className="mb-3 font-serif text-base font-bold text-slate-900">Total Finance Charges</h3>
@@ -1541,21 +1729,22 @@ function ConfigCalculatorRenderer({ config, onBack, isHomepage = false }: Config
     });
     return defaults;
   });
-  
+
   const [results, setResults] = useState<any>(null);
+  const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
   const resultsRef = useRef<HTMLDivElement>(null);
-  
+
   // Helper function to scroll to results with proper offset
   const scrollToResults = (ref: React.RefObject<HTMLDivElement | null>) => {
     if (ref.current) {
       const yOffset = -100; // Negative offset for padding from top (100px breathing room)
       const element = ref.current;
       const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      
+
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
   };
-  
+
   // Reinitialize inputs when calculator switches
   useEffect(() => {
     const defaults: Record<string, any> = {};
@@ -1564,16 +1753,26 @@ function ConfigCalculatorRenderer({ config, onBack, isHomepage = false }: Config
     });
     setInputs(defaults);
   }, [config.id, config.inputs]);
-  
+
   const handleInputChange = (inputId: string, value: any) => {
-    setInputs(prev => ({ ...prev, [inputId]: value }));
+    setInputs(prev => {
+      const next = { ...prev, [inputId]: value };
+      setValidationErrors(validateCalculatorInputs(config.inputs, next));
+      return next;
+    });
   };
-  
+
   const handleCalculate = (shouldScroll = true) => {
+    const errors = validateCalculatorInputs(config.inputs, inputs);
+    setValidationErrors(errors);
+    if (hasValidationErrors(errors)) {
+      setResults(null);
+      return;
+    }
     try {
       const calculationResults = config.calculate(inputs);
       setResults(calculationResults);
-      
+
       // Scroll to results after a short delay to ensure results are rendered
       if (shouldScroll) {
         setTimeout(() => {
@@ -1585,25 +1784,16 @@ function ConfigCalculatorRenderer({ config, onBack, isHomepage = false }: Config
       setResults(null);
     }
   };
-  
-  // Calculate results on mount with default values
-  // For FHA calculator, ensure it runs with fully initialized config
+
+  // Recalculate configured calculators whenever an input changes.
   useEffect(() => {
-    if (config.id === 'fha') {
-      // Small delay to ensure all inputs are initialized
-      const timer = setTimeout(() => {
-        handleCalculate(false); // Don't scroll on auto-load
-      }, 0);
-      return () => clearTimeout(timer);
-    } else {
-      handleCalculate(false); // Don't scroll on auto-load
-    }
-  }, [config.id]); // eslint-disable-line react-hooks/exhaustive-deps
-  
+    handleCalculate(false);
+  }, [inputs, config.id]); // eslint-disable-line react-hooks/exhaustive-deps
+
   // Group inputs by section
   const groupedInputs: Array<{id: string; title: string; inputs: InputConfig[]}> = [];
   const seenSections = new Set<string>();
-  
+
   config.inputs.forEach(input => {
     const sectionId = input.section || 'default';
     if (!seenSections.has(sectionId)) {
@@ -1623,7 +1813,7 @@ function ConfigCalculatorRenderer({ config, onBack, isHomepage = false }: Config
   // Format primary result
   const formattedPrimaryResult = primaryResult && results ? {
     label: primaryResult.label,
-    value: primaryResult.format === 'currency' 
+    value: primaryResult.format === 'currency'
       ? formatCurrency(results[primaryResult.id])
       : primaryResult.format === 'percent'
       ? `${results[primaryResult.id]}%`
@@ -1638,7 +1828,7 @@ function ConfigCalculatorRenderer({ config, onBack, isHomepage = false }: Config
     format: result.format as "currency" | "percent" | "date" | "text" | undefined,
     highlight: result.highlight,
   })) : [];
-  
+
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-12">
@@ -1659,12 +1849,13 @@ function ConfigCalculatorRenderer({ config, onBack, isHomepage = false }: Config
                   )}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {section.inputs.map(input => (
-                      <ConfigInputField 
+                      <ConfigInputField
                         key={input.id}
                         input={input}
                         value={inputs[input.id]}
                         inputs={inputs}
                         onChange={handleInputChange}
+                        error={validationErrors[input.id]}
                       />
                     ))}
                   </div>
@@ -1672,15 +1863,7 @@ function ConfigCalculatorRenderer({ config, onBack, isHomepage = false }: Config
               ))}
             </div>
           </Card>
-          
-          {/* Calculate Button */}
-          <button 
-            onClick={() => handleCalculate()} 
-            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-4 rounded-lg font-bold text-base shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
-          >
-            <Calculator className="h-4 w-4" />
-            <span>Calculate</span>
-          </button>
+
         </div>
 
         {/* RIGHT COLUMN - RESULTS */}
@@ -1709,10 +1892,11 @@ function ConfigCalculatorRenderer({ config, onBack, isHomepage = false }: Config
                     primaryResult={formattedPrimaryResult}
                     metrics={metrics}
                     showAd={isHomepage}
+                    inputSummary={Object.entries(inputs).map(([key, value]) => `${key}: ${String(value)}`).join("\n")}
                   />
                 </>
               )}
-              
+
               {/* Amortization Schedule - Within Results Column */}
               {(inputs.showAmortization !== undefined ? inputs.showAmortization : config.showAmortization) && results.amortizationSchedule && results.amortizationSchedule.length > 0 && (
                 <ConfigAmortizationSchedule amortizationSchedule={results.amortizationSchedule} />
@@ -1724,4 +1908,3 @@ function ConfigCalculatorRenderer({ config, onBack, isHomepage = false }: Config
     </div>
   );
 }
-

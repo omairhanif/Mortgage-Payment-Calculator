@@ -6,7 +6,7 @@ import { getStructuredData } from './server';
 
 export default function ContactPage() {
   const structuredData = getStructuredData();
-  
+
   return (
     <>
       <script
@@ -16,7 +16,7 @@ export default function ContactPage() {
     <div>
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-sky-500 via-sky-550 to-sky-600 py-8">
-        <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-12">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           {/* Breadcrumbs */}
           <nav className="flex items-center space-x-2 text-sm text-slate-300 mb-8">
             <Link href="/" className="hover:text-white transition-colors">
@@ -42,7 +42,7 @@ export default function ContactPage() {
       <section className="py-12 bg-white">
         <div className="mx-auto max-w-4xl px-6 sm:px-8 lg:px-12">
           <article className="prose prose-slate max-w-none">
-            
+
             {/* Introduction */}
             <p className="text-lg text-slate-600 leading-relaxed mb-8">
               Thank you for your interest in Mortgage Calculators! Whether you have questions about our tools, need technical support, or want to provide feedback, we'd love to hear from you.
@@ -91,7 +91,7 @@ export default function ContactPage() {
             <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mt-12 mb-6">
               Send Us a Message
             </h2>
-            
+
             <div className="not-prose bg-slate-50 border border-slate-200 rounded-lg p-8 mb-12">
               <form className="space-y-6">
                 {/* Name Field */}

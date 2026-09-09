@@ -58,7 +58,7 @@ export function getStructuredData() {
           "name": "What happens if I pay an extra $200 a month on my mortgage?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Paying an extra $200/month on your mortgage generates substantial savings. On a $300,000 loan at 6% over 30 years (standard payment: $1,799/month), adding $200 extra saves approximately $78,000 in interest and pays off your mortgage 7 years early (in 23 years instead of 30). The extra $200/month totals $2,000/year or $46,000 over the shortened loan period—but you avoid $78,000 in interest, netting $32,000 in pure savings."
+            "text": "Paying an extra $200/month on your mortgage generates substantial savings. On a $300,000 loan at 6% over 30 years (standard payment: $1,799/month), adding $200 extra saves approximately $78,000 in interest and pays off your mortgage 7 years early (in 23 years instead of 30). The extra $200/month totals $2,000/year or $46,000 over the shortened loan period but you avoid $78,000 in interest, netting $32,000 in pure savings."
           }
         },
         {
@@ -74,7 +74,7 @@ export function getStructuredData() {
           "name": "Is it better to pay extra on principal or escrow?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Always pay extra toward principal, not escrow. Extra principal payments reduce your loan balance and save interest. Escrow payments go toward taxes and insurance—overpaying escrow just creates a larger escrow balance that sits with your lender earning no interest. When making extra payments, clearly mark them 'apply to principal' to ensure proper crediting."
+            "text": "Always pay extra toward principal, not escrow. Extra principal payments reduce your loan balance and save interest. Escrow payments go toward taxes and insurance overpaying escrow just creates a larger escrow balance that sits with your lender earning no interest. When making extra payments, clearly mark them 'apply to principal' to ensure proper crediting."
           }
         },
         {
@@ -82,7 +82,7 @@ export function getStructuredData() {
           "name": "Should I make extra mortgage payments or invest?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "This depends on your mortgage rate versus expected investment returns. If your mortgage rate is 3-4% and you can reliably earn 7-10% in investments, investing may build more wealth. If your rate is 6%+ or you prioritize guaranteed savings and debt elimination, extra payments make sense. Consider: your risk tolerance, tax situation, retirement savings status, and whether you have adequate emergency funds. Many choose both—max out retirement accounts first, then apply extra funds to mortgage."
+            "text": "This depends on your mortgage rate versus expected investment returns. If your mortgage rate is 3-4% and you can reliably earn 7-10% in investments, investing may build more wealth. If your rate is 6%+ or you prioritize guaranteed savings and debt elimination, extra payments make sense. Consider: your risk tolerance, tax situation, retirement savings status, and whether you have adequate emergency funds. Many choose both max out retirement accounts first, then apply extra funds to mortgage."
           }
         },
         {
@@ -90,7 +90,7 @@ export function getStructuredData() {
           "name": "When is the best time to make extra mortgage payments?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The earlier you make extra payments, the more you save, as they reduce the principal when interest charges are highest. Early in your loan term, most of your monthly payment goes to interest—extra payments then have maximum impact. That said, extra payments always save money regardless of when you start. Make them whenever you can afford to, ensuring you maintain adequate emergency savings first."
+            "text": "The earlier you make extra payments, the more you save, as they reduce the principal when interest charges are highest. Early in your loan term, most of your monthly payment goes to interest extra payments then have maximum impact. That said, extra payments always save money regardless of when you start. Make them whenever you can afford to, ensuring you maintain adequate emergency savings first."
           }
         }
       ]

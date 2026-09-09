@@ -14,33 +14,33 @@ function IncomeRequirementCalculatorContent() {
   };
 
   const faqs = [
-    { 
-      q: "How much mortgage can I get with $70,000 salary in Canada?", 
+    {
+      q: "How much mortgage can I get with $70,000 salary in Canada?",
       a: "With a $70,000 annual salary in Canada ($5,833/month gross), you can typically qualify for approximately $310,000-340,000 mortgage, assuming minimal other debts. Canadian lenders use Gross Debt Service (GDS) ratio of 32-39% and Total Debt Service (TDS) ratio of 42-44%. With no debts, 32% GDS allows $1,867/month for housing (principal, interest, property taxes, heating). At 5.5% interest over 25 years with $200/month property taxes, this supports roughly $325,000 mortgage with 20% down ($81,250). Factors affecting your actual amount: down payment size, interest rate, property taxes, heating costs, other debts (car, student loans), and credit score. Use an income requirement calculator to model your specific situation with current rates and local costs."
     },
-    { 
-      q: "What income do I need for a $500,000 mortgage?", 
+    {
+      q: "What income do I need for a $500,000 mortgage?",
       a: "To qualify for a $500,000 mortgage, you typically need $120,000-145,000 annual household income, depending on interest rates, debts, and down payment. Here's the breakdown: at 6.5% for 30 years, monthly P&I is $3,160. Add property taxes ($400), insurance ($200), HOA fees ($100) = $3,860 total monthly housing cost. With 28% front-end DTI ratio, you need $13,786/month gross income ($165,430 annually). With 36% back-end ratio and no other debts, you need $10,722/month ($128,660 annually). Most borrowers fall somewhere between based on existing debt levels. In Canada, with TDS ratio of 42-44%, you'd need approximately $120,000-130,000 income assuming minimal other debts."
     },
-    { 
-      q: "What income is needed for a $400,000 house?", 
-      a: "For a $400,000 house, you need approximately $95,000-115,000 annual income, depending on your down payment, debts, and loan terms. With 20% down ($80,000), you're financing $320,000. At 6.5% over 30 years: monthly P&I is $2,022, plus taxes ($350), insurance ($150), totaling approximately $2,522/month. Using the 28/36 rule: 28% front-end DTI requires $9,007/month income ($108,090 annually); 36% back-end DTI with no other debts needs $7,006/month ($84,070 annually). With 10% down, you'd finance $360,000 requiring approximately $110,000-125,000 income. Current interest rates significantly affect these numbers—higher rates require more income, lower rates require less. Run an income calculator with your specific scenario."
+    {
+      q: "What income is needed for a $400,000 house?",
+      a: "For a $400,000 house, you need approximately $95,000-115,000 annual income, depending on your down payment, debts, and loan terms. With 20% down ($80,000), you're financing $320,000. At 6.5% over 30 years: monthly P&I is $2,022, plus taxes ($350), insurance ($150), totaling approximately $2,522/month. Using the 28/36 rule: 28% front-end DTI requires $9,007/month income ($108,090 annually); 36% back-end DTI with no other debts needs $7,006/month ($84,070 annually). With 10% down, you'd finance $360,000 requiring approximately $110,000-125,000 income. Current interest rates significantly affect these numbers higher rates require more income, lower rates require less. Run an income calculator with your specific scenario."
     },
-    { 
-      q: "How much mortgage can I afford with $120,000 salary?", 
+    {
+      q: "How much mortgage can I afford with $120,000 salary?",
       a: "With $120,000 annual salary ($10,000/month gross), you can afford approximately $520,000-600,000 mortgage depending on interest rates, down payment, and existing debts. With no other debts: at 28% housing ratio, you can handle $2,800/month for housing; at 36% total DTI, you can afford $3,600/month. At 6% interest over 30 years: $2,800/month supports $467,000 loan amount (before taxes/insurance); $3,600/month supports $600,000 loan amount. With 20% down, that's $583,750-$750,000 purchase price. However, most borrowers have car payments ($400-600), student loans ($200-400), or credit card debts that reduce mortgage capacity by $100,000-200,000. Canadian lenders might be slightly more conservative using 32-39% GDS ratios. Use a detailed income requirement calculator with all your debts included."
     },
-    { 
-      q: "What is the 28/36 rule for mortgage qualification?", 
-      a: "The 28/36 rule is a debt-to-income (DTI) guideline many lenders use to determine mortgage eligibility. The '28' means your monthly housing expenses (principal, interest, taxes, insurance, HOA fees) shouldn't exceed 28% of your gross monthly income—called the front-end ratio. The '36' means your total monthly debt payments (housing + car loans + student loans + credit cards + other debts) shouldn't exceed 36% of gross income—called the back-end ratio. Example: earning $100,000/year ($8,333/month), you should limit housing to $2,333/month (28%) and total debts to $3,000/month (36%). Modern lending often allows 43-50% back-end DTI for strong borrowers with excellent credit, significant assets, or FHA/VA loans. Canadian lenders use similar concepts with GDS (32-39%) and TDS (42-44%) ratios."
+    {
+      q: "What is the 28/36 rule for mortgage qualification?",
+      a: "The 28/36 rule is a debt-to-income (DTI) guideline many lenders use to determine mortgage eligibility. The '28' means your monthly housing expenses (principal, interest, taxes, insurance, HOA fees) shouldn't exceed 28% of your gross monthly income called the front-end ratio. The '36' means your total monthly debt payments (housing + car loans + student loans + credit cards + other debts) shouldn't exceed 36% of gross income called the back-end ratio. Example: earning $100,000/year ($8,333/month), you should limit housing to $2,333/month (28%) and total debts to $3,000/month (36%). Modern lending often allows 43-50% back-end DTI for strong borrowers with excellent credit, significant assets, or FHA/VA loans. Canadian lenders use similar concepts with GDS (32-39%) and TDS (42-44%) ratios."
     },
-    { 
-      q: "How much house can I afford making $100,000 a year?", 
-      a: "Making $100,000 annually ($8,333/month gross), you can typically afford a $350,000-450,000 house, depending on down payment, interest rates, and debts. With 20% down and no major debts: at 6.5% interest over 30 years, $2,333/month housing budget (28% DTI) supports a $368,000 loan, making your home price $460,000. With higher debts consuming $500-1,000/month, your affordable home price drops to $350,000-400,000. Interest rates dramatically affect affordability: at 7%, you'd afford $400,000-420,000; at 6%, you'd afford $480,000-500,000. Down payment size matters too—with only 5% down, PMI costs $150-300/month reduce your affordable price by $50,000-100,000. Use a comprehensive income requirement calculator factoring in your actual debts, down payment, and current local rates for accurate results."
+    {
+      q: "How much house can I afford making $100,000 a year?",
+      a: "Making $100,000 annually ($8,333/month gross), you can typically afford a $350,000-450,000 house, depending on down payment, interest rates, and debts. With 20% down and no major debts: at 6.5% interest over 30 years, $2,333/month housing budget (28% DTI) supports a $368,000 loan, making your home price $460,000. With higher debts consuming $500-1,000/month, your affordable home price drops to $350,000-400,000. Interest rates dramatically affect affordability: at 7%, you'd afford $400,000-420,000; at 6%, you'd afford $480,000-500,000. Down payment size matters too with only 5% down, PMI costs $150-300/month reduce your affordable price by $50,000-100,000. Use a comprehensive income requirement calculator factoring in your actual debts, down payment, and current local rates for accurate results."
     },
-    { 
-      q: "What salary do I need for a $300,000 mortgage?", 
-      a: "To qualify for a $300,000 mortgage, you typically need $65,000-80,000 annual income ($5,417-6,667/month), depending on interest rates and existing debts. At 6.5% over 30 years: monthly principal and interest is $1,896. Adding property taxes ($300), insurance ($150), and PMI if applicable ($200) totals approximately $2,546/month. Using 28% housing ratio: $2,546 ÷ 0.28 = $9,093/month income needed ($109,116 annually). Using 36% total DTI with $500 other debts: ($2,546 + $500) ÷ 0.36 = $8,461/month needed ($101,533 annually). With no other debts and strong credit (allowing up to 43% DTI), you'd need approximately $70,000 annual income. Canadian lenders using 39% GDS would require around $78,000 income. This assumes conventional financing—FHA loans might allow slightly higher DTI ratios."
+    {
+      q: "What salary do I need for a $300,000 mortgage?",
+      a: "To qualify for a $300,000 mortgage, you typically need $65,000-80,000 annual income ($5,417-6,667/month), depending on interest rates and existing debts. At 6.5% over 30 years: monthly principal and interest is $1,896. Adding property taxes ($300), insurance ($150), and PMI if applicable ($200) totals approximately $2,546/month. Using 28% housing ratio: $2,546 ÷ 0.28 = $9,093/month income needed ($109,116 annually). Using 36% total DTI with $500 other debts: ($2,546 + $500) ÷ 0.36 = $8,461/month needed ($101,533 annually). With no other debts and strong credit (allowing up to 43% DTI), you'd need approximately $70,000 annual income. Canadian lenders using 39% GDS would require around $78,000 income. This assumes conventional financing FHA loans might allow slightly higher DTI ratios."
     }
   ];
 
@@ -61,7 +61,7 @@ function IncomeRequirementCalculatorContent() {
       />
 
       {/* Hero Section */}
-      <div className="mb-8 mx-auto max-w-5xl">
+      <div className="mb-8 w-full mx-auto max-w-4xl">
         <div className="flex items-center gap-3 mb-4">
           <Wallet className="h-8 w-8 text-indigo-600 flex-shrink-0" />
           <h1 className="font-serif text-3xl md:text-4xl font-bold text-indigo-600 leading-tight">
@@ -88,8 +88,8 @@ function IncomeRequirementCalculatorContent() {
 
       {/* How It Works */}
       <div className="mb-16 bg-slate-50 py-12">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-3xl">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="w-full mx-auto max-w-4xl">
             <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-6 text-center">
               How It Works
             </h2>
@@ -211,9 +211,9 @@ function IncomeRequirementCalculatorContent() {
             <strong>Calculation:</strong>
           </p>
           <ul className="space-y-1 text-sm text-slate-600 mb-3">
-            <li>• Front-End Ratio (28%): $8,333 × 0.28 = $2,333 max housing payment</li>
-            <li>• Back-End Ratio (36%): $8,333 × 0.36 = $3,000 max total debt</li>
-            <li>• Available for housing: $3,000 - $600 = $2,400</li>
+            <li>  Front-End Ratio (28%): $8,333 × 0.28 = $2,333 max housing payment</li>
+            <li>  Back-End Ratio (36%): $8,333 × 0.36 = $3,000 max total debt</li>
+            <li>  Available for housing: $3,000 - $600 = $2,400</li>
           </ul>
           <p className="text-slate-700 text-sm font-semibold">
             Maximum qualifying home price: ~$375,000 (with 20% down, 7% rate)
@@ -232,9 +232,9 @@ function IncomeRequirementCalculatorContent() {
             <strong>Calculation:</strong>
           </p>
           <ul className="space-y-1 text-sm text-slate-600 mb-3">
-            <li>• Front-End Ratio (28%): $11,667 × 0.28 = $3,267 max housing</li>
-            <li>• Back-End Ratio (36%): $11,667 × 0.36 = $4,200 max total</li>
-            <li>• Available for housing: $4,200 - $1,100 = $3,100</li>
+            <li>  Front-End Ratio (28%): $11,667 × 0.28 = $3,267 max housing</li>
+            <li>  Back-End Ratio (36%): $11,667 × 0.36 = $4,200 max total</li>
+            <li>  Available for housing: $4,200 - $1,100 = $3,100</li>
           </ul>
           <p className="text-slate-700 text-sm font-semibold">
             Maximum qualifying home price: ~$485,000 (with 20% down, 7% rate)
@@ -253,9 +253,9 @@ function IncomeRequirementCalculatorContent() {
             <strong>Calculation:</strong>
           </p>
           <ul className="space-y-1 text-sm text-slate-600 mb-3">
-            <li>• Front-End Ratio (28%): $10,000 × 0.28 = $2,800 max housing</li>
-            <li>• Back-End Ratio (43% for self-employed): $10,000 × 0.43 = $4,300</li>
-            <li>• Available for housing: $4,300 - $800 = $3,500</li>
+            <li>  Front-End Ratio (28%): $10,000 × 0.28 = $2,800 max housing</li>
+            <li>  Back-End Ratio (43% for self-employed): $10,000 × 0.43 = $4,300</li>
+            <li>  Available for housing: $4,300 - $800 = $3,500</li>
           </ul>
           <p className="text-slate-700 text-sm font-semibold">
             Maximum qualifying home price: ~$545,000 (with 20% down, 7% rate)
@@ -277,24 +277,24 @@ function IncomeRequirementCalculatorContent() {
           <div className="bg-slate-50 rounded-lg p-6">
             <h4 className="font-serif font-bold text-slate-900 mb-3">W-2 Employees Need:</h4>
             <ul className="space-y-2 text-sm text-slate-600">
-              <li>• Recent pay stubs (last 30 days)</li>
-              <li>• W-2 forms (past 2 years)</li>
-              <li>• Federal tax returns (past 2 years)</li>
-              <li>• Employment verification letter</li>
-              <li>• YTD earnings statement</li>
-              <li>• Offer letter if recently changed jobs</li>
+              <li>  Recent pay stubs (last 30 days)</li>
+              <li>  W-2 forms (past 2 years)</li>
+              <li>  Federal tax returns (past 2 years)</li>
+              <li>  Employment verification letter</li>
+              <li>  YTD earnings statement</li>
+              <li>  Offer letter if recently changed jobs</li>
             </ul>
           </div>
 
           <div className="bg-slate-50 rounded-lg p-6">
             <h4 className="font-serif font-bold text-slate-900 mb-3">Self-Employed Need:</h4>
             <ul className="space-y-2 text-sm text-slate-600">
-              <li>• Personal tax returns (2 years with all schedules)</li>
-              <li>• Business tax returns (2 years)</li>
-              <li>• Year-to-date profit & loss statement</li>
-              <li>• Current balance sheet</li>
-              <li>• CPA letter verifying income</li>
-              <li>• Business license or incorporation documents</li>
+              <li>  Personal tax returns (2 years with all schedules)</li>
+              <li>  Business tax returns (2 years)</li>
+              <li>  Year-to-date profit & loss statement</li>
+              <li>  Current balance sheet</li>
+              <li>  CPA letter verifying income</li>
+              <li>  Business license or incorporation documents</li>
             </ul>
           </div>
         </div>
@@ -346,10 +346,10 @@ function IncomeRequirementCalculatorContent() {
             Freelancers, contractors, and gig workers can qualify but face similar requirements to self-employed borrowers. Lenders want to see:
           </p>
           <ul className="space-y-1 text-sm text-slate-600">
-            <li>• Consistent income over 2+ years</li>
-            <li>• 1099 forms from all clients</li>
-            <li>• Tax returns showing net income after business expenses</li>
-            <li>• Evidence that gig work will continue (contracts, client relationships)</li>
+            <li>  Consistent income over 2+ years</li>
+            <li>  1099 forms from all clients</li>
+            <li>  Tax returns showing net income after business expenses</li>
+            <li>  Evidence that gig work will continue (contracts, client relationships)</li>
           </ul>
         </div>
 
@@ -432,8 +432,8 @@ function IncomeRequirementCalculatorContent() {
 
       {/* FAQ Section */}
       <section className="py-12">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-3xl">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="w-full mx-auto max-w-4xl">
             <div className="mb-8 text-center">
               <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-3">
                 Frequently Asked Questions

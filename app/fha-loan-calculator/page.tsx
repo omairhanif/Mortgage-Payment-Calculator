@@ -24,15 +24,15 @@ export default function FHALoanCalculatorPage() {
     },
     {
       q: "What's the minimum credit score for an FHA loan?",
-      a: "The minimum credit score for an FHA loan is technically 500, but practical requirements are higher. With a 580+ credit score, you qualify for the minimum 3.5% down payment. With a 500-579 credit score, you need 10% down. However, many FHA lenders set their own minimum credit score requirements—typically 580-620—even though FHA allows lower scores. Additionally, borrowers with higher credit scores (640+) often receive better interest rates and more lender options. If your credit score is below 580, work on improving it before applying, or be prepared for a larger down payment and potentially higher rates."
+      a: "The minimum credit score for an FHA loan is technically 500, but practical requirements are higher. With a 580+ credit score, you qualify for the minimum 3.5% down payment. With a 500-579 credit score, you need 10% down. However, many FHA lenders set their own minimum credit score requirements typically 580-620 even though FHA allows lower scores. Additionally, borrowers with higher credit scores (640+) often receive better interest rates and more lender options. If your credit score is below 580, work on improving it before applying, or be prepared for a larger down payment and potentially higher rates."
     },
     {
       q: "Can I buy a condo or townhouse with an FHA loan?",
-      a: "Yes, you can buy a condo or townhouse with an FHA loan, but the property must be in an FHA-approved condominium project. The FHA maintains a list of approved condo buildings that meet specific financial and legal requirements. Individual townhouses or single-unit properties don't need project approval—only buildings with shared ownership structures. If you're interested in a condo, verify its FHA approval status before making an offer. Some sellers or HOAs prefer conventional loans due to FHA's stricter property condition requirements and appraisal standards. An FHA loan calculator works the same for condos as for single-family homes—just factor in potentially higher HOA fees."
+      a: "Yes, you can buy a condo or townhouse with an FHA loan, but the property must be in an FHA-approved condominium project. The FHA maintains a list of approved condo buildings that meet specific financial and legal requirements. Individual townhouses or single-unit properties don't need project approval only buildings with shared ownership structures. If you're interested in a condo, verify its FHA approval status before making an offer. Some sellers or HOAs prefer conventional loans due to FHA's stricter property condition requirements and appraisal standards. An FHA loan calculator works the same for condos as for single-family homes just factor in potentially higher HOA fees."
     },
     {
       q: "What is FHA mortgage insurance (MIP) and can I remove it?",
-      a: "FHA mortgage insurance premium (MIP) has two components: an upfront premium of 1.75% of the loan amount (typically financed into the loan) and annual MIP of 0.45%-1.05% divided into monthly payments. For loans with less than 10% down, MIP remains for the life of the loan—you cannot remove it unless you refinance to a conventional loan once you have 20% equity. With 10%+ down payment, MIP drops off after 11 years. This differs from conventional PMI, which automatically cancels at 78% loan-to-value or can be requested at 80% LTV. Use an FHA loan calculator with MIP included to see your true monthly cost."
+      a: "FHA mortgage insurance premium (MIP) has two components: an upfront premium of 1.75% of the loan amount (typically financed into the loan) and annual MIP of 0.45%-1.05% divided into monthly payments. For loans with less than 10% down, MIP remains for the life of the loan you cannot remove it unless you refinance to a conventional loan once you have 20% equity. With 10%+ down payment, MIP drops off after 11 years. This differs from conventional PMI, which automatically cancels at 78% loan-to-value or can be requested at 80% LTV. Use an FHA loan calculator with MIP included to see your true monthly cost."
     },
     {
       q: "Are there FHA loan limits by state or county?",
@@ -40,7 +40,7 @@ export default function FHALoanCalculatorPage() {
     },
     {
       q: "What are FHA closing costs and who pays them?",
-      a: "FHA closing costs typically range from 3-6% of the loan amount and include: loan origination fees (0.5-1%), appraisal ($400-600), credit report ($25-50), title insurance and search (1-2% of purchase price), recording fees ($50-200), upfront MIP (1.75% of loan amount, usually financed), prepaid property taxes and insurance, and lender charges. FHA allows sellers to contribute up to 6% of the purchase price toward buyer closing costs—more generous than conventional loans (typically 3% seller concessions). You can also ask the seller to pay specific closing costs in your offer. Some lenders offer no-closing-cost FHA loans by rolling costs into a higher interest rate."
+      a: "FHA closing costs typically range from 3-6% of the loan amount and include: loan origination fees (0.5-1%), appraisal ($400-600), credit report ($25-50), title insurance and search (1-2% of purchase price), recording fees ($50-200), upfront MIP (1.75% of loan amount, usually financed), prepaid property taxes and insurance, and lender charges. FHA allows sellers to contribute up to 6% of the purchase price toward buyer closing costs more generous than conventional loans (typically 3% seller concessions). You can also ask the seller to pay specific closing costs in your offer. Some lenders offer no-closing-cost FHA loans by rolling costs into a higher interest rate."
     }
   ];
 
@@ -59,10 +59,10 @@ export default function FHALoanCalculatorPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }}
       />
-      <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+      <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
 
         {/* Introduction Section */}
-        <div className="mb-8 mx-auto max-w-5xl">
+        <div className="mb-8 w-full mx-auto max-w-4xl">
           <div className="flex items-center gap-3 mb-4">
             <Home className="h-8 w-8 text-indigo-600 flex-shrink-0" />
             <h1 className="font-serif text-3xl md:text-4xl font-bold text-indigo-600 leading-tight">
@@ -81,8 +81,8 @@ export default function FHALoanCalculatorPage() {
 
       {/* How It Works Section */}
       <section className="py-12 bg-slate-50">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-3xl">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="w-full mx-auto max-w-4xl">
             <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-6 text-center">
               How It Works
             </h2>
@@ -94,7 +94,7 @@ export default function FHALoanCalculatorPage() {
                 Enter your home price, down payment (3.5% minimum with 580+ credit score), interest rate, and loan term. The calculator automatically includes upfront MIP (1.75% of loan amount, typically financed) and annual MIP (0.45%-1.05% depending on loan amount and term), plus property taxes and insurance.
               </p>
               <p>
-                Results show your total monthly payment including MIP, total cost over the loan term, and how MIP affects your payment. Compare FHA to conventional loans to determine which offers better terms for your situation—FHA often works better with smaller down payments despite the MIP cost.
+                Results show your total monthly payment including MIP, total cost over the loan term, and how MIP affects your payment. Compare FHA to conventional loans to determine which offers better terms for your situation FHA often works better with smaller down payments despite the MIP cost.
               </p>
             </div>
           </div>
@@ -103,19 +103,19 @@ export default function FHALoanCalculatorPage() {
 
       {/* Article Section */}
       <section className="py-12 bg-white">
-          <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-            <div className="mx-auto max-w-3xl">
+          <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <div className="w-full mx-auto max-w-4xl">
               <article className="prose prose-slate max-w-none">
                 <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-6">
                   Understanding FHA Loan Calculations: A Complete Guide
                 </h2>
-                
+
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Federal Housing Administration (FHA) loans have helped millions of Americans achieve homeownership by requiring lower down payments and accepting borrowers with less-than-perfect credit. However, FHA loans come with unique costs—particularly mortgage insurance—that significantly affect your monthly payment and long-term expenses. An FHA loan calculator helps you understand these costs before you commit, but only if you understand what it's actually calculating and what the results mean for your specific situation.
+                  Federal Housing Administration (FHA) loans have helped millions of Americans achieve homeownership by requiring lower down payments and accepting borrowers with less-than-perfect credit. However, FHA loans come with unique costs particularly mortgage insurance that significantly affect your monthly payment and long-term expenses. An FHA loan calculator helps you understand these costs before you commit, but only if you understand what it's actually calculating and what the results mean for your specific situation.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Whether you're searching for an FHA loan calculator with closing costs, trying to determine how much you can borrow, or comparing FHA financing to conventional options, understanding how these calculations work ensures you make informed decisions. This calculator provides estimates based on the inputs you provide—your actual qualification and final terms will depend on lender requirements, your complete financial profile, and current market conditions.
+                  Whether you're searching for an FHA loan calculator with closing costs, trying to determine how much you can borrow, or comparing FHA financing to conventional options, understanding how these calculations work ensures you make informed decisions. This calculator provides estimates based on the inputs you provide your actual qualification and final terms will depend on lender requirements, your complete financial profile, and current market conditions.
                 </p>
 
                 <h3 className="font-serif text-xl font-bold text-slate-900 mt-8 mb-4">
@@ -175,11 +175,11 @@ export default function FHALoanCalculatorPage() {
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  These geographic variations explain why location-specific searches are common—the loan limit in your county directly affects how much you can borrow. A home priced at $600,000 might qualify for FHA financing in expensive markets but exceed the limit in standard-cost areas, requiring conventional financing instead. Property taxes and insurance costs also vary substantially by state and county, which is why calculators that let you input your actual local costs provide more accurate estimates than generic tools.
+                  These geographic variations explain why location-specific searches are common the loan limit in your county directly affects how much you can borrow. A home priced at $600,000 might qualify for FHA financing in expensive markets but exceed the limit in standard-cost areas, requiring conventional financing instead. Property taxes and insurance costs also vary substantially by state and county, which is why calculators that let you input your actual local costs provide more accurate estimates than generic tools.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  For multifamily properties (2-4 units), FHA loan limits are higher than single-family limits. An FHA loan calculator multifamily scenario would use these elevated limits—for example, the floor limit for a four-unit property might be around $950,000, with high-cost areas allowing even more. If you're considering purchasing a duplex, triplex, or fourplex to live in one unit and rent the others, understanding these higher limits matters significantly.
+                  For multifamily properties (2-4 units), FHA loan limits are higher than single-family limits. An FHA loan calculator multifamily scenario would use these elevated limits for example, the floor limit for a four-unit property might be around $950,000, with high-cost areas allowing even more. If you're considering purchasing a duplex, triplex, or fourplex to live in one unit and rent the others, understanding these higher limits matters significantly.
                 </p>
 
                 <h3 className="font-serif text-xl font-bold text-slate-900 mt-8 mb-4">
@@ -231,7 +231,7 @@ export default function FHALoanCalculatorPage() {
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  This example assumes specific values for taxes and insurance, which vary dramatically by location. The actual interest rate you receive depends on your credit profile and market conditions. The MIP rate may vary slightly based on exact loan terms. This calculation demonstrates the methodology—your specific numbers will differ based on your situation.
+                  This example assumes specific values for taxes and insurance, which vary dramatically by location. The actual interest rate you receive depends on your credit profile and market conditions. The MIP rate may vary slightly based on exact loan terms. This calculation demonstrates the methodology your specific numbers will differ based on your situation.
                 </p>
 
                 <h3 className="font-serif text-xl font-bold text-slate-900 mt-8 mb-4">
@@ -283,11 +283,11 @@ export default function FHALoanCalculatorPage() {
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  <strong>FHA 203(k) Renovation Loans:</strong> An FHA construction loan, more specifically the FHA 203(k) program, allows you to finance both the purchase price and renovation costs in a single loan. The calculation becomes more complex because you're borrowing based on the property's after-repair value rather than current value. Renovation costs, contractor estimates, and a detailed work plan all factor into the loan amount. Standard FHA calculators don't typically handle these scenarios—specialized 203(k) calculators or lender guidance is necessary.
+                  <strong>FHA 203(k) Renovation Loans:</strong> An FHA construction loan, more specifically the FHA 203(k) program, allows you to finance both the purchase price and renovation costs in a single loan. The calculation becomes more complex because you're borrowing based on the property's after-repair value rather than current value. Renovation costs, contractor estimates, and a detailed work plan all factor into the loan amount. Standard FHA calculators don't typically handle these scenarios specialized 203(k) calculators or lender guidance is necessary.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  <strong>Down Payment Assistance Programs:</strong> Many state and local housing agencies offer down payment assistance grants or low-interest loans to qualified buyers. While some programs, including various first-time homebuyer initiatives, can provide substantial assistance, the availability and amounts vary significantly by location and change over time. If you've heard about programs like a $25,000 first-time home buyer grant application, research current offerings in your specific area—such programs may be available in some jurisdictions but not others, and typically have income limits and other eligibility requirements. These programs can work with FHA financing but add complexity to the calculation.
+                  <strong>Down Payment Assistance Programs:</strong> Many state and local housing agencies offer down payment assistance grants or low-interest loans to qualified buyers. While some programs, including various first-time homebuyer initiatives, can provide substantial assistance, the availability and amounts vary significantly by location and change over time. If you've heard about programs like a $25,000 first-time home buyer grant application, research current offerings in your specific area such programs may be available in some jurisdictions but not others, and typically have income limits and other eligibility requirements. These programs can work with FHA financing but add complexity to the calculation.
                 </p>
 
                 <h3 className="font-serif text-xl font-bold text-slate-900 mt-8 mb-4">
@@ -299,11 +299,11 @@ export default function FHALoanCalculatorPage() {
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Different calculators may use different MIP rate assumptions. Some might assume the minimum 0.45% annual MIP, while others use 0.55% or higher rates. Property tax and insurance estimates vary—some calculators use national averages, others use state or county-specific estimates, and some require you to input your own figures. Closing cost estimates also differ, with some calculators providing detailed breakdowns and others using simplified percentages.
+                  Different calculators may use different MIP rate assumptions. Some might assume the minimum 0.45% annual MIP, while others use 0.55% or higher rates. Property tax and insurance estimates vary some calculators use national averages, others use state or county-specific estimates, and some require you to input your own figures. Closing cost estimates also differ, with some calculators providing detailed breakdowns and others using simplified percentages.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Most importantly, online calculators provide estimates for planning purposes—they cannot account for your specific credit profile, debt situation, or lender-specific pricing adjustments. Only an actual loan application with a lender produces binding terms. Use calculators to understand the range of costs and compare scenarios, but don't rely on them as guaranteed qualification tools.
+                  Most importantly, online calculators provide estimates for planning purposes they cannot account for your specific credit profile, debt situation, or lender-specific pricing adjustments. Only an actual loan application with a lender produces binding terms. Use calculators to understand the range of costs and compare scenarios, but don't rely on them as guaranteed qualification tools.
                 </p>
 
                 <h3 className="font-serif text-xl font-bold text-slate-900 mt-8 mb-4">
@@ -327,18 +327,18 @@ export default function FHALoanCalculatorPage() {
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Compare multiple scenarios—try calculations with 3.5% down versus 10% down to see how that affects monthly MIP and total costs. Calculate the same home price using both FHA and conventional assumptions to determine which actually costs less over time for your situation. Factor in all your existing monthly debts to ensure the payment fits within realistic DTI ratios.
+                  Compare multiple scenarios try calculations with 3.5% down versus 10% down to see how that affects monthly MIP and total costs. Calculate the same home price using both FHA and conventional assumptions to determine which actually costs less over time for your situation. Factor in all your existing monthly debts to ensure the payment fits within realistic DTI ratios.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Remember that FHA loan requirements extend beyond just the numbers. You'll need a property that meets FHA appraisal standards, employment verification, acceptable credit history (even if your score is lower than conventional requirements), and sufficient funds for closing costs and reserves. The calculator tells you if the numbers could work—a lender determines if you actually qualify.
+                  Remember that FHA loan requirements extend beyond just the numbers. You'll need a property that meets FHA appraisal standards, employment verification, acceptable credit history (even if your score is lower than conventional requirements), and sufficient funds for closing costs and reserves. The calculator tells you if the numbers could work a lender determines if you actually qualify.
                 </p>
 
                 <div className="mt-8 pt-6 border-t border-slate-200">
                   <h3 className="font-serif text-xl font-bold text-slate-900 mb-4 text-center">
                     Frequently Asked Questions About FHA Loan Calculations
                   </h3>
-                  
+
                   <div className="space-y-4">
                     <div>
                       <h4 className="font-semibold text-slate-900 mb-2">
@@ -372,7 +372,7 @@ export default function FHALoanCalculatorPage() {
                         Why does my result differ from Zillow or other calculators?
                       </h4>
                       <p className="text-sm text-slate-600 leading-relaxed">
-                        Different calculators use different assumptions for MIP rates, property taxes, insurance costs, and closing costs. Some use national averages while others allow custom inputs. None can provide guaranteed terms—only an actual lender quote with a complete loan application determines your real costs. Use multiple calculators to understand the range, then get lender quotes for accurate pricing.
+                        Different calculators use different assumptions for MIP rates, property taxes, insurance costs, and closing costs. Some use national averages while others allow custom inputs. None can provide guaranteed terms only an actual lender quote with a complete loan application determines your real costs. Use multiple calculators to understand the range, then get lender quotes for accurate pricing.
                       </p>
                     </div>
 
@@ -411,8 +411,8 @@ export default function FHALoanCalculatorPage() {
 
       {/* FAQ Section */}
       <section className="py-12">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-3xl">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="w-full mx-auto max-w-4xl">
             <div className="mb-8 text-center">
               <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-3">
                 Frequently Asked Questions

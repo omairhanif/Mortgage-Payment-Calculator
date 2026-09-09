@@ -20,8 +20,8 @@ export function getStructuredData() {
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Articles",
-            "item": `${baseUrl}/articles`
+            "name": "Blogs",
+            "item": `${baseUrl}/blog`
           },
           {
             "@type": "ListItem",

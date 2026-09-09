@@ -20,8 +20,8 @@ export default function PayingPointsCalculatorPage() {
     "A paying points calculator helps you determine the break-even period and long-term savings from buying down your interest rate."
   ];
   const howItWorks = [
-    "This calculator helps you determine whether paying discount points at closing makes financial sense for your mortgage. Discount points are upfront fees paid to the lender to 'buy down' your interest rate—each point typically costs 1% of the loan amount and reduces your rate by approximately 0.25%.",
-    "Enter your loan amount, interest rates with and without points, the cost of points, and how long you plan to keep the loan. The calculator determines your break-even point—the number of months until your monthly savings from the lower rate equal the upfront cost of the points.",
+    "This calculator helps you determine whether paying discount points at closing makes financial sense for your mortgage. Discount points are upfront fees paid to the lender to 'buy down' your interest rate each point typically costs 1% of the loan amount and reduces your rate by approximately 0.25%.",
+    "Enter your loan amount, interest rates with and without points, the cost of points, and how long you plan to keep the loan. The calculator determines your break-even point the number of months until your monthly savings from the lower rate equal the upfront cost of the points.",
     "Results show your break-even timeline, total interest savings over the loan term, and whether paying points makes sense based on your ownership timeline. Points work best for borrowers planning long-term ownership, while those selling or refinancing within a few years typically shouldn't pay points."
   ];
   const faqs = [
@@ -35,7 +35,7 @@ export default function PayingPointsCalculatorPage() {
     },
     {
       q: "When should I pay discount points?",
-      a: "Pay points when you plan to keep the loan long past the break-even point, typically 7+ years. Points work best for long-term owners in low-rate environments. Avoid points if you might sell, refinance, or pay off the loan within a few years—you won't recoup the upfront cost."
+      a: "Pay points when you plan to keep the loan long past the break-even point, typically 7+ years. Points work best for long-term owners in low-rate environments. Avoid points if you might sell, refinance, or pay off the loan within a few years you won't recoup the upfront cost."
     },
     {
       q: "How much would a borrower pay for 2 discount points on a $150,000 mortgage?",
@@ -51,7 +51,7 @@ export default function PayingPointsCalculatorPage() {
     },
     {
       q: "Is 1 point worth refinancing?",
-      a: "A 1-point rate reduction (1% lower rate, not 1 discount point) is almost always worth refinancing if you plan to keep the loan long enough to break even on closing costs. However, 1 discount point (0.25% rate reduction) may or may not justify refinancing—calculate your break-even timeline and compare to how long you'll keep the new loan."
+      a: "A 1-point rate reduction (1% lower rate, not 1 discount point) is almost always worth refinancing if you plan to keep the loan long enough to break even on closing costs. However, 1 discount point (0.25% rate reduction) may or may not justify refinancing calculate your break-even timeline and compare to how long you'll keep the new loan."
     }
   ];
 
@@ -72,7 +72,7 @@ export default function PayingPointsCalculatorPage() {
       />
 
       {/* Hero Section */}
-      <div className="mx-auto max-w-5xl px-6 pb-12 pt-8 sm:px-8 lg:px-12">
+      <div className="w-full mx-auto max-w-4xl px-4 pb-12 pt-8 sm:px-6 lg:px-8">
         <div className="mb-6 flex items-center gap-3">
           <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-indigo-100 text-indigo-600">
             <Icon className="h-6 w-6" />
@@ -90,13 +90,13 @@ export default function PayingPointsCalculatorPage() {
       </div>
 
       {/* Calculator */}
-      <div className="mx-auto max-w-[1400px] px-6 pb-12 sm:px-8 lg:px-12">
+      <div className="w-full mx-auto max-w-4xl px-4 pb-12 sm:px-6 lg:px-8">
         <MortgageCalculator category="savings" forcedSubcalculator="points" />
       </div>
 
       {/* How It Works */}
       <section className="bg-slate-50 py-12">
-        <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-12">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <h2 className="mb-8 text-center text-2xl font-bold text-slate-900 sm:text-3xl">How It Works</h2>
           <div className="space-y-6 text-base leading-relaxed text-slate-600">
             {howItWorks.map((paragraph, index) => (
@@ -108,12 +108,12 @@ export default function PayingPointsCalculatorPage() {
 
       {/* Educational Article */}
       <section className="py-12">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <article className="prose prose-slate mx-auto max-w-3xl prose-headings:font-serif prose-h2:text-2xl prose-h2:font-bold prose-h2:text-slate-900 prose-p:text-slate-600 prose-p:leading-relaxed">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <article className="prose prose-slate w-full mx-auto max-w-4xl prose-headings:font-serif prose-h2:text-2xl prose-h2:font-bold prose-h2:text-slate-900 prose-p:text-slate-600 prose-p:leading-relaxed">
             <h1 className="text-center">Understanding Mortgage Discount Points: How to Calculate If Paying Points Is Worth It</h1>
 
             <p>
-              Mortgage discount points represent one of the most misunderstood aspects of home financing, yet they can significantly impact your borrowing costs over the loan term. When you're comparing loan offers and see references to a buying points calculator or loan points calculator, you're encountering a fundamental trade-off: pay more money upfront to reduce your interest rate and monthly payment, or keep your cash and accept a higher rate. Understanding when paying points makes sense—and when it doesn't—requires careful calculation and honest assessment of how long you'll keep the loan.
+              Mortgage discount points represent one of the most misunderstood aspects of home financing, yet they can significantly impact your borrowing costs over the loan term. When you're comparing loan offers and see references to a buying points calculator or loan points calculator, you're encountering a fundamental trade-off: pay more money upfront to reduce your interest rate and monthly payment, or keep your cash and accept a higher rate. Understanding when paying points makes sense and when it doesn't requires careful calculation and honest assessment of how long you'll keep the loan.
             </p>
 
             <p>
@@ -131,13 +131,13 @@ export default function PayingPointsCalculatorPage() {
             </p>
 
             <p>
-              It's crucial to distinguish discount points from origination points or lender fees. Discount points specifically reduce your interest rate and are sometimes tax-deductible. Origination points are lender fees for processing your loan and don't reduce your rate—they're simply additional charges. When using a loan points calculator, make sure you're evaluating true discount points that lower your rate, not fees disguised as "points."
+              It's crucial to distinguish discount points from origination points or lender fees. Discount points specifically reduce your interest rate and are sometimes tax-deductible. Origination points are lender fees for processing your loan and don't reduce your rate they're simply additional charges. When using a loan points calculator, make sure you're evaluating true discount points that lower your rate, not fees disguised as "points."
             </p>
 
             <h2>The Break-Even Point: How to Calculate If Paying Points Is Worth It</h2>
 
             <p>
-              The most critical calculation when considering discount points is your break-even timeline—the point at which your cumulative monthly savings equal the upfront cost of the points. This calculation determines whether paying points makes financial sense for your situation.
+              The most critical calculation when considering discount points is your break-even timeline the point at which your cumulative monthly savings equal the upfront cost of the points. This calculation determines whether paying points makes financial sense for your situation.
             </p>
 
             <p>
@@ -213,7 +213,7 @@ export default function PayingPointsCalculatorPage() {
             </p>
 
             <p>
-              <strong>Long-Term Homeownership Plans:</strong> If you're confident you'll keep the property and loan well past the break-even point—typically 7+ years—paying points generates substantial savings. Buyers purchasing their "forever home" or planning to stay in a location for career or family reasons are ideal candidates for paying points.
+              <strong>Long-Term Homeownership Plans:</strong> If you're confident you'll keep the property and loan well past the break-even point typically 7+ years paying points generates substantial savings. Buyers purchasing their "forever home" or planning to stay in a location for career or family reasons are ideal candidates for paying points.
             </p>
 
             <p>
@@ -235,7 +235,7 @@ export default function PayingPointsCalculatorPage() {
             </p>
 
             <p>
-              <strong>Short-Term Ownership or Refinance Likelihood:</strong> If there's any chance you'll sell or refinance within a few years, paying points typically doesn't make sense. Life circumstances change—job relocations, family size changes, divorce, financial windfalls allowing payoff—and points only benefit those who keep the loan long-term.
+              <strong>Short-Term Ownership or Refinance Likelihood:</strong> If there's any chance you'll sell or refinance within a few years, paying points typically doesn't make sense. Life circumstances change job relocations, family size changes, divorce, financial windfalls allowing payoff and points only benefit those who keep the loan long-term.
             </p>
 
             <p>
@@ -292,10 +292,10 @@ export default function PayingPointsCalculatorPage() {
         </div>
       </section>
 
-      
+
       {/* FAQ Section */}
       <section className="py-12 bg-slate-50">
-        <div className="mx-auto max-w-3xl px-6 sm:px-8 lg:px-12">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <h2 className="mb-8 text-2xl font-bold text-slate-900 sm:text-3xl">Frequently Asked Questions</h2>
           <div className="space-y-4">
             {faqs.map((faq, index) => (

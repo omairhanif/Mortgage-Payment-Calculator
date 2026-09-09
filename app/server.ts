@@ -60,7 +60,7 @@ export function getStructuredData() {
           "name": "How does the interest rate affect my payment?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The interest rate directly impacts both your monthly payment and total interest paid over the life of the loan. Higher rates mean higher monthly payments and more total interest. Even small rate changes can significantly affect your payment—a 0.5% difference on a $300,000 loan changes your monthly payment by approximately $90 and total interest by over $30,000."
+            "text": "The interest rate directly impacts both your monthly payment and total interest paid over the life of the loan. Higher rates mean higher monthly payments and more total interest. Even small rate changes can significantly affect your payment a 0.5% difference on a $300,000 loan changes your monthly payment by approximately $90 and total interest by over $30,000."
           }
         },
         {
@@ -84,7 +84,7 @@ export function getStructuredData() {
           "name": "How do property taxes affect my payment?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Property taxes are typically 0.5-2% of your home's value annually, varying significantly by location. Most lenders require you to pay property taxes through an escrow account—1/12 of your annual tax bill is added to your monthly mortgage payment. The lender then pays your tax bill when due. Property taxes can add $200-1,000+ to your monthly payment depending on home value and location."
+            "text": "Property taxes are typically 0.5-2% of your home's value annually, varying significantly by location. Most lenders require you to pay property taxes through an escrow account 1/12 of your annual tax bill is added to your monthly mortgage payment. The lender then pays your tax bill when due. Property taxes can add $200-1,000+ to your monthly payment depending on home value and location."
           }
         }
       ]

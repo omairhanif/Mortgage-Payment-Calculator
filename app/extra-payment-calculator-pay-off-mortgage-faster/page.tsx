@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
@@ -56,17 +56,17 @@ export default function ExtraPaymentCalculatorArticle() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }}
       />
-      
+
     <main className="min-h-screen bg-white">
       {/* Navigation */}
       <div className="border-b border-slate-200 bg-white">
         <div className="mx-auto max-w-4xl px-6 sm:px-8 py-6">
-          <Link 
-            href="/articles" 
+          <Link
+            href="/blog"
             className="inline-flex items-center text-indigo-600 hover:text-indigo-700 transition-colors group"
           >
             <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
-            Back to Articles
+            Back to Blogs
           </Link>
         </div>
       </div>
@@ -89,7 +89,7 @@ export default function ExtraPaymentCalculatorArticle() {
         <h1 className="font-serif text-4xl md:text-5xl font-bold text-slate-900 mb-4">
           Extra Payment Calculator: Pay Off Your Mortgage Faster
         </h1>
-        
+
         <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
           <time>May 10, 2026</time>
           <span className="mx-3">ï¿½</span>
@@ -99,7 +99,7 @@ export default function ExtraPaymentCalculatorArticle() {
 
       {/* Article Content */}
       <article className="pb-2">
-        <div className="mx-auto max-w-3xl px-6 sm:px-8">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="prose prose-slate prose-lg max-w-none">
 
             {/* Introduction */}
@@ -451,7 +451,7 @@ export default function ExtraPaymentCalculatorArticle() {
 
           <div className="space-y-3">
             {faqs.map((faq, index) => (
-              <div 
+              <div
                 key={index}
                 className="border border-slate-200 rounded-lg overflow-hidden bg-white"
               >

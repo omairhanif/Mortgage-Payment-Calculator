@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
@@ -17,7 +17,7 @@ export default function InterestOnlyLoanCalculatorWithExtraPaymentsArticle() {
   const faqs = [
     {
       q: "Can I make extra payments on an interest-only loan?",
-      a: "Yes, you can absolutely make extra principal payments on interest-only loans. These payments go directly to reducing your principal balance and are not charged interest. Most lenders allow unlimited extra payments during the interest-only period without penalties. For example, if your interest-only payment is $1,458 and you pay $1,858, that extra $400 reduces your principal immediately. This flexibility is one advantage of interest-only loansâ€”you're not required to pay principal, but you can pay as much as you want whenever your cash flow allows."
+      a: "Yes, you can absolutely make extra principal payments on interest-only loans. These payments go directly to reducing your principal balance and are not charged interest. Most lenders allow unlimited extra payments during the interest-only period without penalties. For example, if your interest-only payment is $1,458 and you pay $1,858, that extra $400 reduces your principal immediately. This flexibility is one advantage of interest-only loans you're not required to pay principal, but you can pay as much as you want whenever your cash flow allows."
     },
     {
       q: "Do extra payments on interest-only loans save me money?",
@@ -25,11 +25,11 @@ export default function InterestOnlyLoanCalculatorWithExtraPaymentsArticle() {
     },
     {
       q: "How much extra should I pay on my interest-only loan?",
-      a: "Start with what's affordableâ€”even $100-200/month makes a meaningful impact. A good target is 5-10% of what a fully amortized payment would be. For example, if your interest-only payment is $1,500 and a fully amortized payment would be $2,100, aim for $100-300 extra monthly. Many homeowners use the 'split difference' strategy: pay half the difference between interest-only and fully amortized payments. This builds equity while keeping payments lower than a traditional mortgage."
+      a: "Start with what's affordable even $100-200/month makes a meaningful impact. A good target is 5-10% of what a fully amortized payment would be. For example, if your interest-only payment is $1,500 and a fully amortized payment would be $2,100, aim for $100-300 extra monthly. Many homeowners use the 'split difference' strategy: pay half the difference between interest-only and fully amortized payments. This builds equity while keeping payments lower than a traditional mortgage."
     },
     {
       q: "What happens when my interest-only period ends?",
-      a: "When the interest-only period ends (typically 5-10 years), your loan converts to a fully amortizing loan where payments include both principal and interest. This causes 'payment shock'â€”your monthly payment can increase 30-50%. For example, a $350,000 loan at 5% with $1,458 interest-only payments would jump to $2,283/month when fully amortizing over the remaining 23 years. Making extra principal payments during the interest-only period reduces this payment shock by lowering your principal balance before conversion."
+      a: "When the interest-only period ends (typically 5-10 years), your loan converts to a fully amortizing loan where payments include both principal and interest. This causes 'payment shock' your monthly payment can increase 30-50%. For example, a $350,000 loan at 5% with $1,458 interest-only payments would jump to $2,283/month when fully amortizing over the remaining 23 years. Making extra principal payments during the interest-only period reduces this payment shock by lowering your principal balance before conversion."
     },
     {
       q: "Can I refinance my interest-only loan before it adjusts?",
@@ -37,7 +37,7 @@ export default function InterestOnlyLoanCalculatorWithExtraPaymentsArticle() {
     },
     {
       q: "Are interest-only loans with extra payments better than traditional mortgages?",
-      a: "It depends on your situation. Interest-only loans with extra payments offer flexibilityâ€”make minimum payments during lean months, extra payments during flush months. They're ideal for: commission-based income, bonus-heavy compensation, seasonal businesses, or those expecting significant future income increases. Traditional mortgages provide forced savings through required principal payments and psychological simplicity. If you have the discipline to consistently make extra payments on an interest-only loan, you get flexibility. If you need forced savings, traditional mortgages work better."
+      a: "It depends on your situation. Interest-only loans with extra payments offer flexibility make minimum payments during lean months, extra payments during flush months. They're ideal for: commission-based income, bonus-heavy compensation, seasonal businesses, or those expecting significant future income increases. Traditional mortgages provide forced savings through required principal payments and psychological simplicity. If you have the discipline to consistently make extra payments on an interest-only loan, you get flexibility. If you need forced savings, traditional mortgages work better."
     }
   ];
 
@@ -62,11 +62,11 @@ export default function InterestOnlyLoanCalculatorWithExtraPaymentsArticle() {
       <div className="border-b border-slate-200 bg-white">
         <div className="mx-auto max-w-4xl px-6 sm:px-8 py-6">
           <Link 
-            href="/articles" 
+            href="/blog" 
             className="inline-flex items-center text-indigo-600 hover:text-indigo-700 transition-colors group"
           >
             <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
-            Back to Articles
+            Back to Blogs
           </Link>
         </div>
       </div>
@@ -92,23 +92,23 @@ export default function InterestOnlyLoanCalculatorWithExtraPaymentsArticle() {
         
         <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
           <time>May 14, 2026</time>
-          <span className="mx-3">â€¢</span>
+          <span className="mx-3"> </span>
           <span>12 min read</span>
         </div>
       </div>
 
       {/* Article Content */}
       <article className="pb-2">
-        <div className="mx-auto max-w-3xl px-6 sm:px-8">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="prose prose-slate prose-lg max-w-none">
 
             {/* Introduction */}
             <section className="mb-12">
               <p className="text-xl text-slate-700 leading-relaxed mb-6">
-                Jennifer, a real estate investor in Mississauga, Ontario, purchased a $680,000 rental property in 2019 using an interest-only HELOC at 6.2% for 10 years. Like many borrowers, she initially assumed "interest-only" meant she couldn't reduce the principal balance. A conversation with her mortgage broker in 2020 changed everything: she discovered she could make extra principal payments without penalty. Starting with $400 per month extra, Jennifer has built $19,200 in principal equity over four yearsâ€”turning what seemed like a risky interest-only loan into an equity-building investment tool.
+                Jennifer, a real estate investor in Mississauga, Ontario, purchased a $680,000 rental property in 2019 using an interest-only HELOC at 6.2% for 10 years. Like many borrowers, she initially assumed "interest-only" meant she couldn't reduce the principal balance. A conversation with her mortgage broker in 2020 changed everything: she discovered she could make extra principal payments without penalty. Starting with $400 per month extra, Jennifer has built $19,200 in principal equity over four years turning what seemed like a risky interest-only loan into an equity-building investment tool.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                The question "Can you pay extra on an interest-only mortgage?" surprises many borrowers. The answer is yesâ€”and understanding how to use an <strong>interest-only loan calculator with extra payments</strong> reveals the powerful impact of strategic principal reduction. This comprehensive guide shows you exactly how these calculators work, how to calculate interest-only payments, and most importantly, how extra payments can save tens of thousands in interest while reducing balloon payment risk.
+                The question "Can you pay extra on an interest-only mortgage?" surprises many borrowers. The answer is yes and understanding how to use an <strong>interest-only loan calculator with extra payments</strong> reveals the powerful impact of strategic principal reduction. This comprehensive guide shows you exactly how these calculators work, how to calculate interest-only payments, and most importantly, how extra payments can save tens of thousands in interest while reducing balloon payment risk.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
                 Whether you're managing an <strong>interest-only mortgage calculator with extra payments</strong> scenario, modeling an <strong>interest-only HELOC calculator with extra payments</strong> strategy, or simply trying to understand how much you'll pay in interest-only payments (like the common question about a Â£200,000 mortgage), this article provides real calculations, verified examples, and actionable strategies from actual borrowers who've successfully navigated interest-only loans.
@@ -122,7 +122,7 @@ export default function InterestOnlyLoanCalculatorWithExtraPaymentsArticle() {
             </h2>
 
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              An <strong>interest-only payment calculator</strong> is a specialized financial tool that models loans where your required monthly payment covers only the interest chargesâ€”none of your payment reduces the principal balance. What distinguishes an interest-only calculator <em>with extra payments</em> is its ability to show what happens when you voluntarily add principal payments on top of your required interest-only payment.
+              An <strong>interest-only payment calculator</strong> is a specialized financial tool that models loans where your required monthly payment covers only the interest charges none of your payment reduces the principal balance. What distinguishes an interest-only calculator <em>with extra payments</em> is its ability to show what happens when you voluntarily add principal payments on top of your required interest-only payment.
             </p>
 
             <h3 className="font-serif text-2xl font-bold text-slate-900 mb-4 mt-8">
@@ -140,7 +140,7 @@ export default function InterestOnlyLoanCalculatorWithExtraPaymentsArticle() {
                 <li>âœ“ Assumes standard 30-year amortization</li>
                 <li>âœ“ Provides monthly payment and balloon amount instantly</li>
                 <li>âœ“ Best for: Quick "what-if" scenarios</li>
-                <li>âœ— Limitations: Can't model extra payments</li>
+                <li>âœ  Limitations: Can't model extra payments</li>
               </ul>
             </div>
 
@@ -166,7 +166,7 @@ export default function InterestOnlyLoanCalculatorWithExtraPaymentsArticle() {
                 <li><strong>Loan Amount:</strong> $250,000 at 8.0%</li>
                 <li><strong>Interest-Only Payment:</strong> $1,667/month</li>
                 <li><strong>After 5 years:</strong> Paid $100,020 in interest</li>
-                <li><strong>Balloon Due:</strong> $250,000â€”full amount</li>
+                <li><strong>Balloon Due:</strong> $250,000 full amount</li>
                 <li><strong>Equity Built:</strong> $0</li>
               </ul>
             </div>
@@ -207,7 +207,7 @@ export default function InterestOnlyLoanCalculatorWithExtraPaymentsArticle() {
             </h3>
             
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              Understanding the mechanics of a <strong>balloon mortgage calculator with amortization</strong> helps you grasp why these loans work differently. Here's the key concept: your monthly payments are calculated as if you're paying off the loan over 15, 20, or 30 years, but the entire remaining balance comes due much earlierâ€”typically in 3, 5, 7, or 10 years.
+              Understanding the mechanics of a <strong>balloon mortgage calculator with amortization</strong> helps you grasp why these loans work differently. Here's the key concept: your monthly payments are calculated as if you're paying off the loan over 15, 20, or 30 years, but the entire remaining balance comes due much earlier typically in 3, 5, 7, or 10 years.
             </p>
 
             <div className="bg-slate-50 border-l-4 border-slate-300 p-6 my-8 rounded-r-lg">
@@ -225,7 +225,7 @@ export default function InterestOnlyLoanCalculatorWithExtraPaymentsArticle() {
             </div>
 
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              The calculator determines your monthly payment using the standard mortgage payment formula, but then calculates the remaining principal balance after your balloon term expires. This is where many borrowers get surprisedâ€”after seven years of payments, you still owe 93.6% of the original loan amount.
+              The calculator determines your monthly payment using the standard mortgage payment formula, but then calculates the remaining principal balance after your balloon term expires. This is where many borrowers get surprised after seven years of payments, you still owe 93.6% of the original loan amount.
             </p>
 
             <h3 className="font-serif text-2xl font-bold text-slate-900 mb-4 mt-8">
@@ -242,7 +242,7 @@ export default function InterestOnlyLoanCalculatorWithExtraPaymentsArticle() {
                 <li><strong>Loan Amount:</strong> Typically $150,000 to $500,000 for residential; higher for commercial properties</li>
                 <li><strong>Interest Rate:</strong> Current balloon mortgage rates range from 6.5% to 8.5% (as of April 2026), usually 0.25%-0.75% higher than conventional rates</li>
                 <li><strong>Amortization Period:</strong> Most commonly 30 years, but can be 15, 20, or 25 years depending on your needs</li>
-                <li><strong>Balloon Term:</strong> When the entire balance comes dueâ€”typically 3, 5, 7, or 10 years</li>
+                <li><strong>Balloon Term:</strong> When the entire balance comes due typically 3, 5, 7, or 10 years</li>
                 <li><strong>Extra Payments:</strong> Optional additional principal payments that reduce your balloon amount</li>
               </ul>
             </div>
@@ -296,7 +296,7 @@ export default function InterestOnlyLoanCalculatorWithExtraPaymentsArticle() {
                   How to calculate interest-only payment?
                 </h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Formula: Monthly Interest Payment = (Principal Balance Ã— Annual Interest Rate) Ã· 12. Example: $500,000 at 6.5% = ($500,000 Ã— 0.065) Ã· 12 = $2,708.33/month. This simple calculation shows your required minimum payment.
+                  Formula: Monthly Interest Payment = (Principal Balance Ã  Annual Interest Rate) Ã· 12. Example: $500,000 at 6.5% = ($500,000 Ã  0.065) Ã· 12 = $2,708.33/month. This simple calculation shows your required minimum payment.
                 </p>
               </div>
 
@@ -323,7 +323,7 @@ export default function InterestOnlyLoanCalculatorWithExtraPaymentsArticle() {
                   How to calculate interest saved by making extra payments?
                 </h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Simple method: Interest Saved â‰ˆ Extra Payment Ã— Interest Rate Ã— Remaining Years. Example: $500 extra at 6% for 8 years = $500 Ã— 0.06 Ã— 8 = $240 saved per payment, or $2,880 annually. Use a calculator for precise month-by-month tracking.
+                  Simple method: Interest Saved â‰ˆ Extra Payment Ã  Interest Rate Ã  Remaining Years. Example: $500 extra at 6% for 8 years = $500 Ã  0.06 Ã  8 = $240 saved per payment, or $2,880 annually. Use a calculator for precise month-by-month tracking.
                 </p>
               </div>
 
@@ -358,7 +358,7 @@ export default function InterestOnlyLoanCalculatorWithExtraPaymentsArticle() {
               The recurring theme throughout this guide is empowerment: yes, you can make extra payments on interest-only mortgages, and no, you don't pay interest on those extra payments. An <strong>interest-only loan calculator with extra payments</strong> transforms abstract concepts into concrete numbers, helping you visualize exactly how strategic principal reduction impacts your financial future.
             </p>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              Even modest extra paymentsâ€”$200 to $400 monthlyâ€”significantly reduce balloon payment risk while building equity. The flexibility of interest-only loans means you can adjust or pause extra payments during cash flow challenges, then resume when finances improve. Use the calculator, start with a comfortable amount, and watch your principal balance decrease month after month.
+              Even modest extra payments $200 to $400 monthly significantly reduce balloon payment risk while building equity. The flexibility of interest-only loans means you can adjust or pause extra payments during cash flow challenges, then resume when finances improve. Use the calculator, start with a comfortable amount, and watch your principal balance decrease month after month.
             </p>
           </section>
 

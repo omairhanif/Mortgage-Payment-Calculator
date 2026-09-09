@@ -17,27 +17,27 @@ export default function MortgageInterestTaxDeductionPage() {
   const faqs = [
     {
       q: "Why isn't mortgage interest tax-deductible in Canada?",
-      a: "Canadian tax law follows the 'income use' principle—interest is only deductible if borrowed money is used to earn income. Your primary residence is personal use property that doesn't generate income, so mortgage interest isn't deductible. This differs fundamentally from the U.S., where mortgage interest is deductible as an itemized personal deduction (not tied to income production). The rationale: the government doesn't subsidize personal consumption expenses like housing, food, or vehicles. However, when you use borrowed money for income-earning purposes (rental property, business, investments), the interest becomes a legitimate business expense. This creates a clear line: personal home = no deduction, investment property = full deduction."
+      a: "Canadian tax law follows the 'income use' principle interest is only deductible if borrowed money is used to earn income. Your primary residence is personal use property that doesn't generate income, so mortgage interest isn't deductible. This differs fundamentally from the U.S., where mortgage interest is deductible as an itemized personal deduction (not tied to income production). The rationale: the government doesn't subsidize personal consumption expenses like housing, food, or vehicles. However, when you use borrowed money for income-earning purposes (rental property, business, investments), the interest becomes a legitimate business expense. This creates a clear line: personal home = no deduction, investment property = full deduction."
     },
     {
       q: "How much can I save if I have a rental property?",
-      a: "Rental property mortgage interest is 100% tax-deductible, creating significant savings. Example: $400,000 rental property mortgage at 5.5% = ~$22,000 annual interest. If you're in the 43% combined federal/provincial tax bracket (Ontario $200,000+ income), deducting $22,000 in interest saves $9,460 in taxes annually. Over 25 years, that's $236,500 in tax savings (present value ~$120,000-140,000). Additional deductible expenses: property taxes ($4,000), insurance ($1,500), maintenance ($2,500), property management (10% of rent), utilities if you pay them. Total deductions might reach $35,000-40,000 annually, saving $15,000-17,000 in taxes yearly. Keep detailed records: bank statements, receipts, rental agreements. CRA audits rental properties frequently—documentation is critical."
+      a: "Rental property mortgage interest is 100% tax-deductible, creating significant savings. Example: $400,000 rental property mortgage at 5.5% = ~$22,000 annual interest. If you're in the 43% combined federal/provincial tax bracket (Ontario $200,000+ income), deducting $22,000 in interest saves $9,460 in taxes annually. Over 25 years, that's $236,500 in tax savings (present value ~$120,000-140,000). Additional deductible expenses: property taxes ($4,000), insurance ($1,500), maintenance ($2,500), property management (10% of rent), utilities if you pay them. Total deductions might reach $35,000-40,000 annually, saving $15,000-17,000 in taxes yearly. Keep detailed records: bank statements, receipts, rental agreements. CRA audits rental properties frequently documentation is critical."
     },
     {
       q: "What is the Smith Manoeuvre and is it worth the risk?",
-      a: "The Smith Manoeuvre converts non-deductible mortgage interest into tax-deductible investment loan interest. Process: (1) get a readvanceable mortgage (HELOC + mortgage combo), (2) as you pay down mortgage principal, reborrow that amount from HELOC, (3) invest borrowed funds in dividend-paying stocks/investments, (4) deduct HELOC interest on taxes, (5) use tax refunds + investment returns to pay mortgage faster. Example: $300,000 mortgage, you pay $2,000/month. First month $1,100 goes to principal. Reborrow $1,100 from HELOC at 6%, invest in dividend stocks. That $66/month interest ($792 annual) is now deductible, saving $340/year in 43% tax bracket. Risks: (1) investment losses—if stocks drop, you still owe the loan, (2) interest rate risk—if rates rise, costs increase, (3) complexity requires professional advice ($2,000-5,000 annual accounting fees). Best for: high-income earners ($150,000+), comfortable with investment risk, long-term (10+ year) horizon, professional financial guidance."
+      a: "The Smith Manoeuvre converts non-deductible mortgage interest into tax-deductible investment loan interest. Process: (1) get a readvanceable mortgage (HELOC + mortgage combo), (2) as you pay down mortgage principal, reborrow that amount from HELOC, (3) invest borrowed funds in dividend-paying stocks/investments, (4) deduct HELOC interest on taxes, (5) use tax refunds + investment returns to pay mortgage faster. Example: $300,000 mortgage, you pay $2,000/month. First month $1,100 goes to principal. Reborrow $1,100 from HELOC at 6%, invest in dividend stocks. That $66/month interest ($792 annual) is now deductible, saving $340/year in 43% tax bracket. Risks: (1) investment losses if stocks drop, you still owe the loan, (2) interest rate risk if rates rise, costs increase, (3) complexity requires professional advice ($2,000-5,000 annual accounting fees). Best for: high-income earners ($150,000+), comfortable with investment risk, long-term (10+ year) horizon, professional financial guidance."
     },
     {
       q: "Can I deduct interest if I refinance to renovate?",
-      a: "It depends on what the renovations accomplish. General rule: if renovations are for personal enjoyment (new kitchen, bathroom remodel, landscaping), the refinanced mortgage interest is NOT deductible—it's still personal use property. HOWEVER, if renovations create income-earning capacity, interest may be deductible. Examples of deductible scenarios: (1) adding a legal basement apartment for rental—the portion of mortgage refinance attributable to creating rental space has deductible interest, (2) renovating to convert personal residence into licensed daycare—business portion deductible, (3) adding office space for business use—proportional deduction. Documentation requirements: (1) clear accounting separating personal vs. income-earning renovation costs, (2) receipts and contractor invoices, (3) rental income or business income to offset. Bottom line: personal renovations = no deduction; income-generating renovations = proportional deduction."
+      a: "It depends on what the renovations accomplish. General rule: if renovations are for personal enjoyment (new kitchen, bathroom remodel, landscaping), the refinanced mortgage interest is NOT deductible it's still personal use property. HOWEVER, if renovations create income-earning capacity, interest may be deductible. Examples of deductible scenarios: (1) adding a legal basement apartment for rental the portion of mortgage refinance attributable to creating rental space has deductible interest, (2) renovating to convert personal residence into licensed daycare business portion deductible, (3) adding office space for business use proportional deduction. Documentation requirements: (1) clear accounting separating personal vs. income-earning renovation costs, (2) receipts and contractor invoices, (3) rental income or business income to offset. Bottom line: personal renovations = no deduction; income-generating renovations = proportional deduction."
     },
     {
       q: "What happens if I move and rent out my old home?",
-      a: "When you convert your principal residence to a rental property, the mortgage interest becomes tax-deductible from the conversion date forward (NOT retroactively). Process: (1) establish 'change of use' date when you start renting, (2) get property appraised on that date (establishes cost base for future capital gains), (3) from that date forward, deduct mortgage interest, property taxes, insurance, maintenance, (4) claim CCA (Capital Cost Allowance - depreciation) if desired, though this triggers capital gains on future sale. Important: the original mortgage must remain in place—if you refinance after converting to rental to pull out equity for personal use, that portion of interest isn't deductible. Example: $400,000 mortgage on former home, now rented. Interest is $22,000/year. If you're in 40% tax bracket, deducting saves $8,800 annually. Keep meticulous records: rental agreements, expense receipts, bank statements."
+      a: "When you convert your principal residence to a rental property, the mortgage interest becomes tax-deductible from the conversion date forward (NOT retroactively). Process: (1) establish 'change of use' date when you start renting, (2) get property appraised on that date (establishes cost base for future capital gains), (3) from that date forward, deduct mortgage interest, property taxes, insurance, maintenance, (4) claim CCA (Capital Cost Allowance - depreciation) if desired, though this triggers capital gains on future sale. Important: the original mortgage must remain in place if you refinance after converting to rental to pull out equity for personal use, that portion of interest isn't deductible. Example: $400,000 mortgage on former home, now rented. Interest is $22,000/year. If you're in 40% tax bracket, deducting saves $8,800 annually. Keep meticulous records: rental agreements, expense receipts, bank statements."
     },
     {
       q: "Are there any legal ways to make primary residence mortgage interest deductible?",
-      a: "Yes, but they're complex and require professional guidance: (1) Smith Manoeuvre—converts mortgage to investment loan over time, (2) Leveraged investing—get a separate investment loan for investments; that interest IS deductible, (3) Rental suite—create legal rental unit in your home; portion of mortgage interest allocated to rental square footage becomes deductible, (4) Business use—if you use part of your home exclusively for business, proportional mortgage interest may be deductible. WARNING: aggressive strategies claiming home mortgage interest deductions attract CRA scrutiny. Penalties for incorrect claims: interest on unpaid taxes, potential penalties up to 50% of understated tax, possible audit of other years. Only pursue these with professional tax advisor."
+      a: "Yes, but they're complex and require professional guidance: (1) Smith Manoeuvre converts mortgage to investment loan over time, (2) Leveraged investing get a separate investment loan for investments; that interest IS deductible, (3) Rental suite create legal rental unit in your home; portion of mortgage interest allocated to rental square footage becomes deductible, (4) Business use if you use part of your home exclusively for business, proportional mortgage interest may be deductible. WARNING: aggressive strategies claiming home mortgage interest deductions attract CRA scrutiny. Penalties for incorrect claims: interest on unpaid taxes, potential penalties up to 50% of understated tax, possible audit of other years. Only pursue these with professional tax advisor."
     }
   ];
 
@@ -60,11 +60,11 @@ export default function MortgageInterestTaxDeductionPage() {
       <div className="border-b border-slate-200 bg-white">
         <div className="mx-auto max-w-4xl px-6 sm:px-8 py-6">
           <Link 
-            href="/articles" 
+            href="/blog" 
             className="inline-flex items-center text-indigo-600 hover:text-indigo-700 transition-colors group"
           >
             <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
-            Back to Articles
+            Back to Blogs
           </Link>
         </div>
       </div>
@@ -90,14 +90,14 @@ export default function MortgageInterestTaxDeductionPage() {
         
         <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
           <time>August 27, 2026</time>
-          <span className="mx-3">•</span>
+          <span className="mx-3"> </span>
           <span>13 min read</span>
         </div>
       </div>
 
       {/* Article Content */}
       <article className="pb-2">
-        <div className="mx-auto max-w-3xl px-6 sm:px-8">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="prose prose-slate prose-lg max-w-none">
 
             {/* Introduction */}
@@ -109,7 +109,7 @@ export default function MortgageInterestTaxDeductionPage() {
                 If you're Googling "<strong>can you deduct mortgage interest in Canada</strong>" or "mortgage interest tax deduction Ontario," this guide will save you hours of confusion. We'll explain exactly why primary residence mortgage interest isn't deductible, show you when and how mortgage interest IS deductible (rental properties and the Smith Manoeuvre), provide real calculation examples for Ontario, BC, and Alberta with 2026 tax rates, and clarify the fundamental differences between Canadian and American mortgage tax treatment.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                This comprehensive 2,400+ word guide covers the complete truth about <strong>mortgage interest tax write-off Canada</strong> rules, showing you how to maximize legitimate deductions if you qualify, and what alternative benefits exist for primary residence owners. Whether you're a homeowner, landlord, or investor, understanding these rules can save you thousands in taxes—or prevent costly mistakes on your tax return.
+                This comprehensive 2,400+ word guide covers the complete truth about <strong>mortgage interest tax write-off Canada</strong> rules, showing you how to maximize legitimate deductions if you qualify, and what alternative benefits exist for primary residence owners. Whether you're a homeowner, landlord, or investor, understanding these rules can save you thousands in taxes or prevent costly mistakes on your tax return.
               </p>
             </section>
 
@@ -133,7 +133,7 @@ export default function MortgageInterestTaxDeductionPage() {
               </p>
 
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                This is fundamentally different from the United States, where homeowners can itemize deductions and claim mortgage interest on Schedule A of their tax return. The U.S. tax code views homeownership differently—as an economic activity worthy of subsidy through tax deductions. Canada's approach prioritizes other benefits instead (explained later).
+                This is fundamentally different from the United States, where homeowners can itemize deductions and claim mortgage interest on Schedule A of their tax return. The U.S. tax code views homeownership differently as an economic activity worthy of subsidy through tax deductions. Canada's approach prioritizes other benefits instead (explained later).
               </p>
 
               <div className="bg-slate-50 border-l-4 border-slate-300 p-6 my-8 rounded-r-lg">
@@ -165,7 +165,7 @@ export default function MortgageInterestTaxDeductionPage() {
                   <li><strong>Hypothetical Tax Savings (if deductible):</strong> $29,900 × 29.65% = <strong>$8,865/year</strong></li>
                   <li><strong>Actual Canadian Tax Savings:</strong> <strong>$0</strong></li>
                 </ul>
-                <p className="text-slate-700 mt-3 text-sm italic">This is why people search "mortgage interest deduction Canada" hoping to find this benefit—in the U.S., this would save nearly $9,000 annually.</p>
+                <p className="text-slate-700 mt-3 text-sm italic">This is why people search "mortgage interest deduction Canada" hoping to find this benefit in the U.S., this would save nearly $9,000 annually.</p>
               </div>
 
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -190,7 +190,7 @@ export default function MortgageInterestTaxDeductionPage() {
               </h3>
 
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                If you own a rental property, congratulations—you CAN deduct mortgage interest. The CRA allows deductions for interest on money borrowed to earn income from business or property. Since rental properties generate taxable rental income, the mortgage interest is fully deductible as a rental expense.
+                If you own a rental property, congratulations you CAN deduct mortgage interest. The CRA allows deductions for interest on money borrowed to earn income from business or property. Since rental properties generate taxable rental income, the mortgage interest is fully deductible as a rental expense.
               </p>
 
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -241,7 +241,7 @@ export default function MortgageInterestTaxDeductionPage() {
               </h3>
 
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                If you use a Home Equity Line of Credit (HELOC) or refinance your mortgage to extract equity for investment purposes—such as purchasing stocks, bonds, rental properties, or a business—the interest on that borrowed amount IS deductible. The key requirement: you must prove the funds were used to earn income from business or property.
+                If you use a Home Equity Line of Credit (HELOC) or refinance your mortgage to extract equity for investment purposes such as purchasing stocks, bonds, rental properties, or a business the interest on that borrowed amount IS deductible. The key requirement: you must prove the funds were used to earn income from business or property.
               </p>
 
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -326,7 +326,7 @@ export default function MortgageInterestTaxDeductionPage() {
               </h2>
 
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                When mortgage interest IS deductible (rental properties, Smith Manoeuvre, business use), the value of that deduction depends on your marginal tax rate—which varies significantly by province. Let's compare Ontario, BC, and Alberta for 2026.
+                When mortgage interest IS deductible (rental properties, Smith Manoeuvre, business use), the value of that deduction depends on your marginal tax rate which varies significantly by province. Let's compare Ontario, BC, and Alberta for 2026.
               </p>
 
               <h3 className="font-serif text-2xl font-bold text-slate-900 mb-4 mt-8">
@@ -455,7 +455,7 @@ export default function MortgageInterestTaxDeductionPage() {
                     Is rental property mortgage interest deductible in Canada?
                   </h3>
                   <p className="text-slate-700">
-                    Yes! Mortgage interest on rental/investment properties IS fully deductible. Report it on Form T776 alongside other rental expenses. In a 30% tax bracket, $25,000 in annual interest saves you $7,500 in taxes. This is why real estate investors still benefit from "mortgage interest tax write-off Canada" provisions—just not on their primary homes.
+                    Yes! Mortgage interest on rental/investment properties IS fully deductible. Report it on Form T776 alongside other rental expenses. In a 30% tax bracket, $25,000 in annual interest saves you $7,500 in taxes. This is why real estate investors still benefit from "mortgage interest tax write-off Canada" provisions just not on their primary homes.
                   </p>
                 </div>
 
@@ -473,7 +473,7 @@ export default function MortgageInterestTaxDeductionPage() {
                     Can I deduct HELOC interest in Canada?
                   </h3>
                   <p className="text-slate-700">
-                    Only if you use the borrowed funds to earn income. HELOC interest for renovations, vacations, or paying off credit cards is NOT deductible. HELOC interest for purchasing rental properties, stocks, bonds, or other income-producing investments IS deductible. Track funds meticulously—the CRA requires proof of how you used borrowed money.
+                    Only if you use the borrowed funds to earn income. HELOC interest for renovations, vacations, or paying off credit cards is NOT deductible. HELOC interest for purchasing rental properties, stocks, bonds, or other income-producing investments IS deductible. Track funds meticulously the CRA requires proof of how you used borrowed money.
                   </p>
                 </div>
 
@@ -506,7 +506,7 @@ export default function MortgageInterestTaxDeductionPage() {
               </h2>
 
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                The answer to "<strong>can you deduct mortgage interest in Canada</strong>" depends entirely on what type of property you're asking about. For your primary residence, the answer is definitively no—Canada does not allow these deductions the way the United States does. However, for rental properties, the answer is yes, with full deductibility creating substantial tax savings for real estate investors.
+                The answer to "<strong>can you deduct mortgage interest in Canada</strong>" depends entirely on what type of property you're asking about. For your primary residence, the answer is definitively no Canada does not allow these deductions the way the United States does. However, for rental properties, the answer is yes, with full deductibility creating substantial tax savings for real estate investors.
               </p>
 
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -518,11 +518,11 @@ export default function MortgageInterestTaxDeductionPage() {
               </p>
 
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                Whether you're in Ontario (29.65% marginal rate), British Columbia (28.20% rate), or Alberta (30.5% rate), understanding when and how <strong>mortgage interest tax deduction Canada</strong> rules apply empowers you to make strategic financial decisions. Rental property investors should maximize this deduction by tracking all deductible expenses carefully. Primary residence owners should focus on the alternative benefits Canada provides—and if you're truly motivated, explore strategies like the Smith Manoeuvre with professional guidance.
+                Whether you're in Ontario (29.65% marginal rate), British Columbia (28.20% rate), or Alberta (30.5% rate), understanding when and how <strong>mortgage interest tax deduction Canada</strong> rules apply empowers you to make strategic financial decisions. Rental property investors should maximize this deduction by tracking all deductible expenses carefully. Primary residence owners should focus on the alternative benefits Canada provides and if you're truly motivated, explore strategies like the Smith Manoeuvre with professional guidance.
               </p>
 
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                The key takeaway: while Canada doesn't mirror U.S. mortgage interest deduction policies for primary residences, it's not because Canadians lack tax benefits—it's because our tax system achieves homeowner support through different, often more generous, mechanisms.
+                The key takeaway: while Canada doesn't mirror U.S. mortgage interest deduction policies for primary residences, it's not because Canadians lack tax benefits it's because our tax system achieves homeowner support through different, often more generous, mechanisms.
               </p>
             </section>
           </div>

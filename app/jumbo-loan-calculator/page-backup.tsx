@@ -34,7 +34,7 @@ export default function JumboLoanCalculatorPage() {
     <section className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       {/* Hero Section */}
       <div className="bg-white border-b border-slate-200">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12 py-12">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
           <div className="flex items-center gap-3 mb-4">
             <div className="rounded-full bg-blue-100 p-3">
               <Building2 className="h-6 w-6 text-blue-600" />
@@ -54,7 +54,7 @@ export default function JumboLoanCalculatorPage() {
 
       {/* Banner Ad Placeholder */}
       <section className="py-8">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="mb-6 flex justify-center">
             <div className="w-full max-w-[728px] h-[90px] border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center">
               <span className="text-xs text-slate-400 font-medium">Banner Ad (728�90)</span>
@@ -65,15 +65,15 @@ export default function JumboLoanCalculatorPage() {
 
       {/* Calculator Section */}
       <section className="py-12">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <MortgageCalculator category="rates" forcedSubcalculator="jumbo" />
         </div>
       </section>
 
       {/* How It Works Section */}
       <section className="py-12 bg-white">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-3xl">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="w-full mx-auto max-w-4xl">
             <div className="mb-8">
               <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-3">
                 How It Works
@@ -99,23 +99,23 @@ export default function JumboLoanCalculatorPage() {
 
       {/* Article Section */}
       <section className="py-12 bg-white">
-          <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-            <div className="mx-auto max-w-3xl">
+          <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <div className="w-full mx-auto max-w-4xl">
               <article className="prose prose-slate max-w-none">
                 <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-6">
                   Understanding Jumbo Loans: A Complete Guide to Large Mortgage Calculations
                 </h2>
-                
+
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
                   When you're financing a home that exceeds standard conforming loan limits, you enter the territory of jumbo mortgages. A jumbo mortgage calculator helps you estimate payments and costs for these larger loans, which come with their own unique qualification requirements and considerations. Whether you're purchasing a luxury property, a home in an expensive coastal market, or simply need financing above conventional thresholds, understanding how jumbo loans work is essential for accurate financial planning.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  The term "jumbo" might sound intimidating, but these loans have become increasingly accessible as lender competition has grown. Many borrowers are surprised to learn that jumbo loan interest rates can actually be competitive with—or even lower than—conforming loan rates for well-qualified applicants. However, the qualification process remains more stringent, and lenders look more carefully at your complete financial picture before approving large loan amounts.
+                  The term "jumbo" might sound intimidating, but these loans have become increasingly accessible as lender competition has grown. Many borrowers are surprised to learn that jumbo loan interest rates can actually be competitive with or even lower than conforming loan rates for well-qualified applicants. However, the qualification process remains more stringent, and lenders look more carefully at your complete financial picture before approving large loan amounts.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  A jumbo loan calculator serves as your starting point for exploring affordability and payment scenarios. Unlike formal pre-approval, which requires documentation and credit review, a calculator lets you experiment with different home prices, down payment amounts, interest rates, and loan terms to understand how these variables impact your monthly obligation and total borrowing cost. Think of calculator results as planning estimates rather than guaranteed terms—your actual qualification depends on lender review of your income, assets, credit, and the specific property you're purchasing.
+                  A jumbo loan calculator serves as your starting point for exploring affordability and payment scenarios. Unlike formal pre-approval, which requires documentation and credit review, a calculator lets you experiment with different home prices, down payment amounts, interest rates, and loan terms to understand how these variables impact your monthly obligation and total borrowing cost. Think of calculator results as planning estimates rather than guaranteed terms your actual qualification depends on lender review of your income, assets, credit, and the specific property you're purchasing.
                 </p>
 
                 <h3 className="font-serif text-xl font-bold text-slate-900 mt-8 mb-4">
@@ -127,11 +127,11 @@ export default function JumboLoanCalculatorPage() {
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  For 2024, the baseline conforming loan limit in most U.S. counties is $766,550 for a single-family home. This represents the maximum loan amount that qualifies as conforming in standard-cost areas. However, the FHFA designates certain high-cost areas with elevated limits. In expensive markets—particularly parts of California, New York, Washington, Colorado, and Hawaii—conforming limits can reach $1,149,825 or even higher. These geographic variations recognize that median home prices vary dramatically across the country, and what constitutes a "normal" home price in rural Iowa differs significantly from coastal California.
+                  For 2024, the baseline conforming loan limit in most U.S. counties is $766,550 for a single-family home. This represents the maximum loan amount that qualifies as conforming in standard-cost areas. However, the FHFA designates certain high-cost areas with elevated limits. In expensive markets particularly parts of California, New York, Washington, Colorado, and Hawaii conforming limits can reach $1,149,825 or even higher. These geographic variations recognize that median home prices vary dramatically across the country, and what constitutes a "normal" home price in rural Iowa differs significantly from coastal California.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  A conforming loan calculator would work with amounts up to these thresholds, while a jumbo loan calculator handles amounts beyond them. The practical implications of crossing into jumbo territory include stricter qualification requirements, different underwriting standards, and potentially different interest rate structures. However, "stricter" doesn't mean "impossible"—it means lenders want stronger assurance of your ability to repay, given that they're assuming more risk without the backing of Fannie Mae and Freddie Mac.
+                  A conforming loan calculator would work with amounts up to these thresholds, while a jumbo loan calculator handles amounts beyond them. The practical implications of crossing into jumbo territory include stricter qualification requirements, different underwriting standards, and potentially different interest rate structures. However, "stricter" doesn't mean "impossible" it means lenders want stronger assurance of your ability to repay, given that they're assuming more risk without the backing of Fannie Mae and Freddie Mac.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -163,11 +163,11 @@ export default function JumboLoanCalculatorPage() {
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Property taxes vary dramatically by location and significantly impact affordability on high-value homes. A $1.2 million home in an area with 2% effective property tax rates would generate $24,000 in annual taxes, or $2,000 monthly. When using a jumbo mortgage calculator, accurate property tax estimates are essential—don't rely on national averages for luxury properties, as they rarely reflect reality in specific markets.
+                  Property taxes vary dramatically by location and significantly impact affordability on high-value homes. A $1.2 million home in an area with 2% effective property tax rates would generate $24,000 in annual taxes, or $2,000 monthly. When using a jumbo mortgage calculator, accurate property tax estimates are essential don't rely on national averages for luxury properties, as they rarely reflect reality in specific markets.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Homeowners insurance, HOA fees, closing costs, and total interest over the loan term all contribute to your complete cost picture. Insurance on high-value properties typically costs more, luxury HOA fees can exceed $500-1,000 monthly, and total interest on a $1 million loan at 7% for 30 years would be approximately $1,395,000—more than the original principal.
+                  Homeowners insurance, HOA fees, closing costs, and total interest over the loan term all contribute to your complete cost picture. Insurance on high-value properties typically costs more, luxury HOA fees can exceed $500-1,000 monthly, and total interest on a $1 million loan at 7% for 30 years would be approximately $1,395,000 more than the original principal.
                 </p>
 
                 <h3 className="font-serif text-xl font-bold text-slate-900 mt-8 mb-4">
@@ -175,7 +175,7 @@ export default function JumboLoanCalculatorPage() {
                 </h3>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Lenders impose stricter qualification requirements for jumbo loans because they can't sell these mortgages to Fannie Mae or Freddie Mac, meaning they assume full repayment risk. Credit score thresholds typically start at 700, with most lenders preferring 720 or higher for best rates. Your credit score impacts not just approval odds but also the interest rate—the difference between a 700 and 760 credit score might be 0.5% or more in rate, translating to hundreds of dollars monthly on a million-dollar loan.
+                  Lenders impose stricter qualification requirements for jumbo loans because they can't sell these mortgages to Fannie Mae or Freddie Mac, meaning they assume full repayment risk. Credit score thresholds typically start at 700, with most lenders preferring 720 or higher for best rates. Your credit score impacts not just approval odds but also the interest rate the difference between a 700 and 760 credit score might be 0.5% or more in rate, translating to hundreds of dollars monthly on a million-dollar loan.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -183,11 +183,11 @@ export default function JumboLoanCalculatorPage() {
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Reserve requirements represent one of the most distinctive features of jumbo loan qualification. Lenders want to see liquid assets equal to 6-12 months of mortgage payments in savings, investment, or retirement accounts after you close. On a $1 million loan with a $6,000 monthly payment, 12 months of reserves means $72,000 in liquid assets beyond your down payment and closing costs. Higher loan amounts often trigger higher reserve requirements—a $2 million loan might require 18-24 months of reserves.
+                  Reserve requirements represent one of the most distinctive features of jumbo loan qualification. Lenders want to see liquid assets equal to 6-12 months of mortgage payments in savings, investment, or retirement accounts after you close. On a $1 million loan with a $6,000 monthly payment, 12 months of reserves means $72,000 in liquid assets beyond your down payment and closing costs. Higher loan amounts often trigger higher reserve requirements a $2 million loan might require 18-24 months of reserves.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Income documentation is comprehensive, requiring tax returns (typically 2 years), W-2s, pay stubs, bank statements, and employment verification. Self-employed borrowers face additional scrutiny with lenders examining profit and loss statements and business bank accounts. Loan-to-value ratios also matter—80% LTV (20% down) represents the standard for best terms.
+                  Income documentation is comprehensive, requiring tax returns (typically 2 years), W-2s, pay stubs, bank statements, and employment verification. Self-employed borrowers face additional scrutiny with lenders examining profit and loss statements and business bank accounts. Loan-to-value ratios also matter 80% LTV (20% down) represents the standard for best terms.
                 </p>
 
                 <h3 className="font-serif text-xl font-bold text-slate-900 mt-8 mb-4">
@@ -199,7 +199,7 @@ export default function JumboLoanCalculatorPage() {
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  When estimating property taxes, research actual tax rates in the specific municipality where you're buying—rates can vary dramatically even within the same metro area. For homeowners insurance, get real quotes from carriers who insure high-value homes. A jumbo loan calculator with taxes and insurance included provides more accurate total housing cost estimates than simple calculators showing only principal and interest.
+                  When estimating property taxes, research actual tax rates in the specific municipality where you're buying rates can vary dramatically even within the same metro area. For homeowners insurance, get real quotes from carriers who insure high-value homes. A jumbo loan calculator with taxes and insurance included provides more accurate total housing cost estimates than simple calculators showing only principal and interest.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -207,7 +207,7 @@ export default function JumboLoanCalculatorPage() {
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Understand calculator limitations—no online calculator can account for your specific credit profile, income documentation quality, or lender requirements. When you've narrowed your target range, contact multiple jumbo lenders for actual rate quotes. Lender pricing can vary by 0.25-0.5% or more, representing hundreds of dollars in monthly payment differences.
+                  Understand calculator limitations no online calculator can account for your specific credit profile, income documentation quality, or lender requirements. When you've narrowed your target range, contact multiple jumbo lenders for actual rate quotes. Lender pricing can vary by 0.25-0.5% or more, representing hundreds of dollars in monthly payment differences.
                 </p>
 
                 <h3 className="font-serif text-xl font-bold text-slate-900 mt-8 mb-4">
@@ -222,19 +222,19 @@ export default function JumboLoanCalculatorPage() {
                   <h4 className="font-serif text-lg font-bold text-slate-900 mb-3">
                     Hypothetical Example 1: Standard Jumbo Scenario
                   </h4>
-                  
+
                   <p className="text-base text-slate-700 mb-3">
                     Consider a hypothetical borrower purchasing a $1,100,000 home in a California high-cost area, putting down 20% ($220,000) and financing $880,000.
                   </p>
 
                   <ul className="list-none space-y-1 text-sm text-slate-700 mb-3">
-                    <li>• Loan amount: $880,000</li>
-                    <li>• Down payment: $220,000 (20%)</li>
-                    <li>• Interest rate: 7.00% (hypothetical)</li>
-                    <li>• Loan term: 30 years</li>
-                    <li>• Property taxes: $1,000/month</li>
-                    <li>• Insurance: $300/month</li>
-                    <li>• HOA: $200/month</li>
+                    <li>  Loan amount: $880,000</li>
+                    <li>  Down payment: $220,000 (20%)</li>
+                    <li>  Interest rate: 7.00% (hypothetical)</li>
+                    <li>  Loan term: 30 years</li>
+                    <li>  Property taxes: $1,000/month</li>
+                    <li>  Insurance: $300/month</li>
+                    <li>  HOA: $200/month</li>
                   </ul>
 
                   <p className="text-base text-slate-700 mb-2">
@@ -250,19 +250,19 @@ export default function JumboLoanCalculatorPage() {
                   <h4 className="font-serif text-lg font-bold text-slate-900 mb-3">
                     Hypothetical Example 2: Super-Jumbo Scenario
                   </h4>
-                  
+
                   <p className="text-base text-slate-700 mb-3">
                     Consider a hypothetical borrower purchasing a $2,500,000 luxury property with 20% down, financing $2,000,000.
                   </p>
 
                   <ul className="list-none space-y-1 text-sm text-slate-700 mb-3">
-                    <li>• Loan amount: $2,000,000</li>
-                    <li>• Down payment: $500,000 (20%)</li>
-                    <li>• Interest rate: 7.25% (hypothetical)</li>
-                    <li>• Loan term: 30 years</li>
-                    <li>• Property taxes: $2,500/month</li>
-                    <li>• Insurance: $700/month</li>
-                    <li>• HOA: $500/month</li>
+                    <li>  Loan amount: $2,000,000</li>
+                    <li>  Down payment: $500,000 (20%)</li>
+                    <li>  Interest rate: 7.25% (hypothetical)</li>
+                    <li>  Loan term: 30 years</li>
+                    <li>  Property taxes: $2,500/month</li>
+                    <li>  Insurance: $700/month</li>
+                    <li>  HOA: $500/month</li>
                   </ul>
 
                   <p className="text-base text-slate-700 mb-2">
@@ -291,7 +291,7 @@ export default function JumboLoanCalculatorPage() {
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  In India, terms like "jumbo loan calculator HDFC Bank" or "HDFC EMI calculator" refer to home loan products offered by Housing Development Finance Corporation (HDFC), one of India's largest housing finance companies. Indian home loans operate under entirely different regulatory frameworks, interest rate structures, loan terms, and down payment requirements. If you're seeking financing for property in India, you need an Indian housing loan calculator specific to that market—U.S. jumbo loan calculators won't provide meaningful guidance.
+                  In India, terms like "jumbo loan calculator HDFC Bank" or "HDFC EMI calculator" refer to home loan products offered by Housing Development Finance Corporation (HDFC), one of India's largest housing finance companies. Indian home loans operate under entirely different regulatory frameworks, interest rate structures, loan terms, and down payment requirements. If you're seeking financing for property in India, you need an Indian housing loan calculator specific to that market U.S. jumbo loan calculators won't provide meaningful guidance.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -310,8 +310,8 @@ export default function JumboLoanCalculatorPage() {
 
       {/* FAQ Section */}
       <section className="py-12">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-3xl">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="w-full mx-auto max-w-4xl">
             <div className="mb-8 text-center">
               <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-3">
                 Frequently Asked Questions

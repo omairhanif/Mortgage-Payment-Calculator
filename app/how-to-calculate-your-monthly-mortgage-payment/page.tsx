@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import Image from "next/image";
@@ -17,11 +17,11 @@ export default function HowToCalculateMortgagePayment() {
   const faqs = [
     {
       q: "How do I convert an annual interest rate to a monthly rate?",
-      a: "Divide the annual interest rate by 12. For example, a 6.5% annual rate becomes 6.5% Ã· 12 = 0.54167% per month, or 0.065 Ã· 12 = 0.00542 in decimal form. Always use the decimal form in mortgage formulas. Never multiply by 12 when converting annual to monthlyâ€”that would give you the wrong rate."
+      a: "Divide the annual interest rate by 12. For example, a 6.5% annual rate becomes 6.5% Ã· 12 = 0.54167% per month, or 0.065 Ã· 12 = 0.00542 in decimal form. Always use the decimal form in mortgage formulas. Never multiply by 12 when converting annual to monthly that would give you the wrong rate."
     },
     {
       q: "What if I don't know my property tax rate?",
-      a: "Check your county or municipality's assessor websiteâ€”most publish property tax records online. You can look up the specific property address to see its assessed value and annual taxes. Alternatively, real estate listings often show estimated taxes. For planning purposes, research typical rates in your area: they range from 0.3% to 2.5% of home value annually depending on location."
+      a: "Check your county or municipality's assessor website most publish property tax records online. You can look up the specific property address to see its assessed value and annual taxes. Alternatively, real estate listings often show estimated taxes. For planning purposes, research typical rates in your area: they range from 0.3% to 2.5% of home value annually depending on location."
     },
     {
       q: "How accurate is the mortgage payment formula?",
@@ -29,18 +29,18 @@ export default function HowToCalculateMortgagePayment() {
     },
     {
       q: "Can I calculate this in Excel or Google Sheets?",
-      a: "Yes. Use the PMT function: =PMT(rate, nper, pv). For a $300,000 loan at 6.5% for 30 years: =PMT(6.5%/12, 360, -300000) returns $1,896.20. The negative loan amount is required. PMT calculates principal and interest onlyâ€”add taxes, insurance, PMI, and HOA separately. You can build a complete mortgage calculator spreadsheet with these formulas."
+      a: "Yes. Use the PMT function: =PMT(rate, nper, pv). For a $300,000 loan at 6.5% for 30 years: =PMT(6.5%/12, 360, -300000) returns $1,896.20. The negative loan amount is required. PMT calculates principal and interest only add taxes, insurance, PMI, and HOA separately. You can build a complete mortgage calculator spreadsheet with these formulas."
     }
   ];
 
   const faqs2 = [
     {
       q: "Why is my calculation different from what my lender quoted?",
-      a: "Lenders include items your calculation might not: escrow reserves (2-6 months of taxes/insurance held upfront), prepaid interest from closing date to month-end, private mortgage insurance with their specific rate, homeowners association dues, and sometimes additional fees. Your formula calculates the true principal and interest payment plus standard monthly escrowâ€”the lender's closing disclosure shows all actual costs."
+      a: "Lenders include items your calculation might not: escrow reserves (2-6 months of taxes/insurance held upfront), prepaid interest from closing date to month-end, private mortgage insurance with their specific rate, homeowners association dues, and sometimes additional fees. Your formula calculates the true principal and interest payment plus standard monthly escrow the lender's closing disclosure shows all actual costs."
     },
     {
       q: "How do I calculate payments for a 15-year vs. 30-year mortgage?",
-      a: "Use the same formula but change n (number of payments). For 15 years, n = 15 Ã— 12 = 180 months. The monthly payment will be higher but you'll pay dramatically less interest. For example, $300,000 at 6.25%: 30-year payment is $1,847, 15-year is $2,580. The 15-year loan costs $164,400 less in total interest despite the higher monthly payment."
+      a: "Use the same formula but change n (number of payments). For 15 years, n = 15 Ã  12 = 180 months. The monthly payment will be higher but you'll pay dramatically less interest. For example, $300,000 at 6.25%: 30-year payment is $1,847, 15-year is $2,580. The 15-year loan costs $164,400 less in total interest despite the higher monthly payment."
     },
     {
       q: "What's the difference between simple interest and amortized mortgage interest?",
@@ -69,17 +69,17 @@ export default function HowToCalculateMortgagePayment() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }}
       />
-      
+
     <main className="min-h-screen bg-white">
       {/* Navigation */}
       <div className="border-b border-slate-200 bg-white">
         <div className="mx-auto max-w-4xl px-6 sm:px-8 py-6">
-          <Link 
-            href="/articles" 
+          <Link
+            href="/guide"
             className="inline-flex items-center text-indigo-600 hover:text-indigo-700 transition-colors group"
           >
             <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
-            Back to Articles
+            Back to Guides
           </Link>
         </div>
       </div>
@@ -102,19 +102,19 @@ export default function HowToCalculateMortgagePayment() {
         <h1 className="font-serif text-4xl md:text-5xl font-bold text-slate-900 mb-4">
           How to Calculate Your Monthly Mortgage Payment
         </h1>
-        
+
         <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
           <time>March 15, 2026</time>
-          <span className="mx-3">â€¢</span>
+          <span className="mx-3"> </span>
           <span>14 min read</span>
         </div>
       </div>
 
       {/* Article Content */}
       <article className="pb-2">
-        <div className="mx-auto max-w-3xl px-6 sm:px-8">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="prose prose-slate prose-lg max-w-none">
-            
+
             {/* Introduction */}
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
               Knowing how to calculate your monthly mortgage payment gives you power in home financing decisions. Rather than relying blindly on calculators or quotes, understanding the underlying mathematics helps you verify estimates, compare loan scenarios, and make informed choices about home affordability. The calculation involves straightforward arithmetic once you understand the formula and components.
@@ -130,7 +130,7 @@ export default function HowToCalculateMortgagePayment() {
             </h2>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              Your mortgage calculation begins with determining how much you need to borrow. This is simply your home purchase price minus your down payment. The larger your down payment, the smaller your loanâ€”which means lower monthly payments and potentially no private mortgage insurance requirement.
+              Your mortgage calculation begins with determining how much you need to borrow. This is simply your home purchase price minus your down payment. The larger your down payment, the smaller your loan which means lower monthly payments and potentially no private mortgage insurance requirement.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -138,7 +138,7 @@ export default function HowToCalculateMortgagePayment() {
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              <strong>Hypothetical Example:</strong> Consider a $400,000 home purchase with different down payment scenarios. With a 5% down payment ($20,000), your loan amount is $380,000. With 10% down ($40,000), you borrow $340,000. With 15% down ($60,000), the loan is $340,000. With the standard 20% down ($80,000), you need $320,000. That 15% difference in down payment (from 5% to 20%) reduces your loan by $60,000â€”which lowers your monthly payment by approximately $390 at a 6.75% interest rate over 30 years, and eliminates PMI entirely.
+              <strong>Hypothetical Example:</strong> Consider a $400,000 home purchase with different down payment scenarios. With a 5% down payment ($20,000), your loan amount is $380,000. With 10% down ($40,000), you borrow $340,000. With 15% down ($60,000), the loan is $340,000. With the standard 20% down ($80,000), you need $320,000. That 15% difference in down payment (from 5% to 20%) reduces your loan by $60,000 which lowers your monthly payment by approximately $390 at a 6.75% interest rate over 30 years, and eliminates PMI entirely.
             </p>
 
             <h3 className="font-serif text-xl font-bold text-slate-900 mt-8 mb-4">
@@ -163,7 +163,7 @@ export default function HowToCalculateMortgagePayment() {
             </h3>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              <strong>M = P Ã— [r(1+r)^n] / [(1+r)^n - 1]</strong>
+              <strong>M = P Ã  [r(1+r)^n] / [(1+r)^n - 1]</strong>
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -174,11 +174,11 @@ export default function HowToCalculateMortgagePayment() {
               <li><strong>M</strong> = Monthly payment (what we're calculating)</li>
               <li><strong>P</strong> = Principal loan amount (from Step 1)</li>
               <li><strong>r</strong> = Monthly interest rate (annual rate Ã· 12, in decimal form)</li>
-              <li><strong>n</strong> = Number of monthly payments (loan term in years Ã— 12)</li>
+              <li><strong>n</strong> = Number of monthly payments (loan term in years Ã  12)</li>
             </ul>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              This formula accounts for compound interestâ€”each month, interest is calculated on the remaining balance, which decreases as you pay down principal. Early payments are mostly interest because the balance is large. Later payments are mostly principal because the balance is small. The formula calculates the exact payment that fully amortizes the loan over the specified term.
+              This formula accounts for compound interest each month, interest is calculated on the remaining balance, which decreases as you pay down principal. Early payments are mostly interest because the balance is large. Later payments are mostly principal because the balance is small. The formula calculates the exact payment that fully amortizes the loan over the specified term.
             </p>
 
             <h3 className="font-serif text-xl font-bold text-slate-900 mt-8 mb-4">
@@ -202,7 +202,7 @@ export default function HowToCalculateMortgagePayment() {
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              n = 30 years Ã— 12 months = 360 payments
+              n = 30 years Ã  12 months = 360 payments
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -218,7 +218,7 @@ export default function HowToCalculateMortgagePayment() {
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              0.005625 Ã— 7.4522 = 0.041919
+              0.005625 Ã  7.4522 = 0.041919
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -242,11 +242,11 @@ export default function HowToCalculateMortgagePayment() {
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              $320,000 Ã— 0.006497 = <strong>$2,079.04 per month</strong>
+              $320,000 Ã  0.006497 = <strong>$2,079.04 per month</strong>
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              This $2,079.04 is your monthly principal and interest payment. Over 30 years, you'll make 360 payments totaling $748,454â€”the original $320,000 principal plus $428,454 in interest. This demonstrates why interest rate and loan term dramatically affect your total cost.
+              This $2,079.04 is your monthly principal and interest payment. Over 30 years, you'll make 360 payments totaling $748,454 the original $320,000 principal plus $428,454 in interest. This demonstrates why interest rate and loan term dramatically affect your total cost.
             </p>
 
             {/* Step 3: Add Property Taxes */}
@@ -255,11 +255,11 @@ export default function HowToCalculateMortgagePayment() {
             </h2>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              Property taxes fund local government services and vary significantly by location. Most lenders require you to pay property taxes through an escrow accountâ€”they collect 1/12 of your annual tax bill with each mortgage payment, then pay the taxes on your behalf when due.
+              Property taxes fund local government services and vary significantly by location. Most lenders require you to pay property taxes through an escrow account they collect 1/12 of your annual tax bill with each mortgage payment, then pay the taxes on your behalf when due.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              <strong>Formula:</strong> Monthly Property Tax = (Home Value Ã— Annual Tax Rate) Ã· 12
+              <strong>Formula:</strong> Monthly Property Tax = (Home Value Ã  Annual Tax Rate) Ã· 12
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -278,7 +278,7 @@ export default function HowToCalculateMortgagePayment() {
             </ul>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              For our ongoing example with a $400,000 home in a location with a 1.2% property tax rate: $400,000 Ã— 0.012 = $4,800 annually, or <strong>$400 per month</strong>. A mortgage payment calculator with taxes and insurance will include this component automatically, but now you understand where that number comes from.
+              For our ongoing example with a $400,000 home in a location with a 1.2% property tax rate: $400,000 Ã  0.012 = $4,800 annually, or <strong>$400 per month</strong>. A mortgage payment calculator with taxes and insurance will include this component automatically, but now you understand where that number comes from.
             </p>
 
             {/* Step 4: Add Homeowners Insurance */}
@@ -299,7 +299,7 @@ export default function HowToCalculateMortgagePayment() {
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              For our example, assume annual insurance of $1,680: $1,680 Ã· 12 = <strong>$140 per month</strong>. Get actual insurance quotes for precise numbersâ€”costs vary significantly based on your specific home and desired coverage.
+              For our example, assume annual insurance of $1,680: $1,680 Ã· 12 = <strong>$140 per month</strong>. Get actual insurance quotes for precise numbers costs vary significantly based on your specific home and desired coverage.
             </p>
 
             {/* Step 5: Calculate PMI */}
@@ -312,11 +312,11 @@ export default function HowToCalculateMortgagePayment() {
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              <strong>Formula:</strong> Monthly PMI = (Loan Amount Ã— Annual PMI Rate) Ã· 12
+              <strong>Formula:</strong> Monthly PMI = (Loan Amount Ã  Annual PMI Rate) Ã· 12
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              <strong>Hypothetical Example:</strong> Our $400,000 home with 20% down ($80,000) results in a $320,000 loanâ€”no PMI required. But if you put down only 15% ($60,000), you'd borrow $340,000 and likely pay 0.6% PMI: $340,000 Ã— 0.006 = $2,040 annually Ã· 12 = <strong>$170 per month</strong>. With just 10% down ($40,000) and a $360,000 loan at 0.8% PMI, you'd pay $2,880 annually or $240 monthly. This shows why saving for a 20% down payment eliminates a significant monthly expense.
+              <strong>Hypothetical Example:</strong> Our $400,000 home with 20% down ($80,000) results in a $320,000 loan no PMI required. But if you put down only 15% ($60,000), you'd borrow $340,000 and likely pay 0.6% PMI: $340,000 Ã  0.006 = $2,040 annually Ã· 12 = <strong>$170 per month</strong>. With just 10% down ($40,000) and a $360,000 loan at 0.8% PMI, you'd pay $2,880 annually or $240 monthly. This shows why saving for a 20% down payment eliminates a significant monthly expense.
             </p>
 
             {/* Step 6: Add HOA Fees */}
@@ -325,7 +325,7 @@ export default function HowToCalculateMortgagePayment() {
             </h2>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              Homeowners association fees apply to condominiums, townhouses, and planned communities. These fees cover maintenance of common areas, amenities, and shared services. HOA fees typically range from $100 to $600+ monthly depending on what's includedâ€”some cover only basic landscaping while others include extensive amenities, utilities, and building maintenance. HOA fees aren't part of your mortgage but are part of your total monthly housing cost. Check the property listing or HOA documents for exact amounts.
+              Homeowners association fees apply to condominiums, townhouses, and planned communities. These fees cover maintenance of common areas, amenities, and shared services. HOA fees typically range from $100 to $600+ monthly depending on what's included some cover only basic landscaping while others include extensive amenities, utilities, and building maintenance. HOA fees aren't part of your mortgage but are part of your total monthly housing cost. Check the property listing or HOA documents for exact amounts.
             </p>
 
             {/* Complete Calculation */}
@@ -334,7 +334,7 @@ export default function HowToCalculateMortgagePayment() {
             </h2>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              Now we'll combine all components to calculate the total monthly housing payment. This complete calculation shows what you'll actually pay each monthâ€”not just the principal and interest that a simple mortgage payment calculator displays.
+              Now we'll combine all components to calculate the total monthly housing payment. This complete calculation shows what you'll actually pay each month not just the principal and interest that a simple mortgage payment calculator displays.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -364,7 +364,7 @@ export default function HowToCalculateMortgagePayment() {
               </p>
               <p className="text-base text-slate-700 mb-3">
                 <strong>Property Taxes</strong> (Step 3):<br/>
-                $400,000 Ã— 1.2% Ã· 12 = <strong>$400.00</strong>
+                $400,000 Ã  1.2% Ã· 12 = <strong>$400.00</strong>
               </p>
               <p className="text-base text-slate-700 mb-3">
                 <strong>Homeowners Insurance</strong> (Step 4):<br/>
@@ -442,7 +442,7 @@ export default function HowToCalculateMortgagePayment() {
             <ul className="list-disc list-inside space-y-2 text-base text-slate-600 mb-6 ml-4">
               <li><strong>Escrow Reserves:</strong> Lenders collect 2-6 months of property taxes and insurance upfront at closing to establish your escrow account. This doesn't affect your monthly payment but increases your closing costs.</li>
               <li><strong>Prepaid Interest:</strong> You pay interest from your closing date to the end of that month, which varies based on closing timing.</li>
-              <li><strong>Lender-Specific PMI Rates:</strong> Your actual PMI rate depends on your credit score, down payment, and lender's pricingâ€”it may differ from standard estimates.</li>
+              <li><strong>Lender-Specific PMI Rates:</strong> Your actual PMI rate depends on your credit score, down payment, and lender's pricing it may differ from standard estimates.</li>
               <li><strong>Day Count Conventions:</strong> Some lenders use actual/360 instead of actual/365 calculations, causing slight differences.</li>
               <li><strong>Additional Fees:</strong> Some quotes include mortgage insurance, flood insurance, or other items not in basic calculators.</li>
             </ul>
@@ -457,11 +457,11 @@ export default function HowToCalculateMortgagePayment() {
             </h2>
 
             <p className="text-base text-slate-600 leading-relaxed mb-4">
-              Calculating your monthly mortgage payment by hand demystifies the home financing process. You now understand how each componentâ€”loan amount, interest rate, term, taxes, insurance, and PMIâ€”affects your monthly cost. This knowledge helps you evaluate different loan scenarios, verify calculator results, and make informed decisions about home affordability.
+              Calculating your monthly mortgage payment by hand demystifies the home financing process. You now understand how each component loan amount, interest rate, term, taxes, insurance, and PMI affects your monthly cost. This knowledge helps you evaluate different loan scenarios, verify calculator results, and make informed decisions about home affordability.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed mb-6">
-              While online calculators save time for routine calculations, knowing the underlying mathematics gives you confidence and control. You can quickly estimate payments for properties you're considering, understand why one loan costs more than another, and spot errors in calculations or quotes. For complex scenarios like adjustable-rate mortgages or detailed extra payment analysis, specialized calculators remain valuableâ€”but you'll use them with understanding rather than blind trust. Whether you calculate manually or use a mortgage affordability calculator to determine your maximum home price, the principles remain the same: understand the numbers, verify the assumptions, and make informed financial decisions.
+              While online calculators save time for routine calculations, knowing the underlying mathematics gives you confidence and control. You can quickly estimate payments for properties you're considering, understand why one loan costs more than another, and spot errors in calculations or quotes. For complex scenarios like adjustable-rate mortgages or detailed extra payment analysis, specialized calculators remain valuable but you'll use them with understanding rather than blind trust. Whether you calculate manually or use a mortgage affordability calculator to determine your maximum home price, the principles remain the same: understand the numbers, verify the assumptions, and make informed financial decisions.
             </p>
 
             </div>
@@ -515,12 +515,12 @@ export default function HowToCalculateMortgagePayment() {
 
       {/* FAQ Section */}
       <section className="bg-slate-50 py-16">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-3xl">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="w-full mx-auto max-w-4xl">
             <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-8">
               Frequently Asked Questions
             </h2>
-            
+
             <div className="space-y-4">
               {allFaqs.map((faq, index) => (
                 <div key={index} className="border border-slate-200 rounded-lg bg-white overflow-hidden">
@@ -535,7 +535,7 @@ export default function HowToCalculateMortgagePayment() {
                       <ChevronDown className="h-5 w-5 text-slate-400 flex-shrink-0" />
                     )}
                   </button>
-                  
+
                   {openFAQ === index && (
                     <div className="px-6 pb-5 text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
                       {faq.a}

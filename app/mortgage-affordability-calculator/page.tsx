@@ -38,7 +38,7 @@ function MortgageAffordabilityCalculatorContent() {
       />
 
       {/* Hero Section */}
-      <div className="mb-8 mx-auto max-w-5xl">
+      <div className="mb-8 w-full mx-auto max-w-4xl">
         <div className="flex items-center gap-3 mb-4">
           <CheckCircle className="h-8 w-8 text-indigo-600 flex-shrink-0" />
           <h1 className="font-serif text-3xl md:text-4xl font-bold text-indigo-600 leading-tight">
@@ -65,8 +65,8 @@ function MortgageAffordabilityCalculatorContent() {
 
       {/* How It Works */}
       <div className="mb-16 bg-slate-50 py-12">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-3xl">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="w-full mx-auto max-w-4xl">
             <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-6 text-center">
               How It Works
             </h2>
@@ -92,7 +92,7 @@ function MortgageAffordabilityCalculatorContent() {
         </h2>
 
         <p className="text-lg text-slate-700 leading-relaxed">
-          Understanding mortgage affordability goes beyond simple income multiples. Lenders evaluate your complete financial picture—income stability, debt obligations, credit history, down payment, and assets—to determine how much home you can afford.
+          Understanding mortgage affordability goes beyond simple income multiples. Lenders evaluate your complete financial picture income stability, debt obligations, credit history, down payment, and assets to determine how much home you can afford.
         </p>
 
         <h3 className="font-serif text-xl md:text-2xl font-bold text-slate-900 mt-10 mb-4">
@@ -154,11 +154,11 @@ function MortgageAffordabilityCalculatorContent() {
             <strong>Short-term improvements (3-6 months):</strong>
           </p>
           <ul className="space-y-1 text-sm text-slate-600">
-            <li>• Pay down credit card balances below 30% utilization</li>
-            <li>• Pay off small debts to eliminate monthly payments</li>
-            <li>• Dispute credit report errors</li>
-            <li>• Avoid opening new credit accounts</li>
-            <li>• Save for larger down payment</li>
+            <li>  Pay down credit card balances below 30% utilization</li>
+            <li>  Pay off small debts to eliminate monthly payments</li>
+            <li>  Dispute credit report errors</li>
+            <li>  Avoid opening new credit accounts</li>
+            <li>  Save for larger down payment</li>
           </ul>
         </div>
 
@@ -167,11 +167,11 @@ function MortgageAffordabilityCalculatorContent() {
             <strong>Long-term improvements (6-12+ months):</strong>
           </p>
           <ul className="space-y-1 text-sm text-slate-600">
-            <li>• Build consistent payment history</li>
-            <li>• Increase income through raises or side work</li>
-            <li>• Eliminate high-interest debt</li>
-            <li>• Build emergency fund separate from down payment</li>
-            <li>• Establish 2-year work history in same field</li>
+            <li>  Build consistent payment history</li>
+            <li>  Increase income through raises or side work</li>
+            <li>  Eliminate high-interest debt</li>
+            <li>  Build emergency fund separate from down payment</li>
+            <li>  Establish 2-year work history in same field</li>
           </ul>
         </div>
 
@@ -183,7 +183,7 @@ function MortgageAffordabilityCalculatorContent() {
           <li><strong>Maxing out approval amount:</strong> Lenders approve based on their risk, not your comfort. Leave buffer for unexpected expenses.</li>
           <li><strong>Ignoring closing costs:</strong> Budget 2-5% of home price beyond down payment.</li>
           <li><strong>Job changes during process:</strong> Stay in current job through closing when possible.</li>
-          <li><strong>Making large purchases:</strong> Avoid buying cars, furniture before closing—it changes your DTI.</li>
+          <li><strong>Making large purchases:</strong> Avoid buying cars, furniture before closing it changes your DTI.</li>
           <li><strong>Assuming rates won't change:</strong> Get pre-approved, not just pre-qualified, and lock rates when favorable.</li>
         </ul>
 
@@ -208,7 +208,7 @@ function MortgageAffordabilityCalculatorContent() {
                 <div className="text-xs text-slate-500">Total interest: $510,000</div>
               </div>
             </div>
-            
+
             <div className="flex justify-between items-center bg-white rounded p-3">
               <div>
                 <span className="font-semibold text-slate-900">700-759 (Good):</span>
@@ -242,7 +242,7 @@ function MortgageAffordabilityCalculatorContent() {
               </div>
             </div>
           </div>
-          
+
           <p className="text-slate-700 text-sm mt-4 italic">
             Improving your credit score from 640 to 760 saves $407/month and $147,000 over the life of the loan. This difference can make the difference between qualifying and not qualifying, or between comfortable and stretched finances.
           </p>
@@ -253,11 +253,11 @@ function MortgageAffordabilityCalculatorContent() {
         </h4>
 
         <ul className="space-y-2 text-slate-600 mb-6 text-sm">
-          <li>• <strong>Pay down credit card balances below 30% utilization</strong> (or below 10% for maximum impact)</li>
-          <li>• <strong>Dispute errors on credit reports</strong> through all three bureaus (Equifax, Experian, TransUnion)</li>
-          <li>• <strong>Become an authorized user</strong> on a family member's card with perfect payment history</li>
-          <li>• <strong>Request higher credit limits</strong> without opening new accounts (lowers utilization ratio)</li>
-          <li>• <strong>Pay bills twice monthly</strong> to keep reported balances lower when bureaus update</li>
+          <li>  <strong>Pay down credit card balances below 30% utilization</strong> (or below 10% for maximum impact)</li>
+          <li>  <strong>Dispute errors on credit reports</strong> through all three bureaus (Equifax, Experian, TransUnion)</li>
+          <li>  <strong>Become an authorized user</strong> on a family member's card with perfect payment history</li>
+          <li>  <strong>Request higher credit limits</strong> without opening new accounts (lowers utilization ratio)</li>
+          <li>  <strong>Pay bills twice monthly</strong> to keep reported balances lower when bureaus update</li>
         </ul>
 
         <h3 className="font-serif text-xl md:text-2xl font-bold text-slate-900 mt-10 mb-4">
@@ -273,10 +273,10 @@ function MortgageAffordabilityCalculatorContent() {
             <h4 className="font-serif font-bold text-slate-900 mb-2">20% Down</h4>
             <p className="text-2xl font-bold text-emerald-700 mb-2">$500,000 home</p>
             <ul className="space-y-1 text-sm text-slate-600 mb-3">
-              <li>• Down payment: $100,000</li>
-              <li>• Loan amount: $400,000</li>
-              <li>• No PMI required</li>
-              <li>• Monthly P&I: $2,661 @ 7%</li>
+              <li>  Down payment: $100,000</li>
+              <li>  Loan amount: $400,000</li>
+              <li>  No PMI required</li>
+              <li>  Monthly P&I: $2,661 @ 7%</li>
             </ul>
             <p className="text-xs text-slate-500 italic">Best for: Those with substantial savings who want the lowest monthly payment</p>
           </div>
@@ -285,10 +285,10 @@ function MortgageAffordabilityCalculatorContent() {
             <h4 className="font-serif font-bold text-slate-900 mb-2">10% Down</h4>
             <p className="text-2xl font-bold text-blue-700 mb-2">$500,000 home</p>
             <ul className="space-y-1 text-sm text-slate-600 mb-3">
-              <li>• Down payment: $50,000</li>
-              <li>• Loan amount: $450,000</li>
-              <li>• PMI: ~$250/month</li>
-              <li>• Monthly P&I + PMI: $3,244</li>
+              <li>  Down payment: $50,000</li>
+              <li>  Loan amount: $450,000</li>
+              <li>  PMI: ~$250/month</li>
+              <li>  Monthly P&I + PMI: $3,244</li>
             </ul>
             <p className="text-xs text-slate-500 italic">Best for: Strong income but building savings; can refinance when reaching 20% equity</p>
           </div>
@@ -297,10 +297,10 @@ function MortgageAffordabilityCalculatorContent() {
             <h4 className="font-serif font-bold text-slate-900 mb-2">3.5% Down (FHA)</h4>
             <p className="text-2xl font-bold text-amber-700 mb-2">$500,000 home</p>
             <ul className="space-y-1 text-sm text-slate-600 mb-3">
-              <li>• Down payment: $17,500</li>
-              <li>• Loan amount: $482,500</li>
-              <li>• MIP: ~$350/month (life of loan)</li>
-              <li>• Monthly P&I + MIP: $3,558</li>
+              <li>  Down payment: $17,500</li>
+              <li>  Loan amount: $482,500</li>
+              <li>  MIP: ~$350/month (life of loan)</li>
+              <li>  Monthly P&I + MIP: $3,558</li>
             </ul>
             <p className="text-xs text-slate-500 italic">Best for: First-time buyers or those with limited savings but stable income</p>
           </div>
@@ -340,21 +340,21 @@ function MortgageAffordabilityCalculatorContent() {
               <div>
                 <p className="text-slate-700 mb-2"><strong>Financial Profile:</strong></p>
                 <ul className="space-y-1 text-slate-600">
-                  <li>• Monthly gross: $12,500</li>
-                  <li>• Student loans: $600/month</li>
-                  <li>• Car payment: $450/month</li>
-                  <li>• Credit score: 740</li>
-                  <li>• Savings: $60,000</li>
+                  <li>  Monthly gross: $12,500</li>
+                  <li>  Student loans: $600/month</li>
+                  <li>  Car payment: $450/month</li>
+                  <li>  Credit score: 740</li>
+                  <li>  Savings: $60,000</li>
                 </ul>
               </div>
               <div>
                 <p className="text-slate-700 mb-2"><strong>Affordability Analysis:</strong></p>
                 <ul className="space-y-1 text-slate-600">
-                  <li>• DTI capacity: $4,500 housing</li>
-                  <li>• Less existing debt: -$1,050</li>
-                  <li>• <strong>Available: $3,450/month</strong></li>
-                  <li>• <strong>Max home price: ~$515,000</strong></li>
-                  <li>• Down payment: 10% ($51,500)</li>
+                  <li>  DTI capacity: $4,500 housing</li>
+                  <li>  Less existing debt: -$1,050</li>
+                  <li>  <strong>Available: $3,450/month</strong></li>
+                  <li>  <strong>Max home price: ~$515,000</strong></li>
+                  <li>  Down payment: 10% ($51,500)</li>
                 </ul>
               </div>
             </div>
@@ -375,21 +375,21 @@ function MortgageAffordabilityCalculatorContent() {
               <div>
                 <p className="text-slate-700 mb-2"><strong>Financial Profile:</strong></p>
                 <ul className="space-y-1 text-slate-600">
-                  <li>• Monthly gross: $7,917</li>
-                  <li>• No car payment</li>
-                  <li>• Credit cards: $150/month</li>
-                  <li>• Credit score: 780</li>
-                  <li>• Savings: $120,000 (includes condo sale)</li>
+                  <li>  Monthly gross: $7,917</li>
+                  <li>  No car payment</li>
+                  <li>  Credit cards: $150/month</li>
+                  <li>  Credit score: 780</li>
+                  <li>  Savings: $120,000 (includes condo sale)</li>
                 </ul>
               </div>
               <div>
                 <p className="text-slate-700 mb-2"><strong>Affordability Analysis:</strong></p>
                 <ul className="space-y-1 text-slate-600">
-                  <li>• DTI capacity: $2,850 housing</li>
-                  <li>• Less existing debt: -$150</li>
-                  <li>• <strong>Available: $2,700/month</strong></li>
-                  <li>• <strong>Max home price: ~$465,000</strong></li>
-                  <li>• Down payment: 25% ($116,250)</li>
+                  <li>  DTI capacity: $2,850 housing</li>
+                  <li>  Less existing debt: -$150</li>
+                  <li>  <strong>Available: $2,700/month</strong></li>
+                  <li>  <strong>Max home price: ~$465,000</strong></li>
+                  <li>  Down payment: 25% ($116,250)</li>
                 </ul>
               </div>
             </div>
@@ -410,22 +410,22 @@ function MortgageAffordabilityCalculatorContent() {
               <div>
                 <p className="text-slate-700 mb-2"><strong>Financial Profile:</strong></p>
                 <ul className="space-y-1 text-slate-600">
-                  <li>• Monthly gross: $15,000</li>
-                  <li>• Two car payments: $1,200/month</li>
-                  <li>• Student loans: $800/month</li>
-                  <li>• Credit cards: $300/month</li>
-                  <li>• Credit score: 680</li>
-                  <li>• Savings: $75,000</li>
+                  <li>  Monthly gross: $15,000</li>
+                  <li>  Two car payments: $1,200/month</li>
+                  <li>  Student loans: $800/month</li>
+                  <li>  Credit cards: $300/month</li>
+                  <li>  Credit score: 680</li>
+                  <li>  Savings: $75,000</li>
                 </ul>
               </div>
               <div>
                 <p className="text-slate-700 mb-2"><strong>Affordability Analysis:</strong></p>
                 <ul className="space-y-1 text-slate-600">
-                  <li>• DTI capacity: $5,400 housing</li>
-                  <li>• Less existing debt: -$2,300</li>
-                  <li>• <strong>Available: $3,100/month</strong></li>
-                  <li>• <strong>Max home price: ~$445,000</strong></li>
-                  <li>• Down payment: 15% ($66,750)</li>
+                  <li>  DTI capacity: $5,400 housing</li>
+                  <li>  Less existing debt: -$2,300</li>
+                  <li>  <strong>Available: $3,100/month</strong></li>
+                  <li>  <strong>Max home price: ~$445,000</strong></li>
+                  <li>  Down payment: 15% ($66,750)</li>
                 </ul>
               </div>
             </div>
@@ -436,14 +436,14 @@ function MortgageAffordabilityCalculatorContent() {
         </div>
 
         <p className="text-slate-600 text-sm italic">
-          Mortgage qualification is just the starting point. Your goal should be finding a home payment that allows you to save, invest, and enjoy life—not just one that a lender approves. These real-world examples show that affordability depends on your complete financial picture, not just your income. Build your emergency fund, minimize high-interest debt, and leave room in your budget for life's unexpected expenses and opportunities.
+          Mortgage qualification is just the starting point. Your goal should be finding a home payment that allows you to save, invest, and enjoy life not just one that a lender approves. These real-world examples show that affordability depends on your complete financial picture, not just your income. Build your emergency fund, minimize high-interest debt, and leave room in your budget for life's unexpected expenses and opportunities.
         </p>
       </article>
 
       {/* FAQ Section */}
       <section className="py-12">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-3xl">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="w-full mx-auto max-w-4xl">
             <div className="mb-8 text-center">
               <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-3">
                 Frequently Asked Questions

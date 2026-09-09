@@ -65,7 +65,7 @@ export default function InterestOnlyExtraPaymentsCalculatorPage() {
 
       {/* Hero Section */}
       <div className="mb-8">
-        <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-12">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-4">
             <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-indigo-100 text-indigo-600">
               <Icon className="h-6 w-6" />
@@ -87,7 +87,7 @@ export default function InterestOnlyExtraPaymentsCalculatorPage() {
 
       {/* How It Works Section */}
       <section className="py-12 bg-slate-50">
-        <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-12">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <h2 className="mb-8 text-center text-2xl font-bold text-slate-900 sm:text-3xl">How It Works</h2>
           <div className="space-y-6">
             {howItWorks.map((paragraph, index) => (
@@ -101,8 +101,8 @@ export default function InterestOnlyExtraPaymentsCalculatorPage() {
 
       {/* Educational Article */}
       <section className="py-12">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <article className="mx-auto max-w-3xl prose prose-slate prose-headings:font-serif prose-headings:font-bold prose-h2:text-2xl prose-h2:md:text-3xl prose-h2:text-slate-900 prose-h2:mb-6 prose-h2:mt-10 prose-p:text-slate-600 prose-p:leading-relaxed prose-p:mb-4 prose-strong:text-slate-900 prose-strong:font-semibold prose-ul:text-slate-600 prose-li:mb-2">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <article className="w-full mx-auto max-w-4xl prose prose-slate prose-headings:font-serif prose-headings:font-bold prose-h2:text-2xl prose-h2:md:text-3xl prose-h2:text-slate-900 prose-h2:mb-6 prose-h2:mt-10 prose-p:text-slate-600 prose-p:leading-relaxed prose-p:mb-4 prose-strong:text-slate-900 prose-strong:font-semibold prose-ul:text-slate-600 prose-li:mb-2">
             <div className="mb-8">
               <h2 className="!mt-0">Interest-Only Loans with Extra Payments: How They Work and How to Calculate Savings</h2>
             </div>
@@ -110,7 +110,7 @@ export default function InterestOnlyExtraPaymentsCalculatorPage() {
             <h3 className="text-xl font-bold text-slate-900 mt-8 mb-4">Understanding Interest-Only Payments and Principal Reduction</h3>
 
             <p>
-              An interest-only loan requires you to pay only the interest that accrues each month during an initial period—typically five to ten years—without reducing your principal balance. Your monthly payment covers the cost of borrowing money, but none of it goes toward paying down the amount you owe. If you borrow $300,000 at 6%, you pay $1,500 monthly in interest, and after five years of perfect payments, you still owe $300,000.
+              An interest-only loan requires you to pay only the interest that accrues each month during an initial period typically five to ten years without reducing your principal balance. Your monthly payment covers the cost of borrowing money, but none of it goes toward paying down the amount you owe. If you borrow $300,000 at 6%, you pay $1,500 monthly in interest, and after five years of perfect payments, you still owe $300,000.
             </p>
 
             <p>
@@ -175,9 +175,9 @@ export default function InterestOnlyExtraPaymentsCalculatorPage() {
 
             <div className="bg-slate-50 border-l-4 border-indigo-600 p-6 my-6">
               <h4 className="font-serif font-bold text-lg text-slate-900 mb-4">Hypothetical Scenario: $280,000 Loan at 7% Interest, 30-Year Term, 10-Year Interest-Only Period</h4>
-              
+
               <p className="text-slate-700 mb-2">Scenario A: No Extra Payments</p>
-              
+
               <div className="bg-white p-4 rounded mb-4">
                 <p className="font-semibold text-slate-900 mb-2">Interest-Only Period (Years 1–10):</p>
                 <ul className="list-disc pl-6 space-y-1 text-slate-700">
@@ -206,7 +206,7 @@ export default function InterestOnlyExtraPaymentsCalculatorPage() {
             </p>
 
             <p>
-              Before committing to extra payments, ensure you have adequate emergency savings and aren't sacrificing higher-priority financial goals. Extra mortgage payments provide guaranteed returns equal to your interest rate, but they're illiquid—once paid, you can't access those funds without refinancing or selling. Balance the benefits of principal reduction against maintaining cash reserves for unexpected expenses or investment opportunities.
+              Before committing to extra payments, ensure you have adequate emergency savings and aren't sacrificing higher-priority financial goals. Extra mortgage payments provide guaranteed returns equal to your interest rate, but they're illiquid once paid, you can't access those funds without refinancing or selling. Balance the benefits of principal reduction against maintaining cash reserves for unexpected expenses or investment opportunities.
             </p>
 
           </article>
@@ -215,7 +215,7 @@ export default function InterestOnlyExtraPaymentsCalculatorPage() {
 
       {/* FAQ Section */}
       <section className="py-12 bg-slate-50">
-        <div className="mx-auto max-w-3xl px-6 sm:px-8 lg:px-12">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <h2 className="mb-8 text-center text-2xl font-bold text-slate-900 sm:text-3xl">Frequently Asked Questions</h2>
           <div className="space-y-4">
             {faqs.map((faq, index) => (

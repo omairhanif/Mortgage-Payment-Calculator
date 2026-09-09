@@ -24,11 +24,11 @@ export default function VALoanCalculatorPage() {
     },
     {
       q: "What's the difference between VA and FHA loans?",
-      a: "VA loans require no down payment (vs. 3.5% for FHA), have no monthly mortgage insurance (FHA requires MIP for life of loan with <10% down), and typically offer lower interest rates. VA loans have a one-time funding fee (1.4-3.6%, waived for disabled veterans) while FHA has upfront MIP (1.75%) plus ongoing monthly MIP (0.45-1.05%). VA loans have stricter property condition requirements than FHA and require veterans to occupy as primary residence. FHA loans are available to anyone who qualifies, while VA loans require military service. For eligible veterans, VA loans almost always offer better terms than FHA—lower costs, no down payment, no ongoing insurance premiums."
+      a: "VA loans require no down payment (vs. 3.5% for FHA), have no monthly mortgage insurance (FHA requires MIP for life of loan with <10% down), and typically offer lower interest rates. VA loans have a one-time funding fee (1.4-3.6%, waived for disabled veterans) while FHA has upfront MIP (1.75%) plus ongoing monthly MIP (0.45-1.05%). VA loans have stricter property condition requirements than FHA and require veterans to occupy as primary residence. FHA loans are available to anyone who qualifies, while VA loans require military service. For eligible veterans, VA loans almost always offer better terms than FHA lower costs, no down payment, no ongoing insurance premiums."
     },
     {
       q: "Can I use my VA loan benefit more than once?",
-      a: "Yes! You can use your VA loan benefit multiple times throughout your life. After paying off and selling a home purchased with a VA loan, your entitlement is restored for full reuse. You can even have multiple VA loans simultaneously if you have remaining entitlement—for example, keeping your first VA loan while buying a second home with another VA loan (subject to entitlement limits). The funding fee increases for subsequent use: first-time users with 0% down pay 2.3%, while second-time users pay 3.6%. Veterans with 10%+ down payment reduce the funding fee (1.4% first-time, 1.4% subsequent). Your Certificate of Eligibility (COE) shows your available entitlement."
+      a: "Yes! You can use your VA loan benefit multiple times throughout your life. After paying off and selling a home purchased with a VA loan, your entitlement is restored for full reuse. You can even have multiple VA loans simultaneously if you have remaining entitlement for example, keeping your first VA loan while buying a second home with another VA loan (subject to entitlement limits). The funding fee increases for subsequent use: first-time users with 0% down pay 2.3%, while second-time users pay 3.6%. Veterans with 10%+ down payment reduce the funding fee (1.4% first-time, 1.4% subsequent). Your Certificate of Eligibility (COE) shows your available entitlement."
     },
     {
       q: "Are there VA loan limits in 2024?",
@@ -36,11 +36,11 @@ export default function VALoanCalculatorPage() {
     },
     {
       q: "Do disabled veterans pay the VA funding fee?",
-      a: "No! Veterans receiving VA disability compensation are completely exempt from the VA funding fee, saving $9,200-$14,400 on a $400,000 loan. This exemption applies whether you're rated at 10% or 100% disabled—any disability rating qualifies. Surviving spouses receiving Dependency and Indemnity Compensation (DIC) are also exempt. Purple Heart recipients are exempt from the funding fee as well. The exemption is automatic once your VA disability status is confirmed—lenders verify this through your Certificate of Eligibility (COE). If you become disabled after closing, you cannot get a refund of funding fees already paid, but future VA loans will be exempt."
+      a: "No! Veterans receiving VA disability compensation are completely exempt from the VA funding fee, saving $9,200-$14,400 on a $400,000 loan. This exemption applies whether you're rated at 10% or 100% disabled any disability rating qualifies. Surviving spouses receiving Dependency and Indemnity Compensation (DIC) are also exempt. Purple Heart recipients are exempt from the funding fee as well. The exemption is automatic once your VA disability status is confirmed lenders verify this through your Certificate of Eligibility (COE). If you become disabled after closing, you cannot get a refund of funding fees already paid, but future VA loans will be exempt."
     },
     {
       q: "Can I buy a multi-family property with a VA loan?",
-      a: "Yes! VA loans can finance properties with up to 4 units, as long as you occupy one unit as your primary residence. This is an excellent wealth-building strategy—you can live in one unit while renting out the other 2-3 units, with rental income helping cover your mortgage. Lenders will consider 75% of projected rental income when qualifying you for the loan. The same VA loan benefits apply: 0% down payment, no monthly mortgage insurance, competitive rates. Property must meet VA's Minimum Property Requirements (MPRs) for all units. You can also use a VA loan to buy a single-family home and rent out rooms while you occupy the property."
+      a: "Yes! VA loans can finance properties with up to 4 units, as long as you occupy one unit as your primary residence. This is an excellent wealth-building strategy you can live in one unit while renting out the other 2-3 units, with rental income helping cover your mortgage. Lenders will consider 75% of projected rental income when qualifying you for the loan. The same VA loan benefits apply: 0% down payment, no monthly mortgage insurance, competitive rates. Property must meet VA's Minimum Property Requirements (MPRs) for all units. You can also use a VA loan to buy a single-family home and rent out rooms while you occupy the property."
     }
   ];
 
@@ -59,10 +59,10 @@ export default function VALoanCalculatorPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }}
       />
-      <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+      <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
 
         {/* Introduction Section */}
-        <div className="mb-8 mx-auto max-w-5xl">
+        <div className="mb-8 w-full mx-auto max-w-4xl">
           <div className="flex items-center gap-3 mb-4">
             <Shield className="h-8 w-8 text-indigo-600 flex-shrink-0" />
             <h1 className="font-serif text-3xl md:text-4xl font-bold text-indigo-600 leading-tight">
@@ -81,8 +81,8 @@ export default function VALoanCalculatorPage() {
 
       {/* How It Works Section */}
       <section className="py-12 bg-slate-50">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-3xl">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="w-full mx-auto max-w-4xl">
             <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-6 text-center">
               How It Works
             </h2>
@@ -103,19 +103,19 @@ export default function VALoanCalculatorPage() {
 
       {/* Article Section */}
       <section className="py-12 bg-white">
-          <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-            <div className="mx-auto max-w-3xl">
+          <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <div className="w-full mx-auto max-w-4xl">
               <article className="prose prose-slate max-w-none">
                 <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-6">
                   Understanding FHA Loan Calculations: A Complete Guide
                 </h2>
-                
+
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Federal Housing Administration (FHA) loans have helped millions of Americans achieve homeownership by requiring lower down payments and accepting borrowers with less-than-perfect credit. However, FHA loans come with unique costs—particularly mortgage insurance—that significantly affect your monthly payment and long-term expenses. An FHA loan calculator helps you understand these costs before you commit, but only if you understand what it's actually calculating and what the results mean for your specific situation.
+                  Federal Housing Administration (FHA) loans have helped millions of Americans achieve homeownership by requiring lower down payments and accepting borrowers with less-than-perfect credit. However, FHA loans come with unique costs particularly mortgage insurance that significantly affect your monthly payment and long-term expenses. An FHA loan calculator helps you understand these costs before you commit, but only if you understand what it's actually calculating and what the results mean for your specific situation.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Whether you're searching for an FHA loan calculator with closing costs, trying to determine how much you can borrow, or comparing FHA financing to conventional options, understanding how these calculations work ensures you make informed decisions. This calculator provides estimates based on the inputs you provide—your actual qualification and final terms will depend on lender requirements, your complete financial profile, and current market conditions.
+                  Whether you're searching for an FHA loan calculator with closing costs, trying to determine how much you can borrow, or comparing FHA financing to conventional options, understanding how these calculations work ensures you make informed decisions. This calculator provides estimates based on the inputs you provide your actual qualification and final terms will depend on lender requirements, your complete financial profile, and current market conditions.
                 </p>
 
                 <h3 className="font-serif text-xl font-bold text-slate-900 mt-8 mb-4">
@@ -175,11 +175,11 @@ export default function VALoanCalculatorPage() {
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  These geographic variations explain why location-specific searches are common—the loan limit in your county directly affects how much you can borrow. A home priced at $600,000 might qualify for FHA financing in expensive markets but exceed the limit in standard-cost areas, requiring conventional financing instead. Property taxes and insurance costs also vary substantially by state and county, which is why calculators that let you input your actual local costs provide more accurate estimates than generic tools.
+                  These geographic variations explain why location-specific searches are common the loan limit in your county directly affects how much you can borrow. A home priced at $600,000 might qualify for FHA financing in expensive markets but exceed the limit in standard-cost areas, requiring conventional financing instead. Property taxes and insurance costs also vary substantially by state and county, which is why calculators that let you input your actual local costs provide more accurate estimates than generic tools.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  For multifamily properties (2-4 units), FHA loan limits are higher than single-family limits. An FHA loan calculator multifamily scenario would use these elevated limits—for example, the floor limit for a four-unit property might be around $950,000, with high-cost areas allowing even more. If you're considering purchasing a duplex, triplex, or fourplex to live in one unit and rent the others, understanding these higher limits matters significantly.
+                  For multifamily properties (2-4 units), FHA loan limits are higher than single-family limits. An FHA loan calculator multifamily scenario would use these elevated limits for example, the floor limit for a four-unit property might be around $950,000, with high-cost areas allowing even more. If you're considering purchasing a duplex, triplex, or fourplex to live in one unit and rent the others, understanding these higher limits matters significantly.
                 </p>
 
                 <h3 className="font-serif text-xl font-bold text-slate-900 mt-8 mb-4">
@@ -231,7 +231,7 @@ export default function VALoanCalculatorPage() {
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  This example assumes specific values for taxes and insurance, which vary dramatically by location. The actual interest rate you receive depends on your credit profile and market conditions. The MIP rate may vary slightly based on exact loan terms. This calculation demonstrates the methodology—your specific numbers will differ based on your situation.
+                  This example assumes specific values for taxes and insurance, which vary dramatically by location. The actual interest rate you receive depends on your credit profile and market conditions. The MIP rate may vary slightly based on exact loan terms. This calculation demonstrates the methodology your specific numbers will differ based on your situation.
                 </p>
 
                 <h3 className="font-serif text-xl font-bold text-slate-900 mt-8 mb-4">
@@ -283,11 +283,11 @@ export default function VALoanCalculatorPage() {
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  <strong>FHA 203(k) Renovation Loans:</strong> An FHA construction loan, more specifically the FHA 203(k) program, allows you to finance both the purchase price and renovation costs in a single loan. The calculation becomes more complex because you're borrowing based on the property's after-repair value rather than current value. Renovation costs, contractor estimates, and a detailed work plan all factor into the loan amount. Standard FHA calculators don't typically handle these scenarios—specialized 203(k) calculators or lender guidance is necessary.
+                  <strong>FHA 203(k) Renovation Loans:</strong> An FHA construction loan, more specifically the FHA 203(k) program, allows you to finance both the purchase price and renovation costs in a single loan. The calculation becomes more complex because you're borrowing based on the property's after-repair value rather than current value. Renovation costs, contractor estimates, and a detailed work plan all factor into the loan amount. Standard FHA calculators don't typically handle these scenarios specialized 203(k) calculators or lender guidance is necessary.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  <strong>Down Payment Assistance Programs:</strong> Many state and local housing agencies offer down payment assistance grants or low-interest loans to qualified buyers. While some programs, including various first-time homebuyer initiatives, can provide substantial assistance, the availability and amounts vary significantly by location and change over time. If you've heard about programs like a $25,000 first-time home buyer grant application, research current offerings in your specific area—such programs may be available in some jurisdictions but not others, and typically have income limits and other eligibility requirements. These programs can work with FHA financing but add complexity to the calculation.
+                  <strong>Down Payment Assistance Programs:</strong> Many state and local housing agencies offer down payment assistance grants or low-interest loans to qualified buyers. While some programs, including various first-time homebuyer initiatives, can provide substantial assistance, the availability and amounts vary significantly by location and change over time. If you've heard about programs like a $25,000 first-time home buyer grant application, research current offerings in your specific area such programs may be available in some jurisdictions but not others, and typically have income limits and other eligibility requirements. These programs can work with FHA financing but add complexity to the calculation.
                 </p>
 
                 <h3 className="font-serif text-xl font-bold text-slate-900 mt-8 mb-4">
@@ -299,11 +299,11 @@ export default function VALoanCalculatorPage() {
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Different calculators may use different MIP rate assumptions. Some might assume the minimum 0.45% annual MIP, while others use 0.55% or higher rates. Property tax and insurance estimates vary—some calculators use national averages, others use state or county-specific estimates, and some require you to input your own figures. Closing cost estimates also differ, with some calculators providing detailed breakdowns and others using simplified percentages.
+                  Different calculators may use different MIP rate assumptions. Some might assume the minimum 0.45% annual MIP, while others use 0.55% or higher rates. Property tax and insurance estimates vary some calculators use national averages, others use state or county-specific estimates, and some require you to input your own figures. Closing cost estimates also differ, with some calculators providing detailed breakdowns and others using simplified percentages.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Most importantly, online calculators provide estimates for planning purposes—they cannot account for your specific credit profile, debt situation, or lender-specific pricing adjustments. Only an actual loan application with a lender produces binding terms. Use calculators to understand the range of costs and compare scenarios, but don't rely on them as guaranteed qualification tools.
+                  Most importantly, online calculators provide estimates for planning purposes they cannot account for your specific credit profile, debt situation, or lender-specific pricing adjustments. Only an actual loan application with a lender produces binding terms. Use calculators to understand the range of costs and compare scenarios, but don't rely on them as guaranteed qualification tools.
                 </p>
 
                 <h3 className="font-serif text-xl font-bold text-slate-900 mt-8 mb-4">
@@ -327,18 +327,18 @@ export default function VALoanCalculatorPage() {
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Compare multiple scenarios—try calculations with 3.5% down versus 10% down to see how that affects monthly MIP and total costs. Calculate the same home price using both FHA and conventional assumptions to determine which actually costs less over time for your situation. Factor in all your existing monthly debts to ensure the payment fits within realistic DTI ratios.
+                  Compare multiple scenarios try calculations with 3.5% down versus 10% down to see how that affects monthly MIP and total costs. Calculate the same home price using both FHA and conventional assumptions to determine which actually costs less over time for your situation. Factor in all your existing monthly debts to ensure the payment fits within realistic DTI ratios.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Remember that FHA loan requirements extend beyond just the numbers. You'll need a property that meets FHA appraisal standards, employment verification, acceptable credit history (even if your score is lower than conventional requirements), and sufficient funds for closing costs and reserves. The calculator tells you if the numbers could work—a lender determines if you actually qualify.
+                  Remember that FHA loan requirements extend beyond just the numbers. You'll need a property that meets FHA appraisal standards, employment verification, acceptable credit history (even if your score is lower than conventional requirements), and sufficient funds for closing costs and reserves. The calculator tells you if the numbers could work a lender determines if you actually qualify.
                 </p>
 
                 <div className="mt-8 pt-6 border-t border-slate-200">
                   <h3 className="font-serif text-xl font-bold text-slate-900 mb-4 text-center">
                     Frequently Asked Questions About FHA Loan Calculations
                   </h3>
-                  
+
                   <div className="space-y-4">
                     <div>
                       <h4 className="font-semibold text-slate-900 mb-2">
@@ -372,7 +372,7 @@ export default function VALoanCalculatorPage() {
                         Why does my result differ from Zillow or other calculators?
                       </h4>
                       <p className="text-sm text-slate-600 leading-relaxed">
-                        Different calculators use different assumptions for MIP rates, property taxes, insurance costs, and closing costs. Some use national averages while others allow custom inputs. None can provide guaranteed terms—only an actual lender quote with a complete loan application determines your real costs. Use multiple calculators to understand the range, then get lender quotes for accurate pricing.
+                        Different calculators use different assumptions for MIP rates, property taxes, insurance costs, and closing costs. Some use national averages while others allow custom inputs. None can provide guaranteed terms only an actual lender quote with a complete loan application determines your real costs. Use multiple calculators to understand the range, then get lender quotes for accurate pricing.
                       </p>
                     </div>
 
@@ -411,8 +411,8 @@ export default function VALoanCalculatorPage() {
 
       {/* FAQ Section */}
       <section className="py-12">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-3xl">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="w-full mx-auto max-w-4xl">
             <div className="mb-8 text-center">
               <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-3">
                 Frequently Asked Questions

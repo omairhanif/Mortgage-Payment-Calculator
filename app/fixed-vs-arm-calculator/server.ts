@@ -50,7 +50,7 @@ export function getStructuredData() {
           "name": "What is a 5/1 ARM and how does it work?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A 5/1 ARM (Adjustable-Rate Mortgage) has a fixed interest rate for the first 5 years, then adjusts annually for the remaining loan term based on market index rates. Rate caps protect you—common structure is 2/2/5, meaning the rate can increase maximum 2% at first adjustment, 2% per subsequent adjustment, and 5% total over loan life."
+            "text": "A 5/1 ARM (Adjustable-Rate Mortgage) has a fixed interest rate for the first 5 years, then adjusts annually for the remaining loan term based on market index rates. Rate caps protect you common structure is 2/2/5, meaning the rate can increase maximum 2% at first adjustment, 2% per subsequent adjustment, and 5% total over loan life."
           }
         },
         {

@@ -55,10 +55,10 @@ export default function JumboLoanCalculatorPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }}
       />
-      <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+      <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
 
         {/* Introduction Section */}
-        <div className="mb-8 mx-auto max-w-5xl">
+        <div className="mb-8 w-full mx-auto max-w-4xl">
           <div className="flex items-center gap-3 mb-4">
             <Building2 className="h-8 w-8 text-indigo-600 flex-shrink-0" />
             <h1 className="font-serif text-3xl md:text-4xl font-bold text-indigo-600 leading-tight">
@@ -77,8 +77,8 @@ export default function JumboLoanCalculatorPage() {
 
       {/* How It Works Section */}
       <section className="py-12 bg-slate-50">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-3xl">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="w-full mx-auto max-w-4xl">
             <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-6 text-center">
               How It Works
             </h2>
@@ -99,19 +99,19 @@ export default function JumboLoanCalculatorPage() {
 
       {/* Article Section */}
       <section className="py-12 bg-white">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-3xl">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="w-full mx-auto max-w-4xl">
             <article className="prose prose-slate max-w-none">
               <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-6">
                 Understanding Jumbo Loan Calculations: Your Complete Guide to High-Balance Financing
               </h2>
               
               <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Jumbo loans—mortgages that exceed the conforming loan limits set by the Federal Housing Finance Agency (FHFA)—represent a significant segment of the luxury and high-cost real estate market. For 2024, the baseline conforming loan limit is $766,550 for single-family homes in most counties, with higher limits up to $1,149,825 in designated high-cost areas. Any loan amount above these thresholds requires jumbo financing, which comes with stricter qualification requirements, higher interest rates, and larger down payments than conventional conforming loans.
+                  Jumbo loans mortgages that exceed the conforming loan limits set by the Federal Housing Finance Agency (FHFA) represent a significant segment of the luxury and high-cost real estate market. For 2024, the baseline conforming loan limit is $766,550 for single-family homes in most counties, with higher limits up to $1,149,825 in designated high-cost areas. Any loan amount above these thresholds requires jumbo financing, which comes with stricter qualification requirements, higher interest rates, and larger down payments than conventional conforming loans.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  A jumbo loan calculator helps you estimate monthly payments and determine affordability for luxury property purchases, but understanding how jumbo mortgages differ from conventional loans is essential. Unlike conforming loans that can be purchased by Fannie Mae or Freddie Mac, jumbo loans remain on lenders' books or are sold to private investors, creating additional risk that translates to more stringent underwriting standards. This calculator provides estimates based on your inputs—your actual qualification depends on credit score, debt-to-income ratios, reserve requirements, and lender-specific policies.
+                  A jumbo loan calculator helps you estimate monthly payments and determine affordability for luxury property purchases, but understanding how jumbo mortgages differ from conventional loans is essential. Unlike conforming loans that can be purchased by Fannie Mae or Freddie Mac, jumbo loans remain on lenders' books or are sold to private investors, creating additional risk that translates to more stringent underwriting standards. This calculator provides estimates based on your inputs your actual qualification depends on credit score, debt-to-income ratios, reserve requirements, and lender-specific policies.
                 </p>
 
                 <h3 className="font-serif text-xl font-bold text-slate-900 mt-8 mb-4">
@@ -119,7 +119,7 @@ export default function JumboLoanCalculatorPage() {
                 </h3>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  A jumbo loan calculator processes your inputs—home price, down payment, interest rate, and loan term—to estimate your monthly payment including principal, interest, property taxes, homeowners insurance, and any HOA fees. Unlike conventional loan calculators, jumbo calculators must account for the significantly higher down payment requirements (typically 10-20% minimum) and higher interest rates that lenders charge for non-conforming loans.
+                  A jumbo loan calculator processes your inputs home price, down payment, interest rate, and loan term to estimate your monthly payment including principal, interest, property taxes, homeowners insurance, and any HOA fees. Unlike conventional loan calculators, jumbo calculators must account for the significantly higher down payment requirements (typically 10-20% minimum) and higher interest rates that lenders charge for non-conforming loans.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -151,7 +151,7 @@ export default function JumboLoanCalculatorPage() {
                 </p>
 
               <p className="text-base text-slate-600 leading-relaxed mb-4">
-                <strong>Reserve Requirements:</strong> Lenders require significant cash reserves after closing—typically 6-12 months of mortgage payments sitting in accounts after you've made your down payment and covered all closing costs. On a $10,000 monthly payment, that's $60,000-$120,000 in liquid reserves. This requirement ensures you can weather income disruptions without defaulting.
+                <strong>Reserve Requirements:</strong> Lenders require significant cash reserves after closing typically 6-12 months of mortgage payments sitting in accounts after you've made your down payment and covered all closing costs. On a $10,000 monthly payment, that's $60,000-$120,000 in liquid reserves. This requirement ensures you can weather income disruptions without defaulting.
               </p>
             </article>
           </div>
@@ -160,8 +160,8 @@ export default function JumboLoanCalculatorPage() {
 
       {/* FAQ Section */}
       <section className="py-12">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-3xl">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="w-full mx-auto max-w-4xl">
             <div className="mb-8 text-center">
               <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-3">
                 Frequently Asked Questions

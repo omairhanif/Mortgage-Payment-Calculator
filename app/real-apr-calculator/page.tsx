@@ -16,27 +16,27 @@ export default function RealAPRCalculatorPage() {
   const faqs = [
     {
       q: "What is the difference between interest rate and APR?",
-      a: "The interest rate is the cost of borrowing money expressed as a percentage of the loan amount—it determines your monthly principal and interest payment. APR (Annual Percentage Rate) includes the interest rate PLUS other borrowing costs like origination fees, discount points, mortgage insurance, and certain lender fees, expressed as an annualized percentage. For example, a loan might have a 6.5% interest rate but a 6.85% APR once fees are factored in. APR is always equal to or higher than the interest rate. The interest rate affects your monthly payment, while APR reflects the true total cost of the loan. When comparing lenders, always compare APRs—not just interest rates—to see which loan is truly cheaper."
+      a: "The interest rate is the cost of borrowing money expressed as a percentage of the loan amount it determines your monthly principal and interest payment. APR (Annual Percentage Rate) includes the interest rate PLUS other borrowing costs like origination fees, discount points, mortgage insurance, and certain lender fees, expressed as an annualized percentage. For example, a loan might have a 6.5% interest rate but a 6.85% APR once fees are factored in. APR is always equal to or higher than the interest rate. The interest rate affects your monthly payment, while APR reflects the true total cost of the loan. When comparing lenders, always compare APRs not just interest rates to see which loan is truly cheaper."
     },
     {
       q: "How to calculate APR on a mortgage?",
-      a: "Calculating APR manually is complex, but here's the concept: (1) Add all financed costs (origination fees, points, lender fees, upfront mortgage insurance) to find your total cost; (2) Determine the loan amount you actually receive (principal minus upfront fees); (3) Calculate what interest rate on this net amount would produce the same monthly payment as your actual rate; (4) That rate is your APR. For example, borrowing $300,000 at 6.5% with $6,000 in fees: your APR might be 6.85% because you're effectively paying 6.5% interest on $300,000 while only receiving $294,000 net. Use an APR calculator or real APR calculator for accurate results—the math involves iterative calculations beyond simple formulas."
+      a: "Calculating APR manually is complex, but here's the concept: (1) Add all financed costs (origination fees, points, lender fees, upfront mortgage insurance) to find your total cost; (2) Determine the loan amount you actually receive (principal minus upfront fees); (3) Calculate what interest rate on this net amount would produce the same monthly payment as your actual rate; (4) That rate is your APR. For example, borrowing $300,000 at 6.5% with $6,000 in fees: your APR might be 6.85% because you're effectively paying 6.5% interest on $300,000 while only receiving $294,000 net. Use an APR calculator or real APR calculator for accurate results the math involves iterative calculations beyond simple formulas."
     },
     {
       q: "Is 7% APR high for a mortgage?",
-      a: "Whether 7% APR is high depends on current market conditions and your financial profile. As of 2024, with rates ranging from 6-8%, a 7% APR is near the middle of the current market—not particularly high or low. Historically, mortgage rates have ranged from 3-4% (2020-2021 lows) to 18% (1981 peak), so 7% is moderate historically. Factors affecting whether 7% is good for you: your credit score (740+ gets best rates), loan type (FHA/VA vs conventional), down payment size (20%+ gets better rates), and current Federal Reserve policy. Compare 7% APR to multiple lenders' offers—if others quote 6.5%, then 7% is high; if others quote 7.5%, it's competitive. Shop at least 3 lenders within 14 days to compare without hurting your credit."
+      a: "Whether 7% APR is high depends on current market conditions and your financial profile. As of 2024, with rates ranging from 6-8%, a 7% APR is near the middle of the current market not particularly high or low. Historically, mortgage rates have ranged from 3-4% (2020-2021 lows) to 18% (1981 peak), so 7% is moderate historically. Factors affecting whether 7% is good for you: your credit score (740+ gets best rates), loan type (FHA/VA vs conventional), down payment size (20%+ gets better rates), and current Federal Reserve policy. Compare 7% APR to multiple lenders' offers if others quote 6.5%, then 7% is high; if others quote 7.5%, it's competitive. Shop at least 3 lenders within 14 days to compare without hurting your credit."
     },
     {
       q: "What's the difference between APR and APY?",
-      a: "APR (Annual Percentage Rate) and APY (Annual Percentage Yield) both express annual rates but differ fundamentally. APR is used for loans and shows what you'll pay, including interest and fees. APY is used for savings/investments and shows what you'll earn, including compound interest. For mortgages, you'll see APR—not APY. Example: a mortgage might have 6.5% interest rate and 6.8% APR (accounting for fees). A savings account might have 4% APR but 4.08% APY (accounting for monthly compounding). APY is always higher than APR for the same rate because it includes compounding gains. For borrowing, lower APR is better; for saving, higher APY is better."
+      a: "APR (Annual Percentage Rate) and APY (Annual Percentage Yield) both express annual rates but differ fundamentally. APR is used for loans and shows what you'll pay, including interest and fees. APY is used for savings/investments and shows what you'll earn, including compound interest. For mortgages, you'll see APR not APY. Example: a mortgage might have 6.5% interest rate and 6.8% APR (accounting for fees). A savings account might have 4% APR but 4.08% APY (accounting for monthly compounding). APY is always higher than APR for the same rate because it includes compounding gains. For borrowing, lower APR is better; for saving, higher APY is better."
     },
     {
       q: "What fees are included in APR calculation?",
-      a: "APR includes most lender-imposed costs but not all closing costs. Included in APR: loan origination fees (typically 0.5-1% of loan), discount points (if purchasing lower rates), lender underwriting fees, upfront mortgage insurance premiums (FHA, USDA), broker fees (if applicable), and application fees. NOT included in APR: appraisal fees ($400-600), home inspection ($300-500), title insurance and search ($1,000-2,500), attorney fees, recording fees, homeowners insurance, property taxes, and prepaid interest/escrow items. The APR calculation focuses on costs that vary between lenders—helping you compare offers. This is why shopping closing costs separately from APR still matters."
+      a: "APR includes most lender-imposed costs but not all closing costs. Included in APR: loan origination fees (typically 0.5-1% of loan), discount points (if purchasing lower rates), lender underwriting fees, upfront mortgage insurance premiums (FHA, USDA), broker fees (if applicable), and application fees. NOT included in APR: appraisal fees ($400-600), home inspection ($300-500), title insurance and search ($1,000-2,500), attorney fees, recording fees, homeowners insurance, property taxes, and prepaid interest/escrow items. The APR calculation focuses on costs that vary between lenders helping you compare offers. This is why shopping closing costs separately from APR still matters."
     },
     {
       q: "How much higher is APR than interest rate?",
-      a: "APR is typically 0.125% to 0.5% higher than the interest rate, depending on fees and loan type. On a $300,000 mortgage: with minimal fees ($1,500), APR might be 6.65% vs 6.5% interest rate (0.15% difference); with typical fees ($5,000), APR might be 6.85% vs 6.5% (0.35% difference); with high fees or points ($10,000), APR could be 7.1% vs 6.5% (0.6% difference). FHA loans often show larger gaps due to upfront mortgage insurance. If APR is more than 0.5% higher than interest rate, examine the closing costs carefully—you may be paying excessive fees. A real APR calculator helps you understand this relationship and identify overpriced loans."
+      a: "APR is typically 0.125% to 0.5% higher than the interest rate, depending on fees and loan type. On a $300,000 mortgage: with minimal fees ($1,500), APR might be 6.65% vs 6.5% interest rate (0.15% difference); with typical fees ($5,000), APR might be 6.85% vs 6.5% (0.35% difference); with high fees or points ($10,000), APR could be 7.1% vs 6.5% (0.6% difference). FHA loans often show larger gaps due to upfront mortgage insurance. If APR is more than 0.5% higher than interest rate, examine the closing costs carefully you may be paying excessive fees. A real APR calculator helps you understand this relationship and identify overpriced loans."
     },
     {
       q: "Should I focus on interest rate or APR when comparing mortgages?",
@@ -59,10 +59,10 @@ export default function RealAPRCalculatorPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }}
       />
-      <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+      <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
 
         {/* Introduction Section */}
-        <div className="mb-8 mx-auto max-w-5xl">
+        <div className="mb-8 w-full mx-auto max-w-4xl">
           <div className="flex items-center gap-3 mb-4">
             <Percent className="h-8 w-8 text-indigo-600 flex-shrink-0" />
             <h1 className="font-serif text-3xl md:text-4xl font-bold text-indigo-600 leading-tight">
@@ -81,8 +81,8 @@ export default function RealAPRCalculatorPage() {
 
       {/* How It Works Section */}
       <section className="py-12 bg-slate-50">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-3xl">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="w-full mx-auto max-w-4xl">
             <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-6 text-center">
               How It Works
             </h2>
@@ -103,15 +103,15 @@ export default function RealAPRCalculatorPage() {
 
       {/* Article Section */}
         <section className="py-12 bg-white">
-          <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-            <div className="mx-auto max-w-3xl">
+          <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <div className="w-full mx-auto max-w-4xl">
               <article className="prose prose-slate max-w-none">
                 <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-6">
                   Understanding Real APR: What Your Loan Actually Costs
                 </h2>
-                
+
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  When you're shopping for a mortgage, personal loan, or car loan, the advertised interest rate rarely tells the complete story. Lenders might promote an attractive 6% rate, but after factoring in origination fees, discount points, and other closing costs, your effective borrowing cost could be significantly higher. This is where an effective APR calculator becomes essential—it reveals the true annual percentage rate that accounts for all the costs of borrowing, not just the interest on the principal.
+                  When you're shopping for a mortgage, personal loan, or car loan, the advertised interest rate rarely tells the complete story. Lenders might promote an attractive 6% rate, but after factoring in origination fees, discount points, and other closing costs, your effective borrowing cost could be significantly higher. This is where an effective APR calculator becomes essential it reveals the true annual percentage rate that accounts for all the costs of borrowing, not just the interest on the principal.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -131,7 +131,7 @@ export default function RealAPRCalculatorPage() {
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Here's a hypothetical example that illustrates the difference: Suppose you're borrowing $200,000 for a mortgage at a 6.5% interest rate over 30 years. Your monthly principal and interest payment would be approximately $1,264. However, if the lender charges 1% origination fee ($2,000), 1 discount point ($2,000), and $1,000 in other lender fees, your total upfront costs are $5,000. When these costs are spread over the loan term and expressed as an annual rate, your effective APR might be 6.72%—noticeably higher than the stated rate.
+                  Here's a hypothetical example that illustrates the difference: Suppose you're borrowing $200,000 for a mortgage at a 6.5% interest rate over 30 years. Your monthly principal and interest payment would be approximately $1,264. However, if the lender charges 1% origination fee ($2,000), 1 discount point ($2,000), and $1,000 in other lender fees, your total upfront costs are $5,000. When these costs are spread over the loan term and expressed as an annual rate, your effective APR might be 6.72% noticeably higher than the stated rate.
                 </p>
 
                 <h3 className="font-serif text-xl font-bold text-slate-900 mt-8 mb-4">
@@ -155,7 +155,7 @@ export default function RealAPRCalculatorPage() {
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Let's walk through a simplified hypothetical example to show the logic: You borrow $10,000 at 8% interest for 3 years with a $300 origination fee. Your monthly payment at 8% would be approximately $313.36 for 36 months, totaling $11,281. However, you only received $9,700 (the $10,000 loan minus the $300 fee). The APR calculation asks: what interest rate on $9,700 would require the same $313.36 monthly payment? The answer is approximately 8.65%. That's your actual APR—the rate that reflects both the interest charges and the upfront fee cost.
+                  Let's walk through a simplified hypothetical example to show the logic: You borrow $10,000 at 8% interest for 3 years with a $300 origination fee. Your monthly payment at 8% would be approximately $313.36 for 36 months, totaling $11,281. However, you only received $9,700 (the $10,000 loan minus the $300 fee). The APR calculation asks: what interest rate on $9,700 would require the same $313.36 monthly payment? The answer is approximately 8.65%. That's your actual APR the rate that reflects both the interest charges and the upfront fee cost.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -167,7 +167,7 @@ export default function RealAPRCalculatorPage() {
                 </h3>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  One common source of confusion involves how to calculate APR per month. It's important to understand that APR is an annualized rate—it represents the yearly cost of borrowing. You cannot simply divide the APR by 12 to get a monthly rate that accurately reflects the cost structure of most loans.
+                  One common source of confusion involves how to calculate APR per month. It's important to understand that APR is an annualized rate it represents the yearly cost of borrowing. You cannot simply divide the APR by 12 to get a monthly rate that accurately reflects the cost structure of most loans.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -175,7 +175,7 @@ export default function RealAPRCalculatorPage() {
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  The APR itself doesn't change your monthly payment amount—your payment is calculated from the interest rate. Instead, the APR serves as a comparison tool that reveals the true cost of the loan when fees are factored in. Your monthly payment stays the same whether you look at the interest rate or the APR, but the APR tells you the effective rate you're paying when all costs are considered.
+                  The APR itself doesn't change your monthly payment amount your payment is calculated from the interest rate. Instead, the APR serves as a comparison tool that reveals the true cost of the loan when fees are factored in. Your monthly payment stays the same whether you look at the interest rate or the APR, but the APR tells you the effective rate you're paying when all costs are considered.
                 </p>
 
                 <h3 className="font-serif text-xl font-bold text-slate-900 mt-8 mb-4">
@@ -223,7 +223,7 @@ export default function RealAPRCalculatorPage() {
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  If you made no payments for one year (purely hypothetical to show cost), the interest would compound to approximately $922 in total interest charges, bringing your balance to $3,922. This demonstrates why a high APR on revolving credit becomes expensive quickly—the 26.99% rate means you'd pay nearly 31% of your original balance in interest over just one year.
+                  If you made no payments for one year (purely hypothetical to show cost), the interest would compound to approximately $922 in total interest charges, bringing your balance to $3,922. This demonstrates why a high APR on revolving credit becomes expensive quickly the 26.99% rate means you'd pay nearly 31% of your original balance in interest over just one year.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -243,7 +243,7 @@ export default function RealAPRCalculatorPage() {
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Some fees aren't included in the APR calculation because they're considered optional or unrelated to the credit transaction itself—things like homeowners insurance, property taxes, or certain third-party fees. The APR focuses on the cost of the credit, not the total cost of homeownership or the transaction.
+                  Some fees aren't included in the APR calculation because they're considered optional or unrelated to the credit transaction itself things like homeowners insurance, property taxes, or certain third-party fees. The APR focuses on the cost of the credit, not the total cost of homeownership or the transaction.
                 </p>
 
                 <h3 className="font-serif text-xl font-bold text-slate-900 mt-8 mb-4">
@@ -267,7 +267,7 @@ export default function RealAPRCalculatorPage() {
                 </h3>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  When comparing loan offers, enter each option into a real-time APR calculator or effective APR calculator to see the true cost beyond the advertised rate. Pay attention to how different fee structures affect the APR—sometimes a slightly higher interest rate with lower fees results in a better overall deal than a lower rate with substantial upfront costs.
+                  When comparing loan offers, enter each option into a real-time APR calculator or effective APR calculator to see the true cost beyond the advertised rate. Pay attention to how different fee structures affect the APR sometimes a slightly higher interest rate with lower fees results in a better overall deal than a lower rate with substantial upfront costs.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -279,21 +279,21 @@ export default function RealAPRCalculatorPage() {
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Remember that the APR is a standardized comparison tool, but it doesn't capture every aspect of a loan that might matter to you—factors like customer service, prepayment penalties, flexibility in payment dates, or loan features may also influence which option best fits your needs.
+                  Remember that the APR is a standardized comparison tool, but it doesn't capture every aspect of a loan that might matter to you factors like customer service, prepayment penalties, flexibility in payment dates, or loan features may also influence which option best fits your needs.
                 </p>
 
                 <div className="mt-8 pt-6 border-t border-slate-200">
                   <h3 className="font-serif text-xl font-bold text-slate-900 mb-4 text-center">
                     Frequently Asked Questions About APR Calculations
                   </h3>
-                  
+
                   <div className="space-y-4">
                     <div>
                       <h4 className="font-semibold text-slate-900 mb-2">
                         Can I calculate APR from just the interest rate and loan amount?
                       </h4>
                       <p className="text-sm text-slate-600 leading-relaxed">
-                        No—calculating APR requires knowing all fees associated with obtaining the loan. Without fee information, the APR equals the interest rate. The APR will always be equal to or higher than the interest rate, with the difference determined by how much you pay in fees relative to the loan amount and term.
+                        No calculating APR requires knowing all fees associated with obtaining the loan. Without fee information, the APR equals the interest rate. The APR will always be equal to or higher than the interest rate, with the difference determined by how much you pay in fees relative to the loan amount and term.
                       </p>
                     </div>
 
@@ -311,7 +311,7 @@ export default function RealAPRCalculatorPage() {
                         Does APR change my monthly payment amount?
                       </h4>
                       <p className="text-sm text-slate-600 leading-relaxed">
-                        No—your monthly payment is calculated from the interest rate and loan amount, not the APR. The APR is a comparison tool that shows your effective cost including fees, but the actual payment you make each month is determined by the note rate (interest rate) on your loan. The APR helps you compare total borrowing costs between loans with different fee structures.
+                        No your monthly payment is calculated from the interest rate and loan amount, not the APR. The APR is a comparison tool that shows your effective cost including fees, but the actual payment you make each month is determined by the note rate (interest rate) on your loan. The APR helps you compare total borrowing costs between loans with different fee structures.
                       </p>
                     </div>
 
@@ -329,7 +329,7 @@ export default function RealAPRCalculatorPage() {
                         Is a 0% APR credit card really free borrowing?
                       </h4>
                       <p className="text-sm text-slate-600 leading-relaxed">
-                        During the promotional period, yes—you pay no interest on qualifying balances. However, these are usually temporary offers (6-21 months), and any remaining balance after the promotional period ends will accrue interest at the regular APR, which is typically quite high. Additionally, missed payments often result in immediate loss of the 0% rate. Balance transfer fees (often 3-5%) also apply to transfers, even during 0% APR periods.
+                        During the promotional period, yes you pay no interest on qualifying balances. However, these are usually temporary offers (6-21 months), and any remaining balance after the promotional period ends will accrue interest at the regular APR, which is typically quite high. Additionally, missed payments often result in immediate loss of the 0% rate. Balance transfer fees (often 3-5%) also apply to transfers, even during 0% APR periods.
                       </p>
                     </div>
                   </div>
@@ -341,8 +341,8 @@ export default function RealAPRCalculatorPage() {
 
       {/* FAQ Section */}
       <section className="py-12">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-3xl">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="w-full mx-auto max-w-4xl">
             <div className="mb-8 text-center">
               <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-3">
                 Frequently Asked Questions

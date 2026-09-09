@@ -4,7 +4,10 @@ import { useState, useRef, useEffect } from "react";
 import { ChevronDown, ChevronUp, Home, Calculator } from "lucide-react";
 import { calculateSecondMortgage, type SecondMortgageInput } from "@/lib/mortgage";
 import { formatCurrency } from "@/lib/utils";
+import { hasValidationErrors, validateCalculatorInputs } from "@/lib/calculator-validation";
+import type { InputConfig } from "@/lib/calculator-config.types";
 import { NumberInput, Card } from "@/components/calculator/CalculatorFields";
+import { ResultActions } from "@/components/calculator/CalculatorResult";
 import { getStructuredData } from "./server";
 
 export default function SecondMortgageCalculatorPage() {
@@ -39,7 +42,7 @@ export default function SecondMortgageCalculatorPage() {
       },
       {
         q: "Is it hard to get a 2nd mortgage?",
-        a: "Getting a second mortgage is generally harder than getting a first mortgage because you're asking lenders to take a subordinate position—they only get paid after the first mortgage holder in a foreclosure. This increased risk means stricter requirements: higher credit scores (typically 620-680+ minimum), lower loan-to-value ratios (usually 80% CLTV maximum), more thorough income verification, and higher interest rates (often 1-3% above first mortgage rates). However, if you have substantial equity, strong credit, and stable income, approval is quite achievable. Private second mortgage lenders and some credit unions may be more flexible than major banks but charge higher rates."
+        a: "Getting a second mortgage is generally harder than getting a first mortgage because you're asking lenders to take a subordinate position they only get paid after the first mortgage holder in a foreclosure. This increased risk means stricter requirements: higher credit scores (typically 620-680+ minimum), lower loan-to-value ratios (usually 80% CLTV maximum), more thorough income verification, and higher interest rates (often 1-3% above first mortgage rates). However, if you have substantial equity, strong credit, and stable income, approval is quite achievable. Private second mortgage lenders and some credit unions may be more flexible than major banks but charge higher rates."
       },
       {
         q: "What is the 2 2 2 rule for mortgages?",
@@ -47,7 +50,7 @@ export default function SecondMortgageCalculatorPage() {
       },
       {
         q: "How to get a second mortgage to buy another house?",
-        a: "To use a second mortgage to buy another property, you'll borrow against the equity in your current home and use those funds as a down payment on the new property. This works if you have at least 20-25% equity in your existing home and qualify for two mortgages simultaneously. Lenders will evaluate your income against both mortgage payments plus any other debts—your total debt-to-income ratio typically can't exceed 43%. You'll need: strong credit (700+ recommended), stable income sufficient to cover both properties, and usually 10-20% additional cash for closing costs. In Canada, major lenders like CIBC, RBC, and TD offer second mortgages for this purpose, though rental income from the new property may help with qualification."
+        a: "To use a second mortgage to buy another property, you'll borrow against the equity in your current home and use those funds as a down payment on the new property. This works if you have at least 20-25% equity in your existing home and qualify for two mortgages simultaneously. Lenders will evaluate your income against both mortgage payments plus any other debts your total debt-to-income ratio typically can't exceed 43%. You'll need: strong credit (700+ recommended), stable income sufficient to cover both properties, and usually 10-20% additional cash for closing costs. In Canada, major lenders like CIBC, RBC, and TD offer second mortgages for this purpose, though rental income from the new property may help with qualification."
       },
       {
         q: "What are second mortgage rates in Canada?",
@@ -55,7 +58,7 @@ export default function SecondMortgageCalculatorPage() {
       },
       {
         q: "Can I make extra payments on a second mortgage?",
-        a: "Yes, most second mortgages allow extra payments, though terms vary by lender. Many lenders permit annual prepayment privileges of 10-20% of the original principal without penalty, helping you pay off your second mortgage faster and save on interest. Using a second mortgage calculator with extra payments helps you see the savings impact. For example, adding $200/month extra to a $50,000 second mortgage at 8% over 10 years could save you $7,000+ in interest and pay off the loan 3-4 years early. Check your mortgage documents for prepayment terms—some lenders allow unlimited extra payments, while others charge penalties for exceeding annual limits."
+        a: "Yes, most second mortgages allow extra payments, though terms vary by lender. Many lenders permit annual prepayment privileges of 10-20% of the original principal without penalty, helping you pay off your second mortgage faster and save on interest. Using a second mortgage calculator with extra payments helps you see the savings impact. For example, adding $200/month extra to a $50,000 second mortgage at 8% over 10 years could save you $7,000+ in interest and pay off the loan 3-4 years early. Check your mortgage documents for prepayment terms some lenders allow unlimited extra payments, while others charge penalties for exceeding annual limits."
       }
     ]
   };
@@ -64,33 +67,41 @@ export default function SecondMortgageCalculatorPage() {
   const [smHomeValue, setSmHomeValue] = useState<number>(400000);
   const [smExistingMortgage, setSmExistingMortgage] = useState<number>(0);
   const [smDownPayment, setSmDownPayment] = useState<number>(80000);
-  
+
   // Loan amounts for each scenario (editable by user)
   const [sm1LoanAmount, setSm1LoanAmount] = useState<number>(320000);
   const [sm2LoanAmount, setSm2LoanAmount] = useState<number>(320000);
   const [sm3FirstLoanAmount, setSm3FirstLoanAmount] = useState<number>(320000);
   const [sm3SecondLoanAmount, setSm3SecondLoanAmount] = useState<number>(0);
-  
+
   // Scenario 1: Single loan with PMI
   const [sm1Rate, setSm1Rate] = useState<number>(6.5);
   const [sm1Term, setSm1Term] = useState<number>(30);
   const [sm1Points, setSm1Points] = useState<number>(0);
   const [sm1Closing, setSm1Closing] = useState<number>(3000);
-  
+
   // Scenario 2: 80% LTV, no PMI
   const [sm2Rate, setSm2Rate] = useState<number>(6.5);
   const [sm2Term, setSm2Term] = useState<number>(30);
   const [sm2Points, setSm2Points] = useState<number>(0);
   const [sm2Closing, setSm2Closing] = useState<number>(3000);
-  
+
   // Scenario 3: Piggyback second mortgage
   const [sm3FirstRate, setSm3FirstRate] = useState<number>(6.5);
   const [sm3SecondRate, setSm3SecondRate] = useState<number>(7.5);
   const [sm3Term, setSm3Term] = useState<number>(30);
   const [sm3Points, setSm3Points] = useState<number>(0);
   const [sm3Closing, setSm3Closing] = useState<number>(3500);
-  
+
   const [smResults, setSmResults] = useState<any>(null);
+  const [inlineValidationErrors, setInlineValidationErrors] = useState<Record<string, string>>({});
+
+  const validateInline = (values: Record<string, any>, fields: Array<{ id: string; type: InputConfig["type"]; min?: number; max?: number }>) => {
+    return validateCalculatorInputs(
+      fields.map((field) => ({ ...field, label: field.id, defaultValue: values[field.id] } as InputConfig)),
+      values,
+    );
+  };
 
   // Ref for scrolling to results
   const secondMortgageResultsRef = useRef<HTMLDivElement>(null);
@@ -107,6 +118,50 @@ export default function SecondMortgageCalculatorPage() {
 
   // Handle Second Mortgage Calculate
   const handleSecondMortgageCalculate = (shouldScroll = true) => {
+    const fieldErrors = validateInline(
+      { smHomeValue, smDownPayment, smExistingMortgage, sm1LoanAmount, sm2LoanAmount, sm3FirstLoanAmount, sm3SecondLoanAmount, sm1Rate, sm2Rate, sm3FirstRate, sm3SecondRate, sm1Term, sm2Term, sm3Term, sm1Points, sm2Points, sm3Points, sm1Closing, sm2Closing, sm3Closing },
+      [
+        { id: "smHomeValue", type: "currency", min: 1_000, max: 100_000_000 },
+        { id: "smDownPayment", type: "currency", min: 0, max: 100_000_000 },
+        { id: "smExistingMortgage", type: "currency", min: 0, max: 100_000_000 },
+        { id: "sm1LoanAmount", type: "currency", min: 1_000, max: 100_000_000 },
+        { id: "sm2LoanAmount", type: "currency", min: 1_000, max: 100_000_000 },
+        { id: "sm3FirstLoanAmount", type: "currency", min: 1_000, max: 100_000_000 },
+        { id: "sm3SecondLoanAmount", type: "currency", min: 0, max: 100_000_000 },
+        { id: "sm1Rate", type: "percent", min: 0.01, max: 30 },
+        { id: "sm2Rate", type: "percent", min: 0.01, max: 30 },
+        { id: "sm3FirstRate", type: "percent", min: 0.01, max: 30 },
+        { id: "sm3SecondRate", type: "percent", min: 0.01, max: 30 },
+        { id: "sm1Term", type: "years", min: 1, max: 50 },
+        { id: "sm2Term", type: "years", min: 1, max: 50 },
+        { id: "sm3Term", type: "years", min: 1, max: 50 },
+        { id: "sm1Points", type: "percent", min: 0, max: 10 },
+        { id: "sm2Points", type: "percent", min: 0, max: 10 },
+        { id: "sm3Points", type: "percent", min: 0, max: 10 },
+        { id: "sm1Closing", type: "currency", min: 0, max: 1_000_000 },
+        { id: "sm2Closing", type: "currency", min: 0, max: 1_000_000 },
+        { id: "sm3Closing", type: "currency", min: 0, max: 1_000_000 },
+      ],
+    );
+    if (hasValidationErrors(fieldErrors)) {
+      setInlineValidationErrors(fieldErrors);
+      return;
+    }
+
+    const secondMortgageErrors: Record<string, string> = {};
+    if (smDownPayment > smHomeValue) secondMortgageErrors.smDownPayment = "Down payment cannot exceed the property value.";
+    if (smExistingMortgage > smHomeValue) secondMortgageErrors.smExistingMortgage = "Existing mortgage cannot exceed home value.";
+    if (sm1LoanAmount > smHomeValue) secondMortgageErrors.sm1LoanAmount = "Loan amount cannot exceed the property value.";
+    if (sm2LoanAmount > smHomeValue) secondMortgageErrors.sm2LoanAmount = "Loan amount cannot exceed the property value.";
+    if (sm3FirstLoanAmount + sm3SecondLoanAmount > smHomeValue) secondMortgageErrors.sm3SecondLoanAmount = "Combined mortgages cannot exceed home value.";
+    if (smExistingMortgage + sm1LoanAmount > smHomeValue) secondMortgageErrors.sm1LoanAmount = "Combined mortgages cannot exceed home value.";
+    if (smExistingMortgage + sm2LoanAmount > smHomeValue) secondMortgageErrors.sm2LoanAmount = "Combined mortgages cannot exceed home value.";
+    if (smExistingMortgage + sm3FirstLoanAmount + sm3SecondLoanAmount > smHomeValue) secondMortgageErrors.sm3SecondLoanAmount = "Combined mortgages cannot exceed home value.";
+    if (hasValidationErrors(secondMortgageErrors)) {
+      setInlineValidationErrors({ ...fieldErrors, ...secondMortgageErrors });
+      return;
+    }
+
     const loanAmount1 = sm1LoanAmount;
     const loanAmount2 = sm2LoanAmount;
     const firstLoan3 = sm3FirstLoanAmount;
@@ -142,7 +197,7 @@ export default function SecondMortgageCalculatorPage() {
     };
 
     const results = calculateSecondMortgage(input);
-    
+
     // For Scenario 3, manually calculate piggyback with two separate loans
     const calculateLoanPayment = (principal: number, rate: number, years: number) => {
       const monthlyRate = rate / 12 / 100;
@@ -157,7 +212,7 @@ export default function SecondMortgageCalculatorPage() {
     const firstLoanPayment = calculateLoanPayment(firstLoan3, sm3FirstRate, sm3Term);
     const secondLoanPayment = calculateLoanPayment(secondLoan3, sm3SecondRate, sm3Term);
     const totalMonthlyPayment3 = firstLoanPayment + secondLoanPayment;
-    
+
     const totalPayments3 = totalMonthlyPayment3 * sm3Term * 12;
     const totalInterest3 = totalPayments3 - (firstLoan3 + secondLoan3);
     const upfrontCosts3 = sm3Closing + ((firstLoan3 + secondLoan3) * (sm3Points / 100));
@@ -181,7 +236,7 @@ export default function SecondMortgageCalculatorPage() {
     results.recommendedScenario = costs[0].scenario;
 
     setSmResults(results);
-    
+
     if (shouldScroll) {
       setTimeout(() => {
         scrollToResults(secondMortgageResultsRef);
@@ -189,10 +244,33 @@ export default function SecondMortgageCalculatorPage() {
     }
   };
 
-  // Calculate results on initial page load
+  // Calculate results on initial page load and as edits change
   useEffect(() => {
     handleSecondMortgageCalculate(false);
-  }, []);
+  }, [smHomeValue, smDownPayment, smExistingMortgage, sm1LoanAmount, sm2LoanAmount, sm3FirstLoanAmount, sm3SecondLoanAmount, sm1Rate, sm2Rate, sm3FirstRate, sm3SecondRate, sm1Term, sm2Term, sm3Term, sm1Points, sm2Points, sm3Points, sm1Closing, sm2Closing, sm3Closing]);
+
+  const secondMortgageSummary = smResults ? [
+    "Second Mortgage Calculator Results",
+    "Inputs",
+    `Home Value: ${formatCurrency(smHomeValue)}`,
+    `Down Payment: ${formatCurrency(smDownPayment)}`,
+    `Existing Mortgage Balance: ${formatCurrency(smExistingMortgage)}`,
+    `Scenario 1 Loan Amount: ${formatCurrency(sm1LoanAmount)}`,
+    `Scenario 2 Loan Amount: ${formatCurrency(sm2LoanAmount)}`,
+    `Scenario 3 First Loan: ${formatCurrency(sm3FirstLoanAmount)}`,
+    `Scenario 3 Second Loan: ${formatCurrency(sm3SecondLoanAmount)}`,
+    `Results`,
+    `Scenario 1 Monthly Payment: ${formatCurrency(smResults.scenario1Result.monthlyPayment)}`,
+    `Scenario 1 Total Interest: ${formatCurrency(smResults.scenario1Result.totalInterest)}`,
+    `Scenario 1 Total Cost: ${formatCurrency(smResults.scenario1Result.totalCost)}`,
+    `Scenario 2 Monthly Payment: ${formatCurrency(smResults.scenario2Result.monthlyPayment)}`,
+    `Scenario 2 Total Interest: ${formatCurrency(smResults.scenario2Result.totalInterest)}`,
+    `Scenario 2 Total Cost: ${formatCurrency(smResults.scenario2Result.totalCost)}`,
+    `Scenario 3 Monthly Payment: ${formatCurrency(smResults.scenario3Result.monthlyPayment)}`,
+    `Scenario 3 Total Interest: ${formatCurrency(smResults.scenario3Result.totalInterest)}`,
+    `Scenario 3 Total Cost: ${formatCurrency(smResults.scenario3Result.totalCost)}`,
+    `Recommended Scenario: Scenario ${smResults.recommendedScenario}`,
+  ].join("\n") : "Second Mortgage Calculator Results";
 
   const Icon = content.icon;
   const currentContent = content;
@@ -212,10 +290,15 @@ export default function SecondMortgageCalculatorPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }}
       />
-      <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+      <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        {hasValidationErrors(inlineValidationErrors) && (
+          <div role="alert" className="mb-4 rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">
+            {Object.values(inlineValidationErrors)[0]}
+          </div>
+        )}
 
         {/* Introduction Section */}
-        <div className="mb-8 mx-auto max-w-5xl">
+        <div className="mb-8 w-full mx-auto max-w-4xl">
           <div className="flex items-center gap-3 mb-4">
             <Icon className="h-8 w-8 text-indigo-600 flex-shrink-0" />
             <h1 className="font-serif text-3xl md:text-4xl font-bold text-indigo-600 leading-tight">
@@ -245,17 +328,20 @@ export default function SecondMortgageCalculatorPage() {
                     label="Home Value"
                     value={smHomeValue}
                     onChange={(value) => setSmHomeValue(Math.max(0, value))}
+                    error={inlineValidationErrors.smHomeValue}
                   />
                   <NumberInput
                     label="Down Payment"
                     value={smDownPayment}
                     onChange={(value) => setSmDownPayment(Math.max(0, value))}
+                    error={inlineValidationErrors.smDownPayment}
                   />
                   <div className="md:col-span-2">
                     <NumberInput
                       label="Existing Mortgage Balance"
                       value={smExistingMortgage}
                       onChange={(value) => setSmExistingMortgage(Math.max(0, value))}
+                      error={inlineValidationErrors.smExistingMortgage}
                     />
                   </div>
                 </div>
@@ -371,30 +457,29 @@ export default function SecondMortgageCalculatorPage() {
                 </div>
               </div>
             </Card>
-
-            {/* Calculate Button */}
-            <button onClick={() => handleSecondMortgageCalculate()} className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-4 rounded-lg font-bold text-base shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
-              <Calculator className="h-4 w-4" />
-              <span>Calculate</span>
-            </button>
             </div>
 
             {/* RIGHT COLUMN - RESULTS */}
             <div ref={secondMortgageResultsRef} className="lg:col-span-5 space-y-4">
             {smResults && (
               <div className="space-y-4">
+                <div className="mb-4 flex items-center gap-1.5">
+                  <Calculator className="h-4 w-4 text-indigo-600" />
+                  <h3 className="font-serif text-base font-bold text-slate-900">Results</h3>
+                  <ResultActions title="Second Mortgage Calculator Results" content={secondMortgageSummary} />
+                </div>
                 {[1, 2, 3].map((scenarioNum) => {
-                  const result = scenarioNum === 1 ? smResults.scenario1Result : 
-                                 scenarioNum === 2 ? smResults.scenario2Result : 
+                  const result = scenarioNum === 1 ? smResults.scenario1Result :
+                                 scenarioNum === 2 ? smResults.scenario2Result :
                                  smResults.scenario3Result;
                   const isRecommended = smResults.recommendedScenario === scenarioNum;
                   const scenarioName = scenarioNum === 1 ? "Single Loan with PMI" :
                                       scenarioNum === 2 ? "80% LTV (No PMI)" :
                                       "Piggyback";
-                  
+
                   return (
-                    <div 
-                      key={scenarioNum} 
+                    <div
+                      key={scenarioNum}
                       className={`rounded-lg border p-4 shadow-sm ${isRecommended ? 'border-green-400 bg-green-50' : 'border-slate-200 bg-white'}`}
                     >
                       <div className="flex items-center justify-between mb-3">
@@ -405,7 +490,7 @@ export default function SecondMortgageCalculatorPage() {
                           </span>
                         )}
                       </div>
-                      
+
                       <div className="space-y-3">
                         <div>
                           <p className="text-xs text-slate-600 mb-1">Monthly Payment</p>
@@ -413,7 +498,7 @@ export default function SecondMortgageCalculatorPage() {
                             {formatCurrency(result.monthlyPayment)}/mo
                           </p>
                         </div>
-                        
+
                         <div className="grid grid-cols-2 gap-3 pt-2 border-t border-slate-200">
                           <div>
                             <p className="text-xs text-slate-600 mb-1">Total Interest</p>
@@ -428,7 +513,7 @@ export default function SecondMortgageCalculatorPage() {
                             </p>
                           </div>
                         </div>
-                        
+
                         <div className="pt-2 border-t border-slate-200">
                           <p className="text-xs text-slate-600 mb-1">Total Cost</p>
                           <p className="text-lg font-bold text-slate-900">
@@ -466,13 +551,13 @@ export default function SecondMortgageCalculatorPage() {
       </div>
 
       {/* Article content will be added next */}
-      
+
       {/* Comprehensive Second Mortgage Article */}
       <section className="py-16 bg-white">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl">
             <article className="prose prose-slate prose-lg max-w-none">
-              
+
               {/* Article Header */}
               <div className="mb-12">
                 <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">
@@ -488,13 +573,13 @@ export default function SecondMortgageCalculatorPage() {
                 <h3 className="font-serif text-2xl md:text-3xl font-semibold text-slate-900 mb-4 mt-8">
                   Calculating Available Equity and Maximum Borrowing Amount
                 </h3>
-                
+
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
                   Before you can determine monthly payments, you need to understand how much you can actually borrow. This depends on your available home equity and the combined loan-to-value (CLTV) ratio that lenders use to limit total borrowing against your property.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Your available equity is simply your home's current market value minus what you still owe on your first mortgage. For instance, if your home is worth $500,000 and you owe $300,000 on your first mortgage, you have $200,000 in equity. However, lenders won't let you borrow the full equity amount—they require you to maintain some equity cushion as protection.
+                  Your available equity is simply your home's current market value minus what you still owe on your first mortgage. For instance, if your home is worth $500,000 and you owe $300,000 on your first mortgage, you have $200,000 in equity. However, lenders won't let you borrow the full equity amount they require you to maintain some equity cushion as protection.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -511,7 +596,7 @@ export default function SecondMortgageCalculatorPage() {
                 <h3 className="font-serif text-2xl md:text-3xl font-semibold text-slate-900 mb-4 mt-8">
                   How Second Mortgage Monthly Payments Are Calculated
                 </h3>
-                
+
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
                   Once you know how much you want to borrow, calculating your monthly payment follows the same mathematical approach as first mortgage calculations. The payment depends on three factors: the loan amount (principal), the annual interest rate, and the loan term (how many months you'll take to repay).
                 </p>
@@ -525,7 +610,7 @@ export default function SecondMortgageCalculatorPage() {
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  For example, a $75,000 second mortgage at 7.5% interest over 15 years (180 months) would result in a monthly payment of approximately $696. Over the full 15 years, you'd pay roughly $125,280 total—$75,000 in principal and $50,280 in interest. A calculator performs these computations instantly, allowing you to experiment with different loan amounts, rates, and terms to find a scenario that fits your budget.
+                  For example, a $75,000 second mortgage at 7.5% interest over 15 years (180 months) would result in a monthly payment of approximately $696. Over the full 15 years, you'd pay roughly $125,280 total $75,000 in principal and $50,280 in interest. A calculator performs these computations instantly, allowing you to experiment with different loan amounts, rates, and terms to find a scenario that fits your budget.
                 </p>
               </div>
 
@@ -534,7 +619,7 @@ export default function SecondMortgageCalculatorPage() {
                 <h3 className="font-serif text-2xl md:text-3xl font-semibold text-slate-900 mb-4 mt-8">
                   Understanding Second Mortgage Interest Rates
                 </h3>
-                
+
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
                   Second mortgage interest rates are typically higher than first mortgage rates because second mortgages carry more risk for lenders. In a foreclosure situation, the first mortgage lender is paid first from the proceeds of the home sale. Only after the first mortgage is fully satisfied does the second mortgage lender receive payment. This subordinate position means greater risk of loss, which lenders compensate for by charging higher rates.
                 </p>
@@ -553,7 +638,7 @@ export default function SecondMortgageCalculatorPage() {
                 <h3 className="font-serif text-2xl md:text-3xl font-semibold text-slate-900 mb-4 mt-8">
                   Second Mortgages in Different Regions: Canada, Ontario, and Beyond
                 </h3>
-                
+
                 <h4 className="font-serif text-xl font-semibold text-slate-800 mb-3 mt-6">
                   Second Mortgages in Canada
                 </h4>
@@ -567,7 +652,7 @@ export default function SecondMortgageCalculatorPage() {
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Alternative lenders and private mortgage lenders in Canada play a significant role in the second mortgage market, particularly for borrowers who don't meet traditional bank criteria. Private lenders may accept lower credit scores, higher debt ratios, or alternative income documentation, but charge significantly higher interest rates—sometimes 8-15% or more—to compensate for the additional risk. When using a second mortgage calculator for a Canadian private mortgage, it's important to input realistic higher interest rates to understand the true cost.
+                  Alternative lenders and private mortgage lenders in Canada play a significant role in the second mortgage market, particularly for borrowers who don't meet traditional bank criteria. Private lenders may accept lower credit scores, higher debt ratios, or alternative income documentation, but charge significantly higher interest rates sometimes 8-15% or more to compensate for the additional risk. When using a second mortgage calculator for a Canadian private mortgage, it's important to input realistic higher interest rates to understand the true cost.
                 </p>
 
                 <h4 className="font-serif text-xl font-semibold text-slate-800 mb-3 mt-6">
@@ -588,7 +673,7 @@ export default function SecondMortgageCalculatorPage() {
                 <h3 className="font-serif text-2xl md:text-3xl font-semibold text-slate-900 mb-4 mt-8">
                   Second Mortgage Qualification: What Lenders Look For
                 </h3>
-                
+
                 <h4 className="font-serif text-xl font-semibold text-slate-800 mb-3 mt-6">
                   Credit Score Requirements
                 </h4>
@@ -598,7 +683,7 @@ export default function SecondMortgageCalculatorPage() {
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Borrowers with lower credit scores aren't necessarily excluded from second mortgage options, but will likely need to work with alternative or private lenders who accept higher risk in exchange for higher interest rates. If you have credit challenges, improving your score before applying—by paying down revolving debts, correcting errors on your credit report, and making all payments on time—can significantly improve your rate and terms.
+                  Borrowers with lower credit scores aren't necessarily excluded from second mortgage options, but will likely need to work with alternative or private lenders who accept higher risk in exchange for higher interest rates. If you have credit challenges, improving your score before applying by paying down revolving debts, correcting errors on your credit report, and making all payments on time can significantly improve your rate and terms.
                 </p>
 
                 <h4 className="font-serif text-xl font-semibold text-slate-800 mb-3 mt-6">
@@ -631,17 +716,17 @@ export default function SecondMortgageCalculatorPage() {
                 <h3 className="font-serif text-2xl md:text-3xl font-semibold text-slate-900 mb-4 mt-8">
                   Using Second Mortgage Calculators to Plan Your Borrowing
                 </h3>
-                
+
                 <h4 className="font-serif text-xl font-semibold text-slate-800 mb-3 mt-6">
                   Gathering Accurate Information
                 </h4>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  To get meaningful results from a second mortgage calculator, you need accurate inputs. Start by determining your home's current market value—you can use recent comparable sales in your neighborhood, online valuation tools, or a professional appraisal. Know your existing first mortgage balance, which you can find on your most recent mortgage statement.
+                  To get meaningful results from a second mortgage calculator, you need accurate inputs. Start by determining your home's current market value you can use recent comparable sales in your neighborhood, online valuation tools, or a professional appraisal. Know your existing first mortgage balance, which you can find on your most recent mortgage statement.
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Research current second mortgage interest rates by checking rates from multiple lenders—traditional banks, credit unions, and alternative lenders. Rates vary significantly, and the rate you'll actually qualify for depends on your credit profile, CLTV ratio, and lender policies. Using a realistic rate estimate helps you model actual costs rather than overly optimistic scenarios.
+                  Research current second mortgage interest rates by checking rates from multiple lenders traditional banks, credit unions, and alternative lenders. Rates vary significantly, and the rate you'll actually qualify for depends on your credit profile, CLTV ratio, and lender policies. Using a realistic rate estimate helps you model actual costs rather than overly optimistic scenarios.
                 </p>
 
                 <h4 className="font-serif text-xl font-semibold text-slate-800 mb-3 mt-6">
@@ -665,7 +750,7 @@ export default function SecondMortgageCalculatorPage() {
                 </p>
 
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
-                  Contact multiple lenders—including traditional banks, credit unions, and potentially private lenders if needed—to compare actual offers. Ask each lender for a complete breakdown of rates, fees, terms, and closing costs. Use the information you gathered from calculator estimates to ask informed questions and evaluate whether each offer aligns with your expectations and financial goals.
+                  Contact multiple lenders including traditional banks, credit unions, and potentially private lenders if needed to compare actual offers. Ask each lender for a complete breakdown of rates, fees, terms, and closing costs. Use the information you gathered from calculator estimates to ask informed questions and evaluate whether each offer aligns with your expectations and financial goals.
                 </p>
               </div>
 
@@ -674,7 +759,7 @@ export default function SecondMortgageCalculatorPage() {
                 <h3 className="font-serif text-2xl md:text-3xl font-semibold text-slate-900 mb-4 mt-8">
                   Making Informed Second Mortgage Decisions
                 </h3>
-                
+
                 <p className="text-base text-slate-600 leading-relaxed mb-4">
                   A second mortgage can be a useful financial tool when you need to access your home equity for renovations, debt consolidation, education expenses, or even purchasing another property. However, taking on additional debt secured by your home is a significant financial decision that requires careful consideration of your ability to handle the increased payment obligations and your overall financial goals.
                 </p>
@@ -696,8 +781,8 @@ export default function SecondMortgageCalculatorPage() {
       {/* FAQ Section */}
       {currentContent && currentContent.faqs.length > 0 && (
         <section className="py-12">
-          <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-            <div className="mx-auto max-w-3xl">
+          <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <div className="w-full mx-auto max-w-4xl">
               <div className="mb-8 text-center">
                 <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-3">
                   Frequently Asked Questions

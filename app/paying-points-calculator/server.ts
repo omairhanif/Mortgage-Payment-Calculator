@@ -66,7 +66,7 @@ export function getStructuredData() {
           "name": "When should I pay discount points?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Pay points when you plan to keep the loan long past the break-even point, typically 7+ years. Points work best for long-term owners in low-rate environments. Avoid points if you might sell, refinance, or pay off the loan within a few years—you won't recoup the upfront cost."
+            "text": "Pay points when you plan to keep the loan long past the break-even point, typically 7+ years. Points work best for long-term owners in low-rate environments. Avoid points if you might sell, refinance, or pay off the loan within a few years you won't recoup the upfront cost."
           }
         },
         {
@@ -98,7 +98,7 @@ export function getStructuredData() {
           "name": "Is 1 point worth refinancing?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A 1-point rate reduction (1% lower rate, not 1 discount point) is almost always worth refinancing if you plan to keep the loan long enough to break even on closing costs. However, 1 discount point (0.25% rate reduction) may or may not justify refinancing—calculate your break-even timeline."
+            "text": "A 1-point rate reduction (1% lower rate, not 1 discount point) is almost always worth refinancing if you plan to keep the loan long enough to break even on closing costs. However, 1 discount point (0.25% rate reduction) may or may not justify refinancing calculate your break-even timeline."
           }
         }
       ]

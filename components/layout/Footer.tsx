@@ -30,7 +30,7 @@ export default function Footer() {
   return (
     <footer className="mt-16 border-t border-slate-200 bg-slate-50/60 py-12">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {/* Column 1 - Brand */}
           <div className="flex flex-col">
             <div className="flex items-center gap-3">

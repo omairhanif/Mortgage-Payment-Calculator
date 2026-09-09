@@ -48,11 +48,11 @@ export default function Page() {
           {/* Introduction */}
           <div className="mb-8 mx-auto max-w-4xl text-center">
             <div className="flex items-center justify-center gap-3 mb-4">
-              <h1 className="font-serif text-6xl md:text-6xl font-bold text-indigo-600 leading-tight">
+              <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-indigo-600 leading-tight break-words">
                 Mortgage Payment Calculator
               </h1>
             </div>
-            <div className="text-lg text-slate-600 leading-relaxed">
+            <div className="text-base sm:text-lg text-slate-600 leading-relaxed">
               <p>Calculate your monthly mortgage payment, estimate total interest, and understand the true cost of your home loan with our simple and accurate mortgage calculator.</p>
             </div>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">

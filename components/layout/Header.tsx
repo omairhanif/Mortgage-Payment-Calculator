@@ -28,6 +28,16 @@ const navCategories: NavCategory[] = [
     path: "/advice",
     subCalculators: [],
   },
+  {
+    name: "Blogs",
+    path: "/blog",
+    subCalculators: [],
+  },
+  {
+    name: "Guides",
+    path: "/guide",
+    subCalculators: [],
+  },
 ];
 
 const calculatorCategories: NavCategory[] = [
@@ -88,17 +98,28 @@ const infoPageLinks = [
   { name: "Advice", path: "/advice" },
 ];
 
+const mobileHamburgerLinks = [
+  { name: "Home", path: "/" },
+  { name: "About", path: "/about" },
+  { name: "Contact", path: "/contact" },
+  { name: "Privacy Policy", path: "/privacy" },
+  { name: "Terms", path: "/terms" },
+  { name: "Advice", path: "/advice" },
+];
+
 export default function Header() {
   const pathname = usePathname();
 
-  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
   const [openDropdown, setOpenDropdown] = React.useState<string | null>(null);
   const [openMobileCategory, setOpenMobileCategory] =
     React.useState<string | null>(null);
   const [allCalculatorsOpen, setAllCalculatorsOpen] = React.useState(false);
+  const [mobileAllCalculatorsOpen, setMobileAllCalculatorsOpen] =
+    React.useState(false);
   const [selectedCategory, setSelectedCategory] =
     React.useState<string>("Mortgage");
   const [infoMenuOpen, setInfoMenuOpen] = React.useState(false);
+  const [mobileDrawerOpen, setMobileDrawerOpen] = React.useState(false);
 
   const selectedCategoryData =
     calculatorCategories.find((category) => category.name === selectedCategory) ??
@@ -209,6 +230,28 @@ export default function Header() {
                   </div>
                 )}
               </div>
+
+              <Link
+                href="/blog"
+                className={`px-3 py-2 text-sm font-medium transition-colors rounded-lg ${
+                  isActivePath("/blogs")
+                    ? "text-white bg-indigo-700"
+                    : "text-white hover:text-indigo-100 hover:bg-indigo-500"
+                }`}
+              >
+                Blogs
+              </Link>
+
+              <Link
+                href="/guide"
+                className={`px-3 py-2 text-sm font-medium transition-colors rounded-lg ${
+                  isActivePath("/guides")
+                    ? "text-white bg-indigo-700"
+                    : "text-white hover:text-indigo-100 hover:bg-indigo-500"
+                }`}
+              >
+                Guides
+              </Link>
             </div>
 
             <div className="flex items-center gap-1 flex-1 justify-center">
@@ -268,30 +311,6 @@ export default function Header() {
                 })}
             </div>
 
-            <div className="flex items-center gap-1 flex-none">
-              <Link
-                href="/blog"
-                className={`px-3 py-2 text-sm font-medium transition-colors rounded-lg ${
-                  isActivePath("/blogs")
-                    ? "text-white bg-indigo-700"
-                    : "text-white hover:text-indigo-100 hover:bg-indigo-500"
-                }`}
-              >
-                Blogs
-              </Link>
-
-              <Link
-                href="/guide"
-                className={`px-3 py-2 text-sm font-medium transition-colors rounded-lg ${
-                  isActivePath("/guides")
-                    ? "text-white bg-indigo-700"
-                    : "text-white hover:text-indigo-100 hover:bg-indigo-500"
-                }`}
-              >
-                Guides
-              </Link>
-            </div>
-
             <div className="relative info-menu-dropdown flex-none">
               <button
                 type="button"
@@ -322,94 +341,153 @@ export default function Header() {
             </div>
           </nav>
 
-          <div className="flex lg:hidden ml-auto">
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="inline-flex items-center justify-center rounded-lg p-2 text-white hover:bg-indigo-500 transition-colors"
-              aria-label="Toggle menu"
+          <div className="flex lg:hidden w-full items-center min-w-0">
+            <Link
+              href="/"
+              className="flex min-w-0 items-center gap-2 rounded-lg px-2 py-2 text-white transition-colors hover:bg-indigo-500"
+              aria-label="Mortgage Payment Calculator Home"
             >
-              {mobileMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
+              <span className="flex h-7 w-7 items-center justify-center rounded-full border border-white/50 bg-white/15 text-xs font-black">
+                MPC
+              </span>
+              
+            </Link>
+
+            <div className="ml-auto flex items-center gap-2">
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setMobileAllCalculatorsOpen(!mobileAllCalculatorsOpen);
+                  }}
+                  className="rounded-lg px-3 py-2 text-xs font-bold uppercase tracking-wide text-white transition-colors hover:bg-indigo-500 whitespace-nowrap"
+                  aria-label="All Calculators"
+                >
+                  All Calculators
+                </button>
+
+                {mobileAllCalculatorsOpen && (
+                  <div
+                    className="absolute left-0 top-full mt-2 rounded-xl bg-white shadow-2xl ring-1 ring-slate-200 py-2 z-[120] overflow-x-hidden"
+                    style={{
+                      width: "min(100vw, calc(100vw - 16px))",
+                      maxWidth: "100vw",
+                    }}
+                  >
+                    <div className="flex flex-col">
+                      {calculatorCategories.map((category) => (
+                        <div key={category.name} className="border-b border-slate-100 last:border-b-0">
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setOpenMobileCategory(
+                                openMobileCategory === category.name ? null : category.name,
+                              );
+                            }}
+                            className="w-full flex items-center justify-between px-4 py-2 text-left text-xs font-bold uppercase tracking-wide text-slate-700 hover:bg-indigo-50 hover:text-indigo-700 transition-colors"
+                          >
+                            <span className="block break-words whitespace-normal leading-5">
+                              {category.name}
+                            </span>
+                            <ChevronDown
+                              className={`h-4 w-4 transition-transform ${
+                                openMobileCategory === category.name ? "rotate-180" : ""
+                              }`}
+                            />
+                          </button>
+
+                          {openMobileCategory === category.name && (
+                            <div className="px-4 pb-3">
+                              <div className="flex flex-col gap-1">
+                                {category.subCalculators.map((subCalc) => (
+                                  <Link
+                                    key={subCalc.id}
+                                    href={subCalc.path}
+                                    onClick={() => {
+                                      setMobileAllCalculatorsOpen(false);
+                                      setOpenMobileCategory(null);
+                                    }}
+                                    className="block rounded-lg px-3 py-2 text-xs font-medium text-slate-700 hover:bg-indigo-50 hover:text-indigo-700 transition-colors break-words whitespace-normal leading-5"
+                                  >
+                                    {subCalc.label}
+                                  </Link>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <Link
+                href="/blog"
+                className="rounded-lg px-3 py-2 text-xs font-bold uppercase tracking-wide text-white transition-colors hover:bg-indigo-500"
+              >
+                Blogs
+              </Link>
+
+              <Link
+                href="/guide"
+                className="rounded-lg px-3 py-2 text-xs font-bold uppercase tracking-wide text-white transition-colors hover:bg-indigo-500"
+              >
+                Guides
+              </Link>
+
+              <button
+                type="button"
+                onClick={() => setMobileDrawerOpen(true)}
+                className="inline-flex items-center justify-center rounded-lg p-2 text-white hover:bg-indigo-500 transition-colors"
+                aria-label="Toggle mobile hamburger drawer"
+              >
                 <Menu className="h-6 w-6" />
-              )}
-            </button>
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-[#0EA5E9] bg-[#0EA5E9] shadow-lg">
-          <div className="mx-auto max-w-4xl px-4 py-4 sm:px-6">
-            <nav className="flex flex-col space-y-1">
-              {navCategories.map((category) => {
-                const hasSubCalculators = category.subCalculators.length > 1;
-                const isOpen = openMobileCategory === category.name;
+      {mobileDrawerOpen && (
+        <>
+          <button
+            type="button"
+            aria-label="Close mobile drawer backdrop"
+            className="fixed inset-0 bg-black/50 z-[110] cursor-default"
+            onClick={() => setMobileDrawerOpen(false)}
+          />
 
-                if (!hasSubCalculators) {
-                  return (
-                    <Link
-                      key={category.name}
-                      href={category.path}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className={`rounded-lg px-4 py-3 text-sm font-medium transition-colors ${
-                        isActivePath(category.path)
-                          ? "text-white bg-indigo-700"
-                          : "text-white hover:text-indigo-100 hover:bg-indigo-500"
-                      }`}
-                    >
-                      {category.name}
-                    </Link>
-                  );
-                }
+          <aside className="fixed right-0 top-0 h-full w-[320px] max-w-[90vw] bg-white shadow-2xl z-[130] p-4">
+            <div className="flex items-center justify-between border-b border-slate-200 pb-4">
+              <span className="font-serif text-lg font-black text-slate-900">
+                Menu
+              </span>
+              <button
+                type="button"
+                onClick={() => setMobileDrawerOpen(false)}
+                className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-slate-700 hover:bg-slate-100"
+                aria-label="Close mobile drawer"
+              >
+                <X className="h-6 w-6" />
+              </button>
+            </div>
 
-                return (
-                  <div key={category.name}>
-                    <button
-                      onClick={() =>
-                        setOpenMobileCategory(isOpen ? null : category.name)
-                      }
-                      className={`w-full rounded-lg px-4 py-3 text-sm font-medium transition-colors flex items-center justify-between ${
-                        isActivePath(category.path)
-                          ? "text-white bg-indigo-700"
-                          : "text-white hover:text-indigo-100 hover:bg-indigo-500"
-                      }`}
-                    >
-                      {category.name}
-
-                      <ChevronDown
-                        className={`h-4 w-4 transition-transform ${
-                          isOpen ? "rotate-180" : ""
-                        }`}
-                      />
-                    </button>
-
-                    {isOpen && (
-                      <div className="mt-1 ml-4 space-y-1">
-                        {category.subCalculators.map((subCalc, index) => (
-                          <Link
-                            key={subCalc.id}
-                            href={
-                              subCalc.path ||
-                              (index === 0
-                                ? category.path
-                                : `${category.path}?subcalculator=${subCalc.id}`)
-                            }
-                            onClick={() => setMobileMenuOpen(false)}
-                            className="block rounded-lg px-4 py-2 text-sm text-indigo-100 hover:text-white hover:bg-indigo-500 transition-colors"
-                          >
-                            {subCalc.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
+            <nav className="mt-4 flex flex-col gap-2">
+              {mobileHamburgerLinks.map((page) => (
+                <Link
+                  key={page.path}
+                  href={page.path}
+                  onClick={() => setMobileDrawerOpen(false)}
+                  className="rounded-lg px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-indigo-50 hover:text-indigo-700 transition-colors"
+                >
+                  {page.name}
+                </Link>
+              ))}
             </nav>
-          </div>
-        </div>
+          </aside>
+        </>
       )}
     </header>
   );

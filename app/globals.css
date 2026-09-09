@@ -1,5 +1,74 @@
 @import "tailwindcss";
 
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+svg,
+video,
+canvas,
+iframe,
+object,
+embed {
+  max-width: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+a,
+button,
+input,
+select,
+textarea {
+  max-width: 100%;
+}
+
+/* Responsive page and component overflow prevention */
+@media (max-width: 767px) {
+  body {
+    font-size: 15px;
+  }
+
+  .prose,
+  .prose p,
+  article,
+  article p {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  table {
+    min-width: 420px;
+  }
+
+  .overflow-x-auto table,
+  .overflow-x-auto {
+    min-width: 100%;
+  }
+}
+
 /* Theme variables (Sky Blue) */
 :root {
 	--color-indigo-50: #F0FBFF;

@@ -35,9 +35,9 @@ const calculatorCategories: NavCategory[] = [
     name: "Mortgage",
     path: "/second-mortgage-calculator",
     subCalculators: [
-      { id: "second", label: "Second Mortgage", path: "/second-mortgage-calculator" },
-      { id: "heloc", label: "HELOC", path: "/heloc-calculator" },
-      { id: "refinance", label: "Refinance", path: "/refinance-calculator" },
+      { id: "second", label: "Second Mortgage Calculator", path: "/second-mortgage-calculator" },
+      { id: "heloc", label: "HELOC Calculator", path: "/heloc-calculator" },
+      { id: "refinance", label: "Refinance Calculator", path: "/refinance-calculator" },
     ],
   },
   {
@@ -54,29 +54,29 @@ const calculatorCategories: NavCategory[] = [
     name: "ARM & Alternatives",
     path: "/fixed-vs-arm-calculator",
     subCalculators: [
-      { id: "fixed-vs-arm", label: "Fixed vs ARM", path: "/fixed-vs-arm-calculator" },
-      { id: "interest-only", label: "Interest-Only", path: "/interest-only-calculator" },
-      { id: "interest-only-extra", label: "Interest-Only + Extra Payments", path: "/interest-only-extra-payments-calculator" },
-      { id: "balloon", label: "Balloon Mortgage", path: "/balloon-mortgage-calculator" },
+      { id: "fixed-vs-arm", label: "Fixed vs ARM Calculator", path: "/fixed-vs-arm-calculator" },
+      { id: "interest-only", label: "Interest-Only Calculator", path: "/interest-only-calculator" },
+      { id: "interest-only-extra", label: "Interest-Only + Extra Payments Calculator", path: "/interest-only-extra-payments-calculator" },
+      { id: "balloon", label: "Balloon Mortgage Calculator", path: "/balloon-mortgage-calculator" },
     ],
   },
   {
     name: "Affordability",
     path: "/rent-vs-buy-calculator",
     subCalculators: [
-      { id: "rent-vs-buy", label: "Rent vs Buy", path: "/rent-vs-buy-calculator" },
-      { id: "income", label: "Income Requirement", path: "/income-requirement-calculator" },
-      { id: "qualification", label: "Mortgage Affordability", path: "/mortgage-affordability-calculator" },
+      { id: "rent-vs-buy", label: "Rent vs Buy Calculator", path: "/rent-vs-buy-calculator" },
+      { id: "income", label: "Income Requirement Calculator", path: "/income-requirement-calculator" },
+      { id: "qualification", label: "Mortgage Affordability Calculator", path: "/mortgage-affordability-calculator" },
     ],
   },
   {
     name: "Savings & Payoff",
     path: "/extra-payment-calculator",
     subCalculators: [
-      { id: "extra-payment", label: "Extra Payment", path: "/extra-payment-calculator" },
-      { id: "biweekly", label: "Biweekly Payment", path: "/biweekly-payment-calculator" },
-      { id: "points", label: "Paying Points", path: "/paying-points-calculator" },
-      { id: "tax-benefits", label: "Tax Benefits", path: "/tax-benefits-calculator" },
+      { id: "extra-payment", label: "Extra Payment Calculator", path: "/extra-payment-calculator" },
+      { id: "biweekly", label: "Biweekly Payment Calculator", path: "/biweekly-payment-calculator" },
+      { id: "points", label: "Paying Points Calculator", path: "/paying-points-calculator" },
+      { id: "tax-benefits", label: "Tax Benefits Calculator", path: "/tax-benefits-calculator" },
     ],
   },
 ];

@@ -88,11 +88,21 @@ export default function MortgagePointsCalculatorArticle() {
           Mortgage Points Calculator - Are Points Worth It?
         </h1>
         
-        <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
+
+                <div className="flex items-center text-slate-600 mb-8 pb-8 border-b border-slate-200">
           <time>August 27, 2026</time>
           <span className="mx-3"> </span>
           <span>12 min read</span>
         </div>
+        <div className="mt-4 mb-6 flex justify-center">
+          <Link
+            href="/paying-points-calculator"
+            className="inline-flex items-center justify-center rounded-lg bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+          >
+            Open Calculator
+          </Link>
+        </div>
+        
       </div>
 
       {/* Article Content */}

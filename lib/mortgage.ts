@@ -809,10 +809,11 @@ export function calculateSecondMortgage(input: SecondMortgageInput): SecondMortg
     const totalPMICost = monthlyPMI * monthsWithPMI;
 
     const upfrontCosts = closingCosts + (loanAmount * (points / 100));
+    const monthlyFeesEquivalent = upfrontCosts / numPayments;
     const totalCost = totalInterest + totalPMICost + upfrontCosts;
 
     return {
-      monthlyPayment: monthlyPayment + monthlyPMI,
+      monthlyPayment: monthlyPayment + monthlyPMI + monthlyFeesEquivalent,
       totalInterest,
       totalPMICost,
       totalCost,

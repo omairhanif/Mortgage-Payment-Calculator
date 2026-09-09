@@ -71,9 +71,18 @@ function ScenarioNumberInput({
       <input
         type="number"
         value={Number.isFinite(value) ? value : ""}
-        onChange={(e) => onChange(e.target.value === "" ? Number.NaN : parseFloat(e.target.value))}
+        onChange={(e) => {
+          const raw = e.target.value;
+          if (raw === "") {
+            onChange(Number.NaN);
+            return;
+          }
+          const parsed = Number(raw);
+          onChange(Number.isFinite(parsed) ? parsed : Number.NaN);
+        }}
         step={step}
         className={`w-full rounded border px-2 py-1 text-xs ${error ? "border-red-500" : "border-slate-200"}`}
+        aria-invalid={Boolean(error)}
       />
       {error && <p className="mt-1 text-xs text-red-600">{error}</p>}
     </div>
@@ -336,16 +345,7 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
     setLoanAmount(newLoan);
   };
 
-  // Auto-sync second mortgage scenario loan amounts when home value or down payment changes
-  useEffect(() => {
-    const totalNeeded = smHomeValue - smDownPayment;
-    const eightyPercentLTV = Math.round(smHomeValue * 0.8);
-
-    setSm1LoanAmount(totalNeeded); // Scenario 1: borrow what's needed
-    setSm2LoanAmount(eightyPercentLTV); // Scenario 2: 80% LTV only
-    setSm3FirstLoanAmount(eightyPercentLTV); // Scenario 3 first: 80%
-    setSm3SecondLoanAmount(Math.max(0, totalNeeded - eightyPercentLTV)); // Scenario 3 second: remainder
-  }, [smHomeValue, smDownPayment]);
+  // Keep scenario loan amounts editable independently so users can type their own values.
 
   // Handle Calculate button click - update calcInputs with current input values
   const handleCalculate = (shouldScroll = true) => {
@@ -487,11 +487,12 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
     const totalPayments3 = totalMonthlyPayment3 * sm3Term * 12;
     const totalInterest3 = totalPayments3 - (firstLoan3 + secondLoan3);
     const upfrontCosts3 = sm3Closing + ((firstLoan3 + secondLoan3) * (sm3Points / 100));
+    const monthlyFeesEquivalent3 = upfrontCosts3 / (sm3Term * 12);
     const totalCost3 = totalInterest3 + upfrontCosts3;
 
     // Override Scenario 3 results with accurate piggyback calculation
     results.scenario3Result = {
-      monthlyPayment: totalMonthlyPayment3,
+      monthlyPayment: totalMonthlyPayment3 + monthlyFeesEquivalent3,
       totalInterest: totalInterest3,
       totalPMICost: 0, // Piggyback avoids PMI
       totalCost: totalCost3,
@@ -907,6 +908,7 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                         min={0}
                         max={5}
                         step={0.01}
+                        error={inlineValidationErrors.originationPoints}
                       />
                       <NumberInput
                         label="Other Closing Costs ($)"
@@ -914,6 +916,7 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                         onChange={setOtherClosingCosts}
                         min={0}
                         step={100}
+                        error={inlineValidationErrors.otherClosingCosts}
                       />
                     </div>
                   </div>
@@ -926,16 +929,19 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                         label="Annual Property Tax ($)"
                         value={annualPropertyTax}
                         onChange={(value) => setAnnualPropertyTax(Math.max(0, value))}
+                        error={inlineValidationErrors.annualPropertyTax}
                       />
                       <NumberInput
                         label="Annual Insurance ($)"
                         value={annualInsurance}
                         onChange={(value) => setAnnualInsurance(Math.max(0, value))}
+                        error={inlineValidationErrors.annualInsurance}
                       />
                       <NumberInput
                         label="Monthly HOA ($)"
                         value={monthlyHOA}
                         onChange={(value) => setMonthlyHOA(Math.max(0, value))}
+                        error={inlineValidationErrors.monthlyHOA}
                       />
                     </div>
                   </div>
@@ -1066,6 +1072,11 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-12">
               {/* LEFT COLUMN - INPUTS */}
               <div className="lg:col-span-7 space-y-4">
+                {hasValidationErrors(inlineValidationErrors) && (
+                  <div role="alert" className="mb-4 rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">
+                    {Object.values(inlineValidationErrors)[0]}
+                  </div>
+                )}
                 {/* Standardized Property Inputs */}
                 <Card
                   title="Property Details"
@@ -1113,12 +1124,13 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                             <ScenarioNumberInput label="Rate (%)" value={sm1Rate} onChange={setSm1Rate} step={0.1} error={inlineValidationErrors.sm1Rate} />
                             <div>
                               <label className="block text-xs text-slate-600 mb-1">Term</label>
-                              <select value={sm1Term} onChange={(e) => setSm1Term(parseInt(e.target.value))} className="w-full rounded border border-slate-200 px-2 py-1 text-xs">
+                              <select value={sm1Term} onChange={(e) => setSm1Term(parseInt(e.target.value))} className={`w-full rounded border px-2 py-1 text-xs ${inlineValidationErrors.sm1Term ? "border-red-500" : "border-slate-200"}`}>
                                 <option value={10}>10 years</option>
                                 <option value={15}>15 years</option>
                                 <option value={20}>20 years</option>
                                 <option value={30}>30 years</option>
                               </select>
+                              {inlineValidationErrors.sm1Term && <p className="mt-1 text-xs text-red-600">{inlineValidationErrors.sm1Term}</p>}
                             </div>
                             <ScenarioNumberInput label="Points" value={sm1Points} onChange={setSm1Points} step={0.1} error={inlineValidationErrors.sm1Points} />
                             <ScenarioNumberInput label="Closing Costs" value={sm1Closing} onChange={setSm1Closing} error={inlineValidationErrors.sm1Closing} />
@@ -1133,12 +1145,13 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                             <ScenarioNumberInput label="Rate (%)" value={sm2Rate} onChange={setSm2Rate} step={0.1} error={inlineValidationErrors.sm2Rate} />
                             <div>
                               <label className="block text-xs text-slate-600 mb-1">Term</label>
-                              <select value={sm2Term} onChange={(e) => setSm2Term(parseInt(e.target.value))} className="w-full rounded border border-slate-200 px-2 py-1 text-xs">
+                              <select value={sm2Term} onChange={(e) => setSm2Term(parseInt(e.target.value))} className={`w-full rounded border px-2 py-1 text-xs ${inlineValidationErrors.sm2Term ? "border-red-500" : "border-slate-200"}`}>
                                 <option value={10}>10 years</option>
                                 <option value={15}>15 years</option>
                                 <option value={20}>20 years</option>
                                 <option value={30}>30 years</option>
                               </select>
+                              {inlineValidationErrors.sm2Term && <p className="mt-1 text-xs text-red-600">{inlineValidationErrors.sm2Term}</p>}
                             </div>
                             <ScenarioNumberInput label="Points" value={sm2Points} onChange={setSm2Points} step={0.1} error={inlineValidationErrors.sm2Points} />
                             <ScenarioNumberInput label="Closing Costs" value={sm2Closing} onChange={setSm2Closing} error={inlineValidationErrors.sm2Closing} />
@@ -1155,12 +1168,13 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                             <ScenarioNumberInput label="Second Rate (%)" value={sm3SecondRate} onChange={setSm3SecondRate} step={0.1} error={inlineValidationErrors.sm3SecondRate} />
                             <div>
                               <label className="block text-xs text-slate-600 mb-1">Term</label>
-                              <select value={sm3Term} onChange={(e) => setSm3Term(parseInt(e.target.value))} className="w-full rounded border border-slate-200 px-2 py-1 text-xs">
+                              <select value={sm3Term} onChange={(e) => setSm3Term(parseInt(e.target.value))} className={`w-full rounded border px-2 py-1 text-xs ${inlineValidationErrors.sm3Term ? "border-red-500" : "border-slate-200"}`}>
                                 <option value={10}>10 years</option>
                                 <option value={15}>15 years</option>
                                 <option value={20}>20 years</option>
                                 <option value={30}>30 years</option>
                               </select>
+                              {inlineValidationErrors.sm3Term && <p className="mt-1 text-xs text-red-600">{inlineValidationErrors.sm3Term}</p>}
                             </div>
                             <ScenarioNumberInput label="Points" value={sm3Points} onChange={setSm3Points} step={0.1} error={inlineValidationErrors.sm3Points} />
                             <ScenarioNumberInput label="Closing Costs" value={sm3Closing} onChange={setSm3Closing} error={inlineValidationErrors.sm3Closing} />

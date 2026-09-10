@@ -415,6 +415,15 @@ export function calculateRefinance(input: RefinanceInput): RefinanceResult {
   if (newTermYears <= 0 || !isFinite(newTermYears)) {
     throw new Error('New term must be greater than 0');
   }
+  if (!isFinite(yearsBeforeSale) || yearsBeforeSale < 0 || yearsBeforeSale > 50) {
+    throw new Error('Years before sale must be between 0 and 50');
+  }
+  if (!isFinite(federalTaxRate) || federalTaxRate < 0 || federalTaxRate > 100) {
+    throw new Error('Federal tax rate must be between 0 and 100');
+  }
+  if (!isFinite(stateTaxRate) || stateTaxRate < 0 || stateTaxRate > 100) {
+    throw new Error('State tax rate must be between 0 and 100');
+  }
   
   // 1. Calculate the ORIGINAL current monthly payment (P&I only)
   const currentMonthlyPI = calculateMonthlyPI(originalLoanAmount, currentRate, originalTermYears);

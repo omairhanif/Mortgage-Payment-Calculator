@@ -329,7 +329,6 @@ export default function FHALoanRequirementsPage() {
           </div>
         </div>
       </article>
-
       
     </main>
     </>

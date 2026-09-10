@@ -422,8 +422,8 @@ export default function FHALoanCalculatorArticle() {
       <section className="pb-16">
         <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="w-full mx-auto max-w-4xl">
-            <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-8">
-              Frequently Asked Questions About FHA Loan Calculators
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-8 text-center">
+              Frequently Asked Questions
             </h2>
 
             <div className="space-y-4">

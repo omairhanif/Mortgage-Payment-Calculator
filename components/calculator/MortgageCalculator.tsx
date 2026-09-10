@@ -262,6 +262,9 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
   const [refNewTerm, setRefNewTerm] = useState<number>(30);
   const [refNewRate, setRefNewRate] = useState<number>(5.5);
   const [refClosingCosts, setRefClosingCosts] = useState<number>(5000);
+  const [refYearsBeforeSale, setRefYearsBeforeSale] = useState<number>(5);
+  const [refFederalTaxRate, setRefFederalTaxRate] = useState<number>(24);
+  const [refStateTaxRate, setRefStateTaxRate] = useState<number>(6);
 
   const [refResults, setRefResults] = useState<any>(null);
 
@@ -594,7 +597,7 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
   // Handle Refinance Calculate
   const handleRefinanceCalculate = (shouldScroll = true) => {
     if (!validateInline(
-      { refOriginalLoanAmount, refOriginalTerm, refOriginalRate, refMonthsPaid, refNewRate, refNewTerm, refClosingCosts },
+      { refOriginalLoanAmount, refOriginalTerm, refOriginalRate, refMonthsPaid, refNewRate, refNewTerm, refClosingCosts, refYearsBeforeSale, refFederalTaxRate, refStateTaxRate },
       [
         { id: "refOriginalLoanAmount", type: "currency", min: 1_000, max: 100_000_000 },
         { id: "refOriginalTerm", type: "years", min: 1, max: 50 },
@@ -603,6 +606,9 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
         { id: "refNewRate", type: "percent", min: 0.01, max: 30 },
         { id: "refNewTerm", type: "years", min: 1, max: 50 },
         { id: "refClosingCosts", type: "currency", max: 1_000_000 },
+        { id: "refYearsBeforeSale", type: "number", min: 0, max: 50 },
+        { id: "refFederalTaxRate", type: "percent", min: 0, max: 100 },
+        { id: "refStateTaxRate", type: "percent", min: 0, max: 100 },
       ],
     )) return;
     const maxMonthsPaid = refOriginalTerm * 12;
@@ -629,9 +635,9 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
       // Default values for new fields
       originalHomePrice: refOriginalLoanAmount / 0.8, // Assume 20% down
       originalDownPayment: refOriginalLoanAmount * 0.25, // Assume 20% down
-      yearsBeforeSale: 5,
-      federalTaxRate: 24,
-      stateTaxRate: 6,
+      yearsBeforeSale: refYearsBeforeSale,
+      federalTaxRate: refFederalTaxRate,
+      stateTaxRate: refStateTaxRate,
     };
 
     try {
@@ -1516,6 +1522,39 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                         />
                       </div>
                     </div>
+
+                    {/* Additional Details */}
+                    <div>
+                      <h4 className="text-sm font-semibold text-slate-700 mb-2">Additional Details</h4>
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <NumberInput
+                          label="Years Before Sale"
+                          value={refYearsBeforeSale}
+                          onChange={setRefYearsBeforeSale}
+                          min={0}
+                          max={50}
+                          error={inlineValidationErrors.refYearsBeforeSale}
+                        />
+                        <NumberInput
+                          label="Federal Tax Rate (%)"
+                          value={refFederalTaxRate}
+                          onChange={setRefFederalTaxRate}
+                          min={0}
+                          max={100}
+                          step={0.1}
+                          error={inlineValidationErrors.refFederalTaxRate}
+                        />
+                        <NumberInput
+                          label="State Tax Rate (%)"
+                          value={refStateTaxRate}
+                          onChange={setRefStateTaxRate}
+                          min={0}
+                          max={100}
+                          step={0.1}
+                          error={inlineValidationErrors.refStateTaxRate}
+                        />
+                      </div>
+                    </div>
                   </div>
                 </Card>
 
@@ -1669,7 +1708,7 @@ export default function MortgageCalculator({ category = "mortgage", isHomepage =
                         </div>
                         <div className="border-t border-indigo-100 pt-3">
                           <p className="text-xs text-slate-600">Real APR</p>
-                          <p className="text-2xl font-bold text-indigo-600">{aprResults.realAPR.toFixed(3)}%</p>
+                          <p className="text-2xl font-bold text-indigo-600">{Number(aprResults.realAPR).toFixed(3)}%</p>
                         </div>
                         <div className="rounded bg-amber-50 border border-amber-200 p-2">
                           <p className="text-xs text-amber-800">APR Difference: <span className="font-bold">+{aprResults.aprDifference.toFixed(3)}%</span></p>

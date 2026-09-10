@@ -339,7 +339,7 @@ export default function HELOCCalculatorPage() {
       <section className="py-16 bg-slate-50">
         <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="w-full mx-auto max-w-4xl">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-900 mb-8">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-900 mb-8 text-center">
               Frequently Asked Questions
             </h2>
 

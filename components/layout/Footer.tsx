@@ -10,7 +10,6 @@ export default function Footer() {
     { href: "/heloc-calculator", label: "HELOC" },
     { href: "/fixed-vs-arm-calculator", label: "ARM Calculator" },
     { href: "/refinance-calculator", label: "Refinance" },
-    { href: "/fha-loan-calculator", label: "FHA Loan" },
   ];
 
   const quickLinks = [

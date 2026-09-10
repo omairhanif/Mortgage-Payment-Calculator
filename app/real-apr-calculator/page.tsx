@@ -283,8 +283,8 @@ export default function RealAPRCalculatorPage() {
                 </p>
 
                 <div className="mt-8 pt-6 border-t border-slate-200">
-                  <h3 className="font-serif text-xl font-bold text-slate-900 mb-4 text-center">
-                    Frequently Asked Questions About APR Calculations
+                  <h3 className="font-serif text-xl font-bold text-slate-900 mb-4 ">
+                    Questions Asked About APR Calculations 
                   </h3>
 
                   <div className="space-y-4">

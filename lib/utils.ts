@@ -50,8 +50,8 @@ export function formatPercent(value: number): string {
     return "0%";
   }
   
-  // Format with up to 2 decimal places, removing trailing zeros
-  const formatted = parseFloat(value.toFixed(2));
+  // Format with up to 3 decimal places, removing trailing zeros
+  const formatted = parseFloat(value.toFixed(3));
   return `${formatted}%`;
 }
 
@@ -63,6 +63,13 @@ export function formatNumber(value: number): string {
     return "0";
   }
   return new Intl.NumberFormat('en-US').format(Math.round(value));
+}
+
+export function formatCalculatedNumber(value: number): string {
+  if (!Number.isFinite(value)) return "0";
+  return new Intl.NumberFormat('en-US', {
+    maximumFractionDigits: 3,
+  }).format(Number(value.toFixed(3)));
 }
 
 /**

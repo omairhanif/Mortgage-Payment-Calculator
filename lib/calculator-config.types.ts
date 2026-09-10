@@ -173,6 +173,7 @@ export interface SubCalculatorConfig {
   showChart?: boolean;
   warnings?: string[];
   customResultComponent?: string; // Name of custom result component to use
+  allowIndependentLoanAmount?: boolean;
 }
 
 // ============================================================================

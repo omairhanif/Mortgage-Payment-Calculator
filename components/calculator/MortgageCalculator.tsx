@@ -18,7 +18,7 @@ import {
   type RefinanceInput,
   type RealAPRInput,
 } from "@/lib/mortgage";
-import { formatCurrency } from "@/lib/utils";
+import { formatCurrency, formatPercent } from "@/lib/utils";
 import { hasValidationErrors, validateCalculatorInputs } from "@/lib/calculator-validation";
 import { getCalculatorConfig, type SubCalculatorConfig, type CalculatorInput as ConfigCalculatorInput, type InputConfig, type ResultConfig } from "@/lib/calculator-configs";
 import {
@@ -1815,16 +1815,28 @@ function ConfigCalculatorRenderer({ config, onBack, isHomepage = false }: Config
   const handleInputChange = (inputId: string, value: any) => {
     setInputs(prev => {
       const next = { ...prev, [inputId]: value };
-      setValidationErrors(validateCalculatorInputs(config.inputs, next));
+      if (config.allowIndependentLoanAmount && inputId !== "loanAmount" &&
+        ["housePrice", "homePrice", "homeValue", "purchasePrice", "downPayment", "downPaymentDollars", "downPaymentPercent"].includes(inputId)) {
+        const propertyId = ["housePrice", "homePrice", "homeValue", "purchasePrice"].find((id) => id in next);
+        const propertyValue = propertyId ? next[propertyId] : Number.NaN;
+        const downPayment = Number.isFinite(next.downPayment)
+          ? next.downPayment
+          : next.downPaymentMode === "percent" && Number.isFinite(next.downPaymentPercent)
+            ? propertyValue * next.downPaymentPercent / 100
+            : next.downPaymentDollars;
+        if (Number.isFinite(propertyValue) && Number.isFinite(downPayment)) {
+          next.loanAmount = Math.max(0, propertyValue - downPayment);
+        }
+      }
+      setValidationErrors(validateCalculatorInputs(config.inputs, next, !config.allowIndependentLoanAmount));
       return next;
     });
   };
 
   const handleCalculate = (shouldScroll = true) => {
-    const errors = validateCalculatorInputs(config.inputs, inputs);
+    const errors = validateCalculatorInputs(config.inputs, inputs, !config.allowIndependentLoanAmount);
     setValidationErrors(errors);
     if (hasValidationErrors(errors)) {
-      setResults(null);
       return;
     }
     try {
@@ -1874,7 +1886,7 @@ function ConfigCalculatorRenderer({ config, onBack, isHomepage = false }: Config
     value: primaryResult.format === 'currency'
       ? formatCurrency(results[primaryResult.id])
       : primaryResult.format === 'percent'
-      ? `${results[primaryResult.id]}%`
+      ? formatPercent(results[primaryResult.id])
       : String(results[primaryResult.id]),
   } : undefined;
 

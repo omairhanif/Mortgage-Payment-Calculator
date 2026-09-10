@@ -58,7 +58,7 @@ const createHomeValueField = (defaultValue = 400000, section = "Loan Details"): 
   label: "Home Value",
   type: "currency",
   defaultValue,
-  min: 0,
+  min: 1_000,
   section,
 });
 
@@ -161,7 +161,7 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
         label: "Real APR Calculator",
         description: "Calculate the true cost of financing including all fees and points",
         inputs: [
-          { id: "homePrice", label: "Home Price", type: "currency", defaultValue: 400000, min: 0, section: "Loan Details" },
+          { id: "homePrice", label: "Home Price", type: "currency", defaultValue: 400000, min: 1_000, section: "Loan Details" },
           createDownPaymentField(),
           createInterestRateField(),
           createLoanTermField(),
@@ -189,8 +189,8 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
         label: "FHA Loan Calculator",
         description: "Calculate FHA loan payments including mortgage insurance premiums",
         inputs: [
-          { id: "contractSalesPrice", label: "Contract Sales Price ($)", type: "currency", defaultValue: 350000, min: 0, section: "Property & Loan Details" },
-          { id: "appraisedValue", label: "Appraised Value ($)", type: "currency", defaultValue: 350000, min: 0, section: "Property & Loan Details" },
+          { id: "contractSalesPrice", label: "Contract Sales Price ($)", type: "currency", defaultValue: 350000, min: 1_000, section: "Property & Loan Details" },
+          { id: "appraisedValue", label: "Appraised Value ($)", type: "currency", defaultValue: 350000, min: 1_000, section: "Property & Loan Details" },
           { id: "fhaDownPaymentPercent", label: "FHA Down Payment (%)   min 3.5%", type: "percent", defaultValue: 3.5, min: 3.5, max: 100, step: 0.1, section: "Property & Loan Details" },
           createInterestRateField(6.0, "Property & Loan Details"),
           createLoanTermField(30, "Property & Loan Details"),
@@ -231,7 +231,7 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
         label: "VA Loan Calculator",
         description: "Calculate VA loan payments including funding fees",
         inputs: [
-          { id: "salePrice", label: "Sale Price ($)", type: "currency", defaultValue: 400000, min: 0, section: "Property Details" },
+          { id: "salePrice", label: "Sale Price ($)", type: "currency", defaultValue: 400000, min: 1_000, section: "Property Details" },
           { id: "downPayment", label: "Down Payment ($)", type: "currency", defaultValue: 0, min: 0, section: "Property Details" },
           createInterestRateField(6.0, "Property Details"),
           createLoanTermField(30, "Property Details"),
@@ -287,7 +287,7 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
         inputs: [
           createHomeValueField(1000000, "Property & Loan Details"),
           createDownPaymentField(200000, "Property & Loan Details"),
-          { id: "loanAmount", label: "Loan Amount ($)", type: "currency", defaultValue: 800000, min: 0, section: "Property & Loan Details" },
+          { id: "loanAmount", label: "Loan Amount ($)", type: "currency", defaultValue: 800000, min: 1_000, section: "Property & Loan Details" },
           createInterestRateField(7.0, "Property & Loan Details"),
           createLoanTermField(30, "Property & Loan Details"),
           { id: "state", label: "State", type: "select", defaultValue: "CA", options: [
@@ -304,7 +304,7 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
             { value: "San Diego", label: "San Diego" },
             { value: "Other", label: "Other" },
           ], section: "Location" },
-          { id: "conformingLimit", label: "Conforming Loan Limit ($)", type: "currency", defaultValue: 766550, min: 0, section: "Location" },
+          { id: "conformingLimit", label: "Conforming Loan Limit ($)", type: "currency", defaultValue: 766550, min: 1_000, section: "Location" },
           createPropertyTaxField(12000, "Property Expenses"),
           createInsuranceField(2400, "Property Expenses"),
           createHOAField(300, "Property Expenses"),
@@ -345,9 +345,9 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
         label: "Fixed vs ARM",
         description: "Compare fixed-rate and adjustable-rate mortgage options",
         inputs: [
-          { id: "housePrice", label: "House Price", type: "currency", defaultValue: 400000, min: 0, section: "Loan Information" },
+          { id: "housePrice", label: "House Price", type: "currency", defaultValue: 400000, min: 1_000, section: "Loan Information" },
           createDownPaymentField(80000, "Loan Information"),
-          { id: "loanAmount", label: "Loan Amount", type: "currency", defaultValue: 320000, min: 0, section: "Loan Information", tooltip: "Auto-calculated from House Price - Down Payment + Financed Costs" },
+          { id: "loanAmount", label: "Loan Amount", type: "currency", defaultValue: 320000, min: 1_000, section: "Loan Information", tooltip: "Auto-calculated from House Price - Down Payment + Financed Costs" },
           createLoanTermField(30, "Loan Information"),
           createPMIRateField(0.7, "Costs"),
           { id: "discountPoints", label: "Discount Points", type: "percent", defaultValue: 0, min: 0, max: 5, step: 0.125, section: "Costs", tooltip: "% of loan amount" },
@@ -359,7 +359,7 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
           createInsuranceField(1200, "Costs"),
           createHOAField(150, "Costs"),
           { id: "interestRate", label: "Fixed Interest Rate", type: "percent", defaultValue: 6.5, min: 0, max: 20, step: 0.01, section: "Rate Information" },
-          { id: "armInitialRate", label: "ARM Initial Rate", type: "percent", defaultValue: 5.5, min: 0, max: 20, step: 0.01, section: "Rate Information" },
+          { id: "armInitialRate", label: "ARM Initial Rate", type: "percent", defaultValue: 5.5, min: 0.01, max: 20, step: 0.01, section: "Rate Information" },
           { id: "armYearsBeforeAdjustment", label: "ARM Years Before First Adjustment", type: "number", defaultValue: 5, min: 1, max: 10, section: "ARM Settings" },
           { id: "armFirstAdjustmentCap", label: "ARM First Adjustment", type: "percent", defaultValue: 2, min: 0, max: 10, step: 0.25, section: "ARM Settings" },
           { id: "armMonthsBetweenAdjustments", label: "ARM Months Between Adjustments", type: "number", defaultValue: 12, min: 1, max: 60, section: "ARM Settings" },
@@ -369,6 +369,7 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
         calculate: (inputs) => calculateFixedVsARM({
           housePrice: inputs.housePrice,
           downPayment: inputs.downPayment,
+          loanAmount: inputs.loanAmount,
           loanTermYears: inputs.loanTermYears,
           pmiRate: inputs.pmiRate,
           discountPoints: inputs.discountPoints,
@@ -404,6 +405,7 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
         showAmortization: false,
         showChart: false,
         customResultComponent: "FixedVsARMComparison",
+        allowIndependentLoanAmount: true,
       },
 
       "interest-only": {
@@ -411,18 +413,19 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
         label: "Interest-Only",
         description: "Calculate interest-only vs. amortizing payments",
         inputs: [
-          { id: "homeValue", label: "Home Value", type: "currency", defaultValue: 350000, min: 0, section: "Loan Information" },
+          { id: "homeValue", label: "Home Value", type: "currency", defaultValue: 350000, min: 1_000, section: "Loan Information" },
           createDownPaymentField(70000, "Loan Information"),
-          { id: "loanAmount", label: "Loan Amount", type: "currency", defaultValue: 280000, min: 0, section: "Loan Information", tooltip: "Auto-calculated from Home Value - Down Payment" },
+          { id: "loanAmount", label: "Loan Amount", type: "currency", defaultValue: 280000, min: 1_000, section: "Loan Information", tooltip: "Auto-calculated from Home Value - Down Payment" },
           createLoanTermField(30, "Loan Information"),
           { id: "interestOnlyPeriodYears", label: "Interest-Only Period (years)", type: "number", defaultValue: 10, min: 1, max: 30, section: "Loan Information" },
           { id: "interestRate", label: "Interest Rate", type: "percent", defaultValue: 6.0, min: 0, max: 20, step: 0.01, section: "Rate Information" },
-          { id: "interestOnlyRate", label: "Interest-Only Rate", type: "percent", defaultValue: 5.5, min: 0, max: 20, step: 0.01, section: "Rate Information" },
+          { id: "interestOnlyRate", label: "Interest-Only Rate", type: "percent", defaultValue: 5.5, min: 0.01, max: 20, step: 0.01, section: "Rate Information" },
           { id: "showAmortization", label: "Show Amortization Schedule", type: "checkbox", defaultValue: false, section: "Options" },
         ],
         calculate: (inputs) => calculateInterestOnly({
           homeValue: inputs.homeValue,
           downPayment: inputs.downPayment,
+          loanAmount: inputs.loanAmount,
           loanTermYears: inputs.loanTermYears,
           interestOnlyPeriodYears: inputs.interestOnlyPeriodYears,
           interestRate: inputs.interestRate,
@@ -439,6 +442,7 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
         ],
         showAmortization: true,
         showChart: false,
+        allowIndependentLoanAmount: true,
       },
 
       "interest-only-extra": {
@@ -446,19 +450,20 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
         label: "Interest-Only + Extra",
         description: "Calculate interest-only with additional principal payments",
         inputs: [
-          { id: "homeValue", label: "Home Value", type: "currency", defaultValue: 350000, min: 0, section: "Loan Information" },
+          { id: "homeValue", label: "Home Value", type: "currency", defaultValue: 350000, min: 1_000, section: "Loan Information" },
           createDownPaymentField(70000, "Loan Information"),
-          { id: "loanAmount", label: "Loan Amount", type: "currency", defaultValue: 280000, min: 0, section: "Loan Information", tooltip: "Auto-calculated from Home Value - Down Payment" },
+          { id: "loanAmount", label: "Loan Amount", type: "currency", defaultValue: 280000, min: 1_000, section: "Loan Information", tooltip: "Auto-calculated from Home Value - Down Payment" },
           createLoanTermField(30, "Loan Information"),
           { id: "interestOnlyPeriodYears", label: "Interest-Only Period (years)", type: "number", defaultValue: 10, min: 1, max: 30, section: "Loan Information" },
           { id: "interestRate", label: "Interest Rate", type: "percent", defaultValue: 6.0, min: 0, max: 20, step: 0.01, section: "Rate Information" },
-          { id: "interestOnlyRate", label: "Interest-Only Rate", type: "percent", defaultValue: 5.5, min: 0, max: 20, step: 0.01, section: "Rate Information" },
+          { id: "interestOnlyRate", label: "Interest-Only Rate", type: "percent", defaultValue: 5.5, min: 0.01, max: 20, step: 0.01, section: "Rate Information" },
           { id: "additionalMonthlyPayment", label: "Additional Monthly Payment", type: "currency", defaultValue: 200, min: 0, section: "Extra Payments" },
           { id: "showAmortization", label: "Show Amortization Schedule", type: "checkbox", defaultValue: false, section: "Options" },
         ],
         calculate: (inputs) => calculateInterestOnlyExtra({
           homeValue: inputs.homeValue,
           downPayment: inputs.downPayment,
+          loanAmount: inputs.loanAmount,
           loanTermYears: inputs.loanTermYears,
           interestOnlyPeriodYears: inputs.interestOnlyPeriodYears,
           interestRate: inputs.interestRate,
@@ -477,6 +482,7 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
         ],
         showAmortization: true,
         showChart: false,
+        allowIndependentLoanAmount: true,
       },
 
       "balloon": {
@@ -484,9 +490,9 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
         label: "Balloon Mortgage",
         description: "Calculate balloon payment and monthly payments",
         inputs: [
-          { id: "purchasePrice", label: "Purchase Price", type: "currency", defaultValue: 300000, min: 0, section: "Loan Information" },
+          { id: "purchasePrice", label: "Purchase Price", type: "currency", defaultValue: 300000, min: 1_000, section: "Loan Information" },
           createDownPaymentField(60000, "Loan Information"),
-          { id: "loanAmount", label: "Loan Amount", type: "currency", defaultValue: 240000, min: 0, section: "Loan Information", tooltip: "Auto-calculated from Purchase Price - Down Payment + Financed Fees" },
+          { id: "loanAmount", label: "Loan Amount", type: "currency", defaultValue: 240000, min: 1_000, section: "Loan Information", tooltip: "Auto-calculated from Purchase Price - Down Payment + Financed Fees" },
           { id: "interestRate", label: "Interest Rate", type: "percent", defaultValue: 5.5, min: 0, max: 20, step: 0.01, section: "Rate Information" },
           { id: "initialLoanTermYears", label: "Balloon Due Date (Years)", type: "number", defaultValue: 7, min: 1, max: 30, section: "Loan Terms", tooltip: "When balloon payment is due" },
           { id: "amortizationScheduleLengthYears", label: "Amortization Schedule Length (Years)", type: "number", defaultValue: 30, min: 1, max: 40, section: "Loan Terms", tooltip: "Payment calculated as if loan amortizes over this period" },
@@ -502,6 +508,7 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
         calculate: (inputs) => calculateBalloonMortgage({
           purchasePrice: inputs.purchasePrice,
           downPayment: inputs.downPayment,
+          loanAmount: inputs.loanAmount,
           interestRate: inputs.interestRate,
           initialLoanTermYears: inputs.initialLoanTermYears,
           amortizationScheduleLengthYears: inputs.amortizationScheduleLengthYears,
@@ -525,6 +532,7 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
         ],
         showAmortization: false,
         showChart: false,
+        allowIndependentLoanAmount: true,
       },
     },
   },
@@ -546,7 +554,7 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
           { id: "annualRentIncrease", label: "Annual Rent Increase", type: "percent", defaultValue: 3, min: 0, max: 20, step: 0.5, section: "Rent Information" },
 
           // Home Purchase
-          { id: "homePurchasePrice", label: "Home Purchase Price", type: "currency", defaultValue: 400000, min: 0, section: "Home Purchase" },
+          { id: "homePurchasePrice", label: "Home Purchase Price", type: "currency", defaultValue: 400000, min: 1_000, section: "Home Purchase" },
           { id: "annualPropertyAppreciation", label: "Annual Property Appreciation", type: "percent", defaultValue: 3, min: -10, max: 20, step: 0.5, section: "Home Purchase" },
 
           // Down Payment with toggle
@@ -732,7 +740,7 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
         description: "Calculate savings from making extra payments",
         inputs: [
           // Home & Loan Details
-          { id: "homePrice", label: "Home Price", type: "currency", defaultValue: 400000, min: 0, section: "Home & Loan Details" },
+          { id: "homePrice", label: "Home Price", type: "currency", defaultValue: 400000, min: 1_000, section: "Home & Loan Details" },
 
           // Down Payment with toggle
           { id: "downPaymentMode", label: "Down Payment Entry", type: "select", options: [
@@ -742,7 +750,7 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
           { id: "downPaymentDollars", label: "Down Payment ($)", type: "currency", defaultValue: 80000, min: 0, section: "Home & Loan Details", condition: { dependsOn: "downPaymentMode", equals: "dollar" } },
           { id: "downPaymentPercent", label: "Down Payment (%)", type: "percent", defaultValue: 20, min: 0, max: 100, section: "Home & Loan Details", condition: { dependsOn: "downPaymentMode", equals: "percent" } },
 
-          { id: "loanAmount", label: "Loan Amount (auto-calculated, editable)", type: "currency", defaultValue: 320000, min: 0, section: "Home & Loan Details" },
+          { id: "loanAmount", label: "Loan Amount (auto-calculated, editable)", type: "currency", defaultValue: 320000, min: 1_000, section: "Home & Loan Details" },
           createInterestRateField(6.5, "Home & Loan Details"),
           { id: "loanTerm", label: "Loan Term (Years)", type: "number", defaultValue: 30, min: 1, max: 50, section: "Home & Loan Details" },
 
@@ -772,6 +780,7 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
         ],
         showAmortization: true,
         showChart: false,
+        allowIndependentLoanAmount: true,
       },
       "biweekly": {
         id: "biweekly",
@@ -779,7 +788,7 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
         description: "Calculate savings from biweekly payments",
         inputs: [
           // Home & Loan Details
-          { id: "homePrice", label: "Home Price", type: "currency", defaultValue: 400000, min: 0, section: "Home & Loan Details" },
+          { id: "homePrice", label: "Home Price", type: "currency", defaultValue: 400000, min: 1_000, section: "Home & Loan Details" },
 
           // Down Payment with toggle
           { id: "downPaymentMode", label: "Down Payment Entry", type: "select", options: [
@@ -789,7 +798,7 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
           { id: "downPaymentDollars", label: "Down Payment ($)", type: "currency", defaultValue: 80000, min: 0, section: "Home & Loan Details", condition: { dependsOn: "downPaymentMode", equals: "dollar" } },
           { id: "downPaymentPercent", label: "Down Payment (%)", type: "percent", defaultValue: 20, min: 0, max: 100, section: "Home & Loan Details", condition: { dependsOn: "downPaymentMode", equals: "percent" } },
 
-          { id: "loanAmount", label: "Loan Amount (auto-calculated, editable)", type: "currency", defaultValue: 320000, min: 0, section: "Home & Loan Details" },
+          { id: "loanAmount", label: "Loan Amount (auto-calculated, editable)", type: "currency", defaultValue: 320000, min: 1_000, section: "Home & Loan Details" },
           { id: "loanTerm", label: "Loan Term (Years)", type: "number", defaultValue: 30, min: 1, max: 50, section: "Home & Loan Details" },
           createInterestRateField(6.5, "Home & Loan Details"),
 
@@ -834,6 +843,7 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
         ],
         showAmortization: true,
         showChart: false,
+        allowIndependentLoanAmount: true,
       },
 
 
@@ -844,7 +854,7 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
         description: "Calculate break-even period for paying discount points",
         inputs: [
           // Home & Loan Details
-          { id: "homeValue", label: "Home Value", type: "currency", defaultValue: 400000, min: 0, section: "Home & Loan Details" },
+          { id: "homeValue", label: "Home Value", type: "currency", defaultValue: 400000, min: 1_000, section: "Home & Loan Details" },
 
           // Down Payment with toggle
           { id: "downPaymentMode", label: "Down Payment Entry", type: "select", options: [
@@ -854,7 +864,7 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
           { id: "downPaymentDollars", label: "Down Payment ($)", type: "currency", defaultValue: 80000, min: 0, section: "Home & Loan Details", condition: { dependsOn: "downPaymentMode", equals: "dollar" } },
           { id: "downPaymentPercent", label: "Down Payment (%)", type: "percent", defaultValue: 20, min: 0, max: 100, section: "Home & Loan Details", condition: { dependsOn: "downPaymentMode", equals: "percent" } },
 
-          { id: "loanAmount", label: "Loan Amount (auto-calculated, editable)", type: "currency", defaultValue: 320000, min: 0, section: "Home & Loan Details" },
+          { id: "loanAmount", label: "Loan Amount (auto-calculated, editable)", type: "currency", defaultValue: 320000, min: 1_000, section: "Home & Loan Details" },
           { id: "loanTerm", label: "Loan Term (Years)", type: "number", defaultValue: 30, min: 1, max: 50, section: "Home & Loan Details" },
 
           // Interest Rates
@@ -885,10 +895,14 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
           { id: "breakEvenPeriod", label: "Break-Even Period (months)", format: "number", isPrimary: true },
           { id: "totalInterestWithoutPoints", label: "Total Interest Without Points", format: "currency" },
           { id: "totalInterestWithPoints", label: "Total Interest With Points", format: "currency" },
+          { id: "pointsCost", label: "Points Cost", format: "currency" },
+          { id: "monthlySavings", label: "Monthly Payment Savings", format: "currency" },
+          { id: "netBenefit", label: "Net Benefit After Opportunity Cost", format: "currency", highlight: true },
           { id: "recommendation", label: "Recommendation Based on Years in Home", format: "text", highlight: true },
         ],
         showAmortization: true,
         showChart: false,
+        allowIndependentLoanAmount: true,
       },
 
       "tax-benefits": {
@@ -897,7 +911,7 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
         description: "Calculate tax benefits of homeownership",
         inputs: [
           // Home & Loan Details
-          { id: "homeValue", label: "Home Value", type: "currency", defaultValue: 400000, min: 0, section: "Home & Loan Details" },
+          { id: "homeValue", label: "Home Value", type: "currency", defaultValue: 400000, min: 1_000, section: "Home & Loan Details" },
 
           // Down Payment with toggle
           { id: "downPaymentMode", label: "Down Payment Entry", type: "select", options: [
@@ -907,7 +921,7 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
           { id: "downPaymentDollars", label: "Down Payment ($)", type: "currency", defaultValue: 80000, min: 0, section: "Home & Loan Details", condition: { dependsOn: "downPaymentMode", equals: "dollar" } },
           { id: "downPaymentPercent", label: "Down Payment (%)", type: "percent", defaultValue: 20, min: 0, max: 100, section: "Home & Loan Details", condition: { dependsOn: "downPaymentMode", equals: "percent" } },
 
-          { id: "loanAmount", label: "Loan Amount (auto-calculated, editable)", type: "currency", defaultValue: 320000, min: 0, section: "Home & Loan Details" },
+          { id: "loanAmount", label: "Loan Amount (auto-calculated, editable)", type: "currency", defaultValue: 320000, min: 1_000, section: "Home & Loan Details" },
           { id: "loanTerm", label: "Loan Term (Years)", type: "number", defaultValue: 30, min: 1, max: 50, section: "Home & Loan Details" },
           createInterestRateField(6.5, "Home & Loan Details"),
 
@@ -970,6 +984,7 @@ export const CALCULATOR_CONFIGS: CalculatorConfigs = {
         ],
         showAmortization: true,
         showChart: false,
+        allowIndependentLoanAmount: true,
       },
     },
   },

@@ -1,7 +1,7 @@
 import React from "react";
 import { Calculator, ChevronDown, ChevronUp, Copy, Download } from "lucide-react";
 import { jsPDF } from "jspdf";
-import { formatCurrency } from "@/lib/utils";
+import { formatCurrency, formatPercent, formatCalculatedNumber } from "@/lib/utils";
 
 export function ResultActions({ title, content }: { title: string; content: string }) {
   const [copied, setCopied] = React.useState(false);
@@ -46,7 +46,7 @@ export interface ResultMetric {
   icon?: React.ReactNode;
   isPrimary?: boolean;
   highlight?: boolean;
-  format?: "currency" | "percent" | "date" | "text";
+  format?: "currency" | "percent" | "number" | "date" | "text";
 }
 
 export interface AmortizationEntry {
@@ -137,7 +137,9 @@ export function ConfigConsolidatedResult({
               } else if (metric.format === "currency") {
                 displayValue = formatCurrency(metric.value as number);
               } else if (metric.format === "percent") {
-                displayValue = `${(metric.value as number).toFixed(2)}%`;
+                displayValue = formatPercent(metric.value as number);
+              } else if (metric.format === "number") {
+                displayValue = formatCalculatedNumber(metric.value as number);
               } else {
                 displayValue = metric.value.toString();
               }
@@ -390,6 +392,14 @@ interface FixedVsARMResultProps {
     armMaximumMonthlyPayment: number;
     armTotalInterestAtMax: number;
     armLTV: number;
+    fixedUpfrontCosts: number;
+    armUpfrontCosts: number;
+    fixedTotalCost: number;
+    armTotalCostAtMax: number;
+    armMaximumRate: number;
+    armFirstAdjustmentRate: number;
+    armSecondAdjustmentRate: number;
+    armAdjustmentCount: number;
     initialSavingsARM: number;
     potentialMaxDifference: number;
   };
@@ -478,6 +488,38 @@ export function FixedVsARMResult({
                 </td>
                 <td className="py-2 pl-2 text-right font-medium text-slate-900">
                   {formatCurrency(results.armTotalInterestAtMax)}
+                </td>
+              </tr>
+              <tr className="hover:bg-slate-50">
+                <td className="py-2 pr-2 text-slate-600">Upfront Costs</td>
+                <td className="py-2 px-2 text-right font-medium text-slate-900">
+                  {formatCurrency(results.fixedUpfrontCosts)}
+                </td>
+                <td className="py-2 pl-2 text-right font-medium text-slate-900">
+                  {formatCurrency(results.armUpfrontCosts)}
+                </td>
+              </tr>
+              <tr className="hover:bg-slate-50">
+                <td className="py-2 pr-2 text-slate-600">Total Cost</td>
+                <td className="py-2 px-2 text-right font-medium text-slate-900">
+                  {formatCurrency(results.fixedTotalCost)}
+                </td>
+                <td className="py-2 pl-2 text-right font-medium text-slate-900">
+                  {formatCurrency(results.armTotalCostAtMax)}
+                </td>
+              </tr>
+              <tr className="hover:bg-slate-50">
+                <td className="py-2 pr-2 text-slate-600">Maximum Rate / Adjustments</td>
+                <td className="py-2 px-2 text-right font-medium text-slate-400">-</td>
+                <td className="py-2 pl-2 text-right font-medium text-slate-900">
+                  {formatPercent(results.armMaximumRate)} / {results.armAdjustmentCount}
+                </td>
+              </tr>
+              <tr className="hover:bg-slate-50">
+                <td className="py-2 pr-2 text-slate-600">First / Second Adjustment Rate</td>
+                <td className="py-2 px-2 text-right font-medium text-slate-400">-</td>
+                <td className="py-2 pl-2 text-right font-medium text-slate-900">
+                  {formatPercent(results.armFirstAdjustmentRate)} / {formatPercent(results.armSecondAdjustmentRate)}
                 </td>
               </tr>
               <tr className="hover:bg-slate-50">

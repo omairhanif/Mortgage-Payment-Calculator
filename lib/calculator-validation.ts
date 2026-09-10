@@ -59,16 +59,24 @@ function downPaymentValue(values: Values): number | undefined {
 
 export function getEffectiveRange(input: InputConfig) {
   if (propertyFields.has(input.id) || input.id === "loanAmount") {
-    return { min: 1_000, max: 100_000_000, step: input.step ?? 0.01 };
+    return {
+      min: input.min ?? 1_000,
+      max: input.max ?? 100_000_000,
+      step: input.step ?? 0.01,
+    };
   }
   if (moneyLimits[input.id]) {
-    return { ...moneyLimits[input.id], step: input.step ?? 0.01 };
+    return {
+      min: input.min ?? moneyLimits[input.id].min,
+      max: input.max ?? moneyLimits[input.id].max,
+      step: input.step ?? 0.01,
+    };
   }
-  if (input.id === "propertyTaxPercent") return { min: 0, max: 10, step: input.step ?? 0.001 };
-  if (input.id === "helocDrawPeriod") return { min: 1, max: 20, step: 1 };
-  if (input.id === "helocRepaymentPeriod") return { min: 1, max: 30, step: 1 };
+  if (input.id === "propertyTaxPercent") return { min: input.min ?? 0, max: input.max ?? 10, step: input.step ?? 0.001 };
+  if (input.id === "helocDrawPeriod") return { min: input.min ?? 1, max: input.max ?? 20, step: input.step ?? 1 };
+  if (input.id === "helocRepaymentPeriod") return { min: input.min ?? 1, max: input.max ?? 30, step: input.step ?? 1 };
   if (input.type === "percent") {
-    const min = input.id === "interestRate" || input.id.includes("Rate") || input.id.includes("rate") ? 0.01 : 0;
+    const min = input.min ?? (input.id === "interestRate" || input.id.includes("Rate") || input.id.includes("rate") ? 0.01 : 0);
     let max = 100;
     if (input.id === "interestRate" || input.id.includes("Rate") || input.id.includes("rate")) max = 30;
     if (input.id === "pmiRate") max = 5;
@@ -76,17 +84,17 @@ export function getEffectiveRange(input: InputConfig) {
     if (input.id.includes("Points") || input.id.includes("Fees") || input.id.includes("origination")) max = 10;
     if (input.id.includes("Adjustment") || input.id.includes("Cap")) max = 10;
     if (input.id === "annualPMI") max = 2;
-    return { min, max, step: input.step ?? 0.001 };
+    return { min, max: input.max ?? max, step: input.step ?? 0.001 };
   }
-  if (input.type === "years") return { min: 1, max: 50, step: 1 };
+  if (input.type === "years") return { min: input.min ?? 1, max: input.max ?? 50, step: input.step ?? 1 };
   if (input.type === "number") {
-    if (input.id.includes("Months") || input.id.includes("months")) return { min: 0, max: 600, step: 1 };
+    if (input.id.includes("Months") || input.id.includes("months")) return { min: input.min ?? 0, max: input.max ?? 600, step: input.step ?? 1 };
     return { min: input.min ?? 0, max: input.max ?? 1_000_000, step: input.step ?? 1 };
   }
   return { min: input.min ?? 0, max: input.max ?? 1_000_000, step: input.step };
 }
 
-export function validateCalculatorInputs(inputs: InputConfig[], values: Values): Errors {
+export function validateCalculatorInputs(inputs: InputConfig[], values: Values, enforceLoanAmountMatch = true): Errors {
   const errors: Errors = {};
 
   for (const input of inputs) {
@@ -137,7 +145,7 @@ export function validateCalculatorInputs(inputs: InputConfig[], values: Values):
     errors.loanAmount = "Loan amount cannot exceed the property value.";
   }
 
-  if (property !== undefined && downPayment !== undefined && finiteNumber(values.loanAmount)) {
+  if (enforceLoanAmountMatch && property !== undefined && downPayment !== undefined && finiteNumber(values.loanAmount)) {
     const hasFinancedCosts = Boolean(values.financePoints || values.financeOtherClosingCosts || values.financeIntoLoan);
     if (!hasFinancedCosts && values.loanAmount !== property - downPayment) {
       errors.loanAmount = "Loan amount must equal property value minus down payment.";

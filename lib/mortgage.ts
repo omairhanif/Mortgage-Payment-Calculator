@@ -1203,12 +1203,14 @@ export interface JumboLoanResult {
 export function calculateJumbo(input: JumboLoanInput): JumboLoanResult {
   const {
     homeValue, downPayment, loanAmount, conformingLimit, interestRate,
-    loanTermYears, annualPropertyTax, annualInsurance, monthlyHOA,
+    loanTermYears, annualPropertyTax, annualInsurance, monthlyHOA, state, county,
   } = input;
 
   const warnings: string[] = [];
-  const isJumbo = loanAmount > conformingLimit;
-  const exceedsLimitBy = Math.max(0, loanAmount - conformingLimit);
+  const locationLimit = getConformingLimit(state, county);
+  const effectiveConformingLimit = conformingLimit === 766550 ? locationLimit : conformingLimit;
+  const isJumbo = loanAmount > effectiveConformingLimit;
+  const exceedsLimitBy = Math.max(0, loanAmount - effectiveConformingLimit);
 
   if (isJumbo) {
     warnings.push('This is a jumbo loan - higher requirements apply');
@@ -1230,7 +1232,7 @@ export function calculateJumbo(input: JumboLoanInput): JumboLoanResult {
   const totalInterest = calculateTotalInterest(monthlyPI, loanTermYears, loanAmount);
 
   return {
-    loanAmount, conformingLimit, isJumbo, exceedsLimitBy, monthlyPI, monthlyTax,
+    loanAmount, conformingLimit: effectiveConformingLimit, isJumbo, exceedsLimitBy, monthlyPI, monthlyTax,
     monthlyInsurance, monthlyHOA, totalMonthlyPayment, totalInterest, ltvRatio,
     downPaymentPercent: dpPercent, warnings,
     qualificationStatus: isJumbo
@@ -1243,6 +1245,7 @@ export function calculateJumbo(input: JumboLoanInput): JumboLoanResult {
 export interface FixedVsARMInput {
   housePrice: number;
   downPayment: number;
+  loanAmount?: number;
   loanTermYears: number;
   pmiRate: number;
   discountPoints: number;
@@ -1276,13 +1279,22 @@ export interface FixedVsARMResult {
   armTotalInterestAtMax: number;
   armLTV: number;
   armPMIRequired: boolean;
+  fixedUpfrontCosts: number;
+  armUpfrontCosts: number;
+  fixedTotalCost: number;
+  armTotalCostAtMax: number;
+  armMaximumRate: number;
+  armFirstAdjustmentRate: number;
+  armSecondAdjustmentRate: number;
+  armAdjustmentCount: number;
   initialSavingsARM: number;
   potentialMaxDifference: number;
 }
 export function calculateFixedVsARM(input: FixedVsARMInput): FixedVsARMResult {
   const {
-    housePrice, downPayment, loanTermYears, pmiRate, fixedRate, armInitialRate,
-    armLifetimeAdjustmentCap, annualPropertyTax, annualInsurance, monthlyHOA,
+    housePrice, downPayment, loanAmount: requestedLoanAmount, loanTermYears, pmiRate, fixedRate, armInitialRate,
+    armYearsBeforeAdjustment, armFirstAdjustmentCap, armSubsequentAdjustmentCap,
+    armMonthsBetweenAdjustments, armLifetimeAdjustmentCap, annualPropertyTax, annualInsurance, monthlyHOA,
     discountPoints, originationPoints, financePoints, otherClosingCosts, financeOtherClosingCosts
   } = input;
 
@@ -1298,11 +1310,12 @@ export function calculateFixedVsARM(input: FixedVsARMInput): FixedVsARMResult {
   const financedClosingCosts = financeOtherClosingCosts ? otherClosingCosts : 0;
   
   // Adjusted loan amount includes financed costs
-  const loanAmount = baseLoanAmount + financedPointsCost + financedClosingCosts;
+  const loanAmount = (requestedLoanAmount ?? baseLoanAmount) + financedPointsCost + financedClosingCosts;
   
   // Calculate LTV based on adjusted loan amount
   const ltv = calculateLTV(loanAmount, housePrice);
-  const pmiRequired = ltv > 80;
+  const downPaymentPercent = housePrice > 0 ? (downPayment / housePrice) * 100 : 100;
+  const pmiRequired = ltv > 80 || downPaymentPercent < 20;
 
   const monthlyTax = annualPropertyTax / 12;
   const monthlyInsurance = annualInsurance / 12;
@@ -1318,10 +1331,21 @@ export function calculateFixedVsARM(input: FixedVsARMInput): FixedVsARMResult {
   const armInitialMonthlyPayment = armInitialMonthlyPI + monthlyPMI + monthlyTax + monthlyInsurance + monthlyHOA;
 
   // ARM maximum rate calculations
-  const armMaxRate = armInitialRate + armLifetimeAdjustmentCap;
+  const monthsUntilFirstAdjustment = armYearsBeforeAdjustment * 12;
+  const monthsAfterFirstAdjustment = Math.max(0, loanTermYears * 12 - monthsUntilFirstAdjustment);
+  const adjustmentCount = monthsAfterFirstAdjustment > 0
+    ? Math.ceil(monthsAfterFirstAdjustment / armMonthsBetweenAdjustments)
+    : 0;
+  const maximumRateIncrease = adjustmentCount > 0
+    ? Math.min(armLifetimeAdjustmentCap, armFirstAdjustmentCap + (adjustmentCount - 1) * armSubsequentAdjustmentCap)
+    : 0;
+  const armMaxRate = armInitialRate + maximumRateIncrease;
+  const armFirstAdjustmentRate = armInitialRate + Math.min(armLifetimeAdjustmentCap, armFirstAdjustmentCap);
+  const armSecondAdjustmentRate = armInitialRate + Math.min(armLifetimeAdjustmentCap, armFirstAdjustmentCap + armSubsequentAdjustmentCap);
   const armMaximumMonthlyPI = calculateMonthlyPI(loanAmount, armMaxRate, loanTermYears);
   const armMaximumMonthlyPayment = armMaximumMonthlyPI + monthlyPMI + monthlyTax + monthlyInsurance + monthlyHOA;
   const armTotalInterestAtMax = calculateTotalInterest(armMaximumMonthlyPI, loanTermYears, loanAmount);
+  const upfrontCosts = (financePoints ? 0 : pointsCost) + (financeOtherClosingCosts ? 0 : otherClosingCosts);
 
   // Comparison metrics
   const initialSavingsARM = fixedInitialMonthlyPayment - armInitialMonthlyPayment;
@@ -1342,6 +1366,14 @@ export function calculateFixedVsARM(input: FixedVsARMInput): FixedVsARMResult {
     armTotalInterestAtMax,
     armLTV: ltv,
     armPMIRequired: pmiRequired,
+    fixedUpfrontCosts: upfrontCosts,
+    armUpfrontCosts: upfrontCosts,
+    fixedTotalCost: fixedTotalInterest + upfrontCosts,
+    armTotalCostAtMax: armTotalInterestAtMax + upfrontCosts,
+    armMaximumRate: armMaxRate,
+    armFirstAdjustmentRate,
+    armSecondAdjustmentRate,
+    armAdjustmentCount: adjustmentCount,
     initialSavingsARM,
     potentialMaxDifference,
   };
@@ -1351,6 +1383,7 @@ export function calculateFixedVsARM(input: FixedVsARMInput): FixedVsARMResult {
 export interface InterestOnlyInput {
   homeValue: number;
   downPayment: number;
+  loanAmount?: number;
   loanTermYears: number;
   interestOnlyPeriodYears: number;
   interestRate: number;
@@ -1374,10 +1407,10 @@ export interface InterestOnlyResult {
 }
 export function calculateInterestOnly(input: InterestOnlyInput): InterestOnlyResult {
   const {
-    homeValue, downPayment, loanTermYears, interestOnlyPeriodYears,
+    homeValue, downPayment, loanAmount: requestedLoanAmount, loanTermYears, interestOnlyPeriodYears,
     interestRate, interestOnlyRate, showAmortization
   } = input;
-  const loanAmount = _calculateLoanAmount(homeValue, downPayment);
+  const loanAmount = requestedLoanAmount ?? _calculateLoanAmount(homeValue, downPayment);
   const ioMonthlyRate = _toMonthlyRate(interestOnlyRate);
   const interestOnlyMonthlyPayment = loanAmount * ioMonthlyRate;
   const ioMonths = interestOnlyPeriodYears * 12;
@@ -1669,29 +1702,29 @@ export function calculateRentVsBuy(input: RentVsBuyInput): RentVsBuyResult {
   const averageAnnualTaxSavings = totalTaxSavings / input.yearsBeforeSelling;
 
   return {
-    totalRentCost: Math.round(totalRentPaid),
-    totalBuyCostBeforeEquity: Math.round(totalBuyCost),
-    netBuyCostAfterEquity: Math.round(netBuyCostAfterEquity),
-    netCostDifference: Math.round(netCostDifference),
+    totalRentCost: totalRentPaid,
+    totalBuyCostBeforeEquity: totalBuyCost,
+    netBuyCostAfterEquity,
+    netCostDifference,
     breakevenYear,
-    equityBuilt: Math.round(totalPrincipalPaid),
-    totalRentPaid: Math.round(totalRentPaid),
-    homeValueAtSale: Math.round(homeValueAtSale),
-    remainingLoanBalance: Math.round(loanBalance),
-    grossHomeEquity: Math.round(grossHomeEquity),
-    netEquityAfterSale: Math.round(netEquityAfterSale),
-    sellingCosts: Math.round(sellingCostDollars),
+    equityBuilt: totalPrincipalPaid,
+    totalRentPaid,
+    homeValueAtSale,
+    remainingLoanBalance: loanBalance,
+    grossHomeEquity,
+    netEquityAfterSale,
+    sellingCosts: sellingCostDollars,
     // Additional metrics for comparison tables
-    totalTaxesAndInsurance: Math.round(totalTaxesAndInsurance),
-    totalPMI: Math.round(totalPMI),
-    totalMaintenance: Math.round(totalMaintenance),
-    totalMortgagePayments: Math.round(totalMortgagePayments),
-    averageMonthlyPayment: Math.round(averageMonthlyPayment),
-    monthlyRentSavings: Math.round(monthlyRentSavings),
-    averageAnnualTaxDeduction: Math.round(averageAnnualTaxDeduction),
-    totalTaxDeduction: Math.round(totalTaxDeduction),
-    averageAnnualTaxSavings: Math.round(averageAnnualTaxSavings),
-    totalTaxSavings: Math.round(totalTaxSavings),
+    totalTaxesAndInsurance,
+    totalPMI,
+    totalMaintenance,
+    totalMortgagePayments,
+    averageMonthlyPayment,
+    monthlyRentSavings,
+    averageAnnualTaxDeduction,
+    totalTaxDeduction,
+    averageAnnualTaxSavings,
+    totalTaxSavings,
     amortizationSchedule: input.showAmortization ? schedule : undefined
   };
 }
@@ -1729,24 +1762,24 @@ export function calculateIncomeRequirement(input: IncomeRequirementInput): Incom
   const maxAffordableHomePrice = 0;
 
   return {
-    minimumAnnualIncome: Math.round(minimumAnnualIncome),
-    minimumMonthlyIncome: Math.round(minimumMonthlyIncome),
+    minimumAnnualIncome,
+    minimumMonthlyIncome,
     maxAffordableHomePrice: maxAffordableHomePrice,
-    monthlyPITI: Math.round(monthlyPITI),
-    loanAmount: Math.round(loanAmount),
-    downPayment: Math.round(downPayment),
-    frontEndRequiredIncome: Math.round(frontEndRequiredIncome),
-    backEndRequiredIncome: Math.round(backEndRequiredIncome),
+    monthlyPITI,
+    loanAmount,
+    downPayment,
+    frontEndRequiredIncome,
+    backEndRequiredIncome,
     // Detailed breakdown
-    monthlyPI: Math.round(monthlyPI),
-    monthlyTax: Math.round(monthlyTax),
-    monthlyInsurance: Math.round(monthlyInsurance),
-    monthlyPMI: Math.round(monthlyPMI),
+    monthlyPI,
+    monthlyTax,
+    monthlyInsurance,
+    monthlyPMI,
     frontEndDTI: input.frontEndDTI,
     backEndDTI: input.backEndDTI,
-    maxAllowableMonthlyHousing: Math.round(maxAllowableMonthlyHousing),
-    maxAllowableMonthlyDebt: Math.round(maxAllowableMonthlyDebt),
-    monthlyDebtPayments: Math.round(input.monthlyDebtPayments),
+    maxAllowableMonthlyHousing,
+    maxAllowableMonthlyDebt,
+    monthlyDebtPayments: input.monthlyDebtPayments,
   };
 }
 // Calculates maximum affordable home price based on income
@@ -1865,16 +1898,12 @@ export function calculateMortgageQualification(input: QualificationInput): Quali
 
   // Return results with proper validation
   return {
-    maxAffordableHomePrice: Math.round(affordableHomePrice),
-    maxLoanAmount: Math.round(finalLoan),
-    estimatedMonthlyPayment: Math.round(finalPI), // P&I only
-    monthlyPITI: Math.round(totalHousingCost), // Full housing cost (PITI + PMI)
-    calculatedFrontEndRatio: Number.isFinite(actualFrontEndRatio) 
-      ? parseFloat(actualFrontEndRatio.toFixed(1)) 
-      : 0,
-    calculatedBackEndRatio: Number.isFinite(actualBackEndRatio) 
-      ? parseFloat(actualBackEndRatio.toFixed(1)) 
-      : 0,
+    maxAffordableHomePrice: affordableHomePrice,
+    maxLoanAmount: finalLoan,
+    estimatedMonthlyPayment: finalPI,
+    monthlyPITI: totalHousingCost,
+    calculatedFrontEndRatio: Number.isFinite(actualFrontEndRatio) ? actualFrontEndRatio : 0,
+    calculatedBackEndRatio: Number.isFinite(actualBackEndRatio) ? actualBackEndRatio : 0,
     downPayment: downPayment,
   };
 }
@@ -1891,14 +1920,14 @@ export interface InterestOnlyExtraResult extends InterestOnlyResult {
 export function calculateInterestOnlyExtra(input: InterestOnlyExtraInput): InterestOnlyExtraResult {
   const {
     homeValue, downPayment, loanTermYears, interestOnlyPeriodYears,
-    interestRate, interestOnlyRate, additionalMonthlyPayment, showAmortization
+    loanAmount: requestedLoanAmount, interestRate, interestOnlyRate, additionalMonthlyPayment, showAmortization
   } = input;
 
   const standardResult = calculateInterestOnly({
-    homeValue, downPayment, loanTermYears, interestOnlyPeriodYears,
+    homeValue, downPayment, loanAmount: requestedLoanAmount, loanTermYears, interestOnlyPeriodYears,
     interestRate, interestOnlyRate, showAmortization: false
   });
-  const loanAmount = _calculateLoanAmount(homeValue, downPayment);
+  const loanAmount = requestedLoanAmount ?? _calculateLoanAmount(homeValue, downPayment);
   const ioMonthlyRate = _toMonthlyRate(interestOnlyRate);
   const postIOMonthlyRate = _toMonthlyRate(interestRate);
   const ioMonths = interestOnlyPeriodYears * 12;
@@ -1977,6 +2006,7 @@ export function calculateInterestOnlyExtra(input: InterestOnlyExtraInput): Inter
 export interface BalloonMortgageInput {
   purchasePrice: number;
   downPayment: number;
+  loanAmount?: number;
   interestRate: number;
   initialLoanTermYears: number;
   amortizationScheduleLengthYears: number;
@@ -2004,13 +2034,13 @@ export interface BalloonMortgageResult {
 }
 export function calculateBalloonMortgage(input: BalloonMortgageInput): BalloonMortgageResult {
   const {
-    purchasePrice, downPayment, interestRate, initialLoanTermYears,
+    purchasePrice, downPayment, loanAmount: requestedLoanAmount, interestRate, initialLoanTermYears,
     amortizationScheduleLengthYears, upfrontPayment, 
     loanOriginationFeeMode, loanOriginationFeePercent, loanOriginationFeeDollars,
     financeIntoLoan
   } = input;
   
-  const baseLoanAmount = _calculateLoanAmount(purchasePrice, downPayment);
+  const baseLoanAmount = requestedLoanAmount ?? _calculateLoanAmount(purchasePrice, downPayment);
   
   // Calculate origination fee based on mode
   const originationFee = loanOriginationFeeMode === "percent"
@@ -2139,11 +2169,11 @@ export function calculateExtraPayment(input: ExtraPaymentInput): ExtraPaymentRes
 
   return {
     newPayoffDate: newPayoffDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long' }),
-    interestSaved: Math.round(interestSaved),
-    monthsShavedOff: Math.round(monthsShavedOff),
+    interestSaved,
+    monthsShavedOff,
     originalPayoffDate: originalPayoffDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long' }),
-    originalTotalInterest: Math.round(originalTotalInterest),
-    newTotalInterest: Math.round(totalInterest),
+    originalTotalInterest,
+    newTotalInterest: totalInterest,
     originalMonths,
     newMonths: monthCount,
     amortizationSchedule: schedule
@@ -2204,7 +2234,7 @@ export function calculateBiweeklyPaymentEnhanced(input: BiweeklyPaymentInput): B
 
   const biweeklyRate = input.interestCompounded === "biweekly"
     ? input.interestRate / 26 / 100
-    : input.interestRate / 12 / 100 / (26/12);
+    : Math.pow(1 + monthlyRate, 12 / 26) - 1;
 
   while (balance > 0 && biweeklyPaymentCount < maxPayments) {
     biweeklyPaymentCount++;
@@ -2268,18 +2298,18 @@ export function calculateBiweeklyPaymentEnhanced(input: BiweeklyPaymentInput): B
 
   return {
     payoffTimeMonthly: originalMonths,
-    payoffTimeBiweekly: Math.round(biweeklyMonths * 10) / 10,
-    interestSaved: Math.round(interestSaved),
-    monthlyPayment: Math.round(monthlyPayment),
-    biweeklyPayment: Math.round(biweeklyPayment),
-    totalInterestMonthly: Math.round(totalInterestMonthly),
-    totalInterestBiweekly: Math.round(totalInterestBiweekly),
-    monthsSaved: Math.round(monthsSaved * 10) / 10,
+    payoffTimeBiweekly: biweeklyMonths,
+    interestSaved,
+    monthlyPayment,
+    biweeklyPayment,
+    totalInterestMonthly,
+    totalInterestBiweekly,
+    monthsSaved,
     timeSaved,
-    taxSavingsMonthly: Math.round(taxSavingsMonthly),
-    taxSavingsBiweekly: Math.round(taxSavingsBiweekly),
-    taxSavingLosses: Math.round(taxSavingLosses),
-    totalBenefit: Math.round(totalBenefit),
+    taxSavingsMonthly,
+    taxSavingsBiweekly,
+    taxSavingLosses,
+    totalBenefit,
     loanRepaymentTermMonthly,
     loanRepaymentTermBiweekly,
     amortizationSchedule: input.showAmortization ? schedule : undefined
@@ -2306,6 +2336,8 @@ export interface PayingPointsResult {
   pointsCost: number;
   monthlySavings: number;
   interestSavings: number;
+  netBenefit: number;
+  opportunityCost: number;
   amortizationSchedule?: Array<{
     month: number;
     payment: number;
@@ -2322,14 +2354,16 @@ export function calculatePayingPoints(input: PayingPointsInput): PayingPointsRes
   const paymentWithoutPoints = calculateMonthlyPI(loanAmount, input.interestRateWithoutPoints, input.loanTerm);
   const paymentWithPoints = calculateMonthlyPI(loanAmount, input.interestRateWithPoints, input.loanTerm);
   const monthlySavings = paymentWithoutPoints - paymentWithPoints;
+  const opportunityCost = pointsCost * (input.interestRateOnSavings / 100) / 12;
+  const netMonthlySavings = monthlySavings - opportunityCost;
 
-  const breakEvenMonths = monthlySavings > 0 ? pointsCost / monthlySavings : 999;
+  const breakEvenMonths = netMonthlySavings > 0 ? pointsCost / netMonthlySavings : 999;
 
   const totalInterestWithoutPoints = calculateTotalInterest(paymentWithoutPoints, input.loanTerm, loanAmount);
   const totalInterestWithPoints = calculateTotalInterest(paymentWithPoints, input.loanTerm, loanAmount);
   const interestSavings = totalInterestWithoutPoints - totalInterestWithPoints;
 
-  const netBenefit = interestSavings - pointsCost;
+  const netBenefit = interestSavings - pointsCost - opportunityCost * input.loanTerm * 12;
 
   let recommendation = "";
   if (breakEvenMonths <= 24) {
@@ -2369,13 +2403,15 @@ export function calculatePayingPoints(input: PayingPointsInput): PayingPointsRes
   }
 
   return {
-    breakEvenPeriod: Math.round(breakEvenMonths * 10) / 10,
-    totalInterestWithPoints: Math.round(totalInterestWithPoints),
-    totalInterestWithoutPoints: Math.round(totalInterestWithoutPoints),
+    breakEvenPeriod: breakEvenMonths,
+    totalInterestWithPoints,
+    totalInterestWithoutPoints,
     recommendation,
-    pointsCost: Math.round(pointsCost),
-    monthlySavings: Math.round(monthlySavings),
-    interestSavings: Math.round(interestSavings),
+    pointsCost,
+    monthlySavings,
+    interestSavings,
+    netBenefit,
+    opportunityCost,
     amortizationSchedule: input.showAmortization ? schedule : undefined
   };
 }
@@ -2654,14 +2690,14 @@ export function calculateTaxBenefits(input: TaxBenefitsInput): TaxBenefitsResult
   const afterTaxCostOfOwnership = subtotalCosts - totalTaxSavingsOverYears;
 
   const totalOwnershipCostBreakdown = {
-    totalInterest: Math.round(totalInterestPaid),
-    totalPropertyTaxes: Math.round(totalPropertyTaxes),
-    totalInsurance: Math.round(totalInsurance),
-    totalPMI: Math.round(totalPMI),
-    closingCosts: Math.round(closingCosts),
-    subtotal: Math.round(subtotalCosts),
-    lessTaxSavings: Math.round(totalTaxSavingsOverYears),
-    netCost: Math.round(afterTaxCostOfOwnership),
+    totalInterest: totalInterestPaid,
+    totalPropertyTaxes,
+    totalInsurance,
+    totalPMI,
+    closingCosts,
+    subtotal: subtotalCosts,
+    lessTaxSavings: totalTaxSavingsOverYears,
+    netCost: afterTaxCostOfOwnership,
   };
 
   // Calculate effective interest rate with proper null/undefined handling
@@ -2730,30 +2766,30 @@ export function calculateTaxBenefits(input: TaxBenefitsInput): TaxBenefitsResult
 
   return {
     // Tax Savings (Separated)
-    federalTaxSavings: Math.round(federalTaxSavings),
-    stateTaxSavings: Math.round(stateTaxSavings),
-    estimatedAnnualTaxSavings: Math.round(annualTaxSavings),
+    federalTaxSavings,
+    stateTaxSavings,
+    estimatedAnnualTaxSavings: annualTaxSavings,
     
     // Deduction Analysis
     standardDeduction,
-    totalItemizedDeductions: Math.round(totalItemizedDeductions),
+    totalItemizedDeductions,
     standardDeductionComparison: comparison,
     
     // Itemized Breakdown
-    mortgageInterestDeduction: Math.round(mortgageInterestDeduction),
-    propertyTaxDeduction: Math.round(propertyTaxDeduction),
-    pmiDeduction: Math.round(pmiDeduction),
-    pointsDeduction: Math.round(pointsDeduction),
+    mortgageInterestDeduction,
+    propertyTaxDeduction,
+    pmiDeduction,
+    pointsDeduction,
     
     // Cost Analysis
-    afterTaxCostOfOwnership: Math.round(afterTaxCostOfOwnership),
+    afterTaxCostOfOwnership,
     totalOwnershipCostBreakdown,
     
     // Multi-Year Analysis
-    totalTaxSavingsOverYears: Math.round(totalTaxSavingsOverYears),
+    totalTaxSavingsOverYears,
     
     // Comparative Metrics
-    effectiveInterestRate: parseFloat(effectiveInterestRate.toFixed(2)),
+    effectiveInterestRate,
     
     // Validation/Warnings
     warnings: warnings.length > 0 ? warnings : undefined,

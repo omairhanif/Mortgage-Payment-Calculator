@@ -1,9 +1,10 @@
 import { redirect } from 'next/navigation';
 
-export default function BlogSlugPage({
+export default async function BlogSlugPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  redirect(`/${params.slug}`);
+  const { slug } = await params;
+  redirect(`/${slug}`);
 }

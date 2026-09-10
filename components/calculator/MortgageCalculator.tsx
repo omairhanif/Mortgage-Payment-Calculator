@@ -95,8 +95,22 @@ interface ConfigCalculatorRendererProps {
   isHomepage?: boolean;
 }
 
-export default function MortgageCalculator({ category = "mortgage", isHomepage = false, forcedSubcalculator }: MortgageCalculatorProps) {
-  const searchParams = forcedSubcalculator ? null : useSearchParams();
+export default function MortgageCalculator(props: MortgageCalculatorProps) {
+  if (props.forcedSubcalculator) {
+    return <MortgageCalculatorContent {...props} searchParams={null} />;
+  }
+
+  return <MortgageCalculatorWithSearchParams {...props} />;
+}
+
+function MortgageCalculatorWithSearchParams(props: MortgageCalculatorProps) {
+  const searchParams = useSearchParams();
+  return <MortgageCalculatorContent {...props} searchParams={searchParams} />;
+}
+
+function MortgageCalculatorContent({ category = "mortgage", isHomepage = false, forcedSubcalculator, searchParams }: MortgageCalculatorProps & {
+  searchParams: ReturnType<typeof useSearchParams> | null;
+}) {
   const router = useRouter();
 
   // Get sub-calculators based on category

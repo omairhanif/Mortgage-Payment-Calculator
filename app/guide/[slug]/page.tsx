@@ -1,9 +1,10 @@
 import { redirect } from 'next/navigation';
 
-export default function GuideSlugPage({
+export default async function GuideSlugPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  redirect(`/${params.slug}`);
+  const { slug } = await params;
+  redirect(`/${slug}`);
 }

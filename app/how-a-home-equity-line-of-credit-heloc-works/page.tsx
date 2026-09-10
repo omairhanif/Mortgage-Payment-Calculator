@@ -295,7 +295,9 @@ export default function HowHELOCWorksPage() {
             </p>
 
             {/* FAQ Section */}
-            <h2 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Frequently Asked Questions About HELOCs</h2>
+            <h2 className="font-serif text-3xl font-bold text-slate-900 mb-8 text-center">
+            Frequently Asked Questions
+          </h2>
 
             <div className="space-y-4 mb-12">
               {allFaqs.map((faq, index) => (

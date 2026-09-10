@@ -452,40 +452,6 @@ export default function CutInterestOnlyLoanCostsArticle() {
               The difference between a successful interest-only loan and a financial disaster often comes down to $500-$1,000 per month in extra payments consistently applied over 5-10 years. That modest discipline saves thousands in interest, builds tens of thousands in equity, and protects you from payment shock when the interest-only period ends. Run the numbers, choose your strategy, automate the payments, and transform your interest-only loan from risk into opportunity.
             </p>
           </div>
-
-          {/* Related Articles */}
-          <div className="mt-12 p-6 bg-slate-50 rounded-lg">
-            <h3 className="font-serif text-xl font-bold text-slate-900 mb-4">
-              Related Articles
-            </h3>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/interest-only-loan-calculator-with-extra-payments"
-                  className="text-indigo-600 hover:text-indigo-800 underline"
-                >
-                  Interest-Only Loan Calculator With Extra Payments
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/interest-only-mortgage-calculator"
-                  className="text-indigo-600 hover:text-indigo-800 underline"
-                >
-                  Interest-Only Mortgage Calculator: Calculate Your Payment
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/understanding-interest-only-mortgage-risks"
-                  className="text-indigo-600 hover:text-indigo-800 underline"
-                >
-                  Understanding Interest-Only Mortgage Risks and Benefits
-                </Link>
-              </li>
-            </ul>
-          </div>
-
           </div>
         </div>
       </article>

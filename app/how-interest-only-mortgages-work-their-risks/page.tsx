@@ -587,11 +587,55 @@ export default function InterestOnlyMortgagesPage() {
               Always verify current product availability and structures with local lenders in your specific market. Regulations change, and what was available or structured one way previously may have changed. Use calculator tools designed for your geographic market to ensure accurate estimates that reflect local lending practices and regulatory requirements.
             </p>
 
-
+             {/* Related Articles */}
+      <section className="py-12 bg-white">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <div className="p-6 bg-slate-50 rounded-lg">
+            <h3 className="font-serif text-xl font-bold text-slate-900 mb-4">
+              Related Articles
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/balloon-mortgages-explained-risks-when-they-make-sense"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Balloon Mortgages Explained: Risks & When They Make Sense
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/interest-only-loan-calculator-with-extra-payments"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Interest-Only Loan Calculator With Extra Payments
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/how-to-calculate-your-monthly-mortgage-payment"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  How to Calculate Your Monthly Mortgage Payment
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/refinance-calculator-see-if-refinancing-pays-off"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Refinance Calculator: See If Refinancing Pays Off
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
             {/* FAQ Section */}
-            <h2 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Frequently Asked Questions</h2>
-
+           <h2 className="font-serif text-3xl font-bold text-slate-900 mb-8 text-center">
+            Frequently Asked Questions
+          </h2>
             <div className="space-y-4 mb-12">
               {allFaqs.map((faq, index) => (
                 <div key={index} className="border border-slate-200 rounded-lg overflow-hidden">

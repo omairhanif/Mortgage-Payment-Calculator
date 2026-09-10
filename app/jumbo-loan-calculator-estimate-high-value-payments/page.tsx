@@ -486,13 +486,59 @@ export default function JumboLoanCalculatorPage() {
         </div>
       </article>
 
+      {/* Related Articles */}
+      <section className="py-12 bg-white">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <div className="p-6 bg-slate-50 rounded-lg">
+            <h3 className="font-serif text-xl font-bold text-slate-900 mb-4">
+              Related Articles
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/jumbo-loan-limits-rates-what-buyers-should-know"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Jumbo Loan Limits & Rates: What Buyers Should Know
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/fixed-vs-arm-calculator-compare-loan-payments"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Fixed vs. ARM Calculator: Compare Loan Payments
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/interest-only-calculator-estimate-loan-payments"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Interest-Only Calculator: Estimate Loan Payments
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/mortgage-qualification-calculator-do-you-qualify"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Mortgage Qualification Calculator: Do You Qualify?
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
 
       {/* FAQ Section */}
       <section className="pb-16 bg-slate-50">
         <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="w-full mx-auto max-w-4xl">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6">Frequently Asked Questions</h2>
-
+           <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-8 mt-16 text-center">
+              Frequently Asked Questions
+            </h2> 
             <div className="space-y-4">
               {allFaqs.map((faq, index) => (
                 <div key={index} className="bg-white border border-slate-200 rounded-lg overflow-hidden">
@@ -515,22 +561,6 @@ export default function JumboLoanCalculatorPage() {
                   )}
                 </div>
               ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer Navigation */}
-      <section className="py-12 bg-white border-t border-slate-200">
-        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="w-full mx-auto max-w-4xl">
-            <div className="flex items-center justify-between">
-              <Link href="/" className="text-indigo-600 hover:text-indigo-700 font-medium flex items-center gap-2 transition-colors">
-                â† Back to Calculator
-              </Link>
-              <Link href="/blog" className="text-indigo-600 hover:text-indigo-700 font-medium flex items-center gap-2 transition-colors">
-                More Articles <ChevronRight className="h-4 w-4" />
-              </Link>
             </div>
           </div>
         </div>

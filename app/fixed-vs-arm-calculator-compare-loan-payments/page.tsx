@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -763,12 +763,56 @@ export default function FixedVsARMCalculatorPage() {
             <p className="text-base text-slate-600 leading-relaxed mb-8">
               Use the tools available a 5/1 ARM vs 30-year fixed calculator, 7/1 ARM vs 30-year fixed rates comparison, ARM APR calculator, or general arm vs fixed rate calculator to model your specific situation with real numbers. Make your decision based on quantitative analysis of multiple scenarios, not just initial payment differences or speculation about future rate movements. The right choice aligns your mortgage structure with your financial capacity, ownership plans, and tolerance for payment uncertainty.
             </p>
-
+          {/* Related Articles */}
+      <section className="py-12 bg-white">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <div className="p-6 bg-slate-50 rounded-lg">
+            <h3 className="font-serif text-xl font-bold text-slate-900 mb-4">
+              Related Articles
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/fixed-rate-vs-arm-which-mortgage-fits-you"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                     Fixed-Rate vs. ARM: Which Mortgage Fits You?
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/va-loan-requirements-eligibility-approval-process"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  VA Loan Requirements: Eligibility & Approval Process
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/how-to-qualify-for-a-mortgage-key-requirements"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  How to Qualify for a Mortgage: Key Requirements
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/mortgage-qualification-calculator-do-you-qualify"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Mortgage Qualification Calculator: Do You Qualify?
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
 
             {/* FAQ Section */}
-            <h2 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Frequently Asked Questions</h2>
-
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-8 mt-16 text-center">
+              Frequently Asked Questions
+            </h2>
             <div className="space-y-4 mb-12">
               {allFaqs.map((faq, index) => (
                 <div key={index} className="border border-slate-200 rounded-lg overflow-hidden">

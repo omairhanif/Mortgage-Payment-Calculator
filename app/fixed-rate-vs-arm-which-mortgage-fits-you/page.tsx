@@ -417,38 +417,7 @@ export default function FixedVsARMWhichFitsPage() {
             <p className="text-base text-slate-600 leading-relaxed mb-8">
               Remember: There's no universally correct answer to "a fixed rate or adjustable rate better" or "is fixed or adjustable rate better." The right choice aligns your mortgage structure with your specific circumstances. Use fixed vs arm mortgage rates comparisons and calculators to model YOUR situation with YOUR timeline, not generic scenarios. Make the decision based on what you can afford and how long you'll keep the property, not interest rate predictions or market timing.
             </p>
-
-            {/* FAQ Section */}
-            <h2 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Frequently Asked Questions</h2>
-
-            <div className="space-y-4 mb-12">
-              {allFaqs.map((faq, index) => (
-                <div key={index} className="border border-slate-200 rounded-lg overflow-hidden">
-                  <button
-                    onClick={() => toggleFAQ(index)}
-                    className="w-full px-6 py-4 text-left bg-white hover:bg-slate-50 transition-colors flex justify-between items-center gap-4"
-                  >
-                    <span className="font-semibold text-slate-900 pr-8">{faq.q}</span>
-                    {openFAQ === index ? (
-                      <ChevronUp className="w-5 h-5 text-indigo-600 flex-shrink-0" />
-                    ) : (
-                      <ChevronDown className="w-5 h-5 text-slate-400 flex-shrink-0" />
-                    )}
-                  </button>
-                  {openFAQ === index && (
-                    <div className="px-6 py-4 bg-slate-50 border-t border-slate-200">
-                      <p className="text-slate-600 leading-relaxed">{faq.a}</p>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-
-          </div>
-        </div>
-      </article>
-
-      {/* Related Articles */}
+            {/* Related Articles */}
       <section className="py-12 bg-white">
         <div className="mx-auto max-w-4xl px-6 sm:px-8">
           <div className="p-6 bg-slate-50 rounded-lg">
@@ -493,6 +462,36 @@ export default function FixedVsARMWhichFitsPage() {
         </div>
       </section>
 
+            {/* FAQ Section */}
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-8 mt-16 text-center">
+              Frequently Asked Questions
+            </h2>
+            <div className="space-y-4 mb-12">
+              {allFaqs.map((faq, index) => (
+                <div key={index} className="border border-slate-200 rounded-lg overflow-hidden">
+                  <button
+                    onClick={() => toggleFAQ(index)}
+                    className="w-full px-6 py-4 text-left bg-white hover:bg-slate-50 transition-colors flex justify-between items-center gap-4"
+                  >
+                    <span className="font-semibold text-slate-900 pr-8">{faq.q}</span>
+                    {openFAQ === index ? (
+                      <ChevronUp className="w-5 h-5 text-indigo-600 flex-shrink-0" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5 text-slate-400 flex-shrink-0" />
+                    )}
+                  </button>
+                  {openFAQ === index && (
+                    <div className="px-6 py-4 bg-slate-50 border-t border-slate-200">
+                      <p className="text-slate-600 leading-relaxed">{faq.a}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </div>
+      </article>
     </main>
     </>
   );

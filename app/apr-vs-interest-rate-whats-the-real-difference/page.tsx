@@ -120,7 +120,7 @@ export default function APRvsInterestRate() {
 
       {/* Article Content */}
       <article className="pb-2">
-        <div className="mx-auto max-w-3xl px-6 sm:px-8">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
           <div className="prose prose-slate prose-lg max-w-none">
 
             {/* Introduction */}

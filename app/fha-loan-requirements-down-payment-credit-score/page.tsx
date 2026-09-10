@@ -252,40 +252,7 @@ export default function FHALoanRequirementsPage() {
               Before using FHA loan calculators to explore payment scenarios or starting your home search, verify you meet core requirements: sufficient credit score for your target down payment, stable documented income meeting DTI limits, property prices within your county's FHA loan limits, and readiness to occupy the property as your primary residence. Understanding what is required and what lenders look for beyond published minimums positions you to apply with realistic expectations, avoid homes outside your qualification range, and work toward approval rather than facing unexpected rejection.
             </p>
 
-            {/* FAQs */}
-            <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-8 mt-16">
-              Frequently Asked Questions
-            </h2>
-
-            <div className="space-y-4">
-              {allFaqs.map((faq, index) => (
-                <div key={index} className="border border-slate-200 rounded-lg bg-white overflow-hidden">
-                  <button
-                    className="w-full px-6 py-5 text-left flex justify-between items-center hover:bg-slate-50 transition-colors"
-                    onClick={() => toggleFAQ(index)}
-                  >
-                    <span className="font-semibold text-slate-900 pr-8">{faq.q}</span>
-                    {openFAQ === index ? (
-                      <ChevronUp className="h-5 w-5 text-indigo-600 flex-shrink-0" />
-                    ) : (
-                      <ChevronDown className="h-5 w-5 text-slate-400 flex-shrink-0" />
-                    )}
-                  </button>
-
-                  {openFAQ === index && (
-                    <div className="px-6 pb-5 text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
-                      {faq.a}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-
-          </div>
-        </div>
-      </article>
-
-      {/* Related Articles */}
+            {/* Related Articles */}
       <section className="py-12 bg-white">
         <div className="mx-auto max-w-4xl px-6 sm:px-8">
           <div className="p-6 bg-slate-50 rounded-lg">
@@ -329,7 +296,41 @@ export default function FHALoanRequirementsPage() {
           </div>
         </div>
       </section>
+     
+      {/* FAQs */}
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-8 mt-16 text-center">
+              Frequently Asked Questions
+            </h2>
 
+            <div className="space-y-4">
+              {allFaqs.map((faq, index) => (
+                <div key={index} className="border border-slate-200 rounded-lg bg-white overflow-hidden">
+                  <button
+                    className="w-full px-6 py-5 text-left flex justify-between items-center hover:bg-slate-50 transition-colors"
+                    onClick={() => toggleFAQ(index)}
+                  >
+                    <span className="font-semibold text-slate-900 pr-8">{faq.q}</span>
+                    {openFAQ === index ? (
+                      <ChevronUp className="h-5 w-5 text-indigo-600 flex-shrink-0" />
+                    ) : (
+                      <ChevronDown className="h-5 w-5 text-slate-400 flex-shrink-0" />
+                    )}
+                  </button>
+
+                  {openFAQ === index && (
+                    <div className="px-6 pb-5 text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
+                      {faq.a}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </div>
+      </article>
+
+      
     </main>
     </>
   );

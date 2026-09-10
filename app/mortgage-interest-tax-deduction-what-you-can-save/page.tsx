@@ -447,7 +447,7 @@ export default function MortgageInterestTaxDeductionPage() {
             {/* FAQs */}
             <section className="mb-12">
               <h2 className="font-serif text-3xl font-bold text-slate-900 mb-6">
-                Frequently Asked Questions
+                 Questions Asked About Mortgage Interest Tax Deduction in Canada
               </h2>
 
               <div className="space-y-6">

@@ -460,9 +460,55 @@ export default function InterestOnlyCalculatorPage() {
               Most interest-only loans allow additional principal payments, though you should verify prepayment policies in your specific loan documents. An interest only loan calculator with extra payments can model the impact. If you have a $400,000 loan at 7% and pay an extra $500/month toward principal, after 5 years you'd reduce your balance to approximately $370,000, lowering your interest-only payment to $2,158 and reducing payment shock when amortization begins. Extra payments build equity, reduce long-term interest costs, and give you more flexibility if property values decline or credit tightens.
             </p>
 
-            {/* FAQ Section */}
-            <h2 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Frequently Asked Questions</h2>
+            {/* Related Articles */}
+      <section className="py-12 bg-white">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <div className="p-6 bg-slate-50 rounded-lg">
+            <h3 className="font-serif text-xl font-bold text-slate-900 mb-4">
+              Related Articles
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/interest-only-loan-calculator-with-extra-payments"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Interest-Only Loan Calculator With Extra Payments
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/fixed-vs-arm-calculator-compare-loan-payments"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Fixed vs. ARM Calculator: Compare Loan Payments
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/cut-interest-only-loan-costs-with-extra-payments"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Cut Interest-Only Loan Costs With Extra Payments
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/mortgage-qualification-calculator-do-you-qualify"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Mortgage Qualification Calculator: Do You Qualify?
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
+            {/* FAQ Section */}
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-8 mt-16 text-center">
+              Frequently Asked Questions
+            </h2>
             <div className="space-y-4 mb-12">
               {allFaqs.map((faq, index) => (
                 <div key={index} className="border border-slate-200 rounded-lg overflow-hidden">
@@ -489,66 +535,6 @@ export default function InterestOnlyCalculatorPage() {
             </div>
         </div>
       </article>
-
-
-
-      {/* Related Calculators Section */}
-      <section className="bg-slate-50 py-12">
-        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="w-full mx-auto max-w-4xl">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6">Related Mortgage Calculators</h2>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <Link
-                href="/mortgage-payment-calculator"
-                className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white p-4 transition-all hover:border-indigo-600 hover:shadow-md"
-              >
-                <Calculator className="h-6 w-6 text-indigo-600 flex-shrink-0" />
-                <div>
-                  <div className="font-semibold text-slate-900">Mortgage Payment Calculator</div>
-                  <div className="text-sm text-slate-600">Calculate monthly payments</div>
-                </div>
-                <ChevronRight className="ml-auto h-5 w-5 text-slate-400" />
-              </Link>
-
-              <Link
-                href="/heloc-calculator-estimate-credit-line-costs"
-                className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white p-4 transition-all hover:border-indigo-600 hover:shadow-md"
-              >
-                <Calculator className="h-6 w-6 text-indigo-600 flex-shrink-0" />
-                <div>
-                  <div className="font-semibold text-slate-900">HELOC Calculator</div>
-                  <div className="text-sm text-slate-600">Estimate line of credit costs</div>
-                </div>
-                <ChevronRight className="ml-auto h-5 w-5 text-slate-400" />
-              </Link>
-
-              <Link
-                href="/mortgage-affordability-calculator"
-                className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white p-4 transition-all hover:border-indigo-600 hover:shadow-md"
-              >
-                <Calculator className="h-6 w-6 text-indigo-600 flex-shrink-0" />
-                <div>
-                  <div className="font-semibold text-slate-900">Affordability Calculator</div>
-                  <div className="text-sm text-slate-600">Find out how much you can borrow</div>
-                </div>
-                <ChevronRight className="ml-auto h-5 w-5 text-slate-400" />
-              </Link>
-
-              <Link
-                href="/fixed-vs-arm-calculator"
-                className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white p-4 transition-all hover:border-indigo-600 hover:shadow-md"
-              >
-                <Calculator className="h-6 w-6 text-indigo-600 flex-shrink-0" />
-                <div>
-                  <div className="font-semibold text-slate-900">ARM Calculator</div>
-                  <div className="text-sm text-slate-600">Calculate adjustable-rate payments</div>
-                </div>
-                <ChevronRight className="ml-auto h-5 w-5 text-slate-400" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
     </>
   );

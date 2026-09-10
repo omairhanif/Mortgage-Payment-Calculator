@@ -265,7 +265,7 @@ export default function BiweeklyPaymentCalculatorArticle() {
             </p>
 
             <h3 className="font-serif text-2xl font-semibold text-slate-900 mt-8 mb-4">
-              âœ… Advantages of Biweekly Payments
+              Advantages of Biweekly Payments
             </h3>
 
             <ul className="list-disc list-inside text-slate-700 mb-6 space-y-2">
@@ -277,7 +277,7 @@ export default function BiweeklyPaymentCalculatorArticle() {
             </ul>
 
             <h3 className="font-serif text-2xl font-semibold text-slate-900 mt-8 mb-4">
-              âŒ Disadvantages and Considerations
+              Disadvantages and Considerations
             </h3>
 
             <ul className="list-disc list-inside text-slate-700 mb-6 space-y-2">
@@ -292,19 +292,238 @@ export default function BiweeklyPaymentCalculatorArticle() {
               <strong>Bottom line:</strong> Biweekly payments work best for biweekly-paid borrowers with stable income, mortgage rates above 4.5%, and plans to stay in the home long-term.
             </p>
 
+            <h2 className="font-serif text-3xl font-bold text-slate-900 mt-12 mb-6">
+        When Do Biweekly Payments Make Sense?
+      </h2>
+
+      <p className="text-slate-700 leading-relaxed mb-6">
+        Accelerated biweekly payments may be a good fit when your income is stable, your budget can comfortably support the additional annual payment, and becoming mortgage-free sooner is one of your financial priorities.
+      </p>
+
+      <ul className="list-disc list-inside text-slate-700 mb-6 space-y-2">
+        <li>You have stable and predictable income.</li>
+        <li>You can comfortably afford the additional annual mortgage payment.</li>
+        <li>You have adequate emergency savings.</li>
+        <li>You want to reduce mortgage debt faster.</li>
+        <li>Your mortgage contract permits the payment schedule.</li>
+        <li>You value automatic principal reduction.</li>
+        <li>You expect to keep the mortgage long enough for accelerated payments to matter.</li>
+      </ul>
+
+      <p className="text-slate-700 leading-relaxed mb-6">
+        Monthly payments may make more sense when maintaining cash-flow flexibility is a higher priority. For example, a homeowner who is still building an emergency fund may prefer to keep the lower required payment and direct additional cash toward savings first.
+      </p>
+
+      {/* Section 8 */}
+      <h2 className="font-serif text-3xl font-bold text-slate-900 mt-12 mb-6">
+        Biweekly Payments vs One Extra Mortgage Payment
+      </h2>
+
+      <p className="text-slate-700 leading-relaxed mb-6">
+        Accelerated biweekly payments are only one way to reduce mortgage principal faster. Depending on your mortgage contract, you may have other options, including annual lump-sum payments, increased regular payments, or additional payments.
+      </p>
+
+      <p className="text-slate-700 leading-relaxed mb-6">
+        For example, a homeowner making twelve monthly payments could potentially make an additional lump-sum payment during the year if the mortgage contract permits it. Another homeowner may prefer accelerated biweekly payments because the additional repayment happens automatically instead of requiring a separate decision.
+      </p>
+
+      <p className="text-slate-700 leading-relaxed mb-6">
+        The important comparison is therefore not simply <strong>monthly vs biweekly</strong>. It is the overall amount of principal you are reducing, when you are reducing it, and whether the strategy fits your cash flow and mortgage contract.
+      </p>
+
+      {/* Section 9 */}
+      <h2 className="font-serif text-3xl font-bold text-slate-900 mt-12 mb-6">
+        How to Use a Biweekly Payment Calculator
+      </h2>
+
+      <p className="text-slate-700 leading-relaxed mb-6">
+        A <strong>biweekly mortgage calculator</strong> can make the comparison easier by showing the effect of different payment schedules using your own mortgage numbers.
+      </p>
+
+      <h3 className="font-serif text-2xl font-semibold text-slate-900 mt-8 mb-4">
+        Step 1: Enter Your Mortgage Balance
+      </h3>
+
+      <p className="text-slate-700 leading-relaxed mb-6">
+        Enter the current mortgage balance or the loan amount you want to analyze. If you already have a mortgage, using the current outstanding balance can provide a more relevant comparison.
+      </p>
+
+      <h3 className="font-serif text-2xl font-semibold text-slate-900 mt-8 mb-4">
+        Step 2: Enter Your Interest Rate
+      </h3>
+
+      <p className="text-slate-700 leading-relaxed mb-6">
+        Enter the applicable mortgage interest rate. Even a relatively small difference in the interest rate can change the total interest paid over a long amortization.
+      </p>
+
+      <h3 className="font-serif text-2xl font-semibold text-slate-900 mt-8 mb-4">
+        Step 3: Enter the Amortization Period
+      </h3>
+
+      <p className="text-slate-700 leading-relaxed mb-6">
+        Enter the applicable amortization period. If you already have a mortgage, make sure you understand whether you are analyzing the original amortization or the remaining amortization.
+      </p>
+
+      <h3 className="font-serif text-2xl font-semibold text-slate-900 mt-8 mb-4">
+        Step 4: Compare Payment Frequencies
+      </h3>
+
+      <p className="text-slate-700 leading-relaxed mb-6">
+        Compare your monthly payment with regular and accelerated biweekly payments where available. Focus on the annual payment amount, total interest, estimated payoff date, and amount of time saved.
+      </p>
+
+      <div className="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-8">
+        <p className="text-slate-900 font-semibold mb-4">
+          What to Compare
+        </p>
+
+        <ul className="list-disc list-inside text-slate-700 space-y-2">
+          <li><strong>Payment amount:</strong> How much leaves your account each payment period?</li>
+          <li><strong>Annual payments:</strong> How much will you actually pay during a year?</li>
+          <li><strong>Total interest:</strong> How much interest is projected over the amortization?</li>
+          <li><strong>Payoff date:</strong> When is the mortgage expected to be fully repaid?</li>
+          <li><strong>Time saved:</strong> How much sooner could the mortgage be paid off?</li>
+        </ul>
+      </div>
+      {/* Section 10 */}
+      <h2 className="font-serif text-3xl font-bold text-slate-900 mt-12 mb-6">
+        A Practical Decision Framework
+      </h2>
+
+      <p className="text-slate-700 leading-relaxed mb-6">
+        Before switching your mortgage payment frequency, consider the decision from five practical angles.
+      </p>
+
+      <h3 className="font-serif text-2xl font-semibold text-slate-900 mt-8 mb-4">
+        1. Can You Afford the Additional Payment?
+      </h3>
+
+      <p className="text-slate-700 leading-relaxed mb-6">
+        Start with your household cash flow. Calculate the difference between your current annual mortgage payments and the proposed accelerated schedule. The additional payment should be sustainable rather than something that forces you to rely on credit during months with higher expenses.
+      </p>
+
+      <h3 className="font-serif text-2xl font-semibold text-slate-900 mt-8 mb-4">
+        2. Do You Have Emergency Savings?
+      </h3>
+
+      <p className="text-slate-700 leading-relaxed mb-6">
+        Paying down your mortgage can be financially beneficial, but home equity is not the same as readily available cash. Maintaining an appropriate emergency reserve can provide important protection against unexpected expenses or income interruptions.
+      </p>
+
+      <h3 className="font-serif text-2xl font-semibold text-slate-900 mt-8 mb-4">
+        3. Do You Have Higher-Interest Debt?
+      </h3>
+
+      <p className="text-slate-700 leading-relaxed mb-6">
+        If you carry high-interest consumer debt, compare its cost with the effective benefit of making additional mortgage payments. The best order for paying down debt depends on your specific balances, interest rates, and financial circumstances.
+      </p>
+
+      <h3 className="font-serif text-2xl font-semibold text-slate-900 mt-8 mb-4">
+        4. What Does Your Mortgage Contract Allow?
+      </h3>
+
+      <p className="text-slate-700 leading-relaxed mb-6">
+        Confirm the payment-frequency options and prepayment privileges with your lender. Ask whether accelerated biweekly payments are available, whether payment frequency can be changed during the mortgage term, and whether any fees or restrictions apply.
+      </p>
+
+      <h3 className="font-serif text-2xl font-semibold text-slate-900 mt-8 mb-4">
+        5. What Is Your Main Financial Goal?
+      </h3>
+
+      <p className="text-slate-700 leading-relaxed mb-6">
+        If your priority is becoming mortgage-free sooner, accelerated payments may be attractive. If your priority is maintaining liquidity or directing money toward another financial goal, keeping the regular payment may provide more flexibility.
+      </p>
+
+      {/* Section 11 */}
+      <h2 className="font-serif text-3xl font-bold text-slate-900 mt-12 mb-6">
+        Frequently Asked Questions
+      </h2>
+
+      <h3 className="font-serif text-2xl font-semibold text-slate-900 mt-8 mb-4">
+        Is biweekly better than monthly mortgage payments?
+      </h3>
+
+      <p className="text-slate-700 leading-relaxed mb-6">
+        Not automatically. An accelerated biweekly schedule generally results in a higher annual payment than a monthly schedule, which can reduce principal faster and potentially lower total interest. A regular biweekly schedule may not increase the annual payment in the same way. Compare the actual annual payments rather than looking only at payment frequency.
+      </p>
+
+      <h3 className="font-serif text-2xl font-semibold text-slate-900 mt-8 mb-4">
+        Does paying biweekly reduce mortgage interest?
+      </h3>
+
+      <p className="text-slate-700 leading-relaxed mb-6">
+        An accelerated biweekly schedule can reduce total interest because it generally results in additional principal being paid during the year. The exact savings depend on the mortgage balance, interest rate, payment schedule, amortization, and lender calculation.
+      </p>
+
+      <h3 className="font-serif text-2xl font-semibold text-slate-900 mt-8 mb-4">
+        How many biweekly mortgage payments are there each year?
+      </h3>
+
+      <p className="text-slate-700 leading-relaxed mb-6">
+        A biweekly schedule normally has <strong>26 payment periods per year</strong>. This is different from a semi-monthly schedule, which normally has 24 payments because payments are made twice each month.
+      </p>
+
+      <h3 className="font-serif text-2xl font-semibold text-slate-900 mt-8 mb-4">
+        Is accelerated biweekly the same as one extra mortgage payment?
+      </h3>
+
+      <p className="text-slate-700 leading-relaxed mb-6">
+        In terms of annual payment amount, an accelerated biweekly schedule commonly produces the equivalent of one additional monthly payment each year. For example, half of a $2,400 monthly payment is $1,200. Paying $1,200 every two weeks for 26 payments produces $31,200, compared with $28,800 from twelve monthly payments.
+      </p>
+
+      <h3 className="font-serif text-2xl font-semibold text-slate-900 mt-8 mb-4">
+        Can I switch from monthly to biweekly mortgage payments?
+      </h3>
+
+      <p className="text-slate-700 leading-relaxed mb-6">
+        Many mortgage products offer multiple payment frequencies, but availability depends on the lender and mortgage contract. Contact your lender before making the change and confirm the exact payment amount, payment frequency, effective date, and any applicable fees.
+      </p>
+
+      <h3 className="font-serif text-2xl font-semibold text-slate-900 mt-8 mb-4">
+        Does accelerated biweekly shorten the mortgage amortization?
+      </h3>
+
+      <p className="text-slate-700 leading-relaxed mb-6">
+        It can. Because an accelerated biweekly schedule generally results in one additional monthly-payment equivalent each year, more principal can be repaid over time. The actual reduction in amortization depends on your mortgage terms and payment calculations.
+      </p>
+
+      <h3 className="font-serif text-2xl font-semibold text-slate-900 mt-8 mb-4">
+        Is biweekly better if I get paid every two weeks?
+      </h3>
+
+      <p className="text-slate-700 leading-relaxed mb-6">
+        It can make budgeting easier because mortgage payments can align with your income schedule. However, convenience should not be the only consideration. Make sure the annual payment amount fits comfortably within your household budget.
+      </p>
+
 
             {/* Conclusion */}
-            <h2 className="font-serif text-3xl font-bold text-slate-900 mt-12 mb-6">
-              Final Verdict: Which Payment Frequency Is Right for You?
-            </h2>
+      <h2 className="font-serif text-3xl font-bold text-slate-900 mt-12 mb-6">
+        Final Verdict: Which Payment Frequency Is Right for You?
+      </h2>
 
-            <p className="text-slate-700 leading-relaxed mb-6">
-              <strong>Biweekly mortgage payments save most Canadian homeowners $40,000-$80,000+ in interest</strong> and shorten 25-year mortgages by 3-5 years. The strategy works best for biweekly-paid borrowers with rates above 4.5%.
-            </p>
+      <p className="text-slate-700 leading-relaxed mb-6">
+        <strong>Biweekly mortgage payments can help homeowners pay down their mortgage faster, but accelerated biweekly payments are the important distinction.</strong> A regular biweekly schedule can simply spread approximately the same annual mortgage obligation across 26 payments, while an accelerated biweekly schedule generally results in 13 monthly-payment equivalents each year.
+      </p>
 
-            <p className="text-slate-700 leading-relaxed mb-6">
-              Contact your lender today to switch most complete the change within 1-2 billing cycles at little or no cost.
-            </p>
+      <p className="text-slate-700 leading-relaxed mb-6">
+        The additional annual payment can reduce mortgage principal faster, which may shorten the amortization period and reduce the total interest paid. The potential benefit becomes more meaningful when the strategy is maintained consistently over a long period.
+      </p>
+
+      <p className="text-slate-700 leading-relaxed mb-6">
+        However, there is no universal savings figure that applies to every Canadian homeowner. Your mortgage balance, interest rate, amortization, payment amount, lender rules, and overall financial situation all affect the result.
+      </p>
+
+      <p className="text-slate-700 leading-relaxed mb-6">
+        Before switching from monthly to biweekly payments, compare the actual numbers using a <strong>biweekly payment calculator</strong>. Look at the annual payment difference, projected interest savings, estimated payoff date, and time saved. Then compare those benefits with the additional cash you would commit to the mortgage each year.
+      </p>
+
+      <p className="text-slate-700 leading-relaxed mb-6">
+        For homeowners who have stable income, adequate savings, and a clear goal of becoming mortgage-free sooner, accelerated biweekly payments can be a simple and disciplined repayment strategy. For others, monthly payments may provide valuable flexibility for savings, investments, emergency funds, or other financial priorities.
+      </p>
+
+      <p className="text-slate-700 leading-relaxed mb-6">
+        <strong>The best mortgage payment frequency is the one that fits both your mortgage mathematics and your overall financial plan.</strong> Use the calculator to understand the numbers first, then confirm the available payment options and prepayment rules directly with your lender before making a change.
+      </p>
 
           </div>
         </div>

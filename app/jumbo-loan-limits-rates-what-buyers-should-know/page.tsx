@@ -306,10 +306,54 @@ export default function JumboLoanLimitsRatesPage() {
             <p className="text-base text-slate-600 leading-relaxed mb-6">
               Calculating jumbo loan payments uses standard mortgage formulas, but larger principal amounts magnify the impact of interest rate differences, making rate shopping particularly valuable. When researching jumbo loans internationally, remember that "jumbo loan calculator HDFC Bank," "mortgage calculator Canada," and "large loan calculator UK" reflect completely different mortgage systems with distinct regulations, qualification methods, and cost structures than U.S. jumbo loans. Always use country-specific tools and consult local lenders for accurate information on large mortgage financing in your market. Compare total costs using comprehensive calculators that include taxes, insurance, and all fees before committing to a jumbo loan purchase.
             </p>
-
+             {/* Related Articles */}
+      <section className="py-12 bg-white">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <div className="p-6 bg-slate-50 rounded-lg">
+            <h3 className="font-serif text-xl font-bold text-slate-900 mb-4">
+              Related Articles
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/jumbo-loan-limits-rates-what-buyers-should-know"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Jumbo Loan Limits & Rates: What Buyers Should Know
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/fixed-vs-arm-calculator-compare-loan-payments"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Fixed vs. ARM Calculator: Compare Loan Payments
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/interest-only-calculator-estimate-loan-payments"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Interest-Only Calculator: Estimate Loan Payments
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/jumbo-loan-calculator-estimate-high-value-payments"
+                  className="text-indigo-600 hover:text-indigo-800 underline"
+                >
+                  Jumbo Loan Calculator: Estimate High-Value Payments
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
             {/* FAQ Section */}
-            <h2 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Frequently Asked Questions About Jumbo Loan Limits & Rates</h2>
-
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-8 mt-16 text-center">
+              Frequently Asked Questions
+            </h2> 
             <div className="space-y-4 mb-12">
               {allFaqs.map((faq, idx) => (
                 <div

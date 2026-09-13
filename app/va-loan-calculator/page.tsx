@@ -62,19 +62,18 @@ export default function VALoanCalculatorPage() {
       <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
 
         {/* Introduction Section */}
-        <div className="mb-8 w-full mx-auto max-w-4xl">
-          <div className="flex items-center gap-3 mb-4">
-            <Shield className="h-8 w-8 text-indigo-600 flex-shrink-0" />
-            <h1 className="font-serif text-3xl md:text-4xl font-bold text-indigo-600 leading-tight">
-              VA Loan Calculator
-            </h1>
-          </div>
-          <div className="h-px bg-indigo-600 mb-6"></div>
-          <div className="space-y-4 text-base text-slate-600 leading-relaxed">
-            <p>Estimate monthly payments for a VA loan with zero down payment, no mortgage insurance, and competitive interest rates exclusively available to eligible veterans and active military members.</p>
-            <p>Calculate your VA loan benefits including the funding fee, closing costs, and long-term savings compared to conventional financing options.</p>
-          </div>
-        </div>
+        
+      <div className="mb-8 w-full mx-auto max-w-4xl text-center">
+         <h1 className="font-serif text-3xl md:text-4xl font-bold text-indigo-600 leading-tight">
+             VA Loan Calculator
+        </h1>
+
+      <div className="space-y-4 text-base text-slate-600 leading-relaxed mt-5">
+          <p>
+              Estimate monthly payments for a VA loan with zero down payment, no mortgage insurance, and competitive interest rates exclusively available to eligible veterans and active military members.
+         </p>
+       </div>
+       </div>
 
         <MortgageCalculator category="rates" forcedSubcalculator="va" />
       </div>

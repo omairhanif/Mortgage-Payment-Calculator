@@ -48,7 +48,7 @@ export default function Page() {
           {/* Introduction */}
           <div className="mb-8 mx-auto max-w-4xl text-center">
             <div className="flex items-center justify-center gap-3 mb-4">
-              <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-indigo-600 leading-tight break-words">
+              <h1 className="font-serif text-3xl sm:text-3xl md:text-5xl font-bold text-indigo-600 leading-tight break-words">
                 Mortgage Payment Calculator
               </h1>
             </div>

@@ -13,12 +13,9 @@ export default function TaxBenefitsCalculatorPage() {
     setOpenFAQ(openFAQ === index ? null : index);
   };
 
-  const Icon = Receipt;
   const title = "Tax Benefits Calculator";
   const description = [
-    "Understand how mortgage interest deductions and other tax benefits impact your effective borrowing cost.",
-    "A tax benefits calculator helps you determine how tax deductions reduce your effective mortgage interest rate."
-  ];
+    "Understand how mortgage interest deductions and other tax benefits impact your effective borrowing cost.",  ];
   const howItWorks = [
     "This calculator helps you understand how mortgage-related tax deductions reduce your effective borrowing cost. Mortgage interest, property taxes (within limits), and sometimes mortgage insurance premiums can be tax-deductible, significantly reducing your after-tax housing cost.",
     "Enter your loan details, tax bracket, and deduction information. The calculator shows your annual deductions, tax savings, and effective after-tax interest rate revealing your true cost of borrowing after accounting for federal tax benefits.",
@@ -72,12 +69,9 @@ export default function TaxBenefitsCalculatorPage() {
       />
 
       {/* Hero Section */}
-      <div className="w-full mx-auto max-w-4xl px-4 pb-12 pt-8 sm:px-6 lg:px-8">
-        <div className="mb-6 flex items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-indigo-100 text-indigo-600">
-            <Icon className="h-6 w-6" />
-          </div>
-          <h1 className="font-serif text-3xl font-bold text-indigo-600 sm:text-4xl lg:text-5xl">
+      <div className="w-full mx-auto max-w-4xl px-4 pb-12 pt-8 sm:px-6 lg:px-8 text-center">
+        <div className="mb-6 flex items-center gap-3 text-center">
+          <h1 className="font-serif text-3xl font-bold text-indigo-600 sm:text-4xl lg:text-5xl text-center">
             {title}
           </h1>
         </div>

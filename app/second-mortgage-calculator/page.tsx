@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useEffectEvent } from "react";
 import { ChevronDown, ChevronUp, Home, Calculator } from "lucide-react";
 import { calculateSecondMortgage, type SecondMortgageInput } from "@/lib/mortgage";
 import { formatCurrency } from "@/lib/utils";
@@ -244,9 +244,14 @@ export default function SecondMortgageCalculatorPage() {
     }
   };
 
+  const recalculateSecondMortgage = useEffectEvent(() => {
+    handleSecondMortgageCalculate(false);
+  });
+
   // Calculate results on initial page load and as edits change
   useEffect(() => {
-    handleSecondMortgageCalculate(false);
+    const timeoutId = window.setTimeout(() => recalculateSecondMortgage(), 0);
+    return () => window.clearTimeout(timeoutId);
   }, [smHomeValue, smDownPayment, smExistingMortgage, sm1LoanAmount, sm2LoanAmount, sm3FirstLoanAmount, sm3SecondLoanAmount, sm1Rate, sm2Rate, sm3FirstRate, sm3SecondRate, sm1Term, sm2Term, sm3Term, sm1Points, sm2Points, sm3Points, sm1Closing, sm2Closing, sm3Closing]);
 
   const secondMortgageSummary = smResults ? [

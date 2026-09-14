@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useEffectEvent } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import {
   calculateMonthlyPI,
@@ -710,8 +710,7 @@ function MortgageCalculatorContent({ category = "mortgage", isHomepage = false, 
 
 
 
-  // Recalculate inline calculators on mount, tab changes, and input changes.
-  useEffect(() => {
+  const recalculateInline = useEffectEvent(() => {
     if (getCalculatorConfig(category, activeTab)) return;
     if (isHomepage) {
       handleCalculate(false);
@@ -724,6 +723,12 @@ function MortgageCalculatorContent({ category = "mortgage", isHomepage = false, 
     } else if (activeTab === "real-apr") {
       handleRealAPRCalculate(false);
     }
+  });
+
+  // Recalculate inline calculators on mount, tab changes, and input changes.
+  useEffect(() => {
+    const timeoutId = window.setTimeout(() => recalculateInline(), 0);
+    return () => window.clearTimeout(timeoutId);
   }, [
     activeTab,
     isHomepage,
@@ -808,6 +813,7 @@ function MortgageCalculatorContent({ category = "mortgage", isHomepage = false, 
     return (
       <div className="w-full mx-auto max-w-4xl">
         <ConfigCalculatorRenderer
+          key={calculatorConfig.id}
           config={calculatorConfig}
           onBack={() => router.push(getBasePath())}
           isHomepage={isHomepage}
@@ -1817,15 +1823,6 @@ function ConfigCalculatorRenderer({ config, onBack, isHomepage = false }: Config
     }
   };
 
-  // Reinitialize inputs when calculator switches
-  useEffect(() => {
-    const defaults: Record<string, any> = {};
-    config.inputs.forEach(input => {
-      defaults[input.id] = input.defaultValue;
-    });
-    setInputs(defaults);
-  }, [config.id, config.inputs]);
-
   const handleInputChange = (inputId: string, value: any) => {
     setInputs(prev => {
       const next = { ...prev, [inputId]: value };
@@ -1869,10 +1866,15 @@ function ConfigCalculatorRenderer({ config, onBack, isHomepage = false }: Config
     }
   };
 
+  const recalculateConfigured = useEffectEvent(() => {
+    handleCalculate(false);
+  });
+
   // Recalculate configured calculators whenever an input changes.
   useEffect(() => {
-    handleCalculate(false);
-  }, [inputs, config.id]); // eslint-disable-line react-hooks/exhaustive-deps
+    const timeoutId = window.setTimeout(() => recalculateConfigured(), 0);
+    return () => window.clearTimeout(timeoutId);
+  }, [inputs, config.id]);
 
   // Group inputs by section
   const groupedInputs: Array<{id: string; title: string; inputs: InputConfig[]}> = [];

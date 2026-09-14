@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useEffectEvent } from "react";
 import { ChevronDown, ChevronUp, CreditCard, Calculator, Plus, Trash2 } from "lucide-react";
 import { calculateHeloc, type HelocInput } from "@/lib/mortgage";
 import { formatCurrency } from "@/lib/utils";
@@ -263,9 +263,14 @@ export default function HelocCalculatorPage() {
     }
   };
 
+  const recalculateHeloc = useEffectEvent(() => {
+    handleHelocCalculate(false);
+  });
+
   // Calculate results on initial page load and as edits change
   useEffect(() => {
-    handleHelocCalculate(false);
+    const timeoutId = window.setTimeout(() => recalculateHeloc(), 0);
+    return () => window.clearTimeout(timeoutId);
   }, [helocHomeValue, helocExistingMortgage, helocCreditLimit, helocInterestRate, helocDrawPeriod, helocRepaymentPeriod, helocClosingCosts, helocFederalTaxRate, helocMonthlyIncome, helocDebts]);
 
   const helocComparisonMetrics = helocResults ? (() => {

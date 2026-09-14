@@ -353,7 +353,7 @@ export default function Header() {
               
             </Link>
 
-            <div className="ml-auto flex items-center gap-2">
+            <div className="ml-auto flex min-w-0 items-center gap-1">
               <div className="relative">
                 <button
                   type="button"
@@ -361,7 +361,7 @@ export default function Header() {
                     e.stopPropagation();
                     setMobileAllCalculatorsOpen(!mobileAllCalculatorsOpen);
                   }}
-                  className="rounded-lg px-3 py-2 text-xs font-bold uppercase tracking-wide text-white transition-colors hover:bg-indigo-500 whitespace-nowrap"
+                  className="rounded-lg px-2 py-2 text-xs font-bold uppercase tracking-wide text-white transition-colors hover:bg-indigo-500 whitespace-nowrap"
                   aria-label="All Calculators"
                 >
                   All Calculators
@@ -369,7 +369,7 @@ export default function Header() {
 
                 {mobileAllCalculatorsOpen && (
                   <div
-                    className="absolute left-0 top-full mt-2 rounded-xl bg-white shadow-2xl ring-1 ring-slate-200 py-2 z-[120] overflow-x-hidden"
+                    className="fixed left-2 top-16 mt-2 rounded-xl bg-white shadow-2xl ring-1 ring-slate-200 py-2 z-[120] overflow-x-hidden"
                     style={{
                       width: "min(100vw, calc(100vw - 16px))",
                       maxWidth: "100vw",
@@ -425,14 +425,14 @@ export default function Header() {
 
               <Link
                 href="/blog"
-                className="rounded-lg px-3 py-2 text-xs font-bold uppercase tracking-wide text-white transition-colors hover:bg-indigo-500"
+                className="inline-flex max-[359px]:hidden rounded-lg px-2 py-2 text-xs font-bold uppercase tracking-wide text-white transition-colors hover:bg-indigo-500"
               >
                 Blogs
               </Link>
 
               <Link
                 href="/guide"
-                className="rounded-lg px-3 py-2 text-xs font-bold uppercase tracking-wide text-white transition-colors hover:bg-indigo-500"
+                className="inline-flex max-[359px]:hidden rounded-lg px-2 py-2 text-xs font-bold uppercase tracking-wide text-white transition-colors hover:bg-indigo-500"
               >
                 Guides
               </Link>

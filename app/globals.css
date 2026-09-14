@@ -52,6 +52,16 @@ textarea {
     font-size: 15px;
   }
 
+	main,
+	section,
+	article,
+	footer,
+	.card,
+	.flex > *,
+	.grid > * {
+		min-width: 0;
+	}
+
   .prose,
   .prose p,
   article,
@@ -60,14 +70,45 @@ textarea {
     word-break: break-word;
   }
 
-  table {
-    min-width: 420px;
-  }
+	table,
+	.overflow-x-auto table {
+		width: 100%;
+		min-width: 0;
+		table-layout: fixed;
+	}
 
-  .overflow-x-auto table,
-  .overflow-x-auto {
-    min-width: 100%;
-  }
+	.overflow-x-auto {
+		max-width: 100%;
+		overflow-x: hidden;
+	}
+
+	table th,
+	table td {
+		max-width: 0;
+		overflow-wrap: anywhere;
+		word-break: break-word;
+		padding: .5rem .35rem;
+	}
+
+	input,
+	select,
+	textarea {
+		min-width: 0;
+		width: 100%;
+	}
+}
+
+@media (max-width: 359px) {
+	table,
+	.overflow-x-auto table {
+		table-layout: fixed;
+	}
+
+	table th,
+	table td {
+		overflow-wrap: anywhere;
+		padding: .5rem .25rem;
+	}
 }
 
 /* Theme variables (Sky Blue) */

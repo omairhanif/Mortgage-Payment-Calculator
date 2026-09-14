@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useEffectEvent } from "react";
 import { ChevronDown, ChevronUp, RefreshCw, Calculator } from "lucide-react";
 import { calculateRefinance, type RefinanceInput } from "@/lib/mortgage";
 import { formatCurrency } from "@/lib/utils";
@@ -202,9 +202,14 @@ export default function RefinanceCalculatorPage() {
     }
   };
 
+  const recalculateRefinance = useEffectEvent(() => {
+    handleRefinanceCalculate(false);
+  });
+
   // Calculate results on initial page load and as edits change
   useEffect(() => {
-    handleRefinanceCalculate(false);
+    const timeoutId = window.setTimeout(() => recalculateRefinance(), 0);
+    return () => window.clearTimeout(timeoutId);
   }, [refOriginalLoanAmount, refOriginalTerm, refCurrentRate, refMonthsPaid, refNewRate, refNewTerm, refOtherClosingCosts, refDiscountPoints, refOriginationFees, refOriginalHomePrice, refOriginalDownPayment, refYearsBeforeSale, refFederalTaxRate, refStateTaxRate]);
 
   const refinanceSummary = refResults ? [

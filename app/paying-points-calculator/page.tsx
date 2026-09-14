@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, ChevronUp, DollarSign } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import MortgageCalculator from "@/components/calculator/MortgageCalculator";
 import { getStructuredData } from "./server";
 
@@ -13,7 +13,6 @@ export default function PayingPointsCalculatorPage() {
     setOpenFAQ(openFAQ === index ? null : index);
   };
 
-  const Icon = DollarSign;
   const title = "Paying Points Calculator";
   const description = [
     "Calculate whether paying discount points at closing makes financial sense for your situation.",
@@ -73,19 +72,13 @@ export default function PayingPointsCalculatorPage() {
 
       {/* Hero Section */}
       <div className="w-full mx-auto max-w-4xl px-4 pb-12 pt-8 sm:px-6 lg:px-8">
-        <div className="mb-6 flex items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-indigo-100 text-indigo-600">
-            <Icon className="h-6 w-6" />
-          </div>
+        <div className="mb-6 text-center">
           <h1 className="font-serif text-3xl font-bold text-indigo-600 sm:text-4xl lg:text-5xl">
             {title}
           </h1>
         </div>
-        <div className="mb-6 h-px bg-gradient-to-r from-slate-200 via-slate-300 to-slate-200"></div>
-        <div className="space-y-3 text-base leading-relaxed text-slate-600 sm:text-lg">
-          {description.map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
-          ))}
+        <div className="space-y-3 text-center text-base leading-relaxed text-slate-600 sm:text-lg">
+          <p>{description[0]}</p>
         </div>
       </div>
 
@@ -110,7 +103,7 @@ export default function PayingPointsCalculatorPage() {
       <section className="py-12">
         <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <article className="prose prose-slate w-full mx-auto max-w-4xl prose-headings:font-serif prose-h2:text-2xl prose-h2:font-bold prose-h2:text-slate-900 prose-p:text-slate-600 prose-p:leading-relaxed">
-            <h1 className="text-center">Understanding Mortgage Discount Points: How to Calculate If Paying Points Is Worth It</h1>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-6">Understanding Mortgage Discount Points: How to Calculate If Paying Points Is Worth It</h2>
 
             <p>
               Mortgage discount points represent one of the most misunderstood aspects of home financing, yet they can significantly impact your borrowing costs over the loan term. When you're comparing loan offers and see references to a buying points calculator or loan points calculator, you're encountering a fundamental trade-off: pay more money upfront to reduce your interest rate and monthly payment, or keep your cash and accept a higher rate. Understanding when paying points makes sense and when it doesn't requires careful calculation and honest assessment of how long you'll keep the loan.
@@ -296,7 +289,7 @@ export default function PayingPointsCalculatorPage() {
       {/* FAQ Section */}
       <section className="py-12 bg-slate-50">
         <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <h2 className="mb-8 text-2xl font-bold text-slate-900 sm:text-3xl">Frequently Asked Questions</h2>
+          <h2 className="mb-8 text-2xl font-bold text-slate-900 sm:text-3xl text-center">Frequently Asked Questions</h2>
           <div className="space-y-4">
             {faqs.map((faq, index) => (
               <div key={index} className="overflow-hidden rounded-lg border border-slate-200 bg-white">

@@ -416,9 +416,6 @@ export default function VALoanCalculatorPage() {
               <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-3">
                 Frequently Asked Questions
               </h2>
-              <p className="text-slate-600 text-base">
-                Common questions about this calculator
-              </p>
             </div>
 
             <div className="space-y-4">

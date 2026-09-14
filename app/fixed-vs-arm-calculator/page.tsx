@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, ChevronUp, GitCompare } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import MortgageCalculator from "@/components/calculator/MortgageCalculator";
 import { getStructuredData } from "./server";
 
@@ -13,7 +13,6 @@ export default function FixedVsARMCalculatorPage() {
     setOpenFAQ(openFAQ === index ? null : index);
   };
 
-  const Icon = GitCompare;
   const title = "Fixed vs ARM Calculator";
   const description = [
     "Compare fixed-rate and adjustable-rate mortgages side-by-side to determine which loan type better aligns with your financial goals, risk tolerance, and homeownership timeline.",
@@ -72,18 +71,13 @@ export default function FixedVsARMCalculatorPage() {
       />
 
       {/* Hero Section */}
-      <div className="mb-8">
-        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-indigo-100 text-indigo-600">
-              <Icon className="h-6 w-6" />
-            </div>
+      <div className="mb-8 pt-8 sm:pt-10">
+        <div className="w-full mx-auto max-w-4xl px-8 sm:px-6 lg:px-8">
+          <div className="mb-4 text-center">
             <h1 className="text-3xl font-bold text-indigo-600 sm:text-4xl">{title}</h1>
           </div>
-          <div className="mb-6 h-px bg-gradient-to-r from-slate-200 via-slate-300 to-slate-200"></div>
-          <div className="space-y-3 text-slate-600">
+          <div className="space-y-6 text-center text-slate-600">
             <p className="text-base leading-relaxed sm:text-lg">{description[0]}</p>
-            <p className="text-base leading-relaxed sm:text-lg">{description[1]}</p>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, ChevronUp, DollarSign } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import MortgageCalculator from "@/components/calculator/MortgageCalculator";
 import { getStructuredData } from "./server";
 
@@ -13,7 +13,6 @@ export default function ExtraPaymentCalculatorPage() {
     setOpenFAQ(openFAQ === index ? null : index);
   };
 
-  const Icon = DollarSign;
   const title = "Extra Payment Calculator";
   const description = [
     "Calculate how extra mortgage payments can dramatically reduce your interest costs and help you become debt-free years earlier.",
@@ -73,19 +72,13 @@ export default function ExtraPaymentCalculatorPage() {
 
       {/* Hero Section */}
       <div className="w-full mx-auto max-w-4xl px-4 pb-12 pt-8 sm:px-6 lg:px-8">
-        <div className="mb-6 flex items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-indigo-100 text-indigo-600">
-            <Icon className="h-6 w-6" />
-          </div>
+        <div className="mb-6 text-center">
           <h1 className="font-serif text-3xl font-bold text-indigo-600 sm:text-4xl lg:text-5xl">
             {title}
           </h1>
         </div>
-        <div className="mb-6 h-px bg-gradient-to-r from-slate-200 via-slate-300 to-slate-200"></div>
-        <div className="space-y-3 text-base leading-relaxed text-slate-600 sm:text-lg">
-          {description.map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
-          ))}
+        <div className="space-y-3 text-center text-base leading-relaxed text-slate-600 sm:text-lg">
+          <p>{description[0]}</p>
         </div>
       </div>
 
@@ -247,7 +240,7 @@ export default function ExtraPaymentCalculatorPage() {
 
       {/* FAQ Section */}
       <section className="py-12 bg-slate-50">
-        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="mb-8 text-2xl font-bold text-slate-900 sm:text-3xl">Frequently Asked Questions</h2>
           <div className="space-y-4">
             {faqs.map((faq, index) => (

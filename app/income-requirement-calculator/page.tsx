@@ -1,7 +1,7 @@
 "use client";
 
 import { Suspense, useState } from "react";
-import { ChevronDown, ChevronUp, Wallet } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import MortgageCalculator from "@/components/calculator/MortgageCalculator";
 import { getStructuredData } from "./server";
 
@@ -62,19 +62,12 @@ function IncomeRequirementCalculatorContent() {
 
       {/* Hero Section */}
       <div className="mb-8 w-full mx-auto max-w-4xl">
-        <div className="flex items-center gap-3 mb-4">
-          <Wallet className="h-8 w-8 text-indigo-600 flex-shrink-0" />
-          <h1 className="font-serif text-3xl md:text-4xl font-bold text-indigo-600 leading-tight">
-            Mortgage Income Requirement Calculator
-          </h1>
-        </div>
-        <div className="h-px bg-indigo-600 mb-6"></div>
-        <div className="space-y-4 text-base text-slate-600 leading-relaxed">
+        <h1 className="font-serif text-3xl md:text-4xl font-bold text-indigo-600 leading-tight text-center">
+          Mortgage Income Requirement Calculator
+        </h1>
+        <div className="mt-4 text-center text-base text-slate-600 leading-relaxed">
           <p>
             Calculate the minimum annual income you need to qualify for a specific home price, considering your debts, down payment, interest rate, and lenders' debt-to-income ratio requirements.
-          </p>
-          <p>
-            Understand exactly how much you need to earn to afford your target home by factoring in monthly debt obligations. Lenders use the debt-to-income (DTI) ratio to assess your ability to manage monthly mortgage payments alongside existing debts.
           </p>
         </div>
       </div>

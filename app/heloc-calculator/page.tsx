@@ -303,7 +303,6 @@ export default function HelocCalculatorPage() {
     `HELOC Total Cost: ${formatCurrency(helocComparisonMetrics.helocMetrics.totalCost)}`,
   ].join("\n") : "HELOC Calculator Results";
 
-  const Icon = content.icon;
   const currentContent = content;
 
   return (
@@ -330,16 +329,11 @@ export default function HelocCalculatorPage() {
 
         {/* Introduction Section */}
         <div className="mb-8 w-full mx-auto max-w-4xl">
-          <div className="flex items-center gap-3 mb-4">
-            <Icon className="h-8 w-8 text-indigo-600 flex-shrink-0" />
-            <h1 className="font-serif text-3xl md:text-4xl font-bold text-indigo-600 leading-tight">
-              {content.title}
-            </h1>
-          </div>
-          <div className="h-px bg-indigo-600 mb-6"></div>
-          <div className="space-y-4 text-base text-slate-600 leading-relaxed">
+          <h1 className="font-serif text-3xl md:text-4xl font-bold text-indigo-600 leading-tight text-center">
+            {content.title}
+          </h1>
+          <div className="mt-4 text-center text-base text-slate-600 leading-relaxed">
             <p>{content.description[0]}</p>
-            <p>{content.description[1]}</p>
           </div>
         </div>
 

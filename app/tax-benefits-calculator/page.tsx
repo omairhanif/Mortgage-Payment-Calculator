@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, ChevronUp, Receipt } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import MortgageCalculator from "@/components/calculator/MortgageCalculator";
 import { getStructuredData } from "./server";
 
@@ -70,16 +70,13 @@ export default function TaxBenefitsCalculatorPage() {
 
       {/* Hero Section */}
       <div className="w-full mx-auto max-w-4xl px-4 pb-12 pt-8 sm:px-6 lg:px-8 text-center">
-        <div className="mb-6 flex items-center gap-3 text-center">
+        <div className="mb-6 text-center">
           <h1 className="font-serif text-3xl font-bold text-indigo-600 sm:text-4xl lg:text-5xl text-center">
             {title}
           </h1>
         </div>
-        <div className="mb-6 h-px bg-gradient-to-r from-slate-200 via-slate-300 to-slate-200"></div>
-        <div className="space-y-3 text-base leading-relaxed text-slate-600 sm:text-lg">
-          {description.map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
-          ))}
+        <div className="space-y-3 text-center text-base leading-relaxed text-slate-600 sm:text-lg">
+          <p>{description[0]}</p>
         </div>
       </div>
 
@@ -104,7 +101,7 @@ export default function TaxBenefitsCalculatorPage() {
       <section className="py-12">
         <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <article className="prose prose-slate w-full mx-auto max-w-4xl prose-headings:font-serif prose-h2:text-2xl prose-h2:font-bold prose-h2:text-slate-900 prose-p:text-slate-600 prose-p:leading-relaxed">
-            <h1 className="text-center">Understanding Mortgage Tax Benefits: How Deductions Reduce Your Effective Interest Rate</h1>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-slate-900 mb-6">Understanding Mortgage Tax Benefits: How Deductions Reduce Your Effective Interest Rate</h2>
 
             <p>
               Mortgage tax benefits represent one of homeownership's most significant financial advantages, yet many borrowers misunderstand how these deductions work and whether they actually benefit from them. When you use a mortgage tax benefits calculator and see terms like "effective interest rate" or "after-tax cost," you're exploring the difference between your stated mortgage rate and your true borrowing cost after accounting for federal tax deductions. Understanding these benefits and their limitations under current tax law is essential for accurately comparing homeownership costs to renting and making informed decisions about mortgage size and structure.
@@ -276,7 +273,7 @@ export default function TaxBenefitsCalculatorPage() {
       {/* FAQ Section */}
       <section className="py-12 bg-slate-50">
         <div className="w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <h2 className="mb-8 text-2xl font-bold text-slate-900 sm:text-3xl">Frequently Asked Questions</h2>
+          <h2 className="mb-8 text-2xl font-bold text-slate-900 sm:text-3xl text-center">Frequently Asked Questions</h2>
           <div className="space-y-4">
             {faqs.map((faq, index) => (
               <div key={index} className="overflow-hidden rounded-lg border border-slate-200 bg-white">

@@ -1,7 +1,7 @@
 "use client";
 
 import { Suspense, useState } from "react";
-import { ChevronDown, ChevronUp, Scale } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import MortgageCalculator from "@/components/calculator/MortgageCalculator";
 import { getStructuredData } from "./server";
 
@@ -62,19 +62,12 @@ function RentVsBuyCalculatorContent() {
 
       {/* Hero Section */}
       <div className="mb-8 w-full mx-auto max-w-4xl">
-        <div className="flex items-center gap-3 mb-4">
-          <Scale className="h-8 w-8 text-indigo-600 flex-shrink-0" />
-          <h1 className="font-serif text-3xl md:text-4xl font-bold text-indigo-600 leading-tight">
-            Rent vs Buy Calculator
-          </h1>
-        </div>
-        <div className="h-px bg-indigo-600 mb-6"></div>
-        <div className="space-y-4 text-base text-slate-600 leading-relaxed">
+        <h1 className="font-serif text-3xl md:text-4xl font-bold text-indigo-600 leading-tight text-center">
+          Rent vs Buy Calculator
+        </h1>
+        <div className="mt-4 text-center text-base text-slate-600 leading-relaxed">
           <p>
             Compare the financial implications of renting versus buying a home by analyzing monthly costs, tax benefits, home appreciation, and opportunity costs over time.
-          </p>
-          <p>
-            Make an informed housing decision by understanding the true cost of homeownership versus renting based on your location, financial situation, and long-term plans.
           </p>
         </div>
       </div>

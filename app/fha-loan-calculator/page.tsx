@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, ChevronUp, Home } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import MortgageCalculator from "@/components/calculator/MortgageCalculator";
 import { getStructuredData } from "./server";
 
@@ -63,16 +63,11 @@ export default function FHALoanCalculatorPage() {
 
         {/* Introduction Section */}
         <div className="mb-8 w-full mx-auto max-w-4xl">
-          <div className="flex items-center gap-3 mb-4">
-            <Home className="h-8 w-8 text-indigo-600 flex-shrink-0" />
-            <h1 className="font-serif text-3xl md:text-4xl font-bold text-indigo-600 leading-tight">
-              FHA Loan Calculator
-            </h1>
-          </div>
-          <div className="h-px bg-indigo-600 mb-6"></div>
-          <div className="space-y-4 text-base text-slate-600 leading-relaxed">
+          <h1 className="font-serif text-3xl md:text-4xl font-bold text-indigo-600 leading-tight text-center">
+            FHA Loan Calculator
+          </h1>
+          <div className="mt-4 text-center text-base text-slate-600 leading-relaxed">
             <p>Calculate monthly payments for an FHA loan including lower down payment requirements, upfront and annual mortgage insurance premiums, and competitive interest rates for first-time buyers.</p>
-            <p>Understand the costs and benefits of FHA financing, including easier qualification requirements balanced against mandatory mortgage insurance throughout the loan term.</p>
           </div>
         </div>
 

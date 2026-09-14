@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, ChevronUp, Building2 } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import MortgageCalculator from "@/components/calculator/MortgageCalculator";
 import { getStructuredData } from "./server";
 
@@ -59,16 +59,11 @@ export default function JumboLoanCalculatorPage() {
 
         {/* Introduction Section */}
         <div className="mb-8 w-full mx-auto max-w-4xl">
-          <div className="flex items-center gap-3 mb-4">
-            <Building2 className="h-8 w-8 text-indigo-600 flex-shrink-0" />
-            <h1 className="font-serif text-3xl md:text-4xl font-bold text-indigo-600 leading-tight">
-              Jumbo Loan Calculator
-            </h1>
-          </div>
-          <div className="h-px bg-indigo-600 mb-6"></div>
-          <div className="space-y-4 text-base text-slate-600 leading-relaxed">
+          <h1 className="font-serif text-3xl md:text-4xl font-bold text-indigo-600 leading-tight text-center">
+            Jumbo Loan Calculator
+          </h1>
+          <div className="mt-4 text-center text-base text-slate-600 leading-relaxed">
             <p>Calculate monthly payments for jumbo loans that exceed conforming loan limits, typically requiring larger down payments, higher credit scores, and slightly elevated interest rates.</p>
-            <p>Understand jumbo loan requirements and costs for financing luxury properties or homes in high-cost areas where standard loan limits don't apply.</p>
           </div>
         </div>
 

@@ -152,7 +152,15 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full bg-[#0EA5E9] shadow-sm">
       <div className="mx-auto max-w-4xl px-4 sm:px-6">
         <div className="flex min-h-16 items-center">
-          <nav className="hidden lg:flex items-center justify-start w-full gap-1">
+          <Link
+            href="/"
+            className="mr-2 hidden h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full border border-white/50 bg-white/15 text-xs font-black text-white transition-colors hover:bg-indigo-500 lg:flex"
+            aria-label="Mortgage Payment Calculator Home"
+          >
+            MPC
+          </Link>
+
+          <nav className="hidden lg:flex flex-1 items-center justify-start gap-1">
             <div className="flex items-center gap-1 flex-none">
               <Link
                 href="/"

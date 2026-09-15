@@ -3,7 +3,42 @@ import { Calculator, ChevronDown, ChevronUp, Copy, Download } from "lucide-react
 import { jsPDF } from "jspdf";
 import { formatCurrency, formatPercent, formatCalculatedNumber } from "@/lib/utils";
 
-export function ResultActions({ title, content }: { title: string; content: string }) {
+export interface PdfReportTable {
+  title: string;
+  headers: string[];
+  rows: Array<Array<string | number>>;
+}
+
+export interface PdfReportData {
+  calculatorName?: string;
+  inputs?: Array<{ label: string; value: string | number }>;
+  results?: Array<{ label: string; value: string | number; isPrimary?: boolean }>;
+  tables?: PdfReportTable[];
+}
+
+export function formatPdfValue(value: string | number, format?: ResultMetric["format"]): string {
+  if (typeof value === "string") return value;
+  if (format === "currency") return formatCurrency(value);
+  if (format === "percent") return formatPercent(value);
+  if (format === "number") return formatCalculatedNumber(value);
+  return String(value);
+}
+
+function drawPdfFooter(pdf: jsPDF) {
+  const pageCount = pdf.getNumberOfPages();
+  for (let page = 1; page <= pageCount; page += 1) {
+    pdf.setPage(page);
+    const pageHeight = pdf.internal.pageSize.getHeight();
+    pdf.setDrawColor(226, 232, 240);
+    pdf.line(18, pageHeight - 18, 192, pageHeight - 18);
+    pdf.setFontSize(8);
+    pdf.setTextColor(100, 116, 139);
+    pdf.text("Mortgage Payment Calculator", 18, pageHeight - 11);
+    pdf.text(`Page ${page} of ${pageCount}`, 192, pageHeight - 11, { align: "right" });
+  }
+}
+
+export function ResultActions({ title, content, report }: { title: string; content: string; report?: PdfReportData }) {
   const [copied, setCopied] = React.useState(false);
 
   const copyResults = async () => {
@@ -13,12 +48,144 @@ export function ResultActions({ title, content }: { title: string; content: stri
   };
 
   const exportPdf = () => {
-    const pdf = new jsPDF();
-    const lines = pdf.splitTextToSize(content, 175);
-    pdf.setFontSize(16);
-    pdf.text(title, 18, 20);
-    pdf.setFontSize(10);
-    pdf.text(lines, 18, 32);
+    const pdf = new jsPDF({ unit: "mm", format: "a4" });
+    const left = 18;
+    const right = 192;
+    const pageHeight = pdf.internal.pageSize.getHeight();
+    let y = 20;
+
+    const ensureSpace = (height: number) => {
+      if (y + height > pageHeight - 25) {
+        pdf.addPage();
+        y = 20;
+      }
+    };
+
+    const addHeading = (text: string) => {
+      ensureSpace(12);
+      pdf.setFont("helvetica", "bold");
+      pdf.setFontSize(12);
+      pdf.setTextColor(30, 41, 59);
+      pdf.text(text, left, y);
+      y += 8;
+    };
+
+    const addRows = (rows: Array<[string, string]>, primary = false) => {
+      rows.forEach(([label, value]) => {
+        ensureSpace(primary ? 16 : 8);
+        if (primary) {
+          pdf.setFillColor(239, 246, 255);
+          pdf.setDrawColor(147, 197, 253);
+          pdf.roundedRect(left, y - 5, right - left, 13, 2, 2, "FD");
+          pdf.setFont("helvetica", "bold");
+          pdf.setFontSize(9);
+          pdf.setTextColor(71, 85, 105);
+          pdf.text(label.toUpperCase(), left + 5, y);
+          pdf.setFontSize(16);
+          pdf.setTextColor(37, 99, 235);
+          pdf.text(value, left + 5, y + 6);
+          y += 19;
+        } else {
+          pdf.setFont("helvetica", "normal");
+          pdf.setFontSize(9);
+          pdf.setTextColor(51, 65, 85);
+          pdf.text(label, left, y);
+          pdf.setFont("helvetica", "bold");
+          pdf.setTextColor(15, 23, 42);
+          pdf.text(value, right, y, { align: "right" });
+          pdf.setDrawColor(226, 232, 240);
+          pdf.line(left, y + 2, right, y + 2);
+          y += 7;
+        }
+      });
+    };
+
+    const addTable = (table: PdfReportTable) => {
+      addHeading(table.title);
+      const columnWidth = (right - left) / table.headers.length;
+      const rowHeight = 7;
+      const drawRow = (cells: Array<string | number>, header = false) => {
+        ensureSpace(rowHeight + 2);
+        if (header) {
+          pdf.setFillColor(241, 245, 249);
+          pdf.rect(left, y - 5, right - left, rowHeight, "F");
+        }
+        pdf.setFont("helvetica", header ? "bold" : "normal");
+        pdf.setFontSize(7.5);
+        pdf.setTextColor(header ? 51 : 71, header ? 65 : 85, header ? 85 : 105);
+        cells.forEach((cell, index) => {
+          const x = left + index * columnWidth + (index === 0 ? 2 : columnWidth - 2);
+          pdf.text(String(cell), x, y, { align: index === 0 ? "left" : "right" });
+        });
+        pdf.setDrawColor(226, 232, 240);
+        pdf.line(left, y + 2, right, y + 2);
+        y += rowHeight;
+      };
+      drawRow(table.headers, true);
+      table.rows.forEach((row) => drawRow(row));
+      y += 4;
+    };
+
+    pdf.setFont("helvetica", "bold");
+    pdf.setFontSize(20);
+    pdf.setTextColor(15, 23, 42);
+    pdf.text("Mortgage Payment Calculator", left, y);
+    y += 9;
+    pdf.setFontSize(13);
+    pdf.setTextColor(37, 99, 235);
+    pdf.text(report?.calculatorName || title.replace(/\s+Results?$/i, ""), left, y);
+    y += 6;
+    pdf.setFont("helvetica", "normal");
+    pdf.setFontSize(9);
+    pdf.setTextColor(100, 116, 139);
+    pdf.text(`Generated ${new Intl.DateTimeFormat("en-US", { dateStyle: "long" }).format(new Date())}`, left, y);
+    y += 12;
+
+    if (report) {
+      if (report.inputs?.length) {
+        addHeading("Your Inputs");
+        addRows(report.inputs.map((input) => [input.label, String(input.value)]));
+        y += 4;
+      }
+      if (report.results?.length) {
+        addHeading("Calculation Results");
+        const primary = report.results.filter((result) => result.isPrimary).map((result) => [result.label, String(result.value)] as [string, string]);
+        const secondary = report.results.filter((result) => !result.isPrimary).map((result) => [result.label, String(result.value)] as [string, string]);
+        addRows(primary, true);
+        addRows(secondary);
+        y += 4;
+      }
+      report.tables?.forEach(addTable);
+    } else {
+      const contentLines = content.split("\n");
+      const inputsIndex = contentLines.findIndex((line) => line.trim().toLowerCase() === "inputs");
+      const resultsIndex = contentLines.findIndex((line) => line.trim().toLowerCase() === "results");
+      const parseRows = (start: number, end: number): Array<[string, string]> => contentLines
+        .slice(start, end)
+        .map((line) => {
+          const separator = line.indexOf(":");
+          return separator > 0 ? [line.slice(0, separator).trim(), line.slice(separator + 1).trim()] as [string, string] : null;
+        })
+        .filter((row): row is [string, string] => Boolean(row));
+
+      if (inputsIndex >= 0 && resultsIndex > inputsIndex) {
+        addHeading("Your Inputs");
+        addRows(parseRows(inputsIndex + 1, resultsIndex));
+        y += 4;
+        addHeading("Calculation Results");
+        addRows(parseRows(resultsIndex + 1, contentLines.length));
+      } else {
+        addHeading("Calculation Results");
+        const lines = pdf.splitTextToSize(content, right - left);
+        ensureSpace(lines.length * 5);
+        pdf.setFont("helvetica", "normal");
+        pdf.setFontSize(9);
+        pdf.setTextColor(51, 65, 85);
+        pdf.text(lines, left, y);
+      }
+    }
+
+    drawPdfFooter(pdf);
     pdf.save(`${title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}.pdf`);
   };
 
@@ -85,6 +252,7 @@ export interface ConfigResultProps {
   showAd?: boolean;
   className?: string;
   inputSummary?: string;
+  pdfReport?: PdfReportData;
 }
 
 export function ConfigConsolidatedResult({
@@ -93,6 +261,7 @@ export function ConfigConsolidatedResult({
   showAd = false,
   className = "",
   inputSummary = "",
+  pdfReport,
 }: ConfigResultProps) {
   return (
     <div className={`space-y-4 ${className}`}>
@@ -102,7 +271,7 @@ export function ConfigConsolidatedResult({
         <div className="mb-4 flex items-center gap-1.5">
           <Calculator className="h-4 w-4 text-indigo-600" />
           <h3 className="font-serif text-base font-bold text-slate-900">Results</h3>
-          <ResultActions title="Mortgage Calculator Results" content={`${resultText("Mortgage Calculator Results", primaryResult, metrics)}${inputSummary ? `\n\nInputs\n${inputSummary}` : ""}`} />
+          <ResultActions title="Mortgage Calculator Results" content={`${resultText("Mortgage Calculator Results", primaryResult, metrics)}${inputSummary ? `\n\nInputs\n${inputSummary}` : ""}`} report={pdfReport} />
         </div>
 
         {/* Primary Result Section - Light blue highlight box */}
@@ -405,12 +574,14 @@ interface FixedVsARMResultProps {
   };
   showAd?: boolean;
   className?: string;
+  pdfReport?: PdfReportData;
 }
 
 export function FixedVsARMResult({
   results,
   showAd = false,
   className = "",
+  pdfReport,
 }: FixedVsARMResultProps) {
   return (
     <div className={`space-y-4 ${className}`}>
@@ -421,7 +592,7 @@ export function FixedVsARMResult({
           <h3 className="font-serif text-base font-bold text-slate-900">
             Fixed vs ARM Comparison
           </h3>
-          <ResultActions title="Fixed vs ARM Comparison" content={`Fixed vs ARM Comparison\n${JSON.stringify(results, null, 2)}`} />
+          <ResultActions title="Fixed vs ARM Comparison" content={`Fixed vs ARM Comparison\n${JSON.stringify(results, null, 2)}`} report={pdfReport} />
         </div>
 
         {/* Comparison Table */}
@@ -594,12 +765,14 @@ interface RentVsBuyResultProps {
   };
   showAd?: boolean;
   className?: string;
+  pdfReport?: PdfReportData;
 }
 
 export function RentVsBuyResult({
   results,
   showAd = false,
   className = "",
+  pdfReport,
 }: RentVsBuyResultProps) {
   return (
     <div className={`space-y-4 ${className}`}>
@@ -608,7 +781,7 @@ export function RentVsBuyResult({
         <div className="mb-4 flex items-center gap-1.5">
           <Calculator className="h-4 w-4 text-indigo-600" />
           <h3 className="font-serif text-base font-bold text-slate-900">Results</h3>
-          <ResultActions title="Rent vs Buy Results" content={`Rent vs Buy Results\n${JSON.stringify(results, null, 2)}`} />
+          <ResultActions title="Rent vs Buy Results" content={`Rent vs Buy Results\n${JSON.stringify(results, null, 2)}`} report={pdfReport} />
         </div>
 
         {/* Primary Result Section - Light blue highlight box */}
@@ -844,12 +1017,14 @@ interface IncomeRequirementResultProps {
   };
   showAd?: boolean;
   className?: string;
+  pdfReport?: PdfReportData;
 }
 
 export function IncomeRequirementResult({
   results,
   showAd = false,
   className = "",
+  pdfReport,
 }: IncomeRequirementResultProps) {
   // Determine which DTI is the constraining factor
   const isConstrainedByFrontEnd = results.frontEndRequiredIncome >= results.backEndRequiredIncome;
@@ -861,7 +1036,7 @@ export function IncomeRequirementResult({
         <div className="mb-4 flex items-center gap-1.5">
           <Calculator className="h-4 w-4 text-indigo-600" />
           <h3 className="font-serif text-base font-bold text-slate-900">Results</h3>
-          <ResultActions title="Income Requirement Results" content={`Income Requirement Results\n${JSON.stringify(results, null, 2)}`} />
+          <ResultActions title="Income Requirement Results" content={`Income Requirement Results\n${JSON.stringify(results, null, 2)}`} report={pdfReport} />
         </div>
 
         {/* Primary Result Section - Light blue highlight box */}

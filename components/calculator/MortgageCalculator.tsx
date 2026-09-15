@@ -34,7 +34,7 @@ import {
   Trash2,
   TrendingUp,
 } from "lucide-react";
-import CalculatorResult, { type ResultMetric, ConfigConsolidatedResult, ConfigAmortizationSchedule, FixedVsARMResult, RentVsBuyResult, IncomeRequirementResult, ResultActions } from "./CalculatorResult";
+import CalculatorResult, { type ResultMetric, ConfigConsolidatedResult, ConfigAmortizationSchedule, FixedVsARMResult, RentVsBuyResult, IncomeRequirementResult, ResultActions, formatPdfValue, type PdfReportData } from "./CalculatorResult";
 import {
   NumberInput,
   NumberInputWithBadge,
@@ -984,7 +984,27 @@ function MortgageCalculatorContent({ category = "mortgage", isHomepage = false, 
                 <div className="mb-4 flex items-center gap-1.5">
                   <Calculator className="h-4 w-4 text-indigo-600" />
                   <h3 className="font-serif text-base font-bold text-slate-900">Results</h3>
-                  <ResultActions title="Mortgage Payment Calculator Results" content={`Inputs\n${JSON.stringify(calcInputs, null, 2)}\n\nResults\nMonthly Payment: ${formatCurrency(totalMonthlyPayment)}\nTotal Interest: ${formatCurrency(totalInterest)}`} />
+                  <ResultActions
+                    title="Mortgage Payment Calculator Results"
+                    content={`Inputs\n${JSON.stringify(calcInputs, null, 2)}\n\nResults\nMonthly Payment: ${formatCurrency(totalMonthlyPayment)}\nTotal Interest: ${formatCurrency(totalInterest)}`}
+                    report={{
+                      calculatorName: "Mortgage Payment Calculator",
+                      inputs: [
+                        ["Home Value", calcInputs.homeValue, "currency"], ["Down Payment", calcInputs.downPayment, "currency"], ["Down Payment Percent", calcInputs.downPaymentPercent, "percent"],
+                        ["Loan Amount", calcInputs.loanAmount, "currency"], ["Interest Rate", calcInputs.interestRate, "percent"], ["Loan Term", `${calcInputs.loanTermYears} years`], ["PMI Rate", calcInputs.pmiRate, "percent"],
+                        ["Discount Points", calcInputs.discountPoints, "percent"], ["Origination Points", calcInputs.originationPoints, "percent"], ["Other Closing Costs", calcInputs.otherClosingCosts, "currency"],
+                        ["Annual Property Tax", calcInputs.annualPropertyTax, "currency"], ["Annual Insurance", calcInputs.annualInsurance, "currency"], ["Monthly HOA", calcInputs.monthlyHOA, "currency"],
+                      ].map(([label, value, format]) => ({ label: String(label), value: typeof value === "string" ? value : formatPdfValue(value as number, format as ResultMetric["format"]) })),
+                      results: [
+                        { label: "Monthly Payment", value: formatCurrency(totalMonthlyPayment), isPrimary: true },
+                        { label: "Principal & Interest", value: formatCurrency(monthlyPI) }, { label: "PMI", value: formatCurrency(monthlyPMI) },
+                        { label: "Property Tax", value: formatCurrency(monthlyTax) }, { label: "Homeowners Insurance", value: formatCurrency(monthlyInsurance) },
+                        { label: "HOA Fees", value: formatCurrency(calcInputs.monthlyHOA) }, { label: "Total Interest", value: formatCurrency(totalInterest) },
+                        { label: "Cash to Close", value: formatCurrency(cashToClose) }, { label: "Payoff Date", value: payoffDate.toLocaleDateString("en-US") },
+                      ],
+                      tables: amortizationSchedule.length ? [{ title: "Amortization Schedule", headers: ["Year", "Principal", "Interest", "Balance"], rows: amortizationSchedule.map((entry) => [entry.year, formatCurrency(entry.principalPaid), formatCurrency(entry.interestPaid), formatCurrency(entry.endingBalance)]) }] : [],
+                    }}
+                  />
                 </div>
 
                 {/* Primary Result - Monthly Payment */}
@@ -1218,7 +1238,19 @@ function MortgageCalculatorContent({ category = "mortgage", isHomepage = false, 
                 {/* Results Display */}
                 {smResults && (
                   <>
-                  <ResultActions title="Second Mortgage Results" content={`Inputs\nHome Value: ${smHomeValue}\nExisting Mortgage: ${smExistingMortgage}\n\nResults\n${JSON.stringify(smResults, null, 2)}`} />
+                  <ResultActions title="Second Mortgage Results" content={`Inputs\nHome Value: ${smHomeValue}\nExisting Mortgage: ${smExistingMortgage}\n\nResults\n${JSON.stringify(smResults, null, 2)}`} report={{
+                    calculatorName: "Second Mortgage Calculator",
+                    inputs: [
+                      ["Home Value", smHomeValue, "currency"], ["Down Payment", smDownPayment, "currency"], ["Existing Mortgage", smExistingMortgage, "currency"],
+                      ["Scenario 1 Loan Amount", sm1LoanAmount, "currency"], ["Scenario 1 Rate", sm1Rate, "percent"], ["Scenario 1 Term", `${sm1Term} years`], ["Scenario 1 Points", sm1Points, "percent"], ["Scenario 1 Closing Costs", sm1Closing, "currency"],
+                      ["Scenario 2 Loan Amount", sm2LoanAmount, "currency"], ["Scenario 2 Rate", sm2Rate, "percent"], ["Scenario 2 Term", `${sm2Term} years`], ["Scenario 2 Points", sm2Points, "percent"], ["Scenario 2 Closing Costs", sm2Closing, "currency"],
+                      ["Scenario 3 First Loan", sm3FirstLoanAmount, "currency"], ["Scenario 3 Second Loan", sm3SecondLoanAmount, "currency"], ["Scenario 3 First Rate", sm3FirstRate, "percent"], ["Scenario 3 Second Rate", sm3SecondRate, "percent"], ["Scenario 3 Term", `${sm3Term} years`], ["Scenario 3 Points", sm3Points, "percent"], ["Scenario 3 Closing Costs", sm3Closing, "currency"],
+                    ].map(([label, value, format]) => ({ label: String(label), value: typeof value === "string" ? value : formatPdfValue(value as number, format as ResultMetric["format"]) })),
+                    results: [1, 2, 3].flatMap((scenario) => { const result = scenario === 1 ? smResults.scenario1Result : scenario === 2 ? smResults.scenario2Result : smResults.scenario3Result; return [
+                      { label: `Scenario ${scenario} Monthly Payment`, value: formatCurrency(result.monthlyPayment), isPrimary: scenario === smResults.recommendedScenario },
+                      { label: `Scenario ${scenario} Total Interest`, value: formatCurrency(result.totalInterest) }, { label: `Scenario ${scenario} Total Cost`, value: formatCurrency(result.totalCost) },
+                    ]; }).concat([{ label: "Recommended Scenario", value: `Scenario ${smResults.recommendedScenario}` }]),
+                  }} />
                   <div className="space-y-4">
                     {[1, 2, 3].map((scenarioNum) => {
                       const result = scenarioNum === 1 ? smResults.scenario1Result :
@@ -1398,7 +1430,16 @@ function MortgageCalculatorContent({ category = "mortgage", isHomepage = false, 
                 {/* Results Display */}
                 {helocResults && (
                   <>
-                  <ResultActions title="HELOC Results" content={`Inputs\nHome Value: ${helocHomeValue}\nExisting Mortgage: ${helocExistingMortgage}\nCredit Limit: ${helocCreditLimit}\n\nResults\n${JSON.stringify(helocResults, null, 2)}`} />
+                  <ResultActions title="HELOC Results" content={`Inputs\nHome Value: ${helocHomeValue}\nExisting Mortgage: ${helocExistingMortgage}\nCredit Limit: ${helocCreditLimit}\n\nResults\n${JSON.stringify(helocResults, null, 2)}`} report={{
+                    calculatorName: "HELOC Calculator",
+                    inputs: [["Home Value", helocHomeValue, "currency"], ["Existing Mortgage", helocExistingMortgage, "currency"], ["Credit Limit", helocCreditLimit, "currency"], ["Interest Rate", helocInterestRate, "percent"], ["Draw Period", `${helocDrawPeriod} years`], ["Repayment Period", `${helocRepaymentPeriod} years`], ["Closing Costs", helocClosingCosts, "currency"], ["Federal Tax Rate", helocFederalTaxRate, "percent"], ["Monthly Income", helocMonthlyIncome, "currency"], ["Existing Debts", helocDebts.map((debt) => `${debt.name}: ${formatCurrency(debt.balance)}`).join(", ")]].map(([label, value, format]) => ({ label: String(label), value: typeof value === "string" ? value : formatPdfValue(value as number, format as ResultMetric["format"]) })),
+                    results: [
+                      { label: "Available Equity", value: formatCurrency(helocResults.homeEquity), isPrimary: true }, { label: "Available HELOC", value: formatCurrency(helocResults.actualAvailableHeloc) },
+                      { label: "Draw Period Monthly Payment", value: formatCurrency(helocResults.helocMonthlyPaymentDrawPeriod) }, { label: "Repayment Period Monthly Payment", value: formatCurrency(helocResults.helocMonthlyPaymentRepaymentPeriod) },
+                      { label: "Monthly Savings", value: formatCurrency(helocResults.monthlySavings) }, { label: "Total Existing Debt", value: formatCurrency(helocResults.totalExistingDebt) },
+                      { label: "Debt-to-Income Before HELOC", value: helocResults.dtiBeforeHeloc === null ? "-" : `${helocResults.dtiBeforeHeloc.toFixed(3)}%` },
+                    ],
+                  }} />
                   <div className="space-y-4">
 
                     {/* Consolidated Results Card */}
@@ -1585,7 +1626,11 @@ function MortgageCalculatorContent({ category = "mortgage", isHomepage = false, 
                 {/* Results Display */}
                 {refResults && (
                   <>
-                  <ResultActions title="Refinance Results" content={`Inputs\nOriginal Loan: ${refOriginalLoanAmount}\nMonths Paid: ${refMonthsPaid}\n\nResults\n${JSON.stringify(refResults, null, 2)}`} />
+                  <ResultActions title="Refinance Results" content={`Inputs\nOriginal Loan: ${refOriginalLoanAmount}\nMonths Paid: ${refMonthsPaid}\n\nResults\n${JSON.stringify(refResults, null, 2)}`} report={{
+                    calculatorName: "Refinance Calculator",
+                    inputs: [["Original Home Price", refOriginalHomePrice, "currency"], ["Original Down Payment", refOriginalDownPayment, "currency"], ["Original Loan Amount", refOriginalLoanAmount, "currency"], ["Original Term", `${refOriginalTerm} years`], ["Current Rate", refOriginalRate, "percent"], ["Months Paid", refMonthsPaid], ["New Term", `${refNewTerm} years`], ["New Rate", refNewRate, "percent"], ["Closing Costs", refClosingCosts, "currency"], ["Years Before Sale", refYearsBeforeSale], ["Federal Tax Rate", refFederalTaxRate, "percent"], ["State Tax Rate", refStateTaxRate, "percent"]].map(([label, value, format]) => ({ label: String(label), value: typeof value === "string" ? value : formatPdfValue(value as number, format as ResultMetric["format"]) })),
+                    results: [{ label: "Monthly Savings", value: formatCurrency(refResults.monthlySavings), isPrimary: true }, { label: "Break Even Point", value: refResults.breakEvenMonths > 0 ? `${refResults.breakEvenMonths.toFixed(3)} months` : "N/A" }, { label: "Total Interest Savings", value: formatCurrency(refResults.lifetimeSavings) }, { label: "Current Monthly Payment", value: formatCurrency(refResults.currentMonthlyPI) }, { label: "New Monthly Payment", value: formatCurrency(refResults.newMonthlyPI) }, { label: "Closing Costs", value: formatCurrency(refResults.totalClosingCosts) }, { label: "Loan Balance at Sale", value: `Before ${formatCurrency(refResults.beforeRefi.loanBalanceAtSale)} / After ${formatCurrency(refResults.afterRefi.loanBalanceAtSale)}` }],
+                  }} />
                   <div className="space-y-4">
 
                     {/* Consolidated Results Card */}
@@ -1714,7 +1759,11 @@ function MortgageCalculatorContent({ category = "mortgage", isHomepage = false, 
 
                 {aprResults && (
                   <>
-                    <ResultActions title="Real APR Results" content={`Inputs\nHome Price: ${aprHomePrice}\nDown Payment: ${aprDownPayment}\n\nResults\n${JSON.stringify(aprResults, null, 2)}`} />
+                    <ResultActions title="Real APR Results" content={`Inputs\nHome Price: ${aprHomePrice}\nDown Payment: ${aprDownPayment}\n\nResults\n${JSON.stringify(aprResults, null, 2)}`} report={{
+                      calculatorName: "Real APR Calculator",
+                      inputs: [["Home Price", aprHomePrice, "currency"], ["Down Payment", aprDownPayment, "currency"], ["Interest Rate", aprInterestRate, "percent"], ["Loan Term", `${aprLoanTerm} years`], ["Discount Points", aprDiscountPoints, "percent"], ["Origination Fees", aprOriginationFees, "percent"], ["Other Closing Costs", aprOtherClosingCosts, "currency"]].map(([label, value, format]) => ({ label: String(label), value: typeof value === "string" ? value : formatPdfValue(value as number, format as ResultMetric["format"]) })),
+                      results: [{ label: "Real APR", value: `${Number(aprResults.realAPR).toFixed(3)}%`, isPrimary: true }, { label: "Nominal Rate", value: `${aprResults.nominalRate.toFixed(3)}%` }, { label: "APR Difference", value: `${aprResults.aprDifference.toFixed(3)}%` }, { label: "Total Finance Charges", value: formatCurrency(aprResults.totalFinanceCharges) }, { label: "Monthly Payment", value: formatCurrency(aprResults.monthlyPayment) }, { label: "Loan Amount", value: formatCurrency(aprResults.loanAmount) }, { label: "Total Upfront Costs", value: formatCurrency(aprResults.totalCostBreakdown.totalUpfrontCosts) }],
+                    }} />
                     {/* APR Comparison Card */}
                     <div className="rounded-lg border border-indigo-200 bg-gradient-to-br from-indigo-50 to-white p-4 shadow-sm">
                       <div className="mb-3 flex items-center gap-1.5">
@@ -1915,6 +1964,35 @@ function ConfigCalculatorRenderer({ config, onBack, isHomepage = false }: Config
     highlight: result.highlight,
   })) : [];
 
+  const pdfReport: PdfReportData = {
+    calculatorName: config.label,
+    inputs: config.inputs.map((input) => {
+      const value = inputs[input.id];
+      if (input.type === "currency") return { label: input.label, value: formatPdfValue(Number(value) || 0, "currency") };
+      if (input.type === "percent") return { label: input.label, value: formatPdfValue(Number(value) || 0, "percent") };
+      if (input.type === "checkbox" || input.type === "toggle") return { label: input.label, value: value ? "Yes" : "No" };
+      if (input.type === "select" && input.options) {
+        return { label: input.label, value: input.options.find((option) => option.value === value)?.label || String(value ?? "-") };
+      }
+      return { label: input.label, value: formatPdfValue(Number(value) || 0, "number") };
+    }),
+    results: [
+      ...(formattedPrimaryResult ? [{ label: formattedPrimaryResult.label, value: formattedPrimaryResult.value, isPrimary: true }] : []),
+      ...metrics.map((metric) => ({ label: metric.label, value: formatPdfValue(metric.value ?? "-", metric.format), isPrimary: false })),
+    ],
+    tables: results?.amortizationSchedule?.length ? [{
+      title: "Amortization Schedule",
+      headers: ["Month", "Payment", "Principal", "Interest", "Balance"],
+      rows: results.amortizationSchedule.map((entry: { month: number; payment: number; principal: number; interest: number; balance: number }) => [
+        entry.month,
+        formatPdfValue(entry.payment, "currency"),
+        formatPdfValue(entry.principal, "currency"),
+        formatPdfValue(entry.interest, "currency"),
+        formatPdfValue(entry.balance, "currency"),
+      ]),
+    }] : [],
+  };
+
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-12">
@@ -1961,16 +2039,19 @@ function ConfigCalculatorRenderer({ config, onBack, isHomepage = false }: Config
                 <FixedVsARMResult
                   results={results}
                   showAd={isHomepage}
+                  pdfReport={pdfReport}
                 />
               ) : config.customResultComponent === "RentVsBuyComparison" ? (
                 <RentVsBuyResult
                   results={results}
                   showAd={isHomepage}
+                  pdfReport={pdfReport}
                 />
               ) : config.customResultComponent === "IncomeRequirementComparison" ? (
                 <IncomeRequirementResult
                   results={results}
                   showAd={isHomepage}
+                  pdfReport={pdfReport}
                 />
               ) : (
                 <>
@@ -1979,6 +2060,7 @@ function ConfigCalculatorRenderer({ config, onBack, isHomepage = false }: Config
                     metrics={metrics}
                     showAd={isHomepage}
                     inputSummary={Object.entries(inputs).map(([key, value]) => `${key}: ${String(value)}`).join("\n")}
+                    pdfReport={pdfReport}
                   />
                 </>
               )}

@@ -8,6 +8,7 @@ import { hasValidationErrors, validateCalculatorInputs } from "@/lib/calculator-
 import type { InputConfig } from "@/lib/calculator-config.types";
 import { NumberInput, Card } from "@/components/calculator/CalculatorFields";
 import { ResultActions } from "@/components/calculator/CalculatorResult";
+import { MortgageRatesSection } from "@/components/calculator/MortgageCalculator";
 import { getStructuredData } from "./server";
 
 export default function RefinanceCalculatorPage() {
@@ -546,6 +547,8 @@ export default function RefinanceCalculatorPage() {
           </div>
           </div>
         </div>
+
+        <MortgageRatesSection />
 
         {/* How It Works */}
       <div className="mb-16">

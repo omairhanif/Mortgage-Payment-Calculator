@@ -20,6 +20,7 @@ import {
 } from "@/lib/mortgage";
 import { formatCurrency, formatPercent } from "@/lib/utils";
 import { hasValidationErrors, validateCalculatorInputs } from "@/lib/calculator-validation";
+import { fetchMortgageRates, type MortgageRatesInput, type MortgageRatesResult } from "@/app/rates-actions";
 import { getCalculatorConfig, type SubCalculatorConfig, type CalculatorInput as ConfigCalculatorInput, type InputConfig, type ResultConfig } from "@/lib/calculator-configs";
 import {
   Home,
@@ -44,6 +45,63 @@ import {
   ConfigInputField,
   Card,
 } from "./CalculatorFields";
+
+const rateOptions = ["10 Yr Fixed", "15 Yr Fixed", "20 Yr Fixed", "30 Yr Fixed", "3 Yr ARM", "5 Yr ARM", "7 Yr ARM", "10 Yr ARM"];
+const creditScoreOptions = ["780–850", "760–779", "740–759", "720–739", "700–719", "680–699", "660–679", "640–659", "620–639", "350–620"];
+
+export function MortgageRatesSection() {
+  const [inputs, setInputs] = useState<MortgageRatesInput>({ loanPurpose: "purchase", loanTerm: "30 Yr Fixed", purchasePrice: 500000, downPayment: 100000, zipCode: "90210", creditScore: "780–850", points: "0 Points", rateLock: "30 Days", propertyType: "Single Family", propertyUse: "Primary Residence", fha: false, va: false, usda: false });
+  const [showMore, setShowMore] = useState(false);
+  const [result, setResult] = useState<MortgageRatesResult | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
+  const update = <K extends keyof MortgageRatesInput>(key: K, value: MortgageRatesInput[K]) => setInputs((current) => ({ ...current, [key]: value }));
+  const validate = () => {
+    const errors: Record<string, string> = {};
+    if (!inputs.loanPurpose) errors.loanPurpose = "Select a loan purpose.";
+    if (!inputs.loanTerm) errors.loanTerm = "Select a loan term.";
+    if (!Number.isFinite(inputs.purchasePrice) || inputs.purchasePrice < 1000 || inputs.purchasePrice > 100000000) errors.purchasePrice = "Enter a purchase price from $1,000 to $100,000,000.";
+    if (!Number.isFinite(inputs.downPayment) || inputs.downPayment < 0 || inputs.downPayment > 100000000) errors.downPayment = "Enter a down payment from $0 to $100,000,000.";
+    else if (inputs.downPayment > inputs.purchasePrice) errors.downPayment = "Down payment cannot exceed the purchase price.";
+    if (!/^\d{5}$/.test(inputs.zipCode)) errors.zipCode = "Enter a valid 5-digit ZIP code.";
+    if (!inputs.creditScore) errors.creditScore = "Select a credit score range.";
+    if (!inputs.points) errors.points = "Select a points option.";
+    if (!inputs.rateLock) errors.rateLock = "Select a rate lock period.";
+    if (!inputs.propertyType) errors.propertyType = "Select a property type.";
+    if (!inputs.propertyUse) errors.propertyUse = "Select a property use.";
+    setFieldErrors(errors);
+    return errors;
+  };
+  const updateLenders = async () => {
+    const errors = validate();
+    if (Object.keys(errors).length > 0) {
+      setError("Please correct the highlighted fields.");
+      return;
+    }
+    setLoading(true); setError(null);
+    try { setResult(await fetchMortgageRates(inputs)); } catch (requestError) { setError(requestError instanceof Error ? requestError.message : "Unable to load mortgage rates."); } finally { setLoading(false); }
+  };
+  const fieldClass = (field: string) => `w-full rounded-md border bg-white px-2.5 py-1.5 text-sm font-medium focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-200 ${fieldErrors[field] ? "border-red-500" : "border-slate-200"}`;
+  const select = (field: string, label: string, value: string, onChange: (value: string) => void, options: string[]) => <div><label className="block text-xs font-semibold text-slate-700">{label}<select value={value} onChange={(event) => onChange(event.target.value)} className={`${fieldClass(field)} mt-1`} aria-invalid={Boolean(fieldErrors[field])}>{options.map((option) => <option key={option} value={option}>{option}</option>)}</select></label>{fieldErrors[field] && <p className="mt-1 text-xs text-red-600">{fieldErrors[field]}</p>}</div>;
+  const number = (field: string, label: string, value: number, onChange: (value: number) => void) => <div><label className="block text-xs font-semibold text-slate-700">{label}<input type="number" value={Number.isFinite(value) ? value : ""} onChange={(event) => onChange(event.target.value === "" ? Number.NaN : Number(event.target.value))} className={`${fieldClass(field)} mt-1`} aria-invalid={Boolean(fieldErrors[field])} /></label>{fieldErrors[field] && <p className="mt-1 text-xs text-red-600">{fieldErrors[field]}</p>}</div>;
+  return <section className="mt-6 mb-16 rounded-lg border border-slate-200 bg-white p-4 shadow-sm" aria-labelledby="mortgage-rates-title">
+    <div className="mb-4"><h2 id="mortgage-rates-title" className="font-serif text-lg font-bold text-slate-900">Mortgage Rates</h2></div>
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {select("loanPurpose", "Loan Purpose", inputs.loanPurpose === "purchase" ? "Purchase" : "Refinance", (value) => update("loanPurpose", value === "Purchase" ? "purchase" : "refinance"), ["Purchase", "Refinance"])}
+      {select("loanTerm", "Loan Term", inputs.loanTerm, (value) => update("loanTerm", value), rateOptions)}
+      {number("purchasePrice", "Purchase Price", inputs.purchasePrice, (value) => update("purchasePrice", value))}{number("downPayment", "Down Payment", inputs.downPayment, (value) => update("downPayment", value))}
+      <div><label className="block text-xs font-semibold text-slate-700">ZIP Code<input value={inputs.zipCode} onChange={(event) => update("zipCode", event.target.value.replace(/\D/g, "").slice(0, 5))} inputMode="numeric" maxLength={5} className={`${fieldClass("zipCode")} mt-1`} aria-invalid={Boolean(fieldErrors.zipCode)} /></label>{fieldErrors.zipCode && <p className="mt-1 text-xs text-red-600">{fieldErrors.zipCode}</p>}</div>
+      {select("creditScore", "Credit Score", inputs.creditScore, (value) => update("creditScore", value), creditScoreOptions)}
+    </div>
+    <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-slate-700">{(["fha", "va", "usda"] as const).map((program) => <label key={program} className="inline-flex items-center gap-1.5"><input type="checkbox" checked={inputs[program]} onChange={(event) => update(program, event.target.checked)} className="accent-indigo-600" />{program.toUpperCase()} Loans</label>)}</div>
+    <button type="button" onClick={() => setShowMore((current) => !current)} className="mt-4 text-sm font-semibold text-indigo-600 hover:text-indigo-700">More Options {showMore ? "▴" : "▾"}</button>
+    {showMore && <div className="mt-3 grid grid-cols-1 gap-3 border-t border-slate-200 pt-3 sm:grid-cols-2 lg:grid-cols-3">{select("points", "Points", inputs.points, (value) => update("points", value), ["0 Points", "0.5 Points", "1 Point", "1.5 Points", "2 Points", "2.5 Points", "3 Points"])}{select("rateLock", "Rate Lock", inputs.rateLock, (value) => update("rateLock", value), ["30 Days", "45 Days", "60 Days"])}{select("propertyType", "Property Type", inputs.propertyType, (value) => update("propertyType", value), ["Single Family", "Townhome", "Condo <4 Stories", "Condo >4 Stories", "Duplex", "Triplex", "Quadplex"])}{select("propertyUse", "Property Use", inputs.propertyUse, (value) => update("propertyUse", value), ["Primary Residence", "Second Home", "Investment"])}</div>}
+    <button type="button" onClick={updateLenders} disabled={loading} className="mt-4 rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700 disabled:cursor-wait disabled:opacity-60">{loading ? "Updating..." : "Update Lenders"}</button>
+    {error && <p role="alert" className="mt-3 rounded border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">{error}</p>}
+    {result && <div className="mt-5"><h3 className="mb-3 font-serif text-base font-bold text-slate-900">Rates for {result.location.city}, {result.location.state} {result.location.zip}</h3><div className="overflow-x-auto"><table className="w-full min-w-[28rem] table-fixed text-sm"><colgroup><col className="w-[40%]" /><col className="w-[20%]" /><col className="w-[20%]" /><col className="w-[20%]" /></colgroup><thead className="border-b border-slate-200 bg-slate-50"><tr><th scope="col" className="px-3 py-2 text-left font-semibold text-slate-700">Lender</th><th scope="col" className="px-3 py-2 text-right font-semibold text-slate-700" style={{ textAlign: "right" }}>Rate</th><th scope="col" className="px-3 py-2 text-right font-semibold text-slate-700" style={{ textAlign: "right" }}>APR</th><th scope="col" className="px-3 py-2 text-right font-semibold text-slate-700" style={{ textAlign: "right" }}>Payment</th></tr></thead><tbody className="divide-y divide-slate-100">{result.rates.map((quote) => <tr key={`${quote.lender}-${quote.rate}`}><td className="truncate px-3 py-2 text-left font-medium text-slate-900">{quote.lender}</td><td className="whitespace-nowrap px-3 py-2 text-right text-slate-700" style={{ textAlign: "right" }}>{quote.rate.toFixed(3)}%</td><td className="whitespace-nowrap px-3 py-2 text-right text-slate-700" style={{ textAlign: "right" }}>{quote.apr.toFixed(3)}%</td><td className="whitespace-nowrap px-3 py-2 text-right font-semibold text-indigo-600" style={{ textAlign: "right" }}>{new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(quote.payment)}</td></tr>)}</tbody></table></div></div>}
+  </section>;
+}
 
 
 interface MortgageCalculatorProps {
@@ -818,6 +876,7 @@ function MortgageCalculatorContent({ category = "mortgage", isHomepage = false, 
           onBack={() => router.push(getBasePath())}
           isHomepage={isHomepage}
         />
+        <MortgageRatesSection />
       </div>
     );
   }
@@ -1840,6 +1899,7 @@ function MortgageCalculatorContent({ category = "mortgage", isHomepage = false, 
               </button>
             </div>
           )}
+      <MortgageRatesSection />
     </div>
   );
 }

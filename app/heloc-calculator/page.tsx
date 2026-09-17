@@ -8,6 +8,7 @@ import { hasValidationErrors, validateCalculatorInputs } from "@/lib/calculator-
 import type { InputConfig } from "@/lib/calculator-config.types";
 import { NumberInput, Card } from "@/components/calculator/CalculatorFields";
 import { ResultActions } from "@/components/calculator/CalculatorResult";
+import { MortgageRatesSection } from "@/components/calculator/MortgageCalculator";
 import { getStructuredData } from "./server";
 
 export default function HelocCalculatorPage() {
@@ -20,11 +21,9 @@ export default function HelocCalculatorPage() {
 
   // Content for HELOC Calculator
   const content = {
-    icon: CreditCard,
     title: "HELOC Calculator",
     description: [
-      "Calculate payments and costs for a Home Equity Line of Credit (HELOC), which works like a credit card secured by your home equity. HELOCs have two phases: a draw period where you can borrow money and typically make interest-only payments, and a repayment period where you pay back principal and interest.",
-      "Enter your desired credit line amount, draw period length (usually 5-10 years), repayment period length (usually 10-20 years), and interest rate. The calculator determines payments during both periods based on standard HELOC terms."
+      "Calculate payments and costs for a Home Equity Line of Credit (HELOC).HELOC is a repayment period where you pay back principal and interest.",
     ],
     howItWorks: [
       "This calculator helps you understand the costs and payment structure of a Home Equity Line of Credit (HELOC), which works like a credit card secured by your home equity. HELOCs have two phases: a draw period where you can borrow money and typically make interest-only payments, and a repayment period where you pay back principal and interest.",
@@ -526,6 +525,8 @@ export default function HelocCalculatorPage() {
           </div>
           </div>
         </div>
+
+        <MortgageRatesSection />
 
         {/* How It Works */}
       <div className="mb-16">

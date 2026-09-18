@@ -68,15 +68,16 @@ export async function fetchMortgageRates(input: MortgageRatesInput): Promise<Mor
     method: "POST",
     headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json", "HTTP-Referer": "https://mortgage-payment-calculator.com", "X-Title": "Mortgage Payment Calculator" },
     body: JSON.stringify({
-      model: "openai/gpt-4o-mini",
+      model: "openai/gpt-4o-mini:online",
       temperature: 0,
+      plugins: [{ id: "web", max_results: 12 }],
       response_format: { type: "json_schema", json_schema: { name: "mortgage_rates", strict: true, schema: {
         type: "object", additionalProperties: false, required: ["location", "rates"], properties: {
           location: { type: "object", additionalProperties: false, required: ["city", "state", "zip"], properties: { city: { type: "string" }, state: { type: "string" }, zip: { type: "string" } } },
           rates: { type: "array", minItems: 1, items: { type: "object", additionalProperties: false, required: ["lender", "rate", "apr"], properties: { lender: { type: "string" }, rate: { type: "number" }, apr: { type: "number" } } } },
         },
       } } },
-      messages: [{ role: "user", content: `Return mortgage lender quotes only. Determine the US city and state for ZIP ${input.zipCode}. Use every field in this exact borrower profile when determining the returned rates: ${JSON.stringify(borrowerProfile)}. A changed value in any field must be reflected in the returned quote selection. Return 9 recognizable lender names with plausible current US mortgage rates and APRs. Do not provide advice or extra fields.` }],
+      messages: [{ role: "user", content: `Use web search to retrieve current mortgage rate and APR offers published by real US lenders as of ${new Date().toISOString().slice(0, 10)}. Do not invent, estimate, or return generic/plausible rates. Determine the US city and state for ZIP ${input.zipCode}. Use every field in this exact borrower profile when selecting applicable offers: ${JSON.stringify(borrowerProfile)}. A changed value in any field must be reflected in the returned rates. Return 9 lender offers only when supported by current web sources; otherwise return the fewer supported offers. Keep the response limited to the required JSON fields.` }],
     }),
     cache: "no-store",
   });
